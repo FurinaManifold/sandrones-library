@@ -1,0 +1,23 @@
+[
+  {
+    "id": "analysis.real.archimedean",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "阿基米德性质",
+    "summary": "对任意正实数 x 与实数 y，存在自然数 n 使得 n·x > y",
+    "premises": [],
+    "mathlib": [
+      "exists_nat_gt",
+      "div_lt_iff₀"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rudin, Principles of Mathematical Analysis, Def 1.17 / Ch1"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis.real.archimedean.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T07:43:52Z",
+    "dependedOnBy": []
+  }
+]

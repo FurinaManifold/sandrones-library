@@ -1,0 +1,10 @@
+/.lake/
+/build/
+*.olean
+*.ilean
+*.d
+*.c
+*.o
+.idea/
+.vscode/
+*.tmp
