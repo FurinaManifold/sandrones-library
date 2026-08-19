@@ -30,6 +30,7 @@ python3 scripts/audit.py   # 审计库的一致性
 | [docs/INGESTION_PROTOCOL.md](docs/INGESTION_PROTOCOL.md) | **纳入协议**：把论文/书结论纳入库中的五步流程 |
 | [docs/SCHEMA.md](docs/SCHEMA.md) | 条目的精确字段规范（人 + 机器共读） |
 | [docs/ROADMAP-math-analysis.md](docs/ROADMAP-math-analysis.md) | **数学分析学习地图**：一年级主线的章节→条目蓝图 |
+| [docs/ROADMAP-LONGTERM.md](docs/ROADMAP-LONGTERM.md) | **长远批次规划**：分析→线代→抽象代数→拓扑→实分析→后续学科的阶段与批次蓝图 |
 | [docs/LEAN-PLAYBOOK.md](docs/LEAN-PLAYBOOK.md) | **自我驯化手册**：tactic 经验（调试工具/语义映射/实战教训） |
 
 ## 库结构
