@@ -39,9 +39,12 @@
 
 ## 第二章 实数与实数系
 
+> **粒度原则**：第二章不注册"ℝ 是有序域"类结构条目（新生尚不知环/完备格）；
+> 结构性质"用到再提起"——穿上确界原理（sup）、阿基米德（archimedean）等性质条目注册，
+> 环/序环/完备格等抽象结构类在代数阶段再以变体加入。
+
 | 条目家族 | 内容 | mathlib 参考 | 状态 |
 |---|---|---|---|
-| `analysis.real.ordered-field` | 实数是有序域（4.33 已拆类：`Field`+`LinearOrder`+`IsStrictOrderedRing`+`ConditionallyCompleteLinearOrder`） | `IsStrictOrderedRing ℝ` | ✅ |
 | `analysis.real.archimedean` | **✅ 阿基米德性质** | `exists_nat_gt` | ✅ |
 | `analysis.real.bounded-sets` | 有界集、上下界（刻画 + 子集继承） | `BddAbove`, `BddAbove.mono` | ✅（`…bdd-above`,`…subset`） |
 | `analysis.real.density` | 有理数在实数中稠密 | `exists_rat_btwn` | ✅ |

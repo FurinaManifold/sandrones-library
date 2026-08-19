@@ -6,13 +6,12 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **25** 个条目（verified 25，pending 0）。
+共 **24** 个条目（verified 24，pending 0）。
 
 ## `analysis.real`
 
 - ✅ [`archimedean.md`](archimedean.md) — 阿基米德性质
 - ✅ [`density.md`](density.md) — 有理数在实数中稠密
-- ✅ [`ordered-field.md`](ordered-field.md) — 实数是有序域
 - ✅ [`sup.md`](sup.md) — 确界原理
 
 ## `analysis.real.bounded-sets`

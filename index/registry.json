@@ -506,32 +506,6 @@
     ]
   },
   {
-    "id": "analysis.real.ordered-field",
-    "kind": "theorem",
-    "state": "verified",
-    "title": "实数是有序域",
-    "summary": "ℝ 是线性有序环（Field+全序+序环相容）",
-    "premises": [],
-    "mathlib": [],
-    "provenance": {
-      "source_type": "book",
-      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
-    },
-    "lean_file": "Analysis/Real.lean",
-    "nl_file": "docs/entries/analysis/real/ordered-field.md",
-    "added_by": "ingestor-new_entry.py",
-    "added_at": "2026-08-19T09:22:26Z",
-    "dependedOnBy": [],
-    "family": "analysis.real",
-    "variant": "ecnu",
-    "proof_sha": "00d7281e2ee17297",
-    "axioms": [
-      "Classical.choice",
-      "Quot.sound",
-      "propext"
-    ]
-  },
-  {
     "id": "analysis.real.bounded-sets.bdd-above",
     "kind": "theorem",
     "state": "verified",

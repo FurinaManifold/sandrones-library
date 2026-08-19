@@ -12,8 +12,6 @@ import Mathlib
 
 * **analysis.real.archimedean**（阿基米德性质）：对任意正实数 x 与实数 y，
   存在自然数 n 使得 n·x > y。实数系是阿基米德序域的直接推论。
-* **analysis.real.ordered-field**（实数是有序域）：`ℝ` 是线性有序环
-  （`IsStrictOrderedRing ℝ`；mathlib 4.33 已把 `LinearOrderedField` 类拆分）。
 * **analysis.real.bounded-sets.bdd-above**（有上界集）：`BddAbove s` ⟺
   存在上界 M 使得每个 x ∈ s 满足 x ≤ M。
 * **analysis.real.bounded-sets.subset**（子集继承有界）：`s ⊆ t` 且 `t` 有上界
@@ -46,20 +44,6 @@ theorem archimedean_property (x y : ℝ) (hx : 0 < x) : ∃ n : ℕ, y < n * x :
 /-- 由阿基米德性质直接推出 `exists_nat_gt` 的整数倍形式（供后续条目复用）。 -/
 theorem exists_nat_mul_gt (x y : ℝ) (hx : 0 < x) : ∃ n : ℕ, y < n * x :=
   archimedean_property x y hx
-
-/--
-> **Entry**: analysis.real.ordered-field
-> **一句话**: 实数构成一个线性有序环（Field + 全序 + 序与运算相容）。
-> **直觉**: 实数里加、乘、序三套结构和谐共处——和教材说的"实数是有序域"是同一件事。
-> **依赖**: 无
-> **mathlib**: `IsStrictOrderedRing ℝ`, `Field ℝ`, `ConditionallyCompleteLinearOrder ℝ`
--/
-theorem real_ordered_field : IsStrictOrderedRing ℝ := by
-  -- 思路：mathlib 4.33 已把 `LinearOrderedField` 类拆散成若干可组合的类：
-  --   `Field ℝ`（域）、`LinearOrder ℝ`（全序）、`IsStrictOrderedRing ℝ`（序环相容）、
-  --   `ConditionallyCompleteLinearOrder ℝ`（条件完备，提供 sSup/sInf）。
-  -- 这里确认核心的"序环相容"结构存在。
-  infer_instance
 
 /--
 > **Entry**: analysis.real.bounded-sets.bdd-above
