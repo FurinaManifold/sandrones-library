@@ -26,7 +26,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "00d7281e2ee17297"
+    "proof_sha": "deb171d9493f6632"
   },
   {
     "id": "settheory.set.ext",
@@ -524,7 +524,7 @@
     "dependedOnBy": [],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
-    "proof_sha": "00d7281e2ee17297",
+    "proof_sha": "deb171d9493f6632",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -552,7 +552,7 @@
     "dependedOnBy": [],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
-    "proof_sha": "00d7281e2ee17297",
+    "proof_sha": "deb171d9493f6632",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -578,7 +578,7 @@
     "dependedOnBy": [],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "00d7281e2ee17297",
+    "proof_sha": "deb171d9493f6632",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -606,7 +606,90 @@
     "dependedOnBy": [],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "00d7281e2ee17297",
+    "proof_sha": "deb171d9493f6632",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.bounded-sets.bdd-below",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有下界集的刻画",
+    "summary": "BddBelow s ⟺ 存在 a 使每个 x∈s 有 a ≤ x",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-below.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T12:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "deb171d9493f6632",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.inf",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "下确界原理",
+    "summary": "非空有下界集的下确界存在且是所有下界中最大的",
+    "premises": [
+      "analysis.real.bounded-sets.bdd-below"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/inf.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T12:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "deb171d9493f6632",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.construction-cauchy",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实数构造（Cantor）",
+    "summary": "实数 = 有理柯西序列的等价类；差趋于 0 是等价关系，商判等即差趋于 0；有理数可嵌入",
+    "premises": [
+      "settheory.set.relations.equivalence-class-eq",
+      "settheory.set.relations.quotient-surj"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章 实数（补：Cantor 构造）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/construction-cauchy.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T12:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "deb171d9493f6632",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

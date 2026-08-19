@@ -209,6 +209,20 @@
 - 语义：**先确认"地板"本身带不带公理，再决定要不要擦地板。**
 - 出处：`analysis.real.*`。
 
+### 3.9 `Setoid` 的 `≈` 与 `#print axioms` 盲区（诚实比零公理重要）
+
+- 现象：`f ≈ f`（`CauSeq ℚ` 上）带 `Classical.choice`，即使证明体是纯 ε-δ 构造。
+- 根源：`≈` 是 `CauSeq.equiv`（instance，reducible 展开）的 `Rel` 字段，
+  展开会把**实例内置证明**（mathlib 的 `LimZero` 证明路径，用 classical）计入 axiom 集。
+  这是"引用现成 Setoid 实例"的库开销，不是本条目新增的数学公理。
+- 陷阱：把类型改写为结构投影 `CauSeq.equiv.Rel f f`，`#print axioms` 报**零公理**。
+  **这是漏报，不是真零**——投影非 reducible，#print axioms 不再展开就停止报告。
+  **禁用**：不能用投影改写来"伪装零公理"，违背公理透明的系统性求真。
+  对照：同一证明体，`LimZero (f - f)` 与 `f ≈ f` 都带 choice；只有投影形式报零。
+- 正确做法：诚实保留 ≈/LimZero 形式，在叙述层注明
+  "choice 来源是 `CauSeq.equiv` 实例内部（mathlib 的 LimZero 证明），非本条目内容"。
+- 出处：`analysis.real.construction-cauchy`（实验文件 /tmp/opencode/pb.lean）。
+
 ## 4. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：

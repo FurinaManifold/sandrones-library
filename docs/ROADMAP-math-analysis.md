@@ -46,10 +46,14 @@
 | 条目家族 | 内容 | mathlib 参考 | 状态 |
 |---|---|---|---|
 | `analysis.real.archimedean` | **✅ 阿基米德性质** | `exists_nat_gt` | ✅ |
-| `analysis.real.bounded-sets` | 有界集、上下界（刻画 + 子集继承） | `BddAbove`, `BddAbove.mono` | ✅（`…bdd-above`,`…subset`） |
+| `analysis.real.bounded-sets` | 有界集、上下界（刻画 + 子集继承 + 下界刻画） | `BddAbove`, `BddAbove.mono`, `BddBelow` | ✅（`…bdd-above`,`…subset`,`…bdd-below`） |
 | `analysis.real.density` | 有理数在实数中稠密 | `exists_rat_btwn` | ✅ |
 | `analysis.real.sup` | 确界原理（完备性） | `sSup`, `Real.isLUB_sSup` | ✅ |
-| `analysis.real.construction-cauchy` | **实数构造（Cantor）**：有理数柯西序列的等价类 | `Cauchy`, `Setoid`（有理数 Cauchy 序列） | 待写，依赖 `settheory.set.relations` |
+| `analysis.real.inf` | 下确界原理 | `sInf`, `isGLB_csInf` | ✅ |
+| `analysis.real.construction-cauchy` | 实数构造（Cantor）：有理柯西序列等价类、差趋于 0 是等价关系、商判等、有理数嵌入 | `CauSeq`, `CauSeq.equiv`, `Real.ofCauchy` | ✅ |
+
+> **🏁 第二章已收官（6 家族 / 8 条目）**：实数的序结构（阿基米德、上下确界、稠密）
+> 与构造（Cantor）齐备，下一章进入数列极限。
 
 ## 第三章 数列极限
 

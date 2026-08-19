@@ -6,17 +6,20 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **24** 个条目（verified 24，pending 0）。
+共 **27** 个条目（verified 27，pending 0）。
 
 ## `analysis.real`
 
 - ✅ [`archimedean.md`](archimedean.md) — 阿基米德性质
+- ✅ [`construction-cauchy.md`](construction-cauchy.md) — 实数构造（Cantor）
 - ✅ [`density.md`](density.md) — 有理数在实数中稠密
+- ✅ [`inf.md`](inf.md) — 下确界原理
 - ✅ [`sup.md`](sup.md) — 确界原理
 
 ## `analysis.real.bounded-sets`
 
 - ✅ [`bdd-above.md`](bdd-above.md) — 有上界集的刻画
+- ✅ [`bdd-below.md`](bdd-below.md) — 有下界集的刻画
 - ✅ [`subset.md`](subset.md) — 子集继承有界性
 
 ## `settheory.cardinal`
