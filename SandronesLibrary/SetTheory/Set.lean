@@ -117,8 +117,22 @@ theorem empty_subset {α : Type*} (A : Set α) : (∅ : Set α) ⊆ A := by
 > **mathlib**: `Set.compl_union`
 -/
 theorem complement_union {α : Type*} (A B : Set α) : (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ := by
-  -- 思路：这是集合代数里"取补翻转并/交"的标准恒等式，直接引用 mathlib。
-  rw [Set.compl_union]
+  -- 思路（构造性）：外延性把等式降到逐元素判断。
+  --   x ∈ (A∪B)ᶜ ⟺ ¬(x∈A ∨ x∈B)；
+  --   直觉主义下 ¬(P∨Q) = ¬P ∧ ¬Q 是对称可证的，
+  --   全程只用 Or/And 消解，不依赖排中律或选择公理。
+  ext x
+  constructor
+  · intro hx
+    constructor
+    · intro hxA
+      exact hx (Or.inl hxA)
+    · intro hxB
+      exact hx (Or.inr hxB)
+  · rintro ⟨hxA, hxB⟩ hx
+    rcases hx with hx | hx
+    · exact hxA hx
+    · exact hxB hx
 
 /--
 > **Entry**: settheory.set.operations.complement-inter
@@ -128,7 +142,10 @@ theorem complement_union {α : Type*} (A B : Set α) : (A ∪ B)ᶜ = Aᶜ ∩ B
 > **mathlib**: `Set.compl_inter`
 -/
 theorem complement_inter {α : Type*} (A B : Set α) : (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ := by
-  -- 思路：与 complement-union 平行的恒等式，直接引用 mathlib。
+  -- 思路（经典，必要）：这是德摩根的另一半，正向方向
+  --   ¬(x∈A ∧ x∈B) ⟹ ¬(x∈A) ∨ ¬(x∈B) 在直觉主义逻辑里不可证
+  --   （它等价于对 x∈A 的排中律），因此这条在构造性形式化下
+  --   必然依赖 Classical.choice，无法像 complement-union 那样改写。
   rw [Set.compl_inter]
 
 /--
@@ -140,7 +157,7 @@ theorem complement_inter {α : Type*} (A B : Set α) : (A ∩ B)ᶜ = Aᶜ ∪ B
 -/
 theorem diff_inter_complement {α : Type*} (A B : Set α) : A \ B = A ∩ Bᶜ := by
   -- 思路：mathlib 把差集直接定义为 `s \ t = s ∩ tᶜ`，这就是定义本身。
-  exact Set.diff_eq A B
+  exact Set.sdiff_eq A B
 
 end SetTheory.Set
 

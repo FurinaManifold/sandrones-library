@@ -56,8 +56,12 @@ theorem complement_inter {α : Type*} (A B : Set α) : (A ∩ B)ᶜ = Aᶜ ∪ B
 complement_inter 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
-**注意差异**：与 complement-union 同理——教科书逐元素验证，
-而 mathlib 证明路径实际用到 `Classical.choice`，如实登记。
+**Classical.choice 是数学上必需的，不是形式化噪声**：这一半德摩根的正向方向
+`¬(P∧Q) → ¬P ∨ ¬Q` 在直觉主义逻辑里**不可证**——它等价于对 P 的排中律
+（经典逻辑教科书定理）。已实测：唯一能证它的路径（`by_cases`/`Classical.em`）
+都依赖 `Classical.choice`。它与 complement-union 的不对称
+（一个零 Choice、一个必须 Choice）正是"直觉主义德摩根半边失效"的形式化证据，
+教科书（经典逻辑）看不到这个区别。
 
 # 应用与陷阱
 

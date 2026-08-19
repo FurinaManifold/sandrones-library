@@ -7,7 +7,7 @@ state: verified
 title: 差集与补集
 summary: A∖B = A∩Bᶜ
 premises: []
-mathlib: [Set.diff_eq]
+mathlib: [Set.sdiff_eq]
 provenance:
   source_type: book
   ref: "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
@@ -43,14 +43,14 @@ theorem diff_inter_complement {α : Type*} (A B : Set α) : A \ B = A ∩ Bᶜ
 1. **定义拆开**：`x ∈ A∖B ⟺ x∈A ∧ x∉B`。
 2. **补集代入**：`x∉B ⟺ x∈Bᶜ`。
 3. **合并**：交集定义正是"同时属于两者"。
-4. **形式化**：mathlib 的 `Set.diff_eq` 把差集**定义**成 `s \ t = s ∩ tᶜ`，
-   `exact` 即可——这不是"算出来的"，而是"写出来的定义"。
+4. **形式化**：mathlib 把差集**定义**成 `s \ t = s ∩ tᶜ`（现名 `Set.sdiff_eq`，
+   `Set.diff_eq` 已弃用），`exact` 即可——这不是"算出来的"，而是"写出来的定义"。
 
 # 自然语言 ↔ Lean 映射
 
 | 人话 | Lean |
 |---|---|
-| 差集即交集补 | `Set.diff_eq` |
+| 差集即交集补 | `Set.sdiff_eq` |
 
 # 依赖（人话版）
 

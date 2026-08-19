@@ -61,12 +61,13 @@ theorem complement_union {α : Type*} (A B : Set α) : (A ∪ B)ᶜ = Aᶜ ∩ B
 # 公理依赖（#print axioms）
 
 ```
-complement_union 依赖: [propext, Classical.choice, Quot.sound]
+complement_union 依赖: [propext, Quot.sound]
 ```
 
-**注意差异**：教科书用真值表/逐元素验证德摩根律，从不提选择公理。
-但 mathlib 的 `Set.compl_union` 证明路径（经由补集与交集的结构）实际用到了
-`Classical.choice`。本条目如实登记这一隐藏依赖。
+**零 Classical.choice**：本条目最初借 mathlib 的 `Set.compl_union` 证明时携带
+`Classical.choice`（数学上不必要的噪声）。已改写为 ext + 逐元素纯构造性证明：
+`¬(P∨Q) = ¬P ∧ ¬Q` 在直觉主义逻辑里对称可证，全程只用 Or/And 消解。
+这恰好示范了"德摩根律之一不需要选择公理"——教科书同样不提，但这次是 Lean 证实不需要。
 
 # 应用与陷阱
 

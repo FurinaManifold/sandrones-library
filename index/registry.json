@@ -55,7 +55,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f8fbdbe9c4e01a07"
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -84,7 +84,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f8fbdbe9c4e01a07"
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.function.inj-comp",
@@ -154,7 +154,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f8fbdbe9c4e01a07"
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -181,7 +181,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f8fbdbe9c4e01a07"
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.empty-subset",
@@ -203,7 +203,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f8fbdbe9c4e01a07"
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -425,9 +425,8 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f8fbdbe9c4e01a07",
+    "proof_sha": "f2594d752f021945",
     "axioms": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ]
@@ -451,7 +450,7 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f8fbdbe9c4e01a07",
+    "proof_sha": "f2594d752f021945",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -465,7 +464,9 @@
     "title": "差集与补集",
     "summary": "A∖B = A∩Bᶜ",
     "premises": [],
-    "mathlib": [],
+    "mathlib": [
+      "Set.sdiff_eq"
+    ],
     "provenance": {
       "source_type": "book",
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
@@ -477,7 +478,7 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f8fbdbe9c4e01a07",
+    "proof_sha": "f2594d752f021945",
     "axioms": []
   },
   {
