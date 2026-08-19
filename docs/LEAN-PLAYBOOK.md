@@ -159,6 +159,56 @@
 - **解法**：`ext x` → `constructor`（双向）→ 每边用 `rintro`/`rcases` 拆合取与析取 → 元素层组装。见 `settheory.set.operations.inter-distrib` 的完整演示。
 - **出处**：`settheory.set.operations.inter-distrib`。
 
+### 3.5 `rw [mathlib 定理]` 可能悄悄引入 `Classical.choice`（公理最小化）
+
+- **症状**：`#print axioms` 显示定理依赖 `Classical.choice`，但教科书证明根本没用到选择公理。
+- **诊断（语义）**：`rw [Set.compl_union]` 这类"引用 mathlib 现成定理"会把该定理**证明路径
+  上的一切公理**带进本定理。mathlib 里不少看似平凡的引理是经典化的（尽管结论构造性可证）——
+  choice 不是"这条定理需要"，而是"这条证明路径经过"。
+- **解法**：换成不借道的构造性证明。集合恒等式用 §2.1 的 `ext x` + 逐元素 `Or`/`And`
+  消解，往往就能构造性完成。
+- **先判来源再动手**：`complement-inter` 的 `¬(P∧Q)→¬P∨¬Q` **数学上**等价于排中律，
+  改写无效。口诀：**先分"数学必需"还是"形式化噪声"，噪声才值得改写。**
+- **出处**：`settheory.set.operations.complement-union`（改写后 axioms = `[propext, Quot.sound]`）。
+
+### 3.6 `ext` 后的"缺一个方向"往往是排中律缺口
+
+- **症状**：`ext` 拆完双向，其中一个方向（常常是"否定之析取"或"析取之否定"）怎么都推不动，
+  `rcases`/`constructor` 走到一半目标还原地踏步。
+- **诊断（语义）**：目标形如 `¬P ∨ ¬Q`（从 `¬(P∧Q)` 来）——这在直觉主义逻辑里没有证明，
+  因为要"决定 P 还是 ¬P"。它等价于排中律。不是 tactic 不对，是数学上不可证。
+- **解法**：接受 `Classical.choice`（`by_cases h : P` 分路），并在叙述层注明"经典必需"；
+  不要把时间耗在不可能的构造性路径上。
+- **出处**：`settheory.set.operations.complement-inter`。
+
+### 3.7 `ℝ` 的序结构实例本身带 `Classical.choice`（结构底线，不可削减）
+
+- **症状**：连 `rfl`/`infer_instance` 的证明，`#print axioms` 都报告 `Classical.choice`；
+  且是**类型里含 `ℝ` 的 `≤`/`<`** 时出现。
+- **诊断（语义）**：`#print axioms` 会把定理类型里出现的 reducible 常量 delta 展开。
+  mathlib 4.33 的 `ℝ` 序实例（`instLEReal` 等）**定义体**是经典构造的
+  （构造顺序：`conditionallyCompleteLinearOrder` → `LinearOrder` 用 `by classical`）。
+  于是 `a ≤ b ↔ a ≤ b := by rfl`（证明体就是 `Iff.rfl`，零公理）仍报告 choice。
+- **对照实验**（决定"能否最小化"的关键判据）：
+  ```
+  t9  (a b : ℝ) : a ≤ b ↔ a ≤ b := by rfl   → [propext, Classical.choice, Quot.sound]
+  t10 (a b : ℕ) : a ≤ b ↔ a ≤ b := by rfl   → []（零公理）
+  t11 (s : Set ℚ) : BddAbove s ↔ ... := by rfl → []（零公理）
+  ```
+  只有 `ℝ` 中招，`ℕ`/`ℚ` 干净。
+- **结论**：涉及 **ℝ 序性质**的条目，`Classical.choice` 是**结构必需**、无法削减——
+  这不是形式化噪声，别浪费时间改写（除非重建整个 ℝ 的构造性实现）。
+  公理最小化只适用于"同一结构上下文内避免借用额外经典引理"（§3.5 案例）。
+- **出处**：`analysis.real.*`（第二章第一批，全部带 choice 均属此类）。
+
+### 3.8 判断"能否削减 choice"的最小实验模板
+
+- 目标：某 ℝ 序条目带 choice，想知道是否可削减。
+- 步骤：写一个**无证明难度的极简对照**（如 `a ≤ b ↔ a ≤ b := by rfl`），
+  `#print axioms`；若它已带 choice，则你的条目里的 choice 是结构性的，接受并注明。
+- 语义：**先确认"地板"本身带不带公理，再决定要不要擦地板。**
+- 出处：`analysis.real.*`。
+
 ## 4. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：

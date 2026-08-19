@@ -26,7 +26,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "71de7a6734a37c8d"
+    "proof_sha": "00d7281e2ee17297"
   },
   {
     "id": "settheory.set.ext",
@@ -503,6 +503,140 @@
     "proof_sha": "d065f0fc3976123b",
     "axioms": [
       "Classical.choice"
+    ]
+  },
+  {
+    "id": "analysis.real.ordered-field",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实数是有序域",
+    "summary": "ℝ 是线性有序环（Field+全序+序环相容）",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/ordered-field.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T09:22:26Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "00d7281e2ee17297",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.bounded-sets.bdd-above",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有上界集的刻画",
+    "summary": "BddAbove s ⟺ 存在上界 M",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-above.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T09:22:26Z",
+    "dependedOnBy": [],
+    "family": "analysis.real.bounded-sets",
+    "variant": "ecnu",
+    "proof_sha": "00d7281e2ee17297",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.bounded-sets.subset",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "子集继承有界性",
+    "summary": "s⊆t 且 t 有上界 ⟹ s 有上界",
+    "premises": [
+      "analysis.real.bounded-sets.bdd-above"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/bounded-sets/subset.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T09:22:26Z",
+    "dependedOnBy": [],
+    "family": "analysis.real.bounded-sets",
+    "variant": "ecnu",
+    "proof_sha": "00d7281e2ee17297",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.density",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有理数在实数中稠密",
+    "summary": "任意两实数之间存在有理数",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/density.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T09:22:26Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "00d7281e2ee17297",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.real.sup",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "确界原理",
+    "summary": "非空有上界集有上确界",
+    "premises": [
+      "analysis.real.bounded-sets.bdd-above"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）"
+    },
+    "lean_file": "Analysis/Real.lean",
+    "nl_file": "docs/entries/analysis/real/sup.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T09:22:26Z",
+    "dependedOnBy": [],
+    "family": "analysis.real",
+    "variant": "ecnu",
+    "proof_sha": "00d7281e2ee17297",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   }
 ]
