@@ -19,6 +19,10 @@ open Filter Topology
 * **analysis.sequence.squeeze**（夹逼定理）：两边夹住且同趋于 l，中间也趋于 l。
 * **analysis.sequence.monotone-convergence**（单调有界收敛）：单调递增且值域有上界
   的序列收敛，且极限恰为其值域的上确界。
+* **analysis.sequence.subsequence**（子序列）：收敛序列的任何子列收敛到同一极限。
+* **analysis.sequence.bolzano-weierstrass**（波尔查诺-魏尔斯特拉斯）：有界实数列必有收敛子列。
+* **analysis.sequence.cauchy**（Cauchy 收敛准则/完备性）：实数列收敛 ⟺ 是 Cauchy 列。
+* **analysis.sequence.liminf-limsup**（上/下极限）：liminf ≤ limsup，且相等 ⟺ 收敛。
 -/
 
 namespace SandronesLibrary
@@ -125,6 +129,126 @@ theorem monotone_convergence {u : ℕ → ℝ} (hu : Monotone u)
   · rw [← (Real.isLUB_sSup (Set.range_nonempty u) hb).ciSup_eq]
     exact tendsto_atTop_ciSup hu hb
   · exact Real.isLUB_sSup (Set.range_nonempty u) hb
+
+/--
+> **Entry**: analysis.sequence.subsequence
+> **一句话**: 子序列定义与主干定理——收敛序列的任何子列都收敛到同一极限。
+> **直觉**: "子列" = 跳着取但绝不回头的取法（下标函数 φ 严格递增）。
+>   主干已经收敛，局部主义跳着取值自然只更"追得上"。
+> **依赖**: 无
+> **mathlib**: `StrictMono.tendsto_atTop`, `Filter.Tendsto.comp`
+
+子序列判定：v 是 u 的子列 ⟺ 存在严格递增的取法 φ，使 v = u ∘ φ。
+-/
+def IsSubsequenceOf (u : ℕ → ℝ) (v : ℕ → ℝ) : Prop :=
+  ∃ φ : ℕ → ℕ, StrictMono φ ∧ v = u ∘ φ
+
+/-- 收敛序列的任何子列收敛到同一极限（φ 严格递增 ⇒ φ→atTop，复合得证）。 -/
+theorem subsequence_of_convergent {u : ℕ → ℝ} {l : ℝ}
+    (hu : Tendsto u atTop (𝓝 l)) {v : ℕ → ℝ} (hsub : IsSubsequenceOf u v) :
+    Tendsto v atTop (𝓝 l) := by
+  rcases hsub with ⟨φ, hφ, rfl⟩
+  exact hu.comp (StrictMono.tendsto_atTop hφ)
+
+/-- 辅助：有上界又有下界的序列，整体落入某个对称闭区间 [−M, M]。 -/
+lemma sequence_bounded_in_interval {u : ℕ → ℝ}
+    (hb : BddAbove (Set.range u)) (hbdl : BddBelow (Set.range u)) :
+    ∃ a b : ℝ, ∀ n : ℕ, u n ∈ Set.Icc a b := by
+  rcases hb with ⟨b₀, hb₀⟩
+  rcases hbdl with ⟨a₀, ha₀⟩
+  let M : ℝ := max |a₀| |b₀|
+  refine ⟨-M, M, ?_⟩
+  intro n
+  constructor
+  · dsimp [M]
+    calc
+      -max |a₀| |b₀| ≤ -|a₀| := neg_le_neg (le_max_left |a₀| |b₀|)
+      _ ≤ a₀ := neg_abs_le a₀
+      _ ≤ u n := ha₀ ⟨n, rfl⟩
+  · dsimp [M]
+    calc
+      u n ≤ b₀ := hb₀ ⟨n, rfl⟩
+      _ ≤ |b₀| := le_abs_self b₀
+      _ ≤ max |a₀| |b₀| := le_max_right |a₀| |b₀|
+
+/--
+> **Entry**: analysis.sequence.bolzano-weierstrass
+> **一句话**: 波尔查诺-魏尔斯特拉斯定理：有界实数列必有收敛的子列。
+> **直觉**: 有界 ⟹ 全值藏在一个闭区间里；闭区间紧，紧集中的序列必含收敛子列
+>   （子列极限也在区间里）。
+> **依赖**: `analysis.sequence.bounded`, `analysis.sequence.subsequence`
+> **mathlib**: `CompactIccSpace.isCompact_Icc`, `IsCompact.isSeqCompact`
+
+闭区间版本：值全在 [a, b] 的序列有收敛子列，且极限仍在 [a, b] 内。
+-/
+theorem bolzano_weierstrass_interval {u : ℕ → ℝ} {a b : ℝ}
+    (h : ∀ n : ℕ, u n ∈ Set.Icc a b) :
+    ∃ φ : ℕ → ℕ, StrictMono φ ∧ ∃ l : ℝ, l ∈ Set.Icc a b ∧ Tendsto (u ∘ φ) atTop (𝓝 l) := by
+  have hIcc : IsCompact (Set.Icc a b) := CompactIccSpace.isCompact_Icc
+  rcases hIcc.isSeqCompact h with ⟨l, hl, φ, hφ, hlim⟩
+  exact ⟨φ, hφ, l, hl, hlim⟩
+
+/-- 有界版本：把有界翻译进闭区间，再套闭区间版本。 -/
+theorem bolzano_weierstrass {u : ℕ → ℝ}
+    (hb : BddAbove (Set.range u)) (hbdl : BddBelow (Set.range u)) :
+    ∃ φ : ℕ → ℕ, StrictMono φ ∧ ∃ l : ℝ, Tendsto (u ∘ φ) atTop (𝓝 l) := by
+  rcases sequence_bounded_in_interval hb hbdl with ⟨a, b, h⟩
+  rcases bolzano_weierstrass_interval h with ⟨φ, hφ, l, _, hl⟩
+  exact ⟨φ, hφ, l, hl⟩
+
+/--
+> **Entry**: analysis.sequence.cauchy
+> **一句话**: Cauchy 收敛准则（完备性）：实数列收敛 ⟺ 是 Cauchy 列。
+> **直觉**: 收敛 = 大家往同一处跑；Cauchy = 大家相互之间靠拢。
+>   "相互不靠拢"则没有公共去处；"虽是 Cauchy 却不收敛"在 ℚ；ℝ 里必有其处。
+> **依赖**: `analysis.sequence.subsequence`（语言准备）、`analysis.sequence.bounded`
+> **mathlib**: `CauchySeq`, `Metric.cauchySeq_iff`, `cauchySeq_tendsto_of_complete`
+
+收敛 ⟹ Cauchy：极限把两端距离从任意远处居中拉回（双 ε/2 三角不等式）。
+-/
+theorem convergent_is_cauchy {u : ℕ → ℝ} {l : ℝ} (h : Tendsto u atTop (𝓝 l)) : CauchySeq u := by
+  rw [Metric.cauchySeq_iff]
+  intro ε hε
+  have hε2 : 0 < ε / 2 := div_pos hε (by norm_num)
+  rcases Metric.tendsto_atTop.mp h (ε / 2) hε2 with ⟨N, hN⟩
+  refine ⟨N, ?_⟩
+  intro m hm n hn
+  rw [Real.dist_eq]
+  have htri : |u m - u n| ≤ |u m - l| + |u n - l| := by
+    calc
+      |u m - u n| = |(u m - l) + (l - u n)| := by
+        rw [show (u m - l) + (l - u n) = u m - u n by ring]
+      _ ≤ |u m - l| + |l - u n| := abs_add_le _ _
+      _ = |u m - l| + |u n - l| := by rw [abs_sub_comm l (u n)]
+  linarith [htri,
+    (show |u m - l| < ε / 2 by simpa [Real.dist_eq] using hN m hm),
+    (show |u n - l| < ε / 2 by simpa [Real.dist_eq] using hN n hn)]
+
+/-- Cauchy ⟹ 收敛：实数完备性（ℝ 的 CompleteSpace 实例直接给出极限）。 -/
+theorem cauchy_seq_convergent {u : ℕ → ℝ} (h : CauchySeq u) : ∃ l : ℝ, Tendsto u atTop (𝓝 l) := by
+  exact cauchySeq_tendsto_of_complete h
+
+/--
+> **Entry**: analysis.sequence.liminf-limsup
+> **一句话**: 上/下极限：有界序列有 liminf ≤ limsup，且两极限相等 ⟺ 收敛到该值。
+> **直觉**: limsup = "任何后续都跳不过的最矮天花板"，liminf = "任何后续都跌不破的最高地板"；
+>   天花板从不低于地板（liminf ≤ limsup），两者挤成一起便是收敛。
+> **依赖**: `analysis.sequence.bounded`（一致性口径：两向有界）
+> **mathlib**: `Filter.liminf_le_limsup`, `tendsto_of_liminf_eq_limsup`
+
+有界序列的下极限不超过上极限。
+-/
+theorem liminf_le_limsup_seq {u : ℕ → ℝ}
+    (hU : IsBoundedUnder (· ≤ ·) atTop u) (hL : IsBoundedUnder (· ≥ ·) atTop u) :
+    liminf u atTop ≤ limsup u atTop := by
+  exact Filter.liminf_le_limsup (f := atTop) (u := u) hU hL
+
+/-- liminf 与 limsup 相等（都 = a）⟹ 序列收敛到 a（两向有界时）。 -/
+theorem tendsto_of_liminf_eq_limsup_seq {u : ℕ → ℝ} {a : ℝ}
+    (hU : IsBoundedUnder (· ≤ ·) atTop u) (hL : IsBoundedUnder (· ≥ ·) atTop u)
+    (hinf : liminf u atTop = a) (hsup : limsup u atTop = a) :
+    Tendsto u atTop (𝓝 a) := by
+  exact tendsto_of_liminf_eq_limsup (f := atTop) (u := u) (a := a) hinf hsup hU hL
 
 end Analysis.Sequence
 

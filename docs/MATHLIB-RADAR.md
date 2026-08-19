@@ -81,6 +81,20 @@
 - **谁在用**：`analysis.sequence.monotone-convergence`。
 - **坑**：它给的是 `⨆ i, f i`，想写成 `sSup (range f)` 要 `IsLUB.ciSup_eq` 桥接（见 G3）。
 
+### `StrictMono.tendsto_atTop`
+- **人话**：**严格递增的下标序列也冲向无穷**：φ : ℕ → ℕ 严格递增 ⟹ `Tendsto φ atTop atTop`。
+  子序列语言的关键一桥："跳着取"的下标函数不会"停在原地"。
+- **签名**：`{φ : ℕ → ℕ} (h : StrictMono φ) : Tendsto φ atTop atTop`
+- **出处**：`Mathlib/Order/Filter/AtTopBot/Tendsto.lean`
+- **谁在用**：`analysis.sequence.subsequence`。
+
+### `Filter.Tendsto.comp`
+- **人话**：**收敛的复合**：g 沿 y 趋于 z，f 沿 x 趋于 y ⟹ g∘f 沿 x 趋于 z。
+  子序列定理 `u∘φ → l` 就是 `u → l` 与 `φ → atTop` 的复合。
+- **签名**：`(hg : Tendsto g y z) (hf : Tendsto f x y) : Tendsto (g ∘ f) x z`
+- **出处**：`Mathlib/Order/Filter/Tendsto.lean`
+- **谁在用**：`analysis.sequence.subsequence`。
+
 ---
 
 ## G2. 有界（BddAbove / BddBelow / IsBoundedUnder）
@@ -147,6 +161,19 @@
 - **出处**：`Mathlib/Order/ConditionallyCompleteLattice/Indexed.lean`
 - **谁在用**：`analysis.sequence.monotone-convergence`。
 - **坑**：条件完备格没有 `iSup_eq_sSup` 这种名字，桥就走这里。
+
+### `CompactIccSpace.isCompact_Icc`
+- **人话**：**闭区间紧**：[a,b]（a ≤ b 时）是紧集。实数完备性的拓扑身位。
+- **签名**：`[CompactIccSpace α] {a b : α} : IsCompact (Set.Icc a b)`
+- **出处**：`Mathlib/Topology/Order/`（compact intervals）
+- **谁在用**：`analysis.sequence.bolzano-weierstrass`。
+
+### `IsCompact.isSeqCompact`
+- **人话**：**紧集上的序列必有收敛子列**（序列紧），且子列极限仍落在集内。
+  这正是 B-W 的"从区间里挖出收敛子列"一步。
+- **签名**：`(hs : IsCompact s) : IsSeqCompact s`
+- **出处**：`Mathlib/Topology/Sequences.lean`
+- **谁在用**：`analysis.sequence.bolzano-weierstrass`。
 
 ### `Set.range_nonempty`
 - **人话**：非空指标下的值域非空：`Nonempty ι → (Set.range f).Nonempty`。
@@ -373,6 +400,47 @@
 - **签名**：`|a| < b ↔ -b < a ∧ a < b`
 - **出处**：`Mathlib/Algebra/Order/Abs/`
 - **谁在用**：`analysis.sequence.bounded`。
+
+### `CauchySeq`
+- **人话**：**柯西列**（一般度量/一致空间版本）：序列自家人最终互相靠近。
+- **签名**：`[UniformSpace α] [Preorder β] (u : β → α) : Prop`
+- **出处**：`Mathlib/Topology/MetricSpace/`（度量空间的合法实例层）
+- **谁在用**：`analysis.sequence.cauchy`。
+
+### `Metric.cauchySeq_iff`
+- **人话**：**Cauchy 的 ε-N 距离判据**：
+  `CauchySeq u ⟺ ∀ ε > 0, ∃ N, ∀ m n ≥ N, dist (u m) (u n) < ε`。
+  把滤子定义展开成教科书原始样貌。
+- **签名**：`CauchySeq u ↔ ∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, dist (u m) (u n) < ε`
+- **出处**：`Mathlib/Topology/MetricSpace/Cauchy.lean`
+- **谁在用**：`analysis.sequence.cauchy`。
+
+### `cauchySeq_tendsto_of_complete`
+- **人话**：**完备空间里 Cauchy 必有极限**：`CompleteSpace α` 正是"柯西列均收敛"。
+  ℝ 完备（`CompleteSpace ℝ` 实例），所以实数列 Cauchy ⟹ 存在极限 l。
+- **签名**：`[CompleteSpace α] {u : β → α} (H : CauchySeq u) : ∃ x, Tendsto u atTop (𝓝 x)`
+- **出处**：`Mathlib/Topology/MetricSpace/Cauchy.lean`
+- **谁在用**：`analysis.sequence.cauchy`。
+
+### 绝对值/上下界小件（`le_abs_self` `neg_abs_le` `le_max_left/right`）
+- **人话**：`a ≤ |a|`；`-|a| ≤ a`；`x ≤ max x y`；`y ≤ max x y`。
+  把"有界"翻译进对称区间 [−M, M] 的螺丝钉（`sequence_bounded_in_interval` 用它们）。
+- **签名**：`le_abs_self a : a ≤ |a|`；`neg_abs_le a : -|a| ≤ a`
+- **出处**：`Mathlib/Algebra/Order/Abs/`、`Mathlib/Algebra/Order/Monoid/`（max 部分）
+- **谁在用**：`analysis.sequence.bolzano-weierstrass`。
+
+### `Filter.limsup` / `Filter.liminf` / `Filter.liminf_le_limsup` / `tendsto_of_liminf_eq_limsup`
+- **人话**：滤子版**上极限/下极限**：`limsup u f = sInf { sSup 尾部 }`、liminf 镜像；
+  `liminf_le_limsup`：有界时下极限不超过 上极限；
+  `tendsto_of_liminf_eq_limsup`：两极限相等（都 = a）⟹ `u → a`。
+  数学的直觉表述："最矮天花板"（limsup）与"最高地板"（liminf）——天花板从不低于地板，重合即收敛。
+- **签名**：`[ConditionallyCompleteLattice α] (u : β → α) (f : Filter β) : α`；
+  `liminf u f ≤ limsup u f`（需上下两向 `IsBoundedUnder`）；
+  `Tendsto u f (𝓝 a)`（需 hinf=hsup=a）。
+- **出处**：`Mathlib/Order/Filter/` 与 `Mathlib/Topology/Order/LiminfLimsup.lean`
+- **谁在用**：`analysis.sequence.liminf-limsup`。
+- **坑**：两者相等 ⟹ 收敛这个方向需要序拓扑与两向有界（`tendsto_of_liminf_eq_limsup` 带默认界假设，
+  显式提供更稳）。
 
 ---
 

@@ -64,10 +64,10 @@
 | `analysis.sequence.bounded` | 收敛 ⇒ 有界 | `IsBoundedUnder`, `Metric.tendsto_atTop` | ✅ |
 | `analysis.sequence.squeeze` | 夹逼定理 | `tendsto_of_tendsto_of_tendsto_of_le_of_le` | ✅ |
 | `analysis.sequence.monotone-convergence` | 单调有界收敛（极限=上确界） | `tendsto_atTop_ciSup`, `Real.isLUB_sSup` | ✅ |
-| `analysis.sequence.bolzano-weierstrass` | 波尔查诺-魏尔斯特拉斯 | `exists_seq_monotone_tendsto` 系 | 待写 |
-| `analysis.sequence.cauchy` | 柯西收敛准则 | `cauchySeq_iff_tendsto` 系 | 待写 |
-| `analysis.sequence.subsequence` | 子列 | `SeqNat.tendsto` 系 | 待写 |
-| `analysis.sequence.liminf-limsup` | 上/下极限 | `limsup`, `liminf`, `Filter.limsup` | 待写 |
+| `analysis.sequence.bolzano-weierstrass` | 波尔查诺-魏尔斯特拉斯 | `CompactIccSpace.isCompact_Icc`, `IsCompact.isSeqCompact` | ✅ |
+| `analysis.sequence.cauchy` | 柯西收敛准则 | `CauchySeq`, `Metric.cauchySeq_iff`, `cauchySeq_tendsto_of_complete` | ✅ |
+| `analysis.sequence.subsequence` | 子列 | `StrictMono.tendsto_atTop`, `Filter.Tendsto.comp` | ✅ |
+| `analysis.sequence.liminf-limsup` | 上/下极限 | `Filter.liminf_le_limsup`, `tendsto_of_liminf_eq_limsup` | ✅ |
 
 ## 第四章 函数极限
 

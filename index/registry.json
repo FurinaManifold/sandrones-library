@@ -715,7 +715,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "5731b13bbe88d6d0",
+    "proof_sha": "342c0e9f20a2d66b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -743,7 +743,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "5731b13bbe88d6d0",
+    "proof_sha": "342c0e9f20a2d66b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -771,7 +771,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "5731b13bbe88d6d0",
+    "proof_sha": "342c0e9f20a2d66b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -799,7 +799,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "5731b13bbe88d6d0",
+    "proof_sha": "342c0e9f20a2d66b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -827,7 +827,133 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "5731b13bbe88d6d0",
+    "proof_sha": "342c0e9f20a2d66b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.subsequence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "子序列的定义与性质",
+    "summary": "收敛序列的任何子列收敛到同一极限",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "StrictMono.tendsto_atTop",
+      "Filter.Tendsto.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/subsequence.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T10:39:15Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "342c0e9f20a2d66b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.bolzano-weierstrass",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "波尔查诺-魏尔斯特拉斯定理",
+    "summary": "有界实数列必有收敛的子列",
+    "premises": [
+      "analysis.sequence.bounded",
+      "analysis.sequence.subsequence"
+    ],
+    "mathlib": [
+      "CompactIccSpace.isCompact_Icc",
+      "IsCompact.isSeqCompact"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/bolzano-weierstrass.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T10:39:15Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "342c0e9f20a2d66b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.cauchy",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy 收敛准则（完备性）",
+    "summary": "实数列收敛当且仅当是 Cauchy 列",
+    "premises": [
+      "analysis.sequence.subsequence"
+    ],
+    "mathlib": [
+      "CauchySeq",
+      "Metric.cauchySeq_iff",
+      "cauchySeq_tendsto_of_complete"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/cauchy.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T10:39:15Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "342c0e9f20a2d66b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.liminf-limsup",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "上极限与下极限",
+    "summary": "liminf ≤ limsup；liminf = limsup ⟺ 序列收敛",
+    "premises": [
+      "analysis.sequence.bounded"
+    ],
+    "mathlib": [
+      "Filter.liminf_le_limsup",
+      "tendsto_of_liminf_eq_limsup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/liminf-limsup.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T10:39:15Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "342c0e9f20a2d66b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

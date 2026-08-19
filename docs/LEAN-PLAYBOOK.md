@@ -223,6 +223,22 @@
   "choice 来源是 `CauSeq.equiv` 实例内部（mathlib 的 LimZero 证明），非本条目内容"。
 - 出处：`analysis.real.construction-cauchy`（实验文件 /tmp/opencode/pb.lean）。
 
+### 3.10 `lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新
+
+- 现象：`lake build` 显示成功，但外部测试文件 `import SandronesLibrary` 里
+  `#check` / `#print axioms` **新加的定理报 unknown identifier**；旧定理却一切正常。
+- 破局方法（三分校准）：
+  1. 最小复现：单条 `#check <全限定名>` 单独验证，确认不是批量脚本造成。
+  2. 对照：`#check` 旧定理（同命名空间）仍能解析 → 排除"命名空间写错/改名"。
+  3. 隔离 olean：把 `#print axioms` **临时写进源码文件本身**编译 → 若成功，
+     说明源文件内容与命名没问题，问题在**顶层模块的 olean 缓存的导入依赖过期**。
+- 根治：删顶层缓存（`rm .lake/build/lib/lean/SandronesLibrary*.olean`）后 `lake build`，
+  或直接 `lake build SandronesLibrary` 强制重编顶层；此后测试文件正常。
+- 语义：lean 顶层 olean 含其 import 的依赖信息，lake 增量追踪对"源文件没变"
+  的顶层常常跳过重建，导致体验 import 到旧依赖。**凡是改了被子模块 import 的源，
+  都应强制重编顶层后再跑外部 `#check`/`#print axioms`。**
+- 出处：第三章第四批（len analysis.sequence 四新定理），实验文件 /tmp/opencode/ax2.lean。
+
 ## 4. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：
