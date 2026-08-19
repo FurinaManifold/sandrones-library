@@ -1272,5 +1272,378 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.func-limit.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "函数极限定义（ε-δ 判据）",
+    "summary": "函数 f 在 a 的去心邻域上趋于 L ⟺ 对每个 ε>0 存 δ>0 使 x 靠近 a 且 x≠a 时 |f x − L| < ε",
+    "premises": [],
+    "mathlib": [
+      "Metric.tendsto_nhds",
+      "Metric.mem_nhdsWithin_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/definition.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [
+      "analysis.func-limit.heine"
+    ],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.const",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "常数函数趋于常数",
+    "summary": "恒等于 c 的函数在任意滤波器下趋近 c",
+    "premises": [],
+    "mathlib": [
+      "tendsto_const_nhds"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/const.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.identity",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "恒等函数连续",
+    "summary": "x↦x 在 a 处趋近 a（id 的连续/恒等极限）",
+    "premises": [],
+    "mathlib": [
+      "tendsto_id"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/identity.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.unique",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "函数极限唯一",
+    "summary": "同一天趋近方向下（去心邻域）两个极限必相等",
+    "premises": [],
+    "mathlib": [
+      "tendsto_nhds_unique"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/unique.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.congr",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "最终相等替换",
+    "summary": "去心邻域上 f=g 且 f→L，则 g→L",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.congr'"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/congr.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.add",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "函数极限加法",
+    "summary": "lim(f+g) = lim f + lim g",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/add.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.sub",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "函数极限减法",
+    "summary": "lim(f−g) = lim f − lim g",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.sub"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/sub.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.mul",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "函数极限乘法",
+    "summary": "lim(f·g) = lim f · lim g",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/mul.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.div",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "函数极限除法",
+    "summary": "lim(f/g) = lim f / lim g（分母极限非零）",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.div"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/div.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.const-mul",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "常数数乘",
+    "summary": "lim(c·f) = c·lim f",
+    "premises": [],
+    "mathlib": [
+      "Filter.Tendsto.const_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/const-mul.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.le",
+    "kind": "lemma",
+    "state": "verified",
+    "title": "极限保序",
+    "summary": "去心邻域上 f≤g 且 f→L、g→M，则 L≤M",
+    "premises": [],
+    "mathlib": [
+      "ge_of_tendsto"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/le.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.heine",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Heine 归结原理",
+    "summary": "函数极限 ⟺ 沿所有去心收敛序列的极限（归结原则）",
+    "premises": [
+      "analysis.func-limit.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.comp",
+      "Metric.tendsto_atTop",
+      "tendsto_one_div_atTop_nhds_zero_nat"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限（含 Heine 归结原理）"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/heine.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.at-top",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "无穷极限",
+    "summary": "自变量趋于无穷的极限（ε-N 判据）及函数在 a 处发散到正无穷",
+    "premises": [],
+    "mathlib": [
+      "Metric.tendsto_atTop",
+      "tendsto_pow_atTop_atTop_of_one_lt",
+      "tendsto_atTop"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/at-top.md",
+    "added_by": "ingestor-chapter4-batch",
+    "added_at": "2026-08-19T14:00:21Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "b822958ef0e31dbe",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

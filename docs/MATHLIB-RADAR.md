@@ -137,7 +137,41 @@
   每一项 `f n ≤ b` 则 `a ≤ b`（`le_of_tendsto`，下界方向）。把"逐项夹住"升级为"极限也被夹住"。
 - **签名**：`(colim : Tendsto f x (𝓝 a)) (h : ∀ᶠ c in x, b ≤ f c) : b ≤ a`
 - **出处**：`Mathlib/Topology/Order/Basic.lean`
-- **谁在用**：`analysis.completeness.equivalence-cycle.cauchy-to-sup`（`rₙ` 恒是 s 的上界且 `rₙ → x` ⟹ `z ≤ x`）。
+- **谁在用**：`analysis.func-limit.le`（极限保序）。
+
+### 函数极限四条（`Filter.Tendsto.add/sub/mul/div`）
+- **人话**：**函数极限的四则运算**：`f → L`、`g → M` 时，和/差/积/商（商要求 `M ≠ 0`）
+  分别趋于 `L+M`、`L−M`、`L·M`、`L/M`。是序列极限四则的函数版，一行调完。
+- **签名**：`Tendsto.add : f→L → g→M → (f+g)→(L+M)`（sub/mul/div 同构）
+- **出处**：`Mathlib/Topology/Algebra/Group/`（域上加法/乘法连续）
+- **谁在用**：`analysis.func-limit.add/sub/mul/div`、`analysis.func-limit.const-mul`。
+
+### `tendsto_const_nhds` / `Filter.tendsto_id`
+- **人话**：常数函数在任意滤子下趋于该常数；恒等映射 `id` 任一滤子上趋于同滤子
+  （在点 a 处就是 `id → a`）。
+- **签名**：`Tendsto (fun _ => x) f (𝓝 x)`；`Tendsto id x x`
+- **出处**：`Mathlib/Order/Filter/Tendsto.lean`
+- **谁在用**：`analysis.func-limit.const`、`analysis.func-limit.identity`。
+
+### `Filter.Tendsto.congr'` / `Filter.Tendsto.congr`
+- **人话**：**逐点/最终相等可替换**：若 `f` 与 `g` 最终（或逐点）相等，则二者的极限可互换。
+  证明"换一个等价的函数再取极限"的胶水。
+- **签名**：`(hl : f₁ =ᶠ[l] f₂) → Tendsto f₁ l₁ l₂ → Tendsto f₂ l₁ l₂`
+- **出处**：`Mathlib/Order/Filter/Tendsto.lean`
+- **谁在用**：`analysis.func-limit.congr`。
+
+### `tendsto_atTop`
+- **人话**：**关于"趋于正无穷"的 Tendsto 判据**：`Tendsto f l atTop ⟺ ∀ b, ∀ᶠ x in l, b ≤ f x`。
+  把"发散到正无穷"从拓扑说法换回序不等式说法。
+- **签名**：`Tendsto m f atTop ↔ ∀ b, ∀ᶠ a in f, b ≤ m a`
+- **出处**：`Mathlib/Order/Filter/AtTopBot/Basic.lean`
+- **谁在用**：`analysis.func-limit.at-top`（`tendsto_nhds_atTop_iff`）。
+
+### `tendsto_one_div_atTop_nhds_zero_nat` / `tendsto_pow_atTop_atTop_of_one_lt`
+- **人话**：`1/n → 0`（Heine 反证构造反例序列用）；`r > 1 ⟹ rⁿ → ∞`（幂函数发散到无穷）。
+- **签名**：`tendsto_one_div_atTop_nhds_zero_nat`；`(hr : 1 < r) : Tendsto (fun n => r ^ n) atTop atTop`
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`、`Mathlib/Algebra/Order/Archimedean/`
+- **谁在用**：`analysis.func-limit.heine`、`analysis.func-limit.at-top`。
 
 ---
 
@@ -662,6 +696,14 @@
 - **签名**：`(hs : IsOpen s) (hx : x ∈ s) : s ∈ 𝓝 x`
 - **出处**：`Mathlib/Topology/Basic.lean`
 - **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（核心桥）。
+
+### `Metric.mem_nhdsWithin_iff` / `tendsto_nhdsWithin_iff`
+- **人话**：**受限邻域的判据**：`s ∈ 𝓝[t] x ⟺ ∃ ε > 0, ball x ε ∩ t ⊆ s`（邻域含一整颗与 t 相交的开球）；
+  `tendsto_nhdsWithin_iff`：`Tendsto f l (𝓝[s] a) ⟺ Tendsto f l (𝓝 a) ∧ ∀ᶠ x in l, f x ∈ s`。
+  函数极限的定义语言（去心邻域 `𝓝[≠] a`）全靠它们进出。
+- **签名**：`Metric.mem_nhdsWithin_iff : s ∈ 𝓝[t] x ↔ ∃ ε > 0, ball x ε ∩ t ⊆ s`；`tendsto_nhdsWithin_iff`
+- **出处**：`Mathlib/Topology/MetricSpace/`、`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.func-limit.definition`（helper `eventually_nhds_within_iff_delta`）。
 
 ---
 
