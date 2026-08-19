@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **27** 个条目（verified 27，pending 0）。
+共 **32** 个条目（verified 32，pending 0）。
 
 ## `analysis.real`
 
@@ -21,6 +21,14 @@
 - ✅ [`bdd-above.md`](bdd-above.md) — 有上界集的刻画
 - ✅ [`bdd-below.md`](bdd-below.md) — 有下界集的刻画
 - ✅ [`subset.md`](subset.md) — 子集继承有界性
+
+## `analysis.sequence`
+
+- ✅ [`bounded.md`](bounded.md) — 收敛必有界
+- ✅ [`definition.md`](definition.md) — 数列收敛的 ε-N 判据
+- ✅ [`monotone-convergence.md`](monotone-convergence.md) — 单调有界收敛定理
+- ✅ [`squeeze.md`](squeeze.md) — 夹逼定理
+- ✅ [`unique.md`](unique.md) — 极限唯一
 
 ## `settheory.cardinal`
 

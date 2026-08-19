@@ -695,5 +695,143 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.sequence.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "数列收敛的 ε-N 判据",
+    "summary": "Tendsto u atTop (𝓝 l) ⟺ 对每个 ε>0 存在 N，∀n≥N 有 |u n − l| < ε",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/definition.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T13:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "5731b13bbe88d6d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.unique",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限唯一",
+    "summary": "同一数列若有极限则极限唯一",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/unique.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T13:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "5731b13bbe88d6d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.bounded",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "收敛必有界",
+    "summary": "收敛序列的值域既有上界也有下界",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/bounded.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T13:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "5731b13bbe88d6d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.squeeze",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "夹逼定理",
+    "summary": "aₙ ≤ bₙ ≤ cₙ 且 aₙ、cₙ 同趋于 l，则 bₙ 也趋于 l",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/squeeze.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T13:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "5731b13bbe88d6d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.monotone-convergence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单调有界收敛定理",
+    "summary": "单调递增且值域有上界的序列收敛到其值域的上确界",
+    "premises": [
+      "analysis.real.sup"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/monotone-convergence.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T13:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "5731b13bbe88d6d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

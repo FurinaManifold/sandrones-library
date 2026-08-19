@@ -57,17 +57,17 @@
 
 ## 第三章 数列极限
 
-| 条目家族 | 内容 | mathlib 参考 |
-|---|---|---|
-| `analysis.sequence.definition` | 数列收敛的定义 | `Tendsto (fun n ↦ a n) atTop (𝓝 l)` |
-| `analysis.sequence.unique` | 极限唯一 | `tendsto_nhds_unique` |
-| `analysis.sequence.bounded` | 收敛 ⇒ 有界 | `tendsto_bddAbove_range` |
-| `analysis.sequence.squeeze` | 夹逼定理 | `tendsto_of_tendsto_of_le_of_le` |
-| `analysis.sequence.monotone-convergence` | 单调有界收敛定理 | `tendsto_of_monotone_of_isBoundedAbove` |
-| `analysis.sequence.bolzano-weierstrass` | 波尔查诺-魏尔斯特拉斯 | `exists_seq_monotone_tendsto` 系 |
-| `analysis.sequence.cauchy` | 柯西收敛准则 | `cauchySeq_iff_tendsto` 系 |
-| `analysis.sequence.subsequence` | 子列 | `SeqNat.tendsto` 系 |
-| `analysis.sequence.liminf-limsup` | 上/下极限 | `limsup`, `liminf`, `Filter.limsup` |
+| 条目家族 | 内容 | mathlib 参考 | 状态 |
+|---|---|---|---|
+| `analysis.sequence.definition` | 收敛的 ε-N 判据 | `Metric.tendsto_atTop` | ✅ |
+| `analysis.sequence.unique` | 极限唯一 | `tendsto_nhds_unique` | ✅ |
+| `analysis.sequence.bounded` | 收敛 ⇒ 有界 | `IsBoundedUnder`, `Metric.tendsto_atTop` | ✅ |
+| `analysis.sequence.squeeze` | 夹逼定理 | `tendsto_of_tendsto_of_tendsto_of_le_of_le` | ✅ |
+| `analysis.sequence.monotone-convergence` | 单调有界收敛（极限=上确界） | `tendsto_atTop_ciSup`, `Real.isLUB_sSup` | ✅ |
+| `analysis.sequence.bolzano-weierstrass` | 波尔查诺-魏尔斯特拉斯 | `exists_seq_monotone_tendsto` 系 | 待写 |
+| `analysis.sequence.cauchy` | 柯西收敛准则 | `cauchySeq_iff_tendsto` 系 | 待写 |
+| `analysis.sequence.subsequence` | 子列 | `SeqNat.tendsto` 系 | 待写 |
+| `analysis.sequence.liminf-limsup` | 上/下极限 | `limsup`, `liminf`, `Filter.limsup` | 待写 |
 
 ## 第四章 函数极限
 
