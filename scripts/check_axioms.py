@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Sandrone's Library — 公理依赖审计工具。
+"""Sandrone's Library — 公理依赖审计工具（定理级精确）。
 
-对 registry 中 verified 条目，从对应 .lean 文件提取命名空间下的定理/定义，
-用 `#print axioms` 获取真实公理依赖，与 registry 的 `axioms` 字段比对。
+对 registry 中 verified 条目，从其 .lean 文件里按 `> **Entry**: <id>` docstring 标记
+精确定位该条目对应的定理/定义，用 `#print axioms` 获取真实公理依赖，
+与 registry 的 `axioms` 字段比对。
 
 用法:
     python3 scripts/check_axioms.py <entry-id>   # 检查单个
@@ -25,28 +26,42 @@ LEAN_ROOT = ROOT / "SandronesLibrary"
 NAMESPACE_RE = re.compile(r"^namespace\s+([\w.]+)")
 END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
 DECL_RE = re.compile(r"^(theorem|lemma|def)\s+(\w+)")
+ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
 AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]")
 AXIOMS_NONE = re.compile(r"does not depend on any axioms")
 
 
-def extract_decls(lean_text: str) -> list[str]:
-    """按命名空间栈收集全限定定理/定义名。"""
-    decls: list[str] = []
+def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
+    """把每个 `**Entry**: <id>` 关联到紧跟其 docstring 之后的所有定理/定义全名。"""
+    # 收集 (字符偏移, entry_id) 与 (字符偏移, full_decl_name)
+    entries: list[tuple[int, str]] = []
+    decls: list[tuple[int, str]] = []
     stack: list[str] = []
     for line in lean_text.splitlines():
-        line = line.strip()
-        if not line or line.startswith("--"):
-            continue
-        if m := NAMESPACE_RE.match(line):
+        stripped = line.strip()
+        if m := NAMESPACE_RE.match(stripped):
             stack.append(m.group(1))
-        elif m := END_NS_RE.match(line):
+        elif m := END_NS_RE.match(stripped):
             if stack:
                 stack.pop()
-        elif m := DECL_RE.match(line):
-            name = m.group(2)
-            full = ".".join(stack + [name])
-            decls.append(full)
-    return decls
+        elif m := ENTRY_RE.search(line):
+            entries.append((lean_text.index(line), m.group(1)))
+        elif m := DECL_RE.match(stripped):
+            full = ".".join(stack + [m.group(2)])
+            decls.append((lean_text.index(line), full))
+    # 对每个 decl 找它前面最近（且在 docstring 内）的 Entry
+    result: dict[str, list[str]] = {}
+    for dpos, dname in decls:
+        best = None
+        for epos, eid in entries:
+            if epos < dpos:
+                if best is None or epos > best[0]:
+                    best = (epos, eid)
+            else:
+                break
+        if best is not None:
+            result.setdefault(best[1], []).append(dname)
+    return result
 
 
 def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
@@ -62,11 +77,8 @@ def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
     out = r.stdout + r.stderr
     result: dict[str, list[str]] = {}
     for i, d in enumerate(decls):
-        if m := AXIOMS_DEP.search(out.split("#print axioms ")[i+1] if False else ""):
-            pass
-    # 简单逐块解析：按 decl 名字切分输出
-    for i, d in enumerate(decls):
-        seg = out.split(d)[-1] if i == len(decls) - 1 else out.split(d)[1].split(decls[i+1])[0]
+        rest = out[out.index(d) + len(d):]
+        seg = rest.split(decls[i + 1])[0] if i + 1 < len(decls) else rest
         if AXIOMS_NONE.search(seg):
             result[d] = []
         elif m := AXIOMS_DEP.search(seg):
@@ -91,16 +103,16 @@ def main() -> None:
     if not targets:
         sys.exit("没有 verified 条目可审计")
 
-    env = {"PATH": str(Path.home() / ".elan/bin") + ":" + __import__("os").environ.get("PATH", "")}
     bad = 0
     for rec in targets:
         lf = LEAN_ROOT / rec["lean_file"]
         if not lf.exists():
             print(f"[SKIP] {rec['id']}: 缺 lean 文件")
             continue
-        decls = extract_decls(lf.read_text(encoding="utf-8"))
+        mapping = map_entry_to_decl(lf.read_text(encoding="utf-8"))
+        decls = mapping.get(rec["id"])
         if not decls:
-            print(f"[SKIP] {rec['id']}: 未解析到定理/定义")
+            print(f"[SKIP] {rec['id']}: lean 文件未关联到带 **Entry** 标记的定理")
             continue
         module = "SandronesLibrary." + str(rec["lean_file"]).replace("/", ".")[:-5]
         actual: set[str] = set()

@@ -128,5 +128,125 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": []
+  },
+  {
+    "id": "settheory.set.subset.trans",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "包含的传递性",
+    "summary": "A ⊆ B 且 B ⊆ C 蕴含 A ⊆ C",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory.set.subset.trans.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:34:15Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.subset",
+    "variant": "ecnu",
+    "axioms": []
+  },
+  {
+    "id": "settheory.set.subset.antisymm",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "包含的反对称性",
+    "summary": "A ⊆ B 且 B ⊆ A 蕴含 A = B",
+    "premises": [
+      "settheory.set.ext"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory.set.subset.antisymm.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:34:15Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.subset",
+    "variant": "ecnu",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.set.empty-subset",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "空集是子集",
+    "summary": "空集是任何集合的子集",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory.set.empty-subset.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:34:16Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.subset",
+    "variant": "ecnu",
+    "axioms": []
+  },
+  {
+    "id": "settheory.function.image-preimage.preimage-union",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "原像保并",
+    "summary": "f⁻¹[B ∪ C] = f⁻¹[B] ∪ f⁻¹[C]",
+    "premises": [
+      "settheory.set.ext"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Function.lean",
+    "nl_file": "docs/entries/settheory.function.image-preimage.preimage-union.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:34:16Z",
+    "dependedOnBy": [],
+    "family": "settheory.function.image-preimage",
+    "variant": "ecnu",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.function.image-preimage.preimage-inter",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "原像保交",
+    "summary": "f⁻¹[B ∩ C] = f⁻¹[B] ∩ f⁻¹[C]",
+    "premises": [
+      "settheory.set.ext"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Function.lean",
+    "nl_file": "docs/entries/settheory.function.image-preimage.preimage-inter.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:34:16Z",
+    "dependedOnBy": [],
+    "family": "settheory.function.image-preimage",
+    "variant": "ecnu",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

@@ -53,6 +53,45 @@ theorem surjective_comp {α β γ : Type*} {f : α → β} {g : β → γ}
   -- 组合：(g∘f) a = g (f a) = g b = c。`simpa` 负责展开复合记号 `Function.comp`。
   exact ⟨a, by simpa [Function.comp] using (congrArg g ha).trans hb⟩
 
+/--
+> **Entry**: settheory.function.image-preimage.preimage-union
+> **一句话**: 原像保并：f⁻¹[B ∪ C] = f⁻¹[B] ∪ f⁻¹[C]。
+> **直觉**: 在集合语言里"f⁻¹"是唯一对并、交都"全通"的操作；而像 f[-] 只保并不保交。
+>   这正是分析里总用"原像"来描述开集/闭集的原因。
+> **依赖**: `settheory.set.ext`
+> **mathlib**: `Set.preimage_union`
+-/
+theorem preimage_union {α β : Type*} (f : α → β) (B C : Set β) :
+    f ⁻¹' (B ∪ C) = f ⁻¹' B ∪ f ⁻¹' C := by
+  -- 思路：先用外延性降到元素层；用 mem_preimage 把 x ∈ f⁻¹'S 改成 f x ∈ S；
+  -- 剩下的"属于并"两边都是同一个 Or，逐位组装即可。
+  ext x
+  constructor
+  · intro h
+    rcases h with hfB | hfC
+    · exact Or.inl hfB
+    · exact Or.inr hfC
+  · rintro (hB | hC)
+    · exact Or.inl hB
+    · exact Or.inr hC
+
+/--
+> **Entry**: settheory.function.image-preimage.preimage-inter
+> **一句话**: 原像保交：f⁻¹[B ∩ C] = f⁻¹[B] ∩ f⁻¹[C]。
+> **直觉**: 与保并同理——"f x 同时落入 B 与 C" ⇔ 逐坐标都在原像里。
+> **依赖**: `settheory.set.ext`
+> **mathlib**: `Set.preimage_inter`
+-/
+theorem preimage_inter {α β : Type*} (f : α → β) (B C : Set β) :
+    f ⁻¹' (B ∩ C) = f ⁻¹' B ∩ f ⁻¹' C := by
+  -- 思路：与 preimage_union 完全平行的结构，只是 Or 换成 And。
+  ext x
+  constructor
+  · rintro ⟨hfB, hfC⟩
+    exact ⟨hfB, hfC⟩
+  · rintro ⟨hfB, hfC⟩
+    exact ⟨hfB, hfC⟩
+
 end SetTheory.Function
 
 end SandronesLibrary

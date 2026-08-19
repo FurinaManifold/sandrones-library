@@ -61,6 +61,48 @@ theorem inter_distrib_left {α : Type*} (A B C : Set α) :
     · exact ⟨hxA, Or.inl hxB⟩
     · exact ⟨hxA, Or.inr hxC⟩
 
+/--
+> **Entry**: settheory.set.subset.trans
+> **一句话**: 集合包含关系是传递的：A ⊆ B 且 B ⊆ C ⇒ A ⊆ C。
+> **直觉**: "子集"链可以一路延伸——元素属于 A 就属于 B，属于 B 就属于 C。
+> **依赖**: 无
+> **mathlib**: `Set.Subset.trans`
+-/
+theorem subset_trans {α : Type*} {A B C : Set α} (hAB : A ⊆ B) (hBC : B ⊆ C) : A ⊆ C := by
+  -- 思路：展开 A ⊆ C 为逐元素判断；x ∈ A 经 hAB 得 x ∈ B，再经 hBC 得 x ∈ C。
+  intro x hxA
+  exact hBC (hAB hxA)
+
+/--
+> **Entry**: settheory.set.subset.antisymm
+> **一句话**: 双向包含推出相等：A ⊆ B 且 B ⊆ A ⇒ A = B（包含关系的反对称性）。
+> **直觉**: 外延性原理的"包含形式"——两边互相装下对方，就是同一个集合。
+> **依赖**: `settheory.set.ext`
+> **mathlib**: `Set.Subset.antisymm`
+-/
+theorem subset_antisymm {α : Type*} (A B : Set α) (hAB : A ⊆ B) (hBA : B ⊆ A) : A = B := by
+  -- 思路：用外延性（settheory.set.ext）把"相等"降到逐元素双向属于；
+  -- 两个方向正是手里的两条包含。
+  apply (set_ext A B).2
+  intro x
+  constructor
+  · intro hxA
+    exact hAB hxA
+  · intro hxB
+    exact hBA hxB
+
+/--
+> **Entry**: settheory.set.empty-subset
+> **一句话**: 空集是任何集合的子集：∅ ⊆ A。
+> **直觉**: "没有一个元素需要检查"，所以条件空真（vacuous truth）。
+> **依赖**: 无
+> **mathlib**: `Set.empty_subset`
+-/
+theorem empty_subset {α : Type*} (A : Set α) : (∅ : Set α) ⊆ A := by
+  -- 思路：x ∈ ∅ 是不可能的（x ∈ ∅ 定义上就是 False），无事可证。
+  intro x hx
+  exact False.elim hx
+
 end SetTheory.Set
 
 end SandronesLibrary
