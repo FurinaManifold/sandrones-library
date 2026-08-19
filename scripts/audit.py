@@ -56,6 +56,10 @@ def check(record: dict) -> None:
         if p not in registry_ids:
             err(f"{eid}: premise {p!r} 不在 registry 中（依赖悬空）")
 
+    # 公理透明：axioms 字段必须存在且为数组
+    if not isinstance(record.get("axioms"), list):
+        err(f"{eid}: 缺 axioms 字段（应为 #print axioms 输出列表，用 scripts/check_axioms.py 生成）")
+
     # verified 条目强约束
     if state == "verified":
         if lean_path is None or not lean_path.exists():

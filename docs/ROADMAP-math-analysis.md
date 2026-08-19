@@ -23,24 +23,30 @@
 
 ## 第一章 集合与映射（预备）
 
+> 原则：**只写分析真正要用的**。深集合论（选择公理体系、基数/序数算术）留给抽象代数阶段。
+> 例外：等价关系/商集**浅层**纳入——实数的 Cantor 构造（第二章）要用。
+
 | 条目家族 | 内容 | mathlib 参考 | 状态 |
 |---|---|---|---|
-| `settheory.set.operations` | 集合运算：并/交/补、分配律 | `Set.union_union`, `Set.inter_distrib_left` | 🔶 开始（`…ext`, `…inter-distrib` ✅） |
-| `settheory.set.relations` | 关系、等价类、商集 | `Setoid`, `Quotient` | 待纳入 |
-| `settheory.function.inject-surject` | 单射/满射/双射、反函数 | `Function.Injective/Surjective/Bijective` | 🔶 开始（`…inj-comp`, `…surj-comp` ✅） |
-| `settheory.cardinal.countable` | 可数集、康托对角线 | `Countable`, `Set.Countable` | 待纳入 |
+| `settheory.set.subset` | 子集/包含：定义、传递性、`A⊆B` 的等价刻画 | `Set.subset_def` | 待写 |
+| `settheory.set.operations` | 并/交/补/差：分配律、德摩根律、`A∖B=A∩Bᶜ`、`∅⊆A` | `Set.inter_union_distrib_left` | 🔶（`…ext`,`…inter-distrib` ✅） |
+| `settheory.set.relations` | **浅层**：等价关系、等价类、商集、商映射（支撑实数构造） | `Setoid`, `Quotient`, `Setoid` | 待写 |
+| `settheory.function.inject-surject` | 单射/满射/双射、复合保持、双射⇔有逆 | `Function.Injective/Surjective/Bijective` | 🔶（`…inj-comp`,`…surj-comp` ✅） |
+| `settheory.function.image-preimage` | 像 `f[A]`、原像 `f⁻¹[B]`，原像保并/交 | `Set.image`, `Set.preimage` | 待写 |
+| `settheory.cardinal.countable` | 可数定义、**有理数可数**、**实数不可数**、可数个可数之并可数 | `Countable`, `Set.Countable` | 待写（已定纳入） |
 
-> ✅ = verified；🔶 = 本章进行中。首批已纳入 5 个条目（含本批 4 个）。
+> ✅ = verified；🔶 = 进行中。
 
 ## 第二章 实数与实数系
 
-| 条目家族 | 内容 | mathlib 参考 |
-|---|---|---|
-| `analysis.real.ordered-field` | 实数是有序域 | `LinearOrderedField ℝ` |
-| `analysis.real.archimedean` | **✅ 阿基米德性质（已纳入）** | `exists_nat_gt` |
-| `analysis.real.density` | 有理数在实数中稠密 | `exists_rat_btwn` |
-| `analysis.real.sup` | 确界原理（完备性） | `sSup`, `IsLUB` |
-| `analysis.real.bounded-sets` | 有界集、上下界 | `BddAbove/BddBelow` |
+| 条目家族 | 内容 | mathlib 参考 | 状态 |
+|---|---|---|---|
+| `analysis.real.ordered-field` | 实数是有序域 | `LinearOrderedField ℝ` | 待写 |
+| `analysis.real.archimedean` | **✅ 阿基米德性质** | `exists_nat_gt` | ✅ |
+| `analysis.real.density` | 有理数在实数中稠密 | `exists_rat_btwn` | 待写 |
+| `analysis.real.sup` | 确界原理（完备性） | `sSup`, `IsLUB` | 待写 |
+| `analysis.real.bounded-sets` | 有界集、上下界 | `BddAbove/BddBelow` | 待写 |
+| `analysis.real.construction-cauchy` | **实数构造（Cantor）**：有理数柯西序列的等价类 | `Cauchy`, `Setoid`（有理数 Cauchy 序列） | 待写，依赖 `settheory.set.relations` |
 
 ## 第三章 数列极限
 

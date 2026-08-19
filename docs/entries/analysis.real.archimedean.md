@@ -77,6 +77,18 @@ theorem archimedean_property (x y : ℝ) (hx : 0 < x) : ∃ n : ℕ, y < n * x
    阿基米德性质已经被 mathlib 形式化在地基里。
 2. `div_lt_iff₀`：有序域中"除以正数"与"乘正数"的可逆性。
 
+# 公理依赖（#print axioms）
+
+```
+archimedean_property 依赖: [propext, Classical.choice, Quot.sound]
+```
+
+**注意差异**：教科书证明阿基米德性质时不会提选择公理——它只是"实数系性质"。
+但形式化证明（经由 `exists_nat_gt` / `div_lt_iff₀` 背后的经典构造）**实际使用了
+`Classical.choice`**。这正是"绝对严格"与教科书隐式假设的差异所在：
+Lean 如实揭露了证明实际依赖的公理，哪怕教科书层面它"看起来"是构造性的。
+这也是为什么本库每个条目都登记 `axioms` 字段——严格性不靠信任，靠检查。
+
 # 应用与陷阱
 
 **应用**：

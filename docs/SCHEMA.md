@@ -25,6 +25,9 @@
     "exists_fixedPoint_of_isContraction",
     "isFixedPt_iff"
   ],
+  "axioms": [                                    // 非平凡公理依赖（#print axioms 的输出，如实登记）
+    "propext", "Classical.choice", "Quot.sound"
+  ],
   "provenance": {                                // 来源
     "source_type": "book",                       // book | paper | generated
     "ref": "Rudin, Principles of Mathematical Analysis, Thm 9.22"
@@ -49,6 +52,13 @@
   - **调用量**：`dependedOnBy` 长度即引用计数，是"哪个版本更有价值"的客观度量，
     由 `scripts/audit.py`/注册脚本在每次纳入时自动回填，人工不得修改。
 - **同一家族内的条目共享 family id 前缀**，`audit.py` 校验 family 一致性。
+
+**公理透明（axioms）约定**：
+- `axioms` 字段如实记录 `#print axioms <定理名>` 的输出（数组；空 = 构造性、无额外公理）。
+- **这是"绝对严格"对教科书的杀手锏**：教科书的证明可能隐式使用选择公理而不自知；
+  Lean 的 `#print axioms` 会如实揭露。`axioms` 含 `Classical.choice` 的条目，
+  叙述层必须注明"教科书版本未提及 Choice，但形式化证明实际依赖"。
+- `audit.py` 校验：verified 条目的 `axioms` 字段与 `#print axioms` 输出一致。
 
 ## 2. 叙述层：`docs/entries/<entry-id>.md`
 

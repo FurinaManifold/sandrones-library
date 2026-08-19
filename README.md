@@ -40,6 +40,7 @@ docs/entries/              # 叙述层（每个事实的双语解释 + 思维脉
 index/registry.json        # 元数据（依赖图 / 来源 / 状态）
 scripts/new_entry.py       # 纳入工具：生成条目骨架
 scripts/audit.py           # 纳入工具：一致性审计
+scripts/check_axioms.py    # 纳入工具：公理依赖审计（#print axioms 对比）
 ```
 
 ## 当前条目
