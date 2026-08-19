@@ -106,6 +106,16 @@
    "公理依赖"节注明"教科书无感、形式化必需"及其原因。
 4. 定理越复杂越要检查——大定理里藏着的 choice 往往是借用经典引理的余孽。
 
+**Mathlib-RADAR 登记（强制，编译通过后必做）**：
+
+1. 凡在证明里引用了一个 mathlib 名（定理/实例/标记，含 `#check` 出来的中间结论），
+   必须在该条目的叙述层 front matter `mathlib:` 字段登记。
+2. 这些名字**必须**能在 [MATHLIB-RADAR.md](MATHLIB-RADAR.md) 找到"人话"条目；
+   找不到就补一条（人话讲什么 / 签名 / 出处模块族 / 谁在用 = 本条目 id）。
+   出处用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族即可。
+3. 结束语：**新生看 RADAR 应能认出每个被引用的 mathlib 名字在说什么**，
+   不是满足于"能用"而是"看得懂"。
+
 **验收**：`lake build` 通过；文件中无 `sorry`；关键步骤有思路注释；
 `axioms` 字段与 `#print axioms` 一致（`check_axioms.py`），叙述层注明噪声/必需之分。
 
@@ -120,6 +130,7 @@
 | 依赖完整性 | `scripts/audit.py` | 形式化层实际使用的 mathlib 定理 ⊆ 声明依赖 ∪ mathlib |
 | 来源引用 | `scripts/audit.py` | `provenance` 字段可定位（文章/书/节号/结论编号） |
 | 无隐藏假设 | 人工抽查 | 证明未在 `premises` 之外使用未声明的非 mathlib 事实 |
+| RADAR 覆盖 | 脚本/人工 | front matter `mathlib:` 每个名字都可在 MATHLIB-RADAR.md 找到锚点 |
 
 ### Step 5 — 注册（Register）
 
