@@ -28,10 +28,11 @@ namespace Analysis.Real
 theorem archimedean_property (x y : ℝ) (hx : 0 < x) : ∃ n : ℕ, y < n * x := by
   -- 思路：目标是"放大步长 x 超过 y"，化为"整数超过比值 y/x"，
   -- 由实数的阿基米德性（Archimedean 类型类）保证整数可以任意大。
-  -- Step 1: 用 exists_nat_gt 找到 n : ℕ 使得 y/x < n。
-  rcases exists_nat_gt (y / x) with ⟨n, hn⟩
+  -- Step 1: 用 exists_nat_gt 选一个 n : ℕ 使得 y/x < n（choose 取 witness，choose_spec 是其性质）。
+  let n := (exists_nat_gt (y / x)).choose
+  use n
   -- Step 2: 回到原来的不等式：y/x < n 且 x > 0 ⇔ y < n·x（乘正数不改变序方向）。
-  exact (div_lt_iff₀ hx).mp hn
+  exact (div_lt_iff₀ hx).mp (exists_nat_gt (y / x)).choose_spec
 
 /-- 由阿基米德性质直接推出 `exists_nat_gt` 的整数倍形式（供后续条目复用）。 -/
 theorem exists_nat_mul_gt (x y : ℝ) (hx : 0 < x) : ∃ n : ℕ, y < n * x :=

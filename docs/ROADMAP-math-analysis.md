@@ -12,21 +12,25 @@
 
 | 代号 | 教材 | 特点 |
 |---|---|---|
-| `ecnu` | 华东师范大学《数学分析》(第五版) | 国内经典，体系平稳，起点友好 |
-| `chen` | 陈纪修/於崇华/金路《数学分析》 | 严谨细致，适合自学 |
-| `zorich` | 卓里奇《数学分析原理》 | 更抽象、更接近现代分析 |
-| `rudin` | Rudin《Principles of Mathematical Analysis》 | 英文经典，分析学圣经 |
+| `ecnu` | 华东师范大学《数学分析》(第五版) | **✅ 主参照**：国内经典，体系平稳，起点友好 |
+| `chen` | 陈纪修/於崇华/金路《数学分析》 | 严谨细致，适合自学（候选变体） |
+| `zorich` | 卓里奇《数学分析原理》 | 更抽象、更接近现代分析（候选变体） |
+| `rudin` | Rudin《Principles of Mathematical Analysis》 | 英文经典，分析学圣经（候选变体） |
+
+> 人话版条目默认带 `variant: ecnu`，其余教材作为后续追加变体。
 
 > 未定：以哪本为主参照（影响变体标签与首批纳入顺序）。
 
 ## 第一章 集合与映射（预备）
 
-| 条目家族 | 内容 | mathlib 参考 |
-|---|---|---|
-| `settheory.set.operations` | 集合运算：并/交/补、分配律 | `Set.union_union`, `Set.inter_distrib_left` |
-| `settheory.set.relations` | 关系、等价类、商集 | `Setoid`, `Quotient` |
-| `settheory.function.inject-surject` | 单射/满射/双射、反函数 | `Function.Injective/Surjective/Bijective` |
-| `settheory.cardinal.countable` | 可数集、康托对角线 | `Countable`, `Set.Countable` |
+| 条目家族 | 内容 | mathlib 参考 | 状态 |
+|---|---|---|---|
+| `settheory.set.operations` | 集合运算：并/交/补、分配律 | `Set.union_union`, `Set.inter_distrib_left` | 🔶 开始（`…ext`, `…inter-distrib` ✅） |
+| `settheory.set.relations` | 关系、等价类、商集 | `Setoid`, `Quotient` | 待纳入 |
+| `settheory.function.inject-surject` | 单射/满射/双射、反函数 | `Function.Injective/Surjective/Bijective` | 🔶 开始（`…inj-comp`, `…surj-comp` ✅） |
+| `settheory.cardinal.countable` | 可数集、康托对角线 | `Countable`, `Set.Countable` | 待纳入 |
+
+> ✅ = verified；🔶 = 本章进行中。首批已纳入 5 个条目（含本批 4 个）。
 
 ## 第二章 实数与实数系
 

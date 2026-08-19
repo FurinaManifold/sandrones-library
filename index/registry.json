@@ -18,6 +18,100 @@
     "nl_file": "docs/entries/analysis.real.archimedean.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:43:52Z",
-    "dependedOnBy": []
+    "dependedOnBy": [],
+    "family": "analysis.real.archimedean",
+    "variant": "generated"
+  },
+  {
+    "id": "settheory.set.ext",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "外延性原理",
+    "summary": "两个集合相等当且仅当它们的元素完全相同",
+    "premises": [],
+    "mathlib": [
+      "Set.ext"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory.set.ext.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T07:55:42Z",
+    "dependedOnBy": [
+      "settheory.set.operations.inter-distrib"
+    ],
+    "family": "settheory.set.ext",
+    "variant": "ecnu"
+  },
+  {
+    "id": "settheory.set.operations.inter-distrib",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "交对并的分配律",
+    "summary": "A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)",
+    "premises": [
+      "settheory.set.ext"
+    ],
+    "mathlib": [
+      "Set.inter_union_distrib_left"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory.set.operations.inter-distrib.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T07:56:18Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.operations",
+    "variant": "ecnu"
+  },
+  {
+    "id": "settheory.function.inj-comp",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单射的复合仍为单射",
+    "summary": "若 f 与 g 均单射，则 g∘f 单射",
+    "premises": [],
+    "mathlib": [
+      "Function.Injective.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Function.lean",
+    "nl_file": "docs/entries/settheory.function.inj-comp.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T07:56:18Z",
+    "dependedOnBy": [],
+    "family": "settheory.function",
+    "variant": "ecnu"
+  },
+  {
+    "id": "settheory.function.surj-comp",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "满射的复合仍为满射",
+    "summary": "若 f 与 g 均满射，则 g∘f 满射",
+    "premises": [],
+    "mathlib": [
+      "Function.Surjective.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Function.lean",
+    "nl_file": "docs/entries/settheory.function.surj-comp.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T07:56:18Z",
+    "dependedOnBy": [],
+    "family": "settheory.function",
+    "variant": "ecnu"
   }
 ]

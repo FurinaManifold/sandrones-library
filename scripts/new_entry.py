@@ -30,7 +30,7 @@ LEAN_ROOT = ROOT / "SandronesLibrary"
 KINDS = {"definition", "lemma", "proposition", "theorem", "example"}
 STATES = {"verified", "pending", "unresolved"}
 
-ID_RE = re.compile(r"^[a-z][a-z0-9]*(\.[a-z][a-z0-9]*)+$")
+ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*(\.[a-z][a-z0-9]*(-[a-z0-9]+)*)*$")
 
 
 def load_registry() -> list:
