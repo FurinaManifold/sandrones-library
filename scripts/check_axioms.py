@@ -129,6 +129,9 @@ def main() -> None:
             bad += 1
         else:
             print(f"[OK]   {rec['id']}: axioms 一致 ({actual})")
+            if args.fix and "axioms" not in rec:
+                rec["axioms"] = actual
+                print(f"  -> 补充写入 registry")
 
     if args.fix:
         json.dump(data, open(REGISTRY, "w"), ensure_ascii=False, indent=2)

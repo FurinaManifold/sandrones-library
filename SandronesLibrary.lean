@@ -2,3 +2,5 @@ import SandronesLibrary.Basic
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
+import SandronesLibrary.SetTheory.Relations
+import SandronesLibrary.SetTheory.Cardinal

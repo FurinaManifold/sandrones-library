@@ -248,5 +248,146 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "settheory.set.relations.equivalence-class-eq",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "等价类相等 ⟺ 元素等价",
+    "summary": "⟦x⟧ = ⟦y⟧ 当且仅当 x ≈ y",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Relations.lean",
+    "nl_file": "docs/entries/settheory.set.relations.equivalence-class-eq.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.relations",
+    "variant": "ecnu",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.set.relations.quotient-surj",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "商映射满射",
+    "summary": "商映射 x ↦ ⟦x⟧ 是满射",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Relations.lean",
+    "nl_file": "docs/entries/settheory.set.relations.quotient-surj.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.relations",
+    "variant": "ecnu",
+    "axioms": []
+  },
+  {
+    "id": "settheory.cardinal.countable-def",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可数集定义",
+    "summary": "集合可数 ⟺ 存在到 ℕ 的单射",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Cardinal.lean",
+    "nl_file": "docs/entries/settheory.cardinal.countable-def.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal",
+    "variant": "ecnu",
+    "axioms": []
+  },
+  {
+    "id": "settheory.cardinal.countable-rat",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有理数可数",
+    "summary": "有理数集是可数的",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Cardinal.lean",
+    "nl_file": "docs/entries/settheory.cardinal.countable-rat.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal",
+    "variant": "ecnu",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.cardinal.uncountable-real",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实数不可数",
+    "summary": "实数集不可数（Cantor 对角线）",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Cardinal.lean",
+    "nl_file": "docs/entries/settheory.cardinal.uncountable-real.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal",
+    "variant": "ecnu",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.cardinal.countable-union",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可数个可数集的并可数",
+    "summary": "可数个可数集的并仍可数",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Cardinal.lean",
+    "nl_file": "docs/entries/settheory.cardinal.countable-union.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:40:24Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal",
+    "variant": "ecnu",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
