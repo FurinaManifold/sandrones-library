@@ -33,7 +33,9 @@
     "ref": "Rudin, Principles of Mathematical Analysis, Thm 9.22"
   },
   "lean_file": "SandronesLibrary/Analysis/FixedPoint.lean",
-  "nl_file": "docs/entries/analysis.fixedpoint.banach.rudin.md",
+  "nl_file": "docs/entries/analysis/fixedpoint/banach.md",
+  "proof_sha": "6f9d2a3b7e1c...",                  // lean 文件指纹（sha1 前 16 位）；
+                                                  // 供 check_axioms 增量验证跳过未变更文件
   "added_by": "ingestor-<会话标签>",
   "added_at": "2026-08-19T08:00:00Z",
   "dependedOnBy": []                             // 注册时自动回填（调用量指标）
@@ -60,7 +62,17 @@
   叙述层必须注明"教科书版本未提及 Choice，但形式化证明实际依赖"。
 - `audit.py` 校验：verified 条目的 `axioms` 字段与 `#print axioms` 输出一致。
 
-## 2. 叙述层：`docs/entries/<entry-id>.md`
+**验证效率（增量）约定**：
+- `lake build` 本身是**增量编译**：只重建发生变化的模块（每个模块通常秒级），
+  **不要**在验证前 `lake clean`。库再大，新增条目只触发其所在模块与上一层
+  `SandronesLibrary.lean` 的重新编译。
+- `check_axioms.py`（默认增量）：每条目以 `proof_sha`（lean 文件指纹）判断是否需要重验；
+  文件未变则跳过 `#print axioms` 探测。改过 lean 后必须重验该文件里全部条目。
+  `--full` 可强制全量。
+- 完整流水线建议：`lake build`（增量）→ `python3 scripts/check_axioms.py --all --fix`
+  → `python3 scripts/audit.py`。
+
+## 2. 叙述层：`docs/entries/<family>/<entry>.md`
 
 YAML front matter + 固定分节。front matter 与 registry.json 字段一一对应
 （以 registry.json 为准，此处是展示层）：

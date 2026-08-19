@@ -26,7 +26,7 @@
 
 | 产物 | 路径 | 状态 |
 |---|---|---|
-| 叙述层 | `docs/entries/<entry-id>.md` | 由纳客写 |
+| 叙述层 | `docs/entries/<family>/<entry>.md` | 由纳客写 |
 | 形式化层 | `SandronesLibrary/<域>/<文件>.lean` | 由纳客写，Lean 校验 |
 | 元数据 | `index/registry.json`（该条目的记录） | 由脚本/审计者更新 |
 

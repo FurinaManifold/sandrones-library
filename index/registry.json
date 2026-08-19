@@ -15,7 +15,7 @@
       "ref": "Rudin, Principles of Mathematical Analysis, Def 1.17 / Ch1"
     },
     "lean_file": "Analysis/Real.lean",
-    "nl_file": "docs/entries/analysis.real.archimedean.md",
+    "nl_file": "docs/entries/analysis/real/archimedean.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:43:52Z",
     "dependedOnBy": [],
@@ -25,7 +25,8 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ]
+    ],
+    "proof_sha": "71de7a6734a37c8d"
   },
   {
     "id": "settheory.set.ext",
@@ -42,7 +43,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Set.lean",
-    "nl_file": "docs/entries/settheory.set.ext.md",
+    "nl_file": "docs/entries/settheory/set/ext.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:55:42Z",
     "dependedOnBy": [
@@ -53,7 +54,8 @@
     "axioms": [
       "propext",
       "Quot.sound"
-    ]
+    ],
+    "proof_sha": "f8fbdbe9c4e01a07"
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -72,7 +74,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Set.lean",
-    "nl_file": "docs/entries/settheory.set.operations.inter-distrib.md",
+    "nl_file": "docs/entries/settheory/set/operations/inter-distrib.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
     "dependedOnBy": [],
@@ -81,7 +83,8 @@
     "axioms": [
       "propext",
       "Quot.sound"
-    ]
+    ],
+    "proof_sha": "f8fbdbe9c4e01a07"
   },
   {
     "id": "settheory.function.inj-comp",
@@ -98,13 +101,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Function.lean",
-    "nl_file": "docs/entries/settheory.function.inj-comp.md",
+    "nl_file": "docs/entries/settheory/function/inj-comp.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
     "dependedOnBy": [],
     "family": "settheory.function",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.surj-comp",
@@ -121,13 +125,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Function.lean",
-    "nl_file": "docs/entries/settheory.function.surj-comp.md",
+    "nl_file": "docs/entries/settheory/function/surj-comp.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
     "dependedOnBy": [],
     "family": "settheory.function",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.subset.trans",
@@ -142,13 +147,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Set.lean",
-    "nl_file": "docs/entries/settheory.set.subset.trans.md",
+    "nl_file": "docs/entries/settheory/set/subset/trans.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:15Z",
     "dependedOnBy": [],
     "family": "settheory.set.subset",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "f8fbdbe9c4e01a07"
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -165,7 +171,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Set.lean",
-    "nl_file": "docs/entries/settheory.set.subset.antisymm.md",
+    "nl_file": "docs/entries/settheory/set/subset/antisymm.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:15Z",
     "dependedOnBy": [],
@@ -174,7 +180,8 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "f8fbdbe9c4e01a07"
   },
   {
     "id": "settheory.set.empty-subset",
@@ -189,13 +196,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Set.lean",
-    "nl_file": "docs/entries/settheory.set.empty-subset.md",
+    "nl_file": "docs/entries/settheory/set/empty-subset.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:16Z",
     "dependedOnBy": [],
     "family": "settheory.set.subset",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "f8fbdbe9c4e01a07"
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -212,7 +220,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Function.lean",
-    "nl_file": "docs/entries/settheory.function.image-preimage.preimage-union.md",
+    "nl_file": "docs/entries/settheory/function/image-preimage/preimage-union.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:16Z",
     "dependedOnBy": [],
@@ -221,7 +229,8 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.image-preimage.preimage-inter",
@@ -238,7 +247,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Function.lean",
-    "nl_file": "docs/entries/settheory.function.image-preimage.preimage-inter.md",
+    "nl_file": "docs/entries/settheory/function/image-preimage/preimage-inter.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:16Z",
     "dependedOnBy": [],
@@ -247,7 +256,8 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.relations.equivalence-class-eq",
@@ -262,7 +272,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Relations.lean",
-    "nl_file": "docs/entries/settheory.set.relations.equivalence-class-eq.md",
+    "nl_file": "docs/entries/settheory/set/relations/equivalence-class-eq.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
@@ -271,7 +281,8 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.set.relations.quotient-surj",
@@ -286,13 +297,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Relations.lean",
-    "nl_file": "docs/entries/settheory.set.relations.quotient-surj.md",
+    "nl_file": "docs/entries/settheory/set/relations/quotient-surj.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
     "family": "settheory.set.relations",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.cardinal.countable-def",
@@ -307,13 +319,14 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Cardinal.lean",
-    "nl_file": "docs/entries/settheory.cardinal.countable-def.md",
+    "nl_file": "docs/entries/settheory/cardinal/countable-def.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
     "family": "settheory.cardinal",
     "variant": "ecnu",
-    "axioms": []
+    "axioms": [],
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-rat",
@@ -328,7 +341,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Cardinal.lean",
-    "nl_file": "docs/entries/settheory.cardinal.countable-rat.md",
+    "nl_file": "docs/entries/settheory/cardinal/countable-rat.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
@@ -338,7 +351,8 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.uncountable-real",
@@ -353,7 +367,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Cardinal.lean",
-    "nl_file": "docs/entries/settheory.cardinal.uncountable-real.md",
+    "nl_file": "docs/entries/settheory/cardinal/uncountable-real.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
@@ -363,7 +377,8 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-union",
@@ -378,7 +393,7 @@
       "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
     },
     "lean_file": "SetTheory/Cardinal.lean",
-    "nl_file": "docs/entries/settheory.cardinal.countable-union.md",
+    "nl_file": "docs/entries/settheory/cardinal/countable-union.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [],
@@ -388,6 +403,105 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "proof_sha": "1e3a80b42f47b234"
+  },
+  {
+    "id": "settheory.set.operations.complement-union",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "德摩根律（并的补集）",
+    "summary": "(A∪B)ᶜ = Aᶜ∩Bᶜ",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory/set/operations/complement-union.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:54:36Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.operations",
+    "variant": "ecnu",
+    "proof_sha": "f8fbdbe9c4e01a07",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.set.operations.complement-inter",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "德摩根律（交的补集）",
+    "summary": "(A∩B)ᶜ = Aᶜ∪Bᶜ",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory/set/operations/complement-inter.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:54:37Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.operations",
+    "variant": "ecnu",
+    "proof_sha": "f8fbdbe9c4e01a07",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.set.operations.diff-inter-complement",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "差集与补集",
+    "summary": "A∖B = A∩Bᶜ",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory/set/operations/diff-inter-complement.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:54:37Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.operations",
+    "variant": "ecnu",
+    "proof_sha": "f8fbdbe9c4e01a07",
+    "axioms": []
+  },
+  {
+    "id": "settheory.function.inject-surject.bijective-iff-inverse",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "双射 ⟺ 有逆映射",
+    "summary": "f 双射恰有 g:左逆∧右逆",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Function.lean",
+    "nl_file": "docs/entries/settheory/function/inject-surject/bijective-iff-inverse.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-19T08:54:37Z",
+    "dependedOnBy": [],
+    "family": "settheory.function.inject-surject",
+    "variant": "ecnu",
+    "proof_sha": "d065f0fc3976123b",
+    "axioms": [
+      "Classical.choice"
     ]
   }
 ]

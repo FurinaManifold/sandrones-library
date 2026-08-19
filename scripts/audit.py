@@ -40,7 +40,7 @@ def err(msg: str) -> None:
 def check(record: dict) -> None:
     eid = record["id"]
     lean_path = LEAN_ROOT / record["lean_file"] if record.get("lean_file") else None
-    nl_path = ENTRIES / f"{eid}.md"
+    nl_path = (ROOT / record["nl_file"]) if record.get("nl_file") else ENTRIES / f"{eid}.md"
     state = record["state"]
 
     if not ID_RE.match(eid):
@@ -49,6 +49,9 @@ def check(record: dict) -> None:
         err(f"{eid}: 非法 kind {record['kind']}")
     if state not in STATES:
         err(f"{eid}: 非法 state {state}")
+    # 叙述层路径应为 family 子目录形式（与 new_entry.py 一致）
+    if record.get("nl_file") != f"docs/entries/{eid.replace('.', '/')}.md":
+        err(f"{eid}: nl_file 未按 family 子目录规范（应为 docs/entries/{eid.replace('.', '/')}.md）")
 
     # premises 完整性
     registry_ids = {r["id"] for r in REGISTRY_DATA}

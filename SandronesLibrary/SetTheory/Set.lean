@@ -13,6 +13,12 @@ import Mathlib
 * **settheory.set.ext**（外延性原理）：两个集合相等 ⟺ 元素完全相同。
 * **settheory.set.operations.inter-distrib**（交对并的分配律）：
   `A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)`，依赖 `settheory.set.ext`。
+* **settheory.set.operations.complement-union**（德摩根律之一）：
+  `(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ`。
+* **settheory.set.operations.complement-inter**（德摩根律之二）：
+  `(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ`。
+* **settheory.set.operations.diff-inter-complement**（差集与补集）：
+  `A \ B = A ∩ Bᶜ`。
 -/
 
 namespace SandronesLibrary
@@ -102,6 +108,39 @@ theorem empty_subset {α : Type*} (A : Set α) : (∅ : Set α) ⊆ A := by
   -- 思路：x ∈ ∅ 是不可能的（x ∈ ∅ 定义上就是 False），无事可证。
   intro x hx
   exact False.elim hx
+
+/--
+> **Entry**: settheory.set.operations.complement-union
+> **一句话**: 德摩根律（之一）：并集的补集 = 补集的交集：`(A ∪ B)ᶜ = Aᶜ ∩ Bᶜ`。
+> **直觉**: "既不属于 A 也不属于 B" 就是 "不属于 A 且不属于 B"——取补把 ∪ 换成 ∩。
+> **依赖**: 无
+> **mathlib**: `Set.compl_union`
+-/
+theorem complement_union {α : Type*} (A B : Set α) : (A ∪ B)ᶜ = Aᶜ ∩ Bᶜ := by
+  -- 思路：这是集合代数里"取补翻转并/交"的标准恒等式，直接引用 mathlib。
+  rw [Set.compl_union]
+
+/--
+> **Entry**: settheory.set.operations.complement-inter
+> **一句话**: 德摩根律（之二）：交集的补集 = 补集的并集：`(A ∩ B)ᶜ = Aᶜ ∪ Bᶜ`。
+> **直觉**: "不属于 A 或不属于 B"（不是"同时属于 A 与 B"）——取补把 ∩ 换成 ∪。
+> **依赖**: 无
+> **mathlib**: `Set.compl_inter`
+-/
+theorem complement_inter {α : Type*} (A B : Set α) : (A ∩ B)ᶜ = Aᶜ ∪ Bᶜ := by
+  -- 思路：与 complement-union 平行的恒等式，直接引用 mathlib。
+  rw [Set.compl_inter]
+
+/--
+> **Entry**: settheory.set.operations.diff-inter-complement
+> **一句话**: 差集可以写作"属于 A 且不属于 B"：`A \ B = A ∩ Bᶜ`。
+> **直觉**: 差集 A∖B 就是"从 A 里划掉 B 的部分"，翻译成交集与补集的语言。
+> **依赖**: 无
+> **mathlib**: `Set.diff_eq`
+-/
+theorem diff_inter_complement {α : Type*} (A B : Set α) : A \ B = A ∩ Bᶜ := by
+  -- 思路：mathlib 把差集直接定义为 `s \ t = s ∩ tᶜ`，这就是定义本身。
+  exact Set.diff_eq A B
 
 end SetTheory.Set
 

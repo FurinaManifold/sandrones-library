@@ -112,7 +112,7 @@ end SandronesLibrary
             "ref": args.ref,
         },
         "lean_file": str(args.lean_file),
-        "nl_file": f"docs/entries/{eid}.md",
+        "nl_file": f"docs/entries/{eid.replace('.', '/')}.md",
         "added_by": f"ingestor-{sys.argv[0].split('/')[-1]}",
         "added_at": datetime.now(timezone.utc).isoformat(timespec="seconds").replace("+00:00", "Z"),
         "dependedOnBy": [],
@@ -120,7 +120,7 @@ end SandronesLibrary
     registry.append(record)
     save_registry(registry)
 
-    md_path = ENTRIES / f"{eid}.md"
+    md_path = ENTRIES / (eid.replace(".", "/") + ".md")
     md_path.parent.mkdir(parents=True, exist_ok=True)
     md_path.write_text(
         f"""---

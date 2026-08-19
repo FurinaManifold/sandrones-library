@@ -12,6 +12,8 @@ import Mathlib
 
 * **settheory.function.inj-comp**（单射的复合）：`f` 与 `g` 单射 ⇒ `g ∘ f` 单射。
 * **settheory.function.surj-comp**（满射的复合）：`f` 与 `g` 满射 ⇒ `g ∘ f` 满射。
+* **settheory.function.inject-surject.bijective-iff-inverse**（双射与可逆）：
+  `f` 双射 ⟺ 存在逆映射 `g`（左右同时回收）。
 -/
 
 namespace SandronesLibrary
@@ -91,6 +93,23 @@ theorem preimage_inter {α β : Type*} (f : α → β) (B C : Set β) :
     exact ⟨hfB, hfC⟩
   · rintro ⟨hfB, hfC⟩
     exact ⟨hfB, hfC⟩
+
+/--
+> **Entry**: settheory.function.inject-surject.bijective-iff-inverse
+> **一句话**: 双射 ⟺ 有逆映射：`f` 双射恰有 `g` 满足 `g ∘ f = id` 且 `f ∘ g = id`。
+> **直觉**: 双射 = "碰撞不会发生（单射）+ 目标全覆盖（满射）"，
+>   两者合在一起恰好让"往回走"的映射存在且唯一。
+> **依赖**: 无
+> **mathlib**: `Function.bijective_iff_has_inverse`
+-/
+theorem bijective_iff_inverse {α β : Type*} (f : α → β) :
+    Function.Bijective f ↔
+      ∃ g : β → α, Function.LeftInverse g f ∧ Function.RightInverse g f := by
+  -- 思路（思维脉络）：教科书论证分两步——
+  --   ⇐：有左右逆 ⟹ 单射（左逆回收）与满射（右逆回投）分别成立，故双射；
+  --   ⇒：双射给每个 b 唯一"原型" g(b)，构造出的 g 同时是左逆与右逆。
+  -- 这里是可直接引用的 mathlib 完整对应（含构造细节），故 `exact` 一步到位。
+  exact Function.bijective_iff_has_inverse
 
 end SetTheory.Function
 

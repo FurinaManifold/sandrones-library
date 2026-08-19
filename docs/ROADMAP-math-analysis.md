@@ -29,9 +29,9 @@
 | 条目家族 | 内容 | mathlib 参考 | 状态 |
 |---|---|---|---|
 | `settheory.set.subset` | 子集/包含：定义、传递性、`A⊆B` 的等价刻画 | `Set.subset_def` | 🔶（`…trans`,`…antisymm`,`…empty-subset` ✅） |
-| `settheory.set.operations` | 并/交/补/差：分配律、德摩根律、`A∖B=A∩Bᶜ`、`∅⊆A` | `Set.inter_union_distrib_left` | 🔶（`…ext`,`…inter-distrib` ✅） |
+| `settheory.set.operations` | 并/交/补/差：分配律、德摩根律、`A∖B=A∩Bᶜ`、`∅⊆A` | `Set.inter_union_distrib_left` | ✅（`…ext`,`…inter-distrib`,`…complement-union`,`…complement-inter`,`…diff-inter-complement`） |
 | `settheory.set.relations` | **浅层**：等价关系、等价类、商集、商映射（支撑实数构造） | `Setoid`, `Quotient` | ✅（`…equivalence-class-eq`,`…quotient-surj`） |
-| `settheory.function.inject-surject` | 单射/满射/双射、复合保持、双射⇔有逆 | `Function.Injective/Surjective/Bijective` | 🔶（`…inj-comp`,`…surj-comp` ✅） |
+| `settheory.function.inject-surject` | 单射/满射/双射、复合保持、双射⇔有逆 | `Function.Injective/Surjective/Bijective` | ✅（`…inj-comp`,`…surj-comp`,`…bijective-iff-inverse`） |
 | `settheory.function.image-preimage` | 像 `f[A]`、原像 `f⁻¹[B]`，原像保并/交 | `Set.image`, `Set.preimage` | ✅（`…preimage-union`,`…preimage-inter`） |
 | `settheory.cardinal.countable` | 可数定义、**有理数可数**、**实数不可数**、可数个可数之并可数 | `Countable`, `Set.countable_iUnion` | ✅（`…countable-def`,`…countable-rat`,`…uncountable-real`,`…countable-union`） |
 

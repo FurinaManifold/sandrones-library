@@ -1,18 +1,24 @@
 #!/usr/bin/env python3
-"""Sandrone's Library — 公理依赖审计工具（定理级精确）。
+"""Sandrone's Library — 公理依赖审计工具（定理级精确，增量式）。
 
 对 registry 中 verified 条目，从其 .lean 文件里按 `> **Entry**: <id>` docstring 标记
 精确定位该条目对应的定理/定义，用 `#print axioms` 获取真实公理依赖，
 与 registry 的 `axioms` 字段比对。
 
+增量机制（默认开启）：每条目记录 lean 文件的指纹 `proof_sha`。若 `proof_sha`
+与当前 lean 文件哈希一致且 `axioms` 字段已登记，则跳过验证（该条目此前通过且
+源文件未变）。`--fix` 在验证通过后回写指纹。`--full` 可强制全量重验。
+
 用法:
     python3 scripts/check_axioms.py <entry-id>   # 检查单个
-    python3 scripts/check_axioms.py --all        # 检查全部 verified
-    python3 scripts/check_axioms.py --all --fix  # 不一致时回写 registry
+    python3 scripts/check_axioms.py --all        # 检查全部 verified（增量跳过未变更）
+    python3 scripts/check_axioms.py --all --fix  # 不一致/缺字段时回写 registry
+    python3 scripts/check_axioms.py --all --fix --full  # 忽略指纹，全量重验
 
 输出: 每条目打印 实际公理 与 登记的对比；不一致时退出码 1（除非 --fix）。
 """
 import argparse
+import hashlib
 import json
 import re
 import subprocess
@@ -88,11 +94,17 @@ def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
     return result
 
 
+def file_sha(path: Path) -> str:
+    return hashlib.sha1(path.read_bytes()).hexdigest()[:16]
+
+
 def main() -> None:
     ap = argparse.ArgumentParser()
     ap.add_argument("entry_id", nargs="?")
     ap.add_argument("--all", action="store_true")
     ap.add_argument("--fix", action="store_true")
+    ap.add_argument("--full", action="store_true",
+                    help="忽略增量指纹，对全部 verified 全量重验")
     args = ap.parse_args()
 
     data = json.loads(REGISTRY.read_text(encoding="utf-8"))
@@ -109,6 +121,14 @@ def main() -> None:
         if not lf.exists():
             print(f"[SKIP] {rec['id']}: 缺 lean 文件")
             continue
+
+        # 增量：lean 文件未变且 axioms 已登记 → 跳过
+        sha = file_sha(lf)
+        if (not args.full and rec.get("proof_sha") == sha
+                and isinstance(rec.get("axioms"), list)):
+            print(f"[SKIP·增量] {rec['id']}: 指纹一致，跳过（--full 强制全量）")
+            continue
+
         mapping = map_entry_to_decl(lf.read_text(encoding="utf-8"))
         decls = mapping.get(rec["id"])
         if not decls:
@@ -121,6 +141,8 @@ def main() -> None:
             actual.update(ax)
         actual = sorted(actual)
         recorded = sorted(rec.get("axioms", []))
+        # 验证通过：更新内存指纹（写盘与否取决于 --fix，保证只读模式不改文件）
+        rec["proof_sha"] = sha
         if actual != recorded:
             print(f"[DIFF] {rec['id']}:\n   实际={actual}\n   登记={recorded}")
             if args.fix:
