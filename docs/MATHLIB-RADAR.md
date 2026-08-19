@@ -95,6 +95,50 @@
 - **出处**：`Mathlib/Order/Filter/Tendsto.lean`
 - **谁在用**：`analysis.sequence.subsequence`。
 
+### `Filter.Tendsto.neg`
+- **人话**：极限的负号随便进出：`u → l` ⟹ `-u → -l`。把反单调序列 `bₙ` 换成单调的 `-bₙ` 套单调收敛定理的关键一拧。
+- **签名**：`(h : Tendsto u atTop (𝓝 l)) : Tendsto (fun n => -u n) atTop (𝓝 (-l))`
+- **出处**：`Mathlib/Order/Filter/Tendsto.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.mct-to-nested-intervals`（`antitone_limit_le` 里 `hL.neg`）。
+
+### `Filter.Tendsto.const_mul`
+- **人话**：常数乘法可进出极限：`f → a` ⟹ `c·f → c·a`。做"`(b-a)·(1/2)ⁿ → 0`"这类缩放的标准手法。
+- **签名**：`(b : M) (hf : Tendsto f x (𝓝 a)) : Tendsto (fun x => b * f x) x (𝓝 (b * a))`
+- **出处**：`Mathlib/Order/Filter/Tendsto.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（`hpow.const_mul (b - a)`）。
+
+### `tendsto_pow_atTop_nhds_zero_of_norm_lt_one`
+- **人话**：`‖r‖ < 1` 时 `rⁿ → 0`。几何级数收敛的底子；对 `r = 1/2` 就是"二分区间直径 → 0"。
+  这是**阿基米德原理的形式化身**（等价环里只有 `cauchy-to-sup` 一道显式用它）。
+- **签名**：`(h : ‖x‖ < 1) : Tendsto (fun n => x ^ n) atTop (𝓝 0)`
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（区间长度趋于 0 的发动机）。
+
+### `one_div_pow`
+- **人话**：倒数的幂等于幂的倒数：`(1/a)ⁿ = 1/aⁿ`。把 `(1/2)ⁿ` 换回 `1/2ⁿ` 的桥。
+- **签名**：`(a : α) (n : ℕ) : (1 / a) ^ n = 1 / a ^ n`
+- **出处**：`Mathlib/Algebra/Group/Pow/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（`heq : c/2ⁿ = c·(1/2)ⁿ` 的 rewrite）。
+
+### `Filter.Eventually.of_forall`
+- **人话**：逐点成立 ⟹ 滤子最终成立：`(∀ x, p x) → ∀ᶠ x in f, p x`。把"每一项都 ≥ b"搬进滤子语言，喂给取极限引理。
+- **签名**：`(hp : ∀ x, p x) : ∀ᶠ x in f, p x`
+- **出处**：`Mathlib/Order/Filter/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（配 `ge_of_tendsto` / `le_of_tendsto`）。
+
+### `Filter.Tendsto.sub`
+- **人话**：差的极限 = 极限的差：`f → a`、`g → b` ⟹ `(f - g) → (a - b)`。
+- **签名**：`(hf : Tendsto f l (𝓝 a)) (hg : Tendsto g l (𝓝 b)) : Tendsto (fun x => f x - g x) l (𝓝 (a - b))`
+- **出处**：`Mathlib/Topology/Algebra/Group/`（连续减法沿滤子保极限）
+- **谁在用**：`analysis.completeness.equivalence-cycle.cauchy-to-sup`（`rₙ - lₙ → y - x`，再配合 `tendsto_nhds_unique` 证 `x = y`）。
+
+### `ge_of_tendsto` / `le_of_tendsto`
+- **人话**：**不等式取极限**：每一项 `f n ≥ b` 且 `f → a`，则 `a ≥ b`（`ge_of_tendsto`，上界方向）；
+  每一项 `f n ≤ b` 则 `a ≤ b`（`le_of_tendsto`，下界方向）。把"逐项夹住"升级为"极限也被夹住"。
+- **签名**：`(colim : Tendsto f x (𝓝 a)) (h : ∀ᶠ c in x, b ≤ f c) : b ≤ a`
+- **出处**：`Mathlib/Topology/Order/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.cauchy-to-sup`（`rₙ` 恒是 s 的上界且 `rₙ → x` ⟹ `z ≤ x`）。
+
 ---
 
 ## G2. 有界（BddAbove / BddBelow / IsBoundedUnder）
@@ -125,6 +169,13 @@
 - **签名**：`IsBoundedUnder (· ≤ ·) atTop u : BddAbove (Set.range u)`
 - **出处**：`Mathlib/Order/Filter/IsBounded.lean`
 - **谁在用**：`analysis.sequence.bounded`。
+
+### `cauchySeq_bdd`
+- **人话**：**Cauchy 列必有界**：`∃ R > 0`，任意两项距离 `< R`。Cauchy 定义一推即得——
+  从某一项起任两项相互靠拢，再用这个 R 把前头有限项一起框住。
+- **签名**：`(hu : CauchySeq u) : ∃ R > 0, ∀ m n, dist (u m) (u n) < R`
+- **出处**：`Mathlib/Topology/MetricSpace/Cauchy.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（`cauchy_seq_bounded`：从 R 框住值域得 BddAbove ∧ BddBelow）。
 
 ---
 
@@ -180,6 +231,24 @@
   喂给确界原理的 h₁。
 - **签名**：`[Nonempty ι] (f : ι → α) : (Set.range f).Nonempty`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
+
+### `mem_upperBounds`
+- **人话**："x 是 s 的上界"的判准：`x ∈ upperBounds s ⟺ ∀ y ∈ s, y ≤ x`。upperBounds s 是"s 的所有上界"这个集合。
+- **签名**：`a ∈ upperBounds s ↔ ∀ x ∈ s, x ≤ a`
+- **出处**：`Mathlib/Order/Bounds/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.cauchy-to-sup`（二分上确界里"右端是上界 / 左端不是上界"的不变量全靠它进出）。
+
+### `IsCompact.elim_finite_subcover`
+- **人话**：**紧集开覆盖的有限子覆盖抽取器**：`IsCompact s` + 开覆盖 `{Uᵢ}` ⟹ 存在有限指标集 t 使 `s ⊆ ⋃ i∈t, Uᵢ`。有限覆盖原理就是它的一行调用。
+- **签名**：`(hs : IsCompact s) (hUo : ∀ i, IsOpen (U i)) (hc : s ⊆ ⋃ i, U i) : ∃ t : Finset ι, s ⊆ ⋃ i ∈ t, U i`
+- **出处**：`Mathlib/Topology/Compactness/Compact.lean`
+- **谁在用**：真定理 `analysis.completeness.finite-cover`。
+
+### `Set.Infinite.exists_accPt_of_subset_isCompact`
+- **人话**：**紧集里的无限子集必有聚点**：s 无限、s ⊆ K 且 K 紧 ⟹ 存在 x ∈ K 是 s 的聚点。聚点定理的直接来源。
+- **签名**：`(hs : s.Infinite) (hK : IsCompact K) (hsub : s ⊆ K) : ∃ x ∈ K, AccPt x (𝓟 s)`
+- **出处**：`Mathlib/Topology/Compactness/Compact.lean`
+- **谁在用**：真定理 `analysis.completeness.accumulation-point`。
 
 ---
 
@@ -259,6 +328,61 @@
 - **签名**：`[Countable ι] (ht : ∀ i, (t i).Countable) : (⋃ i, t i).Countable`
 - **出处**：`Mathlib/Data/Set/Countable.lean`
 - **谁在用**：`settheory.cardinal.countable-union`。
+
+### `Finset.finite_toSet`
+- **人话**：**Finset 转成集合必有限**：`(↑t : Set α).Finite`。有限子覆盖/有限值域的收尾常靠它把 Finset 变回"有限集"。
+- **签名**：`(s : Finset α) : (↑s : Set α).Finite`
+- **出处**：`Mathlib/Data/Finset/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（`(Finset.finite_toSet t).subset hsub_fin : s.Finite`）。
+
+### `Set.mem_iUnion`
+- **人话**：并集元素判准：`x ∈ ⋃ i, s i ⟺ ∃ i, x ∈ s i`。
+  **必用 `Set.mem_iUnion.mp`** 拿到正确类型的 i——直接 rcases 会被 bigUnion 记法绑架成 Set（Playbook §3.12）。
+- **签名**：`x ∈ ⋃ i, s i ↔ ∃ i, x ∈ s i`
+- **出处**：`Mathlib/Data/Set/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（`Set.mem_iUnion.mp (hcover hxab)` 解出 i₀ : ι）。
+
+### `Set.mem_biUnion`
+- **人话**：**构造**"受限并"的元素：`x ∈ s` 且 `y ∈ t x` ⟹ `y ∈ ⋃ x ∈ s, t x`。这是构造方向（往并集里塞元素）的规则；反向解构请用 `Set.mem_iUnion.mp`。别用嵌套 rcases（Playbook §3.16）。
+- **签名**：`(xs : x ∈ s) (ytx : y ∈ t x) : y ∈ ⋃ x ∈ s, t x`
+- **出处**：`Mathlib/Data/Set/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（鸽笼 `Set.mem_biUnion ⟨n, rfl⟩ rfl`）。
+
+### `Set.mem_singleton_iff`
+- **人话**：单点集判准：`x ∈ {y} ⟺ x = y`。把"落在单点集里"翻回"等于那个点"。
+- **签名**：`x ∈ ({y} : Set α) ↔ x = y`
+- **出处**：`Mathlib/Data/Set/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（`Uᵢ ∩ s ⊆ {i₀}` ⟹ y = i₀）、`analysis.completeness.equivalence-cycle.cauchy-to-sup`。
+
+### `Set.Finite.subset` / `Set.Finite.image`
+- **人话**：有限性两条传递：有限集的任意子集有限（subset）；有限集经任意函数像仍有限（image）。鸽笼/有限覆盖里的"有限蔓延"全靠它们。
+- **签名**：`hs.subset ht : t.Finite`；`Set.Finite.image f hs : (f '' s).Finite`
+- **出处**：`Mathlib/Data/Set/Finite/Defs.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`、`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`。
+
+### `Set.Finite.biUnion`
+- **人话**：**有限并仍有限**：指标集有限且每片有限 ⟹ `(⋃ i ∈ s, t i).Finite`。鸽笼的核心一步。
+- **签名**：`(hs : s.Finite) (ht : ∀ i ∈ s, (t i).Finite) : (⋃ i ∈ s, t i).Finite`
+- **出处**：`Mathlib/Data/Set/Finite/Lattice.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（值域有限 ⟹ 各纤维有限 ⟹ 并起来覆盖 ℕ 仍有限，矛盾）。
+
+### `Set.infinite_univ` 与 `Set.Infinite.not_finite` / `Set.Infinite.nonempty`
+- **人话**：**全集无限**（[Infinite α] 时）；`Infinite` 与 `¬ Finite` 同义（definitional，Playbook §3.16）；`Infinite.nonempty` 给非空。ℕ 无限（Set.infinite_univ）是鸽笼矛盾的弹药。
+- **签名**：`[h : Infinite α] : Set.univ.Infinite`；`(hs : s.Infinite) : ¬ s.Finite`
+- **出处**：`Mathlib/Data/Set/Finite/` 与 `Mathlib/Data/Set/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（univ = 有限个纤维之并 → 有限，与无限矛盾）。
+
+### `Set.Infinite.exists_gt`
+- **人话**：无限子集在任意 a 之后还有元素：`∃ b ∈ s, a < b`。配 Nat.exists_strictMono_subsequence 就能把无限集枚举成严格增子列。
+- **签名**：`(hs : s.Infinite) (a : α) : ∃ b ∈ s, a < b`（需 [LocallyFiniteOrderBot α]，ℕ/ℝ 满足）
+- **出处**：`Mathlib/Data/Set/Finite/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（从 {n | u n = c} 无限拉出 n > N 的项）。
+
+### `Set.Finite.isClosed` / `IsClosed.isOpen_compl` / `IsOpen.mem_nhds`
+- **人话**：*分离有限个点*三连：有限集是闭集（T1 空间，ℝ 是）；闭集的补集是开集；开集含 x ⟹ 它是 x 的邻域。合起来：x 不在有限集 F 里 ⟹ 有一个开邻域避开 F。
+- **签名**：`(hs : s.Finite) : IsClosed s`；`IsClosed.isOpen_compl : IsOpen sᶜ`；`IsOpen.mem_nhds hs hx : s ∈ 𝓝 x`
+- **出处**：`Mathlib/Topology/`（Set.Finite.isClosed 连带 T 分离公理）
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（核心桥：x 与 s ∩ (range u \ {x}) 有限集分离，推出邻域矛盾）。
 
 ---
 
@@ -441,6 +565,103 @@
 - **谁在用**：`analysis.sequence.liminf-limsup`。
 - **坑**：两者相等 ⟹ 收敛这个方向需要序拓扑与两向有界（`tendsto_of_liminf_eq_limsup` 带默认界假设，
   显式提供更稳）。
+
+---
+
+## G10. 聚点 / cluster point / 子列（完备性等价环专用）
+
+> 支撑 `analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`：从"有界无限集有聚点"一步步走到"Cauchy 收敛"。
+> 语言核心：𝓝 x（邻域）与 𝓟 s（principal 滤子，即"在 s 里"）的交乘积。
+
+### `AccPt`
+- **人话**：**聚点**：x 的每个去心邻域里都还有 s 的点（(𝓝[≠] x ⊓ 𝓟 s).NeBot）。用它写"集合能堆积出来"的极限位置。
+- **签名**：`AccPt (x : X) (F : Filter X) : Prop`（对 𝓟 s 即为"集合 s 的聚点"）
+- **出处**：`Mathlib/Topology/ClusterPt.lean`
+- **谁在用**：真定理 `analysis.completeness.accumulation-point`、`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`、`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`。
+
+### `accPt_iff_nhds`
+- **人话**：把"聚点"翻成邻域语言：`AccPt x (𝓟 s) ⟺ ∀ U ∈ 𝓝 x, ∃ y ∈ U ∩ s, y ≠ x`。一推否定就是"存在邻域里 s 的点至多只有 x 自己"。
+- **签名**：`AccPt x (𝓟 C) ↔ ∀ U ∈ 𝓝 x, ∃ y ∈ U ∩ C, y ≠ x`
+- **出处**：`Mathlib/Topology/ClusterPt.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（not_accPt_iff_exists_nhds 引理）。
+
+### `accPt_principal_iff_clusterPt`
+- **人话**：把"去心聚点"压平为 cluster point：`AccPt x (𝓟 C) ⟺ ClusterPt x (𝓟 (C \ {x}))`。它让"聚点"和"cluster point"两套语言可自由切换。
+- **签名**：`AccPt x (𝓟 C) ↔ ClusterPt x (𝓟 (C \ {x}))`
+- **出处**：`Mathlib/Topology/ClusterPt.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（核心桥）。
+
+### `clusterPt_principal_iff`
+- **人话**：cluster point 的邻域语言：`ClusterPt x (𝓟 s) ⟺ ∀ U ∈ 𝓝 x, (U ∩ s).Nonempty`（每个邻域都被 s 碰到，不要求"去心"）。
+- **签名**：`ClusterPt x (𝓟 s) ↔ ∀ U ∈ 𝓝 x, (U ∩ s).Nonempty`
+- **出处**：`Mathlib/Topology/ClusterPt.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（核心桥）。
+
+### `MapClusterPt` / `mapClusterPt_iff_frequently`
+- **人话**：x 是**序列 u 的映射聚点**：ClusterPt x (map u F)（u 把 F 推过去后 x 仍是 cluster）；对 atTop：∀ s ∈ 𝓝 x, ∃ᶠ n in atTop, u n ∈ s（每个邻域被无限多次命中）。
+- **签名**：`MapClusterPt x F u ↔ ∀ s ∈ 𝓝 x, ∃ᶠ a in F, u a ∈ s`
+- **出处**：`Mathlib/Topology/ClusterPt.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（聚点 ⟹ MapClusterPt ⟹ 子列）。
+
+### `MapClusterPt.tendsto_subseq`
+- **人话**：cluster point ⟹ **有收敛子列**：`MapClusterPt x atTop u ⟹ ∃ φ, StrictMono φ ∧ (u ∘ φ) → x`。
+- **签名**：`(hx : MapClusterPt x atTop u) : ∃ φ, StrictMono φ ∧ Tendsto (u ∘ φ) atTop (𝓝 x)`
+- **出处**：`Mathlib/Topology/Bases.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`。
+
+### `tendsto_nhds_of_cauchySeq_of_subseq`
+- **人话**：**Cauchy + 有收敛子列 ⟹ 整体收敛**：种子收敛到 x，Cauchy 把差距全部拉平。这是"聚点 → Cauchy 收敛"的最后一步。
+- **签名**：`(hu : CauchySeq u) (hf : Tendsto φ p atTop) (ha : Tendsto (u ∘ φ) p (𝓝 a)) : Tendsto u atTop (𝓝 a)`
+- **出处**：`Mathlib/Topology/UniformSpace/Cauchy.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（子列/常值子列拉平）。
+
+### `Nat.exists_strictMono_subsequence`
+- **人话**：**"无限多次成立"能挑成子列**：`(∀ N, ∃ n > N, P n) ⟹ ∃ φ, StrictMono φ ∧ ∀ n, P (φ n)`。鸽笼里"某值被取了无限次"就调它挑下标。
+- **签名**：`(∀ N, ∃ n > N, P n) : ∃ φ, StrictMono φ ∧ ∀ n, P (φ n)`
+- **出处**：`Mathlib/Order/Monotone/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（常值子列）。
+
+### `Nat.frequently_atTop_iff_infinite`
+- **人话**：atTop 上"无限多次" ⟺ 被测集合无限：`(∃ᶠ n in atTop, p n) ⟺ {n | p n}.Infinite`。
+- **签名**：`(∃ᶠ n in atTop, p n) ↔ {n | p n}.Infinite`
+- **出处**：`Mathlib/Order/Filter/Cofinite.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（可改用 Set.Infinite.exists_gt 更直接）。
+
+---
+
+## G11. 单调序列构造与度量开集件（二分进程装配）
+
+> 支撑二分进程 halfbiseq / bisect_upper：左端单调增、右端单调减、区间直径 → 0、每层从开集/邻域里取 ε-球。
+
+### `monotone_nat_of_le_succ` / `antitone_nat_of_succ_le`
+- **人话**：**单步单调 ⟹ 全程单调**：f n ≤ f(n+1) 对每个 n ⟹ f 单调增（monotone_nat_of_le_succ）；f(n+1) ≤ f n ⟹ 反单调（antitone_nat_of_succ_le）。二分左/右端点装配全靠它。
+- **签名**：`(hf : ∀ n, f n ≤ f (n + 1)) : Monotone f`；`(hf : ∀ n, f (n + 1) ≤ f n) : Antitone f`
+- **出处**：`Mathlib/Order/Monotone/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（halfbiseq / bisect_upper 的 lₙ 增、rₙ 减）。
+
+### `Metric.isOpen_iff`
+- **人话**：开集判准：`IsOpen s ⟺ ∀ x ∈ s, ∃ ε > 0, ball x ε ⊆ s`（每点含一整颗开球）。从"Uᵢ 开"里取 ε-球的标准入口。
+- **签名**：`IsOpen s ↔ ∀ x ∈ s, ∃ ε > 0, Metric.ball x ε ⊆ s`
+- **出处**：`Mathlib/Topology/MetricSpace/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`（Metric.isOpen_iff.mp (hUo i₀) x hxi₀ 取覆盖的 ε 球）。
+
+### `Metric.mem_nhds_iff`
+- **人话**：邻域判准：`s ∈ 𝓝 x ⟺ ∃ ε > 0, ball x ε ⊆ s`（邻域里藏着以 x 为心的一颗开球）。从"U 是 x 的邻域"换出开球。
+- **签名**：`s ∈ 𝓝 x ↔ ∃ ε > 0, Metric.ball x ε ⊆ s`
+- **出处**：`Mathlib/Topology/MetricSpace/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（Metric.mem_nhds_iff.mp hU 取 ε 球）。
+
+### `Metric.mem_ball_self` / `Metric.isOpen_ball`
+- **人话**：自己必在自己球里：0 < ε ⟹ x ∈ ball x ε；开球是开集：IsOpen (ball x ε)。二分的最终落点：把 x ∈ Icc (A N) (B N) 换成 x ∈ ball x ε，从而被 Uᵢ 收纳。
+- **签名**：`Metric.mem_ball_self (h : 0 < ε) : x ∈ ball x ε`；`Metric.isOpen_ball`
+- **出处**：`Mathlib/Topology/MetricSpace/`
+- **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`。
+
+### `IsOpen.mem_nhds`
+- **人话**：开集含 x ⟹ 它是 x 的邻域：IsOpen.mem_nhds hs hx。配合 Set.Finite.isClosed 完美实现"x 与有限个点分离"。
+- **签名**：`(hs : IsOpen s) (hx : x ∈ s) : s ∈ 𝓝 x`
+- **出处**：`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（核心桥）。
 
 ---
 

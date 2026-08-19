@@ -239,6 +239,95 @@
   都应强制重编顶层后再跑外部 `#check`/`#print axioms`。**
 - 出处：第三章第四批（len analysis.sequence 四新定理），实验文件 /tmp/opencode/ax2.lean。
 
+### 3.11 做题也要列 todo：一道定理 = 一个微项目，一次 edit 只喂一条引理
+
+- 现象：写"闭区间套 ⟹ 有限覆盖"这种 C 类大定理时，把
+  （二分定义 + 长度引理 + 保序引理 + 保"无有限子覆盖"引理 + 主定理）**整块塞进
+  一次 Edit**，结果十余个错误连环爆炸（syntax + 未知名 + 类型不匹配 + 方向错误），
+  且中途还留下了 `sorry` 占位，把自己拖进"修到你烦"的泥潭。
+- 教训：**把证明方案先写成 todo list，一条引理一个 item，逐条 edit + 编译通过再下一条。**
+  - 写大定理前先在文件里立下 `/- 引理清单 -/` 注释（含每个引理的类型签名），
+    等于把"思维脚手架"固化下来，不用每轮重推。
+  - 每轮只动一个最小可验证单元（小引理 / 主定理的分支），跑 `lean` 无错即完成一项。
+  - 中途**严禁留 `sorry`**：敢留一个，下一个错误就离它十万八千里。
+- 与 §3.10 的区别：§3.10 是"改完才编"的增量缓存陷阱；§3.11 是"一次喂太多"
+  的注意广度陷阱。两者的共同解法都是**缩小验证单元、及时编译**。
+- 出处：第三章第五批（analysis.completeness 等价环第三道 NIT→FC）。
+
+### 3.12 `⋃ i ∈ t, U i`（t : Finset）会把绑定变量绑架成 `Set ℝ` —— 改用纯 ∃ 描述
+
+- 现象：`x ∈ ⋃ i ∈ t, U i`（`t : Finset ι`）被反复解构时，`rcases` 给出的
+  `i` 类型是 `Set ℝ`，目标是诡异的 `i ∈ Set.range fun i => ⋃ (_ : i ∈ t), U i`；
+  `Finset.mem_union_left` 等全套 Finset 引理全部失配，跟类型死磕数轮。
+- 根因：Lean 4.33 里 `⋃ binder ∈ s, f` 记法默认把 `s` 当 `Set` 解析，
+  对 `Finset` 的 coercion 路径不稳定；`∈` 的 instance 在未知类型时容易拐错。
+- 对策：**有限集合参与"覆盖/成员"描述时，一律写成纯 ∃ 记法**：
+  `∃ t : Finset ι, ∀ x ∈ Set.Icc l r, ∃ i ∈ t, x ∈ U i`
+  （= "存在有限 t 使每点都被 t 里某片盖住"）。∃/∀ 的 `∈` 记法很稳，
+  `rcases` 直接给出 `hit : i ∈ t`（Finset 成员），配 `Finset.mem_union_left` 无摩擦。
+- 推广：任何"big ∪/∩ 带 ∈ binder 且集合是 Finset"的命题，写完先想好解构路径。
+- 方法论（用户强调）：**一小段证明从失败改到成功，当场就把坑写进 Playbook**，
+  不要攒到最后凭记忆 batch——记忆会蒸发，Playbook 不会。
+- 补充（无 Finset 也会踩）：`rcases` 直接解构 `x ∈ ⋃ i, U i`（U : ι → Set ℝ，**无** ∈ binder）
+  给出的 `i₀` 类型是 `Set ℝ`、`hxi₀ : (i₀ ∈ Set.range fun i => U i) ∧ x ∈ i₀`，
+  后续 `hUo i₀` 立刻类型失配。对策：先 `Set.mem_iUnion.mp`（或 `(Set.mem_iUnion.mp h)`）
+  拿到 `∃ i : ι, x ∈ U i` 再 `rcases`。`Set.mem_iUnion` 知道正确类型，绕过绑架。
+- 出处：第三章第五批（analysis.completeness 等价环 NIT→FC，finite_cover_halves / 主定理）。
+
+### 3.13 带 `if` 的递归 def：`by_cases` + `simp only` + `dif_pos/dif_neg`
+
+- 场景：想证明某种 `def halfbiseq … | 0 => … | n+1 => let (l,r) := … in if _h : P l r then (l, m) else (m, r)` 的性质，
+  需要在任意 `n+1` 处按 `if` 分两支。
+- 失败模式：`by_cases h : P (halfbiseq … n).1 ((halfbiseq … n).1 + …)/2` 时，
+  - 漏括号：`P X Y / 2` 被解析为 `(P X Y) / 2`（Prop 相除，报 `HDiv Prop ℕ`）。条件是 `P X ((X + Y) / 2)`，必须全括号。
+  - `simp [halfbiseq, h]`：默认 simp 会把 `(l + r)/2` 归一成 `l * (1/2) + r * (1/2)`，
+    使 if 条件的语法形与 `h` 对不上，`if` 化简成 `if True`（带 binder 的依赖 if，`if_true` 又配不上）。
+- 正确套路：
+  ```
+  by_cases h : P X ((X + Y) / 2)        -- 条件与 def 内 if 逐字一致
+  · simp only [halfbiseq]               -- 只展开 def，禁止额外归一
+    rw [dif_pos h]                      -- 依赖 if 的真分支（h 即条件）
+    ring / nlinarith …
+  · simp only [halfbiseq]
+    rw [dif_neg h]
+    ring / nlinarith …
+  ```
+- 区分：`if c then a else b`（`ite`，c : Bool/Prop 非依赖）配 `if_pos/if_neg`；
+  `if h : c then a else b`（`dite`，h 在分支可用）配 `dif_pos/dif_neg`。
+- 出处：第三章第五批（NIT→FC，halfbiseq_length_step）。
+
+### 3.14 `No goals to be solved`：直接把多余的 tactic 删掉，别干别的
+
+- 症状：某一行（常是 `exact …` / `rfl` / `nlinarith`）报 `error: No goals to be solved`。
+- 语义：**goal 在上一行就已经被关掉了**，你这一行是多余的。前面某个 tactic（常见 `rw [dif_pos h]`/`rw [dif_neg h]`、`simp`、`omega`）
+  已经把目标证明完，剩下的 tactic 找不到目标可证，于是报错。
+- 正确做法：**删掉这一行多余的 tactic**，重新编译。一行即可解决。
+- 反例（浪费时间的错误走法）：看到 `No goals to be solved` 就去怀疑定义、给谓词加 `@[irreducible]`、改 def、
+  排查 rw 失配。结果引入连环新错（`intro h` 打不开 `¬∃`、重复声明、`Did not find dite`）。
+  这全是"目标早已关闭"这一个简单事实引发的连锁误判。
+- 铁律：报 `No goals to be solved` ⟹ 先删多余行；只有删完仍 `unsolved goals` 才回头找真正的证明缺口。
+- 出处：第三章第五批（NIT→FC，halfbiseq_left_mono_step / right_antitone_step）。
+
+### 3.15 两个小陷阱：`push_neg` 已弃用；`Type*` 在 `def X : Prop` 里会卡 universe
+
+- `push_neg` 在 lean 4.33 已弃用，改用 `push Not`（`push Not at h` / `push Not`）。
+  语义同 push_neg：把 `¬∀` 推成 `∃¬`、`¬∃` 推成 `∀¬`、`¬(P∧Q)` 推成 `P→¬Q`。
+- `Type*` 陷阱：`def X : Prop := ∀ (ι : Type*) …` 会让 `Type*` 变成 X 的 universe 参数
+  （`X.{u}`），调用 `h` 时传 `ι := ℝ`（ℝ : Type 0）无法 unify `u := 0`，报
+  `ℝ has type Type but expected Type u_1`。凡"Prop 里显式量化的指标类型"直接写 `Type`
+  （Sort 1，覆盖 ℝ/ℕ/普通类型）即可，别用 `Type*`。
+- 出处：第三章第五批（NIT→FC 主定理；FC→AccPt 的 `accumulation_point_of_finite_cover`）。
+
+### 3.16 构造 `⋃ c ∈ s, t c` 的元素用 `Set.mem_biUnion`；无限子集的枚举用 `Set.Infinite.exists_gt`
+
+- 构造 `n ∈ ⋃ c ∈ s, t c`（s : Set ι）时，别用 `rcases` 式嵌套 `⟨c, hc, ht⟩`（会把 c 绑成 `Set`，
+  报 `expected Set ℕ`）。用 `Set.mem_biUnion`：`Set.mem_biUnion (hc : c ∈ s) (ht : n ∈ t c)`。
+  例（鸽笼覆盖）：`Set.mem_biUnion ⟨n, rfl⟩ rfl : n ∈ ⋃ c ∈ Set.range u, {m | u m = c}`。
+- `Set.Infinite.exists_gt (hs : s.Infinite) (a) : ∃ b ∈ s, a < b`——无限子集在任意 a 之后还有元素；
+  配 `Nat.exists_strictMono_subsequence (h : ∀ N, ∃ n > N, P n)` 得到 `StrictMono φ ∧ ∀ n, P (φ n)`。
+- `Set.Infinite s` 与 `¬ s.Finite` 是 definitional 相等：`h : ¬ s.Finite` 直接就是 `s.Infinite`，勿再 `not_not.mp`。
+- 出处：第三章第五批（AccPt→Cauchy 的 `cauchySeq_tendsto_of_finite_range`）。
+
 ## 4. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：

@@ -521,7 +521,9 @@
     "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-above.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T09:22:26Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.accumulation-point"
+    ],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
     "proof_sha": "deb171d9493f6632",
@@ -603,7 +605,10 @@
     "nl_file": "docs/entries/analysis/real/sup.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T09:22:26Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.nested-intervals",
+      "analysis.completeness.equivalence-cycle.sup-to-mct"
+    ],
     "family": "analysis.real",
     "variant": "ecnu",
     "proof_sha": "deb171d9493f6632",
@@ -629,7 +634,9 @@
     "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-below.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T12:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.accumulation-point"
+    ],
     "family": "analysis.real",
     "variant": "ecnu",
     "proof_sha": "deb171d9493f6632",
@@ -824,7 +831,10 @@
     "nl_file": "docs/entries/analysis/sequence/monotone-convergence.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T13:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.nested-intervals",
+      "analysis.completeness.equivalence-cycle.mct-to-nested-intervals"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "342c0e9f20a2d66b",
@@ -887,7 +897,9 @@
     "nl_file": "docs/entries/analysis/sequence/bolzano-weierstrass.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T10:39:15Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.accumulation-point"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "342c0e9f20a2d66b",
@@ -919,7 +931,9 @@
     "nl_file": "docs/entries/analysis/sequence/cauchy.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T10:39:15Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.completeness.equivalence-cycle.cauchy-to-sup"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "342c0e9f20a2d66b",
@@ -954,6 +968,305 @@
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "342c0e9f20a2d66b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.nested-intervals",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "闭区间套定理",
+    "summary": "嵌套闭区间 [aₙ,bₙ]（aₙ 增、bₙ 减、aₙ≤bₙ）之交非空；长度趋于 0 时交为单点",
+    "premises": [
+      "analysis.sequence.monotone-convergence",
+      "analysis.real.sup"
+    ],
+    "mathlib": [
+      "Real.isLUB_sSup",
+      "IsLUB"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 2.38"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/nested-intervals.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [
+      "analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover"
+    ],
+    "family": "analysis.completeness",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.finite-cover",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限覆盖原理（Heine-Borel）",
+    "summary": "闭区间 [a,b] 的每个开覆盖都有有限子覆盖",
+    "premises": [],
+    "mathlib": [
+      "CompactIccSpace.isCompact_Icc",
+      "IsCompact.elim_finite_subcover"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 2.40"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/finite-cover.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [
+      "analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point"
+    ],
+    "family": "analysis.completeness",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.accumulation-point",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "聚点定理",
+    "summary": "有界且无限的实集必有聚点",
+    "premises": [
+      "analysis.sequence.bolzano-weierstrass",
+      "analysis.real.bounded-sets.bdd-above",
+      "analysis.real.bounded-sets.bdd-below"
+    ],
+    "mathlib": [
+      "Set.Infinite.exists_accPt_of_subset_isCompact",
+      "AccPt"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 2.37"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/accumulation-point.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [
+      "analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy"
+    ],
+    "family": "analysis.completeness",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.sup-to-mct",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "确界 ⟹ 单调收敛",
+    "summary": "环第1道：从确界原理推出单调收敛定理（tendsto_atTop_ciSup 直达）",
+    "premises": [
+      "analysis.real.sup"
+    ],
+    "mathlib": [
+      "tendsto_atTop_ciSup",
+      "IsLUB.ciSup_eq"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/sup-to-mct.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.mct-to-nested-intervals",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单调收敛 ⟹ 闭区间套",
+    "summary": "环第2道：从单调收敛定理推出闭区间套定理（aₙ 与 -bₙ 分头收敛 + 中点裁决）",
+    "premises": [
+      "analysis.sequence.monotone-convergence"
+    ],
+    "mathlib": [
+      "Metric.tendsto_atTop",
+      "abs_lt",
+      "Filter.Tendsto.neg"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/mct-to-nested-intervals.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "闭区间套 ⟹ 有限覆盖",
+    "summary": "环第3道：二分反证（halfbiseq），闭区间套给公共点，被单个开集连同小区间包住矛盾",
+    "premises": [
+      "analysis.completeness.nested-intervals"
+    ],
+    "mathlib": [
+      "monotone_nat_of_le_succ",
+      "antitone_nat_of_succ_le",
+      "Metric.isOpen_iff",
+      "tendsto_pow_atTop_nhds_zero_of_norm_lt_one"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/nested-intervals-to-finite-cover.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限覆盖 ⟹ 聚点",
+    "summary": "环第4道：反证无聚点则每点有邻域只含 s 单点，有限子覆盖使 s 有限矛盾",
+    "premises": [
+      "analysis.completeness.finite-cover"
+    ],
+    "mathlib": [
+      "accPt_iff_nhds",
+      "Metric.mem_nhds_iff",
+      "Metric.mem_ball_self",
+      "Finset.finite_toSet",
+      "Set.Infinite.not_finite"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/finite-cover-to-accumulation-point.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "聚点 ⟹ Cauchy 收敛",
+    "summary": "环第5道：Cauchy 有界；值域无限则聚点即极限（聚点→cluster→子列→Cauchy 拉平），有限则鸽笼常值子列",
+    "premises": [
+      "analysis.completeness.accumulation-point"
+    ],
+    "mathlib": [
+      "cauchySeq_bdd",
+      "Nat.exists_strictMono_subsequence",
+      "tendsto_nhds_of_cauchySeq_of_subseq",
+      "Set.Finite.biUnion",
+      "accPt_principal_iff_clusterPt",
+      "Set.Infinite.exists_gt"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/accumulation-point-to-cauchy.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.completeness.equivalence-cycle.cauchy-to-sup",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy ⟹ 确界",
+    "summary": "环第6道：二分逼近上确界（bisect_upper），两端 Cauchy 同极限 x，x 是 s 的上确界（唯一用阿基米德的一环）",
+    "premises": [
+      "analysis.sequence.cauchy"
+    ],
+    "mathlib": [
+      "ge_of_tendsto",
+      "tendsto_nhds_unique",
+      "tendsto_pow_atTop_nhds_zero_of_norm_lt_one",
+      "mem_upperBounds",
+      "Set.Finite.biUnion"
+    ],
+    "provenance": {
+      "source_type": "generated",
+      "ref": "本库自建：实数完备性六大等价环"
+    },
+    "lean_file": "Analysis/Completeness.lean",
+    "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/cauchy-to-sup.md",
+    "added_by": "ingestor-batch-register",
+    "added_at": "2026-08-19T12:56:58Z",
+    "dependedOnBy": [],
+    "family": "analysis.completeness.equivalence-cycle",
+    "variant": "generated",
+    "proof_sha": "dcc53a6d3063d3bc",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
