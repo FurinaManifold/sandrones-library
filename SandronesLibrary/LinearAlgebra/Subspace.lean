@@ -15,7 +15,7 @@ open scoped Filter Topology
 本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
 
 * **linear-algebra.vector-space.subspace**（子空间：加法与数乘封闭）。
-* **linear-algebra.vector-space.span**（生成子空间：含 s 的最小子空间）。
+* **linear-algebra.vector-space.span**（生成子空间：s ⊆ span(s)、span 单调）。
 
 > **语言说明**：本文件用教材语言——子空间是满足"加法与数乘封闭"的非空子集
 > （`IsSubspace`），不用 mathlib 的 `Submodule` 结构类名。
@@ -23,11 +23,13 @@ open scoped Filter Topology
 
 namespace SandronesLibrary
 
+open LinearAlgebra.VectorSpace
+
 namespace LinearAlgebra.VectorSpace
 
 /-- **子空间**：V 的一个非空子集 W，对加法和数乘都封闭。
   （教材定义；mathlib 底层是 `Submodule`，这里用人话记号。） -/
-def IsSubspace (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
+def IsSubspace (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
     (W : Set V) : Prop :=
   W.Nonempty ∧ (∀ ⦃u⦄, u ∈ W → ∀ ⦃v⦄, v ∈ W → u + v ∈ W) ∧
     (∀ (c : K) ⦃v⦄, v ∈ W → c • v ∈ W)
@@ -36,7 +38,7 @@ def IsSubspace (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
 > **Entry**: linear-algebra.vector-space.subspace
 -/
 theorem subspace_add_mem {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {W : Set V} (hW : IsSubspace K W)
+    [AddCommGroup V] [LinearSpace K V] {W : Set V} (hW : IsSubspace K W)
     {u v : V} (hu : u ∈ W) (hv : v ∈ W) : u + v ∈ W :=
   hW.2.1 hu hv
 
@@ -44,7 +46,7 @@ theorem subspace_add_mem {K : Type*} {V : Type*} [Field K]
 > **Entry**: linear-algebra.vector-space.subspace
 -/
 theorem subspace_smul_mem {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {W : Set V} (hW : IsSubspace K W)
+    [AddCommGroup V] [LinearSpace K V] {W : Set V} (hW : IsSubspace K W)
     (c : K) {v : V} (hv : v ∈ W) : c • v ∈ W :=
   hW.2.2 c hv
 
@@ -52,36 +54,36 @@ theorem subspace_smul_mem {K : Type*} {V : Type*} [Field K]
 > **Entry**: linear-algebra.vector-space.subspace
 -/
 theorem subspace_zero_mem {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {W : Set V} (hW : IsSubspace K W) :
+    [AddCommGroup V] [LinearSpace K V] {W : Set V} (hW : IsSubspace K W) :
     (0 : V) ∈ W := by
   rcases hW with ⟨⟨z, hz⟩, _hadd, _hsmul⟩
   have : (0 : K) • z = 0 := zero_smul K z
   have hz0 : (0 : K) • z ∈ W := _hsmul (0 : K) hz
   simpa [this] using hz0
 
-/-- **生成子空间的最小性**：s ⊆ W 且 W 是子空间，则 span(s) ⊆ W。
-  （span(s) 是包含 s 的最小子空间；mathlib 的 `Submodule.span_le` 即此意。） 
-> **Entry**: linear-algebra.vector-space.span
--/
-theorem span_le {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {s : Set V} {W : Submodule K V} :
-    Submodule.span K s ≤ W ↔ s ⊆ W :=
-  Submodule.span_le
+/-- **生成子空间**（教材记号）：`span K s` 是集合 s 张成的子空间（作为 V 的子集）。 -/
+noncomputable def span (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
+    (s : Set V) : Set V :=
+  ↑(Submodule.span K s)
 
 /-- **生成子空间包含原集合**：s ⊆ span(s)。 
 > **Entry**: linear-algebra.vector-space.span
 -/
 theorem subset_span {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {s : Set V} : s ⊆ Submodule.span K s :=
-  Submodule.subset_span
+    [AddCommGroup V] [LinearSpace K V] {s : Set V} : s ⊆ span K s := by
+  intro x hx
+  unfold span
+  exact Submodule.subset_span hx
 
 /-- **生成子空间的单调性**：s ⊆ t ⟹ span(s) ⊆ span(t)。 
 > **Entry**: linear-algebra.vector-space.span
 -/
 theorem span_mono {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {s t : Set V} (h : s ⊆ t) :
-    Submodule.span K s ≤ Submodule.span K t :=
-  Submodule.span_mono h
+    [AddCommGroup V] [LinearSpace K V] {s t : Set V} (h : s ⊆ t) :
+    span K s ⊆ span K t := by
+  unfold span
+  intro x hx
+  exact (Submodule.span_mono h) hx
 
 end LinearAlgebra.VectorSpace
 

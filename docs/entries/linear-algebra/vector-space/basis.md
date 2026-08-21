@@ -26,7 +26,7 @@ provenance:
 
 ## 陈述（教材记号）
 
-若 h 是 V 的基（Module.Basis ι K V），则 dim V = |ι|
+若 {bᵢ} 是 V 的一组基（线性无关且张成 V），则 dim V = 基的大小 |ι|
 
 ## 依赖（人话版）
 

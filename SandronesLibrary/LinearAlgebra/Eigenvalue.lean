@@ -26,21 +26,23 @@ open scoped Filter Topology
 
 namespace SandronesLibrary
 
+open LinearAlgebra.VectorSpace
+
 namespace LinearAlgebra.Eigenvalue
 
 /-- **特征子空间**：属于特征值 μ 的全体特征向量加零向量。
   E_μ(T) = { x | T(x) = μ·x }。 -/
-def eigenspace (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
+def eigenspace (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
     (T : V →ₗ[K] V) (μ : K) : Set V :=
   { x | T x = μ • x }
 
 /-- **特征向量**：x 是 T 的属于 μ 的特征向量，若 x ≠ 0 且 T(x) = μ·x。 -/
-def HasEigenvector (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
+def HasEigenvector (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
     (T : V →ₗ[K] V) (μ : K) (x : V) : Prop :=
   x ≠ 0 ∧ x ∈ eigenspace K T μ
 
 /-- **特征值**：μ 是 T 的特征值，若存在非零向量 x 使 T(x) = μ·x。 -/
-def HasEigenvalue (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
+def HasEigenvalue (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
     (T : V →ₗ[K] V) (μ : K) : Prop :=
   ∃ x ≠ 0, T x = μ • x
 
@@ -48,7 +50,7 @@ def HasEigenvalue (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V
 > **Entry**: linear-algebra.eigen.vector
 -/
 theorem eigenvector_apply {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {T : V →ₗ[K] V} {μ : K} {x : V}
+    [AddCommGroup V] [LinearSpace K V] {T : V →ₗ[K] V} {μ : K} {x : V}
     (hx : HasEigenvector K T μ x) : T x = μ • x :=
   hx.2
 
@@ -56,7 +58,7 @@ theorem eigenvector_apply {K : Type*} {V : Type*} [Field K]
 > **Entry**: linear-algebra.eigen.value
 -/
 theorem eigenvalue_iff_exists_eigenvector {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {T : V →ₗ[K] V} {μ : K} :
+    [AddCommGroup V] [LinearSpace K V] {T : V →ₗ[K] V} {μ : K} :
     HasEigenvalue K T μ ↔ ∃ x, HasEigenvector K T μ x := by
   constructor
   · rintro ⟨x, hx0, hTx⟩
@@ -68,7 +70,7 @@ theorem eigenvalue_iff_exists_eigenvector {K : Type*} {V : Type*} [Field K]
 > **Entry**: linear-algebra.eigen.value
 -/
 theorem eigenvalue_iff_eigenspace_nontrivial {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {T : V →ₗ[K] V} {μ : K} :
+    [AddCommGroup V] [LinearSpace K V] {T : V →ₗ[K] V} {μ : K} :
     HasEigenvalue K T μ ↔ ∃ x, x ∈ eigenspace K T μ ∧ x ≠ 0 := by
   constructor
   · rintro ⟨x, hx0, hTx⟩
@@ -77,7 +79,7 @@ theorem eigenvalue_iff_eigenspace_nontrivial {K : Type*} {V : Type*} [Field K]
     exact ⟨x, hx0, hx⟩
 
 /-- **谱**：T 的谱是全体特征值的集合。 -/
-def spectrum (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
+def spectrum (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [LinearSpace K V]
     (T : V →ₗ[K] V) : Set K :=
   { μ | HasEigenvalue K T μ }
 
@@ -85,7 +87,7 @@ def spectrum (K : Type*) {V : Type*} [Field K] [AddCommGroup V] [Module K V]
 > **Entry**: linear-algebra.eigen.spectrum
 -/
 theorem eigenvalue_mem_spectrum {K : Type*} {V : Type*} [Field K]
-    [AddCommGroup V] [Module K V] {T : V →ₗ[K] V} {μ : K}
+    [AddCommGroup V] [LinearSpace K V] {T : V →ₗ[K] V} {μ : K}
     (hμ : HasEigenvalue K T μ) : μ ∈ spectrum K T :=
   hμ
 

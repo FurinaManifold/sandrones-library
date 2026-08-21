@@ -27,17 +27,19 @@ open scoped Filter Topology
 
 namespace SandronesLibrary
 
+open LinearAlgebra.VectorSpace
+
 namespace LinearAlgebra.LinearMap
 
 /-- 线性映射的**秩**：像空间 im f 的维数。 -/
 noncomputable abbrev rank (K : Type*) {V W : Type*} [Field K]
-    [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
     (f : V →ₗ[K] W) : ℕ :=
   Module.finrank K f.range
 
 /-- 线性映射的**零度**（nullity）：核 ker f 的维数。 -/
 noncomputable abbrev nullity (K : Type*) {V W : Type*} [Field K]
-    [AddCommGroup V] [Module K V] [AddCommGroup W] [Module K W]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
     (f : V →ₗ[K] W) : ℕ :=
   Module.finrank K f.ker
 
@@ -46,9 +48,9 @@ noncomputable abbrev nullity (K : Type*) {V W : Type*} [Field K]
 > **Entry**: linear-algebra.maps.rank-nullity
 -/
 theorem rank_add_nullity {K : Type*} {V W : Type*} [Field K]
-    [AddCommGroup V] [Module K V] [FiniteDimensional K V]
-    [AddCommGroup W] [Module K W] (f : V →ₗ[K] W) :
-    rank K f + nullity K f = LinearAlgebra.VectorSpace.dim K V := by
+    [AddCommGroup V] [LinearSpace K V] [IsFiniteDimensional K V]
+    [AddCommGroup W] [LinearSpace K W] (f : V →ₗ[K] W) :
+    rank K f + nullity K f = dim K V := by
   unfold rank nullity LinearAlgebra.VectorSpace.dim
   exact LinearMap.finrank_range_add_finrank_ker f
 
