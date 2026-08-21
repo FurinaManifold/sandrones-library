@@ -4632,7 +4632,7 @@
       "ref": "Tao, An Introduction to Measure Theory, Ch 1（Lebesgue 测度）"
     },
     "lean_file": "RealAnalysis/Measure.lean",
-    "nl_file": "docs/entries/real-analysis/measure/lebesgue-measure.md",
+    "nl_file": "docs/entries/real-analysis/lebesgue-measure.md",
     "added_by": "ingestor-realanalysis-R55",
     "added_at": "2026-08-21T11:46:18Z",
     "dependedOnBy": [],
