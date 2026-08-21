@@ -722,7 +722,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -750,7 +750,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -778,7 +778,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -806,7 +806,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -837,7 +837,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -868,7 +868,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -902,7 +902,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -936,7 +936,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -967,7 +967,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "342c0e9f20a2d66b",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2990,6 +2990,186 @@
     "family": "linear-algebra",
     "variant": "ecnu",
     "proof_sha": "fa175782b40c24c9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.add",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限之和",
+    "summary": "lim(aₙ+bₙ)=lim aₙ+lim bₙ",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/add.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.sub",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限之差",
+    "summary": "lim(aₙ−bₙ)=lim aₙ−lim bₙ",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.sub"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/sub.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限之积",
+    "summary": "lim(aₙbₙ)=lim aₙ·lim bₙ",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/mul.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.div",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限之商",
+    "summary": "lim(aₙ/bₙ)=lim aₙ/lim bₙ（分母极限非零）",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.div"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/div.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.const-mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限的常数数乘",
+    "summary": "lim(c·aₙ)=c·lim aₙ",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "Filter.Tendsto.const_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/const-mul.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.sequence.le",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极限保序",
+    "summary": "aₙ≤bₙ 恒成立且 aₙ→x、bₙ→y，则 x≤y",
+    "premises": [
+      "analysis.sequence.definition"
+    ],
+    "mathlib": [
+      "ge_of_tendsto"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+    },
+    "lean_file": "Analysis/Sequence.lean",
+    "nl_file": "docs/entries/analysis/sequence/le.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:05:55Z",
+    "dependedOnBy": [],
+    "family": "analysis.sequence",
+    "variant": "ecnu",
+    "proof_sha": "4c7a650e6c87f286",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

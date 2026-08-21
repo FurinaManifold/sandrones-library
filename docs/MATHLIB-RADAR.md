@@ -137,13 +137,14 @@
   每一项 `f n ≤ b` 则 `a ≤ b`（`le_of_tendsto`，下界方向）。把"逐项夹住"升级为"极限也被夹住"。
 - **签名**：`(colim : Tendsto f x (𝓝 a)) (h : ∀ᶠ c in x, b ≤ f c) : b ≤ a`
 - **出处**：`Mathlib/Topology/Order/Basic.lean`
-- **谁在用**：`analysis.func-limit.le`（极限保序）。
+- **谁在用**：`analysis.func-limit.le`（极限保序）、`analysis.sequence.le`（序列保序）。
 
 ### 函数极限四条（`Filter.Tendsto.add/sub/mul/div`）
 - **人话**：**函数极限的四则运算**：`f → L`、`g → M` 时，和/差/积/商（商要求 `M ≠ 0`）
   分别趋于 `L+M`、`L−M`、`L·M`、`L/M`。是序列极限四则的函数版，一行调完。
 - **签名**：`Tendsto.add : f→L → g→M → (f+g)→(L+M)`（sub/mul/div 同构）
 - **出处**：`Mathlib/Topology/Algebra/Group/`（域上加法/乘法连续）
+- **谁在用**：`analysis.func-limit.add/sub/mul/div`、`analysis.sequence.add/sub/mul/div/const-mul`（序列版）。
 - **谁在用**：`analysis.func-limit.add/sub/mul/div`、`analysis.func-limit.const-mul`。
 
 ### `tendsto_const_nhds` / `Filter.tendsto_id`

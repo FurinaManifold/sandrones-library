@@ -43,6 +43,7 @@ def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
     entries: list[tuple[int, str]] = []
     decls: list[tuple[int, str]] = []
     stack: list[str] = []
+    offset = 0
     for line in lean_text.splitlines():
         stripped = line.strip()
         if m := NAMESPACE_RE.match(stripped):
@@ -51,10 +52,11 @@ def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
             if stack:
                 stack.pop()
         elif m := ENTRY_RE.search(line):
-            entries.append((lean_text.index(line), m.group(1)))
+            entries.append((offset, m.group(1)))
         elif m := DECL_RE.match(stripped):
             full = ".".join(stack + [m.group(2)])
-            decls.append((lean_text.index(line), full))
+            decls.append((offset, full))
+        offset += len(line) + 1
     # 对每个 decl 找它前面最近（且在 docstring 内）的 Entry
     result: dict[str, list[str]] = {}
     for dpos, dname in decls:

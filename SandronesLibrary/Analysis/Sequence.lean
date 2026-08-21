@@ -23,6 +23,8 @@ open Filter Topology
 * **analysis.sequence.bolzano-weierstrass**（波尔查诺-魏尔斯特拉斯）：有界实数列必有收敛子列。
 * **analysis.sequence.cauchy**（Cauchy 收敛准则/完备性）：实数列收敛 ⟺ 是 Cauchy 列。
 * **analysis.sequence.liminf-limsup**（上/下极限）：liminf ≤ limsup，且相等 ⟺ 收敛。
+* **analysis.sequence.add/sub/mul/div/const-mul**（极限四则运算）。
+* **analysis.sequence.le**（极限保序）。
 -/
 
 namespace SandronesLibrary
@@ -249,6 +251,58 @@ theorem tendsto_of_liminf_eq_limsup_seq {u : ℕ → ℝ} {a : ℝ}
     (hinf : liminf u atTop = a) (hsup : limsup u atTop = a) :
     Tendsto u atTop (𝓝 a) := by
   exact tendsto_of_liminf_eq_limsup (f := atTop) (u := u) (a := a) hinf hsup hU hL
+
+/-- **序列极限之和**：lim(aₙ + bₙ) = lim aₙ + lim bₙ。 
+> **Entry**: analysis.sequence.add
+-/
+theorem seq_add {a b : ℕ → ℝ} {x y : ℝ}
+    (ha : Tendsto a atTop (𝓝 x)) (hb : Tendsto b atTop (𝓝 y)) :
+    Tendsto (fun n => a n + b n) atTop (𝓝 (x + y)) :=
+  ha.add hb
+
+/-- **序列极限之差**：lim(aₙ − bₙ) = lim aₙ − lim bₙ。 
+> **Entry**: analysis.sequence.sub
+-/
+theorem seq_sub {a b : ℕ → ℝ} {x y : ℝ}
+    (ha : Tendsto a atTop (𝓝 x)) (hb : Tendsto b atTop (𝓝 y)) :
+    Tendsto (fun n => a n - b n) atTop (𝓝 (x - y)) :=
+  ha.sub hb
+
+/-- **序列极限之积**：lim(aₙ·bₙ) = lim aₙ·lim bₙ。 
+> **Entry**: analysis.sequence.mul
+-/
+theorem seq_mul {a b : ℕ → ℝ} {x y : ℝ}
+    (ha : Tendsto a atTop (𝓝 x)) (hb : Tendsto b atTop (𝓝 y)) :
+    Tendsto (fun n => a n * b n) atTop (𝓝 (x * y)) :=
+  ha.mul hb
+
+/-- **序列极限之商**：lim(aₙ/bₙ) = lim aₙ/lim bₙ（分母极限非零）。 
+> **Entry**: analysis.sequence.div
+-/
+theorem seq_div {a b : ℕ → ℝ} {x y : ℝ} (hy : y ≠ 0)
+    (ha : Tendsto a atTop (𝓝 x)) (hb : Tendsto b atTop (𝓝 y)) :
+    Tendsto (fun n => a n / b n) atTop (𝓝 (x / y)) :=
+  ha.div hb hy
+
+/-- **序列极限的常数数乘**：lim(c·aₙ) = c·lim aₙ。 
+> **Entry**: analysis.sequence.const-mul
+-/
+theorem seq_const_mul {a : ℕ → ℝ} {x : ℝ} (c : ℝ)
+    (ha : Tendsto a atTop (𝓝 x)) :
+    Tendsto (fun n => c * a n) atTop (𝓝 (c * x)) :=
+  ha.const_mul c
+
+/-- **序列极限保序**：若 aₙ ≤ bₙ 恒成立且 aₙ→x、bₙ→y，则 x ≤ y。 
+> **Entry**: analysis.sequence.le
+-/
+theorem seq_le {a b : ℕ → ℝ} {x y : ℝ}
+    (ha : Tendsto a atTop (𝓝 x)) (hb : Tendsto b atTop (𝓝 y))
+    (hab : ∀ n, a n ≤ b n) : x ≤ y := by
+  have hsub : Tendsto (fun n => b n - a n) atTop (𝓝 (y - x)) := hb.sub ha
+  have hnonneg : ∀ᶠ n in atTop, (0 : ℝ) ≤ b n - a n :=
+    Filter.Eventually.of_forall (fun n => by linarith [hab n])
+  have h0 : 0 ≤ y - x := ge_of_tendsto hsub hnonneg
+  linarith
 
 end Analysis.Sequence
 
