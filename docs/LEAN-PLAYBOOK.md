@@ -328,6 +328,22 @@
 - `Set.Infinite s` 与 `¬ s.Finite` 是 definitional 相等：`h : ¬ s.Finite` 直接就是 `s.Infinite`，勿再 `not_not.mp`。
 - 出处：第三章第五批（AccPt→Cauchy 的 `cauchySeq_tendsto_of_finite_range`）。
 
+### 3.17 `exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器
+
+- 症状：`exact <某引理/项>` 报 `Application type mismatch` 或 `expected to have type`，
+  你手头这个项"看起来对"但 Lean 不认。多半是**参数顺序/隐式参数/函数 vs 值的结构**对不上，
+  而不是缺证明——这类用肉眼看很费时。
+- 对策：把该行换成 `exact?`（或 `apply?`、`rw?`），Lean 会在可用引理里搜索并给出
+  **可直接粘贴的完整命令**（常带 `Try this: ...`）。它特别擅长发现：
+  - 该用 `.mp`/`.mpr`、`Eq.symm` 的方向问题；
+  - 需要先 `change`/`dsimp` 让类型 definitional 对齐；
+  - 正确的引理名或参数写法（如 `IsCompact.image hK hf` 该给哪个 `Continuous`）。
+- 与 §0 的顺序配合：先 `exact?` 拿到候选，再人工核对语义对不对，再粘贴——不要盲抄。
+- 反例（浪费时间）：在 `exact` 上手动调参/加 `by`/拆解参数来回试，不如一次 `exact?`。
+- 出处：第五章（Continuity 最值定理：`IsCompact.image` 需要全域 `Continuous f`，
+  而 `ContinuousOn.restrict hf` 给的是子类型连续——`exact?` 会指向 `ContinuousOn.domRestrict`
+  与正确的像-非空-存在极值组合）。
+
 ## 4. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：

@@ -2,6 +2,7 @@ import SandronesLibrary.Basic
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Completeness
 import SandronesLibrary.Analysis.FuncLimit
+import SandronesLibrary.Analysis.Continuity
 import SandronesLibrary.Analysis.Sequence
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

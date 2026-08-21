@@ -1645,5 +1645,292 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.continuity.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续性定义",
+    "summary": "连续函数与连续函数的区间限制（ContinuousOn）",
+    "premises": [],
+    "mathlib": [
+      "Continuous",
+      "ContinuousOn",
+      "continuous_iff_continuousAt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/definition.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.const",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "常函数连续",
+    "summary": "恒等于常数的函数连续",
+    "premises": [],
+    "mathlib": [
+      "continuous_const"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/const.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.identity",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "恒等函数连续",
+    "summary": "恒等映射连续",
+    "premises": [],
+    "mathlib": [
+      "continuous_id"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/identity.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.add",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续函数之和",
+    "summary": "连续函数相加仍连续",
+    "premises": [],
+    "mathlib": [
+      "Continuous.add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/add.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续函数之积",
+    "summary": "连续函数相乘仍连续",
+    "premises": [],
+    "mathlib": [
+      "Continuous.mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/mul.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.div",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续函数之商",
+    "summary": "连续函数相除仍连续（分母处处非零）",
+    "premises": [],
+    "mathlib": [
+      "Continuous.div"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/div.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.comp",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复合连续",
+    "summary": "连续函数复合仍连续（点连续与全域连续两版）",
+    "premises": [],
+    "mathlib": [
+      "Continuous.comp",
+      "ContinuousAt.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/comp.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.intermediate-value",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "介值定理",
+    "summary": "闭区间连续函数取遍两端之间的所有值",
+    "premises": [],
+    "mathlib": [
+      "intermediate_value_Icc"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/intermediate-value.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.max-min",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "最值定理",
+    "summary": "闭区间连续函数取到最大值与最小值",
+    "premises": [],
+    "mathlib": [
+      "IsCompact.image_of_continuousOn",
+      "IsCompact.exists_isGreatest",
+      "IsCompact.exists_isLeast",
+      "CompactIccSpace.isCompact_Icc"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/max-min.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.uniform",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "一致连续",
+    "summary": "一致连续的 ε-δ 判据，且一致连续 ⟹ 连续",
+    "premises": [],
+    "mathlib": [
+      "Metric.uniformContinuous_iff",
+      "Metric.continuousAt_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/uniform.md",
+    "added_by": "ingestor-chapter5-batch",
+    "added_at": "2026-08-21T03:13:14Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "proof_sha": "28981dec7267673f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

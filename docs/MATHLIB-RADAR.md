@@ -707,6 +707,56 @@
 
 ---
 
+## G12. 连续函数（第五章：连续函数论）
+
+> 支撑 `analysis.continuity.*`。连续性 = 拓扑空间之间的态射性质。
+
+### `Continuous` / `ContinuousAt` / `ContinuousOn` / `continuous_iff_continuousAt`
+- **人话**：`Continuous f` = f 处处连续；`ContinuousAt f x` = f 在点 x 连续；
+  `ContinuousOn f s` = 限制到 s 仍连续；`continuous_iff_continuousAt` 把"处处"展开成"每点"。
+- **签名**：`Continuous f ↔ ∀ x, ContinuousAt f x`
+- **出处**：`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.continuity.definition`。
+
+### `continuous_const` / `continuous_id`
+- **人话**：常函数与恒等映射连续。一切连续性的"原子零件"。
+- **签名**：`Continuous fun _ => y`；`Continuous id`
+- **出处**：`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.continuity.const`、`analysis.continuity.identity`。
+
+### `Continuous.add/mul/div/comp`（及 `ContinuousAt.comp`）
+- **人话**：连续函数四则与复合仍连续（`div` 需分母处处非零）；点连续版本供链式法则用。
+- **签名**：`Continuous f → Continuous g → Continuous (f + g)`（mul/div 同构）；`Continuous.comp hg hf : Continuous (g ∘ f)`
+- **出处**：`Mathlib/Topology/Algebra/Group/`、`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.continuity.add/mul/div/comp`。
+
+### `intermediate_value_Icc`
+- **人话**：**介值定理**：闭区间连续函数的值域包含其端点值之间的整段。取遍中间所有值。
+- **签名**：`(hab : a ≤ b) (hf : ContinuousOn f (Icc a b)) : Icc (f a) (f b) ⊆ f '' Icc a b`
+- **出处**：`Mathlib/Topology/Order/IntermediateValue.lean`
+- **谁在用**：`analysis.continuity.intermediate-value`。
+
+### `IsCompact.image_of_continuousOn`
+- **人话**：连续函数把紧集映成紧集（ContinuousOn 版）。最值定理的第一步。
+- **签名**：`(hs : IsCompact s) (hf : ContinuousOn f s) : IsCompact (f '' s)`
+- **出处**：`Mathlib/Topology/Compactness/Compact.lean`
+- **谁在用**：`analysis.continuity.max-min`。
+- **坑**：`IsCompact.image` 要全域 `Continuous f`；闭区间上只有 `ContinuousOn` 时用 `image_of_continuousOn`（Playbook §3.17 的 `exact?` 发现）。
+
+### `IsCompact.exists_isGreatest` / `IsCompact.exists_isLeast`
+- **人话**：紧集含其最大/最小元素。配合"像紧"即得最值定理。
+- **签名**：`(hs : IsCompact s) (ne_s : s.Nonempty) : ∃ x, IsGreatest s x`
+- **出处**：`Mathlib/Topology/Order/Compact.lean`
+- **谁在用**：`analysis.continuity.max-min`。
+
+### `Metric.uniformContinuous_iff` / `Metric.continuousAt_iff`
+- **人话**：一致连续的 ε-δ 判据；点连续的 ε-δ 判据（度量空间）。
+- **签名**：`UniformContinuous f ↔ ∀ ε>0, ∃ δ>0, ∀ a b, dist a b < δ → dist (f a) (f b) < ε`
+- **出处**：`Mathlib/Topology/MetricSpace/`
+- **谁在用**：`analysis.continuity.uniform`。
+
+---
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
