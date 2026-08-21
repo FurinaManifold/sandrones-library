@@ -8,6 +8,7 @@ import SandronesLibrary.Analysis.MVT
 import SandronesLibrary.Analysis.Sequence
 import SandronesLibrary.LinearAlgebra.VectorSpace
 import SandronesLibrary.LinearAlgebra.LinearMap
+import SandronesLibrary.LinearAlgebra.Determinant
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
 import SandronesLibrary.SetTheory.Relations

@@ -853,6 +853,13 @@
 - **谁在用**：`linear-algebra.maps.rank-nullity/matrix-rank/rank-mul`。
 - **坑**：教材"秩"= 像的维数，形式化是 `Module.finrank K f.range`；词条用教材记号 rank/nullity。
 
+### `Matrix.det` / `Matrix.det_mul` / `Matrix.det_transpose` / `Matrix.nonsing_inv_mul` / `Matrix.mul_nonsing_inv` / `Matrix.det_one` / `Matrix.det_zero`
+- **人话**：行列式 `A.det`；det(AB)=det A·det B；转置不变；det≠0 ⟹ 有逆 A⁻¹（左右逆）；det I=1、det 0=0。
+- **签名**：`(A * B).det = A.det * B.det`；`(h : IsUnit A.det) : A⁻¹ * A = 1 ∧ A * A⁻¹ = 1`
+- **出处**：`Mathlib/LinearAlgebra/Matrix/Determinant.lean`
+- **谁在用**：`linear-algebra.det.mul/transpose/invertible/one-zero`。
+- **坑**：教材"det A ≠ 0"在 mathlib 是 `IsUnit A.det`（域上等价）；`Matrix.det_ne_zero_iff` 不存在。
+
 ---
 
 ## 附：登记清单自动核对

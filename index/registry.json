@@ -2538,5 +2538,120 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.det.mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "积的行列式",
+    "summary": "det(AB)=det A·det B",
+    "premises": [],
+    "mathlib": [
+      "Matrix.det_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/mul.md",
+    "added_by": "ingestor-linalg-L3",
+    "added_at": "2026-08-21T06:04:14Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.det",
+    "variant": "ecnu",
+    "proof_sha": "edb655a5d362f2bf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.det.transpose",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "转置不变",
+    "summary": "det(Aᵀ)=det A",
+    "premises": [],
+    "mathlib": [
+      "Matrix.det_transpose"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/transpose.md",
+    "added_by": "ingestor-linalg-L3",
+    "added_at": "2026-08-21T06:04:14Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.det",
+    "variant": "ecnu",
+    "proof_sha": "edb655a5d362f2bf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.det.invertible",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可逆 ⟺ det≠0",
+    "summary": "det A 可逆（≠0）⟹ A 有逆 A⁻¹",
+    "premises": [],
+    "mathlib": [
+      "Matrix.nonsing_inv_mul",
+      "Matrix.mul_nonsing_inv",
+      "IsUnit"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/invertible.md",
+    "added_by": "ingestor-linalg-L3",
+    "added_at": "2026-08-21T06:04:14Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.det",
+    "variant": "ecnu",
+    "proof_sha": "edb655a5d362f2bf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.det.one-zero",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单位阵与零阵行列式",
+    "summary": "det I=1，det 0=0",
+    "premises": [],
+    "mathlib": [
+      "Matrix.det_one",
+      "Matrix.det_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/one-zero.md",
+    "added_by": "ingestor-linalg-L3",
+    "added_at": "2026-08-21T06:04:14Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.det",
+    "variant": "ecnu",
+    "proof_sha": "edb655a5d362f2bf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
