@@ -346,6 +346,34 @@
   找出"教材结果 vs 广泛形式"的缺口并转正。
 - **出处**：线性代数批（`vector-space.span` 的最小性曾因桥接繁琐被删——正是转正缺口）。
 
+### 4.1 瘦身方法论（Slimming）：能用本库推导的，就不要引用 mathlib
+
+- **定义**："瘦身" = 把直接 `exact <mathlib 引理>` 立条的定理，改写成
+  用**本库已有的教材层定理 + 基本逻辑/代数推导**完成证明。目标：减少对 mathlib 的
+  直接依赖，让每条定理的证明在本库内部可见、可追踪。
+- **为什么重要**：学术论文里的定理 mathlib 库里**没有**，到时全得自己写。
+  瘦身是练兵——把"抄 mathlib"逐步换成"自己推"，培养论文定理的自证能力。
+  库的价值是**可自证的教材推导**，不是 mathlib 名目清单。
+- **判定三类**：
+  1. **结构性可推导**（做瘦身）：证明只用本库已有定理 + 基本代数/逻辑（群消去律、
+     共轭封闭、有限覆盖定义）。例：`normal_mem_comm`（从 `normal_conj_mem` 推）、
+     `hom_map_one`（从 `map_mul` + f1·f1=f1 ⟹ f1=1）、`compact_singleton`（从有限覆盖定义）。
+  2. **定义性/公理性**（保留）：数学地基本身 = mathlib 的定义字段/公理。例：
+     `one_mem`/`ext`/`mem_ball`/`dist_*`/`isOpen_*`/`map_mul`（环同态）/`mul_eq_zero`（整环）。
+     不存在"推导"，删了就没定义。
+  3. **依赖 mathlib 内部结构**（保留，除非重建该理论）：引理基于 mathlib 的构造细节。
+     例：Poly 的 `eval`/`degree`/`coeff`、LinearAlgebra 的 `Module`/`Matrix`、
+     分析线的 ε-N（ℝ 度量结构）。瘦身 = 重建理论，超出"推导"范畴。
+- **自底向上**：要瘦身顶层定理，先瘦身它依赖的底层（递推）。底层定义性条目保留，
+  再往上替换"明显是组合推导"的。
+- **低垂果实优先**：先清"证明体一行 `exact mathlib` 且结论能用本库推"的纯结构性条目。
+  这类验证快、正反馈强。中层（normal_of_index_two、is_maximal_implies_is_prime）和
+  深层（zorn、tychonoff、lagrange、同构定理、irreducible 系）是后续工程。
+- **每批验收**：改完 `lake build` + `check_axioms --fix` + `audit.py` 全过，commit
+  "瘦身批次N: <条目清单>"。RADAR 里某条记录的"谁在用"索引全部被本库条目替换后，
+  即证明该 mathlib 条目已被完全解明。
+- 出处：第一学期收尾瘦身（第一批 normal_bot/top/comm、hom_map_one/inv、compact_singleton）。
+
 ## 5. 实战教训日志（一次性具体坑，按时间登记，附出处）
 
 > 登记格式：**症状 → 诊断（语义层面为什么）→ 解法 → 出处（哪个条目）**。
