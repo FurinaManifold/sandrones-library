@@ -2476,7 +2476,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "20e7a1c693c5b7eb",
+    "proof_sha": "fa175782b40c24c9",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2504,7 +2504,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "20e7a1c693c5b7eb",
+    "proof_sha": "fa175782b40c24c9",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2532,7 +2532,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "20e7a1c693c5b7eb",
+    "proof_sha": "fa175782b40c24c9",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2560,7 +2560,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "edb655a5d362f2bf",
+    "proof_sha": "d8b4b1108c319a72",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2588,7 +2588,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "edb655a5d362f2bf",
+    "proof_sha": "d8b4b1108c319a72",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2618,7 +2618,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "edb655a5d362f2bf",
+    "proof_sha": "d8b4b1108c319a72",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2647,7 +2647,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "edb655a5d362f2bf",
+    "proof_sha": "d8b4b1108c319a72",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2906,6 +2906,94 @@
     "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "<解析失败>"
+    ]
+  },
+  {
+    "id": "linear-algebra.det.adjugate",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "伴随矩阵",
+    "summary": "adj A 满足 A·adj(A)=adj(A)·A=det A·I",
+    "premises": [],
+    "mathlib": [
+      "Matrix.adjugate",
+      "Matrix.mul_adjugate",
+      "Matrix.adjugate_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式与秩"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/adjugate.md",
+    "added_by": "ingestor-promote-LA",
+    "added_at": "2026-08-21T07:59:04Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra",
+    "variant": "ecnu",
+    "proof_sha": "d8b4b1108c319a72",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.det.cramer",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cramer 法则",
+    "summary": "AX=b 时 (A.cramer b)ᵢ=det(A 的第 i 列换为 b)；A·(A.cramer b)=det A·b",
+    "premises": [],
+    "mathlib": [
+      "Matrix.cramer",
+      "Matrix.cramer_apply",
+      "Matrix.mulVec_cramer"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式与秩"
+    },
+    "lean_file": "LinearAlgebra/Determinant.lean",
+    "nl_file": "docs/entries/linear-algebra/det/cramer.md",
+    "added_by": "ingestor-promote-LA",
+    "added_at": "2026-08-21T07:59:04Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra",
+    "variant": "ecnu",
+    "proof_sha": "d8b4b1108c319a72",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.maps.row-rank",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "行秩=列秩",
+    "summary": "rank Aᵀ = rank A，即行秩等于列秩",
+    "premises": [],
+    "mathlib": [
+      "Matrix.rank_transpose"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：行列式与秩"
+    },
+    "lean_file": "LinearAlgebra/LinearMap.lean",
+    "nl_file": "docs/entries/linear-algebra/maps/row-rank.md",
+    "added_by": "ingestor-promote-LA",
+    "added_at": "2026-08-21T07:59:04Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra",
+    "variant": "ecnu",
+    "proof_sha": "fa175782b40c24c9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   }
 ]

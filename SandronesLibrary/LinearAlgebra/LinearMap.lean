@@ -72,6 +72,14 @@ lemma rank_mul_le {K : Type*} {m n o : Type*} [Field K]
     (A * B).rank ≤ min A.rank B.rank :=
   Matrix.rank_mul_le A B
 
+/-- **行秩 = 列秩**：矩阵的秩不因转置改变（行秩即 Aᵀ 的秩，等于 A 的列秩）。
+  教材"秩 = 行秩 = 列秩"即由此给出。 
+> **Entry**: linear-algebra.maps.row-rank
+-/
+theorem rank_transpose_eq {K : Type*} {m n : Type*} [Field K] [Fintype m] [Fintype n]
+    (A : Matrix m n K) : A.transpose.rank = A.rank :=
+  Matrix.rank_transpose A
+
 end LinearAlgebra.LinearMap
 
 end SandronesLibrary

@@ -64,6 +64,43 @@ theorem det_zero {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n] [
     (0 : Matrix n n K).det = 0 :=
   Matrix.det_zero
 
+/-- **伴随矩阵**（教材记号）：`adj A` 是 A 的伴随矩阵（代数余子式矩阵的转置）。 -/
+abbrev adj (K : Type*) {n : Type*} [Field K] [DecidableEq n] [Fintype n]
+    (A : Matrix n n K) : Matrix n n K :=
+  A.adjugate
+
+/-- **A·adj(A) = det A·I**：伴随矩阵的基本性质。 
+> **Entry**: linear-algebra.det.adjugate
+-/
+theorem mul_adj {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n]
+    (A : Matrix n n K) : A * adj K A = A.det • 1 := by
+  unfold adj
+  exact Matrix.mul_adjugate A
+
+/-- **adj(A)·A = det A·I**。 
+> **Entry**: linear-algebra.det.adjugate
+-/
+theorem adj_mul {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n]
+    (A : Matrix n n K) : adj K A * A = A.det • 1 := by
+  unfold adj
+  exact Matrix.adjugate_mul A
+
+/-- **Cramer 法则（逐分量）**：AX = b 时，(A.cramer b) i 是把 A 的第 i 列换成 b 后的行列式。 
+> **Entry**: linear-algebra.det.cramer
+-/
+theorem cramer_apply {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n]
+    (A : Matrix n n K) (b : n → K) (i : n) :
+    (A.cramer b) i = (A.updateCol i b).det :=
+  Matrix.cramer_apply A b i
+
+/-- **Cramer 法则（解方程）**：A·(A.cramer b) = det A · b，故当 det A ≠ 0 时，
+  x = (A.cramer b)/det A 是 AX = b 的唯一解。 
+> **Entry**: linear-algebra.det.cramer
+-/
+theorem cramer_solution {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n]
+    (A : Matrix n n K) (b : n → K) : Matrix.mulVec A (A.cramer b) = A.det • b :=
+  Matrix.mulVec_cramer A b
+
 end LinearAlgebra.Determinant
 
 end SandronesLibrary

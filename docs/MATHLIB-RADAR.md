@@ -891,6 +891,13 @@
 - **坑**：相似保持特征多项式用**逐点 det** 证明（det(c·1−A) 对每个 c），
   不引入多项式矩阵/环同态，项始终是域元素（保留域性质）。
 
+### `Matrix.adjugate` / `Matrix.mul_adjugate` / `Matrix.adjugate_mul` / `Matrix.cramer` / `Matrix.mulVec_cramer` / `Matrix.rank_transpose`
+- **人话**：伴随矩阵 `A.adjugate`（A·adj(A)=adj(A)·A=det A·I）；Cramer 法则
+  （AX=b 时 (A.cramer b)ᵢ=det(A 第 i 列换 b)，A·(A.cramer b)=det A·b）；行秩=列秩（rank Aᵀ=rank A）。
+- **签名**：`A * A.adjugate = A.det • 1`；`Matrix.mulVec_cramer A b : A *ᵥ A.cramer b = A.det • b`；`A.transpose.rank = A.rank`
+- **出处**：`Mathlib/LinearAlgebra/Matrix/`（Adjugate.lean、Cramer.lean、Rank.lean）
+- **谁在用**：`linear-algebra.det.adjugate`、`linear-algebra.det.cramer`、`linear-algebra.maps.row-rank`。
+
 ---
 
 ## 附：登记清单自动核对
