@@ -166,6 +166,36 @@
 | `norm_num` | 数值计算 | "把 2*3 算成 6" |
 | `positivity` | 证明表达式恒正 | 按结构递归地证明正值性 |
 
+### 2.7.1 `linarith`/`nlinarith` **不会**处理 `|·|` 绝对值项（反复踩坑，必须固化）
+
+- **症状**：目标/前提里有 `|a| ≤ ε`、`|a - b| < ε` 等绝对值项，`linarith`/`nlinarith`
+  报 "failed to find a contradiction"，即使线性关系显然成立。
+- **诊断（语义）**：绝对值是非线性函数，决策过程**不展开**它。`nlinarith` 能做多项式但
+  不能"知道" `|x| ≤ ε ⟹ x ≤ ε`——这是绝对值本身的刻画，不是线性事实。
+- **解法**：先手动展开绝对值，再交给 linarith：
+  - `|a| ≤ ε` ⟹ `-ε ≤ a ∧ a ≤ ε`，用 `(abs_le.mp h).1` / `(abs_le.mp h).2` 提取两个方向。
+  - `|a| < ε` 同理 `(abs_lt.mp h)`。
+  - 目标含 `|f b - f a| ≤ |f b - f x| + |f x - f a|` 这类三角：用 `abs_add_le`/`abs_add`
+    先建立不等式，再 linarith。
+  - 顺序反了的项：`|f x - f a|` 与 `|f a - f x|` 用 `abs_sub_comm` 对齐。
+- **铁律**：目标/前提**含任何 `|·|`** 时，先 `#check` 列出要用的绝对值引理
+  （`abs_le`/`abs_lt`/`abs_add_le`/`abs_sub_comm`），逐个展开对齐方向，**再** linarith。
+  禁止直接对含 `|·|` 的式子 `linarith` 干等失败。
+- **出处**：黎曼积分"连续 ⟹ 一致连续"（hyb 三角、最终 |f b - f a| 界）、
+  "紧集连续 ⟹ 一致连续"（B1 像集有下界、B2 inf 逼近），多次重复。
+
+### 2.7.2 `sSup`/`sInf` 用**条件完备**版本（`csSup`/`csInf`），不是 `CompleteLattice` 版
+
+- **症状**：`le_sInf`/`sSup_le` 报 `synthInstanceFailed: CompleteSemilatticeInf ℝ`。
+- **诊断**：ℝ 是 `ConditionallyCompleteLinearOrder`（有界才有 sup/inf），**不是**
+  `CompleteLattice`。`sSup_le`/`le_sInf` 要求 CompleteSemilattice，ℝ 不满足。
+- **解法**：用条件完备引理（需 `BddAbove`/`BddBelow` + `Nonempty` 前提）：
+  `csSup_le`、`le_csInf`、`csSup_le_iff`、`le_csInf_iff`、`exists_lt_of_lt_csSup`。
+  `sSup`/`sInf` 记号本身 ℝ 上就是 csSup/csInf（定义相同），但**引理名**要用 cs 前缀版。
+- **出处**：黎曼积分振荡界引理 B2（inf 逼近）。
+
+
+
 ### 2.8 目标在句法上需要先改写 → `change` / `rw` / `simp` / `simpa`
 
 - 数学意图：目标看起来是 A，但已知/定理给的是 B，A 与 B 是同一个东西的不同写法。
