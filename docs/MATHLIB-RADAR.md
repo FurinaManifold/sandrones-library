@@ -1132,6 +1132,22 @@
 - **谁在用**：`topology.compact.tychonoff`。
 - **坑**：无限积的紧致性才是 Tychonoff 的本质；有限积紧可绕过（不需要 AC）。
 
+### `MeasurableSpace` / `MeasurableSet` / `MeasurableSet.empty/compl/iUnion/inter/union`
+- **人话**：σ-代数 `MeasurableSpace X`；可测集 `MeasurableSet s`；公理：∅/X 可测、补可测、
+  可数并可测（`[Countable ι]`）、有限交并可测。测度的定义域。
+- **签名**：`MeasurableSet.iUnion {ι} [Countable ι] : (∀ i, MeasurableSet (f i)) → MeasurableSet (⋃ i, f i)`
+- **出处**：`Mathlib/MeasureTheory/MeasurableSpace/`
+- **谁在用**：`real-analysis.measure.sigma-algebra`。
+- **坑**：定理名加 `meas_` 前缀避免同名。
+
+### `Measure` / `measure_empty` / `measure_sUnion` / `measure_mono` / `measure_union`
+- **人话**：测度 `Measure X`（值域 ℝ≥0∞）；空集零测；**可数可加** `measure_sUnion`；
+  单调性 `measure_mono`；有限可加 `measure_union`。Lebesgue 测度 `volume` 是其特例。
+- **签名**：`measure_sUnion (hs : S.Countable) (hd : S.Pairwise Disjoint) : μ (⋃₀ S) = ∑' s : S, μ s`
+- **出处**：`Mathlib/MeasureTheory/Measure/`
+- **谁在用**：`real-analysis.measure.def`。
+- **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。
+
 ---
 
 ## 附：登记清单自动核对

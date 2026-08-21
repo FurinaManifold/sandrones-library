@@ -4264,5 +4264,70 @@
     "added_at": "2026-08-21T10:54:37Z",
     "dependedOnBy": [],
     "proof_sha": "70626d3fed575a3b"
+  },
+  {
+    "id": "real-analysis.measure.sigma-algebra",
+    "kind": "theorem",
+    "title": "σ-代数公理",
+    "summary": "可测集族公理：空/全集可测、补可测、可数并可测、有限交并可测",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [],
+    "mathlib": [
+      "MeasurableSpace",
+      "MeasurableSet.empty",
+      "MeasurableSet.compl",
+      "MeasurableSet.iUnion",
+      "MeasurableSet.inter"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/sigma-algebra.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（σ-代数）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R1",
+    "added_at": "2026-08-21T11:25:48Z",
+    "dependedOnBy": [],
+    "proof_sha": "7b4935b6f77284b8"
+  },
+  {
+    "id": "real-analysis.measure.def",
+    "kind": "theorem",
+    "title": "测度公理",
+    "summary": "测度公理：空集零测/可数可加/单调性/有限可加",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.sigma-algebra"
+    ],
+    "mathlib": [
+      "measure_empty",
+      "measure_sUnion",
+      "measure_mono",
+      "measure_union"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（测度）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R1",
+    "added_at": "2026-08-21T11:25:48Z",
+    "dependedOnBy": [],
+    "proof_sha": "7b4935b6f77284b8"
   }
 ]
