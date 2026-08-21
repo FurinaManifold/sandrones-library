@@ -36,4 +36,4 @@ provenance:
 
 ## 应用与陷阱
 
-证明类别 B。用纯 open-ball 覆盖而非 ⋃ 记法，避免 bigUnion 绑架（§3.12）。
+证明类别 B。用纯 open-ball 覆盖而非 ⋃ 记法，避免 bigUnion 绑架（§2.11）。

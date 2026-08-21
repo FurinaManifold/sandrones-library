@@ -12,7 +12,7 @@ open scoped Filter Topology
 /-!
 # LinearAlgebra / Subspace —— 子空间与生成（线性代数第一学期 L1 补充）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **linear-algebra.vector-space.subspace**（子空间：加法与数乘封闭）。
 * **linear-algebra.vector-space.span**（生成子空间：s ⊆ span(s)、span 单调）。

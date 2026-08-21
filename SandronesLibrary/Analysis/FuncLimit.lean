@@ -11,7 +11,7 @@ open scoped Filter Topology
 /-!
 # Analysis / FuncLimit —— 函数极限基础条目（第四章）
 
-本文件当前条目（§3.11：一次一条，逐条编译）：
+本文件当前条目（§0 铁律4：一次一条，逐条编译）：
 
 * **analysis.func-limit.definition**（函数极限定义/ε-δ 判据）。
 * **analysis.func-limit.const**（常数函数趋于常数）。

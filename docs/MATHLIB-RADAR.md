@@ -384,13 +384,13 @@
 
 ### `Set.mem_iUnion`
 - **人话**：并集元素判准：`x ∈ ⋃ i, s i ⟺ ∃ i, x ∈ s i`。
-  **必用 `Set.mem_iUnion.mp`** 拿到正确类型的 i——直接 rcases 会被 bigUnion 记法绑架成 Set（Playbook §3.12）。
+  **必用 `Set.mem_iUnion.mp`** 拿到正确类型的 i——直接 rcases 会被 bigUnion 记法绑架成 Set（Playbook §2.11）。
 - **签名**：`x ∈ ⋃ i, s i ↔ ∃ i, x ∈ s i`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
 - **谁在用**：`analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover`、`analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point`（`Set.mem_iUnion.mp (hcover hxab)` 解出 i₀ : ι）。
 
 ### `Set.mem_biUnion`
-- **人话**：**构造**"受限并"的元素：`x ∈ s` 且 `y ∈ t x` ⟹ `y ∈ ⋃ x ∈ s, t x`。这是构造方向（往并集里塞元素）的规则；反向解构请用 `Set.mem_iUnion.mp`。别用嵌套 rcases（Playbook §3.16）。
+- **人话**：**构造**"受限并"的元素：`x ∈ s` 且 `y ∈ t x` ⟹ `y ∈ ⋃ x ∈ s, t x`。这是构造方向（往并集里塞元素）的规则；反向解构请用 `Set.mem_iUnion.mp`。别用嵌套 rcases（Playbook §2.12）。
 - **签名**：`(xs : x ∈ s) (ytx : y ∈ t x) : y ∈ ⋃ x ∈ s, t x`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
 - **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（鸽笼 `Set.mem_biUnion ⟨n, rfl⟩ rfl`）。
@@ -414,7 +414,7 @@
 - **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`、`analysis.completeness.equivalence-cycle.cauchy-to-sup`（值域有限 ⟹ 各纤维有限 ⟹ 并起来覆盖 ℕ 仍有限，矛盾）。
 
 ### `Set.infinite_univ` 与 `Set.Infinite.not_finite` / `Set.Infinite.nonempty`
-- **人话**：**全集无限**（[Infinite α] 时）；`Infinite` 与 `¬ Finite` 同义（definitional，Playbook §3.16）；`Infinite.nonempty` 给非空。ℕ 无限（Set.infinite_univ）是鸽笼矛盾的弹药。
+- **人话**：**全集无限**（[Infinite α] 时）；`Infinite` 与 `¬ Finite` 同义（definitional，Playbook §2.12）；`Infinite.nonempty` 给非空。ℕ 无限（Set.infinite_univ）是鸽笼矛盾的弹药。
 - **签名**：`[h : Infinite α] : Set.univ.Infinite`；`(hs : s.Infinite) : ¬ s.Finite`
 - **出处**：`Mathlib/Data/Set/Finite/` 与 `Mathlib/Data/Set/Basic.lean`
 - **谁在用**：`analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy`（univ = 有限个纤维之并 → 有限，与无限矛盾）。
@@ -519,7 +519,7 @@
 - **签名**：`(instance) : Setoid (CauSeq β abv)`
 - **出处**：`Mathlib/Algebra/Order/CauSeq/Basic.lean`
 - **谁在用**：`analysis.real.construction-cauchy`。
-- **坑**：`#print axioms` 会因 `≈` 的类型展开带出 choice（Playbook §3.9）。
+- **坑**：`#print axioms` 会因 `≈` 的类型展开带出 choice（Playbook §3.5）。
 
 ### `CauSeq.LimZero`
 - **人话**："柯西差趋于 0"的命题：`∀ ε > 0, ∃ i, ∀ j ≥ i, abv (f j) < ε`。
@@ -754,7 +754,7 @@
 - **签名**：`(hs : IsCompact s) (hf : ContinuousOn f s) : IsCompact (f '' s)`
 - **出处**：`Mathlib/Topology/Compactness/Compact.lean`
 - **谁在用**：`analysis.continuity.max-min`。
-- **坑**：`IsCompact.image` 要全域 `Continuous f`；闭区间上只有 `ContinuousOn` 时用 `image_of_continuousOn`（Playbook §3.17 的 `exact?` 发现）。
+- **坑**：`IsCompact.image` 要全域 `Continuous f`；闭区间上只有 `ContinuousOn` 时用 `image_of_continuousOn`（Playbook §1.1 的 `exact?` 发现）。
 
 ### `IsCompact.exists_isGreatest` / `IsCompact.exists_isLeast`
 - **人话**：紧集含其最大/最小元素。配合"像紧"即得最值定理。

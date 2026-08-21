@@ -11,7 +11,7 @@ open scoped Filter Topology
 /-!
 # Analysis / Derivative —— 导数基础条目（第六章）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **analysis.derivative.definition**（导数定义）。
 * **analysis.derivative.unique**（导数唯一）。

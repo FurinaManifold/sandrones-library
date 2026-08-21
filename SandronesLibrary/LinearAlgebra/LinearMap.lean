@@ -12,7 +12,7 @@ open scoped Filter Topology
 /-!
 # LinearAlgebra / LinearMap —— 线性映射 / 矩阵 / 秩（线性代数第一学期 L2）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **linear-algebra.maps.rank**（线性映射的秩与零度）。
 * **linear-algebra.maps.rank-nullity**（秩-零度定理：rank f + nullity f = dim V）。

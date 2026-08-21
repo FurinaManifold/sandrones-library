@@ -11,7 +11,7 @@ open scoped Filter Topology
 /-!
 # Analysis / MVT —— 微分中值定理（第七章）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **analysis.mvt.rolle**（罗尔定理）。
 * **analysis.mvt.lagrange**（拉格朗日中值定理）。

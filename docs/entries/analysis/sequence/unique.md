@@ -65,7 +65,7 @@ theorem seq_limit_unique {u : ℕ → ℝ} {a b : ℝ}
 seq_limit_unique 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
-**结构必需（无法削减）**：类型含 ℝ 的拓扑结构（𝓝），ℝ 拓扑实例经典构造（§3.7）；
+**结构必需（无法削减）**：类型含 ℝ 的拓扑结构（𝓝），ℝ 拓扑实例经典构造（§3.3）；
 极限唯一的 Hausdorff 论断对 ℝ 成立本身不依赖选择公理，choice 来自实现路径。
 
 ## mathlib 参考

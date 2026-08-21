@@ -312,7 +312,7 @@ theorem nested_intervals_of_monotone_convergence
   · exact le_trans hxy (antitone_limit_le hnb hxb n)
 
 /-! ### 第三道（C 类）：闭区间套 ⟹ 有限覆盖 —— 二分反证
-引理清单（§3.11：一次只做一条，逐条编译）：
+引理清单（§0 铁律4：一次只做一条，逐条编译）：
 1. `NoFiniteCover U l r`：谓词，"对 [l,r] 无有限子覆盖"。
 2. `halfbiseq U a b n`：二分进程，(lₙ, rₙ)。
 3. `finite_cover_halves`：左右半各有有限子覆盖 ⟹ 整段有。
@@ -692,7 +692,7 @@ theorem cauchy_convergence_of_accumulation_point (h : AccumulationPointProperty)
     exact ⟨x, tendsto_of_cauchySeq_of_accPt_range hu hx⟩
 
 /-! ### 第六道（C 类）：Cauchy ⟹ 确界 —— 二分逼近上确界
-引理清单（§3.11：一次只做一条，逐条编译）：
+引理清单（§0 铁律4：一次只做一条，逐条编译）：
 1. `bisect_upper`：二分找上确界的进程，`(lₙ, rₙ)`。
 2. `bisect_upper_le`：lₙ ≤ rₙ；`bisect_upper_left_mono_step` / `right_antitone_step`。
 3. `bisect_upper_length`：rₙ − lₙ = (b − a)/2ⁿ。

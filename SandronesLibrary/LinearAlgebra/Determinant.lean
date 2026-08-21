@@ -12,7 +12,7 @@ open scoped Filter Topology
 /-!
 # LinearAlgebra / Determinant —— 行列式（线性代数第一学期 L3）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **linear-algebra.det.mul**（积的行列式：det(AB) = det A · det B）。
 * **linear-algebra.det.transpose**（转置不变：det Aᵀ = det A）。

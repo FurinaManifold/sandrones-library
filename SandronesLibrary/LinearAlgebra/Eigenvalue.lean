@@ -12,7 +12,7 @@ open scoped Filter Topology
 /-!
 # LinearAlgebra / Eigenvalue —— 特征值 / 相似 / 对角化（线性代数第一学期 L4）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **linear-algebra.eigen.vector**（特征向量：T(x) = μ·x，x ≠ 0）。
 * **linear-algebra.eigen.value**（特征值：存在非零特征向量 ⟺ 特征子空间非平凡）。

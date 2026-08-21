@@ -110,7 +110,7 @@ theorem bolzano_weierstrass {u : ℕ → ℝ}
 bolzano_weierstrass_interval / bolzano_weierstrass 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
-**结构必需（无法削减）**：类型含 ℝ 的拓扑/序实例（§3.7），choice 来自实例实现路径。
+**结构必需（无法削减）**：类型含 ℝ 的拓扑/序实例（§3.3），choice 来自实例实现路径。
 
 ## mathlib 参考
 

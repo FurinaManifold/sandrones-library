@@ -68,7 +68,7 @@ bdd_below_iff 依赖: [propext, Classical.choice, Quot.sound]
 
 **结构必需（无法削减）**：证明是 `rfl`（定义展开，证明体零公理），
 但类型含 `ℝ` 的序结构，mathlib 4.33 的 `ℝ` 序实例定义体经典构造
-（对照实验：ℚ/ℕ 同款 rfl 零公理，仅 ℝ 中招）——结构底线，不是噪声（Playbook §3.7）。
+（对照实验：ℚ/ℕ 同款 rfl 零公理，仅 ℝ 中招）——结构底线，不是噪声（Playbook §3.3）。
 
 ## mathlib 参考
 

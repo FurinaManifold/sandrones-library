@@ -11,7 +11,7 @@ open scoped Filter Topology
 /-!
 # Analysis / Continuity —— 连续函数基础条目（第五章）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **analysis.continuity.definition**（点连续 ↔ 序列连续）。
 * **analysis.continuity.const**（常函数连续）。

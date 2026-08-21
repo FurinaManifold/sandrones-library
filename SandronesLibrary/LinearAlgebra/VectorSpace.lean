@@ -13,7 +13,7 @@ open scoped Filter Topology
 /-!
 # LinearAlgebra / VectorSpace —— 向量空间基础条目（线性代数第一学期 L1）
 
-本文件当前条目（引理清单，§3.11：一次一条，逐条编译）：
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **linear-algebra.vector-space.def**（向量空间 = 域上加法群配合数乘）。
 * **linear-algebra.vector-space.independent**（线性无关：无关组长度 ≤ 维数）。

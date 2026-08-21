@@ -142,7 +142,7 @@ theorem inf_glb (s : Set ℝ) (hne : s.Nonempty) (hbdd : BddBelow s) : IsGLB s (
 >
 > （`cau_equiv_refl` 的证明体纯构造——ε-δ 直写；`#print axioms` 仍报
 > `Classical.choice`，来源是 `CauSeq.equiv` 实例被 reducible 展开而带入的
-> 库内证明开销，非本条目数学内容——Playbook §3.9。）
+> 库内证明开销，非本条目数学内容——Playbook §3.5。）
 -/
 theorem cau_equiv_refl (f : CauSeq ℚ (abs : ℚ → ℚ)) : f ≈ f := by
   intro ε hε

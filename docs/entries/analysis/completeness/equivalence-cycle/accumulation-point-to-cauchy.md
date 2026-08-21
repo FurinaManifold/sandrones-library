@@ -35,4 +35,4 @@ Cauchy 列必有界；值域无限则聚点定理给聚点，聚点即极限；�
 
 ## 应用与陷阱
 
-证明类别 C。三个小坑记在 §3.16：Set.mem_biUnion 构造、Set.Infinite.exists_gt 枚举、Infinite 与 ¬Finite 同义。
+证明类别 C。三个小坑记在 §2.12：Set.mem_biUnion 构造、Set.Infinite.exists_gt 枚举、Infinite 与 ¬Finite 同义。

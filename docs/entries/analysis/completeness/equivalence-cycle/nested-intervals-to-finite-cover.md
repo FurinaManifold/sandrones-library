@@ -36,4 +36,4 @@ provenance:
 
 ## 应用与陷阱
 
-证明类别 C。大小坑集中在 Playbook §3.12-3.15：⋃ bigUnion 绑架、if/dif 展开、No goals 直接删行、Type* universe。
+证明类别 C。大小坑集中在 Playbook §2.11/§2.13/§1.2/§2.14：⋃ bigUnion 绑架、if/dif 展开、No goals 直接删行、Type* universe。

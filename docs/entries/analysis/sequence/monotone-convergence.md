@@ -81,7 +81,7 @@ monotone_convergence 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
 **结构必需（无法削减）**：
-1. ℝ 的拓扑/序实例（§3.7）；
+1. ℝ 的拓扑/序实例（§3.3）；
 2. 单调收敛本身依赖确界原理的构造性实现（`sSup` 走条件完备格的经典选择，
    与 `analysis.real.sup` 同源）。
 

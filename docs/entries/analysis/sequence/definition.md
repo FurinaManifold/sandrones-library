@@ -69,7 +69,7 @@ tendsto_iff_epsilon_N 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
 **结构必需（无法削减）**：类型含 `ℝ` 的拓扑（`𝓝`）与序结构，
-mathlib 的 ℝ 实例（拓扑、度量、有序域）定义体经典构造（Playbook §3.7）。
+mathlib 的 ℝ 实例（拓扑、度量、有序域）定义体经典构造（Playbook §3.3）。
 
 ## mathlib 参考
 

@@ -73,7 +73,7 @@ Cantor 的回答：**把有理数里"该收敛却没收敛"的所有序列补出
   没有这套等价关系，序列之和、积无法良定义。
 - 证明体是纯 ε-δ 的构造性写法，但 `#print axioms` 仍报 `Classical.choice`：
   来源是 `CauSeq.equiv` 实例（reducible 展开）带入的库内证明开销，不是本条目新增
-  数学公理。详见 Playbook §3.9（严禁用投影 `.Rel` 伪装零公理）。
+  数学公理。详见 Playbook §3.5（严禁用投影 `.Rel` 伪装零公理）。
 
 ## 形式化层
 
@@ -122,7 +122,7 @@ cau_equiv_refl/symm/trans, real_eq_iff_cau_equiv, rat_const_cauchy 依赖:
 
 choice 有两个成分：
 1. `CauSeq.equiv` 实例被 reducible 展开，带入库内 LimZero 证明的经典路径（**非本条目新增**；
-   本条目证明体纯 ε-δ 构造，见 Playbook §3.9）；
+   本条目证明体纯 ε-δ 构造，见 Playbook §3.5）；
 2. 商构造与 ℝ 本身（`Real.ofCauchy` 走 `CauSeq.Completion`）携带的制造开销。
 数学上 Cantor 构造本身对"验证等价关系"并不需要选择公理——是 mathlib 的实现路径带来报告。
 

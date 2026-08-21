@@ -87,7 +87,7 @@ theorem tendsto_of_liminf_eq_limsup_seq {u : ℕ → ℝ} {a : ℝ}
 liminf_le_limsup_seq / tendsto_of_liminf_eq_limsup_seq 依赖: [propext, Classical.choice, Quot.sound]
 ```
 
-**结构必需（无法削减）**：类型含 ℝ 的拓扑/序实例（§3.7），choice 来自实例实现路径。
+**结构必需（无法削减）**：类型含 ℝ 的拓扑/序实例（§3.3），choice 来自实例实现路径。
 
 ## mathlib 参考
 
