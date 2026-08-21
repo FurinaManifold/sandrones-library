@@ -4642,5 +4642,38 @@
       "propext"
     ],
     "proof_sha": "74fb033d578801ec"
+  },
+  {
+    "id": "real-analysis.riemann.def",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "黎曼积分定义",
+    "summary": "达布分划/上下和/黎曼可积(上下和可任意逼近)/均匀分划",
+    "family": "real-analysis.riemann",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.lintegral",
+      "real-analysis.lebesgue-measure"
+    ],
+    "mathlib": [
+      "sSup",
+      "sInf",
+      "Finset.sum_range"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, Analysis I, Ch 11（黎曼积分）"
+    },
+    "lean_file": "RealAnalysis/Riemann.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/def.md",
+    "added_by": "ingestor-realanalysis-R55",
+    "added_at": "2026-08-21T11:53:48Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "f05d6d2421a76959"
   }
 ]

@@ -1197,6 +1197,13 @@
 - **谁在用**：`real-analysis.lebesgue-measure`。
 - **坑**：`volume_Icc` 在 `namespace Real`（全名 `Real.volume_Icc`）。
 
+### `sSup` / `sInf` / `Finset.sum_range`（黎曼积分自建用）
+- **人话**：黎曼积分自建的核心构件。`sSup`/`sInf` 取区间上确界/下确界（达布和）；
+  `Finset.sum_range` 求和。mathlib 无黎曼积分定义，全部自建（Playbook §4.1）。
+- **签名**：`sSup s`、`sInf s`；`∑ i ∈ Finset.range n, f i`
+- **谁在用**：`real-analysis.riemann.def`。
+- **坑**：达布上下和定义在 `DarbouxPartition` 上（自建结构）。
+
 ---
 
 ## 附：登记清单自动核对
