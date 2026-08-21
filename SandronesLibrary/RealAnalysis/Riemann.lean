@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import Mathlib
+import SandronesLibrary.Analysis.Continuity
 
 /-!
 # RealAnalysis / Riemann —— 黎曼积分与 Lebesgue 判据（数学分析第二学期 R5.5）
@@ -11,6 +12,7 @@ import Mathlib
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **real-analysis.riemann.def**（黎曼积分定义：达布分划/上下和/黎曼可积/均匀分划）。
+* **real-analysis.riemann.cont-integrable**（连续 ⟹ 黎曼可积，均匀分划 + 一致连续）✅。
 * **real-analysis.riemann.eq-lebesgue**（黎曼可积时数值 = Lebesgue 积分）。
 * **real-analysis.riemann.lebesgue-criterion**（黎曼可积 ⟺ 几乎处处连续）。
 
@@ -23,6 +25,7 @@ namespace SandronesLibrary
 namespace RealAnalysis.Riemann
 
 open MeasureTheory
+open SandronesLibrary.Analysis.Continuity
 open scoped ENNReal Interval BigOperators
 
 /-- **达布分划**：区间 [a,b] 的一个分划是点列 a = x₀ < x₁ < ... < xₙ = b。 -/
@@ -75,6 +78,38 @@ theorem uniformPartition_step {a b : ℝ} {n : ℕ} (hab : a < b) (hpos : 0 < n)
 
 
 /-- **区间宽度引理**：x, y ∈ [p,q]（p ≤ q）⟹ |x - y| ≤ q - p。 -/
+lemma step_sum {a b : ℝ} {n : ℕ} (_hab : a < b) (hpos : 0 < n) :
+    ∑ i ∈ Finset.range n, ((b - a) / (n : ℝ)) = b - a := by
+  rw [Finset.sum_const]
+  -- s.card • d = n • d
+  have hcard : (Finset.range n).card = n := Finset.card_range n
+  rw [hcard]
+  -- n • ((b-a)/n) = b-a（n ≠ 0）
+  have hn : (n : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hpos)
+  -- nsmul_eq_mul
+  rw [nsmul_eq_mul]
+  field_simp [hn]
+
+lemma uniform_x_mem {a b : ℝ} {n : ℕ} (hab : a < b) (hpos : 0 < n)
+    (i : ℕ) (hi : i ≤ n) :
+    a + (i : ℝ) * ((b - a) / (n : ℝ)) ∈ Set.Icc a b := by
+  constructor
+  · -- a ≤ a + i·d（d ≥ 0）
+    have hd : 0 ≤ (b - a) / (n : ℝ) := by
+      exact div_nonneg (le_of_lt (sub_pos.mpr hab)) (Nat.cast_nonneg n)
+    nlinarith
+  · -- a + i·d ≤ a + n·d = b
+    have hd : 0 ≤ (b - a) / (n : ℝ) := by
+      exact div_nonneg (le_of_lt (sub_pos.mpr hab)) (Nat.cast_nonneg n)
+    have hile : (i : ℝ) ≤ (n : ℝ) := by exact_mod_cast hi
+    have : a + (i : ℝ) * ((b - a) / (n : ℝ)) ≤ a + (n : ℝ) * ((b - a) / (n : ℝ)) := by
+      nlinarith
+    have : a + (n : ℝ) * ((b - a) / (n : ℝ)) = b := by
+      have hn : (n : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hpos)
+      field_simp [hn]
+      ring
+    linarith
+
 lemma interval_width {p q x y : ℝ} (_hpq : p ≤ q)
     (hx : x ∈ Set.Icc p q) (hy : y ∈ Set.Icc p q) :
     |x - y| ≤ q - p := by
@@ -128,6 +163,110 @@ lemma C2_subinterval {f : ℝ → ℝ} {a b : ℝ} {ε δ : ℝ}
   have hI : (Set.Icc p q).Nonempty := ⟨p, ⟨le_rfl, hpq⟩⟩
   have hB3 := b3_osc hI (by linarith) hosc
   linarith
+
+
+theorem continuous_on_riemannIntegrable_lt {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
+    (hf : ContinuousOn f (Set.Icc a b)) : RiemannIntegrable f a b := by
+  intro ε hε
+  -- ε' = ε/(4(b-a))
+  let ε' := ε / (4 * (b - a))
+  have hε' : 0 < ε' := by
+    unfold ε'
+    positivity
+  -- 一致连续
+  have hK : IsCompact (Set.Icc a b) := isCompact_Icc
+  have hne : (Set.Icc a b).Nonempty := ⟨a, ⟨le_rfl, le_of_lt hab⟩⟩
+  have huni := continuousOn_compact_uniformContinuousOn (s := Set.Icc a b) hK hne hf
+  rcases Metric.uniformContinuousOn_iff.mp huni ε' hε' with ⟨δ, hδ, hδδ⟩
+  -- 选 n 使步长 < δ
+  rcases exists_nat_gt ((b - a) / δ) with ⟨n, hn⟩
+  have hn_pos : 0 < n := by
+    have hpos : 0 < (b - a) / δ := div_pos (sub_pos.mpr hab) hδ
+    have hcast : 0 < (n : ℝ) := lt_of_lt_of_le hpos (le_of_lt hn)
+    exact_mod_cast hcast
+  have hstep_lt : (b - a) / (n : ℝ) < δ := by
+    have hcast : 0 < (n : ℝ) := by exact_mod_cast hn_pos
+    have h1 : b - a < (n : ℝ) * δ := by
+      rwa [div_lt_iff₀ hδ] at hn
+    exact (div_lt_iff₀' hcast).mpr h1
+  let P := uniformPartition a b n hab hn_pos
+  refine ⟨P, ?_⟩
+  -- 展开成求和
+  have hdiff : upperSum f P - lowerSum f P =
+      ∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) *
+        (sSup (f '' Set.Icc (P.x i) (P.x (i + 1))) - sInf (f '' Set.Icc (P.x i) (P.x (i + 1)))) := by
+    unfold upperSum lowerSum
+    rw [← Finset.sum_sub_distrib]
+    apply Finset.sum_congr rfl
+    intro i hi
+    ring
+  -- 逐项 ≤ 步长·2ε'
+  have hterm : ∀ i ∈ Finset.range n,
+      (P.x (i + 1) - P.x i) *
+        (sSup (f '' Set.Icc (P.x i) (P.x (i + 1))) - sInf (f '' Set.Icc (P.x i) (P.x (i + 1)))) ≤
+      (P.x (i + 1) - P.x i) * (2 * ε') := by
+    intro i hi
+    have hi_lt : i < n := Finset.mem_range.mp hi
+    have hxi : P.x i ∈ Set.Icc a b := by
+      have := uniform_x_mem hab hn_pos i (le_of_lt hi_lt)
+      simpa [P, uniformPartition] using this
+    have hxi1 : P.x (i + 1) ∈ Set.Icc a b := by
+      have := uniform_x_mem hab hn_pos (i + 1) (by omega)
+      simpa [P, uniformPartition] using this
+    have hwidth_abs : |P.x (i + 1) - P.x i| < δ := by
+      have hstep : P.x (i + 1) - P.x i = (b - a) / (n : ℝ) := uniformPartition_step hab hn_pos i hi_lt
+      rw [hstep]
+      have hnon : 0 ≤ (b - a) / (n : ℝ) := by
+        exact div_nonneg (le_of_lt (sub_pos.mpr hab)) (Nat.cast_nonneg n)
+      rw [abs_of_nonneg hnon]
+      exact hstep_lt
+    have hwidth : |P.x i - P.x (i + 1)| < δ := by
+      rw [abs_sub_comm]
+      exact hwidth_abs
+    have hosc0 : ∀ x ∈ Set.Icc a b, ∀ y ∈ Set.Icc a b, |x - y| < δ → |f x - f y| < ε' := hδδ
+    have hC2 := C2_subinterval (a := a) (b := b) (ε := ε') (δ := δ)
+      (huni := hosc0) (hpq := (P.strict i hi_lt).le) (hp := hxi) (hq := hxi1)
+      (hwidth := hwidth) (hε := hε')
+    have hosc_bound : sSup (f '' Set.Icc (P.x i) (P.x (i + 1))) -
+        sInf (f '' Set.Icc (P.x i) (P.x (i + 1))) ≤ 2 * ε' := hC2
+    have hstep_nonneg : 0 ≤ P.x (i + 1) - P.x i := sub_nonneg.mpr (P.strict i hi_lt).le
+    exact mul_le_mul_of_nonneg_left hosc_bound hstep_nonneg
+  -- 求和 = 2ε'·(b-a) = ε/2
+  have hsum_step : (∑ i ∈ Finset.range n,
+      (P.x (i + 1) - P.x i) : ℝ) = b - a := by
+    have hcong : (∑ i ∈ Finset.range n,
+        ((P.x (i + 1) - P.x i) : ℝ)) =
+        (∑ i ∈ Finset.range n, ((b - a) / (n : ℝ)) : ℝ) := by
+      refine Finset.sum_congr rfl ?_
+      intro i hi
+      exact uniformPartition_step hab hn_pos i (Finset.mem_range.mp hi)
+    exact hcong.trans (step_sum hab hn_pos)
+  have hsum : (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) * (2 * ε')) = 2 * ε' * (b - a) := by
+    calc
+      (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) * (2 * ε')) =
+          (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i)) * (2 * ε') := by
+            exact (Finset.sum_mul _ _ (2 * ε')).symm
+      _ = (b - a) * (2 * ε') := by rw [hsum_step]
+      _ = 2 * ε' * (b - a) := by ring
+  have hsum_val : (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) * (2 * ε')) = ε / 2 := by
+    rw [hsum]
+    unfold ε'
+    have hba_ne : b - a ≠ 0 := sub_ne_zero.mpr (ne_of_lt hab).symm
+    field_simp [hba_ne]
+    ring
+  -- 最终: ≤ Σ步长·2ε' = ε/2 < ε
+  rw [hdiff]
+  have hle : (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) *
+      (sSup (f '' Set.Icc (P.x i) (P.x (i + 1))) - sInf (f '' Set.Icc (P.x i) (P.x (i + 1))))) ≤
+      (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) * (2 * ε')) :=
+    Finset.sum_le_sum hterm
+  have : (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) *
+      (sSup (f '' Set.Icc (P.x i) (P.x (i + 1))) - sInf (f '' Set.Icc (P.x i) (P.x (i + 1))))) < ε := by
+    calc
+      _ ≤ (∑ i ∈ Finset.range n, (P.x (i + 1) - P.x i) * (2 * ε')) := hle
+      _ = ε / 2 := hsum_val
+      _ < ε := by linarith
+  exact this
 
 end RealAnalysis.Riemann
 

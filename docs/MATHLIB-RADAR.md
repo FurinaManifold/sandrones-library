@@ -1211,6 +1211,15 @@
 - **谁在用**：`analysis.continuity.uniform-compact`。
 - **坑**：有限子覆盖的 `⋃ i ∈ t` 解构会绑架 binder（Playbook §3.12），用 `simpa [Set.mem_iUnion]`。
 
+### 黎曼积分自建全套（`DarbouxPartition`/`upperSum`/`lowerSum`/`RiemannIntegrable`/`uniformPartition`/`continuous_on_riemannIntegrable_lt`）
+- **人话**：**黎曼积分完全自建**（mathlib 无）。达布分划/上下和/可积定义；
+  **连续 ⟹ 可积**：一致连续（`continuousOn_compact_uniformContinuousOn`）给 δ，
+  均匀分划步长 < δ，每子区间振荡 ≤ 2ε'（`C2_subinterval`），求和 ≤ 2ε'·(b-a) < ε。
+- **签名**：`RiemannIntegrable f a b ↔ ∀ ε > 0, ∃ P : DarbouxPartition a b, upperSum f P - lowerSum f P < ε`
+- **谁在用**：`real-analysis.riemann.cont-integrable`。
+- **坑**：退化 [a,a] 无 Darboux 分划（严格增矛盾），主定理限 a<b；sSup/sInf 用 cs 版（§2.7.2）；
+  含 |·| 目标不用 linarith（§2.7.0）。
+
 ---
 
 ## 附：登记清单自动核对

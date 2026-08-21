@@ -4674,7 +4674,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f05d6d2421a76959"
+    "proof_sha": "0847b2fdba4e79d1"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4709,5 +4709,38 @@
       "propext"
     ],
     "proof_sha": "3a45f1eca989b821"
+  },
+  {
+    "id": "real-analysis.riemann.cont-integrable",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续函数黎曼可积",
+    "summary": "闭区间连续函数黎曼可积（一致连续+均匀分划+振荡界完全自证）",
+    "family": "real-analysis.riemann",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.riemann.def",
+      "analysis.continuity.uniform-compact",
+      "analysis.continuity.uniform"
+    ],
+    "mathlib": [
+      "continuousOn_compact_uniformContinuousOn",
+      "Metric.uniformContinuousOn_iff",
+      "Finset.sum_le_sum"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, Analysis I, Ch 11（黎曼可积性）"
+    },
+    "lean_file": "RealAnalysis/Riemann.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/cont-integrable.md",
+    "added_by": "ingestor-selfderived",
+    "added_at": "2026-08-21T13:01:23Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "proof_sha": "d009211681b6070a"
   }
 ]
