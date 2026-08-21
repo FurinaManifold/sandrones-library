@@ -10,10 +10,10 @@ import Mathlib
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **topology.compact.def**（紧致有限覆盖定义/有限子覆盖抽取/连续像紧/有限并紧）。
-* **topology.compact.closed-bdd**（闭区间紧）。
-* **topology.compact.finite**（T2 中紧集闭/紧集交闭）。
-* **topology.separations**（T1/T2/正则/正规：单点闭、极限唯一）。
+* **topology.compact.def**（紧致有限覆盖定义/有限子覆盖抽取/连续像紧/有限并紧）✅。
+* **topology.compact.closed-bdd**（闭区间紧）✅。
+* **topology.compact.finite**（T2 中紧集闭/紧集交闭）✅。
+* **topology.compact.tychonoff**（Tychonoff 定理：紧集的积紧）✅。
 
 > **语言说明**：点集拓扑阶段（§Phase4）mathlib 的 `IsCompact`/`CompactSpace`/`T1Space`/
 > `T2Space`/`NormalSpace` 等**教材结构可直接出现在签名**。
@@ -70,6 +70,29 @@ theorem compact_isClosed_of_t2 {X : Type*} [TopologicalSpace X] [T2Space X] {s :
 theorem compact_inter_of_t2 {X : Type*} [TopologicalSpace X] [T2Space X] {s t : Set X}
     (hs : IsCompact s) (ht : IsCompact t) : IsCompact (s ∩ t) := by
   exact hs.inter ht
+
+/-- **Tychonoff 定理**：任意族紧集的积是紧集（紧致的乘积保持性）。
+  这是拓扑学核心定理（等价于选择公理）。 
+> **Entry**: topology.compact.tychonoff
+-/
+theorem tychonoff {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]
+    {s : ∀ i, Set (X i)} (hs : ∀ i, IsCompact (s i)) :
+    IsCompact { x : ∀ i, X i | ∀ i, x i ∈ s i } := by
+  exact isCompact_pi_infinite hs
+
+/-- **Tychonoff 定理（Set.pi 版）**：∏ᵢ sᵢ 紧 ⟸ 每个 sᵢ 紧。 
+> **Entry**: topology.compact.tychonoff
+-/
+theorem tychonoff_pi {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]
+    {s : ∀ i, Set (X i)} (hs : ∀ i, IsCompact (s i)) : IsCompact (Set.pi Set.univ s) := by
+  exact isCompact_univ_pi hs
+
+/-- **紧空间的积是紧空间**：每个因子紧 ⟹ 积空间紧（CompactSpace 形式）。 
+> **Entry**: topology.compact.tychonoff
+-/
+theorem compact_space_pi {ι : Type*} {X : ι → Type*} [∀ i, TopologicalSpace (X i)]
+    [∀ i, CompactSpace (X i)] : CompactSpace (∀ i, X i) := by
+  infer_instance
 
 end Topology.Compact
 

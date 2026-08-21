@@ -1116,6 +1116,22 @@
 - **谁在用**：`topology.separations.urysohn`。
 - **坑**：`C(X, ℝ)` 是 ContinuousMap（用 `⇑f` 取函数）；值域在 [0,1] 用 `Set.Icc 0 1`。
 
+### `zorn_le` / `zorn_subset` / `zorn_superset` / `IsChain` / `BddAbove` / `IsMax`
+- **人话**：**Zorn 引理**（偏序每条链有上界 ⟹ 极大元）；⊆ 序版（子集族极大元）；⊇ 序版（极小元）。
+  `IsChain r s` 链、`BddAbove` 有上界、`IsMax` 极大元。等价于选择公理，是极大理想/基存在性/Tychonoff 的工具。
+- **签名**：`zorn_le (h : ∀ c, IsChain (·≤·) c → BddAbove c) : ∃ m, IsMax m`
+- **出处**：`Mathlib/Order/Zorn.lean`
+- **谁在用**：`settheory.zorn.zorn`。
+- **坑**：Zorn 引理需要 `[Nonempty X]`（非空偏序集）；实际用子集族版更常见。
+
+### `isCompact_pi_infinite` / `isCompact_univ_pi` / `Pi.compactSpace`
+- **人话**：**Tychonoff 定理**：一族紧集的积紧（`isCompact_pi_infinite`/`isCompact_univ_pi`）；
+  各因子紧 ⟹ 积空间紧（`Pi.compactSpace`）。等价于选择公理。
+- **签名**：`isCompact_pi_infinite : (∀ i, IsCompact (s i)) → IsCompact {x | ∀ i, x i ∈ s i}`
+- **出处**：`Mathlib/Topology/Compactness/Compact.lean`
+- **谁在用**：`topology.compact.tychonoff`。
+- **坑**：无限积的紧致性才是 Tychonoff 的本质；有限积紧可绕过（不需要 AC）。
+
 ---
 
 ## 附：登记清单自动核对
