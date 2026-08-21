@@ -464,6 +464,194 @@ theorem step_eval_at {n i : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {t : ℝ} (
     intro hi_not
     exact False.elim (hi_not (Finset.mem_range.mpr hi))
 
+lemma fin_strict_mono_le {n i j : ℕ} {x : ℕ → ℝ}
+    (hx : ∀ k, k < n → x k < x (k+1)) (hij : i + 1 ≤ j) (hj : j < n) :
+    x (i+1) ≤ x j := by
+  -- F2: 传递链：对 k 从 i+1 到 j，x(i+1) ≤ x k
+  -- f k := k ≤ j → x (i+1) ≤ x k
+  have hchain : ∀ k, i + 1 ≤ k → k ≤ j → x (i+1) ≤ x k := by
+    -- 用 Nat.le_induction，P k := k ≤ j → x(i+1) ≤ x k
+    have hbase : i + 1 ≤ j → x (i+1) ≤ x (i+1) := by
+      intro _
+      rfl
+    have hstep : ∀ k, i + 1 ≤ k → (k ≤ j → x (i+1) ≤ x k) → (k+1 ≤ j → x (i+1) ≤ x (k+1)) := by
+      intro k hik hfk hkj
+      -- k+1 ≤ j ⟹ k < n
+      have hkn : k < n := by omega
+      have hle_k : x (i+1) ≤ x k := hfk (le_trans (Nat.le_succ k) hkj)
+      have hk1 : x k ≤ x (k+1) := le_of_lt (hx k hkn)
+      exact le_trans hle_k hk1
+    intro k hik hkj
+    exact Nat.le_induction (m := i + 1) hbase (fun n hmn hfn => hstep n hmn hfn) k hik hkj
+  exact hchain j hij le_rfl
+
+lemma partition_disjoint {n i j : ℕ} {x : ℕ → ℝ} {t : ℝ}
+    (hx : ∀ k, k < n → x k < x (k+1)) (hi : i < n) (hj : j < n) (hij : i ≠ j)
+    (hti : t ∈ Set.Ioc (x i) (x (i+1))) : t ∉ Set.Ioc (x j) (x (j+1)) := by
+  rcases lt_or_gt_of_ne hij with hlt | hgt
+  · -- i < j：x(i+1) ≤ x j（fin_strict_mono_le），t ≤ x(i+1) ⟹ t ≤ x j，但 Ioc xⱼ 需 x j < t
+    intro htj
+    have hle : x (i+1) ≤ x j := fin_strict_mono_le hx (Nat.succ_le_of_lt hlt) hj
+    have htx : t ≤ x j := le_trans hti.2 hle
+    have hxj : x j < t := htj.1
+    linarith
+  · -- j < i：对称
+    intro hti2
+    have hle : x (j+1) ≤ x i := fin_strict_mono_le hx (Nat.succ_le_of_lt hgt) hi
+    have htj : t ≤ x i := le_trans hti2.2 hle
+    have hxi : x i < t := hti.1
+    linarith
+
+lemma mono_x_le {n m j : ℕ} {x : ℕ → ℝ}
+    (hx : ∀ k, k < n → x k < x (k+1)) (hmj : m ≤ j) (hj : j < n) :
+    x m ≤ x j := by
+  -- P k := k ≤ j → x m ≤ x k
+  have hchain : ∀ k, m ≤ k → k ≤ j → x m ≤ x k := by
+    have hbase : m ≤ j → x m ≤ x m := by
+      intro _
+      rfl
+    have hstep : ∀ k, m ≤ k → (k ≤ j → x m ≤ x k) → (k+1 ≤ j → x m ≤ x (k+1)) := by
+      intro k hk hfk hkj
+      have hkn : k < n := by omega
+      have hle_k : x m ≤ x k := hfk (le_trans (Nat.le_succ k) hkj)
+      have hk1 : x k ≤ x (k+1) := le_of_lt (hx k hkn)
+      exact le_trans hle_k hk1
+    intro k hk hkj
+    exact Nat.le_induction (m := m) hbase (fun n hmn hfn => hstep n hmn hfn) k hk hkj
+  exact hchain j hmj le_rfl
+
+lemma mono_x_le_le {n m j : ℕ} {x : ℕ → ℝ}
+    (hx : ∀ k, k < n → x k < x (k+1)) (hmj : m ≤ j) (hj : j ≤ n) :
+    x m ≤ x j := by
+  -- 直接 Nat.le_induction 从 m 到 j，步进 k < n（k+1 ≤ j ≤ n）
+  have hchain : ∀ k, m ≤ k → k ≤ j → x m ≤ x k := by
+    have hbase : m ≤ j → x m ≤ x m := by intro _; rfl
+    have hstep : ∀ k, m ≤ k → (k ≤ j → x m ≤ x k) → (k+1 ≤ j → x m ≤ x (k+1)) := by
+      intro k hk hfk hkj
+      have hkn : k < n := by omega  -- k+1 ≤ j ≤ n
+      have hle_k : x m ≤ x k := hfk (le_trans (Nat.le_succ k) hkj)
+      have hk1 : x k ≤ x (k+1) := le_of_lt (hx k hkn)
+      exact le_trans hle_k hk1
+    intro k hk hkj
+    exact Nat.le_induction (m := m) hbase (fun n hmn hfn => hstep n hmn hfn) k hk hkj
+  exact hchain j hmj le_rfl
+
+lemma partition_point_mem {n i : ℕ} {x : ℕ → ℝ} {a b : ℝ}
+    (hab : a ≤ b) (x0 : x 0 = a) (xN : x n = b) (hx : ∀ k, k < n → x k < x (k+1))
+    (hi : i ≤ n) :
+    x i ∈ Set.Icc a b := by
+  constructor
+  · have hle : x 0 ≤ x i := mono_x_le_le hx (Nat.zero_le i) hi
+    simpa [x0] using hle
+  · have hle : x i ≤ x n := mono_x_le_le hx hi (le_rfl)
+    simpa [xN] using hle
+
+lemma step_le_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
+    (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
+    ∀ t ∈ Set.Ioc a b,
+      (∑ i ∈ Finset.range P.n,
+        (Set.Ioc (P.x i) (P.x (i+1))).indicator
+          (fun _ : ℝ => sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) t) ≤ f t := by
+  intro t ht
+  -- 1. 分划覆盖：t 落子区间 Ioc xᵢ xᵢ₊₁
+  rcases partition_cover P.x0 P.xN P.strict ht with ⟨i, hi_lt, hxi, hxi1⟩
+  -- 2. sP t = infᵢ（step_eval_at，需 hdisj 唯一）
+  have hdisj_all : ∀ j, j < P.n → j ≠ i → t ∉ Set.Ioc (P.x j) (P.x (j+1)) := by
+    intro j hj ji
+    exact partition_disjoint P.strict hi_lt hj ji.symm ⟨hxi, hxi1⟩
+  have hsum : (∑ j ∈ Finset.range P.n,
+      (Set.Ioc (P.x j) (P.x (j+1))).indicator
+        (fun _ : ℝ => sInf (f '' Set.Icc (P.x j) (P.x (j+1)))) t) =
+      sInf (f '' Set.Icc (P.x i) (P.x (i+1))) := by
+    exact step_eval_at hi_lt ⟨hxi, hxi1⟩ hdisj_all
+  -- 3. infᵢ ≤ f t（D4a，需 f 连续 on Icc xᵢ xᵢ₊₁ 且 t ∈ Ioc xᵢ xᵢ₊₁）
+  have hle : sInf (f '' Set.Icc (P.x i) (P.x (i+1))) ≤ f t := by
+    -- 需 ContinuousOn f (Icc xᵢ xᵢ₊₁)：子区间 ⊆ Icc a b（分划点在区间内）
+    have hxi_ab : P.x i ∈ Set.Icc a b := by
+      exact partition_point_mem hab P.x0 P.xN P.strict (le_of_lt hi_lt)
+    have hxi1_ab : P.x (i+1) ∈ Set.Icc a b := by
+      exact partition_point_mem hab P.x0 P.xN P.strict (Nat.succ_le_of_lt hi_lt)
+    have hf_sub : ContinuousOn f (Set.Icc (P.x i) (P.x (i+1))) := by
+      exact hf.mono (Set.Icc_subset_Icc hxi_ab.1 hxi1_ab.2)
+    exact step_le_f_pointwise (P.strict i hi_lt).le hf_sub ⟨hxi, hxi1⟩
+  -- 组装
+  rw [hsum]
+  exact hle
+
+lemma step_integral_eq_lowerSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
+    (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
+    (∫ t : ℝ,
+      (∑ i ∈ Finset.range P.n,
+        (Set.Ioc (P.x i) (P.x (i+1))).indicator
+          (fun _ : ℝ => sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) t) ∂volume) =
+      lowerSum f P := by
+  -- D3b: ∫(∑ cᵢ·1_{Ioc}) = ∑ cᵢ·步长
+  have hD3b := integral_sum_indicator_Ioc (x := P.x)
+    (c := fun i => sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) hstep
+  rw [hD3b]
+  -- 目标: ∑ sInfᵢ·步长 = lowerSum f P
+  unfold lowerSum
+  apply Finset.sum_congr rfl
+  intro i hi
+  ring
+
+theorem darboux_lower_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
+    (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1))
+    (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
+    lowerSum f P ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := by
+  let sP : ℝ → ℝ := fun t => ∑ i ∈ Finset.range P.n,
+    (Set.Ioc (P.x i) (P.x (i+1))).indicator (fun _ : ℝ => sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) t
+  -- 元件: hsP（恒等）
+  have hsP : ∀ t, (Set.Ioc a b).indicator sP t = sP t := by
+    intro t
+    exact step_indicator_identity (c := fun i => sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) hsub t
+  -- 元件: hf_mono（sP ≤ f，逐点 indicator 形式）
+  have hf_mono : ∀ t, (Set.Ioc a b).indicator sP t ≤ (Set.Ioc a b).indicator f t := by
+    intro t
+    by_cases ht : t ∈ Set.Ioc a b
+    · -- t ∈ Ioc a b：sP t ≤ f t（step_le_f_upper）
+      have hsP_le : sP t ≤ f t := step_le_f_upper hab hf P hsub t ht
+      -- indicator 在 s 内取原值
+      simpa [Set.indicator, ht] using hsP_le
+    · -- t ∉ Ioc a b：indicator 都 0
+      simp [Set.indicator, ht]
+  -- 元件: hisP/hif（可积）
+  have hisP : Integrable ((Set.Ioc a b).indicator sP) volume := by
+    -- 用 hisP4 的模式：Integrable sP（全局）+ 恒等 congr
+    have hsP_int : Integrable sP volume := by
+      have hin : ∀ i ∈ Finset.range P.n, Integrable
+          ((Set.Ioc (P.x i) (P.x (i+1))).indicator
+            (fun _ : ℝ => sInf (f '' Set.Icc (P.x i) (P.x (i+1))))) volume := by
+        intro i hi
+        rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+        have hfin : volume (Set.Ioc (P.x i) (P.x (i+1))) ≠ ∞ := by
+          rw [Real.volume_Ioc]
+          exact ENNReal.ofReal_ne_top
+        exact integrableOn_const (μ := volume) (s := Set.Ioc (P.x i) (P.x (i+1)))
+          (C := sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) (hs := hfin)
+      exact integrable_finset_sum (s := Finset.range P.n) hin
+    have hident : (Set.Ioc a b).indicator sP = sP := by
+      funext t
+      exact hsP t
+    rw [hident]
+    exact hsP_int
+  have hif : Integrable ((Set.Ioc a b).indicator f) volume := by
+    rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+    have hcc : IntegrableOn f (Set.Icc a b) volume := ContinuousOn.integrableOn_Icc hf
+    exact hcc.mono_set (Set.Ioc_subset_Icc_self)
+  -- 用抽象组装
+  have h_main := lower_sum_le_interval (f := f) (sP := sP) (s := Set.Ioc a b)
+    (hs := measurableSet_Ioc) (hsP := hsP) (hf_mono := hf_mono) (hisP := hisP) (hif := hif)
+  -- h_main : ∫ sP ≤ ∫_Ioc f
+  have h_int : (∫ t : ℝ, sP t ∂volume) = lowerSum f P :=
+    step_integral_eq_lowerSum P hstep
+  -- 组装
+  calc
+    lowerSum f P = (∫ t : ℝ, sP t ∂volume) := h_int.symm
+    _ ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := h_main
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
