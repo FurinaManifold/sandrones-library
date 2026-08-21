@@ -860,6 +860,15 @@
 - **谁在用**：`linear-algebra.det.mul/transpose/invertible/one-zero`。
 - **坑**：教材"det A ≠ 0"在 mathlib 是 `IsUnit A.det`（域上等价）；`Matrix.det_ne_zero_iff` 不存在。
 
+### `Module.End.HasEigenvalue` / `Module.End.HasEigenvector` / `Module.End.eigenspace` / `spectrum` / `Matrix.charpoly`
+- **人话**：线性变换 T 的特征值 `HasEigenvalue`、特征向量 `HasEigenvector`、特征子空间 `eigenspace μ`、
+  谱 `spectrum`、特征多项式 `Matrix.charpoly`。
+- **签名**：`T.HasEigenvalue μ ↔ T.eigenspace μ ≠ ⊥`；`T.HasEigenvector μ x : T x = μ • x`；
+  `(diagonal d).charpoly = ∏ᵢ (X - dᵢ)`
+- **出处**：`Mathlib/LinearAlgebra/Eigenspace/`、`Mathlib/LinearAlgebra/Matrix/Charpoly/`
+- **谁在用**：`linear-algebra.eigen.vector/value/spectrum/charpoly`。
+- **坑**：特征向量是"方向不变"的拉伸；特征多项式对角情形 ∏(X−dᵢ) 显式给出特征值。
+
 ---
 
 ## 附：登记清单自动核对

@@ -2653,5 +2653,122 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.eigen.vector",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "特征向量",
+    "summary": "x≠0 且 T(x)=μ·x，则 x 是 T 的属于 μ 的特征向量",
+    "premises": [],
+    "mathlib": [
+      "Module.End.HasEigenvector",
+      "Module.End.HasEigenvector.apply_eq_smul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征值与特征向量"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/vector.md",
+    "added_by": "ingestor-linalg-L4",
+    "added_at": "2026-08-21T06:09:28Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "e462efd8938d7f52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.value",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "特征值",
+    "summary": "μ 是特征值 ⟺ μ 的特征子空间非零",
+    "premises": [],
+    "mathlib": [
+      "Module.End.hasEigenvalue_iff",
+      "Module.End.eigenspace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征值与特征向量"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/value.md",
+    "added_by": "ingestor-linalg-L4",
+    "added_at": "2026-08-21T06:09:28Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "e462efd8938d7f52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.spectrum",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "谱",
+    "summary": "特征值属于线性变换的谱",
+    "premises": [],
+    "mathlib": [
+      "Module.End.HasEigenvalue.mem_spectrum",
+      "spectrum"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征值与特征向量"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/spectrum.md",
+    "added_by": "ingestor-linalg-L4",
+    "added_at": "2026-08-21T06:09:28Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "e462efd8938d7f52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.charpoly",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "特征多项式",
+    "summary": "对角阵特征多项式=∏(X−dᵢ)；特征多项式首一",
+    "premises": [],
+    "mathlib": [
+      "Matrix.charpoly_diagonal",
+      "Matrix.charpoly_monic",
+      "Matrix.charpoly"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征值与特征向量"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/charpoly.md",
+    "added_by": "ingestor-linalg-L4",
+    "added_at": "2026-08-21T06:09:28Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "e462efd8938d7f52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
