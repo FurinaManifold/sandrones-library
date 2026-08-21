@@ -4674,7 +4674,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "9a5a3bda99afb463"
+    "proof_sha": "b61b787b7d2ae969"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4773,9 +4773,10 @@
     "added_at": "2026-08-21T15:26:03Z",
     "dependedOnBy": [],
     "axioms": [
-      "propext",
-      "Quot.sound"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
-    "proof_sha": "71da43246ec137d6"
+    "proof_sha": "b61b787b7d2ae969"
   }
 ]

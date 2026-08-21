@@ -83,7 +83,7 @@ theorem uniformPartition_step {a b : ℝ} {n : ℕ} (hab : a < b) (hpos : 0 < n)
   ring
 
 
-/-- **区间宽度引理**：x, y ∈ [p,q]（p ≤ q）⟹ |x - y| ≤ q - p。 -/
+/-- **均匀分划步长和**：∑ᵢ (b−a)/n = b − a（均匀分划所有步长之和为区间长）。 -/
 lemma step_sum {a b : ℝ} {n : ℕ} (_hab : a < b) (hpos : 0 < n) :
     ∑ i ∈ Finset.range n, ((b - a) / (n : ℝ)) = b - a := by
   rw [Finset.sum_const]
@@ -96,6 +96,7 @@ lemma step_sum {a b : ℝ} {n : ℕ} (_hab : a < b) (hpos : 0 < n) :
   rw [nsmul_eq_mul]
   field_simp [hn]
 
+/-- **均匀分划点属于区间**：xᵢ = a + i·(b−a)/n ∈ [a,b]（对 i ≤ n）。 -/
 lemma uniform_x_mem {a b : ℝ} {n : ℕ} (hab : a < b) (hpos : 0 < n)
     (i : ℕ) (hi : i ≤ n) :
     a + (i : ℝ) * ((b - a) / (n : ℝ)) ∈ Set.Icc a b := by
@@ -116,6 +117,8 @@ lemma uniform_x_mem {a b : ℝ} {n : ℕ} (hab : a < b) (hpos : 0 < n)
       ring
     linarith
 
+/-- **区间宽度引理**：x, y ∈ [p,q]（p ≤ q）⟹ |x − y| ≤ q − p。
+  用于控制子区间内两点距离不超过区间长。 -/
 lemma interval_width {p q x y : ℝ} (_hpq : p ≤ q)
     (hx : x ∈ Set.Icc p q) (hy : y ∈ Set.Icc p q) :
     |x - y| ≤ q - p := by
@@ -126,6 +129,8 @@ lemma interval_width {p q x y : ℝ} (_hpq : p ≤ q)
   · have : x - y ≤ q - p := by linarith [hx.2, hy.1]
     exact this
 
+/-- **振荡界（B3）**：区间内任意两点 f 值差 ≤ ε ⟹ sSup(f''I) − sInf(f''I) ≤ 2ε。
+  用下确界逼近（exists_lt_of_lt_csSup 思路）。 -/
 lemma b3_osc {f : ℝ → ℝ} {I : Set ℝ} (hI : I.Nonempty)
     {ε : ℝ} (hε : 0 < ε)
     (hosc : ∀ x ∈ I, ∀ y ∈ I, |f x - f y| ≤ ε) :
@@ -150,7 +155,8 @@ lemma b3_osc {f : ℝ → ℝ} {I : Set ℝ} (hI : I.Nonempty)
     have hfzy : f z ≤ f y + ε := by linarith [abs_le.mp hzy]
     nlinarith
 
--- C2: 子区间振荡（C1 + 一致连续 + B3）
+/-- **子区间振荡界（C2）**：f 一致连续（huni 给振荡 < ε）且子区间宽度 < δ ⟹
+  sSup(f''[p,q]) − sInf(f''[p,q]) ≤ 2ε。用于控制达布上下和差。 -/
 lemma C2_subinterval {f : ℝ → ℝ} {a b : ℝ} {ε δ : ℝ}
     (huni : ∀ x ∈ Set.Icc a b, ∀ y ∈ Set.Icc a b, |x - y| < δ → |f x - f y| < ε)
     {p q : ℝ} (hpq : p ≤ q) (hp : p ∈ Set.Icc a b) (hq : q ∈ Set.Icc a b)
@@ -171,6 +177,8 @@ lemma C2_subinterval {f : ℝ → ℝ} {a b : ℝ} {ε δ : ℝ}
   linarith
 
 
+/-- **连续函数黎曼可积（a<b）**：f 在 [a,b] 连续 ⟹ 黎曼可积。
+  一致连续 + 均匀分划 + 振荡界 + 求和，完全自证。 -/
 theorem continuous_on_riemannIntegrable_lt {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     (hf : ContinuousOn f (Set.Icc a b)) : RiemannIntegrable f a b := by
   intro ε hε
@@ -282,6 +290,8 @@ theorem continuous_intervalIntegrable {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤
     rw [Set.uIcc_of_le hab]
     exact hf
   exact ContinuousOn.intervalIntegrable (μ := volume) hf'
+/-- **单区间常数 indicator 积分**：∫ (c·1_{Ioc a b}) = c·(b−a)（a ≤ b）。
+  达布和 = 阶梯函数积分的原子引理。 -/
 theorem integral_indicator_const_Ioc {a b c : ℝ} (hab : a ≤ b) :
     (∫ x : ℝ, (Set.Ioc a b).indicator (fun _ : ℝ => c) x ∂volume) = c * (b - a) := by
   rw [integral_indicator (hs := measurableSet_Ioc)]
@@ -300,6 +310,8 @@ theorem integral_indicator_const_Ioc {a b c : ℝ} (hab : a ≤ b) :
   -- (b-a) • c = c·(b-a)
   simp [smul_eq_mul, mul_comm]
 
+/-- **求和 indicator 积分**：∫ (∑ᵢ cᵢ·1_{Ioc xᵢ xᵢ₊₁}) = ∑ᵢ cᵢ·(xᵢ₊₁−xᵢ)。
+  阶梯函数（indicator 常数和）的 Lebesgue 积分 = 达布和形式。 -/
 theorem integral_sum_indicator_Ioc {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ}
     (hstep : ∀ i ∈ Finset.range n, x i ≤ x (i+1)) :
     (∫ t : ℝ, (∑ i ∈ Finset.range n,
@@ -334,6 +346,8 @@ theorem integral_sum_indicator_Ioc {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ}
       -- ∫(cᵢ·1_{Ioc}) = cᵢ·(xᵢ₊₁-xᵢ)（D3a，需 x i ≤ x(i+1)）
       exact integral_indicator_const_Ioc (c := c i) (hstep i hi)
 
+/-- **阶梯函数逐点 ≤ f**：t ∈ Ioc p q 时 sInf(f''[p,q]) ≤ f t（f 连续 on [p,q]）。
+  达布下和对应阶梯函数 ≤ f 的逐点依据。 -/
 lemma step_le_f_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
     (hf : ContinuousOn f (Set.Icc p q)) {t : ℝ} (ht : t ∈ Set.Ioc p q) :
     sInf (f '' Set.Icc p q) ≤ f t := by
@@ -342,6 +356,8 @@ lemma step_le_f_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
   have hK : IsCompact (f '' Set.Icc p q) := IsCompact.image_of_continuousOn isCompact_Icc hf
   exact csInf_le (IsCompact.bddBelow hK) htm
 
+/-- **受限区间常数积分**：∫ x in Ioc p q, c = c·(q−p)（p ≤ q）。
+  受限测度（restrict）下的常数积分。 -/
 theorem restricted_integral_const_Ioc {p q c : ℝ} (hpq : p ≤ q) :
     (∫ x : ℝ in Set.Ioc p q, c ∂volume) = c * (q - p) := by
   rw [integral_const]
@@ -355,6 +371,8 @@ theorem restricted_integral_const_Ioc {p q c : ℝ} (hpq : p ≤ q) :
   rw [hres, hvol]
   simp [smul_eq_mul, mul_comm]
 
+/-- **阶梯函数 indicator 恒等**：子区间 ⊆ Ioc a b 时 (Ioc a b).indicator sP = sP（逐点）。
+  阶梯函数在 Ioc a b 外为 0，indicator 不改变它。 -/
 theorem step_indicator_identity {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {a b : ℝ}
     (hsub : ∀ i ∈ Finset.range n, Set.Ioc (x i) (x (i+1)) ⊆ Set.Ioc a b) :
     ∀ t : ℝ, (Set.Ioc a b).indicator
@@ -374,6 +392,8 @@ theorem step_indicator_identity {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {a
       exact Set.indicator_of_notMem htnot (fun _ : ℝ => c i)
     simpa [Set.indicator, ht] using hsP.symm
 
+/-- **下和 ≤ 区间积分（抽象组装）**：∫ sP ≤ ∫_s f，当 sP·1_s = sP（恒等）、
+  sP·1_s ≤ f·1_s（逐点）、且可积。用 integral_congr + integral_mono + integral_indicator。 -/
 theorem lower_sum_le_interval {f sP : ℝ → ℝ} {s : Set ℝ}
     (hs : MeasurableSet s)
     (hsP : ∀ t, s.indicator sP t = sP t)
@@ -395,6 +415,7 @@ theorem lower_sum_le_interval {f sP : ℝ → ℝ} {s : Set ℝ}
     _ ≤ (∫ t : ℝ, s.indicator f t ∂volume) := h2
     _ = (∫ t : ℝ in s, f t ∂volume) := h3
 
+/-- **连续函数的 indicator 可积**：f 连续 on [a,b] ⟹ (Ioc a b).indicator f 可积。 -/
 theorem continuous_indicator_integrable {f : ℝ → ℝ} {a b : ℝ} (_hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) :
     Integrable ((Set.Ioc a b).indicator f) volume := by
@@ -405,6 +426,8 @@ theorem continuous_indicator_integrable {f : ℝ → ℝ} {a b : ℝ} (_hab : a 
   -- Ioc a b ⊆ Icc a b
   exact hcc.mono_set (Set.Ioc_subset_Icc_self)
 
+/-- **分划覆盖引理**：t ∈ Ioc a b（x₀=a, xₙ=b, 严格增）⟹ ∃ i < n, xᵢ < t ≤ xᵢ₊₁。
+  用 Nat.find 找最小 i 使 t ≤ xᵢ。 -/
 lemma partition_cover {n : ℕ} {x : ℕ → ℝ} {a b : ℝ} {t : ℝ}
     (x0 : x 0 = a) (xN : x n = b) (hx : ∀ i, i < n → x i < x (i+1))
     (ht : t ∈ Set.Ioc a b) :
@@ -448,6 +471,8 @@ lemma partition_cover {n : ℕ} {x : ℕ → ℝ} {a b : ℝ} {t : ℝ}
     simpa [this] using hpj
   refine ⟨i, hi_lt, hxi, hxj⟩
 
+/-- **阶梯函数求值**：t 恰在子区间 Ioc xᵢ xᵢ₊₁ 内（其他子区间不含 t）时，
+  ∑ⱼ cⱼ·1_{Ioc xⱼ xⱼ₊₁}(t) = cᵢ（sum_eq_single）。 -/
 theorem step_eval_at {n i : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {t : ℝ} (hi : i < n)
     (ht : t ∈ Set.Ioc (x i) (x (i+1)))
     (hdisj : ∀ j, j < n → j ≠ i → t ∉ Set.Ioc (x j) (x (j+1))) :
@@ -464,6 +489,8 @@ theorem step_eval_at {n i : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {t : ℝ} (
     intro hi_not
     exact False.elim (hi_not (Finset.mem_range.mpr hi))
 
+/-- **有限严格增序列传递**：x 严格增（k<n）且 i+1 ≤ j < n ⟹ x(i+1) ≤ x j。
+  分划点单调性的多步传递。 -/
 lemma fin_strict_mono_le {n i j : ℕ} {x : ℕ → ℝ}
     (hx : ∀ k, k < n → x k < x (k+1)) (hij : i + 1 ≤ j) (hj : j < n) :
     x (i+1) ≤ x j := by
@@ -485,6 +512,8 @@ lemma fin_strict_mono_le {n i j : ℕ} {x : ℕ → ℝ}
     exact Nat.le_induction (m := i + 1) hbase (fun n hmn hfn => hstep n hmn hfn) k hik hkj
   exact hchain j hij le_rfl
 
+/-- **分划子区间两两不交**：i ≠ j 时 Ioc xᵢ xᵢ₊₁ 与 Ioc xⱼ xⱼ₊₁ 不交。
+  阶梯函数唯一性的关键。 -/
 lemma partition_disjoint {n i j : ℕ} {x : ℕ → ℝ} {t : ℝ}
     (hx : ∀ k, k < n → x k < x (k+1)) (hi : i < n) (hj : j < n) (hij : i ≠ j)
     (hti : t ∈ Set.Ioc (x i) (x (i+1))) : t ∉ Set.Ioc (x j) (x (j+1)) := by
@@ -502,6 +531,7 @@ lemma partition_disjoint {n i j : ℕ} {x : ℕ → ℝ} {t : ℝ}
     have hxi : x i < t := hti.1
     linarith
 
+/-- **分划点单调**：m ≤ j < n 且 x 严格增（k<n）⟹ x m ≤ x j。 -/
 lemma mono_x_le {n m j : ℕ} {x : ℕ → ℝ}
     (hx : ∀ k, k < n → x k < x (k+1)) (hmj : m ≤ j) (hj : j < n) :
     x m ≤ x j := by
@@ -520,6 +550,7 @@ lemma mono_x_le {n m j : ℕ} {x : ℕ → ℝ}
     exact Nat.le_induction (m := m) hbase (fun n hmn hfn => hstep n hmn hfn) k hk hkj
   exact hchain j hmj le_rfl
 
+/-- **分划点单调（到端点）**：m ≤ j ≤ n 且 x 严格增 ⟹ x m ≤ x j（允许 j=n，xₙ=b）。 -/
 lemma mono_x_le_le {n m j : ℕ} {x : ℕ → ℝ}
     (hx : ∀ k, k < n → x k < x (k+1)) (hmj : m ≤ j) (hj : j ≤ n) :
     x m ≤ x j := by
@@ -536,6 +567,7 @@ lemma mono_x_le_le {n m j : ℕ} {x : ℕ → ℝ}
     exact Nat.le_induction (m := m) hbase (fun n hmn hfn => hstep n hmn hfn) k hk hkj
   exact hchain j hmj le_rfl
 
+/-- **分划点属于区间**：x₀=a 严格增 xₙ=b ⟹ x i ∈ [a,b]（对 i ≤ n）。 -/
 lemma partition_point_mem {n i : ℕ} {x : ℕ → ℝ} {a b : ℝ}
     (hab : a ≤ b) (x0 : x 0 = a) (xN : x n = b) (hx : ∀ k, k < n → x k < x (k+1))
     (hi : i ≤ n) :
@@ -546,6 +578,8 @@ lemma partition_point_mem {n i : ℕ} {x : ℕ → ℝ} {a b : ℝ}
   · have hle : x i ≤ x n := mono_x_le_le hx hi (le_rfl)
     simpa [xN] using hle
 
+/-- **阶梯函数 ≤ f（逐点）**：t ∈ Ioc a b 时达布下和阶梯函数 ≤ f t。
+  分划覆盖 + step_eval_at + step_le_f_pointwise。 -/
 lemma step_le_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
     (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
@@ -579,6 +613,7 @@ lemma step_le_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
   rw [hsum]
   exact hle
 
+/-- **下和阶梯函数积分 = 达布下和**：∫ (∑ infᵢ·1_{Ioc xᵢ xᵢ₊₁}) = lowerSum f P。 -/
 lemma step_integral_eq_lowerSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
     (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
     (∫ t : ℝ,
@@ -596,6 +631,8 @@ lemma step_integral_eq_lowerSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
   intro i hi
   ring
 
+/-- **达布下和 ≤ 区间积分**：f 连续 on [a,b]，任意分划 P ⟹ lowerSum f P ≤ ∫_Ioc a b f。
+  数值相等的下界方向。 -/
 theorem darboux_lower_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
     (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1))
@@ -652,6 +689,7 @@ theorem darboux_lower_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     lowerSum f P = (∫ t : ℝ, sP t ∂volume) := h_int.symm
     _ ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := h_main
 
+/-- **分划子区间包含**：分划 P 的子区间 Ioc xᵢ xᵢ₊₁ ⊆ Ioc a b（由 P 端点与严格增）。 -/
 lemma partition_subinterval_sub {a b : ℝ} (hab : a ≤ b) (P : DarbouxPartition a b)
     (_hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
     ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b := by
@@ -670,6 +708,7 @@ lemma partition_subinterval_sub {a b : ℝ} (hab : a ≤ b) (P : DarbouxPartitio
     have : P.x (i+1) ≤ b := hxi1_ab.2
     linarith
 
+/-- **黎曼积分值 ≤ 区间积分**：riemannIntegral f a b = sSup{lowerSum} ≤ ∫_Ioc a b f。 -/
 theorem riemannIntegral_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     (hf : ContinuousOn f (Set.Icc a b)) :
     riemannIntegral f a b ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := by
@@ -687,6 +726,8 @@ theorem riemannIntegral_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     have hsub := partition_subinterval_sub (le_of_lt hab) P hstep
     exact darboux_lower_le_interval (le_of_lt hab) hf P hstep hsub
 
+/-- **f ≤ 上阶梯函数逐点**：t ∈ Ioc p q 时 f t ≤ sSup(f''[p,q])（f 连续 on [p,q]）。
+  达布上和对应阶梯函数 ≥ f 的逐点依据。 -/
 lemma f_le_step_sup_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
     (hf : ContinuousOn f (Set.Icc p q)) {t : ℝ} (ht : t ∈ Set.Ioc p q) :
     f t ≤ sSup (f '' Set.Icc p q) := by
@@ -696,6 +737,8 @@ lemma f_le_step_sup_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
   -- f t ≤ sSup (f''Icc)：用 le_csSup（需 BddAbove）
   exact le_csSup (IsCompact.bddAbove (IsCompact.image_of_continuousOn isCompact_Icc hf)) htm
 
+/-- **f ≤ 上阶梯函数（逐点）**：t ∈ Ioc a b 时 f t ≤ 达布上和阶梯函数。
+  分划覆盖 + step_eval_at + f_le_step_sup_pointwise。 -/
 lemma step_ge_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
     (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
@@ -724,6 +767,8 @@ lemma step_ge_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
   rw [hsum]
   exact hle
 
+/-- **f·1 ≤ 上阶梯·1（逐点）**：连续 f 的 indicator ≤ 达布上和阶梯函数的 indicator。
+  上和方向夹逼的保序前提。 -/
 lemma indicator_f_le_indicator_uP {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
     (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
@@ -742,6 +787,7 @@ lemma indicator_f_le_indicator_uP {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
   · -- neg: 都 0
     simp [Set.indicator, ht]
 
+/-- **上和阶梯函数积分 = 达布上和**：∫ (∑ supᵢ·1_{Ioc xᵢ xᵢ₊₁}) = upperSum f P。 -/
 lemma step_sup_integral_eq_upperSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
     (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
     (∫ t : ℝ,
@@ -757,6 +803,8 @@ lemma step_sup_integral_eq_upperSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
   intro i hi
   ring
 
+/-- **区间积分 ≤ 达布上和**：f 连续 on [a,b]，任意分划 P ⟹ ∫_Ioc a b f ≤ upperSum f P。
+  数值相等的上界方向（对称于 darboux_lower）。 -/
 theorem darboux_upper_ge_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
     (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1))
@@ -819,6 +867,8 @@ theorem darboux_upper_ge_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     _ ≤ (∫ t : ℝ, (Set.Ioc a b).indicator uP t ∂volume) := hf_int
     _ = upperSum f P := h4
 
+/-- **区间积分 ≤ 下和上确界 + ε**：∀ε>0, ∫_Ioc a b f ≤ sSup{lowerSum} + ε。
+  用连续⟹可积（上下和差小）+ 上界方向。 -/
 theorem interval_le_sSup_lowerSum_add {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     (hf : ContinuousOn f (Set.Icc a b)) (ε : ℝ) (hε : 0 < ε) :
     (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤
@@ -849,6 +899,10 @@ theorem interval_le_sSup_lowerSum_add {f : ℝ → ℝ} {a b : ℝ} (hab : a < b
     _ < lowerSum f P + ε := hUs
     _ ≤ sSup {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} + ε := by linarith)
 
+/-- **黎曼积分值 = Lebesgue 区间积分**：连续函数 f 的黎曼积分（下和上确界）
+  = Lebesgue 区间积分。达布和=阶梯函数积分 + 上下夹逼，完全自证（mathlib 无此定理）。
+> **Entry**: real-analysis.riemann.eq-lebesgue
+-/
 theorem riemannIntegral_eq_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     (hf : ContinuousOn f (Set.Icc a b)) :
     riemannIntegral f a b = (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := by
