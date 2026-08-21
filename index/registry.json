@@ -3713,5 +3713,200 @@
       "propext"
     ],
     "proof_sha": "b94e08b2c824fafd"
+  },
+  {
+    "id": "topology.space.def",
+    "kind": "theorem",
+    "title": "拓扑空间与开闭集公理",
+    "summary": "开集公理（空/全集开、有限交开、任意并开）；闭集任意交闭/有限并闭；开⟺补闭",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [],
+    "mathlib": [
+      "IsOpen",
+      "IsClosed",
+      "isOpen_iUnion",
+      "isClosed_iInter",
+      "isOpen_compl_iff"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（拓扑空间）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.space.neighborhood",
+    "kind": "theorem",
+    "title": "邻域",
+    "summary": "开集是其中每点的邻域",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "IsOpen.mem_nhds",
+      "nhds"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/neighborhood.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（邻域）"
+    },
+    "state": "verified",
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.space.continuous",
+    "kind": "theorem",
+    "title": "连续映射",
+    "summary": "连续⟺开集原像开；连续⟺处处点连续；连续保极限；恒等/常/复合连续",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "continuous_def",
+      "continuous_iff_continuousAt",
+      "Continuous.tendsto",
+      "Continuous.comp"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/continuous.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（连续函数）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.space.homeo",
+    "kind": "theorem",
+    "title": "同胚",
+    "summary": "同胚双向连续且双射；同胚保开集；同胚复合",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.continuous"
+    ],
+    "mathlib": [
+      "Homeomorph",
+      "Homeomorph.continuous",
+      "Homeomorph.bijective",
+      "Homeomorph.isOpen_image"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/homeo.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（同胚）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.space.subspace",
+    "kind": "theorem",
+    "title": "子空间与积拓扑",
+    "summary": "子空间嵌入连续；限制连续；投影连续；子空间开集刻画（诱导拓扑）",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.continuous"
+    ],
+    "mathlib": [
+      "continuous_subtype_val",
+      "ContinuousOn.restrict",
+      "continuous_fst",
+      "continuous_snd",
+      "isOpen_induced_iff"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/subspace.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（子空间/积拓扑）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.space.connected",
+    "kind": "theorem",
+    "title": "连通集",
+    "summary": "连通集的连续像连通；闭区间连通；开区间连通；同胚保连通",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.continuous"
+    ],
+    "mathlib": [
+      "IsConnected.image",
+      "isConnected_Icc",
+      "isPreconnected_Ioo",
+      "Homeomorph.isConnected_image"
+    ],
+    "lean_file": "Topology/Space.lean",
+    "nl_file": "docs/entries/topology/space/connected.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 3（连通性）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T1",
+    "added_at": "2026-08-21T10:33:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "15cd2d455397604a"
   }
 ]

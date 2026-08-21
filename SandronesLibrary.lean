@@ -14,6 +14,7 @@ import SandronesLibrary.LinearAlgebra.Eigenvalue
 import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
+import SandronesLibrary.Topology.Space
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
 import SandronesLibrary.SetTheory.Relations

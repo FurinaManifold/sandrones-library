@@ -1024,6 +1024,44 @@
 - **谁在用**：`abstract-algebra.poly.roots-card`。
 - **坑**：`card_roots` 用 `WithBot ℕ` 的 `degree`；根个数含重数（multiset）。
 
+### `TopologicalSpace` / `IsOpen` / `IsClosed` / `isOpen_iUnion` / `isClosed_iInter` / `isOpen_compl_iff`
+- **人话**：`TopologicalSpace X` 拓扑 typeclass；`IsOpen`/`IsClosed` 开闭集谓词；开集公理
+  （空/全集开、有限交开、任意并开）；闭集任意交闭；`s 开 ⟺ sᶜ 闭`。
+- **签名**：`IsOpen.inter : IsOpen s → IsOpen t → IsOpen (s ∩ t)`；`isOpen_iUnion h`
+- **出处**：`Mathlib/Topology/`
+- **谁在用**：`topology.space.def`。
+- **坑**：定理名加 `topo_` 前缀避免与 mathlib 同名。
+
+### `nhds` / `IsOpen.mem_nhds` / `Continuous` / `continuous_def` / `continuous_iff_continuousAt` / `Continuous.tendsto` / `Continuous.comp`
+- **人话**：`nhds x` 邻域滤子；开集是每点邻域；`Continuous f`（开集原像开定义）；
+  连续 ⟺ 处处点连续；连续保极限；恒等/常/复合连续。
+- **签名**：`continuous_def : Continuous f ↔ ∀ s, IsOpen s → IsOpen (f⁻¹' s)`；`IsOpen.mem_nhds hs hx`
+- **出处**：`Mathlib/Topology/`
+- **谁在用**：`topology.space.neighborhood`、`topology.space.continuous`。
+- **坑**：`Continuous` 是 Prop；`Continuous.isOpen_preimage hf s hs` 参数顺序。
+
+### `Homeomorph` / `Homeomorph.continuous` / `Homeomorph.bijective` / `Homeomorph.isOpen_image`
+- **人话**：`X ≃ₜ Y` 同胚；双向连续双射；同胚保开集 `IsOpen (h '' s) ↔ IsOpen s`。
+- **签名**：`Homeomorph.isOpen_image (h : X ≃ₜ Y) {s} : IsOpen (h '' s) ↔ IsOpen s`
+- **出处**：`Mathlib/Topology/Homeomorph.lean`
+- **谁在用**：`topology.space.homeo`。
+- **坑**：同胚复合/对称是构造操作（非 Prop）。
+
+### `continuous_subtype_val` / `ContinuousOn.restrict` / `continuous_fst` / `continuous_snd` / `isOpen_induced_iff`
+- **人话**：子空间嵌入连续；限制连续；积空间投影连续；诱导拓扑开集刻画
+  `IsOpen s ↔ ∃ t, IsOpen t ∧ f⁻¹' t = s`（子空间/商拓扑共用）。
+- **签名**：`isOpen_induced_iff (f : α → β) : IsOpen s ↔ ∃ t, IsOpen t ∧ f ⁻¹' t = s`
+- **出处**：`Mathlib/Topology/Constructions.lean`
+- **谁在用**：`topology.space.subspace`。
+- **坑**：商拓扑用 `isOpen_coinduced`（对偶）。
+
+### `IsConnected` / `IsPreconnected` / `IsConnected.image` / `isConnected_Icc` / `isPreconnected_Ioo` / `Homeomorph.isConnected_image`
+- **人话**：连通集 `IsConnected`；连续像连通；ℝ 闭/开区间连通；同胚保连通。
+- **签名**：`IsConnected.image (H : IsConnected s) (f) (hf : ContinuousOn f s)`；`isConnected_Icc h`
+- **出处**：`Mathlib/Topology/Connected/`
+- **谁在用**：`topology.space.connected`。
+- **坑**：`isConnected_Icc` 需 `[OrderTopology]`（ℝ 满足）；介值定理是连通像推论。
+
 ---
 
 ## 附：登记清单自动核对
