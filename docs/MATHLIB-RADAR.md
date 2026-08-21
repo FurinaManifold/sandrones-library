@@ -890,6 +890,14 @@
 - **谁在用**：`linear-algebra.eigen.vector/value/spectrum/charpoly`。
 - **坑**：特征向量是"方向不变"的拉伸；特征多项式对角情形 ∏(X−dᵢ) 显式给出特征值。
 
+### `Module.End.hasEigenvalue_iff_isRoot_charpoly` / `Matrix.charpoly_toLin'`
+- **人话**：特征值 ⟺ 特征多项式根（`Module.End` 版）；矩阵 charpoly 与线性变换 charpoly 一致
+  （`(toLin' A).charpoly = A.charpoly`）。
+- **签名**：`(f : Module.End R M) (μ : R) : f.HasEigenvalue μ ↔ f.charpoly.IsRoot μ`；`Matrix.charpoly_toLin'`
+- **出处**：`Mathlib/LinearAlgebra/Eigenspace/`、`Mathlib/LinearAlgebra/Matrix/Charpoly/`
+- **谁在用**：`linear-algebra.eigen.charpoly-root`。
+- **坑**：矩阵特征值经 `A.toLin'` 桥接；charpoly 一致（`Matrix.charpoly_toLin'`）在证明内完成。
+
 ### `Module.End.eigenvectors_linearIndependent` / `Module.End.mem_eigenspace_iff`
 - **人话**：不同特征值对应特征向量线性无关（教材核心）；`x ∈ eigenspace μ ↔ T x = μ·x`（桥接记号）。
 - **签名**：`eigenvectors_linearIndependent T μs xs (h_eigenvec : ∀ μ, T.HasEigenvector μ (xs μ)) : LinearIndependent xs`

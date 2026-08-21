@@ -2681,7 +2681,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2708,7 +2708,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2735,7 +2735,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2763,7 +2763,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2847,9 +2847,11 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -2877,9 +2879,11 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -2909,9 +2913,11 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "f537e3f2e8f63176",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -3269,6 +3275,38 @@
     "family": "analysis.continuity",
     "variant": "rudin",
     "proof_sha": "54eba38dad1cbab2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.charpoly-root",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "特征值是特征多项式的根",
+    "summary": "μ 是方阵 A 的特征值 ⟺ μ 是 A 的特征多项式 charpoly 的根",
+    "premises": [
+      "linear-algebra.eigen.charpoly",
+      "linear-algebra.eigen.value"
+    ],
+    "mathlib": [
+      "Module.End.hasEigenvalue_iff_isRoot_charpoly",
+      "Matrix.charpoly_toLin'"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征多项式"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/charpoly-root.md",
+    "added_by": "ingestor-linalg-L4e",
+    "added_at": "2026-08-21T09:03:16Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "4415c02b65581ec6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

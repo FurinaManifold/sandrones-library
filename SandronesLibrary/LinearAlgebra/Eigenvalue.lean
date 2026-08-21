@@ -18,6 +18,7 @@ open scoped Filter Topology
 * **linear-algebra.eigen.value**（特征值：存在非零特征向量 ⟺ 特征子空间非平凡）。
 * **linear-algebra.eigen.spectrum**（谱：特征值属于谱）。
 * **linear-algebra.eigen.charpoly**（特征多项式：对角阵特征多项式 = ∏(X−dᵢ)）。
+* **linear-algebra.eigen.charpoly-root**（特征值是特征多项式根）。
 * **linear-algebra.eigen.independent**（不同特征值对应特征向量线性无关）。
 * **linear-algebra.eigen.similar-diagonal**（相似与对角化：可对角化记号、对角阵可对角化、可逆 ⟹ 左右逆）。
 * ~~similar-charpoly~~（相似保持特征多项式）：需 charmatrix 乘积分布 + 矩阵可逆桥接，留待后续。
@@ -195,6 +196,22 @@ theorem similar_det {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n
         _ = P⁻¹ * (c • 1) * P - P⁻¹ * A * P := by rw [sub_mul]
         _ = c • 1 - P⁻¹ * A * P := by rw [hcomm]
     _ = (c • 1 - D).det := by rw [h]
+
+/-- **矩阵的特征值**（教材记号）：μ 是方阵 A 的特征值，若存在非零向量 x 使 A·x = μ·x。
+  （等价于线性变换 `A.toLin'` 以 μ 为特征值。） -/
+def MatrixHasEigenvalue {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) (μ : K) : Prop :=
+  Module.End.HasEigenvalue (A.toLin') μ
+
+/-- **特征值是特征多项式的根**：μ 是方阵 A 的特征值 ⟺ μ 是 A 的特征多项式 charpoly 的根。
+  教材核心：charpoly = det(X·1 − A)，其根恰为特征值。 
+> **Entry**: linear-algebra.eigen.charpoly-root
+-/
+theorem eigenvalue_iff_isRoot_charpoly {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) (μ : K) : MatrixHasEigenvalue A μ ↔ A.charpoly.IsRoot μ := by
+  unfold MatrixHasEigenvalue
+  rw [Module.End.hasEigenvalue_iff_isRoot_charpoly (f := A.toLin') μ]
+  rw [Matrix.charpoly_toLin']
 
 end LinearAlgebra.Eigenvalue
 
