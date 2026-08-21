@@ -4674,7 +4674,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f6e7c8e927705c5a"
+    "proof_sha": "9a5a3bda99afb463"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4742,5 +4742,40 @@
       "Quot.sound"
     ],
     "proof_sha": "d009211681b6070a"
+  },
+  {
+    "id": "real-analysis.riemann.eq-lebesgue",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "黎曼积分值 = Lebesgue 区间积分",
+    "summary": "连续函数黎曼积分值(下积分上确界) = Lebesgue 区间积分（达布和=阶梯积分+夹逼，全自证）",
+    "family": "real-analysis.riemann",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.riemann.def",
+      "real-analysis.riemann.cont-integrable",
+      "real-analysis.measure.lintegral",
+      "analysis.continuity.uniform-compact"
+    ],
+    "mathlib": [
+      "integral_indicator",
+      "integral_mono",
+      "integrableOn_const",
+      "lintegral"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 3（黎曼与 Lebesgue）"
+    },
+    "lean_file": "RealAnalysis/Riemann.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/eq-lebesgue.md",
+    "added_by": "ingestor-selfderived",
+    "added_at": "2026-08-21T15:26:03Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "proof_sha": "71da43246ec137d6"
   }
 ]

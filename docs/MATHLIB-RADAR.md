@@ -1220,6 +1220,14 @@
 - **坑**：退化 [a,a] 无 Darboux 分划（严格增矛盾），主定理限 a<b；sSup/sInf 用 cs 版（§2.7.2）；
   含 |·| 目标不用 linarith（§2.7.0）。
 
+### 黎曼积分数值=Lebesgue（自建全套: 达布和=阶梯积分/夹逼/相等）
+- **人话**：连续函数黎曼积分值 = Lebesgue 区间积分。核心链：`integral_indicator`（阶梯函数积分 =
+  达布和）→ 下和 ≤ ∫ ≤ 上和（上下阶梯夹逼 + 积分保序）→ `riemannIntegral = intervalIntegral`。
+  全部自证（mathlib 无黎曼积分）。
+- **签名**：`riemannIntegral_eq_interval (hab : a < b) (hf : ContinuousOn f (Icc a b)) : riemannIntegral f a b = ∫ x in Ioc a b, f x`
+- **谁在用**：`real-analysis.riemann.eq-lebesgue`。
+- **坑**：含 |·| 不用 linarith（§2.7.0）；sSup/sInf 用 cs 版（§2.7.2）；先立带 sorry 框架逐个填（§0）。
+
 ---
 
 ## 附：登记清单自动核对

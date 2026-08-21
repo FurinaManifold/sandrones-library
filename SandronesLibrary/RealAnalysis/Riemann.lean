@@ -13,8 +13,8 @@ import SandronesLibrary.Analysis.Continuity
 
 * **real-analysis.riemann.def**（黎曼积分定义：达布分划/上下和/黎曼可积/均匀分划/积分值）✅。
 * **real-analysis.riemann.cont-integrable**（连续 ⟹ 黎曼可积，均匀分划 + 一致连续）✅。
-* **real-analysis.riemann.eq-lebesgue**（黎曼可积时数值 = Lebesgue 积分）：部分完成——
-  已定义 riemannIntegral 值 + 连续 ⟹ Lebesgue 可积；数值相等的夹逼证明（D3-D5）待续。
+* **real-analysis.riemann.eq-lebesgue**（连续函数黎曼积分值 = Lebesgue 区间积分）✅：
+  达布和=阶梯积分 → 下和≤∫≤上和 → riemannIntegral = intervalIntegral，全自证。
 * **real-analysis.riemann.lebesgue-criterion**（黎曼可积 ⟺ 几乎处处连续）：待续。
 
 > **语言说明**：mathlib **没有**黎曼积分定义，全部自建。这是锻炼"论文定理自证"能力
@@ -818,6 +818,51 @@ theorem darboux_upper_ge_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     (∫ x : ℝ in Set.Ioc a b, f x ∂volume) = (∫ t : ℝ, (Set.Ioc a b).indicator f t ∂volume) := h3
     _ ≤ (∫ t : ℝ, (Set.Ioc a b).indicator uP t ∂volume) := hf_int
     _ = upperSum f P := h4
+
+theorem interval_le_sSup_lowerSum_add {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
+    (hf : ContinuousOn f (Set.Icc a b)) (ε : ℝ) (hε : 0 < ε) :
+    (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤
+      sSup {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} + ε := by
+  have hR := continuous_on_riemannIntegrable_lt hab hf ε hε
+  rcases hR with ⟨P, hPd⟩
+  have hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1) := by
+    intro i hi
+    exact (P.strict i (Finset.mem_range.mp hi)).le
+  have hsub := partition_subinterval_sub (le_of_lt hab) P hstep
+  have hU : (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤ upperSum f P :=
+    darboux_upper_ge_interval (le_of_lt hab) hf P hstep hsub
+  have hUs : upperSum f P < lowerSum f P + ε := by linarith
+  have hL : lowerSum f P ≤ sSup {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} := by
+    have hmem : lowerSum f P ∈ {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} := ⟨P, rfl⟩
+    have hbdd : BddAbove {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} := by
+      refine ⟨(∫ x : ℝ in Set.Ioc a b, f x ∂volume), ?_⟩
+      intro y hy
+      rcases hy with ⟨P, rfl⟩
+      have hstep' : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1) := by
+        intro i hi
+        exact (P.strict i (Finset.mem_range.mp hi)).le
+      have hsub' := partition_subinterval_sub (le_of_lt hab) P hstep'
+      exact darboux_lower_le_interval (le_of_lt hab) hf P hstep' hsub'
+    exact le_csSup hbdd hmem
+  exact le_of_lt (calc
+    (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤ upperSum f P := hU
+    _ < lowerSum f P + ε := hUs
+    _ ≤ sSup {x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P} + ε := by linarith)
+
+theorem riemannIntegral_eq_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
+    (hf : ContinuousOn f (Set.Icc a b)) :
+    riemannIntegral f a b = (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := by
+  -- 方向1: riemannIntegral ≤ ∫
+  have hle1 : riemannIntegral f a b ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) :=
+    riemannIntegral_le_interval hab hf
+  -- 方向2: ∫ ≤ riemannIntegral
+  have hle2 : (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤ riemannIntegral f a b := by
+    -- 用 le_of_forall_pos_le_add: ∀ε, ∫ ≤ sSup + ε
+    unfold riemannIntegral
+    apply le_of_forall_pos_le_add
+    intro ε hε
+    exact interval_le_sSup_lowerSum_add hab hf ε hε
+  exact le_antisymm hle1 hle2
 
 end RealAnalysis.Riemann
 
