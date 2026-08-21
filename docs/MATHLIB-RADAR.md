@@ -967,6 +967,31 @@
 - **谁在用**：`abstract-algebra.group.hom`。
 - **坑**：同态基本定理在 mathlib 是现成定义（非需自证）；`f.ker = ⊥` 中 `⊥` 是平凡子群。
 
+### `Ring` / `Subring` / `Subring.ext` / `Subring.one_mem` / `Subring.zero_mem` / `Subring.mem_bot` / `Subring.mem_top` / `RingHom`
+- **人话**：`Ring R` 环 typeclass；`Subring R` 子环结构（含 1）；外延性；子环含 1/0；
+  `⊥` 平凡子环（n·1 形式，n:ℤ）、`⊤` 全子环；`RingHom` 环同态（`R →+* S`，保加乘单位元）。
+- **签名**：`Subring.ext : (∀x, x∈S ↔ x∈T) → S = T`；`Subring.mem_bot : x∈⊥ ↔ ∃ n:ℤ, ↑n = x`
+- **出处**：`Mathlib/RingTheory/Subring/Basic.lean`、`Mathlib/Algebra/Ring/`
+- **谁在用**：`abstract-algebra.ring.def`。
+- **坑**：`Subring.mem_bot` 的 n 是 ℤ 不是 ℕ。
+
+### `Ideal` / `Ideal.mul_mem_left` / `Ideal.mul_mem_right` / `Ideal.eq_top_of_isUnit_mem` / `Ideal.Quotient.eq` / `Ideal.Quotient.mk` / `RingHom.ker` / `RingHom.range`
+- **人话**：`Ideal R` 理想（R 作为自身模的子模）；左/右吸收乘法；含单位元理想 = ⊤；
+  商环 `R ⧸ I` 判等 `mk x = mk y ⟺ x-y ∈ I`；环同态核是理想（`RingHom.ker : Ideal R`）、值域是子环。
+- **签名**：`Ideal.Quotient.eq : mk x = mk y ↔ x - y ∈ I`；`RingHom.ker f : Ideal R`
+- **出处**：`Mathlib/RingTheory/Ideal/Basic.lean`、`Mathlib/RingTheory/Ideal/Quotient/Basic.lean`
+- **谁在用**：`abstract-algebra.ring.ideal`。
+- **坑**：`RingHom.ker f` 已是 `Ideal R`（非 Subgroup）；商环投影需 `[I.IsTwoSided]`。
+
+### `IsDomain` / `IsField.mul_inv_cancel` / `Ideal.isPrime_iff` / `Ideal.IsMaximal` / `Ideal.Quotient.isDomain` / `Ring.isField_iff_maximal_bot`
+- **人话**：整环 `IsDomain`（无零因子）；域 `IsField`（非零元可逆）；素理想判据
+  `I.IsPrime ↔ I≠⊤ ∧ (x·y∈I → x∈I ∨ y∈I)`；极大 ⟹ 素；素理想 ⟹ 商环整环；**R 是域 ⟺ 零理想极大**。
+- **签名**：`Ideal.isPrime_iff`；`Ideal.Quotient.isDomain I [I.IsPrime] : IsDomain (R ⧸ I)`；
+  `Ring.isField_iff_maximal_bot [Nontrivial R] : IsField R ↔ (⊥:Ideal R).IsMaximal`
+- **出处**：`Mathlib/RingTheory/Ideal/Basic.lean`、`Mathlib/RingTheory/Ideal/Quotient/Basic.lean`
+- **谁在用**：`abstract-algebra.ring.domain`。
+- **坑**：`IsField` 是 Prop 不是 typeclass（不能 `[IsField R]` binder）；`isField_iff_maximal_bot` 在 `namespace Ring`。
+
 ---
 
 ## 附：登记清单自动核对

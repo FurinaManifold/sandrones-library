@@ -3989,8 +3989,8 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "c1ea5eec64c76274",
-    "_sha": "c1ea5eec64c76274",
+    "proof_sha": "643d824c2f046e9a",
+    "_sha": "643d824c2f046e9a",
     "_module": "SandronesLibrary.AbstractAlgebra.Group",
     "_decls": [
       "SandronesLibrary.AbstractAlgebra.Group.subgroup_of_closed",
@@ -4032,8 +4032,8 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "c1ea5eec64c76274",
-    "_sha": "c1ea5eec64c76274",
+    "proof_sha": "643d824c2f046e9a",
+    "_sha": "643d824c2f046e9a",
     "_module": "SandronesLibrary.AbstractAlgebra.Group",
     "_decls": [
       "SandronesLibrary.AbstractAlgebra.Group.left_coset_mem_iff",
@@ -4077,8 +4077,8 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "c1ea5eec64c76274",
-    "_sha": "c1ea5eec64c76274",
+    "proof_sha": "643d824c2f046e9a",
+    "_sha": "643d824c2f046e9a",
     "_module": "SandronesLibrary.AbstractAlgebra.Group",
     "_decls": [
       "SandronesLibrary.AbstractAlgebra.Group.normal_conj_mem",
@@ -4122,8 +4122,8 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "c1ea5eec64c76274",
-    "_sha": "c1ea5eec64c76274",
+    "proof_sha": "643d824c2f046e9a",
+    "_sha": "643d824c2f046e9a",
     "_module": "SandronesLibrary.AbstractAlgebra.Group",
     "_decls": [
       "hom_mem_ker",
@@ -4160,9 +4160,155 @@
     "added_at": "2026-08-21T09:56:04Z",
     "dependedOnBy": [],
     "axioms": [
-      "propext",
-      "Quot.sound"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
-    "proof_sha": "8ee8fcc34dbeead6"
+    "proof_sha": "643d824c2f046e9a",
+    "_sha": "643d824c2f046e9a",
+    "_module": "SandronesLibrary.AbstractAlgebra.Group",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Group.normal_of_index_two"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.def",
+    "kind": "theorem",
+    "title": "子环判定与基本性质",
+    "summary": "子环判定定理（含0/1+加减乘封闭⟹子环）；子环含1与0；外延性；平凡子环；全子环；环同态保运算",
+    "family": "abstract-algebra.ring",
+    "variant": "rotman",
+    "premises": [],
+    "mathlib": [
+      "Subring",
+      "Subring.ext",
+      "Subring.one_mem",
+      "Subring.zero_mem",
+      "Subring.mem_bot",
+      "Subring.mem_top",
+      "RingHom"
+    ],
+    "lean_file": "AbstractAlgebra/Ring.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（子环）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A2",
+    "added_at": "2026-08-21T10:04:25Z",
+    "dependedOnBy": [],
+    "proof_sha": "b3820f56cfdd7ce5",
+    "_sha": "b3820f56cfdd7ce5",
+    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_of_closed",
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_one_mem",
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_zero_mem",
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_ext",
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_bot",
+      "SandronesLibrary.AbstractAlgebra.Ring.subring_top",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_one",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_add",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_mul"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.ideal",
+    "kind": "theorem",
+    "title": "理想与商环",
+    "summary": "理想判定定理；理想左/右吸收乘法；含单位元理想=全环；商环判等 x-y∈I；环同态核是理想/值域刻画",
+    "family": "abstract-algebra.ring",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.ring.def"
+    ],
+    "mathlib": [
+      "Ideal",
+      "Ideal.mul_mem_left",
+      "Ideal.mul_mem_right",
+      "Ideal.eq_top_of_isUnit_mem",
+      "Ideal.Quotient.eq",
+      "RingHom.ker",
+      "RingHom.range"
+    ],
+    "lean_file": "AbstractAlgebra/Ring.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/ideal.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（理想/商环）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A2",
+    "added_at": "2026-08-21T10:04:25Z",
+    "dependedOnBy": [],
+    "proof_sha": "b3820f56cfdd7ce5",
+    "_sha": "b3820f56cfdd7ce5",
+    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Ring.ideal_of_closed",
+      "SandronesLibrary.AbstractAlgebra.Ring.ideal_mul_mem_left",
+      "SandronesLibrary.AbstractAlgebra.Ring.ideal_mul_mem_right",
+      "SandronesLibrary.AbstractAlgebra.Ring.ideal_eq_top_of_unit_mem",
+      "SandronesLibrary.AbstractAlgebra.Ring.quotient_eq_iff_sub_mem",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_ker_is_ideal",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_mem_range",
+      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_injective_iff_ker_bot"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.domain",
+    "kind": "theorem",
+    "title": "整环、域与素/极大理想",
+    "summary": "整环无零因子；域中非零元可逆；素理想判据；极大理想是素理想；素理想⟹商环整环；R是域⟺零理想极大",
+    "family": "abstract-algebra.ring",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.ring.ideal"
+    ],
+    "mathlib": [
+      "IsDomain",
+      "IsField.mul_inv_cancel",
+      "Ideal.isPrime_iff",
+      "Ideal.IsMaximal.isPrime",
+      "Ideal.Quotient.isDomain",
+      "Ring.isField_iff_maximal_bot"
+    ],
+    "lean_file": "AbstractAlgebra/Ring.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/domain.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（整环/域/素极大理想）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A2",
+    "added_at": "2026-08-21T10:04:25Z",
+    "dependedOnBy": [],
+    "proof_sha": "b3820f56cfdd7ce5",
+    "_sha": "b3820f56cfdd7ce5",
+    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Ring.is_domain_mul_eq_zero",
+      "SandronesLibrary.AbstractAlgebra.Ring.is_field_inv_exists",
+      "SandronesLibrary.AbstractAlgebra.Ring.is_prime_iff",
+      "SandronesLibrary.AbstractAlgebra.Ring.is_maximal_implies_is_prime",
+      "SandronesLibrary.AbstractAlgebra.Ring.quotient_is_domain_of_is_prime",
+      "SandronesLibrary.AbstractAlgebra.Ring.is_field_iff_bot_is_maximal"
+    ]
   }
 ]
