@@ -15,6 +15,7 @@ open scoped BigOperators
 * **abstract-algebra.group.def**（子群判定/含单位元/外延性/平凡子群/全子群）✅。
 * **abstract-algebra.group.coset**（左陪集成员/相等判据/自身在陪集/单位元陪集/陪集等势/Lagrange）✅。
 * **abstract-algebra.group.normal**（共轭封闭/交换性/平凡与全正规/商群保运算）✅。
+* **abstract-algebra.group.index-two**（指数 2 子群必正规）✅。
 * **abstract-algebra.group.hom**（核值域刻画/保单位元乘法逆/单射⟺核平凡/满射⟺值域全/同态基本定理）✅。
 
 > **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Group`/`Subgroup`/
@@ -167,6 +168,14 @@ theorem quotient_mk_one {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal) :
 theorem quotient_mk_inv {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal) (a : G) :
     QuotientGroup.mk (s := H) (a⁻¹) = (QuotientGroup.mk (s := H) a)⁻¹ := by
   exact QuotientGroup.mk_inv H a
+
+/-- **指数 2 子群必正规**：若 H 在 G 中的指数 [G:H] = 2（恰有两个陪集），则 H 是正规子群。
+  教材经典定理：指数最小的非平凡子群必正规。 
+> **Entry**: abstract-algebra.group.index-two
+-/
+theorem normal_of_index_two {G : Type*} [Group G] (H : Subgroup G) (hH : H.index = 2) :
+    H.Normal := by
+  exact Subgroup.normal_of_index_eq_two hH
 
 end AbstractAlgebra.Group
 

@@ -4135,5 +4135,34 @@
       "hom_surjective_iff_range_top",
       "first_isomorphism_theorem"
     ]
+  },
+  {
+    "id": "abstract-algebra.group.index-two",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "指数 2 子群正规",
+    "summary": "H.index = 2 ⟹ H.Normal（指数为 2 的子群必正规，教材经典定理）",
+    "family": "abstract-algebra.group",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.group.coset"
+    ],
+    "mathlib": [
+      "Subgroup.normal_of_index_eq_two"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（正规子群）"
+    },
+    "lean_file": "AbstractAlgebra/Group.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/index-two.md",
+    "added_by": "ingestor-promote-abstractalgebra",
+    "added_at": "2026-08-21T09:56:04Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "proof_sha": "8ee8fcc34dbeead6"
   }
 ]

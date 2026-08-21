@@ -327,7 +327,7 @@
 - **人话**：**外延相等**：两个集合相等 ⟺ 元素完全一致。
 - **签名**：`(h : ∀ x, x ∈ a ↔ x ∈ b) : a = b`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
-- **谁在用**：`analysis.real.complement-union/complement-inter` 等一切集合等式证明。
+- **谁在用**：`settheory.set.operations.complement-union`、`settheory.set.operations.complement-inter` 等一切集合等式证明。
 
 ### `Set.Subset.trans`
 - **人话**：**包含关系传递**：a ⊆ b 且 b ⊆ c ⇒ a ⊆ c。
@@ -355,14 +355,14 @@
 - **人话**：**德摩根律**：(s ∪ t)ᶜ = sᶜ ∩ tᶜ；(s ∩ t)ᶜ = sᶜ ∪ tᶜ。
 - **签名**：`(s t : Set α) : (s ∪ t)ᶜ = sᶜ ∩ tᶜ`
 - **出处**：`Mathlib/Data/Set/Basic.lean`（de Morgan 系列）
-- **谁在用**：`analysis.real.complement-union`、`analysis.real.complement-inter`。
+- **谁在用**：`settheory.set.operations.complement-union`、`settheory.set.operations.complement-inter`。
 - **坑**：`compl_inter` 用到的 `¬(P∧Q) → ¬P∨¬Q` 就是排中律，改写不动（见条目叙述层）。
 
 ### `Set.sdiff_eq`
 - **人话**：**差集 = 交补**：s \ t = s ∩ tᶜ。`sdiff` 是 mathlib 新版的名字（旧 `diff` 已弃用）。
 - **签名**：`(s t : Set α) : s \ t = s ∩ tᶜ`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
-- **谁在用**：`analysis.real.diff-inter-complement`。
+- **谁在用**：`settheory.set.operations.diff-inter-complement`。
 
 ### `Set.preimage_union` / `Set.preimage_inter`
 - **人话**：**原像保并/保交**：f⁻¹(B₁ ∪ B₂) = f⁻¹B₁ ∪ f⁻¹B₂（交同理）。
@@ -439,7 +439,7 @@
 - **人话**：单射复合仍单射；满射复合仍满射。
 - **签名**：`Injective g → Injective f → Injective (g ∘ f)`
 - **出处**：`Mathlib/Logic/Function/`
-- **谁在用**：`settheory.function.inject-surject.respects-comp`。
+- **谁在用**：`settheory.function.inj-comp`、`settheory.function.surj-comp`。
 
 ### `Function.bijective_iff_has_inverse`
 - **人话**：**双射 ⟺ 存在左右逆**（可逆）。一年级"双射有反函数"的严格说法。
@@ -952,6 +952,12 @@
 - **出处**：`Mathlib/GroupTheory/Subgroup/Basic.lean`、`Mathlib/GroupTheory/QuotientGroup/Basic.lean`
 - **谁在用**：`abstract-algebra.group.normal`。
 - **坑**：商群引理需要 `[nN : N.Normal]` typeclass 参数；`G ⧸ H` 是商群类型记号。
+
+### `Subgroup.normal_of_index_eq_two`
+- **人话**：**指数 2 子群必正规**：`H.index = 2 ⟹ H.Normal`（教材经典定理：最小指数非平凡子群必正规）。
+- **签名**：`Subgroup.normal_of_index_eq_two {H : Subgroup G} (hH : H.index = 2) : H.Normal`
+- **出处**：`Mathlib/GroupTheory/Subgroup/Basic.lean`
+- **谁在用**：`abstract-algebra.group.index-two`。
 
 ### `MonoidHom` / `MonoidHom.mem_ker` / `MonoidHom.mem_range` / `MonoidHom.ker_eq_bot_iff` / `MonoidHom.range_eq_top` / `QuotientGroup.quotientKerEquivRange`
 - **人话**：`G →* N` 群同态；核 `f.ker`、值域 `f.range` 的元素刻画；**单射 ⟺ 核平凡**、
