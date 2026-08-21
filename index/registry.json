@@ -4295,7 +4295,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "7b4935b6f77284b8"
+    "proof_sha": "9f66c7093b950599"
   },
   {
     "id": "real-analysis.measure.def",
@@ -4328,6 +4328,68 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "7b4935b6f77284b8"
+    "proof_sha": "9f66c7093b950599"
+  },
+  {
+    "id": "real-analysis.measure.outer",
+    "kind": "theorem",
+    "title": "外测度次可加性",
+    "summary": "外测度可数次可加：可数并的测度 ≤ 各测度之和",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.def"
+    ],
+    "mathlib": [
+      "OuterMeasure",
+      "measure_iUnion_le"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/outer.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（外测度）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R1",
+    "added_at": "2026-08-21T11:28:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "9f66c7093b950599"
+  },
+  {
+    "id": "real-analysis.measure.caratheodory",
+    "kind": "theorem",
+    "title": "Carathéodory 定理",
+    "summary": "Carathéodory 判据：可测 ⟺ ∀t, m(t)=m(t∩s)+m(t\\s)；可测集构成 σ-代数",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.outer"
+    ],
+    "mathlib": [
+      "OuterMeasure.caratheodory",
+      "isCaratheodory_iff"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/caratheodory.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（Carathéodory）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R1",
+    "added_at": "2026-08-21T11:28:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "9f66c7093b950599"
   }
 ]

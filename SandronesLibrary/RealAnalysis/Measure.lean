@@ -12,6 +12,8 @@ import Mathlib
 
 * **real-analysis.measure.sigma-algebra**（σ-代数公理：空/全集/补/可数并/有限交并可测）✅。
 * **real-analysis.measure.def**（测度公理：空集零测/可数可加/单调性/有限可加）✅。
+* **real-analysis.measure.outer**（外测度次可加性）✅。
+* **real-analysis.measure.caratheodory**（Carathéodory 定理：可测集构成 σ-代数/判据）✅。
 
 > **语言说明**：实分析阶段（§Phase5）mathlib 的 `MeasurableSpace`/`MeasurableSet`/
 > `Measure` 等**教材结构可直接出现在签名**（测度积分是 mathlib 的核心库）。
@@ -91,6 +93,21 @@ theorem meas_measure_union {X : Type*} [MeasurableSpace X] (μ : Measure X)
     {s₁ s₂ : Set X} (hd : Disjoint s₁ s₂) (hmeas : MeasurableSet s₂) :
     μ (s₁ ∪ s₂) = μ s₁ + μ s₂ := by
   exact measure_union hd hmeas
+
+/-- **外测度次可加性**：外测度满足可数次可加——可数并的测度不超过各测度之和。 
+> **Entry**: real-analysis.measure.outer
+-/
+theorem meas_outer_measure_iUnion_le {X : Type*} {ι : Type*} [Countable ι]
+    (m : OuterMeasure X) {s : ι → Set X} : m (⋃ i, s i) ≤ ∑' i, m (s i) := by
+  exact measure_iUnion_le s
+
+/-- **Carathéodory 判据**：s 可测 ⟺ 对一切 t，m(t) = m(t∩s) + m(t\s)。
+  这是外测度限制成测度的核心判据。 
+> **Entry**: real-analysis.measure.caratheodory
+-/
+theorem meas_caratheodory_iff {X : Type*} {m : OuterMeasure X} {s : Set X} :
+    MeasurableSet[m.caratheodory] s ↔ ∀ t : Set X, m t = m (t ∩ s) + m (t \ s) := by
+  exact m.isCaratheodory_iff
 
 end RealAnalysis.Measure
 

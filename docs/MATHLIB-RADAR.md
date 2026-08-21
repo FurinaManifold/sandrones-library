@@ -1148,6 +1148,15 @@
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。
 
+### `OuterMeasure` / `measure_iUnion_le` / `OuterMeasure.caratheodory` / `isCaratheodory_iff`
+- **人话**：外测度 `OuterMeasure`（全体子集上次可加函数）；次可加 `measure_iUnion_le`；
+  **Carathéodory 定理**：可测集构成 σ-代数（`caratheodory : MeasurableSpace`），判据
+  `isCaratheodory_iff`（∀t, m t = m(t∩s)+m(t\s)）。Lebesgue 测度的构造基础。
+- **签名**：`OuterMeasure.caratheodory m : MeasurableSpace X`；`measure_iUnion_le (s : ι → Set X) : μ (⋃ i, s i) ≤ ∑' i, μ (s i)`
+- **出处**：`Mathlib/MeasureTheory/OuterMeasure/`
+- **谁在用**：`real-analysis.measure.outer`、`real-analysis.measure.caratheodory`。
+- **坑**：判据是 `=`；`caratheodory` 返回 MeasurableSpace（instance 非 Prop，不立条）。
+
 ---
 
 ## 附：登记清单自动核对
