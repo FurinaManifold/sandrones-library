@@ -882,6 +882,15 @@
 - **出处**：`Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean`
 - **谁在用**：`linear-algebra.eigen.similar-diagonal`。
 
+### `Matrix.det_mul` / `Matrix.det_nonsing_inv` / `Matrix.mul_smul` / `Matrix.smul_mul`
+- **人话**：det 乘性（det(AB)=det A·det B）；逆的行列式（det A⁻¹=(det A)⁻¹）；
+  标量矩阵乘矩阵 = 逐项缩放（c·1 与任何矩阵交换的根源）。
+- **签名**：`(M * N).det = M.det * N.det`；`Matrix.det_nonsing_inv`
+- **出处**：`Mathlib/LinearAlgebra/Matrix/Determinant.lean`、`Mathlib/LinearAlgebra/Matrix/`
+- **谁在用**：`linear-algebra.eigen.similar-charpoly`。
+- **坑**：相似保持特征多项式用**逐点 det** 证明（det(c·1−A) 对每个 c），
+  不引入多项式矩阵/环同态，项始终是域元素（保留域性质）。
+
 ---
 
 ## 附：登记清单自动核对

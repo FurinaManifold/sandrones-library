@@ -155,6 +155,47 @@ theorem invertible_mul_inv {K : Type*} [Field K] {n : Type*} [Fintype n] [Decida
     A⁻¹ * A = 1 ∧ A * A⁻¹ = 1 :=
   ⟨Matrix.nonsing_inv_mul A h, Matrix.mul_nonsing_inv A h⟩
 
+/-- **相似保持行列式（逐点特征多项式）**：若 P⁻¹·A·P = D（A 相似于 D，P 可逆），
+  则对每个标量 c，det(c·1 − A) = det(c·1 − D)。
+  这正是"相似保持特征多项式"（charpoly 即 det(X·1 − A)）的逐点形式；
+  证明只用数矩阵的 det 乘性与可逆阵的左右逆，不引入多项式矩阵。 
+> **Entry**: linear-algebra.eigen.similar-charpoly
+-/
+theorem similar_det {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A D P : Matrix n n K) (h : P⁻¹ * A * P = D) (hP : IsUnit P.det) :
+    ∀ c : K, (c • (1 : Matrix n n K) - A).det = (c • (1 : Matrix n n K) - D).det := by
+  intro c
+  have hne : P.det ≠ 0 := (isUnit_iff_ne_zero.mp hP)
+  have hdet_conj : ∀ N : Matrix n n K, (P⁻¹ * N * P).det = N.det := by
+    intro N
+    calc
+      (P⁻¹ * N * P).det = (P⁻¹ * (N * P)).det := by rw [Matrix.mul_assoc]
+      _ = P⁻¹.det * (N * P).det := by rw [Matrix.det_mul]
+      _ = P⁻¹.det * (N.det * P.det) := by rw [Matrix.det_mul]
+      _ = (P⁻¹.det * P.det) * N.det := by ring
+      _ = 1 * N.det := by
+        rw [Matrix.det_nonsing_inv]
+        simp [hne]
+      _ = N.det := by simp
+  calc
+    (c • 1 - A).det = (P⁻¹ * (c • 1 - A) * P).det := by
+      exact (hdet_conj (c • 1 - A)).symm
+    _ = (c • 1 - P⁻¹ * A * P).det := by
+      congr 1
+      have hcomm : P⁻¹ * (c • (1 : Matrix n n K)) * P = c • (1 : Matrix n n K) := by
+        calc
+          P⁻¹ * (c • 1) * P = P⁻¹ * (c • 1 * P) := by rw [Matrix.mul_assoc]
+          _ = P⁻¹ * (P * (c • 1)) := by congr 1; exact (by
+            rw [Matrix.mul_smul, Matrix.smul_mul, mul_one, one_mul])
+          _ = (P⁻¹ * P) * (c • 1) := by rw [Matrix.mul_assoc]
+          _ = 1 * (c • 1) := by rw [Matrix.nonsing_inv_mul P hP]
+          _ = c • 1 := by simp
+      calc
+        P⁻¹ * (c • 1 - A) * P = (P⁻¹ * (c • 1) - P⁻¹ * A) * P := by rw [Matrix.mul_sub]
+        _ = P⁻¹ * (c • 1) * P - P⁻¹ * A * P := by rw [sub_mul]
+        _ = c • 1 - P⁻¹ * A * P := by rw [hcomm]
+    _ = (c • 1 - D).det := by rw [h]
+
 end LinearAlgebra.Eigenvalue
 
 end SandronesLibrary

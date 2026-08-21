@@ -2675,7 +2675,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2702,7 +2702,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2729,7 +2729,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2757,7 +2757,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2841,7 +2841,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "<解析失败>"
     ]
@@ -2871,7 +2871,39 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "ed1b898b253f9d20",
+    "proof_sha": "f537e3f2e8f63176",
+    "axioms": [
+      "<解析失败>"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.similar-charpoly",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "相似保持行列式/特征多项式",
+    "summary": "若 P⁻¹AP=D（P 可逆），则对每个 c，det(c·1−A)=det(c·1−D)",
+    "premises": [
+      "linear-algebra.eigen.similar-diagonal"
+    ],
+    "mathlib": [
+      "Matrix.det_mul",
+      "Matrix.det_nonsing_inv",
+      "Matrix.nonsing_inv_mul",
+      "Matrix.mul_smul",
+      "Matrix.smul_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：相似矩阵与特征多项式"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/similar-charpoly.md",
+    "added_by": "ingestor-linalg-L4d",
+    "added_at": "2026-08-21T07:38:50Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "f537e3f2e8f63176",
     "axioms": [
       "<解析失败>"
     ]
