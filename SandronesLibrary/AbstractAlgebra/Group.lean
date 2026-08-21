@@ -134,19 +134,29 @@ theorem normal_conj_mem {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal)
 -/
 theorem normal_mem_comm {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal)
     {a b : G} (h : a * b ∈ H) : b * a ∈ H := by
-  exact nH.mem_comm h
+  -- 因 H 正规，共轭 b·(a·b)·b⁻¹ ∈ H；化简得 b·a ∈ H
+  have h2 := nH.conj_mem (a * b) h b
+  have : b * (a * b) * b⁻¹ = b * a := by
+    group
+  rwa [this] at h2
 
 /-- **平凡子群正规**：只含单位元的子群是正规子群。 
 > **Entry**: abstract-algebra.group.normal
 -/
 theorem normal_bot {G : Type*} [Group G] : (⊥ : Subgroup G).Normal := by
-  exact Subgroup.normal_bot
+  refine Subgroup.Normal.mk ?_
+  intro n hn g
+  have hn1 : n = 1 := Subgroup.mem_bot.mp hn
+  rw [hn1, mul_one, mul_inv_cancel]
+  exact Subgroup.mem_bot.mpr rfl
 
 /-- **全子群正规**：整个群自身是正规子群。 
 > **Entry**: abstract-algebra.group.normal
 -/
 theorem normal_top {G : Type*} [Group G] : (⊤ : Subgroup G).Normal := by
-  exact Subgroup.normal_top
+  refine Subgroup.Normal.mk ?_
+  intro n hn g
+  exact Subgroup.mem_top (g * n * g⁻¹)
 
 /-- **商群投影保乘法**：自然同态 `mk : G → G⧸H` 是同态（`↑(a*b) = ↑a * ↑b`）。 
 > **Entry**: abstract-algebra.group.normal

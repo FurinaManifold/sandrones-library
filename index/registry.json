@@ -3344,7 +3344,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a"
+    "proof_sha": "78ebf2b039bbe978"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3378,7 +3378,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a"
+    "proof_sha": "78ebf2b039bbe978"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3413,7 +3413,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a"
+    "proof_sha": "78ebf2b039bbe978"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3447,7 +3447,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a"
+    "proof_sha": "78ebf2b039bbe978"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3477,7 +3477,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "643d824c2f046e9a"
+    "proof_sha": "78ebf2b039bbe978"
   },
   {
     "id": "abstract-algebra.ring.def",
