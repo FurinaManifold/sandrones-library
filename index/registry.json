@@ -2659,11 +2659,10 @@
     "kind": "theorem",
     "state": "verified",
     "title": "特征向量",
-    "summary": "x≠0 且 T(x)=μ·x，则 x 是 T 的属于 μ 的特征向量",
+    "summary": "x≠0 且 T(x)=μ·x，则 x 是 T 的属于 μ 的特征向量（自实现）",
     "premises": [],
     "mathlib": [
-      "Module.End.HasEigenvector",
-      "Module.End.HasEigenvector.apply_eq_smul"
+      "LinearMap"
     ],
     "provenance": {
       "source_type": "book",
@@ -2676,9 +2675,8 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "e462efd8938d7f52",
+    "proof_sha": "1dffa8b4aac4d9dc",
     "axioms": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ]
@@ -2688,11 +2686,10 @@
     "kind": "theorem",
     "state": "verified",
     "title": "特征值",
-    "summary": "μ 是特征值 ⟺ μ 的特征子空间非零",
+    "summary": "μ 是特征值 ⟺ 存在非零特征向量 ⟺ 特征子空间非平凡（自实现）",
     "premises": [],
     "mathlib": [
-      "Module.End.hasEigenvalue_iff",
-      "Module.End.eigenspace"
+      "LinearMap"
     ],
     "provenance": {
       "source_type": "book",
@@ -2705,9 +2702,8 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "e462efd8938d7f52",
+    "proof_sha": "1dffa8b4aac4d9dc",
     "axioms": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ]
@@ -2717,11 +2713,10 @@
     "kind": "theorem",
     "state": "verified",
     "title": "谱",
-    "summary": "特征值属于线性变换的谱",
+    "summary": "谱=全体特征值的集合；特征值属于谱（自实现）",
     "premises": [],
     "mathlib": [
-      "Module.End.HasEigenvalue.mem_spectrum",
-      "spectrum"
+      "LinearMap"
     ],
     "provenance": {
       "source_type": "book",
@@ -2734,9 +2729,8 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "e462efd8938d7f52",
+    "proof_sha": "1dffa8b4aac4d9dc",
     "axioms": [
-      "Classical.choice",
       "Quot.sound",
       "propext"
     ]
@@ -2750,8 +2744,7 @@
     "premises": [],
     "mathlib": [
       "Matrix.charpoly_diagonal",
-      "Matrix.charpoly_monic",
-      "Matrix.charpoly"
+      "Matrix.charpoly_monic"
     ],
     "provenance": {
       "source_type": "book",
@@ -2764,9 +2757,62 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "e462efd8938d7f52",
+    "proof_sha": "1dffa8b4aac4d9dc",
     "axioms": [
       "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.vector-space.subspace",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "子空间",
+    "summary": "子空间=非空、对加法和数乘封闭的子集（自实现 IsSubspace）",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：子空间与生成"
+    },
+    "lean_file": "LinearAlgebra/Subspace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/subspace.md",
+    "added_by": "ingestor-linalg-L1b",
+    "added_at": "2026-08-21T06:24:01Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "26807321967febf6",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.vector-space.span",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "生成子空间",
+    "summary": "span(s) 是包含 s 的最小子空间；span(s)⊆W ⟺ s⊆W",
+    "premises": [],
+    "mathlib": [
+      "Submodule.span_le",
+      "Submodule.span_mono"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：子空间与生成"
+    },
+    "lean_file": "LinearAlgebra/Subspace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/span.md",
+    "added_by": "ingestor-linalg-L1b",
+    "added_at": "2026-08-21T06:24:01Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "26807321967febf6",
+    "axioms": [
       "Quot.sound",
       "propext"
     ]
