@@ -1669,7 +1669,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1697,7 +1697,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1725,7 +1725,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1753,7 +1753,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1781,7 +1781,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1809,7 +1809,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1838,7 +1838,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1866,7 +1866,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1897,7 +1897,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1926,7 +1926,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "28981dec7267673f",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3238,6 +3238,37 @@
     "family": "analysis",
     "variant": "ecnu",
     "proof_sha": "95971101dd31f60b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.continuity.inverse",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "反函数连续",
+    "summary": "严格单调函数 f 的反函数在值域上连续（教材 ε-δ，不用序拓扑）",
+    "premises": [],
+    "mathlib": [
+      "StrictMono.orderIso",
+      "OrderIso.lt_iff_lt",
+      "OrderIso.apply_symm_apply",
+      "Subtype.dist_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 4.17（反函数连续）"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/inverse.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:51:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.continuity",
+    "variant": "rudin",
+    "proof_sha": "54eba38dad1cbab2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

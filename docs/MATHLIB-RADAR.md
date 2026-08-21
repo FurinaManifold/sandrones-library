@@ -768,6 +768,14 @@
 - **出处**：`Mathlib/Topology/MetricSpace/`
 - **谁在用**：`analysis.continuity.uniform`。
 
+### `StrictMono.orderIso` / `OrderIso.lt_iff_lt` / `OrderIso.apply_symm_apply` / `Subtype.dist_eq`
+- **人话**：严格单调函数到值域的序同构（`StrictMono.orderIso f hf : ℝ ≃o ↑(range f)`）；
+  序同构保序（`e x < e y ↔ x < y`）；`e (e.symm y) = y`（反函数性质）；
+  子类型度量 = 父空间度量（`Subtype.dist_eq`）。
+- **签名**：`(StrictMono.orderIso f hf).symm : ↑(Set.range f) → ℝ`；`Subtype.dist_eq`
+- **出处**：`Mathlib/Order/OrderIso.lean`、`Mathlib/Order/Subtype.lean`
+- **谁在用**：`analysis.continuity.inverse`（反函数连续，教材 ε-δ 证明）。
+
 ---
 
 ## G13. 导数（第六章：导数与微分）

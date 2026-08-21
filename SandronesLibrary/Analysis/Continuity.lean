@@ -23,9 +23,7 @@ open scoped Filter Topology
 * **analysis.continuity.intermediate-value**（介值定理）。
 * **analysis.continuity.max-min**（最值定理）。
 * **analysis.continuity.uniform**（一致连续及其 ⟹ 连续）。
-* ~~**analysis.continuity.inverse**（严格单调连续 ⟹ 反函数连续）~~：转正批扫描确认，
-  mathlib 用 `StrictMono.orderIso` + `OrderIso.toHomeomorph`，但需 `OrderTopology ↑(Set.range f)`
-  子类型实例（当前环境缺失），留待专门处理。
+* **analysis.continuity.inverse**（反函数连续：严格单调函数 f 的反函数在值域上连续，教材 ε-δ 证明）。
 -/
 
 namespace SandronesLibrary
@@ -173,6 +171,92 @@ theorem continuous_of_uniformContinuous {f : ℝ → ℝ} (hf : UniformContinuou
   intro y hy
   have : |f y - f x| < ε := hδδ y x (by simpa [Real.dist_eq] using hy)
   simpa [Real.dist_eq, abs_sub_comm] using this
+
+/-- **严格单调函数的反函数**（教材记号）：f 严格递增 ⟹ `mono_inv hf` 是其反函数，
+  定义在值域 `Set.range f` 上。 -/
+noncomputable def mono_inv {f : ℝ → ℝ} (hf : StrictMono f) : ↑(Set.range f) → ℝ :=
+  (StrictMono.orderIso f hf).symm
+
+/-- **反函数严格单调**：严格递增函数的反函数仍严格递增。 
+> **Entry**: analysis.continuity.inverse
+-/
+lemma mono_inv_strictMono {f : ℝ → ℝ} (hf : StrictMono f) : StrictMono (mono_inv hf) := by
+  unfold mono_inv
+  exact (StrictMono.orderIso f hf).symm.strictMono
+
+/-- **f(反函数(y)) = y**：反函数的定义性质。 
+> **Entry**: analysis.continuity.inverse
+-/
+lemma mono_inv_apply {f : ℝ → ℝ} (hf : StrictMono f) (y : ↑(Set.range f)) :
+    f (mono_inv hf y) = y.val := by
+  unfold mono_inv
+  have hz := OrderIso.apply_symm_apply (StrictMono.orderIso f hf) y
+  change ⟨f ((StrictMono.orderIso f hf).symm y), _⟩ = y at hz
+  exact congrArg Subtype.val hz
+
+/-- **反函数保序**：g y₁ < g y₂ ⟺ y₁ < y₂。 
+> **Entry**: analysis.continuity.inverse
+-/
+lemma mono_inv_lt_iff {f : ℝ → ℝ} (hf : StrictMono f) (y1 y2 : ↑(Set.range f)) :
+    mono_inv hf y1 < mono_inv hf y2 ↔ y1 < y2 := by
+  unfold mono_inv
+  exact OrderIso.lt_iff_lt (StrictMono.orderIso f hf).symm
+
+/-- **反函数在特殊点的取值**：g(⟨f t, _⟩) = t。 
+> **Entry**: analysis.continuity.inverse
+-/
+lemma mono_inv_sub_apply {f : ℝ → ℝ} (hf : StrictMono f) (t : ℝ) :
+    mono_inv hf ⟨f t, ⟨t, rfl⟩⟩ = t := by
+  unfold mono_inv
+  exact OrderIso.symm_apply_apply (StrictMono.orderIso f hf) t
+
+/-- **反函数连续**（教材 ε-δ）：严格单调函数 f 的反函数在值域上连续。
+  对 y₀ = f(x₀)，取 δ = min(y₀ − f(x₀−ε), f(x₀+ε) − y₀)，由 f 严格单调与 g 保序，
+  |y − y₀| < δ ⟹ x₀−ε < g y < x₀+ε。 
+> **Entry**: analysis.continuity.inverse
+-/
+theorem inverse_continuous {f : ℝ → ℝ} (hf : StrictMono f) : Continuous (mono_inv hf) := by
+  rw [Metric.continuous_iff]
+  intro y₀ ε hε
+  let x₀ := mono_inv hf y₀
+  have hfx0 : f x₀ = y₀.val := by dsimp [x₀]; exact mono_inv_apply hf y₀
+  have hlt_left : f (x₀ - ε) < y₀.val := by
+    have : f (x₀ - ε) < f x₀ := hf (by linarith)
+    rwa [hfx0] at this
+  have hlt_right : y₀.val < f (x₀ + ε) := by
+    have : f x₀ < f (x₀ + ε) := hf (by linarith)
+    rwa [hfx0] at this
+  let δ := min (y₀.val - f (x₀ - ε)) (f (x₀ + ε) - y₀.val)
+  have hδpos : 0 < δ := by
+    dsimp [δ]; exact lt_min (sub_pos.mpr hlt_left) (sub_pos.mpr hlt_right)
+  refine ⟨δ, hδpos, ?_⟩
+  intro y hy
+  have hdy : |y.val - y₀.val| < δ := by
+    simpa [Subtype.dist_eq, Real.dist_eq] using hy
+  have hgl : x₀ - ε < mono_inv hf y := by
+    have hyv : f (x₀ - ε) < y.val := by
+      have hd_le : |y.val - y₀.val| < y₀.val - f (x₀ - ε) := by
+        have : δ ≤ y₀.val - f (x₀ - ε) := by dsimp [δ]; exact min_le_left (y₀.val - f (x₀ - ε)) (f (x₀ + ε) - y₀.val)
+        linarith
+      have habs := abs_lt.mp hd_le
+      linarith
+    have hyl := mono_inv_lt_iff hf (y1 := (⟨f (x₀ - ε), ⟨x₀ - ε, rfl⟩⟩ : ↑(Set.range f))) (y2 := y)
+    have : mono_inv hf ⟨f (x₀ - ε), ⟨x₀ - ε, rfl⟩⟩ < mono_inv hf y := (hyl).mpr hyv
+    simpa [mono_inv_sub_apply hf (x₀ - ε)] using this
+  have hgr : mono_inv hf y < x₀ + ε := by
+    have hyv : y.val < f (x₀ + ε) := by
+      have hd_le : |y.val - y₀.val| < f (x₀ + ε) - y₀.val := by
+        have : δ ≤ f (x₀ + ε) - y₀.val := by dsimp [δ]; exact min_le_right (y₀.val - f (x₀ - ε)) (f (x₀ + ε) - y₀.val)
+        linarith
+      have habs := abs_lt.mp hd_le
+      linarith
+    have hyr := mono_inv_lt_iff hf (y1 := y) (y2 := (⟨f (x₀ + ε), ⟨x₀ + ε, rfl⟩⟩ : ↑(Set.range f)))
+    have : mono_inv hf y < mono_inv hf ⟨f (x₀ + ε), ⟨x₀ + ε, rfl⟩⟩ := (hyr).mpr hyv
+    simpa [mono_inv_sub_apply hf (x₀ + ε)] using this
+  have : |mono_inv hf y - x₀| < ε := by
+    rw [abs_lt]
+    constructor <;> linarith
+  simpa [Real.dist_eq]
 
 end Analysis.Continuity
 
