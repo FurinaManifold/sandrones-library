@@ -1932,5 +1932,203 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.derivative.unique",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "导数唯一",
+    "summary": "同函数同点两个导数必相等",
+    "premises": [],
+    "mathlib": [
+      "HasDerivAt.unique"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/unique.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.const",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "常数/线性函数导数",
+    "summary": "常数导数 0，恒等导数 1，线性函数 a·x+b 导数 a",
+    "premises": [],
+    "mathlib": [
+      "deriv_const",
+      "deriv_id",
+      "deriv_add_const"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/const.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.add",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "和/差导数",
+    "summary": "deriv (f±g)=deriv f±deriv g",
+    "premises": [],
+    "mathlib": [
+      "deriv_add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/add.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "积的导数（Leibniz）",
+    "summary": "(fg)'=f'g+fg'",
+    "premises": [],
+    "mathlib": [
+      "deriv_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/mul.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.div",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "商导数",
+    "summary": "(f/g)'=(f'g-fg')/g²（g≠0）",
+    "premises": [],
+    "mathlib": [
+      "deriv_div"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/div.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.const-mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "常数数乘导数",
+    "summary": "deriv (c·f)=c·deriv f",
+    "premises": [],
+    "mathlib": [
+      "deriv_const_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/const-mul.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.derivative.chain-rule",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "链式法则",
+    "summary": "deriv (g∘f) x = deriv g (f x)·deriv f x",
+    "premises": [],
+    "mathlib": [
+      "deriv_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第三章 导数"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/chain-rule.md",
+    "added_by": "ingestor-chapter6-batch",
+    "added_at": "2026-08-21T04:24:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "proof_sha": "930ecd22abc885a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

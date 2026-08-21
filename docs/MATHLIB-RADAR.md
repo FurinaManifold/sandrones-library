@@ -757,6 +757,27 @@
 
 ---
 
+## G13. 导数（第六章：导数与微分）
+
+> 支撑 `analysis.derivative.*`。`HasDerivAt` 是"在一点有导数值 f'"的判据，`deriv f x` 是导数算子。
+
+### `HasDerivAt` / `deriv` / `HasDerivAt.unique`
+- **人话**：`HasDerivAt f f' x` = f 在 x 处可导且导数值为 f'；`deriv f x` 是导数（默认为 0 若不可导）。
+  `HasDerivAt.unique` 保证导数唯一。
+- **签名**：`HasDerivAt f f' x : Prop`；`deriv f x : ℝ`；`HasDerivAt.unique ha hb : a = b`
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/`
+- **谁在用**：`analysis.derivative.unique`、`analysis.derivative.*`。
+
+### `deriv_const` / `deriv_id` / `deriv_add_const` / `deriv_const_mul` / `deriv_add` / `deriv_mul` / `deriv_div` / `deriv_comp`
+- **人话**：导数算子的基本法则：常数 0、恒等 1、加常数不动、数乘、和差、积（Leibniz）、商、链式。
+  每条都是一行调用 mathlib 的结果。
+- **签名**：`deriv (fun _=>c) x = 0`；`deriv id x = 1`；`deriv (f+g) x = deriv f x + deriv g x`；…；`deriv_comp x hg hf : deriv (g∘f) x = deriv g (f x)·deriv f x`
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/`
+- **谁在用**：`analysis.derivative.const/add/mul/div/const-mul/chain-rule`。
+- **坑**：`deriv_add` 需要 `DifferentiableAt` 前提；`deriv_mul` 的 Leibniz 形式需注意 x 依赖项。
+
+---
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
