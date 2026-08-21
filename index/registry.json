@@ -2154,7 +2154,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "306321f3c25b8f11",
+    "proof_sha": "22085e837e71a429",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2184,7 +2184,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "306321f3c25b8f11",
+    "proof_sha": "22085e837e71a429",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2214,7 +2214,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "306321f3c25b8f11",
+    "proof_sha": "22085e837e71a429",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2245,7 +2245,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "306321f3c25b8f11",
+    "proof_sha": "22085e837e71a429",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2275,7 +2275,66 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "306321f3c25b8f11",
+    "proof_sha": "22085e837e71a429",
+    "axioms": [
+      "<解析失败>"
+    ]
+  },
+  {
+    "id": "analysis.mvt.taylor",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "泰勒公式（Lagrange 余项）",
+    "summary": "f 在 [a,b] 上 n 阶光滑，存在 x' 于 x₀、x 之间使 f x = Taylor 多项式 + f⁽ⁿ⁺¹⁾(x')(x−x₀)ⁿ⁺¹/(n+1)!",
+    "premises": [
+      "analysis.mvt.lagrange",
+      "analysis.derivative.chain-rule"
+    ],
+    "mathlib": [
+      "taylor_mean_remainder_lagrange",
+      "taylorWithinEval",
+      "iteratedDerivWithin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 5.15（Taylor 定理，Lagrange 余项）"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/taylor.md",
+    "added_by": "ingestor-chapter7-batch3",
+    "added_at": "2026-08-21T05:29:34Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "rudin",
+    "proof_sha": "22085e837e71a429",
+    "axioms": [
+      "<解析失败>"
+    ]
+  },
+  {
+    "id": "analysis.mvt.lhopital",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "L'Hôpital 法则（0/0 型）",
+    "summary": "f、g 在 a 去心邻域可导、g'≠0，f→0、g→0，若 f'/g'→l 则 f/g→l",
+    "premises": [
+      "analysis.mvt.cauchy"
+    ],
+    "mathlib": [
+      "HasDerivAt.lhopital_zero_nhdsNE"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rudin, Principles of Mathematical Analysis, Thm 5.13（L'Hôpital 规则）"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/lhopital.md",
+    "added_by": "ingestor-chapter7-batch3",
+    "added_at": "2026-08-21T05:36:46Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "rudin",
+    "proof_sha": "22085e837e71a429",
     "axioms": [
       "<解析失败>"
     ]

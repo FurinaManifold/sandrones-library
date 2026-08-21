@@ -18,8 +18,8 @@ open scoped Filter Topology
 * **analysis.mvt.lagrange-deriv**（带导函数版 Lagrange）。
 * **analysis.mvt.monotone-deriv**（导数符号判别单调）。
 * **analysis.mvt.cauchy**（柯西中值定理）。
-* ~~**analysis.mvt.lhopital**~~（L'Hôpital）：待批。
-* ~~**analysis.mvt.taylor**~~（泰勒公式）：mathlib 单变量 Taylor 较繁，待批。
+* **analysis.mvt.lhopital**（L'Hôpital 法则，0/0 型）。
+* **analysis.mvt.taylor**（泰勒公式，Lagrange 余项）。
 -/
 
 namespace SandronesLibrary
@@ -91,6 +91,33 @@ theorem cauchy_mvt {f g : ℝ → ℝ} {a b : ℝ} (hab : a < b)
     (hgd : DifferentiableOn ℝ g (Set.Ioo a b)) (hfd : DifferentiableOn ℝ f (Set.Ioo a b)) :
     ∃ c ∈ Set.Ioo a b, (g b - g a) * deriv f c = (f b - f a) * deriv g c :=
   exists_ratio_deriv_eq_ratio_slope f hab hfc hfd g hgc hgd
+
+/-- 泰勒定理（带 Lagrange 余项，Rudin Thm 5.15）：f 是 [a,b] 上 n 阶光滑函数，
+  则存在 x' 位于 x₀ 与 x 之间，使
+  f x = (n 阶 Taylor 多项式在 x 的值) + f⁽ⁿ⁺¹⁾(x')·(x−x₀)ⁿ⁺¹/(n+1)!。
+  mathlib 的 `taylor_mean_remainder_lagrange` 给出同款 Lagrange 余项。 
+> **Entry**: analysis.mvt.taylor
+-/
+theorem taylor_lagrange_remainder {f : ℝ → ℝ} {x x₀ : ℝ} {n : ℕ} (hx : x₀ ≠ x)
+    (hf : ContDiffOn ℝ (↑n) f (Set.uIcc x₀ x))
+    (hf' : DifferentiableOn ℝ (iteratedDerivWithin n f (Set.uIcc x₀ x)) (Set.uIoo x₀ x)) :
+    ∃ x' ∈ Set.uIoo x₀ x,
+      f x - taylorWithinEval f n (Set.uIcc x₀ x) x₀ x =
+        iteratedDerivWithin (n + 1) f (Set.uIcc x₀ x) x' * (x - x₀) ^ (n + 1) / ↑(n + 1).factorial :=
+  taylor_mean_remainder_lagrange hx hf hf'
+
+/-- L'Hôpital 法则（0/0 型，Rudin Thm 5.13）：f、g 在 a 的去心邻域可导、g' ≠ 0，
+  且 f → 0、g → 0，若 f'/g' → l，则 f/g → l。 
+> **Entry**: analysis.mvt.lhopital
+-/
+theorem lhopital_zero_real {f g f' g' : ℝ → ℝ} {a : ℝ} {l : ℝ}
+    (hff' : ∀ᶠ x in 𝓝[≠] a, HasDerivAt f (f' x) x)
+    (hgg' : ∀ᶠ x in 𝓝[≠] a, HasDerivAt g (g' x) x)
+    (hg' : ∀ᶠ x in 𝓝[≠] a, g' x ≠ 0)
+    (hfa : Tendsto f (𝓝[≠] a) (𝓝 0)) (hga : Tendsto g (𝓝[≠] a) (𝓝 0))
+    (hdiv : Tendsto (fun x => f' x / g' x) (𝓝[≠] a) (𝓝 l)) :
+    Tendsto (fun x => f x / g x) (𝓝[≠] a) (𝓝 l) :=
+  HasDerivAt.lhopital_zero_nhdsNE hff' hgg' hg' hfa hga hdiv
 
 end Analysis.MVT
 

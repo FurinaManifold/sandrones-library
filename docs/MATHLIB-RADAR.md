@@ -798,6 +798,23 @@
 - **谁在用**：`analysis.mvt.monotone-deriv`。
 - **坑**：区间用 `Set.Icc` 且 `interior_Icc = Set.Ioo` 桥接（`simpa [interior_Icc]`）。
 
+### `exists_ratio_deriv_eq_ratio_slope` / `HasDerivAt.lhopital_zero_nhdsNE`
+- **人话**：柯西中值定理（deriv 版）：(g b−g a)·f'(c)=(f b−f a)·g'(c)；
+  L'Hôpital 0/0 型：f'/g'→l 且 f,g→0 ⟹ f/g→l。
+- **签名**：`exists_ratio_deriv_eq_ratio_slope f hab hfc hfd g hgc hgd : ∃ c ∈ Ioo a b, ...`；
+  `HasDerivAt.lhopital_zero_nhdsNE hff' hgg' hg' hfa hga hdiv : Tendsto (f/g) (𝓝[≠] a) (𝓝 l)`
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/MeanValue.lean`、`Mathlib/Analysis/Calculus/LHopital.lean`
+- **谁在用**：`analysis.mvt.cauchy`、`analysis.mvt.lhopital`。
+- **坑**：L'Hôpital 在 `HasDerivAt` 命名空间内（非根命名空间）；柯西 MVT 的 f、g 显式且位置分离。
+
+### `taylor_mean_remainder_lagrange` / `taylorWithinEval` / `iteratedDerivWithin`
+- **人话**：**Taylor 定理（Lagrange 余项）**：f x = Taylor 多项式(x) + f⁽ⁿ⁺¹⁾(x')·(x−x₀)ⁿ⁺¹/(n+1)!，
+  其中 x' 在 x₀ 与 x 之间。对应 Rudin Thm 5.15。
+- **签名**：`(hx : x₀ ≠ x) (hf : ContDiffOn ℝ (↑n) f (Set.uIcc x₀ x)) (hf' : DifferentiableOn ℝ (iteratedDerivWithin n f ...) (Set.uIoo x₀ x)) : ∃ x', f x - taylorWithinEval f n ... = ...`
+- **出处**：`Mathlib/Analysis/Calculus/Taylor.lean`
+- **谁在用**：`analysis.mvt.taylor`。
+- **坑**：`Set.uIcc`（unordered interval）自动处理 x₀<x 与 x<x₀；Taylor 多项式用 `taylorWithinEval` 求值。
+
 ---
 
 ## 附：登记清单自动核对
