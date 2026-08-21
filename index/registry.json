@@ -3613,5 +3613,73 @@
       "propext"
     ],
     "proof_sha": "fa56aa592f7a8dfc"
+  },
+  {
+    "id": "abstract-algebra.poly.def",
+    "kind": "theorem",
+    "title": "多项式环与整除性",
+    "summary": "多项式外延性；根的定义；因式定理(X-a整除⟺根)；R整环⟹R[X]整环；单位元=非零常数",
+    "family": "abstract-algebra.poly",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.ring.def"
+    ],
+    "mathlib": [
+      "Polynomial.ext",
+      "Polynomial.dvd_iff_isRoot",
+      "Polynomial.isDomain_iff",
+      "Polynomial.isUnit_iff"
+    ],
+    "lean_file": "AbstractAlgebra/Poly.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2（多项式）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A3",
+    "added_at": "2026-08-21T10:19:20Z",
+    "dependedOnBy": [],
+    "proof_sha": "c483c3bc335a65d7"
+  },
+  {
+    "id": "abstract-algebra.poly.irreducible",
+    "kind": "theorem",
+    "title": "不可约与带余除法",
+    "summary": "不可约判据(p=ab⟹a或b单位)；X-a不可约；X不可约；次数1不可约；带余除法整除判据；余式次数小于除式",
+    "family": "abstract-algebra.poly",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.poly.def"
+    ],
+    "mathlib": [
+      "Irreducible.isUnit_or_isUnit",
+      "Polynomial.irreducible_X_sub_C",
+      "Polynomial.irreducible_X",
+      "Polynomial.irreducible_of_degree_eq_one",
+      "Polynomial.modByMonic_eq_zero_iff_dvd",
+      "Polynomial.degree_modByMonic_lt"
+    ],
+    "lean_file": "AbstractAlgebra/Poly.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/irreducible.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2（不可约/欧几里得）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A3",
+    "added_at": "2026-08-21T10:19:20Z",
+    "dependedOnBy": [],
+    "proof_sha": "c483c3bc335a65d7"
   }
 ]

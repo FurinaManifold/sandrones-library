@@ -999,6 +999,23 @@
 - **谁在用**：`abstract-algebra.ring.iso`、`abstract-algebra.ring.domain`。
 - **坑**：商环域判据是"商环是域 ⟺ 理想极大"（`Ideal.Quotient.maximal_of_isField` 是其中方向之一）。
 
+### `Polynomial` / `Polynomial.X` / `Polynomial.C` / `Polynomial.ext` / `Polynomial.eval` / `Polynomial.dvd_iff_isRoot` / `Polynomial.isUnit_iff` / `Polynomial.isDomain_iff`
+- **人话**：`Polynomial R` 多项式环；`X` 不定元、`C` 常数嵌入、`eval` 代入求值；外延性（系数定多项式）；
+  **因式定理** `X−C a ∣ p ↔ p.IsRoot a`；单位元 = 非零常数 `IsUnit p ↔ ∃r, IsUnit r ∧ C r = p`；
+  `IsDomain R[X] ↔ IsDomain R ∧ IsCancelAdd R`。
+- **签名**：`Polynomial.dvd_iff_isRoot {p : R[X]} (a : R) : X - C a ∣ p ↔ p.IsRoot a`
+- **出处**：`Mathlib/Algebra/Polynomial/`
+- **谁在用**：`abstract-algebra.poly.def`。
+- **坑**：`[CommRing R] [IsDomain R]` 下 `IsDomain R[X]` 可 infer_instance。
+
+### `Irreducible` / `Irreducible.isUnit_or_isUnit` / `Polynomial.irreducible_X_sub_C` / `Polynomial.irreducible_X` / `Polynomial.irreducible_of_degree_eq_one` / `Polynomial.modByMonic` / `Polynomial.degree_modByMonic_lt`
+- **人话**：`Irreducible p` 不可约（`p=ab → IsUnit a ∨ IsUnit b`）；X−a、X 不可约；域上次数 1 不可约；
+  带余除法 `p %ₘ q`（余式）、`p /ₘ q`（商），整除 ⟺ 余式 0，余式次数 < 除式次数（欧几里得）。
+- **签名**：`Polynomial.irreducible_X_sub_C (a : R) : Irreducible (X - C a)`；`Polynomial.modByMonic_eq_zero_iff_dvd (hq : q.Monic) : p %ₘ q = 0 ↔ q ∣ p`
+- **出处**：`Mathlib/Algebra/Polynomial/`、`Mathlib/RingTheory/Polynomial/`
+- **谁在用**：`abstract-algebra.poly.irreducible`。
+- **坑**：带余除法需 `q.Monic` 前提；`Polynomial.instEuclideanDomain`（域上多项式环欧几里得）是实例非 Prop。
+
 ---
 
 ## 附：登记清单自动核对
