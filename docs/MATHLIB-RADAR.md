@@ -1171,6 +1171,16 @@
 - **谁在用**：`real-analysis.measure.lintegral`。
 - **坑**：lintegral 值域 ℝ≥0∞；一般积分（integral）是另一套。
 
+### `lintegral_iSup` / `lintegral_liminf_le` / `tendsto_lintegral_of_dominated_convergence`
+- **人话**：**单调收敛定理** `lintegral_iSup`（∫⁻(⨆fₙ)=⨆∫⁻fₙ，可测单调）；**Fatou**
+  `lintegral_liminf_le`（∫⁻liminf ≤ liminf∫⁻）；**控制收敛** `tendsto_lintegral_of_dominated_convergence`
+  （被可积控制 ⟹ 极限穿积分）。三大收敛定理是 Lebesgue 积分的核心。
+- **签名**：`lintegral_iSup (hf : ∀ n, Measurable (f n)) (h_mono : Monotone f) : ∫⁻ (⨆ n, f n a) ∂μ = ⨆ n, ∫⁻ f n a ∂μ`；
+  `tendsto_lintegral_of_dominated_convergence bound hF_meas h_bound h_fin h_lim`
+- **出处**：`Mathlib/MeasureTheory/Integral/Lebesgue/`
+- **谁在用**：`real-analysis.measure.monotone-convergence`、`real-analysis.measure.fatou`、`real-analysis.measure.dominated-convergence`。
+- **坑**：liminf 用 `Filter.liminf`（需 `open Filter`）；𝓝 需 `open scoped Topology`；Fatou 需 `[u.IsCountablyGenerated]`。
+
 ---
 
 ## 附：登记清单自动核对

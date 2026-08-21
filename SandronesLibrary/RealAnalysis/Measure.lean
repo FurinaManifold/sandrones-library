@@ -16,6 +16,9 @@ import Mathlib
 * **real-analysis.measure.caratheodory**（Carathéodory 定理：可测集构成 σ-代数/判据）✅。
 * **real-analysis.measure.measurable-function**（可测函数：恒等/常/复合）✅。
 * **real-analysis.measure.lintegral**（非负积分：常数/单调/零测）✅。
+* **real-analysis.measure.monotone-convergence**（单调收敛定理 MCT）✅。
+* **real-analysis.measure.fatou**（Fatou 引理）✅。
+* **real-analysis.measure.dominated-convergence**（控制收敛定理 DCT）✅。
 
 > **语言说明**：实分析阶段（§Phase5）mathlib 的 `MeasurableSpace`/`MeasurableSet`/
 > `Measure` 等**教材结构可直接出现在签名**（测度积分是 mathlib 的核心库）。
@@ -25,7 +28,8 @@ namespace SandronesLibrary
 
 namespace RealAnalysis.Measure
 
-open MeasureTheory
+open MeasureTheory Filter
+open scoped Topology ENNReal
 
 /-- **σ-代数公理：空集可测**。 
 > **Entry**: real-analysis.measure.sigma-algebra
@@ -111,7 +115,7 @@ theorem meas_caratheodory_iff {X : Type*} {m : OuterMeasure X} {s : Set X} :
     MeasurableSet[m.caratheodory] s ↔ ∀ t : Set X, m t = m (t ∩ s) + m (t \ s) := by
   exact m.isCaratheodory_iff
 
-open scoped ENNReal
+
 
 /-- **可测函数：恒等**。 
 > **Entry**: real-analysis.measure.measurable-function
@@ -153,6 +157,35 @@ theorem meas_lintegral_mono {X : Type*} [MeasurableSpace X] (μ : Measure X)
 theorem meas_lintegral_eq_zero_iff {X : Type*} [MeasurableSpace X] (μ : Measure X)
     {f : X → ℝ≥0∞} (hf : Measurable f) : (∫⁻ x, f x ∂μ) = 0 ↔ f =ᵐ[μ] 0 := by
   exact lintegral_eq_zero_iff hf
+
+/-- **单调收敛定理（MCT）**：非负可测单调递增序列的积分 = 极限的积分。
+  ∫⁻(⨆ fₙ) = ⨆ ∫⁻fₙ。 
+> **Entry**: real-analysis.measure.monotone-convergence
+-/
+theorem meas_lintegral_iSup {X : Type*} [MeasurableSpace X] (μ : Measure X)
+    {f : ℕ → X → ℝ≥0∞} (hf : ∀ n, Measurable (f n)) (h_mono : Monotone f) :
+    (∫⁻ a, (⨆ n, f n a) ∂μ) = ⨆ n, ∫⁻ a, f n a ∂μ := by
+  exact lintegral_iSup hf h_mono
+
+/-- **Fatou 引理**：非负可测函数的 liminf 的积分 ≤ liminf 的积分。
+  ∫⁻(liminf f) ≤ liminf ∫⁻f。 
+> **Entry**: real-analysis.measure.fatou
+-/
+theorem meas_lintegral_liminf_le {X : Type*} [MeasurableSpace X] (μ : Measure X)
+    {f : ℕ → X → ℝ≥0∞} (hf : ∀ n, Measurable (f n)) :
+    (∫⁻ a, Filter.liminf (fun n => f n a) atTop ∂μ) ≤ Filter.liminf (fun n => ∫⁻ a, f n a ∂μ) atTop := by
+  exact lintegral_liminf_le hf
+
+/-- **控制收敛定理（DCT）**：若 Fₙ 被可积函数 bound 逐点控制，且 Fₙ → f a.e.，
+  则 ∫Fₙ → ∫f。 
+> **Entry**: real-analysis.measure.dominated-convergence
+-/
+theorem meas_tendsto_lintegral_of_dominated {X : Type*} [MeasurableSpace X] (μ : Measure X)
+    {F : ℕ → X → ℝ≥0∞} {f : X → ℝ≥0∞} (bound : X → ℝ≥0∞)
+    (hF_meas : ∀ n, Measurable (F n)) (h_bound : ∀ n, F n ≤ᵐ[μ] bound)
+    (h_fin : (∫⁻ a, bound a ∂μ) ≠ ∞) (h_lim : ∀ᵐ a ∂μ, Tendsto (fun n => F n a) atTop (𝓝 (f a))) :
+    Tendsto (fun n => ∫⁻ a, F n a ∂μ) atTop (𝓝 (∫⁻ a, f a ∂μ)) := by
+  exact tendsto_lintegral_of_dominated_convergence bound hF_meas h_bound h_fin h_lim
 
 end RealAnalysis.Measure
 

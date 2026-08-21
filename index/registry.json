@@ -4295,7 +4295,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
   },
   {
     "id": "real-analysis.measure.def",
@@ -4328,7 +4328,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
   },
   {
     "id": "real-analysis.measure.outer",
@@ -4359,7 +4359,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
   },
   {
     "id": "real-analysis.measure.caratheodory",
@@ -4390,7 +4390,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
   },
   {
     "id": "real-analysis.measure.measurable-function",
@@ -4423,7 +4423,7 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
   },
   {
     "id": "real-analysis.measure.lintegral",
@@ -4456,6 +4456,96 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [],
-    "proof_sha": "1a504450452a991d"
+    "proof_sha": "135d514a8ce1ddbe"
+  },
+  {
+    "id": "real-analysis.measure.monotone-convergence",
+    "kind": "theorem",
+    "title": "单调收敛定理",
+    "summary": "MCT：非负可测单调序列 ∫⁻(⨆fₙ)=⨆∫⁻fₙ",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "lintegral_iSup"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/monotone-convergence.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（单调收敛）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R3",
+    "added_at": "2026-08-21T11:34:11Z",
+    "dependedOnBy": [],
+    "proof_sha": "135d514a8ce1ddbe"
+  },
+  {
+    "id": "real-analysis.measure.fatou",
+    "kind": "theorem",
+    "title": "Fatou 引理",
+    "summary": "∫⁻(liminf f) ≤ liminf ∫⁻f（非负可测函数）",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "lintegral_liminf_le"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/fatou.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（Fatou）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R3",
+    "added_at": "2026-08-21T11:34:11Z",
+    "dependedOnBy": [],
+    "proof_sha": "135d514a8ce1ddbe"
+  },
+  {
+    "id": "real-analysis.measure.dominated-convergence",
+    "kind": "theorem",
+    "title": "控制收敛定理",
+    "summary": "DCT：Fₙ被可积bound控制且Fₙ→f a.e. ⟹ ∫Fₙ→∫f",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "tendsto_lintegral_of_dominated_convergence"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/dominated-convergence.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（控制收敛）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R3",
+    "added_at": "2026-08-21T11:34:11Z",
+    "dependedOnBy": [],
+    "proof_sha": "135d514a8ce1ddbe"
   }
 ]
