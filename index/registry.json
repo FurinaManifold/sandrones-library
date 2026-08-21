@@ -4038,5 +4038,136 @@
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
     "proof_sha": "592a7b2dca9fcfd1"
+  },
+  {
+    "id": "topology.metric.def",
+    "kind": "theorem",
+    "title": "度量空间与开球",
+    "summary": "度量公理（对称/三角/自反/零距/非负）；开球成员刻画/开集/自含/单调",
+    "family": "topology.metric",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "dist_comm",
+      "dist_triangle",
+      "dist_self",
+      "dist_eq_zero",
+      "Metric.mem_ball",
+      "Metric.isOpen_ball"
+    ],
+    "lean_file": "Topology/Metric.lean",
+    "nl_file": "docs/entries/topology/metric/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（度量空间）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T3",
+    "added_at": "2026-08-21T10:45:30Z",
+    "dependedOnBy": [],
+    "proof_sha": "697b4373a3cb5505"
+  },
+  {
+    "id": "topology.metric.uniform",
+    "kind": "theorem",
+    "title": "一致连续",
+    "summary": "一致连续 ε-δ 判据；一致连续⟹连续；恒等一致连续",
+    "family": "topology.metric",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.continuous"
+    ],
+    "mathlib": [
+      "Metric.uniformContinuous_iff",
+      "UniformContinuous.continuous",
+      "uniformContinuous_id"
+    ],
+    "lean_file": "Topology/Metric.lean",
+    "nl_file": "docs/entries/topology/metric/uniform.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（一致连续）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T3",
+    "added_at": "2026-08-21T10:45:30Z",
+    "dependedOnBy": [],
+    "proof_sha": "697b4373a3cb5505"
+  },
+  {
+    "id": "topology.metric.cauchy-complete",
+    "kind": "theorem",
+    "title": "Cauchy 列与完备空间",
+    "summary": "Cauchy ε-N 判据；完备空间中 Cauchy 列收敛",
+    "family": "topology.metric",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "Metric.cauchySeq_iff",
+      "cauchySeq_tendsto_of_complete",
+      "CompleteSpace"
+    ],
+    "lean_file": "Topology/Metric.lean",
+    "nl_file": "docs/entries/topology/metric/cauchy-complete.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（完备性）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T3",
+    "added_at": "2026-08-21T10:45:30Z",
+    "dependedOnBy": [],
+    "proof_sha": "697b4373a3cb5505"
+  },
+  {
+    "id": "topology.metric.completion",
+    "kind": "theorem",
+    "title": "完备化",
+    "summary": "完备化嵌入一致连续；T0 中嵌入单射",
+    "family": "topology.metric",
+    "variant": "munkres",
+    "premises": [
+      "topology.metric.cauchy-complete"
+    ],
+    "mathlib": [
+      "UniformSpace.Completion",
+      "UniformSpace.Completion.uniformContinuous_coe",
+      "UniformSpace.Completion.coe_injective"
+    ],
+    "lean_file": "Topology/Metric.lean",
+    "nl_file": "docs/entries/topology/metric/completion.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 2（完备化）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T3",
+    "added_at": "2026-08-21T10:45:30Z",
+    "dependedOnBy": [],
+    "proof_sha": "697b4373a3cb5505"
   }
 ]

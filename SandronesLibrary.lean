@@ -16,6 +16,7 @@ import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Space
 import SandronesLibrary.Topology.Separation
+import SandronesLibrary.Topology.Metric
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

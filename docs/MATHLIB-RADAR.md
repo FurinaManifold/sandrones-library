@@ -1079,6 +1079,35 @@
 - **谁在用**：`topology.compact.finite`、`topology.separations`。
 - **坑**：T1/T2 是 typeclass；`regularSpace_iff X` 需显式 X 参数；T3Space/T4Space 是 T2+正则/正规组合。
 
+### `MetricSpace` / `Metric.ball` / `Metric.mem_ball` / `Metric.isOpen_ball` / `Metric.ball_subset_ball` / `dist_comm` / `dist_triangle` / `dist_self` / `dist_eq_zero`
+- **人话**：度量空间 typeclass；开球 `Metric.ball x ε`（`y ∈ ball x ε ↔ dist y x < ε`）、开球开、球单调；
+  距离公理（对称/三角/自反/零距判等）。度量拓扑由开球生成。
+- **签名**：`Metric.mem_ball : y ∈ Metric.ball x ε ↔ dist y x < ε`；`Metric.isOpen_ball`
+- **出处**：`Mathlib/Topology/MetricSpace/`
+- **谁在用**：`topology.metric.def`。
+- **坑**：定理名加 `metric_` 前缀避免与 mathlib 同名。
+
+### `UniformContinuous` / `Metric.uniformContinuous_iff` / `UniformContinuous.continuous` / `uniformContinuous_id`
+- **人话**：一致连续 `UniformContinuous f`（全局 ε-δ）；一致连续 ⟹ 连续；恒等一致连续。
+- **签名**：`Metric.uniformContinuous_iff : UniformContinuous f ↔ ∀ ε>0, ∃ δ>0, ∀ a b, dist a b < δ → dist (f a) (f b) < ε`
+- **出处**：`Mathlib/Topology/UniformSpace/`
+- **谁在用**：`topology.metric.uniform`。
+
+### `CauchySeq` / `Metric.cauchySeq_iff` / `cauchySeq_tendsto_of_complete` / `CompleteSpace` / `IsComplete`
+- **人话**：Cauchy 列 ε-N 判据；完备空间中 Cauchy 列收敛（`cauchySeq_tendsto_of_complete`）；
+  `CompleteSpace` 完备、`IsComplete s` 子集完备。
+- **签名**：`Metric.cauchySeq_iff : CauchySeq u ↔ ∀ ε>0, ∃ N, ∀ m≥N, ∀ n≥N, dist (u m) (u n) < ε`
+- **出处**：`Mathlib/Topology/UniformSpace/`
+- **谁在用**：`topology.metric.cauchy-complete`。
+
+### `UniformSpace.Completion` / `UniformSpace.Completion.coe'` / `uniformContinuous_coe` / `coe_injective` / `instCompleteSpace` / `instMetricSpace`
+- **人话**：完备化 `Completion α`（任意一致空间嵌入完备空间）；嵌入一致连续、T0 中单射；
+  Completion 完备且是度量空间（instance）。与实数构造（CauSeq）一脉相承。
+- **签名**：`UniformSpace.Completion.coe' : α → UniformSpace.Completion α`；`UniformSpace.Completion.uniformContinuous_coe`
+- **出处**：`Mathlib/Topology/UniformSpace/`
+- **谁在用**：`topology.metric.completion`。
+- **坑**：完备性/度量结构是 instance（非 Prop）。
+
 ---
 
 ## 附：登记清单自动核对
