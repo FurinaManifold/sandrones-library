@@ -3344,7 +3344,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "78ebf2b039bbe978"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3378,7 +3378,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "78ebf2b039bbe978"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3413,7 +3413,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "78ebf2b039bbe978"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3447,7 +3447,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "78ebf2b039bbe978"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3477,7 +3477,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "78ebf2b039bbe978"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -3940,7 +3940,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "30ea9cc83118b7fe"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.compact.closed-bdd",
@@ -3970,7 +3970,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "30ea9cc83118b7fe"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.compact.finite",
@@ -4002,7 +4002,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "30ea9cc83118b7fe"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.separations",
@@ -4263,6 +4263,6 @@
     "added_by": "ingestor-promote-foundations",
     "added_at": "2026-08-21T10:54:37Z",
     "dependedOnBy": [],
-    "proof_sha": "30ea9cc83118b7fe"
+    "proof_sha": "70626d3fed575a3b"
   }
 ]

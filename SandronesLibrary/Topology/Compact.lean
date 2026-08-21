@@ -49,7 +49,16 @@ theorem compact_union {X : Type*} [TopologicalSpace X] {s t : Set X}
 > **Entry**: topology.compact.def
 -/
 theorem compact_singleton {X : Type*} [TopologicalSpace X] (x : X) : IsCompact ({x} : Set X) := by
-  exact isCompact_singleton
+  -- 教材：单点集的任意开覆盖 {Uᵢ} 中，含 x 的那个 Uᵢ 即构成有限子覆盖
+  rw [isCompact_iff_finite_subcover]
+  intro ι U hUo hsub
+  have hx : x ∈ ⋃ i : ι, U i := hsub (by simp)
+  rcases Set.mem_iUnion.mp hx with ⟨i, hxi⟩
+  refine ⟨{i}, ?_⟩
+  intro y hy
+  have hyx : y = x := by simpa using hy
+  rw [hyx]
+  exact Set.mem_biUnion (by simp) hxi
 
 /-- **闭区间紧**（Heine-Borel 的基础）：ℝ 上闭区间 [a,b] 紧。 
 > **Entry**: topology.compact.closed-bdd

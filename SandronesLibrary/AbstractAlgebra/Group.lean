@@ -207,8 +207,14 @@ theorem hom_mem_range {G N : Type*} [Group G] [Group N] (f : G →* N) (y : N) :
 /-- **同态保单位元**：f(1) = 1。 
 > **Entry**: abstract-algebra.group.hom
 -/
-theorem hom_map_one {G M : Type*} [Group G] [Monoid M] (f : G →* M) : f 1 = 1 := by
-  exact f.map_one
+theorem hom_map_one {G M : Type*} [Group G] [Group M] (f : G →* M) : f 1 = 1 := by
+  -- 教科书证明：f 1 = f(1·1) = f 1 · f 1，消去得 f 1 = 1
+  have h : f 1 * f 1 = f 1 := by
+    calc
+      f 1 * f 1 = f (1 * 1) := by rw [f.map_mul]
+      _ = f 1 := by rw [one_mul]
+  have h2 := congrArg (fun x : M => x⁻¹ * x) h
+  simpa using h2
 
 /-- **同态保乘法**：f(a·b) = f(a)·f(b)。 
 > **Entry**: abstract-algebra.group.hom
@@ -222,7 +228,12 @@ theorem hom_map_mul {G M : Type*} [Group G] [Monoid M] (f : G →* M) (a b : G) 
 -/
 theorem hom_map_inv {G N : Type*} [Group G] [Group N] (f : G →* N) (a : G) :
     f a⁻¹ = (f a)⁻¹ := by
-  exact f.map_inv a
+  -- f a⁻¹ · f a = f(a⁻¹·a) = f 1 = 1，故 f a⁻¹ = (f a)⁻¹
+  apply eq_inv_of_mul_eq_one_left
+  calc
+    f a⁻¹ * f a = f (a⁻¹ * a) := by rw [f.map_mul]
+    _ = f 1 := by rw [inv_mul_cancel]
+    _ = 1 := by rw [f.map_one]
 
 /-- **单射 ⟺ 核平凡**：群同态 f 是单射当且仅当其核只含单位元。 
 > **Entry**: abstract-algebra.group.hom
