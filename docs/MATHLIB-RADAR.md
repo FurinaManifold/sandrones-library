@@ -1108,6 +1108,14 @@
 - **谁在用**：`topology.metric.completion`。
 - **坑**：完备性/度量结构是 instance（非 Prop）。
 
+### `exists_continuous_zero_one_of_isClosed` / `C(X, ℝ)`
+- **人话**：**Urysohn 引理**：正规空间中不相交闭集 s、t 存在连续 f:X→[0,1] 使 f=0 在 s、f=1 在 t。
+  `C(X, ℝ)` 是连续函数空间（ContinuousMap）。
+- **签名**：`exists_continuous_zero_one_of_isClosed (hs : IsClosed s) (ht : IsClosed t) (hd : Disjoint s t) : ∃ f : C(X, ℝ), Set.EqOn (⇑f) 0 s ∧ Set.EqOn (⇑f) 1 t ∧ ∀ x, f x ∈ Set.Icc 0 1`
+- **出处**：`Mathlib/Topology/Separation/`
+- **谁在用**：`topology.separations.urysohn`。
+- **坑**：`C(X, ℝ)` 是 ContinuousMap（用 `⇑f` 取函数）；值域在 [0,1] 用 `Set.Icc 0 1`。
+
 ---
 
 ## 附：登记清单自动核对

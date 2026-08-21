@@ -4037,7 +4037,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "592a7b2dca9fcfd1"
+    "proof_sha": "afb48d2d1606dd25"
   },
   {
     "id": "topology.metric.def",
@@ -4169,5 +4169,35 @@
     "added_at": "2026-08-21T10:45:30Z",
     "dependedOnBy": [],
     "proof_sha": "697b4373a3cb5505"
+  },
+  {
+    "id": "topology.separations.urysohn",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Urysohn 引理",
+    "summary": "正规空间中不相交闭集可用连续函数分离（f=0在s、f=1在t、值域[0,1]）",
+    "family": "topology.separations",
+    "variant": "munkres",
+    "premises": [
+      "topology.separations"
+    ],
+    "mathlib": [
+      "exists_continuous_zero_one_of_isClosed"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 4（Urysohn 引理）"
+    },
+    "lean_file": "Topology/Separation.lean",
+    "nl_file": "docs/entries/topology/separations/urysohn.md",
+    "added_by": "ingestor-promote-topology",
+    "added_at": "2026-08-21T10:48:24Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afb48d2d1606dd25"
   }
 ]

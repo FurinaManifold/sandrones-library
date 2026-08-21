@@ -10,7 +10,8 @@ import Mathlib
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **topology.separations**（T1 单点闭/T2 极限唯一/T2 邻域分离/正则判据）。
+* **topology.separations**（T1 单点闭/T2 极限唯一/T2 邻域分离/正则判据）✅。
+* **topology.separations.urysohn**（Urysohn 引理）✅。
 
 > **语言说明**：点集拓扑阶段（§Phase4）mathlib 的 `T1Space`/`T2Space`/`RegularSpace`/
 > `NormalSpace` 等**教材结构可直接出现在签名**。
@@ -66,6 +67,16 @@ theorem t1_iff_singleton_closed {X : Type*} [TopologicalSpace X] :
   · intro h
     -- 构造 T1Space：需要每个点 {x} 闭
     exact ⟨fun x => h x⟩
+
+
+/-- **Urysohn 引理**：正规空间中两个不相交闭集 s、t 可用连续函数分离——
+  存在连续 f : X → ℝ 使 f=0 在 s、f=1 在 t、值域 ⊆ [0,1]。 
+> **Entry**: topology.separations.urysohn
+-/
+theorem urysohn_lemma {X : Type*} [TopologicalSpace X] [NormalSpace X] {s t : Set X}
+    (hs : IsClosed s) (ht : IsClosed t) (hd : Disjoint s t) :
+    ∃ f : C(X, ℝ), Set.EqOn (⇑f) 0 s ∧ Set.EqOn (⇑f) 1 t ∧ ∀ x : X, (f x : ℝ) ∈ Set.Icc 0 1 := by
+  exact exists_continuous_zero_one_of_isClosed hs ht hd
 
 end Topology.Separation
 
