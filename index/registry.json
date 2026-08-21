@@ -2338,5 +2338,119 @@
     "axioms": [
       "<解析失败>"
     ]
+  },
+  {
+    "id": "linear-algebra.vector-space.def",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "向量空间定义",
+    "summary": "向量空间=加法群配数乘；数域 K 作为自身向量空间维数 1，dim Kⁿ=n",
+    "premises": [],
+    "mathlib": [
+      "Module.finrank_self",
+      "Module.finrank_pi"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大/线性代数教材：向量空间与维数"
+    },
+    "lean_file": "LinearAlgebra/VectorSpace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/def.md",
+    "added_by": "ingestor-linalg-L1",
+    "added_at": "2026-08-21T05:44:24Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "56ab6cfe20365847",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.vector-space.independent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "线性无关",
+    "summary": "任何线性无关向量组至多有 dim V 个向量",
+    "premises": [],
+    "mathlib": [
+      "LinearIndependent.fintype_card_le_finrank"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大/线性代数教材：向量空间与维数"
+    },
+    "lean_file": "LinearAlgebra/VectorSpace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/independent.md",
+    "added_by": "ingestor-linalg-L1",
+    "added_at": "2026-08-21T05:44:24Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "56ab6cfe20365847",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.vector-space.basis",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "基与维数",
+    "summary": "基的元素个数等于维数",
+    "premises": [],
+    "mathlib": [
+      "Module.finrank_eq_card_basis"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大/线性代数教材：向量空间与维数"
+    },
+    "lean_file": "LinearAlgebra/VectorSpace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/basis.md",
+    "added_by": "ingestor-linalg-L1",
+    "added_at": "2026-08-21T05:44:24Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "56ab6cfe20365847",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.vector-space.dimension",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "维数",
+    "summary": "dim V=0 当且仅当 V 是平凡空间；dim 与秩（基数）在有限维一致",
+    "premises": [],
+    "mathlib": [
+      "Module.finrank_eq_rank",
+      "Module.finrank_zero_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：向量空间、基与维数"
+    },
+    "lean_file": "LinearAlgebra/VectorSpace.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/dimension.md",
+    "added_by": "ingestor-linalg-L1",
+    "added_at": "2026-08-21T05:51:18Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.vector-space",
+    "variant": "ecnu",
+    "proof_sha": "56ab6cfe20365847",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

@@ -6,6 +6,7 @@ import SandronesLibrary.Analysis.Continuity
 import SandronesLibrary.Analysis.Derivative
 import SandronesLibrary.Analysis.MVT
 import SandronesLibrary.Analysis.Sequence
+import SandronesLibrary.LinearAlgebra.VectorSpace
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
 import SandronesLibrary.SetTheory.Relations

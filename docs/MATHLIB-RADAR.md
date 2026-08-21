@@ -817,6 +817,35 @@
 
 ---
 
+## G15. 线性代数（第一学期 L1-L4：向量空间 / 线性映射矩阵秩 / 行列式 / 特征值）
+
+> 支撑 `linear-algebra.vector-space.*`。教材的"向量空间 V、维数 dim、基"在 mathlib 形式化层
+> 落在模理论（`Module`、`Submodule`、`Module.finrank`、`Module.rank`）。
+> **词条与叙述层只用教材记号（dim、基、秩）**，这里给实现用的 mathlib 名作白话锚点。
+
+### `Module` / `Submodule` / `Submodule.span` / `LinearIndependent`
+- **人话**：`Module R M` = R 上的模（向量空间是系数为域的模）；`Submodule` = 子空间/子模；
+  `Submodule.span R s` = s 张成的子空间；`LinearIndependent R v` = 向量族 v 线性无关。
+- **签名**：`LinearIndependent R v : Prop`；`x ∈ Submodule.span R s`
+- **出处**：`Mathlib/LinearAlgebra/`
+- **谁在用**：`linear-algebra.vector-space.independent`。
+
+### `Module.finrank` / `Module.rank` / `Module.Basis`
+- **人话**：`Module.finrank R M` = 有限维空间 M 的维数（ℕ）；`Module.rank R M` = 一般维数（基数）；
+  `Module.Basis ι R M` = 指标集 ι 张成的一组基。
+- **签名**：`Module.finrank R M : ℕ`；`Module.Basis ι R M`
+- **出处**：`Mathlib/LinearAlgebra/Dimension/`、`Mathlib/LinearAlgebra/Basis.lean`
+- **谁在用**：`linear-algebra.vector-space.def/basis/dimension`。
+
+### `Module.finrank_eq_card_basis` / `LinearIndependent.fintype_card_le_finrank` / `Module.finrank_zero_iff` / `Module.finrank_eq_rank`
+- **人话**：维数 = 基的大小；线性无关组长度 ≤ 维数；dim=0 ⟺ 平凡空间；有限维时 dim 与秩一致。
+- **签名**：`(h : Module.Basis ι R M) : finrank R M = |ι|`；`LinearIndependent.fintype_card_le_finrank`
+- **出处**：`Mathlib/LinearAlgebra/`
+- **谁在用**：`linear-algebra.vector-space.dimension/basis/independent`。
+- **坑**：维数涉及选择（noncomputable），`dim` 别名需标 `noncomputable`。
+
+---
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
