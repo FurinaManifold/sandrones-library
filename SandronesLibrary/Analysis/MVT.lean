@@ -17,7 +17,7 @@ open scoped Filter Topology
 * **analysis.mvt.lagrange**（拉格朗日中值定理）。
 * **analysis.mvt.lagrange-deriv**（带导函数版 Lagrange）。
 * **analysis.mvt.monotone-deriv**（导数符号判别单调）。
-* ~~**analysis.mvt.cauchy**~~（柯西中值定理）：用 Lagrange 组合构造，待批。
+* **analysis.mvt.cauchy**（柯西中值定理）。
 * ~~**analysis.mvt.lhopital**~~（L'Hôpital）：待批。
 * ~~**analysis.mvt.taylor**~~（泰勒公式）：mathlib 单变量 Taylor 较繁，待批。
 -/
@@ -81,6 +81,16 @@ theorem strict_mono_of_deriv_pos {f : ℝ → ℝ} {a b : ℝ} (_hab : a < b)
   · exact hfc
   · intro x hx
     exact hf' x (by simpa [interior_Icc] using hx)
+
+/-- 柯西中值定理：两函数 f、g 在闭区间连续、开区间可导，则存在 c 使
+  (g b − g a)·f'(c) = (f b − f a)·g'(c)。这是 L'Hôpital 法则的基础。
+> **Entry**: analysis.mvt.cauchy
+-/
+theorem cauchy_mvt {f g : ℝ → ℝ} {a b : ℝ} (hab : a < b)
+    (hfc : ContinuousOn f (Set.Icc a b)) (hgc : ContinuousOn g (Set.Icc a b))
+    (hgd : DifferentiableOn ℝ g (Set.Ioo a b)) (hfd : DifferentiableOn ℝ f (Set.Ioo a b)) :
+    ∃ c ∈ Set.Ioo a b, (g b - g a) * deriv f c = (f b - f a) * deriv g c :=
+  exists_ratio_deriv_eq_ratio_slope f hab hfc hfd g hgc hgd
 
 end Analysis.MVT
 

@@ -2154,7 +2154,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "ac33f2da89eecc6f",
+    "proof_sha": "306321f3c25b8f11",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2184,7 +2184,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "ac33f2da89eecc6f",
+    "proof_sha": "306321f3c25b8f11",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2214,7 +2214,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "ac33f2da89eecc6f",
+    "proof_sha": "306321f3c25b8f11",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2245,11 +2245,39 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "ac33f2da89eecc6f",
+    "proof_sha": "306321f3c25b8f11",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.cauchy",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "柯西中值定理",
+    "summary": "两函数闭区间连续、开区间可导，存在 c 使 (g b−g a)·f'(c)=(f b−f a)·g'(c)",
+    "premises": [
+      "analysis.mvt.lagrange"
+    ],
+    "mathlib": [
+      "exists_ratio_deriv_eq_ratio_slope"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/cauchy.md",
+    "added_by": "ingestor-chapter7-batch2",
+    "added_at": "2026-08-21T04:47:35Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "ecnu",
+    "proof_sha": "306321f3c25b8f11",
+    "axioms": [
+      "<解析失败>"
     ]
   }
 ]
