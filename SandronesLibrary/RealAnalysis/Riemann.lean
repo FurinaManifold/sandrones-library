@@ -395,6 +395,16 @@ theorem lower_sum_le_interval {f sP : ℝ → ℝ} {s : Set ℝ}
     _ ≤ (∫ t : ℝ, s.indicator f t ∂volume) := h2
     _ = (∫ t : ℝ in s, f t ∂volume) := h3
 
+theorem continuous_indicator_integrable {f : ℝ → ℝ} {a b : ℝ} (_hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) :
+    Integrable ((Set.Ioc a b).indicator f) volume := by
+  -- integrable_indicator_iff: Integrable (s.indicator f) ↔ IntegrableOn f s
+  rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+  -- IntegrableOn f (Ioc a b)：从 Icc 限制（Ioc ⊆ Icc）
+  have hcc : IntegrableOn f (Set.Icc a b) volume := ContinuousOn.integrableOn_Icc hf
+  -- Ioc a b ⊆ Icc a b
+  exact hcc.mono_set (Set.Ioc_subset_Icc_self)
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
