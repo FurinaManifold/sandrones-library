@@ -18,7 +18,8 @@ open scoped Filter Topology
 * **linear-algebra.eigen.value**（特征值：存在非零特征向量 ⟺ 特征子空间非平凡）。
 * **linear-algebra.eigen.spectrum**（谱：特征值属于谱）。
 * **linear-algebra.eigen.charpoly**（特征多项式：对角阵特征多项式 = ∏(X−dᵢ)）。
-* ~~**linear-algebra.eigen.independent**~~（不同特征值对应特征向量线性无关）：留待专门批次（需教材归纳证明）。
+* **linear-algebra.eigen.independent**（不同特征值对应特征向量线性无关）。
+* ~~**linear-algebra.eigen.similar-diagonal**~~（相似与对角化）：mathlib 现成支持弱，留待专门批次。
 
 > **语言说明**：线性变换用 `T : V →ₗ[K] V`（LinearMap，本阶段内容）；
 > 特征向量/值、特征子空间都用教材公式表达（不用 `Module.End`/`HasEigenvector` 结构类名）。
@@ -105,6 +106,23 @@ theorem charpoly_diagonal {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fin
 theorem charpoly_monic {K : Type*} {n : Type*} [Field K] [DecidableEq n] [Fintype n]
     (M : Matrix n n K) : M.charpoly.Monic :=
   M.charpoly_monic
+
+/-- **不同特征值对应特征向量线性无关**：设 {μᵢ} 是一族（成对不同的）特征值，
+  对每个 μᵢ 取一个属于它的特征向量 xᵢ，则 {xᵢ} 线性无关。 
+> **Entry**: linear-algebra.eigen.independent
+-/
+theorem eigenvectors_linearIndependent {K : Type*} {V : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] {T : V →ₗ[K] V}
+    (μs : Set K) (xs : ↑μs → V)
+    (h_eigen : ∀ μ : ↑μs, HasEigenvector K T (↑μ) (xs μ)) :
+    IsLinearIndependent K xs := by
+  letI : Module K V := LinearSpace.toModule (K := K) (V := V)
+  have h_eigen' : ∀ μ : ↑μs, Module.End.HasEigenvector T (↑μ) (xs μ) := by
+    intro μ
+    rw [Module.End.hasEigenvector_iff]
+    exact ⟨Module.End.mem_eigenspace_iff.mpr (h_eigen μ).2, (h_eigen μ).1⟩
+  unfold IsLinearIndependent
+  exact Module.End.eigenvectors_linearIndependent T μs xs h_eigen'
 
 end LinearAlgebra.Eigenvalue
 

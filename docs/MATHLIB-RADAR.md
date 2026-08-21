@@ -869,6 +869,13 @@
 - **谁在用**：`linear-algebra.eigen.vector/value/spectrum/charpoly`。
 - **坑**：特征向量是"方向不变"的拉伸；特征多项式对角情形 ∏(X−dᵢ) 显式给出特征值。
 
+### `Module.End.eigenvectors_linearIndependent` / `Module.End.mem_eigenspace_iff`
+- **人话**：不同特征值对应特征向量线性无关（教材核心）；`x ∈ eigenspace μ ↔ T x = μ·x`（桥接记号）。
+- **签名**：`eigenvectors_linearIndependent T μs xs (h_eigenvec : ∀ μ, T.HasEigenvector μ (xs μ)) : LinearIndependent xs`
+- **出处**：`Mathlib/LinearAlgebra/Eigenspace/`
+- **谁在用**：`linear-algebra.eigen.independent`。
+- **坑**：教材"特征向量（T x=μ·x）"在证明内经 `mem_eigenspace_iff` 桥接到 mathlib 自同态语言。
+
 ---
 
 ## 附：登记清单自动核对

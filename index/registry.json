@@ -2675,7 +2675,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "9b0b1cd400ed9de0",
+    "proof_sha": "7d138ea8abdfa811",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2702,7 +2702,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "9b0b1cd400ed9de0",
+    "proof_sha": "7d138ea8abdfa811",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2729,7 +2729,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "9b0b1cd400ed9de0",
+    "proof_sha": "7d138ea8abdfa811",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2757,7 +2757,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "9b0b1cd400ed9de0",
+    "proof_sha": "7d138ea8abdfa811",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2815,6 +2815,35 @@
     "axioms": [
       "Quot.sound",
       "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.independent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "不同特征值对应特征向量线性无关",
+    "summary": "一族（成对不同）特征值各自对应的特征向量线性无关",
+    "premises": [
+      "linear-algebra.eigen.vector"
+    ],
+    "mathlib": [
+      "Module.End.eigenvectors_linearIndependent",
+      "Module.End.mem_eigenspace_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：特征向量与特征值"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/independent.md",
+    "added_by": "ingestor-linalg-L4b",
+    "added_at": "2026-08-21T07:21:39Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "7d138ea8abdfa811",
+    "axioms": [
+      "<解析失败>"
     ]
   }
 ]
