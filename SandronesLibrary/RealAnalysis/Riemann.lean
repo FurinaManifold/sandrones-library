@@ -405,6 +405,49 @@ theorem continuous_indicator_integrable {f : ℝ → ℝ} {a b : ℝ} (_hab : a 
   -- Ioc a b ⊆ Icc a b
   exact hcc.mono_set (Set.Ioc_subset_Icc_self)
 
+lemma partition_cover {n : ℕ} {x : ℕ → ℝ} {a b : ℝ} {t : ℝ}
+    (x0 : x 0 = a) (xN : x n = b) (hx : ∀ i, i < n → x i < x (i+1))
+    (ht : t ∈ Set.Ioc a b) :
+    ∃ i, i < n ∧ x i < t ∧ t ≤ x (i+1) := by
+  -- 用 Nat.find: 最小 i 使 t ≤ x i
+  let p : ℕ → Prop := fun i => t ≤ x i
+  have hex : ∃ i, p i := by
+    refine ⟨n, ?_⟩
+    change t ≤ x n
+    rw [xN]
+    exact ht.2
+  let j := Nat.find hex
+  have hpj : p j := Nat.find_spec hex
+  -- j ≠ 0（x 0 = a < t）
+  have hj0 : j ≠ 0 := by
+    intro hj
+    have h0 : p 0 := by simpa [hj, j] using hpj
+    change t ≤ x 0 at h0
+    have : t ≤ a := by simpa [x0] using h0
+    linarith [this, ht.1]
+  -- j ≤ n（最小性 + p n）
+  have hjn : j ≤ n := Nat.find_min' hex (by
+    change t ≤ x n
+    rw [xN]
+    exact ht.2)
+  -- i = j-1 < n
+  let i := j - 1
+  have hi_lt : i < n := by
+    dsimp [i]
+    omega
+  -- x i < t（find_min：i < j ⟹ ¬p i）
+  have hxi : x i < t := by
+    dsimp [i]
+    have hnj : i < j := by dsimp [i]; omega
+    have hnotp : ¬p i := Nat.find_min hex hnj
+    -- ¬p i : ¬(t ≤ x i) ⟹ x i < t
+    exact lt_of_not_ge hnotp
+  -- t ≤ x (i+1)：j = i+1，p j
+  have hxj : t ≤ x (i+1) := by
+    have : i + 1 = j := by dsimp [i]; omega
+    simpa [this] using hpj
+  refine ⟨i, hi_lt, hxi, hxj⟩
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
