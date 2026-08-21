@@ -161,6 +161,15 @@
 
 > 家族前缀 `abstract-algebra.`。mathlib 用 Typeclass（`Group`/`Ring`/`Module`）+ 子结构
 > （`Subgroup`/`Ideal`/`Subring`）。先集合论/等价关系已备。
+>
+> **学期分界**：第一学期 = A1 群 + A2 环 + A3 的多项式环部分（A3.1-A3.2，域扩张前置）；
+> 第二学期 = A3 域扩张/Galois（A3.3-A3.4）+ A4 模。分界依据：经典近世代数一学期内容
+> 即群论+环论（含多项式环），域扩张/Galois 与模需要更多抽象背景，与 L 线"第一学期基础结构、
+> 第二学期深层理论"的惯例一致。
+>
+> **阶段语言可用性**：抽象代数阶段，mathlib 的 `Group`/`Subgroup`/`MonoidHom`/`Ring`/`Subring`/
+> `Ideal`/`Polynomial` 等**教材结构直接可出现在签名**（学到什么用什么）；但 **`Module` 仍不允许**
+> ——线性代数阶段已用 `LinearSpace` 承载，保持体系一致，A4 模阶段再作决定。
 
 ### A1 群
 

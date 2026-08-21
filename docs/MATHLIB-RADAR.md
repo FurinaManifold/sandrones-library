@@ -927,6 +927,40 @@
 - **出处**：`Mathlib/LinearAlgebra/Matrix/`（Adjugate.lean、Cramer.lean、Rank.lean）
 - **谁在用**：`linear-algebra.det.adjugate`、`linear-algebra.det.cramer`、`linear-algebra.maps.row-rank`。
 
+### `Group` / `Subgroup` / `Subgroup.ext` / `Subgroup.one_mem` / `Subgroup.mul_mem` / `Subgroup.inv_mem` / `Subgroup.mem_bot` / `Subgroup.mem_top`
+- **人话**：`Group G` 是群 typeclass（乘法 `*`、单位元 `1`、逆 `⁻¹`）；`Subgroup G` 是子群结构；
+  `ext` 子群外延性；子群含单位元/对乘/逆封闭；`⊥` 平凡子群（只含 1）、`⊤` 全子群。
+- **签名**：`Subgroup.ext : (∀x, x∈H ↔ x∈K) → H = K`；`Subgroup.one_mem H : 1 ∈ H`；`Subgroup.mem_bot : x∈⊥ ↔ x=1`
+- **出处**：`Mathlib/GroupTheory/Subgroup/Basic.lean`
+- **谁在用**：`abstract-algebra.group.def`。
+- **坑**：`(⊥ : Subgroup G)` 不是 `Set`，与 `{1}` 类型不同，用 `((⊥ : Subgroup G) : Set G) = {1}`。
+
+### `mem_leftCoset_iff` / `leftCoset_eq_iff` / `Subgroup.leftCosetEquivSubgroup` / `Subgroup.card_mul_index` / `Subgroup.index_eq_card`
+- **人话**：左陪集 `a • (H : Set G)` 的成员刻画 `x∈aH ↔ a⁻¹·x∈H`；陪集相等 `aH=bH ↔ b⁻¹·a∈H`；
+  陪集与子群等势（`leftCosetEquivSubgroup` 显式双射）；**Lagrange** `Nat.card H * H.index = Nat.card G`；
+  `H.index = Nat.card (G ⧸ H)`（指数=陪集数）。
+- **签名**：`Subgroup.leftCosetEquivSubgroup (g : α) : (g • s : Set α) ≃ s`；`Subgroup.card_mul_index H`
+- **出处**：`Mathlib/GroupTheory/Coset/Basic.lean`
+- **谁在用**：`abstract-algebra.group.coset`。
+- **坑**：`leftCoset_eq_iff` mathlib 方向是 `a⁻¹*b`，与教材 `b⁻¹*a` 相反需换参+symm；
+  `leftCosetEquivSubgroup` 在 `namespace Subgroup`，其余陪集引理在根级。
+
+### `Subgroup.Normal` / `Subgroup.Normal.conj_mem` / `Subgroup.normal_bot` / `Subgroup.normal_top` / `QuotientGroup.mk_mul` / `QuotientGroup.mk_one` / `QuotientGroup.mk_inv`
+- **人话**：`H.Normal` 是正规子群属性（共轭稳定）；`conj_mem` 给 `n∈H → g·n·g⁻¹∈H`；
+  ⊥、⊤ 正规；商群 `G ⧸ H` 的投影 `QuotientGroup.mk` 保乘/单位元/逆（商群构成群）。
+- **签名**：`Subgroup.Normal.conj_mem (self : H.Normal) (n : G) : n∈H → ∀ g, g·n·g⁻¹∈H`；`QuotientGroup.mk_mul N [N.Normal] a b`
+- **出处**：`Mathlib/GroupTheory/Subgroup/Basic.lean`、`Mathlib/GroupTheory/QuotientGroup/Basic.lean`
+- **谁在用**：`abstract-algebra.group.normal`。
+- **坑**：商群引理需要 `[nN : N.Normal]` typeclass 参数；`G ⧸ H` 是商群类型记号。
+
+### `MonoidHom` / `MonoidHom.mem_ker` / `MonoidHom.mem_range` / `MonoidHom.ker_eq_bot_iff` / `MonoidHom.range_eq_top` / `QuotientGroup.quotientKerEquivRange`
+- **人话**：`G →* N` 群同态；核 `f.ker`、值域 `f.range` 的元素刻画；**单射 ⟺ 核平凡**、
+  满射 ⟺ 值域全；**同态基本定理** `G/ker φ ≃* range φ`（Noether 第一同构定理）。
+- **签名**：`MonoidHom.ker_eq_bot_iff f : f.ker = ⊥ ↔ Function.Injective f`；`QuotientGroup.quotientKerEquivRange φ`
+- **出处**：`Mathlib/Algebra/Hom/Group.lean`、`Mathlib/GroupTheory/QuotientGroup/Basic.lean`
+- **谁在用**：`abstract-algebra.group.hom`。
+- **坑**：同态基本定理在 mathlib 是现成定义（非需自证）；`f.ker = ⊥` 中 `⊥` 是平凡子群。
+
 ---
 
 ## 附：登记清单自动核对

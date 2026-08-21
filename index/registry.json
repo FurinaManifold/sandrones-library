@@ -26,7 +26,13 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "deb171d9493f6632"
+    "proof_sha": "7481ea008a6fcfff",
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.archimedean_property",
+      "SandronesLibrary.Analysis.Real.exists_nat_mul_gt"
+    ]
   },
   {
     "id": "settheory.set.ext",
@@ -55,7 +61,12 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "f2594d752f021945",
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.set_ext"
+    ]
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -84,7 +95,12 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "f2594d752f021945",
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.inter_distrib_left"
+    ]
   },
   {
     "id": "settheory.function.inj-comp",
@@ -108,7 +124,12 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b",
+    "_sha": "d065f0fc3976123b",
+    "_module": "SandronesLibrary.SetTheory.Function",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Function.injective_comp"
+    ]
   },
   {
     "id": "settheory.function.surj-comp",
@@ -132,7 +153,12 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b",
+    "_sha": "d065f0fc3976123b",
+    "_module": "SandronesLibrary.SetTheory.Function",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Function.surjective_comp"
+    ]
   },
   {
     "id": "settheory.set.subset.trans",
@@ -154,7 +180,12 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "f2594d752f021945",
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.subset_trans"
+    ]
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -181,7 +212,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "f2594d752f021945",
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.subset_antisymm"
+    ]
   },
   {
     "id": "settheory.set.empty-subset",
@@ -203,7 +239,12 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "f2594d752f021945",
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.empty_subset"
+    ]
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -230,7 +271,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b",
+    "_sha": "d065f0fc3976123b",
+    "_module": "SandronesLibrary.SetTheory.Function",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Function.preimage_union"
+    ]
   },
   {
     "id": "settheory.function.image-preimage.preimage-inter",
@@ -257,7 +303,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b",
+    "_sha": "d065f0fc3976123b",
+    "_module": "SandronesLibrary.SetTheory.Function",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Function.preimage_inter"
+    ]
   },
   {
     "id": "settheory.set.relations.equivalence-class-eq",
@@ -282,7 +333,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a1d7251c89a6e106"
+    "proof_sha": "a1d7251c89a6e106",
+    "_sha": "a1d7251c89a6e106",
+    "_module": "SandronesLibrary.SetTheory.Relations",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Relations.equivalence_class_eq"
+    ]
   },
   {
     "id": "settheory.set.relations.quotient-surj",
@@ -304,7 +360,12 @@
     "family": "settheory.set.relations",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "a1d7251c89a6e106"
+    "proof_sha": "a1d7251c89a6e106",
+    "_sha": "a1d7251c89a6e106",
+    "_module": "SandronesLibrary.SetTheory.Relations",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Relations.quotient_surjective"
+    ]
   },
   {
     "id": "settheory.cardinal.countable-def",
@@ -326,7 +387,12 @@
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234",
+    "_sha": "1e3a80b42f47b234",
+    "_module": "SandronesLibrary.SetTheory.Cardinal",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Cardinal.countable_iff_injective_nat"
+    ]
   },
   {
     "id": "settheory.cardinal.countable-rat",
@@ -352,7 +418,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234",
+    "_sha": "1e3a80b42f47b234",
+    "_module": "SandronesLibrary.SetTheory.Cardinal",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Cardinal.countable_rat"
+    ]
   },
   {
     "id": "settheory.cardinal.uncountable-real",
@@ -378,7 +449,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234",
+    "_sha": "1e3a80b42f47b234",
+    "_module": "SandronesLibrary.SetTheory.Cardinal",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Cardinal.uncountable_real"
+    ]
   },
   {
     "id": "settheory.cardinal.countable-union",
@@ -404,7 +480,12 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234",
+    "_sha": "1e3a80b42f47b234",
+    "_module": "SandronesLibrary.SetTheory.Cardinal",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Cardinal.countable_iUnion"
+    ]
   },
   {
     "id": "settheory.set.operations.complement-union",
@@ -429,6 +510,11 @@
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.complement_union"
     ]
   },
   {
@@ -455,6 +541,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.complement_inter"
     ]
   },
   {
@@ -479,7 +570,12 @@
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "f2594d752f021945",
-    "axioms": []
+    "axioms": [],
+    "_sha": "f2594d752f021945",
+    "_module": "SandronesLibrary.SetTheory.Set",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Set.diff_inter_complement"
+    ]
   },
   {
     "id": "settheory.function.inject-surject.bijective-iff-inverse",
@@ -503,6 +599,11 @@
     "proof_sha": "d065f0fc3976123b",
     "axioms": [
       "Classical.choice"
+    ],
+    "_sha": "d065f0fc3976123b",
+    "_module": "SandronesLibrary.SetTheory.Function",
+    "_decls": [
+      "SandronesLibrary.SetTheory.Function.bijective_iff_inverse"
     ]
   },
   {
@@ -526,11 +627,16 @@
     ],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.bdd_above_iff"
     ]
   },
   {
@@ -554,11 +660,16 @@
     "dependedOnBy": [],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.bdd_above_subset"
     ]
   },
   {
@@ -580,11 +691,16 @@
     "dependedOnBy": [],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.rational_dense"
     ]
   },
   {
@@ -611,11 +727,16 @@
     ],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.sup_lub"
     ]
   },
   {
@@ -639,11 +760,16 @@
     ],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.bdd_below_iff"
     ]
   },
   {
@@ -667,11 +793,16 @@
     "dependedOnBy": [],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.inf_glb"
     ]
   },
   {
@@ -696,11 +827,20 @@
     "dependedOnBy": [],
     "family": "analysis.real",
     "variant": "ecnu",
-    "proof_sha": "deb171d9493f6632",
+    "proof_sha": "7481ea008a6fcfff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "7481ea008a6fcfff",
+    "_module": "SandronesLibrary.Analysis.Real",
+    "_decls": [
+      "SandronesLibrary.Analysis.Real.cau_equiv_refl",
+      "SandronesLibrary.Analysis.Real.cau_equiv_symm",
+      "SandronesLibrary.Analysis.Real.cau_equiv_trans",
+      "SandronesLibrary.Analysis.Real.real_eq_iff_cau_equiv",
+      "SandronesLibrary.Analysis.Real.rat_const_cauchy"
     ]
   },
   {
@@ -727,6 +867,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.tendsto_iff_epsilon_N"
     ]
   },
   {
@@ -755,6 +900,13 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_limit_unique",
+      "SandronesLibrary.Analysis.Sequence.convergent_bddAbove",
+      "SandronesLibrary.Analysis.Sequence.convergent_bddBelow"
     ]
   },
   {
@@ -783,6 +935,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.convergent_bounded"
     ]
   },
   {
@@ -811,6 +968,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.squeeze_theorem"
     ]
   },
   {
@@ -842,6 +1004,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.monotone_convergence"
     ]
   },
   {
@@ -873,6 +1040,13 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.IsSubsequenceOf",
+      "SandronesLibrary.Analysis.Sequence.subsequence_of_convergent",
+      "SandronesLibrary.Analysis.Sequence.sequence_bounded_in_interval"
     ]
   },
   {
@@ -907,6 +1081,12 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.bolzano_weierstrass_interval",
+      "SandronesLibrary.Analysis.Sequence.bolzano_weierstrass"
     ]
   },
   {
@@ -941,6 +1121,12 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.convergent_is_cauchy",
+      "SandronesLibrary.Analysis.Sequence.cauchy_seq_convergent"
     ]
   },
   {
@@ -972,6 +1158,12 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.liminf_le_limsup_seq",
+      "SandronesLibrary.Analysis.Sequence.tendsto_of_liminf_eq_limsup_seq"
     ]
   },
   {
@@ -1001,11 +1193,17 @@
     ],
     "family": "analysis.completeness",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.nested_intervals_nonempty",
+      "SandronesLibrary.Analysis.Completeness.nested_intervals_singleton"
     ]
   },
   {
@@ -1032,11 +1230,16 @@
     ],
     "family": "analysis.completeness",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.finite_cover_principle"
     ]
   },
   {
@@ -1067,11 +1270,22 @@
     ],
     "family": "analysis.completeness",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.accumulation_point_of_infinite_bounded",
+      "SandronesLibrary.Analysis.Completeness.SupProperty",
+      "SandronesLibrary.Analysis.Completeness.MonotoneConvergenceProperty",
+      "SandronesLibrary.Analysis.Completeness.NestedIntervalsProperty",
+      "SandronesLibrary.Analysis.Completeness.FiniteCoverProperty",
+      "SandronesLibrary.Analysis.Completeness.AccumulationPointProperty",
+      "SandronesLibrary.Analysis.Completeness.CauchyConvergenceProperty"
     ]
   },
   {
@@ -1098,11 +1312,18 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.monotone_convergence_of_sup",
+      "SandronesLibrary.Analysis.Completeness.monotone_le_limit",
+      "SandronesLibrary.Analysis.Completeness.antitone_limit_le"
     ]
   },
   {
@@ -1130,11 +1351,25 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.nested_intervals_of_monotone_convergence",
+      "SandronesLibrary.Analysis.Completeness.NoFiniteCover",
+      "SandronesLibrary.Analysis.Completeness.finite_cover_halves",
+      "SandronesLibrary.Analysis.Completeness.right_half_no_finite_cover",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_length_step",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_length",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_le",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_left_mono_step",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_right_antitone_step",
+      "SandronesLibrary.Analysis.Completeness.halfbiseq_nofinite_cover"
     ]
   },
   {
@@ -1163,11 +1398,17 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.finite_cover_of_nested_intervals",
+      "SandronesLibrary.Analysis.Completeness.not_accPt_iff_exists_nhds"
     ]
   },
   {
@@ -1197,11 +1438,20 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.accumulation_point_of_finite_cover",
+      "SandronesLibrary.Analysis.Completeness.cauchy_seq_bounded",
+      "SandronesLibrary.Analysis.Completeness.mapClusterPt_of_accPt_range",
+      "SandronesLibrary.Analysis.Completeness.tendsto_of_cauchySeq_of_accPt_range",
+      "SandronesLibrary.Analysis.Completeness.cauchySeq_tendsto_of_finite_range"
     ]
   },
   {
@@ -1232,11 +1482,26 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.cauchy_convergence_of_accumulation_point",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_le",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_mono_step",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_antitone_step",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_length_step",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_length",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_upper",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_not_upper",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_cauchy",
+      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_cauchy",
+      "SandronesLibrary.Analysis.Completeness.tendsto_div_two_pow"
     ]
   },
   {
@@ -1266,11 +1531,16 @@
     "dependedOnBy": [],
     "family": "analysis.completeness.equivalence-cycle",
     "variant": "generated",
-    "proof_sha": "dcc53a6d3063d3bc",
+    "proof_sha": "4550459fa41e6b75",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4550459fa41e6b75",
+    "_module": "SandronesLibrary.Analysis.Completeness",
+    "_decls": [
+      "SandronesLibrary.Analysis.Completeness.sup_of_cauchy_convergence"
     ]
   },
   {
@@ -1297,11 +1567,17 @@
     ],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.eventually_nhds_within_iff_delta",
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_nhds_iff_eps_delta"
     ]
   },
   {
@@ -1325,11 +1601,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_const_fun"
     ]
   },
   {
@@ -1353,11 +1634,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_id_nhds"
     ]
   },
   {
@@ -1381,11 +1667,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_unique"
     ]
   },
   {
@@ -1409,11 +1700,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_congr"
     ]
   },
   {
@@ -1437,11 +1733,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_add"
     ]
   },
   {
@@ -1465,11 +1766,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_sub"
     ]
   },
   {
@@ -1493,11 +1799,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_mul"
     ]
   },
   {
@@ -1521,11 +1832,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_div"
     ]
   },
   {
@@ -1549,11 +1865,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_const_mul"
     ]
   },
   {
@@ -1577,11 +1898,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_le"
     ]
   },
   {
@@ -1609,11 +1935,18 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.heine_forward",
+      "SandronesLibrary.Analysis.FuncLimit.heine_backward",
+      "SandronesLibrary.Analysis.FuncLimit.heine"
     ]
   },
   {
@@ -1639,11 +1972,18 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_atTop_iff_eps_N",
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_nhds_atTop_iff",
+      "SandronesLibrary.Analysis.FuncLimit.tendsto_pow_atTop_atTop"
     ]
   },
   {
@@ -1669,11 +2009,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuousOn_Icc"
     ]
   },
   {
@@ -1697,11 +2042,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_const_real"
     ]
   },
   {
@@ -1725,11 +2075,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_id_real"
     ]
   },
   {
@@ -1753,11 +2108,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_add"
     ]
   },
   {
@@ -1781,11 +2141,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_mul"
     ]
   },
   {
@@ -1809,11 +2174,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_div"
     ]
   },
   {
@@ -1838,11 +2208,17 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.continuous_comp",
+      "SandronesLibrary.Analysis.Continuity.continuousAt_comp"
     ]
   },
   {
@@ -1866,11 +2242,16 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.intermediate_value"
     ]
   },
   {
@@ -1897,11 +2278,17 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.exists_isGreatest_on_Icc",
+      "SandronesLibrary.Analysis.Continuity.exists_isLeast_on_Icc"
     ]
   },
   {
@@ -1926,11 +2313,17 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.uniformContinuous_iff_eps_delta",
+      "SandronesLibrary.Analysis.Continuity.continuous_of_uniformContinuous"
     ]
   },
   {
@@ -1954,11 +2347,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_unique_real"
     ]
   },
   {
@@ -1984,11 +2382,18 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_const_real",
+      "SandronesLibrary.Analysis.Derivative.deriv_identity_real",
+      "SandronesLibrary.Analysis.Derivative.deriv_linear_real"
     ]
   },
   {
@@ -2012,11 +2417,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_add_sub_real"
     ]
   },
   {
@@ -2040,11 +2450,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_mul_real"
     ]
   },
   {
@@ -2068,11 +2483,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_div_real"
     ]
   },
   {
@@ -2096,11 +2516,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_const_mul_real"
     ]
   },
   {
@@ -2124,11 +2549,16 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "930ecd22abc885a0",
+    "proof_sha": "e5e753f49a56a10c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "e5e753f49a56a10c",
+    "_module": "SandronesLibrary.Analysis.Derivative",
+    "_decls": [
+      "SandronesLibrary.Analysis.Derivative.deriv_chain_rule_real"
     ]
   },
   {
@@ -2154,11 +2584,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.rolle"
     ]
   },
   {
@@ -2184,11 +2619,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.lagrange"
     ]
   },
   {
@@ -2214,11 +2654,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.lagrange_deriv"
     ]
   },
   {
@@ -2245,11 +2690,17 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.monotone_of_deriv_nonneg",
+      "SandronesLibrary.Analysis.MVT.strict_mono_of_deriv_pos"
     ]
   },
   {
@@ -2275,11 +2726,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.cauchy_mvt"
     ]
   },
   {
@@ -2308,11 +2764,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.taylor_lagrange_remainder"
     ]
   },
   {
@@ -2338,11 +2799,16 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.lhopital_zero_real"
     ]
   },
   {
@@ -2367,11 +2833,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "19ead4344f46083b",
+    "proof_sha": "cfcb0219e1ceffaf",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "cfcb0219e1ceffaf",
+    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_self",
+      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_pi"
     ]
   },
   {
@@ -2395,11 +2867,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "19ead4344f46083b",
+    "proof_sha": "cfcb0219e1ceffaf",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "cfcb0219e1ceffaf",
+    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.VectorSpace.card_le_dim_of_linearIndependent"
     ]
   },
   {
@@ -2423,11 +2900,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "19ead4344f46083b",
+    "proof_sha": "cfcb0219e1ceffaf",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "cfcb0219e1ceffaf",
+    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_eq_card_basis"
     ]
   },
   {
@@ -2457,7 +2939,8 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "_sha": "cfcb0219e1ceffaf"
   },
   {
     "id": "linear-algebra.maps.rank-nullity",
@@ -2482,11 +2965,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "fa175782b40c24c9",
+    "proof_sha": "b581ff302213c6b5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "b581ff302213c6b5",
+    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.LinearMap.rank_add_nullity"
     ]
   },
   {
@@ -2510,11 +2998,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "fa175782b40c24c9",
+    "proof_sha": "b581ff302213c6b5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "b581ff302213c6b5",
+    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.LinearMap.matrix_rank_eq_finrank_span_cols"
     ]
   },
   {
@@ -2538,11 +3031,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "fa175782b40c24c9",
+    "proof_sha": "b581ff302213c6b5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "b581ff302213c6b5",
+    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.LinearMap.rank_mul_le"
     ]
   },
   {
@@ -2566,11 +3064,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.det_mul"
     ]
   },
   {
@@ -2594,11 +3097,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.det_transpose"
     ]
   },
   {
@@ -2624,11 +3132,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.det_invertible"
     ]
   },
   {
@@ -2653,11 +3166,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.det",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.det_one",
+      "SandronesLibrary.LinearAlgebra.Determinant.det_zero"
     ]
   },
   {
@@ -2681,10 +3200,15 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvector_apply"
     ]
   },
   {
@@ -2708,10 +3232,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_exists_eigenvector",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_eigenspace_nontrivial",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.spectrum"
     ]
   },
   {
@@ -2735,10 +3266,15 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_mem_spectrum"
     ]
   },
   {
@@ -2763,11 +3299,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.charpoly_diagonal",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.charpoly_monic"
     ]
   },
   {
@@ -2789,10 +3331,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "11388a5c3f32968d",
+    "proof_sha": "5364b5a65ef7c384",
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "5364b5a65ef7c384",
+    "_module": "SandronesLibrary.LinearAlgebra.Subspace",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_add_mem",
+      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_smul_mem",
+      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_zero_mem"
     ]
   },
   {
@@ -2817,10 +3366,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "11388a5c3f32968d",
+    "proof_sha": "5364b5a65ef7c384",
     "axioms": [
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "5364b5a65ef7c384",
+    "_module": "SandronesLibrary.LinearAlgebra.Subspace",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.VectorSpace.subset_span",
+      "SandronesLibrary.LinearAlgebra.VectorSpace.span_mono"
     ]
   },
   {
@@ -2847,11 +3402,18 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvectors_linearIndependent",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.IsInvertible",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.IsDiagonalizable"
     ]
   },
   {
@@ -2879,11 +3441,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.diagonalizable_diagonal",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.invertible_mul_inv"
     ]
   },
   {
@@ -2913,11 +3481,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.similar_det",
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.MatrixHasEigenvalue"
     ]
   },
   {
@@ -2943,11 +3517,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.mul_adj",
+      "SandronesLibrary.LinearAlgebra.Determinant.adj_mul"
     ]
   },
   {
@@ -2973,11 +3553,17 @@
     "dependedOnBy": [],
     "family": "linear-algebra",
     "variant": "ecnu",
-    "proof_sha": "d8b4b1108c319a72",
+    "proof_sha": "919dd1205eed5759",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "919dd1205eed5759",
+    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Determinant.cramer_apply",
+      "SandronesLibrary.LinearAlgebra.Determinant.cramer_solution"
     ]
   },
   {
@@ -3001,11 +3587,16 @@
     "dependedOnBy": [],
     "family": "linear-algebra",
     "variant": "ecnu",
-    "proof_sha": "fa175782b40c24c9",
+    "proof_sha": "b581ff302213c6b5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "b581ff302213c6b5",
+    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.LinearMap.rank_transpose_eq"
     ]
   },
   {
@@ -3036,6 +3627,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_add"
     ]
   },
   {
@@ -3066,6 +3662,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_sub"
     ]
   },
   {
@@ -3096,6 +3697,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_mul"
     ]
   },
   {
@@ -3126,6 +3732,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_div"
     ]
   },
   {
@@ -3156,6 +3767,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_const_mul"
     ]
   },
   {
@@ -3186,6 +3802,11 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "4c7a650e6c87f286",
+    "_module": "SandronesLibrary.Analysis.Sequence",
+    "_decls": [
+      "SandronesLibrary.Analysis.Sequence.seq_le"
     ]
   },
   {
@@ -3212,11 +3833,16 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "4d57ed0f2214fcb2",
+    "proof_sha": "ade3f4bb1c8151a5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "ade3f4bb1c8151a5",
+    "_module": "SandronesLibrary.Analysis.FuncLimit",
+    "_decls": [
+      "SandronesLibrary.Analysis.FuncLimit.func_lim_comp"
     ]
   },
   {
@@ -3243,11 +3869,16 @@
     "dependedOnBy": [],
     "family": "analysis",
     "variant": "ecnu",
-    "proof_sha": "95971101dd31f60b",
+    "proof_sha": "6a79870f7b23b582",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "6a79870f7b23b582",
+    "_module": "SandronesLibrary.Analysis.MVT",
+    "_decls": [
+      "SandronesLibrary.Analysis.MVT.is_constant_of_deriv_zero"
     ]
   },
   {
@@ -3274,11 +3905,20 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "rudin",
-    "proof_sha": "54eba38dad1cbab2",
+    "proof_sha": "a6be441262c75ee0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a6be441262c75ee0",
+    "_module": "SandronesLibrary.Analysis.Continuity",
+    "_decls": [
+      "SandronesLibrary.Analysis.Continuity.mono_inv_strictMono",
+      "SandronesLibrary.Analysis.Continuity.mono_inv_apply",
+      "SandronesLibrary.Analysis.Continuity.mono_inv_lt_iff",
+      "SandronesLibrary.Analysis.Continuity.mono_inv_sub_apply",
+      "SandronesLibrary.Analysis.Continuity.inverse_continuous"
     ]
   },
   {
@@ -3306,11 +3946,194 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "4415c02b65581ec6",
+    "proof_sha": "a243bdc18a75813c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "_sha": "a243bdc18a75813c",
+    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
+    "_decls": [
+      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_isRoot_charpoly"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.def",
+    "kind": "theorem",
+    "title": "子群判定与基本性质",
+    "summary": "子群判定定理（含单位元+乘/逆封闭⟹子群）；子群含单位元；外延性；平凡子群；全子群",
+    "family": "abstract-algebra.group",
+    "variant": "rotman",
+    "premises": [],
+    "mathlib": [
+      "Subgroup",
+      "Subgroup.ext",
+      "Subgroup.one_mem",
+      "Subgroup.mul_mem",
+      "Subgroup.inv_mem",
+      "Subgroup.mem_bot",
+      "Subgroup.mem_top"
+    ],
+    "lean_file": "AbstractAlgebra/Group.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（子群判定）"
+    },
+    "state": "verified",
+    "axioms": [
+      "propext",
+      "Quot.sound"
+    ],
+    "added_by": "ingestor-abstractalgebra-A1",
+    "added_at": "2026-08-21T09:36:01Z",
+    "dependedOnBy": [],
+    "proof_sha": "c1ea5eec64c76274",
+    "_sha": "c1ea5eec64c76274",
+    "_module": "SandronesLibrary.AbstractAlgebra.Group",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Group.subgroup_of_closed",
+      "SandronesLibrary.AbstractAlgebra.Group.subgroup_one_mem",
+      "SandronesLibrary.AbstractAlgebra.Group.subgroup_ext",
+      "SandronesLibrary.AbstractAlgebra.Group.subgroup_bot_eq_singleton",
+      "SandronesLibrary.AbstractAlgebra.Group.subgroup_top_eq_univ"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.coset",
+    "kind": "theorem",
+    "title": "陪集与 Lagrange 定理",
+    "summary": "左陪集 aH 元素刻画与相等判据；自身在陪集；单位元陪集；陪集与子群等势；Lagrange |H|·[G:H]=|G|",
+    "family": "abstract-algebra.group",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.group.def"
+    ],
+    "mathlib": [
+      "mem_leftCoset_iff",
+      "leftCoset_eq_iff",
+      "Subgroup.leftCosetEquivSubgroup",
+      "Subgroup.card_mul_index",
+      "Subgroup.index_eq_card"
+    ],
+    "lean_file": "AbstractAlgebra/Group.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/coset.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（Lagrange）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A1",
+    "added_at": "2026-08-21T09:36:01Z",
+    "dependedOnBy": [],
+    "proof_sha": "c1ea5eec64c76274",
+    "_sha": "c1ea5eec64c76274",
+    "_module": "SandronesLibrary.AbstractAlgebra.Group",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Group.left_coset_mem_iff",
+      "SandronesLibrary.AbstractAlgebra.Group.left_coset_eq_iff",
+      "SandronesLibrary.AbstractAlgebra.Group.left_coset_mem_self",
+      "SandronesLibrary.AbstractAlgebra.Group.one_left_coset",
+      "SandronesLibrary.AbstractAlgebra.Group.leftCoset_card_eq",
+      "SandronesLibrary.AbstractAlgebra.Group.lagrange"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.normal",
+    "kind": "theorem",
+    "title": "正规子群与商群",
+    "summary": "正规⟹共轭封闭与交换性；平凡/全子群正规；商群投影保乘法/单位元/逆",
+    "family": "abstract-algebra.group",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.group.def"
+    ],
+    "mathlib": [
+      "Subgroup.Normal.conj_mem",
+      "Subgroup.normal_bot",
+      "Subgroup.normal_top",
+      "QuotientGroup.mk_mul",
+      "QuotientGroup.mk_one",
+      "QuotientGroup.mk_inv"
+    ],
+    "lean_file": "AbstractAlgebra/Group.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/normal.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（正规子群/商群）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A1",
+    "added_at": "2026-08-21T09:36:01Z",
+    "dependedOnBy": [],
+    "proof_sha": "c1ea5eec64c76274",
+    "_sha": "c1ea5eec64c76274",
+    "_module": "SandronesLibrary.AbstractAlgebra.Group",
+    "_decls": [
+      "SandronesLibrary.AbstractAlgebra.Group.normal_conj_mem",
+      "SandronesLibrary.AbstractAlgebra.Group.normal_mem_comm",
+      "SandronesLibrary.AbstractAlgebra.Group.normal_bot",
+      "SandronesLibrary.AbstractAlgebra.Group.normal_top",
+      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_mul",
+      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_one",
+      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_inv"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.hom",
+    "kind": "theorem",
+    "title": "同态与同态基本定理",
+    "summary": "核/值域元素刻画；同态保单位元/乘法/逆；单射⟺核平凡；满射⟺值域全；同态基本定理 G/ker≅im",
+    "family": "abstract-algebra.group",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.group.normal"
+    ],
+    "mathlib": [
+      "MonoidHom.mem_ker",
+      "MonoidHom.mem_range",
+      "MonoidHom.ker_eq_bot_iff",
+      "MonoidHom.range_eq_top",
+      "QuotientGroup.quotientKerEquivRange"
+    ],
+    "lean_file": "AbstractAlgebra/Group.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/hom.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（同态定理）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-abstractalgebra-A1",
+    "added_at": "2026-08-21T09:36:01Z",
+    "dependedOnBy": [],
+    "proof_sha": "c1ea5eec64c76274",
+    "_sha": "c1ea5eec64c76274",
+    "_module": "SandronesLibrary.AbstractAlgebra.Group",
+    "_decls": [
+      "hom_mem_ker",
+      "hom_mem_range",
+      "hom_map_one",
+      "hom_map_mul",
+      "hom_map_inv",
+      "hom_injective_iff_ker_bot",
+      "hom_surjective_iff_range_top",
+      "first_isomorphism_theorem"
     ]
   }
 ]

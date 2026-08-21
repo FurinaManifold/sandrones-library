@@ -25,6 +25,8 @@ import subprocess
 import sys
 from pathlib import Path
 
+from tqdm import tqdm
+
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "index" / "registry.json"
 LEAN_ROOT = ROOT / "SandronesLibrary"
@@ -69,6 +71,49 @@ def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
                 break
         if best is not None:
             result.setdefault(best[1], []).append(dname)
+    return result
+
+
+def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[str, list[str]]]:
+    """批量：每个模块只启动一次 lean 进程，probe 其中所有声明的 axioms。
+
+    modules: [(module, [decls...]), ...]
+    returns: {module: {decl: [axioms]}}
+    """
+    probe = Path("/tmp/opencode/check_axioms_probe.lean")
+    probe.parent.mkdir(parents=True, exist_ok=True)
+    body: list[str] = []
+    for mod, decls in modules:
+        body.append(f"import {mod}")
+        body.extend(f"#print axioms {d}" for d in decls)
+    probe.write_text("\n".join(body))
+    env = dict(__import__("os").environ)
+    env["PATH"] = str(Path.home() / ".elan/bin") + ":" + env.get("PATH", "")
+    r = subprocess.run(
+        ["lake", "env", "lean", str(probe)],
+        capture_output=True, text=True, cwd=ROOT, env=env)
+    out = r.stdout + r.stderr
+    result: dict[str, dict[str, list[str]]] = {}
+    # 所有声明的扁平列表
+    all_decls = [d for _, ds in modules for d in ds]
+    # 每个模块的 (start_idx, end_idx)
+    acc: dict[str, list[int]] = {}
+    i = 0
+    for mod, ds in modules:
+        acc[mod] = list(range(i, i + len(ds)))
+        i += len(ds)
+    for mod, idxs in acc.items():
+        result[mod] = {}
+        for k in idxs:
+            d = all_decls[k]
+            rest = out[out.index(d) + len(d):]
+            seg = rest.split(all_decls[k + 1])[0] if k + 1 < len(all_decls) else rest
+            if AXIOMS_NONE.search(seg):
+                result[mod][d] = []
+            elif m := AXIOMS_DEP.search(seg):
+                result[mod][d] = [x.strip() for x in m.group(1).split(",") if x.strip()]
+            else:
+                result[mod][d] = ["<解析失败>"]
     return result
 
 
@@ -118,32 +163,64 @@ def main() -> None:
         sys.exit("没有 verified 条目可审计")
 
     bad = 0
+    total = len(targets)
+
+    # 第一遍：收集需要实际 probe 的条目（增量跳过的直接打印），按 lean 文件分组
+    to_probe: dict[str, list[dict]] = {}      # module -> [rec]
+    results: dict[str, dict[str, list[str]]] = {}  # module -> {decl: axioms}
+    all_skipped = 0
+
     for rec in targets:
         lf = LEAN_ROOT / rec["lean_file"]
         if not lf.exists():
             print(f"[SKIP] {rec['id']}: 缺 lean 文件")
             continue
-
-        # 增量：lean 文件未变且 axioms 已登记 → 跳过
         sha = file_sha(lf)
+        rec["_sha"] = sha
         if (not args.full and rec.get("proof_sha") == sha
                 and isinstance(rec.get("axioms"), list)):
-            print(f"[SKIP·增量] {rec['id']}: 指纹一致，跳过（--full 强制全量）")
+            all_skipped += 1
             continue
-
         mapping = map_entry_to_decl(lf.read_text(encoding="utf-8"))
         decls = mapping.get(rec["id"])
         if not decls:
             print(f"[SKIP] {rec['id']}: lean 文件未关联到带 **Entry** 标记的定理")
             continue
         module = "SandronesLibrary." + str(rec["lean_file"]).replace("/", ".")[:-5]
+        rec["_module"] = module
+        rec["_decls"] = decls
+        to_probe.setdefault(module, []).append(rec)
+
+    if not to_probe:
+        print(f"[DONE] 全部 {total} 条目增量跳过（{all_skipped} 条）。--full 强制全量。")
+        if args.fix:
+            json.dump(data, open(REGISTRY, "w"), ensure_ascii=False, indent=2)
+            open(REGISTRY, "a").write("\n")
+        sys.exit(0)
+
+    # 第二遍：按文件分组批量 probe（每文件只启动一次 lean）
+    print(f"[INFO] 需实际审计 {sum(len(v) for v in to_probe.values())} 条 / {total} 条，"
+          f"按 {len(to_probe)} 个 lean 文件批量验证", file=sys.stderr)
+    bar = tqdm(list(to_probe.items()), desc="审计", unit="文件", file=sys.stderr,
+               ncols=100, dynamic_ncols=True)
+    for module, recs in bar:
+        bar.set_description(f"审计 {module.split('.')[-1]}")
+        decls = [d for r in recs for d in r["_decls"]]
+        results[module] = probe_axioms_batch([(module, decls)])[module]
+
+    # 第三遍：逐条目比对
+    for rec in targets:
+        if "_decls" not in rec:
+            continue
+        module = rec["_module"]
         actual: set[str] = set()
-        for d, ax in probe_axioms(decls, module).items():
-            print(f"  {d}: {ax}")
+        for d in rec["_decls"]:
+            ax = results[module][d]
+            print(f"    {d}: {ax}")
             actual.update(ax)
         actual = sorted(actual)
         recorded = sorted(rec.get("axioms", []))
-        # 验证通过：更新内存指纹（写盘与否取决于 --fix，保证只读模式不改文件）
+        sha = rec["_sha"]
         rec["proof_sha"] = sha
         if actual != recorded:
             print(f"[DIFF] {rec['id']}:\n   实际={actual}\n   登记={recorded}")
