@@ -876,6 +876,12 @@
 - **谁在用**：`linear-algebra.eigen.independent`。
 - **坑**：教材"特征向量（T x=μ·x）"在证明内经 `mem_eigenspace_iff` 桥接到 mathlib 自同态语言。
 
+### `Matrix.nonsing_inv_mul` / `Matrix.mul_nonsing_inv` / `Matrix.det_nonsing_inv`
+- **人话**：det 可逆（≠0）⟹ A⁻¹ 是左右逆（A⁻¹·A = A·A⁻¹ = 1）；逆的行列式。
+- **签名**：`(h : IsUnit A.det) : A⁻¹ * A = 1 ∧ A * A⁻¹ = 1`
+- **出处**：`Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean`
+- **谁在用**：`linear-algebra.eigen.similar-diagonal`。
+
 ---
 
 ## 附：登记清单自动核对

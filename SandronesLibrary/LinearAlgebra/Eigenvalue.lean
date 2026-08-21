@@ -19,7 +19,8 @@ open scoped Filter Topology
 * **linear-algebra.eigen.spectrum**（谱：特征值属于谱）。
 * **linear-algebra.eigen.charpoly**（特征多项式：对角阵特征多项式 = ∏(X−dᵢ)）。
 * **linear-algebra.eigen.independent**（不同特征值对应特征向量线性无关）。
-* ~~**linear-algebra.eigen.similar-diagonal**~~（相似与对角化）：mathlib 现成支持弱，留待专门批次。
+* **linear-algebra.eigen.similar-diagonal**（相似与对角化：可对角化记号、对角阵可对角化、可逆 ⟹ 左右逆）。
+* ~~similar-charpoly~~（相似保持特征多项式）：需 charmatrix 乘积分布 + 矩阵可逆桥接，留待后续。
 
 > **语言说明**：线性变换用 `T : V →ₗ[K] V`（LinearMap，本阶段内容）；
 > 特征向量/值、特征子空间都用教材公式表达（不用 `Module.End`/`HasEigenvector` 结构类名）。
@@ -123,6 +124,36 @@ theorem eigenvectors_linearIndependent {K : Type*} {V : Type*} [Field K]
     exact ⟨Module.End.mem_eigenspace_iff.mpr (h_eigen μ).2, (h_eigen μ).1⟩
   unfold IsLinearIndependent
   exact Module.End.eigenvectors_linearIndependent T μs xs h_eigen'
+
+/-- **可逆矩阵**（教材记号）：方阵 A 可逆，若 det A 是域中的非零元（可逆元）。
+  （数学上 det A ≠ 0 ⟺ A 可逆。） -/
+def IsInvertible {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) : Prop :=
+  IsUnit A.det
+
+/-- **可对角化**（教材记号）：方阵 A 可对角化，若存在可逆阵 P 与对角阵 diag(d)，
+  使 P⁻¹·A·P = diag(d)。 -/
+def IsDiagonalizable {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) : Prop :=
+  ∃ (d : n → K) (P : Matrix n n K), IsUnit P.det ∧ P⁻¹ * A * P = Matrix.diagonal d
+
+/-- **对角阵可对角化**：对角阵 diag(d) 取 P = 单位阵即满足定义。 
+> **Entry**: linear-algebra.eigen.similar-diagonal
+-/
+theorem diagonalizable_diagonal {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (d : n → K) : IsDiagonalizable (Matrix.diagonal d) := by
+  unfold IsDiagonalizable
+  refine ⟨d, 1, ?_, ?_⟩
+  · simp
+  · simp
+
+/-- **可逆 ⟹ 左右逆**：若 det A 可逆（≠0），则 A⁻¹ 给出 A⁻¹·A = 1 与 A·A⁻¹ = 1。 
+> **Entry**: linear-algebra.eigen.similar-diagonal
+-/
+theorem invertible_mul_inv {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) (h : IsUnit A.det) :
+    A⁻¹ * A = 1 ∧ A * A⁻¹ = 1 :=
+  ⟨Matrix.nonsing_inv_mul A h, Matrix.mul_nonsing_inv A h⟩
 
 end LinearAlgebra.Eigenvalue
 

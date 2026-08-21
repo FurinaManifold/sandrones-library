@@ -2675,7 +2675,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "7d138ea8abdfa811",
+    "proof_sha": "ed1b898b253f9d20",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2702,7 +2702,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "7d138ea8abdfa811",
+    "proof_sha": "ed1b898b253f9d20",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2729,7 +2729,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "7d138ea8abdfa811",
+    "proof_sha": "ed1b898b253f9d20",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2757,7 +2757,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "7d138ea8abdfa811",
+    "proof_sha": "ed1b898b253f9d20",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2841,7 +2841,37 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "7d138ea8abdfa811",
+    "proof_sha": "ed1b898b253f9d20",
+    "axioms": [
+      "<解析失败>"
+    ]
+  },
+  {
+    "id": "linear-algebra.eigen.similar-diagonal",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "相似与对角化",
+    "summary": "可对角化记号（存在可逆 P 使 P⁻¹AP 为对角阵）；对角阵可对角化；可逆 ⟹ 左右逆",
+    "premises": [
+      "linear-algebra.eigen.charpoly"
+    ],
+    "mathlib": [
+      "Matrix.nonsing_inv_mul",
+      "Matrix.mul_nonsing_inv",
+      "Matrix.diagonal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：相似与对角化"
+    },
+    "lean_file": "LinearAlgebra/Eigenvalue.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/similar-diagonal.md",
+    "added_by": "ingestor-linalg-L4c",
+    "added_at": "2026-08-21T07:27:44Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.eigen",
+    "variant": "ecnu",
+    "proof_sha": "ed1b898b253f9d20",
     "axioms": [
       "<解析失败>"
     ]
