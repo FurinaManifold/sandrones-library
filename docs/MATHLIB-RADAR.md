@@ -778,6 +778,28 @@
 
 ---
 
+## G14. 微分中值定理（第七章）
+
+> 支撑 `analysis.mvt.*`。中值定理族把"导数信息"反推成"函数在区间上的增量信息"。
+
+### `exists_deriv_eq_zero` / `exists_deriv_eq_slope` / `exists_hasDerivAt_eq_slope`
+- **人话**：罗尔（端点相等 ⟹ 内部某点导数为 0）；Lagrange（内部某点导数 = 割线斜率）；
+  以及带导函数的 Lagrange 版。一行调用即得。
+- **签名**：`(hab : a < b) (hfc : ContinuousOn f (Icc a b)) (hfI : f a = f b) : ∃ c ∈ Ioo a b, deriv f c = 0`；
+  `exists_deriv_eq_slope f hab hfc hfd : ∃ c ∈ Ioo a b, deriv f c = (f b - f a)/(b - a)`
+- **出处**：`Mathlib/Analysis/Calculus/MeanValue.lean`
+- **谁在用**：`analysis.mvt.rolle`、`analysis.mvt.lagrange`、`analysis.mvt.lagrange-deriv`。
+
+### `monotoneOn_of_deriv_nonneg` / `strictMonoOn_of_deriv_pos` / `strictAntiOn_of_deriv_neg`
+- **人话**：导数符号判别单调（MVT 推论）：f'≥0 ⟹ 单调不减，f'>0 ⟹ 严格递增，f'<0 ⟹ 严格递减。
+  需凸区间 D 与 interior D 上的导数条件。
+- **签名**：`(hD : Convex ℝ D) (hf : ContinuousOn f D) (hf' : ∀ x ∈ interior D, 0 ≤ deriv f x) : MonotoneOn f D`
+- **出处**：`Mathlib/Analysis/Calculus/Monotone.lean`
+- **谁在用**：`analysis.mvt.monotone-deriv`。
+- **坑**：区间用 `Set.Icc` 且 `interior_Icc = Set.Ioo` 桥接（`simpa [interior_Icc]`）。
+
+---
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

@@ -2130,5 +2130,126 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.mvt.rolle",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "罗尔定理",
+    "summary": "闭区间连续、开区间可导、端点值相等的函数在开区间内某点导数为 0",
+    "premises": [
+      "analysis.derivative.chain-rule"
+    ],
+    "mathlib": [
+      "exists_deriv_eq_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/rolle.md",
+    "added_by": "ingestor-chapter7-batch",
+    "added_at": "2026-08-21T04:31:33Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "ecnu",
+    "proof_sha": "ac33f2da89eecc6f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.lagrange",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "拉格朗日中值定理",
+    "summary": "闭区间连续、开区间可导，存在 c 使 f'(c)=割线斜率",
+    "premises": [
+      "analysis.derivative.chain-rule"
+    ],
+    "mathlib": [
+      "exists_deriv_eq_slope"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/lagrange.md",
+    "added_by": "ingestor-chapter7-batch",
+    "added_at": "2026-08-21T04:31:33Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "ecnu",
+    "proof_sha": "ac33f2da89eecc6f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.lagrange-deriv",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Lagrange 中值定理（导函数版）",
+    "summary": "存在 c 使 f'(c)=(f b−f a)/(b−a)",
+    "premises": [
+      "analysis.derivative.chain-rule"
+    ],
+    "mathlib": [
+      "exists_hasDerivAt_eq_slope"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/lagrange-deriv.md",
+    "added_by": "ingestor-chapter7-batch",
+    "added_at": "2026-08-21T04:31:33Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "ecnu",
+    "proof_sha": "ac33f2da89eecc6f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.monotone-deriv",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "导数符号判别单调",
+    "summary": "f'≥0 ⟹ 单调不减；f'>0 ⟹ 严格递增（MVT 推论）",
+    "premises": [
+      "analysis.derivative.chain-rule"
+    ],
+    "mathlib": [
+      "monotoneOn_of_deriv_nonneg",
+      "strictMonoOn_of_deriv_pos"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/monotone-deriv.md",
+    "added_by": "ingestor-chapter7-batch",
+    "added_at": "2026-08-21T04:31:33Z",
+    "dependedOnBy": [],
+    "family": "analysis.mvt",
+    "variant": "ecnu",
+    "proof_sha": "ac33f2da89eecc6f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
