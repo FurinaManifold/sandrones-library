@@ -342,6 +342,59 @@ lemma step_le_f_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
   have hK : IsCompact (f '' Set.Icc p q) := IsCompact.image_of_continuousOn isCompact_Icc hf
   exact csInf_le (IsCompact.bddBelow hK) htm
 
+theorem restricted_integral_const_Ioc {p q c : ℝ} (hpq : p ≤ q) :
+    (∫ x : ℝ in Set.Ioc p q, c ∂volume) = c * (q - p) := by
+  rw [integral_const]
+  -- (restrict (Ioc p q)).real univ = volume.real (Ioc p q) = q-p
+  have hres : (volume.restrict (Set.Ioc p q)).real Set.univ = volume.real (Set.Ioc p q) := by
+    rw [measureReal_def, Measure.restrict_apply (s := Set.Ioc p q) (t := Set.univ) (ht := MeasurableSet.univ)]
+    rw [Set.univ_inter]
+    rw [measureReal_def]
+  have hvol : volume.real (Set.Ioc p q) = q - p := by
+    rw [measureReal_def, Real.volume_Ioc, ENNReal.toReal_ofReal (sub_nonneg.mpr hpq)]
+  rw [hres, hvol]
+  simp [smul_eq_mul, mul_comm]
+
+theorem step_indicator_identity {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {a b : ℝ}
+    (hsub : ∀ i ∈ Finset.range n, Set.Ioc (x i) (x (i+1)) ⊆ Set.Ioc a b) :
+    ∀ t : ℝ, (Set.Ioc a b).indicator
+        (fun u => ∑ i ∈ Finset.range n,
+          (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) u) t
+        = (∑ i ∈ Finset.range n,
+          (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) := by
+  intro t
+  by_cases ht : t ∈ Set.Ioc a b
+  · simp [Set.indicator, ht]
+  · have hsP : (∑ i ∈ Finset.range n,
+        (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) = 0 := by
+      apply Finset.sum_eq_zero
+      intro i hi
+      have hsubi := hsub i hi
+      have htnot : t ∉ Set.Ioc (x i) (x (i+1)) := fun hti => ht (hsubi hti)
+      exact Set.indicator_of_notMem htnot (fun _ : ℝ => c i)
+    simpa [Set.indicator, ht] using hsP.symm
+
+theorem lower_sum_le_interval {f sP : ℝ → ℝ} {s : Set ℝ}
+    (hs : MeasurableSet s)
+    (hsP : ∀ t, s.indicator sP t = sP t)
+    (hf_mono : ∀ t, s.indicator sP t ≤ s.indicator f t)
+    (hisP : Integrable (s.indicator sP) volume)
+    (hif : Integrable (s.indicator f) volume) :
+    (∫ t : ℝ, sP t ∂volume) ≤ (∫ t : ℝ in s, f t ∂volume) := by
+  have h1ae : sP =ᵐ[volume] (s.indicator sP) := by
+    filter_upwards [ae_of_all volume hsP] with t ht
+    exact ht.symm
+  have h1 : (∫ t : ℝ, sP t ∂volume) = (∫ t : ℝ, s.indicator sP t ∂volume) :=
+    integral_congr_ae h1ae
+  have h2 : (∫ t : ℝ, s.indicator sP t ∂volume) ≤ (∫ t : ℝ, s.indicator f t ∂volume) :=
+    integral_mono hisP hif hf_mono
+  have h3 : (∫ t : ℝ, s.indicator f t ∂volume) = (∫ t : ℝ in s, f t ∂volume) :=
+    integral_indicator hs
+  calc
+    (∫ t : ℝ, sP t ∂volume) = (∫ t : ℝ, s.indicator sP t ∂volume) := h1
+    _ ≤ (∫ t : ℝ, s.indicator f t ∂volume) := h2
+    _ = (∫ t : ℝ in s, f t ∂volume) := h3
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
