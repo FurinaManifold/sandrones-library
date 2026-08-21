@@ -1669,7 +1669,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1697,7 +1697,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1725,7 +1725,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1753,7 +1753,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1781,7 +1781,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1809,7 +1809,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1838,7 +1838,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1866,7 +1866,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1897,7 +1897,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1926,7 +1926,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3274,7 +3274,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "rudin",
-    "proof_sha": "a6be441262c75ee0",
+    "proof_sha": "3a45f1eca989b821",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4675,5 +4675,39 @@
       "propext"
     ],
     "proof_sha": "f05d6d2421a76959"
+  },
+  {
+    "id": "analysis.continuity.uniform-compact",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "紧集上连续 ⟹ 一致连续",
+    "summary": "紧集s上连续的函数在s上一致连续（Lebesgue数引理法：有限子覆盖+最小δ）",
+    "family": "analysis.continuity",
+    "variant": "ecnu",
+    "premises": [
+      "analysis.continuity.uniform",
+      "analysis.continuity.definition"
+    ],
+    "mathlib": [
+      "Metric.uniformContinuousOn_iff",
+      "Metric.continuousOn_iff",
+      "IsCompact.elim_finite_subcover",
+      "Finset.min'"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版（一致连续）"
+    },
+    "lean_file": "Analysis/Continuity.lean",
+    "nl_file": "docs/entries/analysis/continuity/uniform-compact.md",
+    "added_by": "ingestor-selfderived",
+    "added_at": "2026-08-21T12:12:42Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "3a45f1eca989b821"
   }
 ]

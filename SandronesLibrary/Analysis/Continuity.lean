@@ -24,6 +24,7 @@ open scoped Filter Topology
 * **analysis.continuity.max-min**（最值定理）。
 * **analysis.continuity.uniform**（一致连续及其 ⟹ 连续）。
 * **analysis.continuity.inverse**（反函数连续：严格单调函数 f 的反函数在值域上连续，教材 ε-δ 证明）。
+* **analysis.continuity.uniform-compact**（紧集上连续 ⟹ 一致连续，Lebesgue 数引理法）。
 -/
 
 namespace SandronesLibrary
@@ -257,6 +258,84 @@ theorem inverse_continuous {f : ℝ → ℝ} (hf : StrictMono f) : Continuous (m
     rw [abs_lt]
     constructor <;> linarith
   simpa [Real.dist_eq]
+
+
+/-- **紧集上连续 ⟹ 一致连续**（Lebesgue 数引理法）：紧集 s 上连续的函数在 s 上一致连续。
+  教材定理：紧性把"逐点连续"提升为"一致连续"。 
+> **Entry**: analysis.continuity.uniform-compact
+-/
+private theorem hpt_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ}
+    (hf : ContinuousOn f s) {ε : ℝ} (hε : 0 < ε) :
+    ∀ x ∈ s, ∃ δx > 0, ∀ y ∈ s, dist y x < δx → |f y - f x| < ε / 2 := by
+  intro x hx
+  exact Metric.continuousOn_iff.mp hf x hx (ε / 2) (by positivity)
+
+private theorem cover_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ} {ε : ℝ}
+    (hpt : ∀ x ∈ s, ∃ δx > 0, ∀ y ∈ s, dist y x < δx → |f y - f x| < ε / 2) :
+    s ⊆ ⋃ x : s, Metric.ball x.1 ((hpt x.1 x.2).choose / 2) := by
+  intro x hx
+  refine Set.mem_iUnion.mpr ⟨⟨x, hx⟩, ?_⟩
+  have hδ : 0 < (hpt x hx).choose := (hpt x hx).choose_spec.1
+  rw [Metric.mem_ball]
+  rw [dist_self]
+  exact div_pos hδ (by norm_num)
+
+theorem continuousOn_compact_uniformContinuousOn {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ}
+    (hs : IsCompact s) (hsne : s.Nonempty) (hf : ContinuousOn f s) :
+    UniformContinuousOn f s := by
+  rw [Metric.uniformContinuousOn_iff]
+  intro ε hε
+  have hpt := hpt_theorem hf hε
+  have hcov : s ⊆ ⋃ x : s, Metric.ball x.1 ((hpt x.1 x.2).choose / 2) := cover_theorem hpt
+  have hUo : ∀ x : s, IsOpen (Metric.ball x.1 ((hpt x.1 x.2).choose / 2)) := by
+    intro x; exact Metric.isOpen_ball
+  rcases hs.elim_finite_subcover (fun x : s => Metric.ball x.1 ((hpt x.1 x.2).choose / 2)) hUo hcov with ⟨t, ht⟩
+  have htne : t.Nonempty := by
+    rcases hsne with ⟨x0, hx0⟩
+    -- 用 simpa 解构 ht hx0 : x0 ∈ ⋃ x ∈ t, ball x
+    have hmem : ∃ x : s, x ∈ t ∧ x0 ∈ Metric.ball x.1 ((hpt x.1 x.2).choose / 2) := by
+      simpa [Set.mem_iUnion] using ht hx0
+    rcases hmem with ⟨x, hx_t, _⟩
+    exact ⟨x, hx_t⟩
+  let img := t.image fun x : s => (hpt x.1 x.2).choose / 2
+  have himgne : img.Nonempty := t.image_nonempty.mpr htne
+  let δ := img.min' himgne
+  have hall_pos : ∀ d ∈ img, 0 < d := by
+    intro d hd
+    rcases Finset.mem_image.mp hd with ⟨x, hx_t, rfl⟩
+    exact div_pos (hpt x.1 x.2).choose_spec.1 (by norm_num)
+  have hδpos : 0 < δ := by
+    dsimp [δ]
+    exact hall_pos _ (Finset.min'_mem img himgne)
+  refine ⟨δ, hδpos, ?_⟩
+  intro a ha b hb hab
+  have hmem : ∃ x : s, x ∈ t ∧ a ∈ Metric.ball x.1 ((hpt x.1 x.2).choose / 2) := by
+    simpa [Set.mem_iUnion] using ht ha
+  rcases hmem with ⟨x0, hx0t, hx0a⟩
+  have hx0_im : (hpt x0.1 x0.2).choose / 2 ∈ img := Finset.mem_image.mpr ⟨x0, hx0t, rfl⟩
+  have hδ_le : δ ≤ (hpt x0.1 x0.2).choose / 2 := by
+    dsimp [δ]
+    exact Finset.min'_le _ _ hx0_im
+  have hxa : dist a x0.1 < (hpt x0.1 x0.2).choose / 2 := Metric.mem_ball.mp hx0a
+  have hyb : dist b x0.1 < (hpt x0.1 x0.2).choose := by
+    -- dist b x0 ≤ dist b a + dist a x0 < δ + δx0/2 ≤ δx0/2 + δx0/2 = δx0
+    have htri : dist b x0.1 ≤ dist b a + dist a x0.1 := dist_triangle b a x0.1
+    have hba : dist b a = dist a b := dist_comm b a
+    nlinarith [htri, hba, hab, hδ_le, hxa]
+  have hδx0pos : 0 < (hpt x0.1 x0.2).choose := (hpt x0.1 x0.2).choose_spec.1
+  have hxa_strong : dist a x0.1 < (hpt x0.1 x0.2).choose :=
+    lt_trans hxa (half_lt_self hδx0pos)
+  have hyb_strong : dist b x0.1 < (hpt x0.1 x0.2).choose := hyb
+  have hfa : |f a - f x0.1| < ε / 2 := (hpt x0.1 x0.2).choose_spec.2 a ha hxa_strong
+  have hfb : |f b - f x0.1| < ε / 2 := (hpt x0.1 x0.2).choose_spec.2 b hb hyb_strong
+  have : |f b - f a| < ε := by
+    -- |f b - f a| = |(f b - f x0) + (f x0 - f a)| ≤ |f b - f x0| + |f x0 - f a|
+    have hsplit : |f b - f a| ≤ |f b - f x0.1| + |f x0.1 - f a| := by
+      rw [show f b - f a = (f b - f x0.1) + (f x0.1 - f a) by ring]
+      exact abs_add_le _ _
+    have hfa' : |f x0.1 - f a| < ε / 2 := by rwa [abs_sub_comm]
+    exact lt_of_le_of_lt hsplit (by nlinarith)
+  simpa [Real.dist_eq, abs_sub_comm] using this
 
 end Analysis.Continuity
 

@@ -1204,6 +1204,13 @@
 - **谁在用**：`real-analysis.riemann.def`。
 - **坑**：达布上下和定义在 `DarbouxPartition` 上（自建结构）。
 
+### `Metric.uniformContinuousOn_iff` / `Metric.continuousOn_iff` / `IsCompact.elim_finite_subcover` / `Finset.min'`（一致连续自建用）
+- **人话**：**紧集上连续 ⟹ 一致连续**（Lebesgue 数引理法，mathlib 无此定理，自建）。
+  用每点 δx（continuousOn_iff）+ 开覆盖 + 有限子覆盖（elim_finite_subcover）+ 最小 δ（Finset.min'）。
+- **签名**：`Metric.uniformContinuousOn_iff : UniformContinuousOn f s ↔ ∀ ε>0, ∃ δ>0, ∀ x∈s, ∀ y∈s, dist x y < δ → dist (f x) (f y) < ε`
+- **谁在用**：`analysis.continuity.uniform-compact`。
+- **坑**：有限子覆盖的 `⋃ i ∈ t` 解构会绑架 binder（Playbook §3.12），用 `simpa [Set.mem_iUnion]`。
+
 ---
 
 ## 附：登记清单自动核对
