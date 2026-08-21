@@ -448,6 +448,22 @@ lemma partition_cover {n : ℕ} {x : ℕ → ℝ} {a b : ℝ} {t : ℝ}
     simpa [this] using hpj
   refine ⟨i, hi_lt, hxi, hxj⟩
 
+theorem step_eval_at {n i : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ} {t : ℝ} (hi : i < n)
+    (ht : t ∈ Set.Ioc (x i) (x (i+1)))
+    (hdisj : ∀ j, j < n → j ≠ i → t ∉ Set.Ioc (x j) (x (j+1))) :
+    (∑ j ∈ Finset.range n,
+      (Set.Ioc (x j) (x (j+1))).indicator (fun _ : ℝ => c j) t) = c i := by
+  rw [Finset.sum_eq_single]
+  · -- j = i 项
+    rw [Set.indicator_of_mem ht]
+  · -- j ≠ i 项为 0
+    intro j hj hji
+    have hnot : t ∉ Set.Ioc (x j) (x (j+1)) := hdisj j (Finset.mem_range.mp hj) hji
+    exact Set.indicator_of_notMem hnot (fun _ : ℝ => c j)
+  · -- i ∉ range n → 项为 0（不可能，因 hi）
+    intro hi_not
+    exact False.elim (hi_not (Finset.mem_range.mpr hi))
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
