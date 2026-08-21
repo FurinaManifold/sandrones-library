@@ -652,6 +652,173 @@ theorem darboux_lower_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
     lowerSum f P = (∫ t : ℝ, sP t ∂volume) := h_int.symm
     _ ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := h_main
 
+lemma partition_subinterval_sub {a b : ℝ} (hab : a ≤ b) (P : DarbouxPartition a b)
+    (_hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
+    ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b := by
+  intro i hi
+  intro t ht
+  -- t ∈ Ioc xᵢ xᵢ₊₁：a < t 且 t ≤ b
+  constructor
+  · -- a < t：x₀ = a ≤ xᵢ < t？需 a ≤ xᵢ（mono_x_le_le）+ xᵢ < t
+    have hxi_ab : P.x i ∈ Set.Icc a b := partition_point_mem hab P.x0 P.xN P.strict (le_of_lt (Finset.mem_range.mp hi))
+    have : a ≤ P.x i := hxi_ab.1
+    have : P.x i < t := ht.1
+    linarith
+  · -- t ≤ b：t ≤ xᵢ₊₁ ≤ xₙ = b
+    have hxi1_ab : P.x (i+1) ∈ Set.Icc a b := partition_point_mem hab P.x0 P.xN P.strict (Nat.succ_le_of_lt (Finset.mem_range.mp hi))
+    have : t ≤ P.x (i+1) := ht.2
+    have : P.x (i+1) ≤ b := hxi1_ab.2
+    linarith
+
+theorem riemannIntegral_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a < b)
+    (hf : ContinuousOn f (Set.Icc a b)) :
+    riemannIntegral f a b ≤ (∫ x : ℝ in Set.Ioc a b, f x ∂volume) := by
+  unfold riemannIntegral
+  apply csSup_le
+  · -- 集合非空：uniformPartition 给 P
+    exact ⟨lowerSum f (uniformPartition a b 1 hab (by norm_num)), ⟨uniformPartition a b 1 hab (by norm_num), rfl⟩⟩
+  · -- 每个元素 ≤ ∫
+    intro m hm
+    rcases hm with ⟨P, rfl⟩
+    -- lowerSum f P ≤ ∫（darboux_lower_le_interval）
+    have hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1) := by
+      intro i hi
+      exact (P.strict i (Finset.mem_range.mp hi)).le
+    have hsub := partition_subinterval_sub (le_of_lt hab) P hstep
+    exact darboux_lower_le_interval (le_of_lt hab) hf P hstep hsub
+
+lemma f_le_step_sup_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
+    (hf : ContinuousOn f (Set.Icc p q)) {t : ℝ} (ht : t ∈ Set.Ioc p q) :
+    f t ≤ sSup (f '' Set.Icc p q) := by
+  -- f t ∈ f''Icc ⟹ f t ≤ sSup（csSup_le 的对称：le_csSup）
+  have htm : f t ∈ f '' Set.Icc p q := by
+    refine ⟨t, ⟨le_of_lt ht.1, ht.2⟩, rfl⟩
+  -- f t ≤ sSup (f''Icc)：用 le_csSup（需 BddAbove）
+  exact le_csSup (IsCompact.bddAbove (IsCompact.image_of_continuousOn isCompact_Icc hf)) htm
+
+lemma step_ge_f_upper {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
+    (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
+    ∀ t ∈ Set.Ioc a b,
+      f t ≤ (∑ i ∈ Finset.range P.n,
+        (Set.Ioc (P.x i) (P.x (i+1))).indicator
+          (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) t) := by
+  intro t ht
+  rcases partition_cover P.x0 P.xN P.strict ht with ⟨i, hi_lt, hxi, hxi1⟩
+  have hdisj_all : ∀ j, j < P.n → j ≠ i → t ∉ Set.Ioc (P.x j) (P.x (j+1)) := by
+    intro j hj ji
+    exact partition_disjoint P.strict hi_lt hj ji.symm ⟨hxi, hxi1⟩
+  have hsum : (∑ j ∈ Finset.range P.n,
+      (Set.Ioc (P.x j) (P.x (j+1))).indicator
+        (fun _ : ℝ => sSup (f '' Set.Icc (P.x j) (P.x (j+1)))) t) =
+      sSup (f '' Set.Icc (P.x i) (P.x (i+1))) := by
+    exact step_eval_at (c := fun j => sSup (f '' Set.Icc (P.x j) (P.x (j+1)))) hi_lt ⟨hxi, hxi1⟩ hdisj_all
+  have hle : f t ≤ sSup (f '' Set.Icc (P.x i) (P.x (i+1))) := by
+    have hxi_ab : P.x i ∈ Set.Icc a b := by
+      exact partition_point_mem hab P.x0 P.xN P.strict (le_of_lt hi_lt)
+    have hxi1_ab : P.x (i+1) ∈ Set.Icc a b := by
+      exact partition_point_mem hab P.x0 P.xN P.strict (Nat.succ_le_of_lt hi_lt)
+    have hf_sub : ContinuousOn f (Set.Icc (P.x i) (P.x (i+1))) := by
+      exact hf.mono (Set.Icc_subset_Icc hxi_ab.1 hxi1_ab.2)
+    exact f_le_step_sup_pointwise (P.strict i hi_lt).le hf_sub ⟨hxi, hxi1⟩
+  rw [hsum]
+  exact hle
+
+lemma indicator_f_le_indicator_uP {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
+    (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
+    ∀ t, (Set.Ioc a b).indicator f t ≤
+      (Set.Ioc a b).indicator
+        (fun t => ∑ i ∈ Finset.range P.n,
+          (Set.Ioc (P.x i) (P.x (i+1))).indicator
+            (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) t) t := by
+  intro t
+  by_cases ht : t ∈ Set.Ioc a b
+  · -- pos: t ∈ Ioc ⟹ f t ≤ uP t（step_ge_f_upper）
+    rw [Set.indicator_of_mem ht]
+    rw [Set.indicator_of_mem ht]
+    -- 目标: f t ≤ ∑ ...，用 step_ge_f_upper
+    exact step_ge_f_upper hab hf P hsub t ht
+  · -- neg: 都 0
+    simp [Set.indicator, ht]
+
+lemma step_sup_integral_eq_upperSum {f : ℝ → ℝ} (P : DarbouxPartition a b)
+    (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1)) :
+    (∫ t : ℝ,
+      (∑ i ∈ Finset.range P.n,
+        (Set.Ioc (P.x i) (P.x (i+1))).indicator
+          (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) t) ∂volume) =
+      upperSum f P := by
+  have hD3b := integral_sum_indicator_Ioc (x := P.x)
+    (c := fun i => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) hstep
+  rw [hD3b]
+  unfold upperSum
+  apply Finset.sum_congr rfl
+  intro i hi
+  ring
+
+theorem darboux_upper_ge_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) (P : DarbouxPartition a b)
+    (hstep : ∀ i ∈ Finset.range P.n, P.x i ≤ P.x (i+1))
+    (hsub : ∀ i ∈ Finset.range P.n, Set.Ioc (P.x i) (P.x (i+1)) ⊆ Set.Ioc a b) :
+    (∫ x : ℝ in Set.Ioc a b, f x ∂volume) ≤ upperSum f P := by
+  let uP : ℝ → ℝ := fun t => ∑ i ∈ Finset.range P.n,
+    (Set.Ioc (P.x i) (P.x (i+1))).indicator (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) t
+  -- ∫_Ioc f = ∫ (f·1) ≤ ∫ (uP·1) = ∫ uP = upperSum
+  -- 用抽象: ∫ (f·1) ≤ ∫ (uP·1)（保序，f ≤ uP）
+  -- 先证 f·1 ≤ uP·1（逐点）
+  have hf_uP : ∀ t, (Set.Ioc a b).indicator f t ≤ (Set.Ioc a b).indicator uP t := by
+    intro t
+    -- 用独立引理（uP 是求和，indicator_f_le_indicator_uP 内联求和）
+    simpa [uP] using indicator_f_le_indicator_uP hab hf P hsub t  -- ∫ (f·1) ≤ ∫ (uP·1)（全局保序，需可积）
+  have hf_int : (∫ t : ℝ, (Set.Ioc a b).indicator f t ∂volume) ≤
+      (∫ t : ℝ, (Set.Ioc a b).indicator uP t ∂volume) := by
+    have hif : Integrable ((Set.Ioc a b).indicator f) volume := by
+      rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+      have hcc : IntegrableOn f (Set.Icc a b) volume := ContinuousOn.integrableOn_Icc hf
+      exact hcc.mono_set (Set.Ioc_subset_Icc_self)
+    have hiuP : Integrable ((Set.Ioc a b).indicator uP) volume := by
+      -- uP·1 可积：uP 全局可积 + 恒等
+      have huP_int : Integrable uP volume := by
+        have hin : ∀ i ∈ Finset.range P.n, Integrable
+            ((Set.Ioc (P.x i) (P.x (i+1))).indicator
+              (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1))))) volume := by
+          intro i hi
+          rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+          have hfin : volume (Set.Ioc (P.x i) (P.x (i+1))) ≠ ∞ := by
+            rw [Real.volume_Ioc]
+            exact ENNReal.ofReal_ne_top
+          exact integrableOn_const (μ := volume) (s := Set.Ioc (P.x i) (P.x (i+1)))
+            (C := sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) (hs := hfin)
+        exact integrable_finset_sum (s := Finset.range P.n) hin
+      have hident : (Set.Ioc a b).indicator uP = uP := by
+        funext t
+        exact step_indicator_identity (c := fun i => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) hsub t
+      rw [hident]
+      exact huP_int
+    exact integral_mono hif hiuP hf_uP
+  -- ∫_Ioc f = ∫ (f·1)（integral_indicator）
+  have h3 : (∫ x : ℝ in Set.Ioc a b, f x ∂volume) = (∫ t : ℝ, (Set.Ioc a b).indicator f t ∂volume) :=
+    (integral_indicator (hs := measurableSet_Ioc)).symm
+  -- ∫ (uP·1) = ∫ uP = upperSum
+  have h4 : (∫ t : ℝ, (Set.Ioc a b).indicator uP t ∂volume) = upperSum f P := by
+    -- uP·1 = uP（恒等）
+    have hident : (Set.Ioc a b).indicator uP = uP := by
+      funext t
+      exact step_indicator_identity (c := fun i => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) hsub t
+    -- ∫ uP = upperSum（对称 D3c）
+    have hUP_sum : (∫ t : ℝ, uP t ∂volume) = upperSum f P := by
+      rw [show uP = (fun t => ∑ i ∈ Finset.range P.n,
+          (Set.Ioc (P.x i) (P.x (i+1))).indicator
+            (fun _ : ℝ => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) t) by rfl]
+      exact step_sup_integral_eq_upperSum P hstep
+    rw [hident]
+    exact hUP_sum
+  calc
+    (∫ x : ℝ in Set.Ioc a b, f x ∂volume) = (∫ t : ℝ, (Set.Ioc a b).indicator f t ∂volume) := h3
+    _ ≤ (∫ t : ℝ, (Set.Ioc a b).indicator uP t ∂volume) := hf_int
+    _ = upperSum f P := h4
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
