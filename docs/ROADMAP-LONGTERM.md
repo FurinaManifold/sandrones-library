@@ -259,10 +259,13 @@
 - **R4 乘积/Lᵖ**：乘积测度、Fubini/Tonelli、Lᵖ 空间与完备性。
 - **R5 微分定理桥**：Lebesgue 微分定理、测度积分的微积分基本定理、与黎曼的关系。
 - **R5.5 黎曼积分的测度理论定位**：
-  - `real-analysis.riemann.def`：黎曼积分的定义（区间划分/达布和/黎曼和）。
-  - `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
-  - `real-analysis.riemann.eq-lebesgue`：黎曼可积时，黎曼积分数值上等于 Lebesgue 积分。
-  - `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、平移不变、Carathéodory 构造的完备化）。
+  - ✅ `real-analysis.riemann.def`：黎曼积分的定义（达布分划/上下和/可积/均匀分划/积分值，全部自建）。
+  - ✅ `real-analysis.riemann.cont-integrable`：连续 ⟹ 黎曼可积（一致连续 + 均匀分划 + 振荡界，自证）。
+  - ⏳ `real-analysis.riemann.eq-lebesgue`：黎曼可积时数值 = Lebesgue 积分。已定义 riemannIntegral 值 +
+    连续 ⟹ Lebesgue 可积；夹逼证明（达布和 = 阶梯函数积分 → 夹逼 intervalIntegral）待续。
+  - ⏳ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据，待续）。
+  - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
+- **R4 乘积/Lᵖ**（待做）；**R6 多元微积分**（待做）。
 - **R6 多元微积分（照常）**：ℝⁿ 重积分/换元、曲线积分、曲面积分、Green/Gauss/Stokes 公式、外微分初步。
 
 ### Phase 6 复分析（C1-C3）

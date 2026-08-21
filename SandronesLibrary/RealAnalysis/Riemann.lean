@@ -11,10 +11,11 @@ import SandronesLibrary.Analysis.Continuity
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **real-analysis.riemann.def**（黎曼积分定义：达布分划/上下和/黎曼可积/均匀分划）。
+* **real-analysis.riemann.def**（黎曼积分定义：达布分划/上下和/黎曼可积/均匀分划/积分值）✅。
 * **real-analysis.riemann.cont-integrable**（连续 ⟹ 黎曼可积，均匀分划 + 一致连续）✅。
-* **real-analysis.riemann.eq-lebesgue**（黎曼可积时数值 = Lebesgue 积分）。
-* **real-analysis.riemann.lebesgue-criterion**（黎曼可积 ⟺ 几乎处处连续）。
+* **real-analysis.riemann.eq-lebesgue**（黎曼可积时数值 = Lebesgue 积分）：部分完成——
+  已定义 riemannIntegral 值 + 连续 ⟹ Lebesgue 可积；数值相等的夹逼证明（D3-D5）待续。
+* **real-analysis.riemann.lebesgue-criterion**（黎曼可积 ⟺ 几乎处处连续）：待续。
 
 > **语言说明**：mathlib **没有**黎曼积分定义，全部自建。这是锻炼"论文定理自证"能力
 > （Playbook §4.1）的实战。用 `sSup`/`sInf`（区间上下确界）、`Finset` 求和、`volume`。
