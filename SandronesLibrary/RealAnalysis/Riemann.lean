@@ -51,6 +51,11 @@ noncomputable def upperSum (f : ℝ → ℝ) {a b : ℝ} (P : DarbouxPartition a
 def RiemannIntegrable (f : ℝ → ℝ) (a b : ℝ) : Prop :=
   ∀ ε > 0, ∃ P : DarbouxPartition a b, upperSum f P - lowerSum f P < ε
 
+/-- **黎曼积分值**：下积分的上确界（教材定义）。当 f 黎曼可积时，
+  它等于上积分的下确界，即黎曼积分。 -/
+noncomputable def riemannIntegral (f : ℝ → ℝ) (a b : ℝ) : ℝ :=
+  sSup { x : ℝ | ∃ P : DarbouxPartition a b, x = lowerSum f P }
+
 /-- **均匀分划**：将 [a,b] 等分为 n 段（xᵢ = a + i·(b−a)/n）。
   用于"连续 ⟹ 可积"中控制上下和之差。 -/
 noncomputable def uniformPartition (a b : ℝ) (n : ℕ) (hab : a < b) (hpos : 0 < n) :
@@ -268,6 +273,14 @@ theorem continuous_on_riemannIntegrable_lt {f : ℝ → ℝ} {a b : ℝ} (hab : 
       _ < ε := by linarith
   exact this
 
+
+/-- **连续函数 Lebesgue 区间可积**：f 在 [a,b] 连续（a ≤ b）⟹ IntervalIntegrable f volume a b。 -/
+theorem continuous_intervalIntegrable {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
+    (hf : ContinuousOn f (Set.Icc a b)) : IntervalIntegrable f volume a b := by
+  have hf' : ContinuousOn f (Set.uIcc a b) := by
+    rw [Set.uIcc_of_le hab]
+    exact hf
+  exact ContinuousOn.intervalIntegrable (μ := volume) hf'
 end RealAnalysis.Riemann
 
 end SandronesLibrary
