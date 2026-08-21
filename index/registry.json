@@ -4295,7 +4295,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.def",
@@ -4328,7 +4328,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.outer",
@@ -4359,7 +4359,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.caratheodory",
@@ -4390,7 +4390,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.measurable-function",
@@ -4423,7 +4423,7 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.lintegral",
@@ -4456,7 +4456,7 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.monotone-convergence",
@@ -4486,7 +4486,7 @@
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.fatou",
@@ -4516,7 +4516,7 @@
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.dominated-convergence",
@@ -4546,7 +4546,7 @@
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
-    "proof_sha": "135d514a8ce1ddbe"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.calculus.ftc",
@@ -4608,5 +4608,39 @@
     "added_at": "2026-08-21T11:38:39Z",
     "dependedOnBy": [],
     "proof_sha": "29d109d55f452dce"
+  },
+  {
+    "id": "real-analysis.lebesgue-measure",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Lebesgue 测度",
+    "summary": "ℝ 上 Lebesgue 测度 volume：区间长度 b-a；区间 Lebesgue 可测",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.sigma-algebra",
+      "real-analysis.measure.caratheodory"
+    ],
+    "mathlib": [
+      "Real.volume_Icc",
+      "Real.volume_Ioo",
+      "measurableSet_Icc",
+      "measurableSet_Ioo"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（Lebesgue 测度）"
+    },
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/lebesgue-measure.md",
+    "added_by": "ingestor-realanalysis-R55",
+    "added_at": "2026-08-21T11:46:18Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "74fb033d578801ec"
   }
 ]

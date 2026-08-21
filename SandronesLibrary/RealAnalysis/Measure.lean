@@ -19,6 +19,7 @@ import Mathlib
 * **real-analysis.measure.monotone-convergence**（单调收敛定理 MCT）✅。
 * **real-analysis.measure.fatou**（Fatou 引理）✅。
 * **real-analysis.measure.dominated-convergence**（控制收敛定理 DCT）✅。
+* **real-analysis.lebesgue-measure**（Lebesgue 测度：区间长度/区间可测）✅。
 
 > **语言说明**：实分析阶段（§Phase5）mathlib 的 `MeasurableSpace`/`MeasurableSet`/
 > `Measure` 等**教材结构可直接出现在签名**（测度积分是 mathlib 的核心库）。
@@ -186,6 +187,32 @@ theorem meas_tendsto_lintegral_of_dominated {X : Type*} [MeasurableSpace X] (μ 
     (h_fin : (∫⁻ a, bound a ∂μ) ≠ ∞) (h_lim : ∀ᵐ a ∂μ, Tendsto (fun n => F n a) atTop (𝓝 (f a))) :
     Tendsto (fun n => ∫⁻ a, F n a ∂μ) atTop (𝓝 (∫⁻ a, f a ∂μ)) := by
   exact tendsto_lintegral_of_dominated_convergence bound hF_meas h_bound h_fin h_lim
+
+open scoped Interval
+
+/-- **Lebesgue 测度的区间长度**：闭区间 [a,b] 的 Lebesgue 测度 = b-a。 
+> **Entry**: real-analysis.lebesgue-measure
+-/
+theorem meas_volume_Icc {a b : ℝ} : volume (Set.Icc a b) = ENNReal.ofReal (b - a) := by
+  exact Real.volume_Icc
+
+/-- **Lebesgue 测度的开区间长度**：开区间 (a,b) 的 Lebesgue 测度 = b-a。 
+> **Entry**: real-analysis.lebesgue-measure
+-/
+theorem meas_volume_Ioo {a b : ℝ} : volume (Set.Ioo a b) = ENNReal.ofReal (b - a) := by
+  exact Real.volume_Ioo
+
+/-- **闭区间 Lebesgue 可测**。 
+> **Entry**: real-analysis.lebesgue-measure
+-/
+theorem meas_measurable_Icc {a b : ℝ} : MeasurableSet (Set.Icc a b) := by
+  exact measurableSet_Icc
+
+/-- **开区间 Lebesgue 可测**。 
+> **Entry**: real-analysis.lebesgue-measure
+-/
+theorem meas_measurable_Ioo {a b : ℝ} : MeasurableSet (Set.Ioo a b) := by
+  exact measurableSet_Ioo
 
 end RealAnalysis.Measure
 

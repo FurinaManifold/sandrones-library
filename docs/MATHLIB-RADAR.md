@@ -1189,6 +1189,14 @@
 - **谁在用**：`real-analysis.calculus.ftc`、`real-analysis.calculus.ftc-differentiate`。
 - **坑**：`[[a,b]]` = uIcc 记法；FTC-1 需端点连续（FTCFilter 前提）。
 
+### `volume` / `Real.volume_Icc` / `Real.volume_Ioo` / `measurableSet_Icc`
+- **人话**：ℝ 上 **Lebesgue 测度** `volume`（MeasureSpace 规范测度）；区间长度 `volume [a,b] = ofReal (b-a)`；
+  区间 Lebesgue 可测。由外测度+Carathéodory 构造，是测度积分的基础。
+- **签名**：`Real.volume_Icc : volume (Icc a b) = ofReal (b - a)`；`Real.volume_Ioo`
+- **出处**：`Mathlib/MeasureTheory/Measure/Lebesgue/Basic.lean`（namespace Real）
+- **谁在用**：`real-analysis.lebesgue-measure`。
+- **坑**：`volume_Icc` 在 `namespace Real`（全名 `Real.volume_Icc`）。
+
 ---
 
 ## 附：登记清单自动核对
