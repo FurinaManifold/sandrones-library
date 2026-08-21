@@ -282,6 +282,66 @@ theorem continuous_intervalIntegrable {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤
     rw [Set.uIcc_of_le hab]
     exact hf
   exact ContinuousOn.intervalIntegrable (μ := volume) hf'
+theorem integral_indicator_const_Ioc {a b c : ℝ} (hab : a ≤ b) :
+    (∫ x : ℝ, (Set.Ioc a b).indicator (fun _ : ℝ => c) x ∂volume) = c * (b - a) := by
+  rw [integral_indicator (hs := measurableSet_Ioc)]
+  -- ∫_{Ioc a b} c = (volume.restrict (Ioc a b)).real univ • c
+  rw [integral_const]
+  -- 证 (volume.restrict (Ioc a b)).real Set.univ = b - a
+  have hrestr : (volume.restrict (Set.Ioc a b)).real Set.univ = b - a := by
+    rw [measureReal_def, Measure.restrict_apply (s := Set.Ioc a b) (t := Set.univ) (ht := MeasurableSet.univ)]
+    -- (volume.restrict (Ioc a b)) univ = volume (univ ∩ Ioc a b) = volume (Ioc a b)
+    rw [Set.univ_inter]
+    rw [Real.volume_Ioc]
+    -- toReal (ofReal (b-a)) = max (b-a) 0
+    rw [ENNReal.toReal_ofReal (sub_nonneg.mpr hab)]
+  -- 目标: (volume.restrict (Ioc a b)).real univ • c = c·(b-a)
+  rw [hrestr]
+  -- (b-a) • c = c·(b-a)
+  simp [smul_eq_mul, mul_comm]
+
+theorem integral_sum_indicator_Ioc {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ}
+    (hstep : ∀ i ∈ Finset.range n, x i ≤ x (i+1)) :
+    (∫ t : ℝ, (∑ i ∈ Finset.range n,
+        (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) ∂volume) =
+      ∑ i ∈ Finset.range n, c i * (x (i+1) - x i) := by
+  -- 求和积分
+  have hf : ∀ i ∈ Finset.range n, Integrable
+      (fun t : ℝ => (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) volume := by
+    intro i hi
+    -- 用 integrable_indicator_iff + integrableOn_const
+    rw [integrable_indicator_iff (hs := measurableSet_Ioc)]
+    have hfin : volume (Set.Ioc (x i) (x (i+1))) ≠ ∞ := by
+      rw [Real.volume_Ioc]
+      exact ENNReal.ofReal_ne_top
+    exact integrableOn_const (μ := volume) (s := Set.Ioc (x i) (x (i+1))) (C := c i) (hs := hfin)
+  -- ∫(∑) = ∑∫
+  have hsum_integral : (∫ t : ℝ, (∑ i ∈ Finset.range n,
+      (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) ∂volume) =
+      ∑ i ∈ Finset.range n, (∫ t : ℝ,
+        (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t ∂volume) := by
+    exact integral_finset_sum (s := Finset.range n) (f := fun i => fun t : ℝ =>
+      (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) (μ := volume) hf
+  -- 逐项: ∫(cᵢ·1_{Ioc xᵢ xᵢ₊₁}) = cᵢ·(xᵢ₊₁-xᵢ)
+  calc
+    (∫ t : ℝ, (∑ i ∈ Finset.range n,
+        (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) ∂volume)
+        = ∑ i ∈ Finset.range n, (∫ t : ℝ,
+            (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t ∂volume) := hsum_integral
+    _ = ∑ i ∈ Finset.range n, c i * (x (i+1) - x i) := by
+      apply Finset.sum_congr rfl
+      intro i hi
+      -- ∫(cᵢ·1_{Ioc}) = cᵢ·(xᵢ₊₁-xᵢ)（D3a，需 x i ≤ x(i+1)）
+      exact integral_indicator_const_Ioc (c := c i) (hstep i hi)
+
+lemma step_le_f_pointwise {f : ℝ → ℝ} {p q : ℝ} (hpq : p ≤ q)
+    (hf : ContinuousOn f (Set.Icc p q)) {t : ℝ} (ht : t ∈ Set.Ioc p q) :
+    sInf (f '' Set.Icc p q) ≤ f t := by
+  have htm : f t ∈ f '' Set.Icc p q := by
+    refine ⟨t, ⟨le_of_lt ht.1, ht.2⟩, rfl⟩
+  have hK : IsCompact (f '' Set.Icc p q) := IsCompact.image_of_continuousOn isCompact_Icc hf
+  exact csInf_le (IsCompact.bddBelow hK) htm
+
 end RealAnalysis.Riemann
 
 end SandronesLibrary
