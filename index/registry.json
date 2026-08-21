@@ -3645,7 +3645,7 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "c483c3bc335a65d7"
+    "proof_sha": "b94e08b2c824fafd"
   },
   {
     "id": "abstract-algebra.poly.irreducible",
@@ -3680,6 +3680,38 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "c483c3bc335a65d7"
+    "proof_sha": "b94e08b2c824fafd"
+  },
+  {
+    "id": "abstract-algebra.poly.roots-card",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "根的个数不超过次数",
+    "summary": "根属于根集⟺是根；乘积的根=根的析取；非零n次多项式至多n个根",
+    "family": "abstract-algebra.poly",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.poly.def"
+    ],
+    "mathlib": [
+      "Polynomial.mem_roots",
+      "Polynomial.root_mul",
+      "Polynomial.card_roots"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2（根与次数）"
+    },
+    "lean_file": "AbstractAlgebra/Poly.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/roots-card.md",
+    "added_by": "ingestor-promote-abstractalgebra",
+    "added_at": "2026-08-21T10:23:29Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b94e08b2c824fafd"
   }
 ]

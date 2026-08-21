@@ -1016,6 +1016,14 @@
 - **谁在用**：`abstract-algebra.poly.irreducible`。
 - **坑**：带余除法需 `q.Monic` 前提；`Polynomial.instEuclideanDomain`（域上多项式环欧几里得）是实例非 Prop。
 
+### `Polynomial.roots` / `Polynomial.mem_roots` / `Polynomial.root_mul` / `Polynomial.card_roots`
+- **人话**：`p.roots` 根 multiset；`a ∈ p.roots ↔ p.IsRoot a`；乘积的根 = 根的析取（整环）；
+  **非零多项式根的个数 ≤ 次数** `p.roots.card ≤ p.degree`（教材"n 次多项式至多 n 个根"）。
+- **签名**：`Polynomial.card_roots (hp : p ≠ 0) : ↑p.roots.card ≤ p.degree`；`Polynomial.mem_roots hp`
+- **出处**：`Mathlib/Algebra/Polynomial/Roots.lean`
+- **谁在用**：`abstract-algebra.poly.roots-card`。
+- **坑**：`card_roots` 用 `WithBot ℕ` 的 `degree`；根个数含重数（multiset）。
+
 ---
 
 ## 附：登记清单自动核对

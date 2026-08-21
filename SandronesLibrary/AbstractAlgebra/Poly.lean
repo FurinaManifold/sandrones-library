@@ -14,6 +14,7 @@ open Polynomial
 
 * **abstract-algebra.poly.def**（多项式外延性/X-a整除⟺根/根的定义/整环性/单位元=非零常数）✅。
 * **abstract-algebra.poly.irreducible**（不可约判据/X-a不可约/X不可约/次数1不可约/带余除法/余式次数）✅。
+* **abstract-algebra.poly.roots-card**（根属于根集/乘积的根/根个数≤次数）✅。
 
 > **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Polynomial`/`Irreducible`/
 > `EuclideanDomain` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
@@ -98,6 +99,28 @@ theorem modByMonic_eq_zero_iff_dvd {R : Type*} [Ring R] {p q : R[X]}
 theorem degree_modByMonic_lt {R : Type*} [Ring R] [Nontrivial R] (p : R[X])
     {q : R[X]} (hq : q.Monic) : (p %ₘ q).degree < q.degree := by
   exact Polynomial.degree_modByMonic_lt p hq
+
+/-- **根属于根集**：a 是 p 的根 ⟺ a 属于根集 p.roots（根集 = 全体根的 multiset）。 
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem mem_roots_iff_isRoot {R : Type*} [CommRing R] [IsDomain R] {p : R[X]}
+    (hp : p ≠ 0) (a : R) : a ∈ p.roots ↔ p.IsRoot a := by
+  exact Polynomial.mem_roots hp
+
+/-- **乘积的根**：a 是 p·q 的根 ⟺ a 是 p 的根或 q 的根（整环上）。 
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem root_mul_iff {R : Type*} [CommRing R] [IsDomain R] {p q : R[X]} (a : R) :
+    (p * q).IsRoot a ↔ p.IsRoot a ∨ q.IsRoot a := by
+  exact Polynomial.root_mul (a := a)
+
+/-- **根的个数不超过次数**：非零 n 次多项式至多有 n 个根（含重数计）。
+  教材核心定理：域上 n 次多项式至多 n 个根。 
+> **Entry**: abstract-algebra.poly.roots-card
+-/
+theorem card_roots_le_degree {R : Type*} [CommRing R] [IsDomain R] {p : R[X]}
+    (hp : p ≠ 0) : (p.roots.card : WithBot ℕ) ≤ p.degree := by
+  exact Polynomial.card_roots hp
 
 end AbstractAlgebra.Poly
 
