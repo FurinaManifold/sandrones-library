@@ -23,8 +23,9 @@ open scoped Filter Topology
 * **analysis.continuity.intermediate-value**（介值定理）。
 * **analysis.continuity.max-min**（最值定理）。
 * **analysis.continuity.uniform**（一致连续及其 ⟹ 连续）。
-* ~~**analysis.continuity.inverse**（严格单调连续 ⟹ 反函数连续）~~：留待导数批次
-  （反函数求导需它；mathlib 单变量层要用 `MonotoneContinuity` 系列，单独一批）。
+* ~~**analysis.continuity.inverse**（严格单调连续 ⟹ 反函数连续）~~：转正批扫描确认，
+  mathlib 用 `StrictMono.orderIso` + `OrderIso.toHomeomorph`，但需 `OrderTopology ↑(Set.range f)`
+  子类型实例（当前环境缺失），留待专门处理。
 -/
 
 namespace SandronesLibrary
