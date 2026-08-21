@@ -26,13 +26,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "7481ea008a6fcfff",
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.archimedean_property",
-      "SandronesLibrary.Analysis.Real.exists_nat_mul_gt"
-    ]
+    "proof_sha": "7481ea008a6fcfff"
   },
   {
     "id": "settheory.set.ext",
@@ -61,12 +55,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945",
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.set_ext"
-    ]
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -95,12 +84,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945",
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.inter_distrib_left"
-    ]
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.function.inj-comp",
@@ -124,12 +108,7 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b",
-    "_module": "SandronesLibrary.SetTheory.Function",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Function.injective_comp"
-    ]
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.surj-comp",
@@ -153,12 +132,7 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b",
-    "_module": "SandronesLibrary.SetTheory.Function",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Function.surjective_comp"
-    ]
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.subset.trans",
@@ -180,12 +154,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945",
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.subset_trans"
-    ]
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -212,12 +181,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f2594d752f021945",
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.subset_antisymm"
-    ]
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.set.empty-subset",
@@ -239,12 +203,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945",
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.empty_subset"
-    ]
+    "proof_sha": "f2594d752f021945"
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -271,12 +230,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b",
-    "_module": "SandronesLibrary.SetTheory.Function",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Function.preimage_union"
-    ]
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.image-preimage.preimage-inter",
@@ -303,12 +257,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b",
-    "_module": "SandronesLibrary.SetTheory.Function",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Function.preimage_inter"
-    ]
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.relations.equivalence-class-eq",
@@ -333,12 +282,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a1d7251c89a6e106",
-    "_sha": "a1d7251c89a6e106",
-    "_module": "SandronesLibrary.SetTheory.Relations",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Relations.equivalence_class_eq"
-    ]
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.set.relations.quotient-surj",
@@ -360,12 +304,7 @@
     "family": "settheory.set.relations",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "a1d7251c89a6e106",
-    "_sha": "a1d7251c89a6e106",
-    "_module": "SandronesLibrary.SetTheory.Relations",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Relations.quotient_surjective"
-    ]
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.cardinal.countable-def",
@@ -387,12 +326,7 @@
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234",
-    "_module": "SandronesLibrary.SetTheory.Cardinal",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Cardinal.countable_iff_injective_nat"
-    ]
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-rat",
@@ -418,12 +352,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234",
-    "_module": "SandronesLibrary.SetTheory.Cardinal",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Cardinal.countable_rat"
-    ]
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.uncountable-real",
@@ -449,12 +378,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234",
-    "_module": "SandronesLibrary.SetTheory.Cardinal",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Cardinal.uncountable_real"
-    ]
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-union",
@@ -480,12 +404,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234",
-    "_module": "SandronesLibrary.SetTheory.Cardinal",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Cardinal.countable_iUnion"
-    ]
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.set.operations.complement-union",
@@ -510,11 +429,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.complement_union"
     ]
   },
   {
@@ -541,11 +455,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.complement_inter"
     ]
   },
   {
@@ -570,12 +479,7 @@
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "f2594d752f021945",
-    "axioms": [],
-    "_sha": "f2594d752f021945",
-    "_module": "SandronesLibrary.SetTheory.Set",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Set.diff_inter_complement"
-    ]
+    "axioms": []
   },
   {
     "id": "settheory.function.inject-surject.bijective-iff-inverse",
@@ -599,11 +503,6 @@
     "proof_sha": "d065f0fc3976123b",
     "axioms": [
       "Classical.choice"
-    ],
-    "_sha": "d065f0fc3976123b",
-    "_module": "SandronesLibrary.SetTheory.Function",
-    "_decls": [
-      "SandronesLibrary.SetTheory.Function.bijective_iff_inverse"
     ]
   },
   {
@@ -632,11 +531,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.bdd_above_iff"
     ]
   },
   {
@@ -665,11 +559,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.bdd_above_subset"
     ]
   },
   {
@@ -696,11 +585,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.rational_dense"
     ]
   },
   {
@@ -732,11 +616,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.sup_lub"
     ]
   },
   {
@@ -765,11 +644,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.bdd_below_iff"
     ]
   },
   {
@@ -798,11 +672,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.inf_glb"
     ]
   },
   {
@@ -832,15 +701,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff",
-    "_module": "SandronesLibrary.Analysis.Real",
-    "_decls": [
-      "SandronesLibrary.Analysis.Real.cau_equiv_refl",
-      "SandronesLibrary.Analysis.Real.cau_equiv_symm",
-      "SandronesLibrary.Analysis.Real.cau_equiv_trans",
-      "SandronesLibrary.Analysis.Real.real_eq_iff_cau_equiv",
-      "SandronesLibrary.Analysis.Real.rat_const_cauchy"
     ]
   },
   {
@@ -867,11 +727,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.tendsto_iff_epsilon_N"
     ]
   },
   {
@@ -900,13 +755,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_limit_unique",
-      "SandronesLibrary.Analysis.Sequence.convergent_bddAbove",
-      "SandronesLibrary.Analysis.Sequence.convergent_bddBelow"
     ]
   },
   {
@@ -935,11 +783,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.convergent_bounded"
     ]
   },
   {
@@ -968,11 +811,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.squeeze_theorem"
     ]
   },
   {
@@ -1004,11 +842,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.monotone_convergence"
     ]
   },
   {
@@ -1040,13 +873,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.IsSubsequenceOf",
-      "SandronesLibrary.Analysis.Sequence.subsequence_of_convergent",
-      "SandronesLibrary.Analysis.Sequence.sequence_bounded_in_interval"
     ]
   },
   {
@@ -1081,12 +907,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.bolzano_weierstrass_interval",
-      "SandronesLibrary.Analysis.Sequence.bolzano_weierstrass"
     ]
   },
   {
@@ -1121,12 +941,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.convergent_is_cauchy",
-      "SandronesLibrary.Analysis.Sequence.cauchy_seq_convergent"
     ]
   },
   {
@@ -1158,12 +972,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.liminf_le_limsup_seq",
-      "SandronesLibrary.Analysis.Sequence.tendsto_of_liminf_eq_limsup_seq"
     ]
   },
   {
@@ -1198,12 +1006,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.nested_intervals_nonempty",
-      "SandronesLibrary.Analysis.Completeness.nested_intervals_singleton"
     ]
   },
   {
@@ -1235,11 +1037,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.finite_cover_principle"
     ]
   },
   {
@@ -1275,17 +1072,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.accumulation_point_of_infinite_bounded",
-      "SandronesLibrary.Analysis.Completeness.SupProperty",
-      "SandronesLibrary.Analysis.Completeness.MonotoneConvergenceProperty",
-      "SandronesLibrary.Analysis.Completeness.NestedIntervalsProperty",
-      "SandronesLibrary.Analysis.Completeness.FiniteCoverProperty",
-      "SandronesLibrary.Analysis.Completeness.AccumulationPointProperty",
-      "SandronesLibrary.Analysis.Completeness.CauchyConvergenceProperty"
     ]
   },
   {
@@ -1317,13 +1103,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.monotone_convergence_of_sup",
-      "SandronesLibrary.Analysis.Completeness.monotone_le_limit",
-      "SandronesLibrary.Analysis.Completeness.antitone_limit_le"
     ]
   },
   {
@@ -1356,20 +1135,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.nested_intervals_of_monotone_convergence",
-      "SandronesLibrary.Analysis.Completeness.NoFiniteCover",
-      "SandronesLibrary.Analysis.Completeness.finite_cover_halves",
-      "SandronesLibrary.Analysis.Completeness.right_half_no_finite_cover",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_length_step",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_length",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_le",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_left_mono_step",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_right_antitone_step",
-      "SandronesLibrary.Analysis.Completeness.halfbiseq_nofinite_cover"
     ]
   },
   {
@@ -1403,12 +1168,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.finite_cover_of_nested_intervals",
-      "SandronesLibrary.Analysis.Completeness.not_accPt_iff_exists_nhds"
     ]
   },
   {
@@ -1443,15 +1202,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.accumulation_point_of_finite_cover",
-      "SandronesLibrary.Analysis.Completeness.cauchy_seq_bounded",
-      "SandronesLibrary.Analysis.Completeness.mapClusterPt_of_accPt_range",
-      "SandronesLibrary.Analysis.Completeness.tendsto_of_cauchySeq_of_accPt_range",
-      "SandronesLibrary.Analysis.Completeness.cauchySeq_tendsto_of_finite_range"
     ]
   },
   {
@@ -1487,21 +1237,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.cauchy_convergence_of_accumulation_point",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_le",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_mono_step",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_antitone_step",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_length_step",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_length",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_upper",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_not_upper",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_left_cauchy",
-      "SandronesLibrary.Analysis.Completeness.bisect_upper_right_cauchy",
-      "SandronesLibrary.Analysis.Completeness.tendsto_div_two_pow"
     ]
   },
   {
@@ -1536,11 +1271,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75",
-    "_module": "SandronesLibrary.Analysis.Completeness",
-    "_decls": [
-      "SandronesLibrary.Analysis.Completeness.sup_of_cauchy_convergence"
     ]
   },
   {
@@ -1572,12 +1302,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.eventually_nhds_within_iff_delta",
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_nhds_iff_eps_delta"
     ]
   },
   {
@@ -1606,11 +1330,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_const_fun"
     ]
   },
   {
@@ -1639,11 +1358,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_id_nhds"
     ]
   },
   {
@@ -1672,11 +1386,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_unique"
     ]
   },
   {
@@ -1705,11 +1414,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_congr"
     ]
   },
   {
@@ -1738,11 +1442,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_add"
     ]
   },
   {
@@ -1771,11 +1470,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_sub"
     ]
   },
   {
@@ -1804,11 +1498,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_mul"
     ]
   },
   {
@@ -1837,11 +1526,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_div"
     ]
   },
   {
@@ -1870,11 +1554,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_const_mul"
     ]
   },
   {
@@ -1903,11 +1582,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_le"
     ]
   },
   {
@@ -1940,13 +1614,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.heine_forward",
-      "SandronesLibrary.Analysis.FuncLimit.heine_backward",
-      "SandronesLibrary.Analysis.FuncLimit.heine"
     ]
   },
   {
@@ -1977,13 +1644,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_atTop_iff_eps_N",
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_nhds_atTop_iff",
-      "SandronesLibrary.Analysis.FuncLimit.tendsto_pow_atTop_atTop"
     ]
   },
   {
@@ -2014,11 +1674,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuousOn_Icc"
     ]
   },
   {
@@ -2047,11 +1702,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_const_real"
     ]
   },
   {
@@ -2080,11 +1730,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_id_real"
     ]
   },
   {
@@ -2113,11 +1758,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_add"
     ]
   },
   {
@@ -2146,11 +1786,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_mul"
     ]
   },
   {
@@ -2179,11 +1814,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_div"
     ]
   },
   {
@@ -2213,12 +1843,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.continuous_comp",
-      "SandronesLibrary.Analysis.Continuity.continuousAt_comp"
     ]
   },
   {
@@ -2247,11 +1871,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.intermediate_value"
     ]
   },
   {
@@ -2283,12 +1902,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.exists_isGreatest_on_Icc",
-      "SandronesLibrary.Analysis.Continuity.exists_isLeast_on_Icc"
     ]
   },
   {
@@ -2318,12 +1931,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.uniformContinuous_iff_eps_delta",
-      "SandronesLibrary.Analysis.Continuity.continuous_of_uniformContinuous"
     ]
   },
   {
@@ -2352,11 +1959,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_unique_real"
     ]
   },
   {
@@ -2387,13 +1989,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_const_real",
-      "SandronesLibrary.Analysis.Derivative.deriv_identity_real",
-      "SandronesLibrary.Analysis.Derivative.deriv_linear_real"
     ]
   },
   {
@@ -2422,11 +2017,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_add_sub_real"
     ]
   },
   {
@@ -2455,11 +2045,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_mul_real"
     ]
   },
   {
@@ -2488,11 +2073,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_div_real"
     ]
   },
   {
@@ -2521,11 +2101,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_const_mul_real"
     ]
   },
   {
@@ -2554,11 +2129,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "e5e753f49a56a10c",
-    "_module": "SandronesLibrary.Analysis.Derivative",
-    "_decls": [
-      "SandronesLibrary.Analysis.Derivative.deriv_chain_rule_real"
     ]
   },
   {
@@ -2589,11 +2159,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.rolle"
     ]
   },
   {
@@ -2624,11 +2189,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.lagrange"
     ]
   },
   {
@@ -2659,11 +2219,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.lagrange_deriv"
     ]
   },
   {
@@ -2695,12 +2250,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.monotone_of_deriv_nonneg",
-      "SandronesLibrary.Analysis.MVT.strict_mono_of_deriv_pos"
     ]
   },
   {
@@ -2731,11 +2280,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.cauchy_mvt"
     ]
   },
   {
@@ -2769,11 +2313,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.taylor_lagrange_remainder"
     ]
   },
   {
@@ -2804,11 +2343,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.lhopital_zero_real"
     ]
   },
   {
@@ -2838,12 +2372,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf",
-    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_self",
-      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_pi"
     ]
   },
   {
@@ -2872,11 +2400,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf",
-    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.VectorSpace.card_le_dim_of_linearIndependent"
     ]
   },
   {
@@ -2905,11 +2428,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf",
-    "_module": "SandronesLibrary.LinearAlgebra.VectorSpace",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.VectorSpace.dim_eq_card_basis"
     ]
   },
   {
@@ -2939,8 +2457,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf"
+    ]
   },
   {
     "id": "linear-algebra.maps.rank-nullity",
@@ -2970,11 +2487,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5",
-    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.LinearMap.rank_add_nullity"
     ]
   },
   {
@@ -3003,11 +2515,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5",
-    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.LinearMap.matrix_rank_eq_finrank_span_cols"
     ]
   },
   {
@@ -3036,11 +2543,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5",
-    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.LinearMap.rank_mul_le"
     ]
   },
   {
@@ -3069,11 +2571,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.det_mul"
     ]
   },
   {
@@ -3102,11 +2599,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.det_transpose"
     ]
   },
   {
@@ -3137,11 +2629,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.det_invertible"
     ]
   },
   {
@@ -3171,12 +2658,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.det_one",
-      "SandronesLibrary.LinearAlgebra.Determinant.det_zero"
     ]
   },
   {
@@ -3204,11 +2685,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvector_apply"
     ]
   },
   {
@@ -3236,13 +2712,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_exists_eigenvector",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_eigenspace_nontrivial",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.spectrum"
     ]
   },
   {
@@ -3270,11 +2739,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_mem_spectrum"
     ]
   },
   {
@@ -3304,12 +2768,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.charpoly_diagonal",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.charpoly_monic"
     ]
   },
   {
@@ -3335,13 +2793,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5364b5a65ef7c384",
-    "_module": "SandronesLibrary.LinearAlgebra.Subspace",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_add_mem",
-      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_smul_mem",
-      "SandronesLibrary.LinearAlgebra.VectorSpace.subspace_zero_mem"
     ]
   },
   {
@@ -3370,12 +2821,6 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5364b5a65ef7c384",
-    "_module": "SandronesLibrary.LinearAlgebra.Subspace",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.VectorSpace.subset_span",
-      "SandronesLibrary.LinearAlgebra.VectorSpace.span_mono"
     ]
   },
   {
@@ -3407,13 +2852,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvectors_linearIndependent",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.IsInvertible",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.IsDiagonalizable"
     ]
   },
   {
@@ -3446,12 +2884,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.diagonalizable_diagonal",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.invertible_mul_inv"
     ]
   },
   {
@@ -3486,12 +2918,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.similar_det",
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.MatrixHasEigenvalue"
     ]
   },
   {
@@ -3522,12 +2948,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.mul_adj",
-      "SandronesLibrary.LinearAlgebra.Determinant.adj_mul"
     ]
   },
   {
@@ -3558,12 +2978,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759",
-    "_module": "SandronesLibrary.LinearAlgebra.Determinant",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Determinant.cramer_apply",
-      "SandronesLibrary.LinearAlgebra.Determinant.cramer_solution"
     ]
   },
   {
@@ -3592,11 +3006,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5",
-    "_module": "SandronesLibrary.LinearAlgebra.LinearMap",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.LinearMap.rank_transpose_eq"
     ]
   },
   {
@@ -3627,11 +3036,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_add"
     ]
   },
   {
@@ -3662,11 +3066,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_sub"
     ]
   },
   {
@@ -3697,11 +3096,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_mul"
     ]
   },
   {
@@ -3732,11 +3126,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_div"
     ]
   },
   {
@@ -3767,11 +3156,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_const_mul"
     ]
   },
   {
@@ -3802,11 +3186,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286",
-    "_module": "SandronesLibrary.Analysis.Sequence",
-    "_decls": [
-      "SandronesLibrary.Analysis.Sequence.seq_le"
     ]
   },
   {
@@ -3838,11 +3217,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5",
-    "_module": "SandronesLibrary.Analysis.FuncLimit",
-    "_decls": [
-      "SandronesLibrary.Analysis.FuncLimit.func_lim_comp"
     ]
   },
   {
@@ -3874,11 +3248,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "6a79870f7b23b582",
-    "_module": "SandronesLibrary.Analysis.MVT",
-    "_decls": [
-      "SandronesLibrary.Analysis.MVT.is_constant_of_deriv_zero"
     ]
   },
   {
@@ -3910,15 +3279,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a6be441262c75ee0",
-    "_module": "SandronesLibrary.Analysis.Continuity",
-    "_decls": [
-      "SandronesLibrary.Analysis.Continuity.mono_inv_strictMono",
-      "SandronesLibrary.Analysis.Continuity.mono_inv_apply",
-      "SandronesLibrary.Analysis.Continuity.mono_inv_lt_iff",
-      "SandronesLibrary.Analysis.Continuity.mono_inv_sub_apply",
-      "SandronesLibrary.Analysis.Continuity.inverse_continuous"
     ]
   },
   {
@@ -3951,11 +3311,6 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c",
-    "_module": "SandronesLibrary.LinearAlgebra.Eigenvalue",
-    "_decls": [
-      "SandronesLibrary.LinearAlgebra.Eigenvalue.eigenvalue_iff_isRoot_charpoly"
     ]
   },
   {
@@ -3989,16 +3344,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a",
-    "_sha": "643d824c2f046e9a",
-    "_module": "SandronesLibrary.AbstractAlgebra.Group",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Group.subgroup_of_closed",
-      "SandronesLibrary.AbstractAlgebra.Group.subgroup_one_mem",
-      "SandronesLibrary.AbstractAlgebra.Group.subgroup_ext",
-      "SandronesLibrary.AbstractAlgebra.Group.subgroup_bot_eq_singleton",
-      "SandronesLibrary.AbstractAlgebra.Group.subgroup_top_eq_univ"
-    ]
+    "proof_sha": "643d824c2f046e9a"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -4032,17 +3378,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a",
-    "_sha": "643d824c2f046e9a",
-    "_module": "SandronesLibrary.AbstractAlgebra.Group",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Group.left_coset_mem_iff",
-      "SandronesLibrary.AbstractAlgebra.Group.left_coset_eq_iff",
-      "SandronesLibrary.AbstractAlgebra.Group.left_coset_mem_self",
-      "SandronesLibrary.AbstractAlgebra.Group.one_left_coset",
-      "SandronesLibrary.AbstractAlgebra.Group.leftCoset_card_eq",
-      "SandronesLibrary.AbstractAlgebra.Group.lagrange"
-    ]
+    "proof_sha": "643d824c2f046e9a"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -4077,18 +3413,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a",
-    "_sha": "643d824c2f046e9a",
-    "_module": "SandronesLibrary.AbstractAlgebra.Group",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Group.normal_conj_mem",
-      "SandronesLibrary.AbstractAlgebra.Group.normal_mem_comm",
-      "SandronesLibrary.AbstractAlgebra.Group.normal_bot",
-      "SandronesLibrary.AbstractAlgebra.Group.normal_top",
-      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_mul",
-      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_one",
-      "SandronesLibrary.AbstractAlgebra.Group.quotient_mk_inv"
-    ]
+    "proof_sha": "643d824c2f046e9a"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -4122,19 +3447,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "643d824c2f046e9a",
-    "_sha": "643d824c2f046e9a",
-    "_module": "SandronesLibrary.AbstractAlgebra.Group",
-    "_decls": [
-      "hom_mem_ker",
-      "hom_mem_range",
-      "hom_map_one",
-      "hom_map_mul",
-      "hom_map_inv",
-      "hom_injective_iff_ker_bot",
-      "hom_surjective_iff_range_top",
-      "first_isomorphism_theorem"
-    ]
+    "proof_sha": "643d824c2f046e9a"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -4164,12 +3477,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "643d824c2f046e9a",
-    "_sha": "643d824c2f046e9a",
-    "_module": "SandronesLibrary.AbstractAlgebra.Group",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Group.normal_of_index_two"
-    ]
+    "proof_sha": "643d824c2f046e9a"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -4203,20 +3511,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "b3820f56cfdd7ce5",
-    "_sha": "b3820f56cfdd7ce5",
-    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_of_closed",
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_one_mem",
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_zero_mem",
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_ext",
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_bot",
-      "SandronesLibrary.AbstractAlgebra.Ring.subring_top",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_one",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_add",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_map_mul"
-    ]
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.ring.ideal",
@@ -4252,19 +3547,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "b3820f56cfdd7ce5",
-    "_sha": "b3820f56cfdd7ce5",
-    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Ring.ideal_of_closed",
-      "SandronesLibrary.AbstractAlgebra.Ring.ideal_mul_mem_left",
-      "SandronesLibrary.AbstractAlgebra.Ring.ideal_mul_mem_right",
-      "SandronesLibrary.AbstractAlgebra.Ring.ideal_eq_top_of_unit_mem",
-      "SandronesLibrary.AbstractAlgebra.Ring.quotient_eq_iff_sub_mem",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_ker_is_ideal",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_mem_range",
-      "SandronesLibrary.AbstractAlgebra.Ring.ring_hom_injective_iff_ker_bot"
-    ]
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.ring.domain",
@@ -4299,16 +3582,36 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "b3820f56cfdd7ce5",
-    "_sha": "b3820f56cfdd7ce5",
-    "_module": "SandronesLibrary.AbstractAlgebra.Ring",
-    "_decls": [
-      "SandronesLibrary.AbstractAlgebra.Ring.is_domain_mul_eq_zero",
-      "SandronesLibrary.AbstractAlgebra.Ring.is_field_inv_exists",
-      "SandronesLibrary.AbstractAlgebra.Ring.is_prime_iff",
-      "SandronesLibrary.AbstractAlgebra.Ring.is_maximal_implies_is_prime",
-      "SandronesLibrary.AbstractAlgebra.Ring.quotient_is_domain_of_is_prime",
-      "SandronesLibrary.AbstractAlgebra.Ring.is_field_iff_bot_is_maximal"
-    ]
+    "proof_sha": "fa56aa592f7a8dfc"
+  },
+  {
+    "id": "abstract-algebra.ring.iso",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "环同态基本定理",
+    "summary": "R/ker(f) ≅ im(f)（第一同构定理，环版）",
+    "family": "abstract-algebra.ring",
+    "variant": "rotman",
+    "premises": [
+      "abstract-algebra.ring.ideal"
+    ],
+    "mathlib": [
+      "RingHom.quotientKerEquivRange"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（同态定理）"
+    },
+    "lean_file": "AbstractAlgebra/Ring.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/iso.md",
+    "added_by": "ingestor-promote-abstractalgebra",
+    "added_at": "2026-08-21T10:08:01Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "fa56aa592f7a8dfc"
   }
 ]

@@ -12,7 +12,8 @@ import Mathlib
 
 * **abstract-algebra.ring.def**（子环判定/外延性/平凡与全子环/子环含1/环同态保运算）✅。
 * **abstract-algebra.ring.ideal**（理想判定/吸收乘法/含单位元理想全环/商环判等/核值域）✅。
-* **abstract-algebra.ring.domain**（无零因子/域非零元可逆/素理想判据/极大⟹素/素⟹商整环/域⟺零理想极大）✅。
+* **abstract-algebra.ring.domain**（无零因子/域非零元可逆/素理想判据/极大⟹素/素⟹商整环/域⟺零理想极大/商环域⟹极大）✅。
+* **abstract-algebra.ring.iso**（环同态基本定理 R/ker≅im）✅。
 
 > **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Ring`/`Subring`/`Ideal`/
 > `RingHom` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
@@ -204,6 +205,22 @@ theorem quotient_is_domain_of_is_prime {R : Type*} [CommRing R] (I : Ideal R)
 theorem is_field_iff_bot_is_maximal {R : Type*} [CommRing R] [Nontrivial R] :
     IsField R ↔ (⊥ : Ideal R).IsMaximal := by
   exact Ring.isField_iff_maximal_bot
+
+/-- **环同态基本定理（第一同构定理）**：R/ker(f) ≅ im(f)。
+  商环 R/ker f 与 f 的值域（子环）同构。 
+> **Entry**: abstract-algebra.ring.iso
+-/
+theorem ring_first_isomorphism {R S : Type*} [Ring R] [Ring S] (f : R →+* S) :
+    Nonempty (R ⧸ RingHom.ker f ≃+* ↥f.range) := by
+  exact ⟨RingHom.quotientKerEquivRange f⟩
+
+/-- **商环是域 ⟹ 理想极大**：若商环 R/I 是域，则 I 是极大理想。
+  （教材：极大理想 ⟺ 商环是域，的另一半方向。） 
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem ideal_maximal_of_quotient_isField {R : Type*} [CommRing R] (I : Ideal R)
+    (hqf : IsField (R ⧸ I)) : I.IsMaximal := by
+  exact Ideal.Quotient.maximal_of_isField I hqf
 
 end AbstractAlgebra.Ring
 

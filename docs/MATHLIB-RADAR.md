@@ -992,6 +992,13 @@
 - **谁在用**：`abstract-algebra.ring.domain`。
 - **坑**：`IsField` 是 Prop 不是 typeclass（不能 `[IsField R]` binder）；`isField_iff_maximal_bot` 在 `namespace Ring`。
 
+### `RingHom.quotientKerEquivRange` / `Ideal.Quotient.maximal_of_isField`
+- **人话**：**环版第一同构定理** `R/ker f ≃+* im f`；**商环是域 ⟹ 理想极大**（极大理想 ⟺ 商域的反方向）。
+- **签名**：`RingHom.quotientKerEquivRange f : R ⧸ ker f ≃+* ↥f.range`；`Ideal.Quotient.maximal_of_isField I hqf`
+- **出处**：`Mathlib/RingTheory/Ideal/Quotient/Basic.lean`、`Mathlib/RingTheory/Ideal/`
+- **谁在用**：`abstract-algebra.ring.iso`、`abstract-algebra.ring.domain`。
+- **坑**：商环域判据是"商环是域 ⟺ 理想极大"（`Ideal.Quotient.maximal_of_isField` 是其中方向之一）。
+
 ---
 
 ## 附：登记清单自动核对

@@ -235,6 +235,10 @@ def main() -> None:
                 print(f"  -> 补充写入 registry")
 
     if args.fix:
+        # 移除临时字段（绝不写回 registry）
+        for rec in data:
+            for k in ("_sha", "_module", "_decls"):
+                rec.pop(k, None)
         json.dump(data, open(REGISTRY, "w"), ensure_ascii=False, indent=2)
         open(REGISTRY, "a").write("\n")
     sys.exit(1 if bad and not args.fix else 0)
