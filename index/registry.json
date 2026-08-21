@@ -3908,5 +3908,135 @@
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
     "proof_sha": "15cd2d455397604a"
+  },
+  {
+    "id": "topology.compact.def",
+    "kind": "theorem",
+    "title": "紧致性（有限覆盖）",
+    "summary": "有限子覆盖抽取；连续像紧；紧集有限并；单点集紧",
+    "family": "topology.compact",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "IsCompact.elim_finite_subcover",
+      "IsCompact.image",
+      "IsCompact.union",
+      "isCompact_singleton"
+    ],
+    "lean_file": "Topology/Compact.lean",
+    "nl_file": "docs/entries/topology/compact/def.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 3（紧致性）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T2",
+    "added_at": "2026-08-21T10:40:22Z",
+    "dependedOnBy": [],
+    "proof_sha": "51df063132186dac"
+  },
+  {
+    "id": "topology.compact.closed-bdd",
+    "kind": "theorem",
+    "title": "闭区间紧",
+    "summary": "ℝ 上闭区间 [a,b] 紧（Heine-Borel 基础）",
+    "family": "topology.compact",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "isCompact_Icc"
+    ],
+    "lean_file": "Topology/Compact.lean",
+    "nl_file": "docs/entries/topology/compact/closed-bdd.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 3（紧致性）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T2",
+    "added_at": "2026-08-21T10:40:22Z",
+    "dependedOnBy": [],
+    "proof_sha": "51df063132186dac"
+  },
+  {
+    "id": "topology.compact.finite",
+    "kind": "theorem",
+    "title": "紧 Hausdorff 的闭紧性",
+    "summary": "T2 中紧集闭；T2 中紧集交仍紧",
+    "family": "topology.compact",
+    "variant": "munkres",
+    "premises": [
+      "topology.compact.def",
+      "topology.separations"
+    ],
+    "mathlib": [
+      "IsCompact.isClosed",
+      "IsCompact.inter"
+    ],
+    "lean_file": "Topology/Compact.lean",
+    "nl_file": "docs/entries/topology/compact/finite.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 3（紧致性与 Hausdorff）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T2",
+    "added_at": "2026-08-21T10:40:22Z",
+    "dependedOnBy": [],
+    "proof_sha": "51df063132186dac"
+  },
+  {
+    "id": "topology.separations",
+    "kind": "theorem",
+    "title": "分离公理 T1/T2/正则",
+    "summary": "T1单点闭；T2极限唯一；T2邻域分离；正则判据；T2⟹T1",
+    "family": "topology.separations",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def"
+    ],
+    "mathlib": [
+      "T1Space",
+      "T2Space",
+      "RegularSpace",
+      "tendsto_nhds_unique",
+      "t2Space_iff_disjoint_nhds",
+      "regularSpace_iff"
+    ],
+    "lean_file": "Topology/Separation.lean",
+    "nl_file": "docs/entries/topology/separations.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Ch 3（分离公理）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-topology-T2",
+    "added_at": "2026-08-21T10:40:22Z",
+    "dependedOnBy": [],
+    "proof_sha": "592a7b2dca9fcfd1"
   }
 ]

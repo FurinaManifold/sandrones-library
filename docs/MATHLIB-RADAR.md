@@ -1062,6 +1062,23 @@
 - **谁在用**：`topology.space.connected`。
 - **坑**：`isConnected_Icc` 需 `[OrderTopology]`（ℝ 满足）；介值定理是连通像推论。
 
+### `IsCompact` / `isCompact_iff_finite_subcover` / `IsCompact.elim_finite_subcover` / `IsCompact.image` / `IsCompact.union` / `isCompact_singleton` / `isCompact_Icc` / `CompactSpace`
+- **人话**：紧集 `IsCompact s`（有限覆盖定义）；有限子覆盖抽取 `elim_finite_subcover`；
+  连续像紧、有限并紧、单点紧；闭区间紧 `isCompact_Icc`；`CompactSpace X` 全空间紧。
+- **签名**：`IsCompact.elim_finite_subcover hs U hUo hsU : ∃ t, s ⊆ ⋃ i∈t, U i`；`isCompact_Icc`
+- **出处**：`Mathlib/Topology/Compactness/`
+- **谁在用**：`topology.compact.def`、`topology.compact.closed-bdd`。
+- **坑**：`IsCompact.image` 需 `Continuous f`（全域），`image_of_continuousOn` 可放宽到 ContinuousOn。
+
+### `IsCompact.isClosed` / `IsCompact.inter` / `T1Space` / `T2Space` / `RegularSpace` / `NormalSpace` / `tendsto_nhds_unique` / `t2Space_iff_disjoint_nhds` / `regularSpace_iff`
+- **人话**：**T2 中紧集闭** `IsCompact.isClosed`、紧集交仍紧 `IsCompact.inter`（都需 `[T2Space]`）；
+  分离公理 T1/T2/正则/正规（Prop）；T2 极限唯一 `tendsto_nhds_unique`；
+  T2 ⟺ 邻域不相交；正则 ⟺ 闭集与点可分离。
+- **签名**：`tendsto_nhds_unique [T2Space X] (ha : Tendsto f l (nhds a)) (hb : Tendsto f l (nhds b)) : a = b`
+- **出处**：`Mathlib/Topology/Separation/`
+- **谁在用**：`topology.compact.finite`、`topology.separations`。
+- **坑**：T1/T2 是 typeclass；`regularSpace_iff X` 需显式 X 参数；T3Space/T4Space 是 T2+正则/正规组合。
+
 ---
 
 ## 附：登记清单自动核对

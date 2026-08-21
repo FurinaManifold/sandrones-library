@@ -1,0 +1,72 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
+import Mathlib
+
+/-!
+# Topology / Separation —— 分离公理（点集拓扑第一学期 T2）
+
+本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
+
+* **topology.separations**（T1 单点闭/T2 极限唯一/T2 邻域分离/正则判据）。
+
+> **语言说明**：点集拓扑阶段（§Phase4）mathlib 的 `T1Space`/`T2Space`/`RegularSpace`/
+> `NormalSpace` 等**教材结构可直接出现在签名**。
+-/
+
+namespace SandronesLibrary
+
+namespace Topology.Separation
+
+/-- **T1 空间中单点集是闭集**：T1 公理等价于"每个单点集闭"（教材核心）。 
+> **Entry**: topology.separations
+-/
+theorem t1_singleton_closed {X : Type*} [TopologicalSpace X] [T1Space X] (x : X) :
+    IsClosed ({x} : Set X) := by
+  exact isClosed_singleton
+
+/-- **T2（Hausdorff）中极限唯一**：Hausdorff 空间中收敛滤子的极限唯一。 
+> **Entry**: topology.separations
+-/
+theorem t2_tendsto_unique {X Y : Type*} [TopologicalSpace X] [T2Space X] [TopologicalSpace Y]
+    {f : Y → X} {l : Filter Y} [l.NeBot] {a b : X}
+    (ha : Filter.Tendsto f l (nhds a)) (hb : Filter.Tendsto f l (nhds b)) : a = b := by
+  exact tendsto_nhds_unique ha hb
+
+/-- **T2 ⟺ 不同点邻域不相交**：X Hausdorff ⟺ 任意两不同点的邻域滤子不相交。 
+> **Entry**: topology.separations
+-/
+theorem t2_iff_disjoint_nhds {X : Type*} [TopologicalSpace X] :
+    T2Space X ↔ Pairwise fun x y : X => Disjoint (nhds x) (nhds y) := by
+  exact t2Space_iff_disjoint_nhds
+
+/-- **正则空间的判据**：RegularSpace ⟺ 闭集与外部点可用不相交邻域分离。 
+> **Entry**: topology.separations
+-/
+theorem regular_iff_closed_nhds {X : Type*} [TopologicalSpace X] :
+    RegularSpace X ↔ ∀ {s : Set X} {a : X}, IsClosed s → a ∉ s →
+      Disjoint (nhdsSet s) (nhds a) := by
+  exact regularSpace_iff X
+
+/-- **T2 ⟹ T1**：Hausdorff 空间是 T1 空间（分离公理层级）。 -/
+theorem t2_implies_t1 {X : Type*} [TopologicalSpace X] [T2Space X] :
+    T1Space X := by
+  infer_instance
+
+/-- **T1 单点闭 ⟺ T1**：每个单点集闭 ⟺ 空间是 T1。 
+> **Entry**: topology.separations
+-/
+theorem t1_iff_singleton_closed {X : Type*} [TopologicalSpace X] :
+    T1Space X ↔ ∀ x : X, IsClosed ({x} : Set X) := by
+  constructor
+  · intro h x
+    exact isClosed_singleton
+  · intro h
+    -- 构造 T1Space：需要每个点 {x} 闭
+    exact ⟨fun x => h x⟩
+
+end Topology.Separation
+
+end SandronesLibrary
