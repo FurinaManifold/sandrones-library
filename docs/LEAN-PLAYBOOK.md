@@ -11,6 +11,18 @@
 
 ---
 
+## 目录（如何用本手册）
+
+- **§0 工作流铁律**：遇到困难时的行动顺序（最该先读，含"做题先列 todo"铁律）。
+- **§1 调试工具**：状态观察 + 编译器反问（`exact?`）+ 快速判据（No goals）+ 构建验证（lake 增量）。
+- **§2 数学意图 ↔ tactic 映射**：**最常用**——想表达什么，就该用什么。含大坑（⋃ binder、if 递归、push Not）。
+- **§3 公理纪律（Classical.choice 最小化）**：哪些 choice 是"数学必需"、哪些是"形式化噪声"，怎么判断。
+- **§4 转正方法论**：mathlib 广泛形式 → 库当前阶段的教材陈述（库建设的核心工序）。
+- **§5 实战教训日志**：一次性具体坑，按时间登记，附出处。
+- **§6 从 mathlib 现成证明学 tactic**、**§7 self-harness 闭环**。
+
+---
+
 ## 0. 工作流铁律（Step 3 遇到困难时，按此顺序）
 
 1. **读懂目标**：用自然语言把当前目标翻译成一句话（"我要证 X 属于某个并"、"我要把这个等式改成已展开的形式"）。先想清楚数学意图，再选 tactic。
@@ -19,13 +31,23 @@
    - 用 `#check <名字>` 看定理的**精确类型签名**（参数顺序、隐式参数、返回类型）。
    - 找到一段用 `ext` / `rcases` / `rw` / `simpa` 等策略的现成证明，**观察它使用前后目标的变化**。
 3. **用小实验验证理解**：在 `/tmp/opencode/*.lean` 写最小复现，确认"我以为的语义"确实成立，再把结论写回正式文件。
-4. **登记教训**：如果这次困难/解法值得保留，按 §3 格式追加到本 Playbook，并 commit。
+4. **做题先列 todo：一道定理 = 一个微项目，一次 edit 只喂一条引理**（由原 §3.11 提升）：
+   - **任何含 3+ 个辅助引理再组装的证明（哪怕"看起来就一条定理"）**，动笔前必列子 todo，
+     把辅助引理逐条单列（如：反函数严格单调、f(g y)=y、保序、子类型度量）。
+   - 写大定理前先在文件里立下 `/- 引理清单 -/` 注释（含每个引理的类型签名），
+     等于把"思维脚手架"固化下来，不用每轮重推。
+   - **禁止一次性写超长证明块再编译**。每条辅助引理先在 `/tmp` 独立测试通过，
+     再进主文件；主证明逐段组装、每段编译。
+   - 中途**严禁留 `sorry`**：敢留一个，下一个错误就离它十万八千里。
+   - 每轮只动一个最小可验证单元（小引理 / 主定理的分支），跑 `lean` 无错即完成一项。
+   - **命名先查是否撞 mathlib**（如 `inv_apply` 撞 `IsInvApply` 操作符），加独特前缀（`mono_inv_*`）。
+5. **登记教训**：如果这次困难/解法值得保留，按 §5 格式追加到本 Playbook，并 commit。
 
 > 一句话：**先理解语义，再写代码；写完代码，沉淀经验。**
 
 ---
 
-## 1. 调试工具（状态观察）
+## 1. 调试工具（状态观察 + 编译器反问 + 快速判据）
 
 | 工具 | 作用 | 例子 |
 |---|---|---|
@@ -35,7 +57,52 @@
 | `set_option pp.all true` | 显示所有隐式参数与类型（排错时） | 行首加一行再编译 |
 | `set_option pp.universes true` | 显示类型宇宙 | 诊断多态不匹配时 |
 | `#print axioms <名>` | 检查证明依赖了哪些公理 | 确认没有意外使用 `sorry`/`Classical` |
+| `exact?` / `apply?` / `rw?` | **问编译器要候选**：不匹配时直接反问，常给可粘贴答案 | 见 §1.1 |
 | 临时 `example` | 在 `/tmp/opencode/` 做最小复现 | 见 §2.1 |
+
+### 1.1 `exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器（由原 §3.17 提升）
+
+- 症状：`exact <某引理/项>` 报 `Application type mismatch` 或 `expected to have type`，
+  你手头这个项"看起来对"但 Lean 不认。多半是**参数顺序/隐式参数/函数 vs 值的结构**对不上，
+  而不是缺证明——这类用肉眼看很费时。
+- 对策：把该行换成 `exact?`（或 `apply?`、`rw?`），Lean 会在可用引理里搜索并给出
+  **可直接粘贴的完整命令**（常带 `Try this: ...`）。它特别擅长发现：
+  - 该用 `.mp`/`.mpr`、`Eq.symm` 的方向问题；
+  - 需要先 `change`/`dsimp` 让类型 definitional 对齐；
+  - 正确的引理名或参数写法（如 `IsCompact.image hK hf` 该给哪个 `Continuous`）。
+- 与 §0 的顺序配合：先 `exact?` 拿到候选，再人工核对语义对不对，再粘贴——不要盲抄。
+- 反例（浪费时间）：在 `exact` 上手动调参/加 `by`/拆解参数来回试，不如一次 `exact?`。
+- 出处：第五章（Continuity 最值定理：`IsCompact.image` 需要全域 `Continuous f`，
+  而 `ContinuousOn.restrict hf` 给的是子类型连续——`exact?` 会指向 `ContinuousOn.domRestrict`
+  与正确的像-非空-存在极值组合）。
+
+### 1.2 `No goals to be solved`：直接把多余的 tactic 删掉，别干别的（由原 §3.14 提升）
+
+- 症状：某一行（常是 `exact …` / `rfl` / `nlinarith`）报 `error: No goals to be solved`。
+- 语义：**goal 在上一行就已经被关掉了**，你这一行是多余的。前面某个 tactic（常见 `rw [dif_pos h]`/`rw [dif_neg h]`、`simp`、`omega`）
+  已经把目标证明完，剩下的 tactic 找不到目标可证，于是报错。
+- 正确做法：**删掉这一行多余的 tactic**，重新编译。一行即可解决。
+- 反例（浪费时间的错误走法）：看到 `No goals to be solved` 就去怀疑定义、给谓词加 `@[irreducible]`、改 def、
+  排查 rw 失配。结果引入连环新错（`intro h` 打不开 `¬∃`、重复声明、`Did not find dite`）。
+  这全是"目标早已关闭"这一个简单事实引发的连锁误判。
+- 铁律：报 `No goals to be solved` ⟹ 先删多余行；只有删完仍 `unsolved goals` 才回头找真正的证明缺口。
+- 出处：第三章第五批（NIT→FC，halfbiseq_left_mono_step / right_antitone_step）。
+
+### 1.3 `lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新（由原 §3.10 提升）
+
+- 现象：`lake build` 显示成功，但外部测试文件 `import SandronesLibrary` 里
+  `#check` / `#print axioms` **新加的定理报 unknown identifier**；旧定理却一切正常。
+- 破局方法（三分校准）：
+  1. 最小复现：单条 `#check <全限定名>` 单独验证，确认不是批量脚本造成。
+  2. 对照：`#check` 旧定理（同命名空间）仍能解析 → 排除"命名空间写错/改名"。
+  3. 隔离 olean：把 `#print axioms` **临时写进源码文件本身**编译 → 若成功，
+     说明源文件内容与命名没问题，问题在**顶层模块的 olean 缓存的导入依赖过期**。
+- 根治：删顶层缓存（`rm .lake/build/lib/lean/SandronesLibrary*.olean`）后 `lake build`，
+  或直接 `lake build SandronesLibrary` 强制重编顶层；此后测试文件正常。
+- 语义：lean 顶层 olean 含其 import 的依赖信息，lake 增量追踪对"源文件没变"
+  的顶层常常跳过重建，导致体验 import 到旧依赖。**凡是改了被子模块 import 的源，
+  都应强制重编顶层后再跑外部 `#check`/`#print axioms`。**
+- 出处：第三章第四批（len analysis.sequence 四新定理），实验文件 /tmp/opencode/ax2.lean。
 
 ## 2. 常见"数学意图 ↔ tactic"映射
 
@@ -47,6 +114,8 @@
 - 语义：外延性——"逐元素核对"。
 - 用法：`ext x` 后目标变成元素层命题。
 - 反例：目标是**包含** `A ⊆ B` 时不用 `ext`，展开 `∀ x, x ∈ A → x ∈ B`（`Set.subset_def`）。
+- 集合恒等式的完整演示套路：先 `ext`，再 `constructor`（双向），每边用 `rintro`/`rcases`
+  拆合取与析取，元素层组装（见 §5.2 案例 `inter-distrib`）。
 
 ### 2.2 目标含存在量词 → 构造 witness
 
@@ -56,7 +125,7 @@
   - `use x`（给出 witness，目标变为证明 P(x)）
   - `refine ⟨x, ?_⟩`（等价写法）
   - `exact ⟨x, hx⟩`（如果一切就绪）
-- **教训 §3.1**：当 `rcases`/`obtain` 无法从已有存在命题提取 witness 时，用 `.choose` + `.choose_spec`。
+- **教训 §5.1**：当 `rcases`/`obtain` 无法从已有存在命题提取 witness 时，用 `.choose` + `.choose_spec`。
 
 ### 2.3 手头有存在命题，想取出里面的东西 → `rcases` / `obtain` / `rintro`
 
@@ -100,7 +169,7 @@
   - `rw [h]`：**句法替换**——把目标里出现的 h 左边整体换成右边。找不到匹配就失败。
   - `simp [h, def_name]`：用等式 + 定义做规范化（重写 + 化简）。
   - `simpa [def_name] using h`：把 h 用定义规范化后，`exact` 到当前目标。
-- **教训 §3.2**：`rw` 不做"定义展开"。目标是 `(g ∘ f) a = c` 时，
+- **教训 §5.2**：`rw` 不做"定义展开"。目标是 `(g ∘ f) a = c` 时，
   `rw` 找不到 `g (f a)`——先 `simpa [Function.comp]` 或 `change g (f a) = c`。
 
 ### 2.9 双向蕴含（当且仅当）→ `constructor` 两半
@@ -114,159 +183,7 @@
 - 复合：`(g ∘ f) x` 就是 `g (f x)`（`Function.comp`）。
 - 函数相等：`f = g` ↔ `∀ x, f x = g x`，用 `funext x`（函数外延性）。
 
-## 3. 实战教训（本库踩过的坑，按时间登记）
-
-> 登记格式：**症状 → 诊断（语义层面为什么）→ 解法 → 出处（哪个条目）**。
-
-### 3.1 `rcases`/`obtain` 无法从存在命题提取 witness
-
-- **症状**：`rcases exists_nat_gt (y / x) with ⟨n, hn⟩` 后，目标**仍然是存在量词**（`∃ n, ...`），完全没消掉；`obtain` 同样失败。编译报 "Type mismatch ... expected `∃ n, ...`"。
-- **诊断（语义）**：`rcases` 依赖对 `∃ n, ...` 结构的模式匹配。在 mathlib 4.33 的某个返回类型带隐式类型参数的存在命题上，析构没有生效。语义上等于"想从盒子里取东西，但盒子没打开"。
-- **解法**：绕过模式匹配，直接取 witness：
-  ```lean
-  let n := (exists_nat_gt (y / x)).choose   -- 取那个存在的自然数
-  use n
-  exact (div_lt_iff₀ hx).mp (exists_nat_gt (y / x)).choose_spec
-  ```
-  `.choose` 提取 witness，`.choose_spec` 给出它满足的性质。语义直白："它存在，就把它挑出来用"。
-- **出处**：`analysis.real.archimedean`。
-
-### 3.2 `rw` 找不到复合记号的匹配
-
-- **症状**：目标是 `(g ∘ f) a = c`，`rw [ha, hb]` 报 "Did not find an occurrence of the pattern"。
-- **诊断（语义）**：`g ∘ f` 是 `Function.comp` 的**记号缩写**，`rw` 只做句法替换、不展开定义。语义上等于"你让我替换 'AB'，但文件里写的是 'A·B'（一个记号）"。`rw` 看不见未展开的定义。
-- **解法**：先展开或用会展开的策略：
-  ```lean
-  exact ⟨a, by simpa [Function.comp] using (congrArg g ha).trans hb⟩
-  -- 或更直白：
-  change g (f a) = c          -- 把目标改写为展开后的写法
-  rw [ha, hb]
-  ```
-- **语义理解**：`congrArg g ha` 给 `g (f a) = g b`（把等式 ha 两边同套 g），`.trans hb` 接上 `g b = c`，`simpa [Function.comp]` 用定义把 `(g∘f) a` 规约成 `g (f a)`。三步都是"自然语言一句话"的翻译。
-- **出处**：`settheory.function.surj-comp`。
-
-### 3.3 `div_lt_iff₀` 的方向（.mp vs .mpr）
-
-- **症状**：初学容易把 `(div_lt_iff₀ hx)` 用在错误方向。
-- **诊断（语义）**：`div_lt_iff₀ hc : (b / c < a) ↔ b < a * c`。`.mp` 取正向（除式 → 乘式），`.mpr` 取反向。它等价于"除以正数不改变序"，但**只对 c > 0** 成立（前提 `hc`）。
-- **解法**：把前提（`hx : 0 < x`）作为参数传给定理，再取方向。
-- **出处**：`analysis.real.archimedean`。
-
-### 3.4 集合恒等式：先 `ext`，再分派逻辑
-
-- **症状**：想直接"套用"集合层定理但手头只有 mathlib 的 `Set.inter_union_distrib_left` 名字对不上，或想演示证明过程。
-- **诊断（语义）**：集合等式在语义上就是"逐元素的双向属于"，逻辑层（`∧`/`∨`）的分配律承担实质工作。集合层没有任何额外的结构。
-- **解法**：`ext x` → `constructor`（双向）→ 每边用 `rintro`/`rcases` 拆合取与析取 → 元素层组装。见 `settheory.set.operations.inter-distrib` 的完整演示。
-- **出处**：`settheory.set.operations.inter-distrib`。
-
-### 3.5 `rw [mathlib 定理]` 可能悄悄引入 `Classical.choice`（公理最小化）
-
-- **症状**：`#print axioms` 显示定理依赖 `Classical.choice`，但教科书证明根本没用到选择公理。
-- **诊断（语义）**：`rw [Set.compl_union]` 这类"引用 mathlib 现成定理"会把该定理**证明路径
-  上的一切公理**带进本定理。mathlib 里不少看似平凡的引理是经典化的（尽管结论构造性可证）——
-  choice 不是"这条定理需要"，而是"这条证明路径经过"。
-- **解法**：换成不借道的构造性证明。集合恒等式用 §2.1 的 `ext x` + 逐元素 `Or`/`And`
-  消解，往往就能构造性完成。
-- **先判来源再动手**：`complement-inter` 的 `¬(P∧Q)→¬P∨¬Q` **数学上**等价于排中律，
-  改写无效。口诀：**先分"数学必需"还是"形式化噪声"，噪声才值得改写。**
-- **出处**：`settheory.set.operations.complement-union`（改写后 axioms = `[propext, Quot.sound]`）。
-
-### 3.6 `ext` 后的"缺一个方向"往往是排中律缺口
-
-- **症状**：`ext` 拆完双向，其中一个方向（常常是"否定之析取"或"析取之否定"）怎么都推不动，
-  `rcases`/`constructor` 走到一半目标还原地踏步。
-- **诊断（语义）**：目标形如 `¬P ∨ ¬Q`（从 `¬(P∧Q)` 来）——这在直觉主义逻辑里没有证明，
-  因为要"决定 P 还是 ¬P"。它等价于排中律。不是 tactic 不对，是数学上不可证。
-- **解法**：接受 `Classical.choice`（`by_cases h : P` 分路），并在叙述层注明"经典必需"；
-  不要把时间耗在不可能的构造性路径上。
-- **出处**：`settheory.set.operations.complement-inter`。
-
-### 3.7 `ℝ` 的序结构实例本身带 `Classical.choice`（结构底线，不可削减）
-
-- **症状**：连 `rfl`/`infer_instance` 的证明，`#print axioms` 都报告 `Classical.choice`；
-  且是**类型里含 `ℝ` 的 `≤`/`<`** 时出现。
-- **诊断（语义）**：`#print axioms` 会把定理类型里出现的 reducible 常量 delta 展开。
-  mathlib 4.33 的 `ℝ` 序实例（`instLEReal` 等）**定义体**是经典构造的
-  （构造顺序：`conditionallyCompleteLinearOrder` → `LinearOrder` 用 `by classical`）。
-  于是 `a ≤ b ↔ a ≤ b := by rfl`（证明体就是 `Iff.rfl`，零公理）仍报告 choice。
-- **对照实验**（决定"能否最小化"的关键判据）：
-  ```
-  t9  (a b : ℝ) : a ≤ b ↔ a ≤ b := by rfl   → [propext, Classical.choice, Quot.sound]
-  t10 (a b : ℕ) : a ≤ b ↔ a ≤ b := by rfl   → []（零公理）
-  t11 (s : Set ℚ) : BddAbove s ↔ ... := by rfl → []（零公理）
-  ```
-  只有 `ℝ` 中招，`ℕ`/`ℚ` 干净。
-- **结论**：涉及 **ℝ 序性质**的条目，`Classical.choice` 是**结构必需**、无法削减——
-  这不是形式化噪声，别浪费时间改写（除非重建整个 ℝ 的构造性实现）。
-  公理最小化只适用于"同一结构上下文内避免借用额外经典引理"（§3.5 案例）。
-- **出处**：`analysis.real.*`（第二章第一批，全部带 choice 均属此类）。
-
-### 3.8 判断"能否削减 choice"的最小实验模板
-
-- 目标：某 ℝ 序条目带 choice，想知道是否可削减。
-- 步骤：写一个**无证明难度的极简对照**（如 `a ≤ b ↔ a ≤ b := by rfl`），
-  `#print axioms`；若它已带 choice，则你的条目里的 choice 是结构性的，接受并注明。
-- 语义：**先确认"地板"本身带不带公理，再决定要不要擦地板。**
-- 出处：`analysis.real.*`。
-
-### 3.9 `Setoid` 的 `≈` 与 `#print axioms` 盲区（诚实比零公理重要）
-
-- 现象：`f ≈ f`（`CauSeq ℚ` 上）带 `Classical.choice`，即使证明体是纯 ε-δ 构造。
-- 根源：`≈` 是 `CauSeq.equiv`（instance，reducible 展开）的 `Rel` 字段，
-  展开会把**实例内置证明**（mathlib 的 `LimZero` 证明路径，用 classical）计入 axiom 集。
-  这是"引用现成 Setoid 实例"的库开销，不是本条目新增的数学公理。
-- 陷阱：把类型改写为结构投影 `CauSeq.equiv.Rel f f`，`#print axioms` 报**零公理**。
-  **这是漏报，不是真零**——投影非 reducible，#print axioms 不再展开就停止报告。
-  **禁用**：不能用投影改写来"伪装零公理"，违背公理透明的系统性求真。
-  对照：同一证明体，`LimZero (f - f)` 与 `f ≈ f` 都带 choice；只有投影形式报零。
-- 正确做法：诚实保留 ≈/LimZero 形式，在叙述层注明
-  "choice 来源是 `CauSeq.equiv` 实例内部（mathlib 的 LimZero 证明），非本条目内容"。
-- 出处：`analysis.real.construction-cauchy`（实验文件 /tmp/opencode/pb.lean）。
-
-### 3.10 `lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新
-
-- 现象：`lake build` 显示成功，但外部测试文件 `import SandronesLibrary` 里
-  `#check` / `#print axioms` **新加的定理报 unknown identifier**；旧定理却一切正常。
-- 破局方法（三分校准）：
-  1. 最小复现：单条 `#check <全限定名>` 单独验证，确认不是批量脚本造成。
-  2. 对照：`#check` 旧定理（同命名空间）仍能解析 → 排除"命名空间写错/改名"。
-  3. 隔离 olean：把 `#print axioms` **临时写进源码文件本身**编译 → 若成功，
-     说明源文件内容与命名没问题，问题在**顶层模块的 olean 缓存的导入依赖过期**。
-- 根治：删顶层缓存（`rm .lake/build/lib/lean/SandronesLibrary*.olean`）后 `lake build`，
-  或直接 `lake build SandronesLibrary` 强制重编顶层；此后测试文件正常。
-- 语义：lean 顶层 olean 含其 import 的依赖信息，lake 增量追踪对"源文件没变"
-  的顶层常常跳过重建，导致体验 import 到旧依赖。**凡是改了被子模块 import 的源，
-  都应强制重编顶层后再跑外部 `#check`/`#print axioms`。**
-- 出处：第三章第四批（len analysis.sequence 四新定理），实验文件 /tmp/opencode/ax2.lean。
-
-### 3.11 做题也要列 todo：一道定理 = 一个微项目，一次 edit 只喂一条引理
-
-- 现象：写"闭区间套 ⟹ 有限覆盖"这种 C 类大定理时，把
-  （二分定义 + 长度引理 + 保序引理 + 保"无有限子覆盖"引理 + 主定理）**整块塞进
-  一次 Edit**，结果十余个错误连环爆炸（syntax + 未知名 + 类型不匹配 + 方向错误），
-  且中途还留下了 `sorry` 占位，把自己拖进"修到你烦"的泥潭。
-- 教训：**把证明方案先写成 todo list，一条引理一个 item，逐条 edit + 编译通过再下一条。**
-  - 写大定理前先在文件里立下 `/- 引理清单 -/` 注释（含每个引理的类型签名），
-    等于把"思维脚手架"固化下来，不用每轮重推。
-  - 每轮只动一个最小可验证单元（小引理 / 主定理的分支），跑 `lean` 无错即完成一项。
-  - 中途**严禁留 `sorry`**：敢留一个，下一个错误就离它十万八千里。
-- 与 §3.10 的区别：§3.10 是"改完才编"的增量缓存陷阱；§3.11 是"一次喂太多"
-  的注意广度陷阱。两者的共同解法都是**缩小验证单元、及时编译**。
-- 出处：第三章第五批（analysis.completeness 等价环第三道 NIT→FC）。
-
-> **复发复盘（反函数连续）**：这条定理我一开始没列子 todo，一头扎进 ε-δ 细节，
-> 写了超长证明块（`inv_main.lean`）一次性编译，来回试 `min_le_left/right` 方向、
-> 子类型 dist、命名冲突，消耗多轮。直到用户提醒才列子 todo。
-> **强化规则**：
-> 1. **任何含 3+ 个辅助引理再组装的证明（哪怕"看起来就一条定理"）**，动笔前必列子 todo，
->    把辅助引理（如：反函数严格单调、f(g y)=y、保序、子类型度量）逐条单列。
-> 2. **禁止一次性写超长证明块再编译**。每条辅助引理先在 `/tmp` 独立测试通过，
->    再进主文件；主证明逐段组装、每段编译。
-> 3. **方向类引理（min_le_left/right、mp/mpr、正向/反向 rw）不确定时**先 `exact?` 或 `#check`
->    看签名，别来回试。
-> 4. 命名先查是否撞 mathlib（`inv_apply` 撞 `IsInvApply` 操作符），加独特前缀（`mono_inv_*`）。
-
-### 3.12 `⋃ i ∈ t, U i`（t : Finset）会把绑定变量绑架成 `Set ℝ` —— 改用纯 ∃ 描述
+### 2.11 `⋃ i ∈ t, U i`（t : Finset）会把绑定变量绑架成 `Set ℝ` —— 改用纯 ∃ 描述（由原 §3.12 提升）
 
 - 现象：`x ∈ ⋃ i ∈ t, U i`（`t : Finset ι`）被反复解构时，`rcases` 给出的
   `i` 类型是 `Set ℝ`，目标是诡异的 `i ∈ Set.range fun i => ⋃ (_ : i ∈ t), U i`；
@@ -278,15 +195,23 @@
   （= "存在有限 t 使每点都被 t 里某片盖住"）。∃/∀ 的 `∈` 记法很稳，
   `rcases` 直接给出 `hit : i ∈ t`（Finset 成员），配 `Finset.mem_union_left` 无摩擦。
 - 推广：任何"big ∪/∩ 带 ∈ binder 且集合是 Finset"的命题，写完先想好解构路径。
-- 方法论（用户强调）：**一小段证明从失败改到成功，当场就把坑写进 Playbook**，
-  不要攒到最后凭记忆 batch——记忆会蒸发，Playbook 不会。
 - 补充（无 Finset 也会踩）：`rcases` 直接解构 `x ∈ ⋃ i, U i`（U : ι → Set ℝ，**无** ∈ binder）
   给出的 `i₀` 类型是 `Set ℝ`、`hxi₀ : (i₀ ∈ Set.range fun i => U i) ∧ x ∈ i₀`，
   后续 `hUo i₀` 立刻类型失配。对策：先 `Set.mem_iUnion.mp`（或 `(Set.mem_iUnion.mp h)`）
   拿到 `∃ i : ι, x ∈ U i` 再 `rcases`。`Set.mem_iUnion` 知道正确类型，绕过绑架。
 - 出处：第三章第五批（analysis.completeness 等价环 NIT→FC，finite_cover_halves / 主定理）。
 
-### 3.13 带 `if` 的递归 def：`by_cases` + `simp only` + `dif_pos/dif_neg`
+### 2.12 构造 `⋃ c ∈ s, t c` 的元素用 `Set.mem_biUnion`；无限子集的枚举用 `Set.Infinite.exists_gt`（由原 §3.16 提升）
+
+- 构造 `n ∈ ⋃ c ∈ s, t c`（s : Set ι）时，别用 `rcases` 式嵌套 `⟨c, hc, ht⟩`（会把 c 绑成 `Set`，
+  报 `expected Set ℕ`）。用 `Set.mem_biUnion`：`Set.mem_biUnion (hc : c ∈ s) (ht : n ∈ t c)`。
+  例（鸽笼覆盖）：`Set.mem_biUnion ⟨n, rfl⟩ rfl : n ∈ ⋃ c ∈ Set.range u, {m | u m = c}`。
+- `Set.Infinite.exists_gt (hs : s.Infinite) (a) : ∃ b ∈ s, a < b`——无限子集在任意 a 之后还有元素；
+  配 `Nat.exists_strictMono_subsequence (h : ∀ N, ∃ n > N, P n)` 得到 `StrictMono φ ∧ ∀ n, P (φ n)`。
+- `Set.Infinite s` 与 `¬ s.Finite` 是 definitional 相等：`h : ¬ s.Finite` 直接就是 `s.Infinite`，勿再 `not_not.mp`。
+- 出处：第三章第五批（AccPt→Cauchy 的 `cauchySeq_tendsto_of_finite_range`）。
+
+### 2.13 带 `if` 的递归 def：`by_cases` + `simp only` + `dif_pos/dif_neg`（由原 §3.13 提升）
 
 - 场景：想证明某种 `def halfbiseq … | 0 => … | n+1 => let (l,r) := … in if _h : P l r then (l, m) else (m, r)` 的性质，
   需要在任意 `n+1` 处按 `if` 分两支。
@@ -308,19 +233,7 @@
   `if h : c then a else b`（`dite`，h 在分支可用）配 `dif_pos/dif_neg`。
 - 出处：第三章第五批（NIT→FC，halfbiseq_length_step）。
 
-### 3.14 `No goals to be solved`：直接把多余的 tactic 删掉，别干别的
-
-- 症状：某一行（常是 `exact …` / `rfl` / `nlinarith`）报 `error: No goals to be solved`。
-- 语义：**goal 在上一行就已经被关掉了**，你这一行是多余的。前面某个 tactic（常见 `rw [dif_pos h]`/`rw [dif_neg h]`、`simp`、`omega`）
-  已经把目标证明完，剩下的 tactic 找不到目标可证，于是报错。
-- 正确做法：**删掉这一行多余的 tactic**，重新编译。一行即可解决。
-- 反例（浪费时间的错误走法）：看到 `No goals to be solved` 就去怀疑定义、给谓词加 `@[irreducible]`、改 def、
-  排查 rw 失配。结果引入连环新错（`intro h` 打不开 `¬∃`、重复声明、`Did not find dite`）。
-  这全是"目标早已关闭"这一个简单事实引发的连锁误判。
-- 铁律：报 `No goals to be solved` ⟹ 先删多余行；只有删完仍 `unsolved goals` 才回头找真正的证明缺口。
-- 出处：第三章第五批（NIT→FC，halfbiseq_left_mono_step / right_antitone_step）。
-
-### 3.15 两个小陷阱：`push_neg` 已弃用；`Type*` 在 `def X : Prop` 里会卡 universe
+### 2.14 两个小陷阱：`push_neg` 已弃用；`Type*` 在 `def X : Prop` 里会卡 universe（由原 §3.15 提升）
 
 - `push_neg` 在 lean 4.33 已弃用，改用 `push Not`（`push Not at h` / `push Not`）。
   语义同 push_neg：把 `¬∀` 推成 `∃¬`、`¬∃` 推成 `∀¬`、`¬(P∧Q)` 推成 `P→¬Q`。
@@ -329,34 +242,79 @@
   `ℝ has type Type but expected Type u_1`。凡"Prop 里显式量化的指标类型"直接写 `Type`
   （Sort 1，覆盖 ℝ/ℕ/普通类型）即可，别用 `Type*`。
 - 出处：第三章第五批（NIT→FC 主定理；FC→AccPt 的 `accumulation_point_of_finite_cover`）。
+## 3. 公理纪律（Classical.choice 最小化）（由原 §3.5–3.9 提升合并）
 
-### 3.16 构造 `⋃ c ∈ s, t c` 的元素用 `Set.mem_biUnion`；无限子集的枚举用 `Set.Infinite.exists_gt`
+> **总原则**：遇到条目带 `Classical.choice`，先分清是"**数学必需**"还是"**形式化噪声**"——
+> 只有噪声才值得改写。判别三连：
+> 1. 是不是 `ℝ` 序结构本身？（是 ⟹ 结构性 choice，接受，见 §3.3）
+> 2. 结论是否数学上等价于排中律/选择？（是 ⟹ 经典必需，接受，见 §3.2）
+> 3. 是我引用了某条经典化的 mathlib 定理借道进来的吗？（是 ⟹ 换构造性证明路径，见 §3.1）
 
-- 构造 `n ∈ ⋃ c ∈ s, t c`（s : Set ι）时，别用 `rcases` 式嵌套 `⟨c, hc, ht⟩`（会把 c 绑成 `Set`，
-  报 `expected Set ℕ`）。用 `Set.mem_biUnion`：`Set.mem_biUnion (hc : c ∈ s) (ht : n ∈ t c)`。
-  例（鸽笼覆盖）：`Set.mem_biUnion ⟨n, rfl⟩ rfl : n ∈ ⋃ c ∈ Set.range u, {m | u m = c}`。
-- `Set.Infinite.exists_gt (hs : s.Infinite) (a) : ∃ b ∈ s, a < b`——无限子集在任意 a 之后还有元素；
-  配 `Nat.exists_strictMono_subsequence (h : ∀ N, ∃ n > N, P n)` 得到 `StrictMono φ ∧ ∀ n, P (φ n)`。
-- `Set.Infinite s` 与 `¬ s.Finite` 是 definitional 相等：`h : ¬ s.Finite` 直接就是 `s.Infinite`，勿再 `not_not.mp`。
-- 出处：第三章第五批（AccPt→Cauchy 的 `cauchySeq_tendsto_of_finite_range`）。
+### 3.1 `rw [mathlib 定理]` 可能悄悄引入 `Classical.choice`（公理最小化）
 
-### 3.17 `exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器
+- **症状**：`#print axioms` 显示定理依赖 `Classical.choice`，但教科书证明根本没用到选择公理。
+- **诊断（语义）**：`rw [Set.compl_union]` 这类"引用 mathlib 现成定理"会把该定理**证明路径
+  上的一切公理**带进本定理。mathlib 里不少看似平凡的引理是经典化的（尽管结论构造性可证）——
+  choice 不是"这条定理需要"，而是"这条证明路径经过"。
+- **解法**：换成不借道的构造性证明。集合恒等式用 §2.1 的 `ext x` + 逐元素 `Or`/`And`
+  消解，往往就能构造性完成。
+- **先判来源再动手**：`complement-inter` 的 `¬(P∧Q)→¬P∨¬Q` **数学上**等价于排中律，
+  改写无效。口诀：**先分"数学必需"还是"形式化噪声"，噪声才值得改写。**
+- **出处**：`settheory.set.operations.complement-union`（改写后 axioms = `[propext, Quot.sound]`）。
 
-- 症状：`exact <某引理/项>` 报 `Application type mismatch` 或 `expected to have type`，
-  你手头这个项"看起来对"但 Lean 不认。多半是**参数顺序/隐式参数/函数 vs 值的结构**对不上，
-  而不是缺证明——这类用肉眼看很费时。
-- 对策：把该行换成 `exact?`（或 `apply?`、`rw?`），Lean 会在可用引理里搜索并给出
-  **可直接粘贴的完整命令**（常带 `Try this: ...`）。它特别擅长发现：
-  - 该用 `.mp`/`.mpr`、`Eq.symm` 的方向问题；
-  - 需要先 `change`/`dsimp` 让类型 definitional 对齐；
-  - 正确的引理名或参数写法（如 `IsCompact.image hK hf` 该给哪个 `Continuous`）。
-- 与 §0 的顺序配合：先 `exact?` 拿到候选，再人工核对语义对不对，再粘贴——不要盲抄。
-- 反例（浪费时间）：在 `exact` 上手动调参/加 `by`/拆解参数来回试，不如一次 `exact?`。
-- 出处：第五章（Continuity 最值定理：`IsCompact.image` 需要全域 `Continuous f`，
-  而 `ContinuousOn.restrict hf` 给的是子类型连续——`exact?` 会指向 `ContinuousOn.domRestrict`
-  与正确的像-非空-存在极值组合）。
+### 3.2 `ext` 后的"缺一个方向"往往是排中律缺口
 
-### 3.18 "转正"（Promote to Textbook Form）：mathlib 广泛形式 → 库当前阶段的教材陈述
+- **症状**：`ext` 拆完双向，其中一个方向（常常是"否定之析取"或"析取之否定"）怎么都推不动，
+  `rcases`/`constructor` 走到一半目标还原地踏步。
+- **诊断（语义）**：目标形如 `¬P ∨ ¬Q`（从 `¬(P∧Q)` 来）——这在直觉主义逻辑里没有证明，
+  因为要"决定 P 还是 ¬P"。它等价于排中律。不是 tactic 不对，是数学上不可证。
+- **解法**：接受 `Classical.choice`（`by_cases h : P` 分路），并在叙述层注明"经典必需"；
+  不要把时间耗在不可能的构造性路径上。
+- **出处**：`settheory.set.operations.complement-inter`。
+
+### 3.3 `ℝ` 的序结构实例本身带 `Classical.choice`（结构底线，不可削减）
+
+- **症状**：连 `rfl`/`infer_instance` 的证明，`#print axioms` 都报告 `Classical.choice`；
+  且是**类型里含 `ℝ` 的 `≤`/`<`** 时出现。
+- **诊断（语义）**：`#print axioms` 会把定理类型里出现的 reducible 常量 delta 展开。
+  mathlib 4.33 的 `ℝ` 序实例（`instLEReal` 等）**定义体**是经典构造的
+  （构造顺序：`conditionallyCompleteLinearOrder` → `LinearOrder` 用 `by classical`）。
+  于是 `a ≤ b ↔ a ≤ b := by rfl`（证明体就是 `Iff.rfl`，零公理）仍报告 choice。
+- **对照实验**（决定"能否最小化"的关键判据）：
+  ```
+  t9  (a b : ℝ) : a ≤ b ↔ a ≤ b := by rfl   → [propext, Classical.choice, Quot.sound]
+  t10 (a b : ℕ) : a ≤ b ↔ a ≤ b := by rfl   → []（零公理）
+  t11 (s : Set ℚ) : BddAbove s ↔ ... := by rfl → []（零公理）
+  ```
+  只有 `ℝ` 中招，`ℕ`/`ℚ` 干净。
+- **结论**：涉及 **ℝ 序性质**的条目，`Classical.choice` 是**结构必需**、无法削减——
+  这不是形式化噪声，别浪费时间改写（除非重建整个 ℝ 的构造性实现）。
+  公理最小化只适用于"同一结构上下文内避免借用额外经典引理"（§3.1 案例）。
+- **出处**：`analysis.real.*`（第二章第一批，全部带 choice 均属此类）。
+
+### 3.4 判断"能否削减 choice"的最小实验模板
+
+- 目标：某 ℝ 序条目带 choice，想知道是否可削减。
+- 步骤：写一个**无证明难度的极简对照**（如 `a ≤ b ↔ a ≤ b := by rfl`），
+  `#print axioms`；若它已带 choice，则你的条目里的 choice 是结构性的，接受并注明。
+- 语义：**先确认"地板"本身带不带公理，再决定要不要擦地板。**
+- 出处：`analysis.real.*`。
+
+### 3.5 `Setoid` 的 `≈` 与 `#print axioms` 盲区（诚实比零公理重要）
+
+- 现象：`f ≈ f`（`CauSeq ℚ` 上）带 `Classical.choice`，即使证明体是纯 ε-δ 构造。
+- 根源：`≈` 是 `CauSeq.equiv`（instance，reducible 展开）的 `Rel` 字段，
+  展开会把**实例内置证明**（mathlib 的 `LimZero` 证明路径，用 classical）计入 axiom 集。
+  这是"引用现成 Setoid 实例"的库开销，不是本条目新增的数学公理。
+- 陷阱：把类型改写为结构投影 `CauSeq.equiv.Rel f f`，`#print axioms` 报**零公理**。
+  **这是漏报，不是真零**——投影非 reducible，#print axioms 不再展开就停止报告。
+  **禁用**：不能用投影改写来"伪装零公理"，违背公理透明的系统性求真。
+  对照：同一证明体，`LimZero (f - f)` 与 `f ≈ f` 都带 choice；只有投影形式报零。
+- 正确做法：诚实保留 ≈/LimZero 形式，在叙述层注明
+  "choice 来源是 `CauSeq.equiv` 实例内部（mathlib 的 LimZero 证明），非本条目内容"。
+- 出处：`analysis.real.construction-cauchy`（实验文件 /tmp/opencode/pb.lean）。
+
+## 4. 转正方法论（Promote to Textbook Form）：mathlib 广泛形式 → 库当前阶段的教材陈述（由原 §3.18 提升）
 
 - **定义**："转正" = 一个**教材上的重要结果**，在 mathlib 里可能只以**很广泛/抽象的形式**存在
   （如 `Module.finrank`、`Submodule.span_le`、`IsCompact` 的某引理），但我们的库还没用
@@ -378,17 +336,63 @@
        **`:= by` 前不出现 mathlib 广泛名**（`Module.*`、`Submodule`、`LinearIndependent`…）。
      - 高级结构只允许出现在证明内部（或作为"此概念是 mathlib 某概念的实例"的旁注）。
   4. **证明**：优先基础/教材办法（纯 det、纯 ε-N、纯集合论）；能绕开多项式环/环同态等
-     更广泛结构就绕开（§3.18 同源原则：保留当前阶段的域性质）。
+     更广泛结构就绕开（同源原则：保留当前阶段的域性质）。
   5. **注册 + 叙述层 + RADAR**：词条 id 用 `linear-algebra.*`/`analysis.*` 教材命名；
      叙述层写教材陈述，mathlib 名只作实现注记。
   6. **验收**：`lake build`、`check_axioms --fix`、`audit.py` 全过。
 - **反例（不算转正）**：直接把 mathlib 广泛定理 `exact` 一下立个词条，签名全是
   `Module.*`/`Submodule`——那是"抄 mathlib"，不是转正。
 - **定期动作**：每完成一批，回头扫已有条目的 `mathlib` 字段与 RADAR，
-  找出"教材结果 vs 广泛形式"的缺口并转正（本节即由此触发）。
-- 出处：线性代数批（`vector-space.span` 的最小性曾因桥接繁琐被删——正是转正缺口）。
+  找出"教材结果 vs 广泛形式"的缺口并转正。
+- **出处**：线性代数批（`vector-space.span` 的最小性曾因桥接繁琐被删——正是转正缺口）。
 
-## 4. 怎么从 mathlib 现成证明学到 tactic 用法
+## 5. 实战教训日志（一次性具体坑，按时间登记，附出处）
+
+> 登记格式：**症状 → 诊断（语义层面为什么）→ 解法 → 出处（哪个条目）**。
+> 重要的通用教训已被提升到 §0/§1/§2/§3/§4；这里只留一次性、语境特定的坑。
+
+### 5.1 `rcases`/`obtain` 无法从存在命题提取 witness
+
+- **症状**：`rcases exists_nat_gt (y / x) with ⟨n, hn⟩` 后，目标**仍然是存在量词**（`∃ n, ...`），完全没消掉；`obtain` 同样失败。编译报 "Type mismatch ... expected `∃ n, ...`"。
+- **诊断（语义）**：`rcases` 依赖对 `∃ n, ...` 结构的模式匹配。在 mathlib 4.33 的某个返回类型带隐式类型参数的存在命题上，析构没有生效。语义上等于"想从盒子里取东西，但盒子没打开"。
+- **解法**：绕过模式匹配，直接取 witness：
+  ```lean
+  let n := (exists_nat_gt (y / x)).choose   -- 取那个存在的自然数
+  use n
+  exact (div_lt_iff₀ hx).mp (exists_nat_gt (y / x)).choose_spec
+  ```
+  `.choose` 提取 witness，`.choose_spec` 给出它满足的性质。语义直白："它存在，就把它挑出来用"。
+- **出处**：`analysis.real.archimedean`。
+
+### 5.2 `rw` 找不到复合记号的匹配
+
+- **症状**：目标是 `(g ∘ f) a = c`，`rw [ha, hb]` 报 "Did not find an occurrence of the pattern"。
+- **诊断（语义）**：`g ∘ f` 是 `Function.comp` 的**记号缩写**，`rw` 只做句法替换、不展开定义。语义上等于"你让我替换 'AB'，但文件里写的是 'A·B'（一个记号）"。`rw` 看不见未展开的定义。
+- **解法**：先展开或用会展开的策略：
+  ```lean
+  exact ⟨a, by simpa [Function.comp] using (congrArg g ha).trans hb⟩
+  -- 或更直白：
+  change g (f a) = c          -- 把目标改写为展开后的写法
+  rw [ha, hb]
+  ```
+- **语义理解**：`congrArg g ha` 给 `g (f a) = g b`（把等式 ha 两边同套 g），`.trans hb` 接上 `g b = c`，`simpa [Function.comp]` 用定义把 `(g∘f) a` 规约成 `g (f a)`。三步都是"自然语言一句话"的翻译。
+- **出处**：`settheory.function.surj-comp`。
+
+### 5.3 `div_lt_iff₀` 的方向（.mp vs .mpr）
+
+- **症状**：初学容易把 `(div_lt_iff₀ hx)` 用在错误方向。
+- **诊断（语义）**：`div_lt_iff₀ hc : (b / c < a) ↔ b < a * c`。`.mp` 取正向（除式 → 乘式），`.mpr` 取反向。它等价于"除以正数不改变序"，但**只对 c > 0** 成立（前提 `hc`）。
+- **解法**：把前提（`hx : 0 < x`）作为参数传给定理，再取方向。
+- **出处**：`analysis.real.archimedean`。
+
+### 5.4 集合恒等式：先 `ext`，再分派逻辑
+
+- **症状**：想直接"套用"集合层定理但手头只有 mathlib 的 `Set.inter_union_distrib_left` 名字对不上，或想演示证明过程。
+- **诊断（语义）**：集合等式在语义上就是"逐元素的双向属于"，逻辑层（`∧`/`∨`）的分配律承担实质工作。集合层没有任何额外的结构。
+- **解法**：`ext x` → `constructor`（双向）→ 每边用 `rintro`/`rcases` 拆合取与析取 → 元素层组装。见 `settheory.set.operations.inter-distrib` 的完整演示。
+- **出处**：`settheory.set.operations.inter-distrib`。
+
+## 6. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：
 
@@ -402,9 +406,10 @@ mathlib 的证明文件是**最好的教材**。读法：
 4. **复刻最小例子**：在 `/tmp/opencode/` 写一个 5 行的 `example`，复制结构，确认自己真懂，再放进正式条目。
 5. **失败时**：把报错信息翻译成自然语言（"期望类型 vs 实际类型"就是"我要的东西和手头的东西对不上"），回到 §2 找映射，别瞎试。
 
-## 5. self-harness 闭环（保证经验持续累积）
+## 7. self-harness 闭环（保证经验持续累积）
 
-- 每次在 Step 3 解决一个新困难：**必须**在本 Playbook 登记一条 §3 教训（或补进 §2 映射表）。
+- 每次在 Step 3 解决一个新困难：**必须**在本 Playbook 登记（新教训按 §5 格式追加；
+  若属于通用规律，直接补进 §2 映射表 / §3 公理纪律 / 相关顶级节）。
 - 教训的质量标准：**诊断要写到"语义层面"**（为什么这样，而不是只记"这样能过"）。
   因为记"这样能过"只解决一次，记"语义是什么"能迁移到所有类似情形。
 - 审计：`audit.py` 之外，人工 review 时检查"新条目是否引入了未登记的新 tactic 模式"。
