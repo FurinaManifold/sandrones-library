@@ -844,6 +844,15 @@
 - **谁在用**：`linear-algebra.vector-space.dimension/basis/independent`。
 - **坑**：维数涉及选择（noncomputable），`dim` 别名需标 `noncomputable`。
 
+### `LinearMap.range` / `LinearMap.ker` / `Matrix.rank` / `LinearMap.finrank_range_add_finrank_ker` / `Matrix.rank_eq_finrank_span_cols` / `Matrix.rank_mul_le`
+- **人话**：线性映射的像 `f.range` 与核 `f.ker`（都是子空间）；矩阵秩 `A.rank`；
+  **秩-零度定理**（rank+nullity=dim）、列秩、秩的乘法界。
+- **签名**：`LinearMap.finrank_range_add_finrank_ker f : rank f + nullity f = dim V`；
+  `Matrix.rank_eq_finrank_span_cols A`；`Matrix.rank_mul_le A B`
+- **出处**：`Mathlib/LinearAlgebra/`（Matrix/Rank.lean、Dimension/LinearMap.lean）
+- **谁在用**：`linear-algebra.maps.rank-nullity/matrix-rank/rank-mul`。
+- **坑**：教材"秩"= 像的维数，形式化是 `Module.finrank K f.range`；词条用教材记号 rank/nullity。
+
 ---
 
 ## 附：登记清单自动核对

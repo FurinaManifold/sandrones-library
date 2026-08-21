@@ -2452,5 +2452,91 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.maps.rank-nullity",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "秩-零度定理",
+    "summary": "rank f + nullity f = dim V",
+    "premises": [
+      "linear-algebra.vector-space.dimension"
+    ],
+    "mathlib": [
+      "LinearMap.finrank_range_add_finrank_ker"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：线性映射、秩与秩-零度定理"
+    },
+    "lean_file": "LinearAlgebra/LinearMap.lean",
+    "nl_file": "docs/entries/linear-algebra/maps/rank-nullity.md",
+    "added_by": "ingestor-linalg-L2",
+    "added_at": "2026-08-21T05:59:12Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.maps",
+    "variant": "ecnu",
+    "proof_sha": "ef784fcde04a9d0c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.maps.matrix-rank",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "矩阵的秩（列秩）",
+    "summary": "矩阵秩 = 列向量张成子空间的维数",
+    "premises": [],
+    "mathlib": [
+      "Matrix.rank_eq_finrank_span_cols"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：线性映射、秩与秩-零度定理"
+    },
+    "lean_file": "LinearAlgebra/LinearMap.lean",
+    "nl_file": "docs/entries/linear-algebra/maps/matrix-rank.md",
+    "added_by": "ingestor-linalg-L2",
+    "added_at": "2026-08-21T05:59:12Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.maps",
+    "variant": "ecnu",
+    "proof_sha": "ef784fcde04a9d0c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.maps.rank-mul",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "矩阵乘法秩的界",
+    "summary": "rank(AB) ≤ min rank A rank B",
+    "premises": [],
+    "mathlib": [
+      "Matrix.rank_mul_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：线性映射、秩与秩-零度定理"
+    },
+    "lean_file": "LinearAlgebra/LinearMap.lean",
+    "nl_file": "docs/entries/linear-algebra/maps/rank-mul.md",
+    "added_by": "ingestor-linalg-L2",
+    "added_at": "2026-08-21T05:59:12Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.maps",
+    "variant": "ecnu",
+    "proof_sha": "ef784fcde04a9d0c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
