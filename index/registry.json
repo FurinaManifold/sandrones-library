@@ -4547,5 +4547,66 @@
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
     "proof_sha": "135d514a8ce1ddbe"
+  },
+  {
+    "id": "real-analysis.calculus.ftc",
+    "kind": "theorem",
+    "title": "微积分基本定理（第二形式）",
+    "summary": "FTC-2：f在[a,b]可导且f'可积 ⟹ ∫ₐᵇf' = f(b)-f(a)",
+    "family": "real-analysis.calculus",
+    "variant": "tao",
+    "premises": [
+      "analysis.derivative.unique",
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "intervalIntegral.integral_eq_sub_of_hasDerivAt"
+    ],
+    "lean_file": "RealAnalysis/Calculus.lean",
+    "nl_file": "docs/entries/real-analysis/calculus/ftc.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 3（微积分基本定理）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R5",
+    "added_at": "2026-08-21T11:38:39Z",
+    "dependedOnBy": [],
+    "proof_sha": "29d109d55f452dce"
+  },
+  {
+    "id": "real-analysis.calculus.ftc-differentiate",
+    "kind": "theorem",
+    "title": "微积分基本定理（第一形式）",
+    "summary": "FTC-1：f可积且在b连续 ⟹ 变上限积分在b可导，导数=f(b)",
+    "family": "real-analysis.calculus",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "intervalIntegral.integral_hasStrictDerivAt_right"
+    ],
+    "lean_file": "RealAnalysis/Calculus.lean",
+    "nl_file": "docs/entries/real-analysis/calculus/ftc-differentiate.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 3（微积分基本定理）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R5",
+    "added_at": "2026-08-21T11:38:39Z",
+    "dependedOnBy": [],
+    "proof_sha": "29d109d55f452dce"
   }
 ]

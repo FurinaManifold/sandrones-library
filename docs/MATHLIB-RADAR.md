@@ -1181,6 +1181,14 @@
 - **谁在用**：`real-analysis.measure.monotone-convergence`、`real-analysis.measure.fatou`、`real-analysis.measure.dominated-convergence`。
 - **坑**：liminf 用 `Filter.liminf`（需 `open Filter`）；𝓝 需 `open scoped Topology`；Fatou 需 `[u.IsCountablyGenerated]`。
 
+### `intervalIntegral.integral_eq_sub_of_hasDerivAt` / `intervalIntegral.integral_hasStrictDerivAt_right`
+- **人话**：**微积分基本定理**。FTC-2 `∫ₐᵇ f' = f b - f a`（f' 可积）；FTC-1 变上限积分可导
+  `HasStrictDerivAt (u ↦ ∫ₐᵘ f) (f b) b`（f 在端点连续）。区间积分 `∫ x in a..b`。
+- **签名**：`intervalIntegral.integral_eq_sub_of_hasDerivAt (hderiv : ∀ x ∈ [[a,b]], HasDerivAt f (f' x) x) (hint : IntervalIntegrable f' volume a b)`
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean`
+- **谁在用**：`real-analysis.calculus.ftc`、`real-analysis.calculus.ftc-differentiate`。
+- **坑**：`[[a,b]]` = uIcc 记法；FTC-1 需端点连续（FTCFilter 前提）。
+
 ---
 
 ## 附：登记清单自动核对
