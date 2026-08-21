@@ -4295,7 +4295,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "9f66c7093b950599"
+    "proof_sha": "1a504450452a991d"
   },
   {
     "id": "real-analysis.measure.def",
@@ -4328,7 +4328,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "9f66c7093b950599"
+    "proof_sha": "1a504450452a991d"
   },
   {
     "id": "real-analysis.measure.outer",
@@ -4359,7 +4359,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "9f66c7093b950599"
+    "proof_sha": "1a504450452a991d"
   },
   {
     "id": "real-analysis.measure.caratheodory",
@@ -4390,6 +4390,72 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "9f66c7093b950599"
+    "proof_sha": "1a504450452a991d"
+  },
+  {
+    "id": "real-analysis.measure.measurable-function",
+    "kind": "theorem",
+    "title": "可测函数",
+    "summary": "可测函数：恒等/常函数/复合保持可测",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.sigma-algebra"
+    ],
+    "mathlib": [
+      "Measurable",
+      "measurable_id",
+      "measurable_const",
+      "Measurable.comp"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/measurable-function.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（可测函数）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R2",
+    "added_at": "2026-08-21T11:30:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "1a504450452a991d"
+  },
+  {
+    "id": "real-analysis.measure.lintegral",
+    "kind": "theorem",
+    "title": "非负积分（lintegral）",
+    "summary": "常数函数积分=c·μ(X)；积分单调；∫f=0⟺f=0 a.e.",
+    "family": "real-analysis.measure",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure.def",
+      "real-analysis.measure.measurable-function"
+    ],
+    "mathlib": [
+      "lintegral_const",
+      "lintegral_mono",
+      "lintegral_eq_zero_iff"
+    ],
+    "lean_file": "RealAnalysis/Measure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/lintegral.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tao, An Introduction to Measure Theory, Ch 1（积分）"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "ingestor-realanalysis-R2",
+    "added_at": "2026-08-21T11:30:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "1a504450452a991d"
   }
 ]

@@ -1157,6 +1157,20 @@
 - **谁在用**：`real-analysis.measure.outer`、`real-analysis.measure.caratheodory`。
 - **坑**：判据是 `=`；`caratheodory` 返回 MeasurableSpace（instance 非 Prop，不立条）。
 
+### `Measurable` / `measurable_id` / `measurable_const` / `Measurable.comp`
+- **人话**：可测函数 `Measurable f`（可测集原像可测）；恒等/常函数可测；可测复合可测。
+  可测性是积分的必要条件。
+- **签名**：`Measurable.comp (hg : Measurable g) (hf : Measurable f) : Measurable (g ∘ f)`
+- **出处**：`Mathlib/MeasureTheory/MeasurableSpace/Defs.lean`
+- **谁在用**：`real-analysis.measure.measurable-function`。
+
+### `lintegral` / `lintegral_const` / `lintegral_mono` / `lintegral_eq_zero_iff`
+- **人话**：非负积分 `∫⁻ f ∂μ`（f : X → ℝ≥0∞）；常数积分 `∫⁻c = c·μ(X)`；单调；∫f=0 ⟺ f=0 a.e.。
+- **签名**：`lintegral_const (c : ℝ≥0∞) : ∫⁻ _, c ∂μ = c * μ Set.univ`；`lintegral_eq_zero_iff (hf : Measurable f)`
+- **出处**：`Mathlib/MeasureTheory/Integral/Lebesgue/Basic.lean`
+- **谁在用**：`real-analysis.measure.lintegral`。
+- **坑**：lintegral 值域 ℝ≥0∞；一般积分（integral）是另一套。
+
 ---
 
 ## 附：登记清单自动核对

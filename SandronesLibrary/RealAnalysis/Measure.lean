@@ -14,6 +14,8 @@ import Mathlib
 * **real-analysis.measure.def**（测度公理：空集零测/可数可加/单调性/有限可加）✅。
 * **real-analysis.measure.outer**（外测度次可加性）✅。
 * **real-analysis.measure.caratheodory**（Carathéodory 定理：可测集构成 σ-代数/判据）✅。
+* **real-analysis.measure.measurable-function**（可测函数：恒等/常/复合）✅。
+* **real-analysis.measure.lintegral**（非负积分：常数/单调/零测）✅。
 
 > **语言说明**：实分析阶段（§Phase5）mathlib 的 `MeasurableSpace`/`MeasurableSet`/
 > `Measure` 等**教材结构可直接出现在签名**（测度积分是 mathlib 的核心库）。
@@ -108,6 +110,49 @@ theorem meas_outer_measure_iUnion_le {X : Type*} {ι : Type*} [Countable ι]
 theorem meas_caratheodory_iff {X : Type*} {m : OuterMeasure X} {s : Set X} :
     MeasurableSet[m.caratheodory] s ↔ ∀ t : Set X, m t = m (t ∩ s) + m (t \ s) := by
   exact m.isCaratheodory_iff
+
+open scoped ENNReal
+
+/-- **可测函数：恒等**。 
+> **Entry**: real-analysis.measure.measurable-function
+-/
+theorem meas_measurable_id {X : Type*} [MeasurableSpace X] : Measurable (id : X → X) := by
+  exact measurable_id
+
+/-- **可测函数：常函数**。 
+> **Entry**: real-analysis.measure.measurable-function
+-/
+theorem meas_measurable_const {X Y : Type*} [MeasurableSpace X] [MeasurableSpace Y] (y : Y) :
+    Measurable (fun _ : X => y) := by
+  exact measurable_const
+
+/-- **可测函数：复合**。 
+> **Entry**: real-analysis.measure.measurable-function
+-/
+theorem meas_measurable_comp {X Y Z : Type*} [MeasurableSpace X] [MeasurableSpace Y] [MeasurableSpace Z]
+    {f : X → Y} {g : Y → Z} (hg : Measurable g) (hf : Measurable f) : Measurable (g ∘ f) := by
+  exact hg.comp hf
+
+/-- **常数函数的积分**：∫⁻ c ∂μ = c · μ(X)（μ 是全空间测度）。 
+> **Entry**: real-analysis.measure.lintegral
+-/
+theorem meas_lintegral_const {X : Type*} [MeasurableSpace X] (μ : Measure X) (c : ℝ≥0∞) :
+    (∫⁻ _, c ∂μ) = c * μ Set.univ := by
+  exact lintegral_const c
+
+/-- **积分的单调性**：f ≤ g（逐点）⟹ ∫⁻f ≤ ∫⁻g。 
+> **Entry**: real-analysis.measure.lintegral
+-/
+theorem meas_lintegral_mono {X : Type*} [MeasurableSpace X] (μ : Measure X)
+    {f g : X → ℝ≥0∞} (h : ∀ x, f x ≤ g x) : (∫⁻ x, f x ∂μ) ≤ (∫⁻ x, g x ∂μ) := by
+  exact lintegral_mono h
+
+/-- **非负积分零 ⟺ 函数几乎处处为零**：∫⁻f = 0 ⟺ f =ᵐ[μ] 0（可测 f）。 
+> **Entry**: real-analysis.measure.lintegral
+-/
+theorem meas_lintegral_eq_zero_iff {X : Type*} [MeasurableSpace X] (μ : Measure X)
+    {f : X → ℝ≥0∞} (hf : Measurable f) : (∫⁻ x, f x ∂μ) = 0 ↔ f =ᵐ[μ] 0 := by
+  exact lintegral_eq_zero_iff hf
 
 end RealAnalysis.Measure
 
