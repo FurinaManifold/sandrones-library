@@ -26,6 +26,7 @@ open scoped Filter Topology
 * **analysis.func-limit.le**（极限保序）。
 * **analysis.func-limit.heine**（Heine 归结原理）。
 * **analysis.func-limit.at-top**（无穷极限）。
+* **analysis.func-limit.comp**（复合函数极限：g 连续时 lim g(f(x))=g(L)）。
 -/
 
 namespace SandronesLibrary
@@ -254,6 +255,15 @@ lemma tendsto_nhds_atTop_iff {f : ℝ → ℝ} {a : ℝ} :
 lemma tendsto_pow_atTop_atTop {r : ℝ} (hr : 1 < r) :
     Tendsto (fun n : ℕ => r ^ n) atTop atTop :=
   tendsto_pow_atTop_atTop_of_one_lt hr
+
+/-- **复合函数极限**：若 f(x) → L（x → a 去心）且 g 在 L 连续，
+  则 g(f(x)) → g(L)。即极限与连续函数可换序。 
+> **Entry**: analysis.func-limit.comp
+-/
+theorem func_lim_comp {f : ℝ → ℝ} {g : ℝ → ℝ} {a L : ℝ}
+    (hf : Tendsto f (𝓝[≠] a) (𝓝 L)) (hg : ContinuousAt g L) :
+    Tendsto (fun x => g (f x)) (𝓝[≠] a) (𝓝 (g L)) :=
+  hg.tendsto.comp hf
 
 end Analysis.FuncLimit
 

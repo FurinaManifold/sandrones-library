@@ -93,7 +93,19 @@
   子序列定理 `u∘φ → l` 就是 `u → l` 与 `φ → atTop` 的复合。
 - **签名**：`(hg : Tendsto g y z) (hf : Tendsto f x y) : Tendsto (g ∘ f) x z`
 - **出处**：`Mathlib/Order/Filter/Tendsto.lean`
-- **谁在用**：`analysis.sequence.subsequence`。
+- **谁在用**：`analysis.sequence.subsequence`、`analysis.func-limit.comp`（复合函数极限）。
+
+### `ContinuousAt.tendsto`
+- **人话**：点连续 ⟹ 极限可穿过：`ContinuousAt g L` 给出 `Tendsto g (𝓝 L) (𝓝 (g L))`。
+- **签名**：`(h : ContinuousAt f x) : Tendsto f (𝓝 x) (𝓝 (f x))`
+- **出处**：`Mathlib/Topology/Basic.lean`
+- **谁在用**：`analysis.func-limit.comp`。
+
+### `div_eq_zero_iff`
+- **人话**：`a/b = 0 ⟺ a = 0 ∨ b = 0`。证"差商为 0 ⟹ 分子为 0"的辅助。
+- **签名**：`a / b = 0 ↔ a = 0 ∨ b = 0`
+- **出处**：`Mathlib/Algebra/Order/GroupWithZero/`
+- **谁在用**：`analysis.mvt.constant`（f'=0 ⟹ 常数）。
 
 ### `Filter.Tendsto.neg`
 - **人话**：极限的负号随便进出：`u → l` ⟹ `-u → -l`。把反单调序列 `bₙ` 换成单调的 `-bₙ` 套单调收敛定理的关键一拧。

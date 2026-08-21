@@ -119,6 +119,39 @@ theorem lhopital_zero_real {f g f' g' : ℝ → ℝ} {a : ℝ} {l : ℝ}
     Tendsto (fun x => f x / g x) (𝓝[≠] a) (𝓝 l) :=
   HasDerivAt.lhopital_zero_nhdsNE hff' hgg' hg' hfa hga hdiv
 
+/-- **导数恒为 0 ⟹ 函数为常数**：若 f 处处可导且 f' ≡ 0，则 f 是常值函数。
+  （中值定理推论；对任意 x,y 在 [x,y] 上套 Lagrange 即得。） 
+> **Entry**: analysis.mvt.constant
+-/
+theorem is_constant_of_deriv_zero {f : ℝ → ℝ} (hf : Differentiable ℝ f)
+    (h0 : ∀ x, deriv f x = 0) (x y : ℝ) : f x = f y := by
+  by_cases hxy : x ≤ y
+  · rcases lt_or_eq_of_le hxy with hlt | heq
+    · have hc : ContinuousOn f (Set.Icc x y) := hf.continuous.continuousOn
+      have hd : DifferentiableOn ℝ f (Set.Ioo x y) := hf.differentiableOn.mono (Set.subset_univ (s := Set.Ioo x y))
+      rcases exists_deriv_eq_slope f hlt hc hd with ⟨c, hcI, hcslope⟩
+      have h0c : deriv f c = 0 := h0 c
+      have hfrac : (f y - f x) / (y - x) = 0 := by rw [← hcslope, h0c]
+      have hyx : y - x ≠ 0 := by linarith
+      have hdiff : f y - f x = 0 := by
+        rcases (div_eq_zero_iff.mp hfrac) with h1 | h2
+        · exact h1
+        · exact False.elim (hyx h2)
+      linarith
+    · rw [heq]
+  · have hyx : y < x := lt_of_not_ge hxy
+    have hc : ContinuousOn f (Set.Icc y x) := hf.continuous.continuousOn
+    have hd : DifferentiableOn ℝ f (Set.Ioo y x) := hf.differentiableOn.mono (Set.subset_univ (s := Set.Ioo y x))
+    rcases exists_deriv_eq_slope f hyx hc hd with ⟨c, hcI, hcslope⟩
+    have h0c : deriv f c = 0 := h0 c
+    have hfrac : (f x - f y) / (x - y) = 0 := by rw [← hcslope, h0c]
+    have hxy0 : x - y ≠ 0 := by linarith
+    have hdiff : f x - f y = 0 := by
+      rcases (div_eq_zero_iff.mp hfrac) with h1 | h2
+      · exact h1
+      · exact False.elim (hxy0 h2)
+    linarith
+
 end Analysis.MVT
 
 end SandronesLibrary

@@ -1297,7 +1297,7 @@
     ],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1325,7 +1325,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1353,7 +1353,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1381,7 +1381,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1409,7 +1409,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1437,7 +1437,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1465,7 +1465,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1493,7 +1493,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1521,7 +1521,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1549,7 +1549,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1577,7 +1577,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1609,7 +1609,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1639,7 +1639,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "b822958ef0e31dbe",
+    "proof_sha": "4d57ed0f2214fcb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2154,7 +2154,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2184,7 +2184,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2214,7 +2214,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2245,7 +2245,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2275,9 +2275,11 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -2306,9 +2308,11 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -2334,9 +2338,11 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "22085e837e71a429",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
-      "<解析失败>"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -3170,6 +3176,68 @@
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "4c7a650e6c87f286",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.func-limit.comp",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复合函数极限",
+    "summary": "f(x)→L 且 g 在 L 连续，则 g(f(x))→g(L)（极限与连续函数换序）",
+    "premises": [
+      "analysis.func-limit.definition"
+    ],
+    "mathlib": [
+      "ContinuousAt.tendsto",
+      "Filter.Tendsto.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版：函数极限与连续函数"
+    },
+    "lean_file": "Analysis/FuncLimit.lean",
+    "nl_file": "docs/entries/analysis/func-limit/comp.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:21:22Z",
+    "dependedOnBy": [],
+    "family": "analysis.func-limit",
+    "variant": "ecnu",
+    "proof_sha": "4d57ed0f2214fcb2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.constant",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "导数恒为 0 ⟹ 函数为常数",
+    "summary": "f 处处可导且 f'≡0，则 f 是常值函数（MVT 推论）",
+    "premises": [
+      "analysis.mvt.lagrange"
+    ],
+    "mathlib": [
+      "exists_deriv_eq_slope",
+      "div_eq_zero_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版：中值定理推论"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/constant.md",
+    "added_by": "ingestor-promote-analysis",
+    "added_at": "2026-08-21T08:25:41Z",
+    "dependedOnBy": [],
+    "family": "analysis",
+    "variant": "ecnu",
+    "proof_sha": "95971101dd31f60b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
