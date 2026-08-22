@@ -1171,6 +1171,14 @@
 ### `Real.continuous_sin` / `Real.continuous_cos` / `Real.hasDerivAt_sin` / `Real.hasDerivAt_cos`
 - **人话**：正弦和余弦处处连续，且导数分别为余弦和负正弦。
 - **谁在用**：`analysis.special-functions.basic`。
+
+### `Real.log_mul` / `Real.continuousOn_log` / `Real.hasDerivAt_log`
+- **人话**：对数把非零乘法变成加法；在正半轴连续；非零点导数为倒数。
+- **谁在用**：`analysis.special-functions.log-tan-pow`。
+
+### `Real.hasDerivAt_tan` / `Continuous.pow` / `HasDerivAt.pow`
+- **人话**：正切函数的导数公式，以及自然幂函数的连续性和导数公式。
+- **谁在用**：`analysis.special-functions.log-tan-pow`。
 - **出处**：`Mathlib/MeasureTheory/Measure/`
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。

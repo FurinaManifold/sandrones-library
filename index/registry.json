@@ -4853,5 +4853,40 @@
       "propext"
     ],
     "proof_sha": "22ce756e2d4004cd"
+  },
+  {
+    "id": "analysis.special-functions.log-tan-pow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "对数、正切与自然幂函数",
+    "summary": "对数乘法公式、对数连续性、对数/正切导数以及自然幂函数连续性和导数",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.continuity.definition",
+      "analysis.derivative.const"
+    ],
+    "mathlib": [
+      "Real.log_mul",
+      "Real.continuousOn_log",
+      "Real.hasDerivAt_log",
+      "Real.hasDerivAt_tan",
+      "Continuous.pow",
+      "HasDerivAt.pow"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析中的基本初等函数"
+    },
+    "lean_file": "Analysis/SpecialFunctions.lean",
+    "nl_file": "docs/entries/analysis/special-functions/log-tan-pow.md",
+    "added_by": "special-functions-batch-2",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "85f8de43df636046"
   }
 ]

@@ -57,5 +57,38 @@ theorem deriv_sin (x : ℝ) : deriv Real.sin x = Real.cos x := by
 theorem deriv_cos (x : ℝ) : deriv Real.cos x = -Real.sin x := by
   exact (Real.hasDerivAt_cos x).deriv
 
+/-! ### 对数、正切与自然幂函数 -/
+
+/-- 非零实数乘法下，对数满足加法公式。 -/
+theorem log_mul (x y : ℝ) (hx : x ≠ 0) (hy : y ≠ 0) :
+    Real.log (x * y) = Real.log x + Real.log y := by
+  exact Real.log_mul hx hy
+
+/-- 对数函数在正半轴上连续。 -/
+theorem continuousOn_log : ContinuousOn Real.log (Set.Ioi 0) := by
+  exact Real.continuousOn_log.mono (by
+    intro x hx
+    exact ne_of_gt hx)
+
+/-- 对数函数在非零点的导数为 `1 / x`。 -/
+theorem deriv_log (x : ℝ) (hx : x ≠ 0) : deriv Real.log x = 1 / x := by
+  simpa [one_div] using (Real.hasDerivAt_log hx).deriv
+
+/-- 在余弦不为零的点，正切函数的导数为 `1 / cos² x`。 -/
+theorem deriv_tan (x : ℝ) (hcos : Real.cos x ≠ 0) :
+    deriv Real.tan x = 1 / (Real.cos x) ^ 2 := by
+  exact (Real.hasDerivAt_tan hcos).deriv
+
+/-- 任意自然幂函数在实轴上连续。 -/
+theorem continuous_pow_nat (n : ℕ) : Continuous (fun x : ℝ => x ^ n) := by
+  exact continuous_id.pow n
+
+/-- 自然幂函数的导数公式。
+> **Entry**: analysis.special-functions.log-tan-pow
+-/
+theorem deriv_pow_nat (n : ℕ) (x : ℝ) :
+    deriv (fun y : ℝ => y ^ n) x = (n : ℝ) * x ^ (n - 1) := by
+  simpa [Function.id_def, mul_assoc] using (hasDerivAt_id x).pow n |>.deriv
+
 end Analysis.SpecialFunctions
 end SandronesLibrary
