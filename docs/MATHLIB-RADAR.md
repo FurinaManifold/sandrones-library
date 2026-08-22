@@ -1703,6 +1703,21 @@
 - **坑**：本库 Jacobian 以输出分量为行、输入变量为列；复合函数对应
   `Jg(f(x)) * Jf(x)`，不可把乘法次序写反。
 
+### `iteratedFDeriv` / `ContDiffAt.isSymmSndFDerivAt`
+- **人话**：任意阶 Fréchet 导数，以及二阶连续可微时二阶导数交换两个方向的定理。
+- **出处**：`Mathlib/Analysis/Analytic/IteratedFDeriv.lean`、
+  `Mathlib/Analysis/Calculus/FDeriv/Symmetric.lean`。
+- **谁在用**：`analysis.multivariable.hessian-taylor`。
+- **坑**：`iteratedFDeriv ℝ k f x` 接受一个 `Fin k → E` 的方向族；Hessian 元素必须
+  明确给出两个标准基方向，不能把它当作普通二元函数直接应用。
+
+### `map_add_eq_sum_add_integral_iteratedFDeriv`
+- **人话**：实赋范空间上的任意阶 Taylor 公式，余项写成沿线段的区间积分。
+- **出处**：`Mathlib/Analysis/Calculus/TaylorIntegral.lean`。
+- **谁在用**：`analysis.multivariable.hessian-taylor`。
+- **坑**：次数 `N` 的余项使用 `N+1` 阶导数；值域需完备，光滑性假设覆盖整条
+  `x+t y` 线段，而不只是基点 `x`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

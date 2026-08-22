@@ -6,7 +6,9 @@ Authors: Sandrone's Library contributors
 import SandronesLibrary.Topology.NormedSpace
 import Mathlib.Algebra.BigOperators.Pi
 import Mathlib.Analysis.Calculus.FDeriv.Comp
+import Mathlib.Analysis.Calculus.FDeriv.Symmetric
 import Mathlib.Analysis.Calculus.Gradient.Basic
+import Mathlib.Analysis.Calculus.TaylorIntegral
 import Mathlib.Data.Matrix.Mul
 
 /-!
@@ -174,5 +176,75 @@ theorem jacobian_chain {n m p : ℕ}
   simp [Matrix.mulVec, dotProduct, jacobian_apply hf]
 
 end Coordinates
+
+section HessianTaylor
+
+/-!
+## Hessian 与任意阶多元 Taylor 公式
+
+对实值函数 `f : ℝⁿ → ℝ`，二阶 Fréchet 导数是连续双线性型。在标准基上计算该
+双线性型，得到 Hessian 矩阵。二阶连续可微保证混合偏导可以交换，因此 Hessian 对称。
+
+多元 Taylor 公式沿线段 `t ↦ x + t • y` 化为单变量公式。`iteratedFDeriv ℝ k f x`
+是 `k` 重连续多线性映射；把它的每个输入都取为位移 `y`，便得到齐次 `k` 次项。
+下方公式保留任意阶数和积分型余项，不依赖无穷级数，也不要求函数解析。
+-/
+
+/-- 实值函数在标准坐标下的 Hessian 矩阵。第 `i,j` 项是二阶 Fréchet 导数在标准
+基向量 `eᵢ,eⱼ` 上的值，也就是教材记号 `∂²f/∂xᵢ∂xⱼ`。 -/
+noncomputable def hessian {n : ℕ} (f : (Fin n → ℝ) → ℝ) (x : Fin n → ℝ) :
+    Matrix (Fin n) (Fin n) ℝ :=
+  fun i j ↦ iteratedFDeriv ℝ 2 f x ![Pi.single i 1, Pi.single j 1]
+
+/-- 沿位移 `y` 计算的 `N` 阶多元 Taylor 多项式：
+`Σₖ₌₀ᴺ Dᵏf(x)[y,…,y]/k!`。 -/
+noncomputable def multivariableTaylorPolynomial {E F : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E]
+    [NormedAddCommGroup F] [NormedSpace ℝ F]
+    (N : ℕ) (f : E → F) (x y : E) : F :=
+  ∑ k ∈ Finset.range (N + 1), (Nat.factorial k : ℝ)⁻¹ •
+    iteratedFDeriv ℝ k f x (fun _ ↦ y)
+
+/-- **Hessian 对称性**：若 `f` 在 `x` 处二阶连续可微，则 Hessian 是对称矩阵。
+这就是混合偏导交换定理在标准坐标中的矩阵形式。
+
+> **Entry**: analysis.multivariable.hessian-taylor
+-/
+theorem hessian_symmetric {n : ℕ} {f : (Fin n → ℝ) → ℝ} {x : Fin n → ℝ}
+    (hf : ContDiffAt ℝ 2 f x) : (hessian f x).IsSymm := by
+  apply Matrix.IsSymm.ext
+  intro i j
+  simpa [hessian] using
+    (hf.isSymmSndFDerivAt (by norm_num)).iteratedFDeriv_cons
+      (v := Pi.single j 1) (w := Pi.single i 1)
+
+/-- **任意阶多元 Taylor 公式（积分型余项）**。若 `f` 沿 `x` 到 `x+y` 的线段
+处处 `Cᴺ⁺¹`，则函数值等于 `N` 阶 Taylor 多项式加上
+`1/N! ∫₀¹ (1-t)ᴺ Dᴺ⁺¹f(x+ty)[y,…,y] dt`。
+
+公式对一般实赋范空间到完备实赋范空间的映射成立；有限维多元函数只是其特例。 -/
+theorem multivariable_taylor_integral_remainder {E F : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E]
+    [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
+    {N : ℕ} {f : E → F} {x y : E}
+    (hf : ∀ t ∈ Set.Icc (0 : ℝ) 1, ContDiffAt ℝ (N + 1) f (x + t • y)) :
+    f (x + y) = multivariableTaylorPolynomial N f x y +
+      (Nat.factorial N : ℝ)⁻¹ • ∫ t in (0 : ℝ)..1,
+        (1 - t) ^ N • iteratedFDeriv ℝ (N + 1) f (x + t • y) (fun _ ↦ y) := by
+  simpa [multivariableTaylorPolynomial] using
+    (map_add_eq_sum_add_integral_iteratedFDeriv (n := N) hf)
+
+/-- Taylor 积分余项公式的零阶（亦即一阶微积分基本定理）特例：函数增量等于
+全微分沿连接线段的积分。该公式也是多元 Taylor 定理归约到线段的最基本情形。 -/
+theorem multivariable_taylor_first_order {E F : Type*}
+    [NormedAddCommGroup E] [NormedSpace ℝ E]
+    [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
+    {f : E → F} {x y : E}
+    (hf : ∀ t ∈ Set.Icc (0 : ℝ) 1, ContDiffAt ℝ 1 f (x + t • y)) :
+    f (x + y) = f x + ∫ t in (0 : ℝ)..1, fderiv ℝ f (x + t • y) y := by
+  simpa [multivariableTaylorPolynomial, iteratedFDeriv_one_apply] using
+    (multivariable_taylor_integral_remainder (N := 0) hf)
+
+end HessianTaylor
 
 end SandronesLibrary.Analysis.Multivariable

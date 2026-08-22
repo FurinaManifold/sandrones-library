@@ -276,7 +276,7 @@
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
 - **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础、Hölder、Chebyshev、Minkowski 与完备性，整批完成。
 - **R6 多元微积分**（进行中）：✅ Fréchet 全微分、方向导数、梯度、坐标偏导与 Jacobian；
-  下一步推进 Hessian/Taylor，随后依次处理反函数与隐函数定理、重积分换元、曲线积分、
+  ✅ Hessian 与任意阶 Taylor 积分余项；下一步处理反函数与隐函数定理，随后推进重积分换元、曲线积分、
   曲面积分以及 Green/Gauss/Stokes 公式。
 
 ### Phase 6 复分析（C1-C3）

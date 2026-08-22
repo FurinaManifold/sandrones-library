@@ -238,7 +238,7 @@
 | `analysis.multivariable.frechet` | Fréchet 全微分、方向导数与链式法则 | ✅ |
 | `analysis.multivariable.gradient` | 梯度及方向导数—梯度公式 | ✅ |
 | `analysis.multivariable.coordinates` | 偏导数与 Jacobian 矩阵 | ✅ |
-| `analysis.multivariable.hessian-taylor` | Hessian 与多元 Taylor 公式 | 🔲 |
+| `analysis.multivariable.hessian-taylor` | Hessian 与多元 Taylor 公式 | ✅ |
 | `analysis.multivariable.inverse-implicit` | 反函数定理与隐函数定理 | 🔲 |
 | `analysis.multivariable.change-variables` | 多重积分与换元公式 | 🔲 |
 | `analysis.multivariable.vector-integrals` | 曲线积分、曲面积分 | 🔲 |

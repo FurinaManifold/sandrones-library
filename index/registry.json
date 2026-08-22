@@ -6314,7 +6314,9 @@
     "nl_file": "docs/entries/analysis/mvt/taylor-integral-remainder.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.hessian-taylor"
+    ],
     "proof_sha": "490095340a80e7f7",
     "axioms": [
       "Classical.choice",
@@ -6908,11 +6910,12 @@
     "added_at": "2026-08-22T12:20:53Z",
     "dependedOnBy": [
       "analysis.multivariable.gradient",
-      "analysis.multivariable.coordinates"
+      "analysis.multivariable.coordinates",
+      "analysis.multivariable.hessian-taylor"
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "6e3b1a2b4b9dcfef",
+    "proof_sha": "e5dead3d7f79426f",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6944,7 +6947,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "6e3b1a2b4b9dcfef",
+    "proof_sha": "e5dead3d7f79426f",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6974,10 +6977,46 @@
     "nl_file": "docs/entries/analysis/multivariable/coordinates.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:27:18Z",
+    "dependedOnBy": [
+      "analysis.multivariable.hessian-taylor"
+    ],
+    "family": "analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "e5dead3d7f79426f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.multivariable.hessian-taylor",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hessian与多元Taylor公式",
+    "summary": "Hessian对称性与任意阶多元Taylor积分型余项公式",
+    "premises": [
+      "analysis.multivariable.frechet",
+      "analysis.multivariable.coordinates",
+      "analysis.mvt.taylor-integral-remainder"
+    ],
+    "mathlib": [
+      "iteratedFDeriv",
+      "ContDiffAt.isSymmSndFDerivAt",
+      "map_add_eq_sum_add_integral_iteratedFDeriv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：Hessian、混合偏导与Taylor公式"
+    },
+    "lean_file": "Analysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/analysis/multivariable/hessian-taylor.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:35:56Z",
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "6e3b1a2b4b9dcfef",
+    "proof_sha": "e5dead3d7f79426f",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
