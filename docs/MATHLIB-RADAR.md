@@ -1204,6 +1204,10 @@
 - **人话**：自然常数 `e = exp 1` 为正且满足 `2 < e < 3`，并有 `log e = 1`。
 - **谁在用**：`analysis.constants.e-definition`，作为重要常数的教材层接口。
 
+### `Real.pi_pos` / `Real.pi_ne_zero` / `Real.sin_pi` / `Real.cos_pi` / `Real.two_pi_pos`
+- **人话**：圆周率 `π` 为正且非零，`2π` 为正，并满足 `sin π = 0`、`cos π = -1`。
+- **谁在用**：`analysis.constants.pi-definition`，作为圆周率的教材层接口。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

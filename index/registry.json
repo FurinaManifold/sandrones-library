@@ -5089,6 +5089,39 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "caa98430c2bd3573"
+    "proof_sha": "5db9c85bcfcdf6d7"
+  },
+  {
+    "id": "analysis.constants.pi-definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "圆周率 π 的定义接口与基本特殊值",
+    "summary": "定义教材层 pi = Real.pi，并证明正性、非零性、2π 正性以及 sin π = 0、cos π = -1",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log-tan-pow"
+    ],
+    "mathlib": [
+      "Real.pi_pos",
+      "Real.pi_ne_zero",
+      "Real.sin_pi",
+      "Real.cos_pi",
+      "Real.two_pi_pos"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：三角函数与圆周率"
+    },
+    "lean_file": "Analysis/Constants.lean",
+    "nl_file": "docs/entries/analysis/constants/pi-definition.md",
+    "added_by": "constants-pi-definition-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "5db9c85bcfcdf6d7"
   }
 ]

@@ -45,5 +45,41 @@ theorem log_e : Real.log e = 1 := by
   rw [e_eq_exp_one]
   exact Real.log_exp 1
 
+/-! ### 圆周率 `π` 的基本接口 -/
+
+/-- 圆周率 `π` 的教材层命名接口。 -/
+noncomputable def pi : ℝ := Real.pi
+
+/-- 本库的 `π` 接口就是 Mathlib 的实圆周率。
+> **Entry**: analysis.constants.pi-definition
+-/
+theorem pi_eq_real_pi : pi = Real.pi := by
+  rfl
+
+/-- 圆周率为正。 -/
+theorem pi_pos : 0 < pi := by
+  rw [pi_eq_real_pi]
+  exact Real.pi_pos
+
+/-- 圆周率非零。 -/
+theorem pi_ne_zero : pi ≠ 0 := by
+  rw [pi_eq_real_pi]
+  exact Real.pi_ne_zero
+
+/-- `sin π = 0`。 -/
+theorem sin_pi : Real.sin pi = 0 := by
+  rw [pi_eq_real_pi]
+  exact Real.sin_pi
+
+/-- `cos π = -1`。 -/
+theorem cos_pi : Real.cos pi = -1 := by
+  rw [pi_eq_real_pi]
+  exact Real.cos_pi
+
+/-- 周期量 `2π` 为正。 -/
+theorem two_pi_pos : 0 < 2 * pi := by
+  rw [pi_eq_real_pi]
+  exact Real.two_pi_pos
+
 end Analysis.Constants
 end SandronesLibrary
