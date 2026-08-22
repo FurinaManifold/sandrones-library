@@ -1518,6 +1518,17 @@
 - **谁在用**：`real-analysis.riemann.eq-lebesgue`。
 - **坑**：含 |·| 不用 linarith（§2.7.0）；sSup/sInf 用 cs 版（§2.7.2）；先立带 sorry 框架逐个填（§0）。
 
+### `Measure.integrableOn_of_bounded` / `integral_indicator` / `integral_mono`（一般 Riemann 可积函数积分值桥梁）
+- **人话**：Lebesgue 判据先把标准 Riemann 可积函数转成几乎处处连续；零测坏点不影响
+  可测性，再由闭区间有界和有限测度得到 Lebesgue 可积。随后将 Darboux 上下阶梯函数
+  写成 indicator 的有限和，并用积分保序夹住原函数。
+- **签名用途**：`Measure.integrableOn_of_bounded` 从几乎强可测、有限测度和一致范数界推出
+  可积；`integral_indicator` 识别区间积分；`integral_mono` 对可积函数实施逐点保序。
+- **谁在用**：`real-analysis.riemann.eq-lebesgue-general`。
+- **坑**：一般 Riemann 可积函数不是处处连续，不能复用连续函数的 `integrableOn_Icc`；
+  必须先经 Lebesgue 判据删去可测零测坏点。Darboux 像集的上下确界合法性来自显式
+  `BoundedOn`，对应 `csInf_le` 与 `le_csSup` 的有界性前提。
+
 ---
 
 ## 附：登记清单自动核对

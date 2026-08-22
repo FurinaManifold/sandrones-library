@@ -4676,7 +4676,9 @@
     "nl_file": "docs/entries/real-analysis/riemann/def.md",
     "added_by": "ingestor-realanalysis-R55",
     "added_at": "2026-08-21T11:53:48Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.eq-lebesgue-general"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4822,7 +4824,9 @@
     "nl_file": "docs/entries/real-analysis/riemann/lebesgue-criterion.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:59:10Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.eq-lebesgue-general"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6117,6 +6121,39 @@
     "added_at": "2026-08-22T10:24:33Z",
     "dependedOnBy": [],
     "proof_sha": "0ff2a5f5de2f7b17",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.riemann.eq-lebesgue-general",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "任意 Riemann 可积函数的积分值桥梁",
+    "summary": "有界且 Darboux 可积的函数，其自建 Riemann 积分值等于 Lebesgue 区间积分值",
+    "premises": [
+      "real-analysis.riemann.def",
+      "real-analysis.riemann.lebesgue-criterion"
+    ],
+    "mathlib": [
+      "Measure.integrableOn_of_bounded",
+      "integral_indicator",
+      "integral_mono",
+      "csInf_le",
+      "le_csSup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Lebesgue criterion and the equivalence of Riemann and Lebesgue integrals"
+    },
+    "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/eq-lebesgue-general.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "ee0a481089ec7e8a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

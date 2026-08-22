@@ -262,6 +262,7 @@
   - ✅ `real-analysis.riemann.def`：黎曼积分的定义（达布分划/上下和/可积/均匀分划/积分值，全部自建）。
   - ✅ `real-analysis.riemann.cont-integrable`：连续 ⟹ 黎曼可积（一致连续 + 均匀分划 + 振荡界，自证）。
   - ✅ `real-analysis.riemann.eq-lebesgue`：连续函数的黎曼积分值 = Lebesgue 区间积分；
+  - ✅ `real-analysis.riemann.eq-lebesgue-general`：任意标准 Riemann 可积函数的黎曼积分值 = Lebesgue 区间积分；
     达布和 = 阶梯函数积分并通过夹逼完成证明。
   - ✅ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。

@@ -21,6 +21,7 @@ import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
+import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
 import SandronesLibrary.RealAnalysis.RiemannAlgebra
 import SandronesLibrary.RealAnalysis.RiemannMeanValue
 import SandronesLibrary.Analysis.SpecialFunctions

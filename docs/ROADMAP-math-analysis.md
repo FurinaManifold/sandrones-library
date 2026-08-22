@@ -189,6 +189,7 @@
 | `real-analysis.riemann.def` | Darboux 分划、上下和与可积性 | 自建，Mathlib 无 Riemann 积分定义 |
 | `real-analysis.riemann.cont-integrable` | 连续函数可积 | 自建 Darboux 证明 |
 | `real-analysis.riemann.eq-lebesgue` | 连续函数的两种积分值相等 | 自建上下和夹逼桥梁 |
+| `real-analysis.riemann.eq-lebesgue-general` | 任意有界 Riemann 可积函数的两种积分值相等 | Lebesgue 判据给出可测性，再以 Darboux 阶梯函数上下夹逼 | ✅ |
 | `real-analysis.riemann.algebra` | 连续函数积分的代数与序性质 | 经等值桥梁计算，再转回 Riemann 积分 |
 | `real-analysis.riemann.mean-value` | 积分中值定理 | 经等值桥梁证明 |
 | `real-analysis.riemann.ftc` | 微积分基本定理 | 经等值桥梁证明 |
