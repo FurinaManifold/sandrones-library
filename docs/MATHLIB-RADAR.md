@@ -1743,6 +1743,229 @@
 - **坑**：`.inl/.inr` 决定哪组变量保留、哪组变量被解出；交换二者会得到类型正确但
   数学方向相反的定理。Mathlib 尚无一般常秩 `r` 正规形的直接接口。
 
+## 多元积分、Jordan 区域与换元（2026-08-22 补录）
+
+### `nullMeasurableSet_of_null_frontier` / `closure_ae_eq_of_null_frontier`
+- **人话**：边界为零测集时，原集合是零可测集；而且集合与其闭包只相差一个零测集，
+  因此二者上的测度和积分相同。
+- **出处**：`Mathlib/MeasureTheory/Order/UpperLower.lean`。
+- **谁在用**：`analysis.multivariable.jordan-region`。
+- **坑**：这里得到的是 `NullMeasurableSet`，比 `MeasurableSet` 弱但足够定义限制测度和
+  集合积分；不能无条件把任意 Jordan 区域断言为 Borel 可测。
+
+### `AEContinuous.hasBoxIntegral` / `integral_indicator₀`
+- **人话**：盒上有界且几乎处处连续的函数，其 Riemann 型盒积分等于相应 Lebesgue
+  积分；零可测集合的示性函数全空间积分等于该集合上的积分。
+- **出处**：`Mathlib/Analysis/BoxIntegral/Integrability.lean`、
+  `Mathlib/MeasureTheory/Integral/Bochner/Set.lean`。
+- **谁在用**：`analysis.multivariable.jordan-riemann-bridge`。
+- **坑**：`AEContinuous.hasBoxIntegral` 的“有界”是在 `Box.Icc I` 上逐点有界，而连续性
+  是相对于整个测度空间几乎处处成立；`integral_indicator₀` 接受零可测而非必须可测。
+
+### `BoxIntegral.IntegrationParams.Riemann` / `ContinuousOn.hasBoxIntegral`
+- **人话**：前者选择标签盒分割中的经典 Riemann 过滤器；后者说明闭盒上连续函数的
+  盒积分存在，并且数值等于盒上的 Lebesgue 积分。
+- **出处**：`Mathlib/Analysis/BoxIntegral/Partition/Filter.lean`、
+  `Mathlib/Analysis/BoxIntegral/Integrability.lean`。
+- **谁在用**：`analysis.multivariable.riemann-box`。
+- **坑**：`BoxIntegral` 的盒由有限指标类型给坐标；`IntegrationParams.Riemann` 与
+  Henstock、McShane 参数不同，不可仅凭都叫 `HasIntegral` 就混用。
+
+### `MeasureTheory.integral_indicator`
+- **人话**：可测集合上的 Bochner 集合积分等于该集合示性函数在全空间的积分，是在
+  Fubini 前后展开和收回区域限制的标准桥梁。
+- **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Set.lean`。
+- **谁在用**：`analysis.multivariable.x-normal-domain`。
+- **坑**：该版本需要 `MeasurableSet`；集合仅零可测时应使用 `integral_indicator₀`。
+  重写方向经常相反，集合积分展开为示性函数时通常使用 `.symm`。
+
+### `MeasureTheory.volume_preserving_finTwoArrow`
+- **人话**：坐标等价 `(Fin 2 → ℝ) ≃ ℝ × ℝ` 保持 Lebesgue 体积，因此盒积分使用的
+  二维向量坐标可以无 Jacobian 因子地改写为 Fubini 使用的积坐标。
+- **出处**：`Mathlib/MeasureTheory/Constructions/Pi.lean`。
+- **谁在用**：`analysis.multivariable.x-normal-domain`。
+- **坑**：单有类型等价不保证积分不变；必须使用其 `MeasurePreserving` 证明，并配合
+  `MeasurableEmbedding` 调用 `integral_comp`。
+
+### `MeasureTheory.setIntegral_prod` / `MeasureTheory.intervalIntegral_intervalIntegral_swap`
+- **人话**：第一条是矩形集合上的 Fubini 公式；第二条在绝对可积条件下交换两个有向
+  区间积分的次序。
+- **出处**：`Mathlib/MeasureTheory/Integral/Prod.lean`。
+- **谁在用**：`analysis.multivariable.rectangle-integral`。
+- **坑**：`setIntegral_prod` 使用无向集合积分；`intervalIntegral_intervalIntegral_swap`
+  使用有向区间，并以 `uIoc` 上的可积性统一处理端点次序。
+
+### `MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul`
+- **人话**：可测区域上可微且单射的有限维变换满足 Bochner 积分换元公式，像区域积分
+  等于原区域上复合函数乘以 Fréchet 导数行列式绝对值后的积分。
+- **出处**：`Mathlib/MeasureTheory/Function/Jacobian.lean`。
+- **谁在用**：`analysis.multivariable.change-variables`。
+- **坑**：底层签名要求显式给出导数场 `f'`；本库用 `fderivWithin` 封装。因子必须是
+  `|det|`，不能在未固定定向时去掉绝对值。
+
+### `MeasureTheory.integrableOn_image_iff_integrableOn_abs_det_fderiv_smul`
+- **人话**：在同一换元假设下，函数在像区域可积，当且仅当复合后乘 Jacobian
+  绝对值的函数在原区域可积。
+- **出处**：`Mathlib/MeasureTheory/Function/Jacobian.lean`。
+- **谁在用**：`analysis.multivariable.change-variables`。
+- **坑**：积分等式对 Bochner 积分的默认零值约定仍可形式成立；要进行教材中的合法
+  数值计算，应先用本条确认可积性，而不是只引用积分等式。
+
+## 历史 front matter 缺项集中补录（2026-08-22）
+
+### `Continuous.mul` / `Continuous.div`
+- **人话**：连续实函数的乘积仍连续；分母处处非零时商函数连续。
+- **出处**：`Mathlib/Topology/Algebra/Ring/Basic.lean`。
+- **谁在用**：`analysis.continuity.mul`、`analysis.continuity.div`。
+- **坑**：除法版本必须提供分母非零条件；它不是由连续性自动推出的。
+
+### `Filter.Tendsto.mul` / `Filter.Tendsto.div` / `Filter.Tendsto.pow`
+- **人话**：滤子极限保持乘法、非零分母下的除法以及固定自然数次幂。
+- **出处**：`Mathlib/Topology/Algebra/Group/Basic.lean`、
+  `Mathlib/Topology/Algebra/Order/Field.lean`。
+- **谁在用**：`analysis.func-limit.mul/div`、`analysis.sequence.mul/div`、
+  `analysis.limits.classical`。
+- **坑**：`div` 的非零条件落在极限值而非仅逐点分母；`pow` 的指数是固定自然数。
+
+### `Metric.tendsto_nhds`
+- **人话**：度量空间中趋于点邻域等价于最终进入每个正半径球，是 ε 定义的滤子版本。
+- **出处**：`Mathlib/Topology/MetricSpace/Pseudo/Constructions.lean`。
+- **谁在用**：`analysis.func-limit.definition`。
+- **坑**：展开后使用距离 `dist`；实数绝对值形式还需 `Real.dist_eq` 对齐。
+
+### `Summable.abs` / `Summable.tendsto_sum_tsum_nat`
+- **人话**：绝对可和级数本身可和；可和自然数级数的部分和趋于其无穷和。
+- **出处**：`Mathlib/Topology/Algebra/InfiniteSum/Basic.lean`、
+  `Mathlib/Topology/Algebra/InfiniteSum/NatInt.lean`。
+- **谁在用**：`analysis.series.absolute`、`analysis.power-series.definition`。
+- **坑**：`Summable.abs` 是实数绝对值版本；一般赋范空间应使用范数可和条件。
+
+### `Antitone.cauchySeq_alternating_series_of_tendsto_zero` / `Antitone.tendsto_alternating_series_of_tendsto_zero`
+- **人话**：递减趋零的非负项满足 Leibniz 交错级数判别；分别给出部分和 Cauchy 性和
+  收敛到无穷和。
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
+- **谁在用**：`analysis.series.tests`、`analysis.series.conditional`。
+- **坑**：`Antitone`、非负和趋零缺一不可；符号交错已编码在定理中的项形状里。
+
+### `summable_of_ratio_test_tendsto_lt_one` / `not_summable_of_ratio_test_tendsto_gt_one`
+- **人话**：比值趋于小于一的数时级数绝对收敛；比值趋于大于一时级数不收敛。
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
+- **谁在用**：`analysis.series.tests`。
+- **坑**：定理通常作用于范数或相邻项比值，并需处理分母为零及最终条件。
+
+### `summable_of_isBigO_nat`
+- **人话**：若数列最终被一个已知可和数列以大 O 控制，则该数列也可和，是比较判别
+  法的渐近记号接口。
+- **出处**：`Mathlib/Analysis/Asymptotics/Asymptotics.lean`、级数相关模块。
+- **谁在用**：`analysis.series.tests`。
+- **坑**：大 O 位于 `atTop` 滤子；比较对象必须先有 `Summable` 证明。
+
+### `Equiv.summable_iff` / `Equiv.tsum_eq`
+- **人话**：双射重编号保持可和性，并且保持无穷和数值，是绝对收敛级数任意重排的
+  底层接口。
+- **出处**：`Mathlib/Topology/Algebra/InfiniteSum/Basic.lean`。
+- **谁在用**：`analysis.series.rearrangement`。
+- **坑**：这些结论针对 `Summable`；条件收敛级数不能直接调用，必须另做 Riemann 重排构造。
+
+### `le_sSup` / `lt_sSup_iff`
+- **人话**：完全序中的上确界上界性质及严格小于上确界的刻画。
+- **出处**：`Mathlib/Order/CompleteLattice/Basic.lean`。
+- **谁在用**：`analysis.power-series.radius`。
+- **坑**：这是完全格版本；实数上对一般非空有界集合常应改用条件完备的 `le_csSup`。
+
+### `le_csSup` / `csInf_le`
+- **人话**：条件完备线性序中，集合元素不超过其上确界，且下确界不超过集合元素。
+- **出处**：`Mathlib/Order/ConditionallyCompleteLattice/Basic.lean`。
+- **谁在用**：`real-analysis.riemann.eq-lebesgue-general`。
+- **坑**：必须提供集合非空和相应有界性；实数不是带无穷端点的完全格。
+
+### `intervalIntegral.integral_of_le` / `intervalIntegral.integral_congr_uIoo`
+- **人话**：正向有向区间积分等于半开区间集合积分；在无向开区间上逐点相等的函数
+  有相同的区间积分。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
+- **谁在用**：`real-analysis.riemann.ftc`、`analysis.mvt.taylor-integral-remainder`。
+- **坑**：前者需要端点有序；后者忽略端点值，但仍需满足相应可积性条件。
+
+### `MeasureTheory.measure_mono` / `MeasureTheory.measure_toMeasurable`
+- **人话**：测度关于集合包含单调；集合的可测包络与原集合具有相同测度。
+- **出处**：`Mathlib/MeasureTheory/Measure/Basic.lean`、
+  `Mathlib/MeasureTheory/Measure/Regular.lean`。
+- **谁在用**：`real-analysis.riemann.lebesgue-criterion`。
+- **坑**：`measure_toMeasurable` 依赖有限测度条件；可测包络不是集合闭包。
+
+### `interior` / `mem_closure_iff`
+- **人话**：`interior s` 是集合内部；点属于闭包当且仅当每个该点邻域都与集合相交。
+- **出处**：`Mathlib/Topology/Defs/Basic.lean`、`Mathlib/Topology/Closure.lean`。
+- **谁在用**：`topology.space.closure`。
+- **坑**：`interior` 是定义而非定理；`mem_closure_iff` 的邻域表述需要相应拓扑假设版本。
+
+### `Module.finrank_pi` / `Module.finrank_self`
+- **人话**：有限坐标函数空间的维数等于各坐标维数之和；域作为自身的一维向量空间
+  维数为一。
+- **出处**：`Mathlib/LinearAlgebra/FiniteDimensional/Basic.lean`、
+  `Mathlib/LinearAlgebra/Dimension/Finrank.lean`。
+- **谁在用**：`linear-algebra.vector-space.def`。
+- **坑**：需要有限指标类型和有限维实例；不要与无限基数维数 `Module.rank` 混淆。
+
+### `Submodule.span_le` / `Submodule.span_mono`
+- **人话**：生成子空间包含于某子空间等价于生成元全在其中；扩大生成元集合会扩大
+  生成子空间。
+- **出处**：`Mathlib/LinearAlgebra/Span/Basic.lean`。
+- **谁在用**：`linear-algebra.vector-space.span`。
+- **坑**：`span_le` 是消去生成闭包的核心 iff；包含方向写反时优先检查 `≤` 的子空间语义。
+
+### `IsUnit`
+- **人话**：元素是单位，即存在乘法逆元；矩阵行列式是单位等价于矩阵可逆。
+- **出处**：`Mathlib/Algebra/Group/Units/Defs.lean`。
+- **谁在用**：`linear-algebra.det.invertible`。
+- **坑**：一般交换环上应说 `IsUnit det`，只有在域上才能简化为行列式非零。
+
+### `Matrix.cramer_apply`
+- **人话**：Cramer 法则的逐坐标形式，用替换一列后的行列式除以原矩阵行列式表示
+  线性方程组解。
+- **出处**：`Mathlib/LinearAlgebra/Matrix/NonsingularInverse.lean`。
+- **谁在用**：`linear-algebra.det.cramer`。
+- **坑**：需要矩阵可逆/行列式非零，且列替换索引和矩阵乘向量的约定必须一致。
+
+### `Matrix.charpoly_diagonal` / `Matrix.charpoly_monic`
+- **人话**：对角矩阵特征多项式是各对角项对应一次因子的乘积；任意方阵特征多项式
+  都是首一多项式。
+- **出处**：`Mathlib/LinearAlgebra/Matrix/Charpoly/Basic.lean`。
+- **谁在用**：`linear-algebra.eigen.charpoly`。
+- **坑**：特征多项式符号约定是 `det(XI-A)`；与手写 `det(A-λI)` 相差可能的符号。
+
+### `Module.End.HasEigenvector.apply_eq_smul` / `Module.End.HasEigenvalue.mem_spectrum`
+- **人话**：特征向量满足线性算子作用等于特征值数乘；特征值属于算子的谱。
+- **出处**：`Mathlib/LinearAlgebra/Eigenspace/Basic.lean`、
+  `Mathlib/LinearAlgebra/Spectrum/Basic.lean`。
+- **谁在用**：`linear-algebra.eigen.vector`、`linear-algebra.eigen.spectrum`。
+- **坑**：特征向量结构包含非零条件；无限维或一般环上的谱与有限维矩阵根的表述不同。
+
+### `Matrix.transpose_neg` / `Matrix.transpose_sub`
+- **人话**：转置保持取负和减法，用于证明反对称矩阵对线性组合封闭。
+- **出处**：`Mathlib/Data/Matrix/Basic.lean`。
+- **谁在用**：`linear-algebra.matrix.skew-symmetric`。
+- **坑**：普通转置不含共轭；复矩阵 Hermitian/反 Hermitian 性质应使用共轭转置。
+
+### `ContDiffAt.hasStrictFDerivAt_implicitFunction`
+- **人话**：隐函数定理构造出的局部隐函数具有严格 Fréchet 导数，并给出由偏导数组合
+  得到的导数公式。
+- **出处**：`Mathlib/Analysis/Calculus/ImplicitFunction.lean`。
+- **谁在用**：`analysis.multivariable.implicit-function`。
+- **坑**：隐函数的变量块由 `.inl/.inr` 嵌入决定；导数逆映射作用在哪个偏变量上必须核对。
+
+### `Real.continuous_arcsin` / `Real.continuous_arccos`
+- **人话**：实反正弦与反余弦函数在全实线上连续（定义在区间外采用截断延拓）。
+- **出处**：`Mathlib/Analysis/SpecialFunctions/Trigonometric/Inverse.lean`。
+- **谁在用**：`analysis.special-functions.log-tan-pow`。
+- **坑**：反函数恒等式只在标准值域/定义域成立，连续性本身不提供 `sin (arcsin x)=x` 的范围条件。
+
+### `Real.neg_one_le_cos` / `Real.sin_le_one`
+- **人话**：余弦下界为 `-1`，正弦上界为 `1`，是三角函数值域估计的基本端点。
+- **出处**：`Mathlib/Analysis/SpecialFunctions/Trigonometric/Bounds.lean`。
+- **谁在用**：`analysis.trigonometric.basic-identities`。
+- **坑**：完整绝对值界通常还需另一侧不等式，或直接使用 `abs_sin_le_one` 等接口。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

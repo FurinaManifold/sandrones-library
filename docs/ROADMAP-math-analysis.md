@@ -250,7 +250,7 @@
 | `analysis.multivariable.jordan-riemann-bridge` | Jordan 区域零延拓、数值桥与外包盒无关性 | ✅ |
 | `analysis.multivariable.x-normal-domain` | `x`-型正常区域及变限累次积分 | ✅ |
 | `analysis.multivariable.y-normal-domain` | `y`-型正常区域及变限累次积分 | ✅ |
-| `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | 🔲 |
+| `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | ✅ |
 | `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标及质量、重心、转动惯量例题 | 🔲 |
 | `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🔲 |
 | `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
