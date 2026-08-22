@@ -57,6 +57,22 @@
 - **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
 - **谁在用**：`analysis.power-series.radius`。
 
+### `Summable.tsum_add`
+- **人话**：两个可和级数可以逐项相加，且总和等于两个总和之和。
+- **出处**：Mathlib 的无限和加法接口。
+- **谁在用**：`analysis.power-series.operations`。
+
+### `hasDerivAt_tsum_of_isPreconnected`
+- **人话**：开连通区间上的可导函数列若导数具有可和的一致控制，且原函数列在一点可和，
+  则级数和可导并可逐项求导。
+- **出处**：`Mathlib/Analysis/Calculus/SmoothSeries.lean`。
+- **谁在用**：`analysis.power-series.operations`。
+
+### `Summable.of_norm_bounded` / `Summable.sum_add_tsum_nat_add`
+- **人话**：前者由可和数列的逐项范数上界推出可和性；后者把无限和拆成有限前缀与平移后的尾和。
+- **出处**：Mathlib 的赋范群无限和与自然数下标接口。
+- **谁在用**：`analysis.power-series.operations`，分别用于导数级数可和性与下标重排。
+
 ### `ENNReal.ofReal_toReal`、`ENNReal.ofReal_le_ofReal_iff`、`ENNReal.ofReal_lt_ofReal_iff`
 - **人话**：半径有限时，在扩展非负实数半径与其实数值之间来回转换，并把大小关系转回实数。
 - **出处**：Mathlib 的扩展非负实数基础接口。

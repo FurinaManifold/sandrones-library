@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Analysis.Series.CauchyProduct
+import Mathlib.Analysis.Calculus.SmoothSeries
 
 /-!
 # 实幂级数：定义与收敛点集
@@ -267,5 +268,166 @@ theorem absolutelyConvergesAt_iff_interior_or_endpoints {a : ℕ → ℝ} {c x :
     · exact absolutelyConvergesAt_of_abs_lt_finiteRadius hfin hlt
     · exact hx
     · exact hx
+
+/-! ## 收敛区间内的逐项运算 -/
+
+/-- 两个幂级数逐项相加后的系数。
+
+> **Entry**: analysis.power-series.operations
+-/
+def addCoeffs (a b : ℕ → ℝ) : ℕ → ℝ := fun n => a n + b n
+
+/-- 两个幂级数相乘后的系数，即原系数列的 Cauchy 乘积。 -/
+def mulCoeffs (a b : ℕ → ℝ) : ℕ → ℝ :=
+  SandronesLibrary.Analysis.Series.cauchyProduct a b
+
+/-- 形式求导后的系数：`bₙ=(n+1)aₙ₊₁`。 -/
+def derivativeCoeffs (a : ℕ → ℝ) : ℕ → ℝ :=
+  fun n => (n + 1 : ℝ) * a (n + 1)
+
+/-- 取常数项为零的形式原函数系数：`b₀=0`、`bₙ₊₁=aₙ/(n+1)`。 -/
+noncomputable def integralCoeffs (a : ℕ → ℝ) : ℕ → ℝ
+  | 0 => 0
+  | n + 1 => a n / (n + 1 : ℝ)
+
+/-- 把控制列向右移动一位；用于匹配原函数与其导数的下标。 -/
+def shiftedMajorant (u : ℕ → ℝ) : ℕ → ℝ
+  | 0 => 0
+  | n + 1 => u n
+
+/-- 对积分系数再形式求导会恢复原系数。 -/
+theorem derivativeCoeffs_integralCoeffs (a : ℕ → ℝ) :
+    derivativeCoeffs (integralCoeffs a) = a := by
+  funext n
+  simp only [derivativeCoeffs, integralCoeffs]
+  field_simp
+
+/-- 在控制列前补一个零不改变可和性。 -/
+theorem summable_shiftedMajorant {u : ℕ → ℝ} (hu : Summable u) :
+    Summable (shiftedMajorant u) := by
+  apply (summable_nat_add_iff 1).mp
+  simpa [shiftedMajorant] using hu
+
+/-- 原级数项受 `uₙ` 控制时，积分级数各项的导数受右移后的控制列支配。 -/
+theorem integralCoeffs_derivative_bound {a u : ℕ → ℝ} {c R : ℝ}
+    (hbound : ∀ (n : ℕ) y, |y - c| < R →
+      ‖a n * (y - c) ^ n‖ ≤ u n) :
+    ∀ (n : ℕ) y, |y - c| < R →
+      ‖(n : ℝ) * integralCoeffs a n * (y - c) ^ (n - 1)‖ ≤ shiftedMajorant u n := by
+  intro n y hy
+  cases n with
+  | zero => simp [integralCoeffs, shiftedMajorant]
+  | succ n =>
+      have hcoeff : ((n + 1 : ℕ) : ℝ) * integralCoeffs a (n + 1) = a n := by
+        simp only [integralCoeffs]
+        field_simp
+        norm_num [Nat.cast_add, Nat.cast_one]
+        ring
+      rw [Nat.succ_sub_one, hcoeff]
+      simpa [shiftedMajorant] using hbound n y hy
+
+/-- **逐项加法**：两个幂级数在同一点绝对收敛时，逐项和的值等于和函数之和。 -/
+theorem sum_add_of_absolutelyConvergesAt {a b : ℕ → ℝ} {c x : ℝ}
+    (ha : AbsolutelyConvergesAt a c x)
+    (hb : AbsolutelyConvergesAt b c x) :
+    sum (addCoeffs a b) c x = sum a c x + sum b c x := by
+  have haS : Summable (term a c x) := by
+    apply Summable.of_norm
+    simpa [AbsolutelyConvergesAt, Real.norm_eq_abs] using ha
+  have hbS : Summable (term b c x) := by
+    apply Summable.of_norm
+    simpa [AbsolutelyConvergesAt, Real.norm_eq_abs] using hb
+  have hterm : term (addCoeffs a b) c x = fun n => term a c x n + term b c x n := by
+    funext n
+    simp [term, addCoeffs, add_mul]
+  simp only [sum, hterm]
+  exact haS.tsum_add hbS
+
+/-- **逐项乘法**：两个幂级数在同一点绝对收敛时，Cauchy 乘积的值等于两和值之积。 -/
+theorem sum_mul_of_absolutelyConvergesAt {a b : ℕ → ℝ} {c x : ℝ}
+    (ha : AbsolutelyConvergesAt a c x)
+    (hb : AbsolutelyConvergesAt b c x) :
+    sum (mulCoeffs a b) c x = sum a c x * sum b c x := by
+  let z := x - c
+  have hprod := SandronesLibrary.Analysis.Series.tsum_cauchyProduct_of_absolute ha hb
+  have hterm : term (mulCoeffs a b) c x =
+      SandronesLibrary.Analysis.Series.cauchyProduct (term a c x) (term b c x) := by
+    funext n
+    change SandronesLibrary.Analysis.Series.cauchyProduct a b n * z ^ n =
+      SandronesLibrary.Analysis.Series.cauchyProduct
+        (fun k => a k * z ^ k) (fun k => b k * z ^ k) n
+    exact (SandronesLibrary.Analysis.Series.cauchyProduct_mul_pow a b z n).symm
+  simpa only [sum, hterm] using hprod
+
+/-- **一致控制下逐项求导**。
+
+若在开区间 `|y-c|<R` 上，每一项导数
+`n aₙ(y-c)ⁿ⁻¹` 都被同一个可和数列 `uₙ` 控制，则幂级数和函数在该区间内可导，
+导数正是形式求导系数 `((n+1)aₙ₊₁)` 所定义的幂级数。
+
+证明在开球上使用导数级数的一致 Weierstrass 控制。原级数在中心处自动收敛，故满足
+逐项求导定理所需的基点条件；最后把从 `n=1` 开始的导数级数平移为从 `n=0` 开始的
+`derivativeCoeffs` 级数。 -/
+theorem hasDerivAt_sum_of_summable_derivative_majorant
+    {a u : ℕ → ℝ} {c x R : ℝ}
+    (hR : 0 < R) (hx : |x - c| < R)
+    (hu : Summable u)
+    (hbound : ∀ (n : ℕ) y, |y - c| < R →
+      ‖(n : ℝ) * a n * (y - c) ^ (n - 1)‖ ≤ u n) :
+    HasDerivAt (sum a c) (sum (derivativeCoeffs a) c x) x := by
+  let g : ℕ → ℝ → ℝ := fun n y => a n * (y - c) ^ n
+  let g' : ℕ → ℝ → ℝ := fun n y => (n : ℝ) * a n * (y - c) ^ (n - 1)
+  have hg : ∀ n y, HasDerivAt (g n) (g' n y) y := by
+    intro n y
+    have hp := ((hasDerivAt_id y).sub_const c).pow n
+    simpa [g, g', mul_comm, mul_left_comm, mul_assoc] using hp.const_mul (a n)
+  have hg0 : Summable (fun n => g n c) := by
+    apply summable_of_ne_finset_zero (s := {0})
+    intro n hn
+    have hn0 : n ≠ 0 := by simpa using hn
+    simp [g, hn0]
+  have hball : x ∈ Metric.ball c R := by
+    simpa [Metric.mem_ball, Real.dist_eq, abs_sub_comm] using hx
+  have hraw : HasDerivAt (fun y => ∑' n, g n y) (∑' n, g' n x) x := by
+    apply hasDerivAt_tsum_of_isPreconnected hu Metric.isOpen_ball
+      (convex_ball c R).isPreconnected (fun n y _ => hg n y)
+    · intro n y hy
+      apply hbound n y
+      simpa [Metric.mem_ball, Real.dist_eq, abs_sub_comm] using hy
+    · exact Metric.mem_ball_self hR
+    · exact hg0
+    · exact hball
+  have hg'S : Summable (fun n => g' n x) := by
+    apply Summable.of_norm_bounded hu
+    intro n
+    exact hbound n x hx
+  have hshift : (∑' n, g' n x) = sum (derivativeCoeffs a) c x := by
+    have hsplit := hg'S.sum_add_tsum_nat_add 1
+    rw [show (∑ n ∈ Finset.range 1, g' n x) = 0 by simp [g']] at hsplit
+    have htail : (fun n => g' (n + 1) x) = term (derivativeCoeffs a) c x := by
+      funext n
+      simp [g', term, derivativeCoeffs, Nat.cast_add]
+    simpa [sum, htail] using hsplit.symm
+  change HasDerivAt (sum a c) (∑' n, g' n x) x at hraw
+  rw [hshift] at hraw
+  exact hraw
+
+/-- **逐项积分的原函数形式**。
+
+若原级数各项在 `|y-c|<R` 上由可和列一致控制，则系数
+`0,a₀,a₁/2,a₂/3,…` 构成的幂级数可逐项求导，其导数就是原幂级数的和。
+因此它给出了以中心 `c` 为零值的逐项积分原函数。 -/
+theorem hasDerivAt_sum_integralCoeffs_of_summable_majorant
+    {a u : ℕ → ℝ} {c x R : ℝ}
+    (hR : 0 < R) (hx : |x - c| < R)
+    (hu : Summable u)
+    (hbound : ∀ n y, |y - c| < R →
+      ‖a n * (y - c) ^ n‖ ≤ u n) :
+    HasDerivAt (sum (integralCoeffs a) c) (sum a c x) x := by
+  have h := hasDerivAt_sum_of_summable_derivative_majorant
+    (a := integralCoeffs a) (u := shiftedMajorant u) (c := c) (x := x) (R := R)
+    hR hx (summable_shiftedMajorant hu)
+    (integralCoeffs_derivative_bound hbound)
+  simpa only [derivativeCoeffs_integralCoeffs] using h
 
 end SandronesLibrary.Analysis.PowerSeries

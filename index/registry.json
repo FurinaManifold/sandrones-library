@@ -5703,7 +5703,8 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.series.mertens"
+      "analysis.series.mertens",
+      "analysis.power-series.operations"
     ],
     "proof_sha": "621a3e9e7797cf3b",
     "axioms": [
@@ -5800,7 +5801,7 @@
     "dependedOnBy": [
       "analysis.power-series.radius"
     ],
-    "proof_sha": "c2abe09777201c5d",
+    "proof_sha": "792dbe374d2b85f5",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5832,9 +5833,10 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.power-series.endpoints"
+      "analysis.power-series.endpoints",
+      "analysis.power-series.operations"
     ],
-    "proof_sha": "c2abe09777201c5d",
+    "proof_sha": "792dbe374d2b85f5",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5866,7 +5868,39 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "c2abe09777201c5d",
+    "proof_sha": "792dbe374d2b85f5",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.power-series.operations",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "幂级数的逐项代数、求导与积分",
+    "summary": "证明绝对收敛点处逐项加法与Cauchy乘法，并在可和一致控制下证明逐项求导和积分",
+    "premises": [
+      "analysis.power-series.radius",
+      "analysis.series.cauchy-product-absolute"
+    ],
+    "mathlib": [
+      "Summable.tsum_add",
+      "hasDerivAt_tsum_of_isPreconnected",
+      "Summable.of_norm_bounded",
+      "Summable.sum_add_tsum_nat_add"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：幂级数的逐项运算"
+    },
+    "lean_file": "Analysis/PowerSeries.lean",
+    "nl_file": "docs/entries/analysis/power-series/operations.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "792dbe374d2b85f5",
     "axioms": [
       "propext",
       "Classical.choice",
