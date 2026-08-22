@@ -1572,6 +1572,22 @@
 
 ---
 
+### `MeasureTheory.Measure.prod_prod` / `MeasureTheory.lintegral_prod` / `MeasureTheory.lintegral_prod_symm`
+- **人话**：乘积测度在矩形上等于边测度之积；Tonelli 定理把非负可测函数的乘积
+  积分写成迭代 `lintegral`，并可在两个 `SFinite` 测度之间交换次序。
+- **出处**：`Mathlib/MeasureTheory/Measure/Prod.lean`。
+- **谁在用**：`real-analysis.measure.product-measure`、`real-analysis.measure.tonelli`。
+- **坑**：`lintegral` 的值域是 `ℝ≥0∞`，允许结果为无穷；不能把它误当成已经证明
+  一般实值函数绝对可积。反向次序版本还需要 `[SFinite μ]`。
+
+### `MeasureTheory.integral_prod` / `MeasureTheory.integral_integral_swap`
+- **人话**：Fubini 定理。乘积测度下可积的 Banach 空间值函数，其 Bochner 积分等于
+  迭代积分；柯里化版本直接给出交换积分次序。
+- **出处**：`Mathlib/MeasureTheory/Integral/Prod.lean`。
+- **谁在用**：`real-analysis.measure.fubini`。
+- **坑**：换序前提是 `Integrable (Function.uncurry f) (μ.prod ν)`，不是仅仅要求两个
+  内层积分逐点存在；两个测度均需 `SFinite`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

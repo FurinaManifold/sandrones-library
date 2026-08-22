@@ -4335,7 +4335,9 @@
     ],
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.measure.product-measure"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4463,7 +4465,9 @@
     ],
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.measure.tonelli"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4553,7 +4557,9 @@
     ],
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.measure.fubini"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -6362,5 +6368,103 @@
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
     "axioms": []
+  },
+  {
+    "id": "real-analysis.measure.product-measure",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "乘积测度与矩形测度",
+    "summary": "乘积测度在可测空间乘积上将矩形的测度计算为边测度之积",
+    "premises": [
+      "real-analysis.measure.def"
+    ],
+    "mathlib": [
+      "MeasureTheory.Measure.prod_prod"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：乘积测度"
+    },
+    "lean_file": "RealAnalysis/ProductMeasure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/product-measure.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:38:12Z",
+    "dependedOnBy": [
+      "real-analysis.measure.tonelli"
+    ],
+    "family": "real-analysis.measure.product-measure",
+    "variant": "generated",
+    "proof_sha": "caf2b19cc960532e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.measure.tonelli",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Tonelli 定理",
+    "summary": "非负可测函数在乘积空间上的积分等于两种次序的迭代积分",
+    "premises": [
+      "real-analysis.measure.product-measure",
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "MeasureTheory.lintegral_prod",
+      "MeasureTheory.lintegral_prod_symm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Tonelli 定理"
+    },
+    "lean_file": "RealAnalysis/ProductMeasure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/tonelli.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:38:12Z",
+    "dependedOnBy": [
+      "real-analysis.measure.fubini"
+    ],
+    "family": "real-analysis.measure.tonelli",
+    "variant": "generated",
+    "proof_sha": "caf2b19cc960532e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.measure.fubini",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Fubini 定理",
+    "summary": "乘积空间上的可积函数可化为迭代积分并交换积分次序",
+    "premises": [
+      "real-analysis.measure.tonelli",
+      "real-analysis.measure.dominated-convergence"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral_prod",
+      "MeasureTheory.integral_integral_swap"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Fubini 定理"
+    },
+    "lean_file": "RealAnalysis/ProductMeasure.lean",
+    "nl_file": "docs/entries/real-analysis/measure/fubini.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:38:12Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.measure.fubini",
+    "variant": "generated",
+    "proof_sha": "caf2b19cc960532e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

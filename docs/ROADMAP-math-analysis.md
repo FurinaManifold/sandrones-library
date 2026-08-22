@@ -209,6 +209,18 @@
 
 ## 推进节奏
 
+## 实分析 R4：乘积测度与 Lᵖ
+
+| 批次 | 内容 | 状态 |
+|---|---|---|
+| `real-analysis.measure.product-measure` | 乘积测度及矩形测度公式 | ✅ |
+| `real-analysis.measure.tonelli` | 非负可测函数的两种迭代积分公式 | ✅ |
+| `real-analysis.measure.fubini` | 可积函数的迭代积分与换序 | ✅ |
+| `real-analysis.lp.basic` | `Lᵖ` 空间、范数与几乎处处等价类 | 🔲 |
+| `real-analysis.lp.holder` | Hölder 不等式 | 🔲 |
+| `real-analysis.lp.minkowski` | Minkowski 不等式 | 🔲 |
+| `real-analysis.lp.complete` | `Lᵖ` 空间的完备性 | 🔲 |
+
 1. **章节内先后**：严格按表内行序（定义 → 基本性质 → 定理 → 应用型定理），
    保证每个条目的 premises 已经就绪。
 2. **同一行多版本**：mathlib-formal 变体先（机械、快），教材人话变体后（叙述层工作量大）。

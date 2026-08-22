@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **207** 个条目（verified 207，pending 0）。
+共 **210** 个条目（verified 210，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -244,11 +244,14 @@
 - ✅ [`def.md`](def.md) — 测度公理
 - ✅ [`dominated-convergence.md`](dominated-convergence.md) — 控制收敛定理
 - ✅ [`fatou.md`](fatou.md) — Fatou 引理
+- ✅ [`fubini.md`](fubini.md) — Fubini 定理
 - ✅ [`lintegral.md`](lintegral.md) — 非负积分（lintegral）
 - ✅ [`measurable-function.md`](measurable-function.md) — 可测函数
 - ✅ [`monotone-convergence.md`](monotone-convergence.md) — 单调收敛定理
 - ✅ [`outer.md`](outer.md) — 外测度次可加性
+- ✅ [`product-measure.md`](product-measure.md) — 乘积测度与矩形测度
 - ✅ [`sigma-algebra.md`](sigma-algebra.md) — σ-代数公理
+- ✅ [`tonelli.md`](tonelli.md) — Tonelli 定理
 
 ## `real-analysis.riemann`
 
