@@ -1615,6 +1615,16 @@
 - **坑**：前两个定理用实指数和 `Real.HolderConjugate`；乘积可积性用扩展实指数及
   `ENNReal.HolderTriple p q 1`。两套接口不可在不转换指数的情况下混用。
 
+### `Real.young_inequality` / `Real.inner_le_Lp_mul_Lq` / `Finset.sum_mul_sq_le_sq_mul_sq` / `Real.Lp_add_le`
+- **人话**：有限实数族上的 Young、Hölder、Cauchy–Schwarz 与 Minkowski 不等式，
+  是积分型 `Lᵖ` 不等式之前的有限维原型。
+- **出处**：`Mathlib/Analysis/MeanInequalities.lean`、
+  `Mathlib/Algebra/Order/BigOperators/Ring/Finset.lean`。
+- **谁在用**：`analysis.inequalities.young`、`analysis.inequalities.holder-finite`、
+  `analysis.inequalities.cauchy-schwarz`、`analysis.inequalities.minkowski-finite`。
+- **坑**：指数是实数，幂使用 `Real.rpow` 记法；Hölder 的底层定理控制带符号内积，
+  标准绝对值版本需应用于 `|f|,|g|`。Minkowski 必须显式假设 `1 ≤ p`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

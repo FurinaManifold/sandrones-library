@@ -6543,5 +6543,128 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.inequalities.young",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Young 不等式",
+    "summary": "共轭指数下两个实数乘积的幂次上界",
+    "premises": [],
+    "mathlib": [
+      "Real.young_inequality"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析：Young不等式"
+    },
+    "lean_file": "Analysis/FiniteInequalities.lean",
+    "nl_file": "docs/entries/analysis/inequalities/young.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:49:38Z",
+    "dependedOnBy": [
+      "analysis.inequalities.holder-finite"
+    ],
+    "family": "analysis.inequalities",
+    "variant": "generated",
+    "proof_sha": "20f0eb38a0908ea7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.inequalities.holder-finite",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限和Hölder不等式",
+    "summary": "有限实数族乘积绝对值之和的共轭指数估计",
+    "premises": [
+      "analysis.inequalities.young"
+    ],
+    "mathlib": [
+      "Real.inner_le_Lp_mul_Lq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析：有限和Hölder不等式"
+    },
+    "lean_file": "Analysis/FiniteInequalities.lean",
+    "nl_file": "docs/entries/analysis/inequalities/holder-finite.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:49:38Z",
+    "dependedOnBy": [
+      "analysis.inequalities.cauchy-schwarz",
+      "analysis.inequalities.minkowski-finite"
+    ],
+    "family": "analysis.inequalities",
+    "variant": "generated",
+    "proof_sha": "20f0eb38a0908ea7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.inequalities.cauchy-schwarz",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy–Schwarz不等式",
+    "summary": "有限实数族内积平方不超过平方和之积",
+    "premises": [
+      "analysis.inequalities.holder-finite"
+    ],
+    "mathlib": [
+      "Finset.sum_mul_sq_le_sq_mul_sq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析：Cauchy–Schwarz不等式"
+    },
+    "lean_file": "Analysis/FiniteInequalities.lean",
+    "nl_file": "docs/entries/analysis/inequalities/cauchy-schwarz.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:49:38Z",
+    "dependedOnBy": [],
+    "family": "analysis.inequalities",
+    "variant": "generated",
+    "proof_sha": "20f0eb38a0908ea7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.inequalities.minkowski-finite",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限和Minkowski不等式",
+    "summary": "p不小于1时有限实数族的Lp三角不等式",
+    "premises": [
+      "analysis.inequalities.holder-finite"
+    ],
+    "mathlib": [
+      "Real.Lp_add_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析：有限和Minkowski不等式"
+    },
+    "lean_file": "Analysis/FiniteInequalities.lean",
+    "nl_file": "docs/entries/analysis/inequalities/minkowski-finite.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:49:39Z",
+    "dependedOnBy": [],
+    "family": "analysis.inequalities",
+    "variant": "generated",
+    "proof_sha": "20f0eb38a0908ea7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

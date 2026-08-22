@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **212** 个条目（verified 212，pending 0）。
+共 **216** 个条目（verified 216，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -99,6 +99,13 @@
 - ✅ [`mul.md`](mul.md) — 函数极限乘法
 - ✅ [`sub.md`](sub.md) — 函数极限减法
 - ✅ [`unique.md`](unique.md) — 函数极限唯一
+
+## `analysis.inequalities`
+
+- ✅ [`cauchy-schwarz.md`](cauchy-schwarz.md) — Cauchy–Schwarz不等式
+- ✅ [`holder-finite.md`](holder-finite.md) — 有限和Hölder不等式
+- ✅ [`minkowski-finite.md`](minkowski-finite.md) — 有限和Minkowski不等式
+- ✅ [`young.md`](young.md) — Young 不等式
 
 ## `analysis.integral`
 

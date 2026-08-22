@@ -211,6 +211,15 @@
 
 ## 实分析 R4：乘积测度与 Lᵖ
 
+### 有限维前置不等式
+
+| 条目 | 内容 | 状态 |
+|---|---|---|
+| `analysis.inequalities.young` | 实数 Young 不等式 | ✅ |
+| `analysis.inequalities.holder-finite` | 有限和 Hölder 不等式 | ✅ |
+| `analysis.inequalities.cauchy-schwarz` | 有限实数族 Cauchy–Schwarz 不等式 | ✅ |
+| `analysis.inequalities.minkowski-finite` | 有限和 Minkowski 不等式 | ✅ |
+
 | 批次 | 内容 | 状态 |
 |---|---|---|
 | `real-analysis.measure.product-measure` | 乘积测度及矩形测度公式 | ✅ |
