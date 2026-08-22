@@ -5516,5 +5516,35 @@
       "Classical.choice",
       "Quot.sound"
     ]
+  },
+  {
+    "id": "analysis.series.absolute",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "绝对收敛与尾和",
+    "summary": "绝对收敛等价判据与部分和趋于级数和",
+    "premises": [
+      "analysis.series.basic",
+      "analysis.series.tests"
+    ],
+    "mathlib": [
+      "Summable.abs",
+      "Summable.tendsto_sum_tsum_nat"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：绝对收敛级数"
+    },
+    "lean_file": "Analysis/Series.lean",
+    "nl_file": "docs/entries/analysis/series/absolute.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T05:04:53Z",
+    "dependedOnBy": [],
+    "proof_sha": "05c7119be7ac4383",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
   }
 ]

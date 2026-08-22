@@ -112,5 +112,21 @@ theorem eventually_geometric_bound_of_root_bound {f : ℕ → ℝ} {r : ℝ}
   rw [hleft] at hpow
   simpa [Real.rpow_natCast, one_mul] using hpow
 
+/-- 实数项级数绝对收敛与收敛的等价判据。 -/
+/-
+> **Entry**: analysis.series.absolute
+-/
+theorem summable_abs_iff {f : ℕ → ℝ} :
+    Summable (fun n => |f n|) ↔ Summable f := by
+  constructor
+  · exact summable_of_absolute
+  · intro hf
+    exact hf.abs
+
+/-- 可和级数的有限部分和趋于其无穷和。 -/
+theorem partial_sum_tendsto_tsum {f : ℕ → ℝ} (hf : Summable f) :
+    Tendsto (fun N : ℕ => ∑ n ∈ Finset.range N, f n) atTop (𝓝 (∑' n, f n)) := by
+  exact hf.tendsto_sum_tsum_nat
+
 end Analysis.Series
 end SandronesLibrary

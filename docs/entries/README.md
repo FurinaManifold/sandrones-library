@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **182** 个条目（verified 182，pending 0）。
+共 **183** 个条目（verified 183，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -145,6 +145,7 @@
 
 ## `analysis.series`
 
+- ✅ [`absolute.md`](absolute.md) — 绝对收敛与尾和
 - ✅ [`basic.md`](basic.md) — 数项级数基础
 - ✅ [`tests.md`](tests.md) — 数项级数判别法
 

@@ -168,7 +168,7 @@
 
 | 批次 | 内容 | 前置 | 状态 |
 |---|---|---|---|
-| `analysis.series.absolute` | 绝对收敛、绝对收敛蕴含收敛、尾和控制 | `analysis.series.basic`, `analysis.series.tests` | 🔲 |
+| `analysis.series.absolute` | 绝对收敛、绝对收敛蕴含收敛、部分和趋于级数和 | `analysis.series.basic`, `analysis.series.tests` | ✅ |
 | `analysis.series.conditional` | 条件收敛、交错级数和端点型实例 | `analysis.series.tests` | 🔲 |
 | `analysis.series.rearrangement` | Riemann 重排定理：条件收敛级数可重排为任意给定和或发散 | `analysis.series.absolute`, `analysis.series.conditional` | 🔲 |
 | `analysis.power-series.definition` | 幂级数定义、部分和、收敛点集 | `analysis.series.basic` | 🔲 |
