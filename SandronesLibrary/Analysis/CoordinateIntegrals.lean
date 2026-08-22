@@ -5,6 +5,8 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Analysis.ChangeOfVariables
 import Mathlib.Analysis.SpecialFunctions.PolarCoord
+import Mathlib.MeasureTheory.Constructions.Pi
+import Mathlib.MeasureTheory.Integral.Prod
 
 /-!
 # 坐标积分：二维极坐标
@@ -246,5 +248,262 @@ theorem sphericalMap_apply_one (p : Euclidean3) :
 /-- 球坐标映射的第三坐标。 -/
 theorem sphericalMap_apply_two (p : Euclidean3) :
     sphericalMap p 2 = p 0 * cos (p 2) := by rfl
+
+/-! ### 标准球坐标参数域上的换元 -/
+
+/-- 标准球坐标参数域：`ρ > 0`、`-π < θ < π`、`0 < φ < π`。
+开区间排除了坐标退化点，并为每个像点选择唯一的角度代表。 -/
+def sphericalSource : Set Euclidean3 :=
+  {p | p 0 ∈ Ioi (0 : ℝ) ∧ p 1 ∈ Ioo (-π) π ∧ p 2 ∈ Ioo (0 : ℝ) π}
+
+theorem measurableSet_sphericalSource : MeasurableSet sphericalSource := by
+  unfold sphericalSource
+  measurability
+
+theorem isOpen_sphericalSource : IsOpen sphericalSource := by
+  rw [show sphericalSource =
+      (fun p : Euclidean3 ↦ p 0) ⁻¹' Ioi 0 ∩
+        ((fun p : Euclidean3 ↦ p 1) ⁻¹' Ioo (-π) π ∩
+          (fun p : Euclidean3 ↦ p 2) ⁻¹' Ioo 0 π) by
+    ext p
+    simp [sphericalSource]]
+  exact (isOpen_Ioi.preimage (by fun_prop)).inter
+    ((isOpen_Ioo.preimage (by fun_prop)).inter
+      (isOpen_Ioo.preimage (by fun_prop)))
+
+theorem differentiableOn_sphericalMap :
+    DifferentiableOn ℝ sphericalMap sphericalSource :=
+  differentiable_sphericalMap.differentiableOn
+
+/-- 球坐标映射在标准参数域上单射。证明依次从像点恢复半径、极角和方位角：
+三坐标平方和给出正半径，第三坐标给出 `cos φ`，前两坐标给出 `cos θ` 与
+`sin θ`。开区间条件消除了三角函数的周期歧义。 -/
+theorem injOn_sphericalMap : InjOn sphericalMap sphericalSource := by
+  intro p hp q hq hpq
+  have h0 := congrFun hpq (0 : Fin 3)
+  have h1 := congrFun hpq (1 : Fin 3)
+  have h2 := congrFun hpq (2 : Fin 3)
+  simp only [sphericalMap_apply_zero] at h0
+  simp only [sphericalMap_apply_one] at h1
+  simp only [sphericalMap_apply_two] at h2
+  have pnorm :
+      (sphericalMap p 0) ^ 2 + (sphericalMap p 1) ^ 2 +
+        (sphericalMap p 2) ^ 2 = (p 0) ^ 2 := by
+    rw [sphericalMap_apply_zero, sphericalMap_apply_one,
+      sphericalMap_apply_two]
+    calc
+      _ = (p 0) ^ 2 * ((sin (p 2)) ^ 2 *
+          ((cos (p 1)) ^ 2 + (sin (p 1)) ^ 2) + (cos (p 2)) ^ 2) := by ring
+      _ = _ := by
+        rw [add_comm ((cos (p 1)) ^ 2), sin_sq_add_cos_sq, mul_one,
+          sin_sq_add_cos_sq]
+        ring
+  have qnorm :
+      (sphericalMap q 0) ^ 2 + (sphericalMap q 1) ^ 2 +
+        (sphericalMap q 2) ^ 2 = (q 0) ^ 2 := by
+    rw [sphericalMap_apply_zero, sphericalMap_apply_one,
+      sphericalMap_apply_two]
+    calc
+      _ = (q 0) ^ 2 * ((sin (q 2)) ^ 2 *
+          ((cos (q 1)) ^ 2 + (sin (q 1)) ^ 2) + (cos (q 2)) ^ 2) := by ring
+      _ = _ := by
+        rw [add_comm ((cos (q 1)) ^ 2), sin_sq_add_cos_sq, mul_one,
+          sin_sq_add_cos_sq]
+        ring
+  have hrho_sq : (p 0) ^ 2 = (q 0) ^ 2 := by
+    rw [← pnorm, ← qnorm, hpq]
+  have hrho : p 0 = q 0 := by
+    rcases sq_eq_sq_iff_eq_or_eq_neg.mp hrho_sq with h | h
+    · exact h
+    · exfalso
+      have hpos : 0 < p 0 + q 0 := add_pos hp.1 hq.1
+      rw [h] at hpos
+      linarith
+  have hcos_phi : cos (p 2) = cos (q 2) := by
+    rw [hrho] at h2
+    exact mul_left_cancel₀ (ne_of_gt hq.1) h2
+  have hphi : p 2 = q 2 := by
+    apply Real.strictAntiOn_cos.injOn
+    · exact ⟨le_of_lt hp.2.2.1, le_of_lt hp.2.2.2⟩
+    · exact ⟨le_of_lt hq.2.2.1, le_of_lt hq.2.2.2⟩
+    · exact hcos_phi
+  rw [hrho, hphi] at h0 h1
+  have hcoeff : q 0 * sin (q 2) ≠ 0 := mul_ne_zero
+    (ne_of_gt hq.1) (ne_of_gt (sin_pos_of_pos_of_lt_pi hq.2.2.1 hq.2.2.2))
+  have hcos_theta : cos (p 1) = cos (q 1) := mul_left_cancel₀ hcoeff h0
+  have hsin_theta : sin (p 1) = sin (q 1) := mul_left_cancel₀ hcoeff h1
+  have hangle : (p 1 : Real.Angle) = (q 1 : Real.Angle) :=
+    Real.Angle.cos_sin_inj hcos_theta hsin_theta
+  have htheta := congrArg Real.Angle.toReal hangle
+  rw [Real.Angle.toReal_coe_eq_self_iff.2
+      ⟨hp.2.1.1, le_of_lt hp.2.1.2⟩,
+    Real.Angle.toReal_coe_eq_self_iff.2
+      ⟨hq.2.1.1, le_of_lt hq.2.1.2⟩] at htheta
+  funext i
+  fin_cases i
+  · exact hrho
+  · exact htheta
+  · exact hphi
+
+/-- 在标准参数域内部，区域内导数等于全导数，且 Jacobian 的绝对值为
+`ρ² sin φ`。 -/
+theorem absJacobianWithin_sphericalMap (p : Euclidean3) (hp : p ∈ sphericalSource) :
+    absJacobianWithin sphericalMap sphericalSource p = (p 0) ^ 2 * sin (p 2) := by
+  unfold absJacobianWithin
+  rw [fderivWithin_of_isOpen isOpen_sphericalSource hp,
+    det_fderiv_sphericalMap, abs_neg, abs_of_nonneg]
+  exact mul_nonneg (sq_nonneg _) (le_of_lt
+    (sin_pos_of_pos_of_lt_pi hp.2.2.1 hp.2.2.2))
+
+/-- **标准域球坐标换元公式**：球坐标像区域上的积分等于参数域上乘以
+`rho² sin phi` 后的积分。全空间版本还需证明像的补集为零测集。 -/
+theorem integral_spherical_image (f : Euclidean3 → ℝ) :
+    (∫ x in sphericalMap '' sphericalSource, f x) =
+      ∫ p in sphericalSource, (p 0) ^ 2 * sin (p 2) * f (sphericalMap p) := by
+  rw [integral_image_eq_integral_absJacobian_mul
+    measurableSet_sphericalSource differentiableOn_sphericalMap injOn_sphericalMap]
+  apply setIntegral_congr_fun measurableSet_sphericalSource
+  intro p hp
+  dsimp only
+  rw [absJacobianWithin_sphericalMap p hp]
+
+/-- 横向第二坐标非零的每个空间点都由标准球坐标参数域覆盖。
+
+证明避免重新发展反三角函数：先对 `(x,y)` 使用二维极坐标恢复 `(r,θ)`，再对
+`(z,r)` 使用二维极坐标恢复 `(ρ,φ)`。由于 `y ≠ 0`，有 `r > 0`，从而第二次
+得到的极角严格位于 `(0,π)`。 -/
+theorem mem_spherical_image_of_coord_one_ne_zero (x : Euclidean3) (hx : x 1 ≠ 0) :
+    x ∈ sphericalMap '' sphericalSource := by
+  let a : ℝ × ℝ := polarCoord (x 0, x 1)
+  have hha : (x 0, x 1) ∈ polarCoord.source := Or.inr hx
+  have ha : a ∈ polarCoord.target := polarCoord.map_source hha
+  have hainv : polarCoord.symm a = (x 0, x 1) := polarCoord.left_inv hha
+  let b : ℝ × ℝ := polarCoord (x 2, a.1)
+  have hva : 0 < a.1 := ha.1
+  have hvb : (x 2, a.1) ∈ polarCoord.source := Or.inr (ne_of_gt hva)
+  have hb : b ∈ polarCoord.target := polarCoord.map_source hvb
+  have hbinv : polarCoord.symm b = (x 2, a.1) := polarCoord.left_inv hvb
+  have hsin : 0 < sin b.2 := by
+    have hprod : 0 < b.1 * sin b.2 := by
+      rw [show b.1 * sin b.2 = a.1 by exact congrArg Prod.snd hbinv]
+      exact hva
+    exact pos_of_mul_pos_right hprod (le_of_lt hb.1)
+  have hphi0 : 0 < b.2 := by
+    by_contra h
+    have hnonpos : sin b.2 ≤ 0 :=
+      sin_nonpos_of_nonpos_of_neg_pi_le (le_of_not_gt h) (le_of_lt hb.2.1)
+    exact (not_lt_of_ge hnonpos) hsin
+  refine ⟨![b.1, a.2, b.2], ?_, ?_⟩
+  · exact ⟨hb.1, ha.2, hphi0, hb.2.2⟩
+  · funext i
+    fin_cases i
+    · change b.1 * sin b.2 * cos a.2 = x 0
+      rw [show b.1 * sin b.2 = a.1 by exact congrArg Prod.snd hbinv]
+      exact congrArg Prod.fst hainv
+    · change b.1 * sin b.2 * sin a.2 = x 1
+      rw [show b.1 * sin b.2 = a.1 by exact congrArg Prod.snd hbinv]
+      exact congrArg Prod.snd hainv
+    · change b.1 * cos b.2 = x 2
+      exact congrArg Prod.fst hbinv
+
+/-- 标准球坐标像的补集包含在坐标超平面 `y = 0` 中。这个上界略大于实际的
+角度割面，但足以证明补集为零测集。 -/
+theorem spherical_image_compl_subset_hyperplane :
+    (sphericalMap '' sphericalSource)ᶜ ⊆ {x : Euclidean3 | x 1 = 0} := by
+  intro x hx
+  by_contra h
+  exact hx (mem_spherical_image_of_coord_one_ne_zero x h)
+
+/-- 标准球坐标像几乎处处等于整个三维空间；遗漏的角度割面为零测集。 -/
+theorem spherical_image_ae_eq_univ :
+    sphericalMap '' sphericalSource =ᵐ[volume] (univ : Set Euclidean3) := by
+  rw [ae_eq_univ]
+  apply measure_mono_null spherical_image_compl_subset_hyperplane
+  rw [volume_pi]
+  exact Measure.pi_hyperplane (fun _ : Fin 3 ↦ volume) (1 : Fin 3) 0
+
+/-- **全空间球坐标公式**：标准球坐标像仅遗漏零测割面，故像区域换元公式可以
+直接升级为整个 `ℝ³` 上的积分公式。 -/
+theorem integral_space_eq_spherical (f : Euclidean3 → ℝ) :
+    (∫ x, f x) =
+      ∫ p in sphericalSource, (p 0) ^ 2 * sin (p 2) * f (sphericalMap p) := by
+  rw [← integral_spherical_image]
+  rw [← setIntegral_univ]
+  exact setIntegral_congr_set spherical_image_ae_eq_univ.symm
+
+/-! ### 教材中的三重累次形式 -/
+
+/-- 把嵌套三元组 `(ρ,(θ,φ))` 改写为函数坐标 `![ρ,θ,φ]` 的可测等价。 -/
+def sphericalParamsEquiv : ℝ × (ℝ × ℝ) ≃ᵐ Euclidean3 :=
+  (MeasurableEquiv.prodCongr (MeasurableEquiv.refl ℝ)
+      (MeasurableEquiv.finTwoArrow (α := ℝ)).symm).trans
+    (MeasurableEquiv.piFinSuccAbove (fun _ : Fin 3 ↦ ℝ) 0).symm
+
+theorem sphericalParamsEquiv_apply (p : ℝ × (ℝ × ℝ)) :
+    sphericalParamsEquiv p = ![p.1, p.2.1, p.2.2] := by
+  funext i
+  fin_cases i <;> rfl
+
+/-- 坐标重排 `(ρ,(θ,φ)) ↔ ![ρ,θ,φ]` 保持三维 Lebesgue 体积。 -/
+theorem measurePreserving_sphericalParamsEquiv :
+    MeasurePreserving sphericalParamsEquiv := by
+  apply MeasurePreserving.trans
+  · convert (MeasurePreserving.id (volume : Measure ℝ)).prod
+      (volume_preserving_finTwoArrow ℝ).symm using 1
+    · funext p
+      rfl
+    · exact Measure.volume_eq_prod ℝ (ℝ × ℝ)
+  · exact (volume_preserving_piFinSuccAbove (fun _ : Fin 3 ↦ ℝ) 0).symm
+
+theorem sphericalParamsEquiv_preimage_source :
+    sphericalParamsEquiv ⁻¹' sphericalSource =
+      Ioi (0 : ℝ) ×ˢ (Ioo (-π) π ×ˢ Ioo (0 : ℝ) π) := by
+  ext p
+  simp [sphericalSource, sphericalParamsEquiv_apply]
+
+theorem sphericalParamsEquiv_map (p : ℝ × (ℝ × ℝ)) :
+    sphericalMap (sphericalParamsEquiv p) =
+      ![p.1 * sin p.2.2 * cos p.2.1,
+        p.1 * sin p.2.2 * sin p.2.1,
+        p.1 * cos p.2.2] := by
+  simp [sphericalMap, sphericalParamsEquiv_apply]
+
+/-- **全空间球坐标的三重累次积分公式**：若带 Jacobian 权重的拉回函数在标准
+参数域可积，则 Fubini 定理把全空间积分展开为先极角、再方位角、最后半径的积分。
+
+截面可积性无需额外假设：它由整体可积性通过 Fubini 自动在几乎处处的半径上成立，
+这已经足以在外层集合积分中替换内层二重积分。 -/
+theorem integral_space_eq_iterated_spherical (f : Euclidean3 → ℝ)
+    (hf : IntegrableOn
+      (fun p : ℝ × (ℝ × ℝ) ↦
+        p.1 ^ 2 * sin p.2.2 * f (sphericalMap (sphericalParamsEquiv p)))
+      (Ioi (0 : ℝ) ×ˢ (Ioo (-π) π ×ˢ Ioo (0 : ℝ) π))
+      (volume.prod (volume.prod volume))) :
+    (∫ x, f x) =
+      ∫ ρ in Ioi (0 : ℝ), ∫ θ in Ioo (-π) π, ∫ φ in Ioo (0 : ℝ) π,
+        ρ ^ 2 * sin φ * f ![ρ * sin φ * cos θ,
+          ρ * sin φ * sin θ, ρ * cos φ] := by
+  rw [integral_space_eq_spherical]
+  have hchange :
+      (∫ p in sphericalSource, p 0 ^ 2 * sin (p 2) * f (sphericalMap p)) =
+        ∫ p in Ioi (0 : ℝ) ×ˢ (Ioo (-π) π ×ˢ Ioo (0 : ℝ) π),
+          p.1 ^ 2 * sin p.2.2 * f (sphericalMap (sphericalParamsEquiv p))
+          ∂(volume.prod (volume.prod volume)) := by
+    rw [← measurePreserving_sphericalParamsEquiv.map_eq,
+      setIntegral_map_equiv, sphericalParamsEquiv_preimage_source]
+    rw [Measure.volume_eq_prod ℝ (ℝ × ℝ), Measure.volume_eq_prod ℝ ℝ]
+    simp [sphericalParamsEquiv_apply, sphericalMap]
+  have hsec : ∀ᵐ ρ ∂volume.restrict (Ioi (0 : ℝ)), IntegrableOn
+      (fun a : ℝ × ℝ ↦
+        ρ ^ 2 * sin a.2 * f (sphericalMap (sphericalParamsEquiv (ρ, a))))
+      (Ioo (-π) π ×ˢ Ioo (0 : ℝ) π) (volume.prod volume) := by
+    have hf' := hf
+    rw [IntegrableOn, ← Measure.prod_restrict] at hf'
+    exact hf'.prod_right_ae
+  rw [hchange, setIntegral_prod _ hf]
+  apply integral_congr_ae
+  filter_upwards [hsec] with ρ hρ
+  rw [setIntegral_prod _ hρ]
+  simp [sphericalParamsEquiv_apply, sphericalMap]
 
 end SandronesLibrary.Analysis.Multivariable
