@@ -41,5 +41,29 @@ theorem sin_bound (x : ℝ) : |Real.sin x| ≤ 1 := by
 theorem cos_bound (x : ℝ) : |Real.cos x| ≤ 1 := by
   exact abs_le.2 ⟨Real.neg_one_le_cos x, Real.cos_le_one x⟩
 
+/-! ### 正弦与余弦的和差公式 -/
+
+/-- 正弦和角公式。 -/
+theorem sin_add (x y : ℝ) :
+    Real.sin (x + y) = Real.sin x * Real.cos y + Real.cos x * Real.sin y := by
+  exact Real.sin_add x y
+
+/-- 正弦差角公式。 -/
+theorem sin_sub (x y : ℝ) :
+    Real.sin (x - y) = Real.sin x * Real.cos y - Real.cos x * Real.sin y := by
+  exact Real.sin_sub x y
+
+/-- 余弦和角公式。 -/
+theorem cos_add (x y : ℝ) :
+    Real.cos (x + y) = Real.cos x * Real.cos y - Real.sin x * Real.sin y := by
+  exact Real.cos_add x y
+
+/-- 余弦差角公式。
+> **Entry**: analysis.trigonometric.add-sub
+-/
+theorem cos_sub (x y : ℝ) :
+    Real.cos (x - y) = Real.cos x * Real.cos y + Real.sin x * Real.sin y := by
+  exact Real.cos_sub x y
+
 end Analysis.Trigonometric
 end SandronesLibrary

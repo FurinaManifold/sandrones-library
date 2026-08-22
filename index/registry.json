@@ -5195,5 +5195,36 @@
       "propext"
     ],
     "proof_sha": "549d8c88af9dc23e"
+  },
+  {
+    "id": "analysis.trigonometric.add-sub",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正弦与余弦的和差公式",
+    "summary": "正弦与余弦的和角、差角公式",
+    "premises": [
+      "analysis.trigonometric.basic-identities"
+    ],
+    "mathlib": [
+      "Real.sin_add",
+      "Real.sin_sub",
+      "Real.cos_add",
+      "Real.cos_sub"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数和差公式"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/add-sub.md",
+    "added_by": "trigonometric-add-sub-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "db1a5eba81212aba"
   }
 ]

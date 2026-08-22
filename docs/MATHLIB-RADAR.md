@@ -1216,6 +1216,10 @@
 - **人话**：正弦奇、余弦偶，二者以 `2π` 为周期，并且都被 `[-1,1]` 控制。
 - **谁在用**：`analysis.trigonometric.basic-identities`，作为高中三角恒等式批次的基础。
 
+### `Real.sin_add` / `Real.sin_sub` / `Real.cos_add` / `Real.cos_sub`
+- **人话**：正弦、余弦的和角与差角公式。
+- **谁在用**：`analysis.trigonometric.add-sub`，用于倍角、半角和积化和差公式。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
