@@ -4789,7 +4789,8 @@
     "added_at": "2026-08-21T15:26:03Z",
     "dependedOnBy": [
       "real-analysis.riemann.algebra",
-      "real-analysis.riemann.ftc"
+      "real-analysis.riemann.ftc",
+      "real-analysis.riemann.parts-substitution"
     ],
     "axioms": [
       "Classical.choice",
@@ -4867,7 +4868,9 @@
     "nl_file": "docs/entries/analysis/special-functions/basic.md",
     "added_by": "special-functions-batch-1",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.parts-substitution"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6189,8 +6192,41 @@
     "nl_file": "docs/entries/real-analysis/riemann/ftc.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.parts-substitution"
+    ],
     "proof_sha": "5773b8cb9ff3ff52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.riemann.parts-substitution",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Riemann 积分的分部积分与换元法",
+    "summary": "建立分部积分和换元公式，并计算 x乘exp与线性换元指数积分",
+    "premises": [
+      "real-analysis.riemann.eq-lebesgue",
+      "real-analysis.riemann.ftc",
+      "analysis.special-functions.basic"
+    ],
+    "mathlib": [
+      "intervalIntegral.integral_mul_deriv_eq_deriv_mul",
+      "intervalIntegral.integral_comp_mul_deriv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：分部积分、换元积分与指数函数例题"
+    },
+    "lean_file": "RealAnalysis/RiemannPartsSubstitution.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/parts-substitution.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "d288af5b78e0619c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

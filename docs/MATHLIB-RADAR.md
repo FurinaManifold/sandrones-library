@@ -1537,6 +1537,14 @@
 - **坑**：不能要求两种变上限函数在所有实数上相等；本库尚未给 `u≤a` 的自建积分
   规定有向区间约定。应使用最终相等，而非证明全局函数相等。
 
+### `intervalIntegral.integral_mul_deriv_eq_deriv_mul` / `intervalIntegral.integral_comp_mul_deriv`
+- **人话**：前者是区间积分上的分部积分，后者是连续函数的换元积分。通过连续函数
+  Riemann–Lebesgue 积分值桥，可直接转写成本库自建 `riemannIntegral` 的教材公式。
+- **谁在用**：`real-analysis.riemann.parts-substitution`，以及其中 `∫xeˣ`、
+  `∫c exp(cx+d)` 两个例题。
+- **坑**：Mathlib 公式使用有向区间 `[[a,b]]`，而当前自建积分桥只覆盖严格正向区间；
+  换元后的两个端点也必须显式证明保持严格次序。
+
 ---
 
 ## 附：登记清单自动核对

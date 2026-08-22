@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **202** 个条目（verified 202，pending 0）。
+共 **203** 个条目（verified 203，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -251,6 +251,7 @@
 - ✅ [`ftc.md`](ftc.md) — 自建 Riemann 积分的微积分基本定理
 - ✅ [`lebesgue-criterion.md`](lebesgue-criterion.md) — 黎曼可积的 Lebesgue 判据
 - ✅ [`mean-value.md`](mean-value.md) — Riemann 积分中值定理与周期积分
+- ✅ [`parts-substitution.md`](parts-substitution.md) — Riemann 积分的分部积分与换元法
 
 ## `settheory.cardinal`
 
