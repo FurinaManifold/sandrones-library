@@ -118,4 +118,133 @@ theorem integral_space_eq_iterated_cylindrical (f : (ℝ × ℝ) × ℝ → ℝ)
         MeasureTheory.setIntegral_prod
           (fun p : ℝ × ℝ ↦ ∫ z : ℝ, p.1 * f (cylindricalMap (p, z))) houter
 
+/-! ## 三维球坐标 -/
+
+/-- 三维欧氏坐标的函数空间表示。 -/
+abbrev Euclidean3 := Fin 3 → ℝ
+
+/-- 球坐标映射，输入坐标依次为 `(ρ, θ, φ)`：径向距离、方位角和极角。
+
+`(ρ,θ,φ) ↦ (ρ sinφ cosθ, ρ sinφ sinθ, ρ cosφ)`。 -/
+def sphericalMap (p : Euclidean3) : Euclidean3 :=
+  ![p 0 * sin (p 2) * cos (p 1),
+    p 0 * sin (p 2) * sin (p 1),
+    p 0 * cos (p 2)]
+
+attribute [local instance 10000] NormedAlgebra.toNormedSpace
+
+/-- 球坐标映射的教材 Jacobian 矩阵。列依次对应 `ρ,θ,φ`，行依次对应
+直角坐标 `x,y,z`。 -/
+def sphericalDerivativeMatrix (p : Euclidean3) : Matrix (Fin 3) (Fin 3) ℝ :=
+  !![sin (p 2) * cos (p 1), -(p 0 * sin (p 2) * sin (p 1)),
+      p 0 * cos (p 2) * cos (p 1);
+    sin (p 2) * sin (p 1), p 0 * sin (p 2) * cos (p 1),
+      p 0 * cos (p 2) * sin (p 1);
+    cos (p 2), 0, -(p 0 * sin (p 2))]
+
+/-- 球坐标 Jacobian 矩阵所表示的连续线性映射。 -/
+def sphericalDerivative (p : Euclidean3) : Euclidean3 →L[ℝ] Euclidean3 :=
+  (Matrix.toLin' (sphericalDerivativeMatrix p)).toContinuousLinearMap
+
+/-- 球坐标映射的 Fréchet 导数就是显式 Jacobian 矩阵对应的线性映射。
+
+证明逐坐标调用一维的 `sin`、`cos` 导数，再用乘积法则组装三个坐标函数；
+最后将三个标量导数拼成向量值导数，并核对它与教材矩阵逐项一致。 -/
+theorem hasFDerivAt_sphericalMap (p : Euclidean3) :
+    HasFDerivAt sphericalMap (sphericalDerivative p) p := by
+  have hρ : HasFDerivAt (fun q : Euclidean3 ↦ q 0)
+      (ContinuousLinearMap.proj (R := ℝ) 0) p := by fun_prop
+  have hθ : HasFDerivAt (fun q : Euclidean3 ↦ q 1)
+      (ContinuousLinearMap.proj (R := ℝ) 1) p := by fun_prop
+  have hφ : HasFDerivAt (fun q : Euclidean3 ↦ q 2)
+      (ContinuousLinearMap.proj (R := ℝ) 2) p := by fun_prop
+  have hsθ := (Real.hasDerivAt_sin (p 1)).hasFDerivAt.comp p hθ
+  have hcθ := (Real.hasDerivAt_cos (p 1)).hasFDerivAt.comp p hθ
+  have hsφ := (Real.hasDerivAt_sin (p 2)).hasFDerivAt.comp p hφ
+  have hcφ := (Real.hasDerivAt_cos (p 2)).hasFDerivAt.comp p hφ
+  let e0 : Euclidean3 →L[ℝ] ℝ := ContinuousLinearMap.proj 0
+  let e1 : Euclidean3 →L[ℝ] ℝ := ContinuousLinearMap.proj 1
+  let e2 : Euclidean3 →L[ℝ] ℝ := ContinuousLinearMap.proj 2
+  let d0 := (p 0 * sin (p 2)) •
+      (ContinuousLinearMap.toSpanSingleton ℝ (-sin (p 1)) ∘SL e1) +
+    cos (p 1) • (p 0 •
+      (ContinuousLinearMap.toSpanSingleton ℝ (cos (p 2)) ∘SL e2) +
+      sin (p 2) • e0)
+  let d1 := (p 0 * sin (p 2)) •
+      (ContinuousLinearMap.toSpanSingleton ℝ (cos (p 1)) ∘SL e1) +
+    sin (p 1) • (p 0 •
+      (ContinuousLinearMap.toSpanSingleton ℝ (cos (p 2)) ∘SL e2) +
+      sin (p 2) • e0)
+  let d2 := p 0 •
+      (ContinuousLinearMap.toSpanSingleton ℝ (-sin (p 2)) ∘SL e2) +
+    cos (p 2) • e0
+  have h0 := (hρ.mul hsφ).mul hcθ
+  have h1 := (hρ.mul hsφ).mul hsθ
+  have h2 := hρ.mul hcφ
+  let D : Fin 3 → (Euclidean3 →L[ℝ] ℝ) := ![d0, d1, d2]
+  have hD : HasFDerivAt sphericalMap (ContinuousLinearMap.pi D) p := by
+    rw [hasFDerivAt_pi]
+    intro i
+    fin_cases i
+    · change HasFDerivAt
+        (((fun q : Euclidean3 ↦ q 0) * (fun q ↦ sin (q 2))) *
+          (fun q ↦ cos (q 1))) _ p
+      simpa [D, d0, e0, e1, e2, Function.comp_def] using h0
+    · change HasFDerivAt
+        (((fun q : Euclidean3 ↦ q 0) * (fun q ↦ sin (q 2))) *
+          (fun q ↦ sin (q 1))) _ p
+      simpa [D, d1, e0, e1, e2, Function.comp_def] using h1
+    · change HasFDerivAt
+        ((fun q : Euclidean3 ↦ q 0) * (fun q ↦ cos (q 2))) _ p
+      simpa [D, d2, e0, e1, e2, Function.comp_def] using h2
+  have heq : sphericalDerivative p = ContinuousLinearMap.pi D := by
+    apply ContinuousLinearMap.ext
+    intro v
+    funext i
+    fin_cases i <;>
+      simp [sphericalDerivative, sphericalDerivativeMatrix, Matrix.toLin'_apply,
+        Matrix.vecHead, Matrix.vecTail, D, d0, d1, d2, e0, e1, e2] <;> ring
+  rw [heq]
+  exact hD
+
+/-- 球坐标 Jacobian 矩阵的行列式。负号来自本库采用的坐标顺序
+`(ρ,θ,φ)`；教材常用的 `(ρ,φ,θ)` 交换了后两列。 -/
+theorem det_sphericalDerivativeMatrix (p : Euclidean3) :
+    (sphericalDerivativeMatrix p).det = -((p 0) ^ 2 * sin (p 2)) := by
+  rw [Matrix.det_fin_three]
+  simp [sphericalDerivativeMatrix]
+  have hθ := sin_sq_add_cos_sq (p 1)
+  have hφ := sin_sq_add_cos_sq (p 2)
+  calc
+    _ = -((p 0) ^ 2 * sin (p 2) *
+        ((sin (p 1)) ^ 2 + (cos (p 1)) ^ 2) *
+        ((sin (p 2)) ^ 2 + (cos (p 2)) ^ 2)) := by ring
+    _ = _ := by rw [hθ, hφ]; ring
+
+/-- 球坐标映射的导数行列式为 `-ρ² sin φ`。因此在标准区域
+`ρ > 0, 0 < φ < π` 上，换元公式中的绝对 Jacobian 是 `ρ² sin φ`。 -/
+theorem det_fderiv_sphericalMap (p : Euclidean3) :
+    (fderiv ℝ sphericalMap p).det = -((p 0) ^ 2 * sin (p 2)) := by
+  rw [(hasFDerivAt_sphericalMap p).fderiv]
+  simpa [sphericalDerivative, ContinuousLinearMap.det,
+    LinearMap.det_toMatrix'] using det_sphericalDerivativeMatrix p
+
+/-- 球坐标映射在全空间上 Fréchet 可微。 -/
+theorem differentiable_sphericalMap : Differentiable ℝ sphericalMap := by
+  rw [differentiable_pi]
+  intro i
+  fin_cases i <;> simp [sphericalMap] <;> fun_prop
+
+/-- 球坐标映射的第一坐标。 -/
+theorem sphericalMap_apply_zero (p : Euclidean3) :
+    sphericalMap p 0 = p 0 * sin (p 2) * cos (p 1) := by rfl
+
+/-- 球坐标映射的第二坐标。 -/
+theorem sphericalMap_apply_one (p : Euclidean3) :
+    sphericalMap p 1 = p 0 * sin (p 2) * sin (p 1) := by rfl
+
+/-- 球坐标映射的第三坐标。 -/
+theorem sphericalMap_apply_two (p : Euclidean3) :
+    sphericalMap p 2 = p 0 * cos (p 2) := by rfl
+
 end SandronesLibrary.Analysis.Multivariable
