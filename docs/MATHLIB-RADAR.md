@@ -1966,6 +1966,20 @@
 - **谁在用**：`analysis.trigonometric.basic-identities`。
 - **坑**：完整绝对值界通常还需另一侧不等式，或直接使用 `abs_sin_le_one` 等接口。
 
+### `integral_comp_polarCoord_symm`
+- **人话**：除去零测的负实轴后，二维极坐标逆映射把全平面积分变成
+  `(0,∞)×(-π,π)` 上带半径权重的积分。
+- **出处**：`Mathlib/Analysis/SpecialFunctions/PolarCoord.lean`。
+- **谁在用**：`analysis.multivariable.coordinate-integrals`。
+- **坑**：定理方向是“极坐标积分等于全平面积分”；教材常用方向需要取对称等式。
+
+### `hasFDerivAt_polarCoord_symm` / `det_fderivPolarCoordSymm`
+- **人话**：给出极坐标映射 `(r,θ) ↦ (r cos θ,r sin θ)` 的 Fréchet 导数，并证明
+  该导数矩阵的行列式等于 `r`。
+- **出处**：`Mathlib/Analysis/SpecialFunctions/PolarCoord.lean`。
+- **谁在用**：`analysis.multivariable.coordinate-integrals`。
+- **坑**：行列式是 `r`，换元公式实际使用 `|r|`；只有在标准区域 `r>0` 上才能化成 `r`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
