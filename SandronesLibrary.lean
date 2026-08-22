@@ -21,7 +21,6 @@ import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.ProductMeasure
 import SandronesLibrary.RealAnalysis.Lp
-import SandronesLibrary.RealAnalysis.LpHolder
 import SandronesLibrary.RealAnalysis.LpInequalities
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion

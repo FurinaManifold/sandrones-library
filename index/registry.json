@@ -6531,7 +6531,7 @@
       "source_type": "book",
       "ref": "实分析：Hölder 不等式"
     },
-    "lean_file": "RealAnalysis/LpHolder.lean",
+    "lean_file": "RealAnalysis/LpInequalities.lean",
     "nl_file": "docs/entries/real-analysis/lp/holder.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:45:44Z",
@@ -6540,7 +6540,7 @@
     ],
     "family": "real-analysis.lp",
     "variant": "generated",
-    "proof_sha": "63d9e7f65f19f67b",
+    "proof_sha": "76fd1ae2ae0b1ef4",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6695,7 +6695,7 @@
     "dependedOnBy": [],
     "family": "real-analysis.lp",
     "variant": "generated",
-    "proof_sha": "3a8bf5f9ae8a444c",
+    "proof_sha": "76fd1ae2ae0b1ef4",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6727,7 +6727,7 @@
     "dependedOnBy": [],
     "family": "real-analysis.lp",
     "variant": "generated",
-    "proof_sha": "3a8bf5f9ae8a444c",
+    "proof_sha": "76fd1ae2ae0b1ef4",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

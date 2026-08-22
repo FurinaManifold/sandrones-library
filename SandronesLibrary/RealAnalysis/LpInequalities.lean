@@ -3,15 +3,17 @@ Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
-import SandronesLibrary.RealAnalysis.LpHolder
+import SandronesLibrary.RealAnalysis.Lp
 import Mathlib.MeasureTheory.Function.LpSeminorm.ChebyshevMarkov
 import Mathlib.MeasureTheory.Integral.MeanInequalities
+import Mathlib.MeasureTheory.Function.L1Space.Integrable
 
 /-!
-# `Lᵖ` 函数的 Chebyshev 与 Minkowski 不等式
+# `Lᵖ` 函数的 Hölder、Chebyshev 与 Minkowski 不等式
 
-本模块补齐 `Lᵖ` 理论中两个最常用的估计。
+本模块集中收录 `Lᵖ` 理论中三个最常用的估计。
 
+* Hölder 不等式控制共轭指数函数的乘积，并给出 `Lᵖ · Lᑫ ⊆ L¹`；
 * Chebyshev–Markov 不等式把函数的 `Lᵖ` 大小转化为超水平集的测度上界；它是从
   `Lᵖ` 控制推出依测度控制、尾部估计及概率论 Markov 不等式的基本工具。
 * Minkowski 不等式说明 `p ≥ 1` 时 `Lᵖ` 半范数满足三角不等式。这里既保留适用于
@@ -26,7 +28,34 @@ namespace SandronesLibrary.RealAnalysis.Lp
 open MeasureTheory
 open scoped ENNReal
 
-variable {α E : Type*} [MeasurableSpace α] (μ : Measure α)
+variable {α E 𝕜 : Type*} [MeasurableSpace α] (μ : Measure α)
+
+/-- **Hölder 不等式（范数形式）**：共轭指数下，范数乘积的积分不超过两个幂积分
+所定义的 `Lᵖ` 与 `Lᑫ` 半范数之积。
+
+> **Entry**: real-analysis.lp.holder
+-/
+theorem holder_norm {E : Type*} [NormedAddCommGroup E]
+    {f g : α → E} {p q : ℝ} (hpq : p.HolderConjugate q)
+    (hf : MemLp f (ENNReal.ofReal p) μ) (hg : MemLp g (ENNReal.ofReal q) μ) :
+    ∫ x, ‖f x‖ * ‖g x‖ ∂μ ≤
+      (∫ x, ‖f x‖ ^ p ∂μ) ^ (1 / p) * (∫ x, ‖g x‖ ^ q ∂μ) ^ (1 / q) := by
+  exact integral_mul_norm_le_Lp_mul_Lq hpq hf hg
+
+/-- **Hölder 不等式（非负实函数形式）**：几乎处处非负时可去掉绝对值。 -/
+theorem holder_nonneg {f g : α → ℝ} {p q : ℝ} (hpq : p.HolderConjugate q)
+    (hf0 : 0 ≤ᵐ[μ] f) (hg0 : 0 ≤ᵐ[μ] g)
+    (hf : MemLp f (ENNReal.ofReal p) μ) (hg : MemLp g (ENNReal.ofReal q) μ) :
+    ∫ x, f x * g x ∂μ ≤
+      (∫ x, f x ^ p ∂μ) ^ (1 / p) * (∫ x, g x ^ q ∂μ) ^ (1 / q) := by
+  exact integral_mul_le_Lp_mul_Lq_of_nonneg hpq hf0 hg0 hf hg
+
+/-- **`Lᵖ · Lᑫ ⊆ L¹`**：满足 `HolderTriple p q 1` 时，两个函数的逐点乘积可积。
+该接口也覆盖端点指数 `1` 与 `∞`。 -/
+theorem holder_product_integrable [NormedRing 𝕜] {p q : ENNReal}
+    [ENNReal.HolderTriple p q 1] {f g : α → 𝕜}
+    (hf : MemLp f p μ) (hg : MemLp g q μ) : Integrable (f * g) μ := by
+  exact hf.integrable_mul hg
 
 /-- **Chebyshev–Markov 不等式**：若 `0 < p < ∞`，则函数超过阈值 `ε` 的集合满足
 
