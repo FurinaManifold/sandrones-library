@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **170** 个条目（verified 170，pending 0）。
+共 **171** 个条目（verified 171，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -48,6 +48,7 @@
 
 - ✅ [`e-definition.md`](e-definition.md) — 自然常数 e 的定义与基本范围
 - ✅ [`pi-definition.md`](pi-definition.md) — 圆周率 π 的定义接口与基本特殊值
+- ✅ [`special-values.md`](special-values.md) — 初等函数的常用特殊值
 
 ## `analysis.continuity`
 

@@ -1208,6 +1208,10 @@
 - **人话**：圆周率 `π` 为正且非零，`2π` 为正，并满足 `sin π = 0`、`cos π = -1`。
 - **谁在用**：`analysis.constants.pi-definition`，作为圆周率的教材层接口。
 
+### `Real.exp_zero` / `Real.log_one` / `Real.sin_zero` / `Real.cos_zero` / `Real.sin_pi_div_two` / `Real.cos_pi_div_two`
+- **人话**：指数、对数、正弦和余弦在教材常用点 `0、1、π/2、π` 的特殊值。
+- **谁在用**：`analysis.constants.special-values`，用于后续极限、级数和积分计算。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

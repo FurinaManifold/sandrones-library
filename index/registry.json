@@ -5123,5 +5123,41 @@
       "propext"
     ],
     "proof_sha": "5db9c85bcfcdf6d7"
+  },
+  {
+    "id": "analysis.constants.special-values",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "初等函数的常用特殊值",
+    "summary": "exp、log、sin、cos 在 0、1、π/2、π 的教材常用特殊值",
+    "premises": [
+      "analysis.constants.e-definition",
+      "analysis.constants.pi-definition"
+    ],
+    "mathlib": [
+      "Real.exp_zero",
+      "Real.log_one",
+      "Real.sin_zero",
+      "Real.cos_zero",
+      "Real.sin_pi_div_two",
+      "Real.cos_pi_div_two",
+      "Real.sin_pi",
+      "Real.cos_pi"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：基本初等函数特殊值"
+    },
+    "lean_file": "Analysis/Constants.lean",
+    "nl_file": "docs/entries/analysis/constants/special-values.md",
+    "added_by": "constants-special-values-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "38969d5854047d59"
   }
 ]

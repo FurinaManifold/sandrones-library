@@ -81,5 +81,45 @@ theorem two_pi_pos : 0 < 2 * pi := by
   rw [pi_eq_real_pi]
   exact Real.two_pi_pos
 
+/-! ### 初等函数的常用特殊值 -/
+
+/-- 指数函数在零点的值。 -/
+theorem exp_zero : Real.exp 0 = 1 := by
+  exact Real.exp_zero
+
+/-- 指数函数在一点的值就是自然常数 `e`。 -/
+theorem exp_one : Real.exp 1 = e := by
+  rfl
+
+/-- 自然对数在 `1` 点的值。 -/
+theorem log_one : Real.log 1 = 0 := by
+  exact Real.log_one
+
+/-- 正弦函数在零点的值。 -/
+theorem sin_zero : Real.sin 0 = 0 := by
+  exact Real.sin_zero
+
+/-- 余弦函数在零点的值。 -/
+theorem cos_zero : Real.cos 0 = 1 := by
+  exact Real.cos_zero
+
+/-- 正弦函数在 `π/2` 点的值。
+> **Entry**: analysis.constants.special-values
+-/
+theorem sin_pi_div_two : Real.sin (Real.pi / 2) = 1 := by
+  exact Real.sin_pi_div_two
+
+/-- 余弦函数在 `π/2` 点的值。 -/
+theorem cos_pi_div_two : Real.cos (Real.pi / 2) = 0 := by
+  exact Real.cos_pi_div_two
+
+/-- 正弦函数在 `π` 点的值。 -/
+theorem sin_pi_value : Real.sin Real.pi = 0 := by
+  exact Real.sin_pi
+
+/-- 余弦函数在 `π` 点的值。 -/
+theorem cos_pi_value : Real.cos Real.pi = -1 := by
+  exact Real.cos_pi
+
 end Analysis.Constants
 end SandronesLibrary
