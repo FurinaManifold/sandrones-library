@@ -216,7 +216,7 @@
 | `real-analysis.measure.product-measure` | 乘积测度及矩形测度公式 | ✅ |
 | `real-analysis.measure.tonelli` | 非负可测函数的两种迭代积分公式 | ✅ |
 | `real-analysis.measure.fubini` | 可积函数的迭代积分与换序 | ✅ |
-| `real-analysis.lp.basic` | `Lᵖ` 空间、范数与几乎处处等价类 | 🔲 |
+| `real-analysis.lp.basic` | `Lᵖ` 空间、范数与几乎处处等价类 | ✅ |
 | `real-analysis.lp.holder` | Hölder 不等式 | 🔲 |
 | `real-analysis.lp.minkowski` | Minkowski 不等式 | 🔲 |
 | `real-analysis.lp.complete` | `Lᵖ` 空间的完备性 | 🔲 |

@@ -1588,6 +1588,24 @@
 - **坑**：换序前提是 `Integrable (Function.uncurry f) (μ.prod ν)`，不是仅仅要求两个
   内层积分逐点存在；两个测度均需 `SFinite`。
 
+### `MeasureTheory.Lp` / `MeasureTheory.MemLp` / `MeasureTheory.MemLp.toLp`
+- **人话**：`MemLp f p μ` 是普通函数“几乎处处强可测且 `p`-半范数有限”的性质；
+  `Lp E p μ` 是按几乎处处相等取商后的有限范数函数空间；`toLp` 把满足条件的普通
+  函数送入该商空间。
+- **出处**：`Mathlib/MeasureTheory/Function/LpSeminorm/Defs.lean`、
+  `Mathlib/MeasureTheory/Function/LpSpace/Basic.lean`。
+- **谁在用**：`real-analysis.lp.basic`。
+- **坑**：`Lp` 元素虽然可强制转换为函数，但其代表元只在几乎处处意义下确定；因此
+  逐点运算接口通常返回 `=ᵐ[μ]`，不能擅自改成函数逐点相等。
+
+### `MeasureTheory.MemLp.coeFn_toLp` / `MeasureTheory.MemLp.toLp_eq_toLp_iff` / `MeasureTheory.Lp.norm_toLp` / `MeasureTheory.Lp.coeFn_add` / `MeasureTheory.Lp.eq_zero_iff_ae_eq_zero`
+- **人话**：连接普通函数与 `Lᵖ` 商空间的基本 API：恢复代表元、判定两个类相等、
+  计算构造元素的范数、解释加法，以及用“几乎处处为零”判定零元素。
+- **出处**：`Mathlib/MeasureTheory/Function/LpSpace/Basic.lean`。
+- **谁在用**：`real-analysis.lp.basic`。
+- **坑**：`norm_toLp` 的右侧是 `ENNReal.toReal (eLpNorm ...)`；转成实数合法是因为
+  `MemLp` 已含有限性。不要在没有 `MemLp` 前提时直接对 `eLpNorm` 取实数值并当作范数。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

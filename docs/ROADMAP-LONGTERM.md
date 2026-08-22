@@ -271,7 +271,7 @@
     达布和 = 阶梯函数积分并通过夹逼完成证明。
   - ✅ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
-- **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini；待做 Lᵖ、Hölder、Minkowski 与完备性。
+- **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础；待做 Hölder、Minkowski 与完备性。
 - **R6 多元微积分**（待做）。
 - **R6 多元微积分（照常）**：ℝⁿ 重积分/换元、曲线积分、曲面积分、Green/Gauss/Stokes 公式、外微分初步。
 

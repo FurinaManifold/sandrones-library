@@ -20,6 +20,7 @@ import SandronesLibrary.Topology.Metric
 import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.ProductMeasure
+import SandronesLibrary.RealAnalysis.Lp
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge

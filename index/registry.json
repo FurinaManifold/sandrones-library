@@ -4466,7 +4466,8 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [
-      "real-analysis.measure.tonelli"
+      "real-analysis.measure.tonelli",
+      "real-analysis.lp.basic"
     ],
     "proof_sha": "74fb033d578801ec"
   },
@@ -6457,10 +6458,50 @@
     "nl_file": "docs/entries/real-analysis/measure/fubini.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:38:12Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lp.basic"
+    ],
     "family": "real-analysis.measure.fubini",
     "variant": "generated",
     "proof_sha": "caf2b19cc960532e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.lp.basic",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Lᵖ 空间与几乎处处等价类",
+    "summary": "建立Lᵖ空间、成员判据、函数到等价类的映射及范数接口",
+    "premises": [
+      "real-analysis.measure.lintegral",
+      "real-analysis.measure.fubini"
+    ],
+    "mathlib": [
+      "MeasureTheory.Lp",
+      "MeasureTheory.MemLp",
+      "MeasureTheory.MemLp.toLp",
+      "MeasureTheory.MemLp.coeFn_toLp",
+      "MeasureTheory.MemLp.toLp_eq_toLp_iff",
+      "MeasureTheory.Lp.norm_toLp",
+      "MeasureTheory.Lp.coeFn_add",
+      "MeasureTheory.Lp.eq_zero_iff_ae_eq_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Lᵖ空间的定义与基本结构"
+    },
+    "lean_file": "RealAnalysis/Lp.lean",
+    "nl_file": "docs/entries/real-analysis/lp/basic.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:42:25Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.lp",
+    "variant": "generated",
+    "proof_sha": "98635a6373052319",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
