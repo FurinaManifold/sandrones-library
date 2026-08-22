@@ -5258,5 +5258,37 @@
       "propext"
     ],
     "proof_sha": "65504a594090cc7f"
+  },
+  {
+    "id": "analysis.trigonometric.product-sum",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角函数积化和差公式",
+    "summary": "正弦正弦、余弦余弦、正弦余弦乘积的和差表达式",
+    "premises": [
+      "analysis.trigonometric.add-sub",
+      "analysis.trigonometric.double-half"
+    ],
+    "mathlib": [
+      "Real.sin_add",
+      "Real.sin_sub",
+      "Real.cos_add",
+      "Real.cos_sub"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数积化和差"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/product-sum.md",
+    "added_by": "trigonometric-product-sum-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a9707aa2f166a875"
   }
 ]

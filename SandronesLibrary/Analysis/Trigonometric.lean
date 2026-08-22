@@ -94,5 +94,30 @@ theorem sin_sq_add_cos_sq (x : ℝ) :
     Real.sin x ^ 2 + Real.cos x ^ 2 = 1 := by
   exact Real.sin_sq_add_cos_sq x
 
+/-! ### 积化和差公式 -/
+
+/-- 正弦乘正弦的积化和差公式。 -/
+theorem sin_mul_sin (x y : ℝ) :
+    Real.sin x * Real.sin y =
+      (Real.cos (x - y) - Real.cos (x + y)) / 2 := by
+  rw [Real.cos_sub, Real.cos_add]
+  ring
+
+/-- 余弦乘余弦的积化和差公式。 -/
+theorem cos_mul_cos (x y : ℝ) :
+    Real.cos x * Real.cos y =
+      (Real.cos (x - y) + Real.cos (x + y)) / 2 := by
+  rw [Real.cos_sub, Real.cos_add]
+  ring
+
+/-- 正弦乘余弦的积化和差公式。
+> **Entry**: analysis.trigonometric.product-sum
+-/
+theorem sin_mul_cos (x y : ℝ) :
+    Real.sin x * Real.cos y =
+      (Real.sin (x + y) + Real.sin (x - y)) / 2 := by
+  rw [Real.sin_add, Real.sin_sub]
+  ring
+
 end Analysis.Trigonometric
 end SandronesLibrary

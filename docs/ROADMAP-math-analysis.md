@@ -129,7 +129,7 @@
 | `analysis.trigonometric.basic-identities` | 奇偶性、周期性、基本界 | `sin(-x)=-sin x`、`cos(-x)=cos x`、`sin(x+2π)=sin x`、`cos(x+2π)=cos x`、`|sin x|≤1`、`|cos x|≤1` | ✅ |
 | `analysis.trigonometric.add-sub` | 正弦/余弦和差公式 | `sin(x±y)`、`cos(x±y)`；正切公式留待带条件批次 | ✅ |
 | `analysis.trigonometric.double-half` | 倍角、降幂与半角公式 | `sin 2x`、`cos 2x`、`sin²x/cos²x` 的降幂形式；正切和半角根式留待带条件批次 | ✅ |
-| `analysis.trigonometric.product-sum` | 积化和差 | `sin x sin y`、`cos x cos y`、`sin x cos y` 的和差表达式 | 🔲 |
+| `analysis.trigonometric.product-sum` | 积化和差 | `sin x sin y`、`cos x cos y`、`sin x cos y` 的和差表达式 | ✅ |
 | `analysis.trigonometric.sum-product` | 和差化积 | `sin x ± sin y`、`cos x ± cos y` 的积表达式 | 🔲 |
 | `analysis.trigonometric.special-angles` | 高中常用特殊角 | `π/6`、`π/4`、`π/3` 处的正弦、余弦、正切值 | 🔲 |
 | `analysis.limits.classical` | `sin x/x`、`(1-cos x)/x²`、`(exp x-1)/x`、`log(1+x)/x` | ✅ |
