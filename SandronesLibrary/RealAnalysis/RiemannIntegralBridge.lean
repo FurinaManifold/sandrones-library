@@ -4,13 +4,17 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.RealAnalysis.RiemannCriterion
+import SandronesLibrary.RealAnalysis.Calculus
+import SandronesLibrary.Analysis.SpecialFunctions
+import Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
 
 /-!
-# 任意 Riemann 可积函数的积分值桥梁
+# Riemann 积分值桥、微积分基本定理与计算公式
 
 `Riemann.lean` 已经对闭区间连续函数证明了自建 Darboux 积分与 Mathlib 的
 Lebesgue 区间积分数值相同。本文件利用 `RiemannCriterion.lean` 中完成的 Lebesgue
-判据，把该结论推广到标准意义下的全部 Riemann 可积函数。
+判据，把该结论推广到标准意义下的全部 Riemann 可积函数。后半部分在这一桥梁上
+集中建立微积分基本定理、分部积分、换元法以及初等函数的定积分公式。
 
 这里的“标准意义”由 `RiemannIntegrableWithBound f a b` 表示：函数在 `[a,b]`
 有界，并且 Darboux 上下和之差可以任意小。之所以不直接使用早期定义
@@ -30,7 +34,7 @@ Lebesgue 区间积分数值相同。本文件利用 `RiemannCriterion.lean` 中�
 namespace SandronesLibrary.RealAnalysis.Riemann
 
 open MeasureTheory
-open scoped ENNReal Interval BigOperators
+open scoped ENNReal Interval BigOperators Topology
 
 /-- 标准 Riemann 可积函数在相应半开区间上也是 Lebesgue 可积的。
 
@@ -243,5 +247,176 @@ theorem riemannIntegral_eq_interval_of_riemannIntegrableWithBound {f : ℝ → �
         exact lowerSum_le_integral_of_riemannIntegrableWithBound hab h Q
       · exact ⟨P, rfl⟩
     linarith
+
+/-! ## 微积分基本定理 -/
+
+/-- **Newton–Leibniz 公式**：连续函数若有原函数，则其 Riemann 积分等于原函数的
+端点差。
+
+> **Entry**: real-analysis.riemann.ftc
+-/
+theorem riemannIntegral_eq_sub_of_hasDerivAt {a b : ℝ} {F f : ℝ → ℝ}
+    (hab : a < b) (hf : ContinuousOn f (Set.Icc a b))
+    (hderiv : ∀ x ∈ Set.Icc a b, HasDerivAt F (f x) x) :
+    riemannIntegral f a b = F b - F a := by
+  rw [riemannIntegral_eq_interval hab hf,
+    ← intervalIntegral.integral_of_le hab.le]
+  apply RealAnalysis.Calculus.ftc_2
+  · simpa [Set.uIcc_of_le hab.le] using hderiv
+  · have hf' : ContinuousOn f [[a, b]] := by
+      simpa [Set.uIcc_of_le hab.le] using hf
+    exact hf'.intervalIntegrable
+
+/-- **微积分基本定理第一形式**：连续函数的变上限 Riemann 积分在 `x>a` 处的
+导数等于被积函数在 `x` 处的值。 -/
+theorem hasDerivAt_riemannIntegral_right {a x : ℝ} {f : ℝ → ℝ}
+    (hax : a < x) (hf : Continuous f) :
+    HasDerivAt (fun u => riemannIntegral f a u) (f x) x := by
+  have hFTC : HasDerivAt (fun u : ℝ => ∫ t in a..u, f t) (f x) x :=
+    (RealAnalysis.Calculus.ftc_1_right (hf.intervalIntegrable a x)
+      (hf.stronglyMeasurableAtFilter volume (𝓝 x)) hf.continuousAt).hasDerivAt
+  apply hFTC.congr_of_eventuallyEq
+  filter_upwards [eventually_gt_nhds hax] with u hau
+  rw [riemannIntegral_eq_interval hau hf.continuousOn,
+    ← intervalIntegral.integral_of_le hau.le]
+
+/-! ## 分部积分与换元法 -/
+
+/-- **分部积分公式**：`∫ u v' = u(b)v(b)-u(a)v(a)-∫u'v`。
+
+> **Entry**: real-analysis.riemann.parts-substitution
+-/
+theorem riemannIntegral_mul_deriv_eq_deriv_mul {a b : ℝ}
+    {u v u' v' : ℝ → ℝ} (hab : a < b)
+    (hu : ContinuousOn u (Set.Icc a b)) (hv : ContinuousOn v (Set.Icc a b))
+    (hu' : ContinuousOn u' (Set.Icc a b)) (hv' : ContinuousOn v' (Set.Icc a b))
+    (hdu : ∀ x ∈ Set.Icc a b, HasDerivAt u (u' x) x)
+    (hdv : ∀ x ∈ Set.Icc a b, HasDerivAt v (v' x) x) :
+    riemannIntegral (fun x => u x * v' x) a b =
+      u b * v b - u a * v a - riemannIntegral (fun x => u' x * v x) a b := by
+  rw [riemannIntegral_eq_interval (f := fun x => u x * v' x) hab (hu.mul hv'),
+    riemannIntegral_eq_interval (f := fun x => u' x * v x) hab (hu'.mul hv),
+    ← intervalIntegral.integral_of_le hab.le,
+    ← intervalIntegral.integral_of_le hab.le]
+  apply intervalIntegral.integral_mul_deriv_eq_deriv_mul
+  · simpa [Set.uIcc_of_le hab.le] using hdu
+  · simpa [Set.uIcc_of_le hab.le] using hdv
+  · have hu'' : ContinuousOn u' [[a, b]] := by
+      simpa [Set.uIcc_of_le hab.le] using hu'
+    exact hu''.intervalIntegrable
+  · have hv'' : ContinuousOn v' [[a, b]] := by
+      simpa [Set.uIcc_of_le hab.le] using hv'
+    exact hv''.intervalIntegrable
+
+/-- **换元积分公式**：若 `φ'=φ'` 且 `g` 连续，则
+`∫ₐᵇ g(φ(x))φ'(x) dx = ∫_{φ(a)}^{φ(b)} g(u) du`。 -/
+theorem riemannIntegral_comp_mul_deriv {a b : ℝ} {φ φ' g : ℝ → ℝ}
+    (hab : a < b) (hφab : φ a < φ b)
+    (hφ : ContinuousOn φ (Set.Icc a b))
+    (hφ' : ContinuousOn φ' (Set.Icc a b))
+    (hdφ : ∀ x ∈ Set.Icc a b, HasDerivAt φ (φ' x) x)
+    (hg : Continuous g) :
+    riemannIntegral (fun x => (g ∘ φ) x * φ' x) a b =
+      riemannIntegral g (φ a) (φ b) := by
+  have hcomp : ContinuousOn (g ∘ φ) (Set.Icc a b) := hg.comp_continuousOn hφ
+  rw [riemannIntegral_eq_interval
+      (f := fun x => (g ∘ φ) x * φ' x) hab (hcomp.mul hφ'),
+    riemannIntegral_eq_interval hφab hg.continuousOn,
+    ← intervalIntegral.integral_of_le hab.le,
+    ← intervalIntegral.integral_of_le hφab.le]
+  apply intervalIntegral.integral_comp_mul_deriv
+  · simpa [Set.uIcc_of_le hab.le] using hdφ
+  · simpa [Set.uIcc_of_le hab.le] using hφ'
+  · exact hg
+
+/-- 分部积分例：`∫ₐᵇ x eˣ dx = b eᵇ-a eᵃ-(eᵇ-eᵃ)`。 -/
+theorem riemannIntegral_id_mul_exp {a b : ℝ} (hab : a < b) :
+    riemannIntegral (fun x => x * Real.exp x) a b =
+      b * Real.exp b - a * Real.exp a - (Real.exp b - Real.exp a) := by
+  have hparts := riemannIntegral_mul_deriv_eq_deriv_mul
+    (u := fun x : ℝ => x) (v := Real.exp)
+    (u' := fun _ : ℝ => 1) (v' := Real.exp) hab
+    continuousOn_id Real.continuous_exp.continuousOn
+    continuousOn_const Real.continuous_exp.continuousOn
+    (fun x _ => hasDerivAt_id x) (fun x _ => Real.hasDerivAt_exp x)
+  have hexp : riemannIntegral Real.exp a b = Real.exp b - Real.exp a :=
+    riemannIntegral_eq_sub_of_hasDerivAt hab Real.continuous_exp.continuousOn
+      (fun x _ => Real.hasDerivAt_exp x)
+  simp only [one_mul] at hparts
+  rw [hexp] at hparts
+  simpa using hparts
+
+/-- 线性换元例：`c>0` 时，`∫ₐᵇ c exp(cx+d) dx = exp(cb+d)-exp(ca+d)`。 -/
+theorem riemannIntegral_const_mul_exp_affine {a b c d : ℝ}
+    (hab : a < b) (hc : 0 < c) :
+    riemannIntegral (fun x => Real.exp (c * x + d) * c) a b =
+      Real.exp (c * b + d) - Real.exp (c * a + d) := by
+  have hφab : c * a + d < c * b + d := by
+    simpa [add_comm] using add_lt_add_right (mul_lt_mul_of_pos_left hab hc) d
+  have hsubst := riemannIntegral_comp_mul_deriv
+    (φ := fun x : ℝ => c * x + d) (φ' := fun _ : ℝ => c)
+    (g := Real.exp) hab hφab
+    ((continuousOn_const.mul continuousOn_id).add continuousOn_const)
+    continuousOn_const
+    (fun x _ => by simpa using ((hasDerivAt_id x).const_mul c).add_const d)
+    Real.continuous_exp
+  have hexp : riemannIntegral Real.exp (c * a + d) (c * b + d) =
+      Real.exp (c * b + d) - Real.exp (c * a + d) :=
+    riemannIntegral_eq_sub_of_hasDerivAt hφab Real.continuous_exp.continuousOn
+      (fun x _ => Real.hasDerivAt_exp x)
+  rw [hexp] at hsubst
+  simpa [Function.comp_def] using hsubst
+
+/-! ## 初等函数的定积分公式 -/
+
+/-- **幂函数积分**：`∫ₐᵇ xⁿ dx = bⁿ⁺¹/(n+1)-aⁿ⁺¹/(n+1)`。
+
+> **Entry**: analysis.integral.examples
+-/
+theorem riemannIntegral_pow {a b : ℝ} (n : ℕ) (hab : a < b) :
+    riemannIntegral (fun x : ℝ => x ^ n) a b =
+      b ^ (n + 1) / (n + 1) - a ^ (n + 1) / (n + 1) := by
+  apply riemannIntegral_eq_sub_of_hasDerivAt hab (continuousOn_pow n)
+  intro x hx
+  have hn : (n + 1 : ℝ) ≠ 0 := by positivity
+  simpa [Nat.add_sub_cancel, hn] using
+    (hasDerivAt_pow (n + 1) x).div_const (n + 1 : ℝ)
+
+/-- **指数函数积分**：`∫ₐᵇ eˣ dx=eᵇ-eᵃ`。 -/
+theorem riemannIntegral_exp {a b : ℝ} (hab : a < b) :
+    riemannIntegral Real.exp a b = Real.exp b - Real.exp a := by
+  exact riemannIntegral_eq_sub_of_hasDerivAt hab Real.continuous_exp.continuousOn
+    (fun x _ => Real.hasDerivAt_exp x)
+
+/-- **余弦函数积分**：`∫ₐᵇ cos x dx=sin b-sin a`。 -/
+theorem riemannIntegral_cos {a b : ℝ} (hab : a < b) :
+    riemannIntegral Real.cos a b = Real.sin b - Real.sin a := by
+  exact riemannIntegral_eq_sub_of_hasDerivAt hab Real.continuous_cos.continuousOn
+    (fun x _ => Real.hasDerivAt_sin x)
+
+/-- **正弦函数积分**：`∫ₐᵇ sin x dx=cos a-cos b`。 -/
+theorem riemannIntegral_sin {a b : ℝ} (hab : a < b) :
+    riemannIntegral Real.sin a b = Real.cos a - Real.cos b := by
+  have h := riemannIntegral_eq_sub_of_hasDerivAt
+    (F := fun x => -Real.cos x) hab Real.continuous_sin.continuousOn
+    (fun x _ => (Real.hasDerivAt_cos x).neg.congr_deriv (neg_neg _))
+  linarith
+
+/-- **线性三角换元例**：`c>0` 时，`∫ₐᵇ c cos(cx+d) dx` 等于相应正弦端点差。 -/
+theorem riemannIntegral_const_mul_cos_affine {a b c d : ℝ}
+    (hab : a < b) (hc : 0 < c) :
+    riemannIntegral (fun x => Real.cos (c * x + d) * c) a b =
+      Real.sin (c * b + d) - Real.sin (c * a + d) := by
+  have hφab : c * a + d < c * b + d := by
+    simpa [add_comm] using add_lt_add_right (mul_lt_mul_of_pos_left hab hc) d
+  have hsubst := riemannIntegral_comp_mul_deriv
+    (φ := fun x : ℝ => c * x + d) (φ' := fun _ : ℝ => c)
+    (g := Real.cos) hab hφab
+    ((continuousOn_const.mul continuousOn_id).add continuousOn_const)
+    continuousOn_const
+    (fun x _ => by simpa using ((hasDerivAt_id x).const_mul c).add_const d)
+    Real.continuous_cos
+  rw [riemannIntegral_cos hφab] at hsubst
+  simpa [Function.comp_def] using hsubst
 
 end SandronesLibrary.RealAnalysis.Riemann

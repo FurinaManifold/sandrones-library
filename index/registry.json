@@ -6113,7 +6113,7 @@
     "dependedOnBy": [
       "real-analysis.riemann.mean-value"
     ],
-    "proof_sha": "d4b29bd79ce3d2d0",
+    "proof_sha": "651930ae7e3ab3ed",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6139,12 +6139,12 @@
       "source_type": "book",
       "ref": "数学分析 II：积分中值定理与周期函数积分"
     },
-    "lean_file": "RealAnalysis/RiemannMeanValue.lean",
+    "lean_file": "RealAnalysis/RiemannAlgebra.lean",
     "nl_file": "docs/entries/real-analysis/riemann/mean-value.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T10:24:33Z",
     "dependedOnBy": [],
-    "proof_sha": "0ff2a5f5de2f7b17",
+    "proof_sha": "651930ae7e3ab3ed",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6177,7 +6177,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "ee0a481089ec7e8a",
+    "proof_sha": "5713805db6e3bbeb",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6204,7 +6204,7 @@
       "source_type": "book",
       "ref": "数学分析 II：微积分基本定理与 Newton–Leibniz 公式"
     },
-    "lean_file": "RealAnalysis/RiemannFTC.lean",
+    "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/real-analysis/riemann/ftc.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
@@ -6212,7 +6212,7 @@
       "real-analysis.riemann.parts-substitution",
       "analysis.integral.examples"
     ],
-    "proof_sha": "5773b8cb9ff3ff52",
+    "proof_sha": "5713805db6e3bbeb",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6238,14 +6238,14 @@
       "source_type": "book",
       "ref": "数学分析 II：分部积分、换元积分与指数函数例题"
     },
-    "lean_file": "RealAnalysis/RiemannPartsSubstitution.lean",
+    "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/real-analysis/riemann/parts-substitution.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
       "analysis.integral.examples"
     ],
-    "proof_sha": "d288af5b78e0619c",
+    "proof_sha": "5713805db6e3bbeb",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6273,12 +6273,12 @@
       "source_type": "book",
       "ref": "数学分析 II：Newton–Leibniz 公式的基本计算例"
     },
-    "lean_file": "RealAnalysis/RiemannIntegralExamples.lean",
+    "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/analysis/integral/examples.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "ba07ce36dd794d4d",
+    "proof_sha": "5713805db6e3bbeb",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6309,7 +6309,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "a6612a395427ea27",
+    "proof_sha": "490095340a80e7f7",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

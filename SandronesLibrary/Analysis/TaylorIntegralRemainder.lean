@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Analysis.TaylorSeries
-import SandronesLibrary.RealAnalysis.RiemannIntegralExamples
+import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
 
 /-!
 # Taylor 公式的 Riemann 积分型余项
