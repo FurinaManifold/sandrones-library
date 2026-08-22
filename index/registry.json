@@ -4817,5 +4817,41 @@
       "propext"
     ],
     "proof_sha": "13d9340af3b8708e"
+  },
+  {
+    "id": "analysis.special-functions.basic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "初等特殊函数基础性质",
+    "summary": "指数函数与正弦、余弦函数的正值、加法公式、连续性和一阶导数",
+    "premises": [
+      "analysis.continuity.definition",
+      "analysis.derivative.const"
+    ],
+    "mathlib": [
+      "Real.exp_pos",
+      "Real.exp_add",
+      "Real.continuous_exp",
+      "Real.hasDerivAt_exp",
+      "Real.continuous_sin",
+      "Real.continuous_cos",
+      "Real.hasDerivAt_sin",
+      "Real.hasDerivAt_cos"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析中的指数函数与三角函数基础性质"
+    },
+    "lean_file": "Analysis/SpecialFunctions.lean",
+    "nl_file": "docs/entries/analysis/special-functions/basic.md",
+    "added_by": "special-functions-batch-1",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "22ce756e2d4004cd"
   }
 ]

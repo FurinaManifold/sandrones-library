@@ -1163,6 +1163,14 @@
 ### `Real.volume_Ioc`
 - **人话**：实数半开区间的 Lebesgue 测度等于端点差（取非负部分）。
 - **谁在用**：`real-analysis.riemann.lebesgue-criterion`，用于把区间长度估计翻译成测度估计。
+
+### `Real.exp_pos` / `Real.exp_add` / `Real.continuous_exp` / `Real.hasDerivAt_exp`
+- **人话**：指数函数处处为正、把加法变成乘法、处处连续且导数等于自身。
+- **谁在用**：`analysis.special-functions.basic`。
+
+### `Real.continuous_sin` / `Real.continuous_cos` / `Real.hasDerivAt_sin` / `Real.hasDerivAt_cos`
+- **人话**：正弦和余弦处处连续，且导数分别为余弦和负正弦。
+- **谁在用**：`analysis.special-functions.basic`。
 - **出处**：`Mathlib/MeasureTheory/Measure/`
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。
