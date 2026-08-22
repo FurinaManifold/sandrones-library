@@ -128,5 +128,16 @@ theorem partial_sum_tendsto_tsum {f : ℕ → ℝ} (hf : Summable f) :
     Tendsto (fun N : ℕ => ∑ n ∈ Finset.range N, f n) atTop (𝓝 (∑' n, f n)) := by
   exact hf.tendsto_sum_tsum_nat
 
+/-- 非负递减项趋于零时，交错级数的部分和收敛。 -/
+/-
+> **Entry**: analysis.series.conditional
+-/
+theorem alternating_series_converges {f : ℕ → ℝ} (hmono : Antitone f)
+    (hzero : Tendsto f atTop (𝓝 0)) :
+    ∃ l : ℝ, Tendsto
+      (fun N : ℕ => ∑ n ∈ Finset.range N, (-1 : ℝ) ^ n * f n)
+      atTop (𝓝 l) := by
+  exact hmono.tendsto_alternating_series_of_tendsto_zero hzero
+
 end Analysis.Series
 end SandronesLibrary

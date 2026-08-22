@@ -5546,5 +5546,32 @@
       "Classical.choice",
       "Quot.sound"
     ]
+  },
+  {
+    "id": "analysis.series.conditional",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "条件收敛与交错级数",
+    "summary": "递减趋零项的交错级数部分和收敛",
+    "premises": [
+      "analysis.series.tests"
+    ],
+    "mathlib": [
+      "Antitone.tendsto_alternating_series_of_tendsto_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：条件收敛级数"
+    },
+    "lean_file": "Analysis/Series.lean",
+    "nl_file": "docs/entries/analysis/series/conditional.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T05:06:21Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
   }
 ]
