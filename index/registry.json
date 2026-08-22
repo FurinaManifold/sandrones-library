@@ -5290,5 +5290,37 @@
       "propext"
     ],
     "proof_sha": "a9707aa2f166a875"
+  },
+  {
+    "id": "analysis.trigonometric.sum-product",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角函数和差化积公式",
+    "summary": "正弦和差、余弦和差的半和半差乘积表达式",
+    "premises": [
+      "analysis.trigonometric.add-sub",
+      "analysis.trigonometric.product-sum"
+    ],
+    "mathlib": [
+      "Real.sin_add",
+      "Real.sin_sub",
+      "Real.cos_add",
+      "Real.cos_sub"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数和差化积"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/sum-product.md",
+    "added_by": "trigonometric-sum-product-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8892dcf0775f3dfa"
   }
 ]

@@ -119,5 +119,53 @@ theorem sin_mul_cos (x y : ℝ) :
   rw [Real.sin_add, Real.sin_sub]
   ring
 
+/-! ### 和差化积公式 -/
+
+/-- 正弦和化积公式。 -/
+theorem sin_add_sin (x y : ℝ) :
+    Real.sin x + Real.sin y =
+      2 * Real.sin ((x + y) / 2) * Real.cos ((x - y) / 2) := by
+  let u : ℝ := (x + y) / 2
+  let v : ℝ := (x - y) / 2
+  have hux : u + v = x := by dsimp [u, v]; ring
+  have huy : u - v = y := by dsimp [u, v]; ring
+  rw [← hux, ← huy, Real.sin_add, Real.sin_sub]
+  ring
+
+/-- 正弦差化积公式。 -/
+theorem sin_sub_sin (x y : ℝ) :
+    Real.sin x - Real.sin y =
+      2 * Real.cos ((x + y) / 2) * Real.sin ((x - y) / 2) := by
+  let u : ℝ := (x + y) / 2
+  let v : ℝ := (x - y) / 2
+  have hux : u + v = x := by dsimp [u, v]; ring
+  have huy : u - v = y := by dsimp [u, v]; ring
+  rw [← hux, ← huy, Real.sin_add, Real.sin_sub]
+  ring
+
+/-- 余弦和化积公式。 -/
+theorem cos_add_cos (x y : ℝ) :
+    Real.cos x + Real.cos y =
+      2 * Real.cos ((x + y) / 2) * Real.cos ((x - y) / 2) := by
+  let u : ℝ := (x + y) / 2
+  let v : ℝ := (x - y) / 2
+  have hux : u + v = x := by dsimp [u, v]; ring
+  have huy : u - v = y := by dsimp [u, v]; ring
+  rw [← hux, ← huy, Real.cos_add, Real.cos_sub]
+  ring
+
+/-- 余弦差化积公式。
+> **Entry**: analysis.trigonometric.sum-product
+-/
+theorem cos_sub_cos (x y : ℝ) :
+    Real.cos x - Real.cos y =
+      -2 * Real.sin ((x + y) / 2) * Real.sin ((x - y) / 2) := by
+  let u : ℝ := (x + y) / 2
+  let v : ℝ := (x - y) / 2
+  have hux : u + v = x := by dsimp [u, v]; ring
+  have huy : u - v = y := by dsimp [u, v]; ring
+  rw [← hux, ← huy, Real.cos_add, Real.cos_sub]
+  ring
+
 end Analysis.Trigonometric
 end SandronesLibrary

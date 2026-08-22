@@ -130,7 +130,7 @@
 | `analysis.trigonometric.add-sub` | 正弦/余弦和差公式 | `sin(x±y)`、`cos(x±y)`；正切公式留待带条件批次 | ✅ |
 | `analysis.trigonometric.double-half` | 倍角、降幂与半角公式 | `sin 2x`、`cos 2x`、`sin²x/cos²x` 的降幂形式；正切和半角根式留待带条件批次 | ✅ |
 | `analysis.trigonometric.product-sum` | 积化和差 | `sin x sin y`、`cos x cos y`、`sin x cos y` 的和差表达式 | ✅ |
-| `analysis.trigonometric.sum-product` | 和差化积 | `sin x ± sin y`、`cos x ± cos y` 的积表达式 | 🔲 |
+| `analysis.trigonometric.sum-product` | 和差化积 | `sin x ± sin y`、`cos x ± cos y` 的积表达式 | ✅ |
 | `analysis.trigonometric.special-angles` | 高中常用特殊角 | `π/6`、`π/4`、`π/3` 处的正弦、余弦、正切值 | 🔲 |
 | `analysis.limits.classical` | `sin x/x`、`(1-cos x)/x²`、`(exp x-1)/x`、`log(1+x)/x` | ✅ |
 | `analysis.limits.asymptotic` | 指数、对数和幂函数的无穷小/无穷大阶比较 | ✅ |
