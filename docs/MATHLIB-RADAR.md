@@ -1180,6 +1180,10 @@
 - **人话**：正切函数的导数公式，以及自然幂函数的连续性和导数公式。
 - **谁在用**：`analysis.special-functions.log-tan-pow`。
 
+### `HasDerivAt.comp` / `HasDerivAt.congr_of_eventuallyEq` / `HasDerivAt.unique`
+- **人话**：导数链式法则、邻域内相等函数可替换导数、同一点导数唯一。
+- **谁在用**：`analysis.derivative.inverse-function`，用于反函数求导。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

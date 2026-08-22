@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **164** 个条目（verified 164，pending 0）。
+共 **165** 个条目（verified 165，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -66,6 +66,7 @@
 - ✅ [`const.md`](const.md) — 常数/线性函数导数
 - ✅ [`const-mul.md`](const-mul.md) — 常数数乘导数
 - ✅ [`div.md`](div.md) — 商导数
+- ✅ [`inverse-function.md`](inverse-function.md) — 反函数求导
 - ✅ [`mul.md`](mul.md) — 积的导数（Leibniz）
 - ✅ [`unique.md`](unique.md) — 导数唯一
 

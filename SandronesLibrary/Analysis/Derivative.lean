@@ -92,8 +92,27 @@ lemma deriv_const_mul_real {f : ℝ → ℝ} {x : ℝ} (c : ℝ)
 -/
 lemma deriv_chain_rule_real {f : ℝ → ℝ} {g : ℝ → ℝ} {x : ℝ}
     (hf : DifferentiableAt ℝ f x) (hg : DifferentiableAt ℝ g (f x)) :
-    deriv (fun y => g (f y)) x = deriv g (f x) * deriv f x :=
+  deriv (fun y => g (f y)) x = deriv g (f x) * deriv f x :=
   deriv_comp x hg hf
+
+/-- 反函数求导的教材层形式：若 `g ∘ f` 在 `x` 的邻域内等于恒等函数，
+且 `f' x ≠ 0`，则 `g' (f x) = 1 / f' x`。
+> **Entry**: analysis.derivative.inverse-function
+-/
+theorem deriv_inverse_of_eventually_left_inverse
+    {f g : ℝ → ℝ} {x f' g' : ℝ}
+    (hf : HasDerivAt f f' x) (hg : HasDerivAt g g' (f x))
+    (hinv : ∀ᶠ y in 𝓝 x, g (f y) = y) (hf' : f' ≠ 0) :
+    g' = 1 / f' := by
+  have hcomp : HasDerivAt (g ∘ f) (g' * f') x := hg.comp x hf
+  have hinv' : id =ᶠ[𝓝 x] g ∘ f := by
+    filter_upwards [hinv] with y hy
+    exact hy.symm
+  have hid : HasDerivAt id (g' * f') x := by
+    exact hcomp.congr_of_eventuallyEq hinv'
+  have hprod : g' * f' = 1 := hid.unique (hasDerivAt_id x)
+  field_simp
+  exact hprod
 
 end Analysis.Derivative
 

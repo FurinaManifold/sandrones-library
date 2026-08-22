@@ -4921,5 +4921,36 @@
       "propext"
     ],
     "proof_sha": "96d13ee07ceb66bd"
+  },
+  {
+    "id": "analysis.derivative.inverse-function",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "反函数求导",
+    "summary": "局部逆函数的导数等于原函数导数的倒数",
+    "premises": [
+      "analysis.derivative.chain-rule",
+      "analysis.continuity.inverse"
+    ],
+    "mathlib": [
+      "HasDerivAt.comp",
+      "HasDerivAt.congr_of_eventuallyEq",
+      "HasDerivAt.unique"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析中的反函数求导定理"
+    },
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/inverse-function.md",
+    "added_by": "derivative-inverse-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "487f2135543fd213"
   }
 ]
