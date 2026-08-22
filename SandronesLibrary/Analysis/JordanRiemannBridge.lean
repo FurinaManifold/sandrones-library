@@ -20,6 +20,36 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set MeasureTheory Filter
 open BoxIntegral
 
+/-- **一般零延拓 Riemann--Lebesgue 桥**：集合不必是 Jordan 可测。只要集合零可测，
+零延拓在外包盒上有界并且几乎处处连续，它的多元 Riemann 积分就等于集合上的
+Lebesgue 积分。
+
+这个定理是后续放宽积分区域要求的核心接口；Jordan 边界零测只是产生“几乎处处
+连续”的一种充分条件。 -/
+theorem hasRiemannBoxIntegral_indicator_eq_setIntegral_of_aeContinuous {n : ℕ}
+    {s : Set (JordanEuc n)} {f : JordanEuc n → ℝ}
+    (hs : NullMeasurableSet s volume) (I : RiemannBox n)
+    (hb : ∃ C : ℝ, ∀ x ∈ Box.Icc I, ‖s.indicator f x‖ ≤ C)
+    (hc : ∀ᵐ x ∂volume, ContinuousAt (s.indicator f) x)
+    (hsub : s ⊆ (I : Set (JordanEuc n))) :
+    HasRiemannBoxIntegral (s.indicator f) I (∫ x in s, f x) := by
+  have hbox := MeasureTheory.AEContinuous.hasBoxIntegral volume hb hc
+    IntegrationParams.Riemann
+  have hI_meas : MeasurableSet (I : Set (JordanEuc n)) := I.measurableSet_coe
+  have heq : (∫ x in (I : Set (JordanEuc n)), s.indicator f x) = ∫ x in s, f x := by
+    calc
+      (∫ x in (I : Set (JordanEuc n)), s.indicator f x) =
+          ∫ x, s.indicator f x := by
+            rw [← integral_indicator hI_meas]
+            congr 1
+            funext x
+            by_cases hx : x ∈ s
+            · simp [hx, hsub hx]
+            · simp [hx]
+      _ = ∫ x in s, f x := integral_indicator₀ hs
+  rw [← heq]
+  exact hbox
+
 /-- 连续函数在 Jordan 区域上的零延拓除边界外处处连续。 -/
 lemma jordan_indicator_ae_continuous {n : ℕ} {s : Set (JordanEuc n)}
     {f : JordanEuc n → ℝ} (hs : IsJordanMeasurable s) (hf : Continuous f) :
@@ -44,23 +74,9 @@ theorem hasRiemannBoxIntegral_indicator_eq_setIntegral {n : ℕ}
     {s : Set (JordanEuc n)} {f : JordanEuc n → ℝ} (hs : IsJordanMeasurable s)
     (hf : Continuous f) (I : RiemannBox n) (hsub : s ⊆ (I : Set (JordanEuc n))) :
     HasRiemannBoxIntegral (s.indicator f) I (∫ x in s, f x) := by
-  have hbox := MeasureTheory.AEContinuous.hasBoxIntegral volume
-    (jordan_indicator_bounded_on_box hf I)
-    (jordan_indicator_ae_continuous hs hf) IntegrationParams.Riemann
-  have hI_meas : MeasurableSet (I : Set (JordanEuc n)) := I.measurableSet_coe
-  have heq : (∫ x in (I : Set (JordanEuc n)), s.indicator f x) = ∫ x in s, f x := by
-    calc
-      (∫ x in (I : Set (JordanEuc n)), s.indicator f x) =
-          ∫ x, s.indicator f x := by
-            rw [← integral_indicator hI_meas]
-            congr 1
-            funext x
-            by_cases hx : x ∈ s
-            · simp [hx, hsub hx]
-            · simp [hx]
-      _ = ∫ x in s, f x := integral_indicator₀ hs.nullMeasurableSet
-  rw [← heq]
-  exact hbox
+  exact hasRiemannBoxIntegral_indicator_eq_setIntegral_of_aeContinuous
+    hs.nullMeasurableSet I (jordan_indicator_bounded_on_box hf I)
+      (jordan_indicator_ae_continuous hs hf) hsub
 
 /-- 每个 Jordan 可测区域都能放进一个闭盒，并在该盒上通过零延拓取得 Riemann
 积分；该积分值就是区域 Lebesgue 积分。 -/

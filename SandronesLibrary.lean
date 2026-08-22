@@ -32,6 +32,7 @@ import SandronesLibrary.Analysis.MultivariableIntegration
 import SandronesLibrary.Analysis.JordanRegion
 import SandronesLibrary.Analysis.MultivariableRiemann
 import SandronesLibrary.Analysis.JordanRiemannBridge
+import SandronesLibrary.Analysis.NormalDomain
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
