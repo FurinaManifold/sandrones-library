@@ -345,11 +345,13 @@
 - **人话**：**空集是全场的最小集**：∅ 包含于一切集合。
 - **签名**：`∅ ⊆ s`
 - **出处**：`Mathlib/Data/Set/Basic.lean`
+- **谁在用**：`settheory.set.empty-subset`。
 
 ### `Set.inter_union_distrib_left`
 - **人话**：**交对并分配律**：s ∩ (t ∪ u) = (s ∩ t) ∪ (s ∩ u)。
 - **签名**：`(s t u : Set α) : s ∩ (t ∪ u) = s ∩ t ∪ s ∩ u`
 - **出处**：`Mathlib/Data/Set/Operations.lean`
+- **谁在用**：`settheory.set.operations.inter-distrib`。
 
 ### `Set.compl_union` / `Set.compl_inter`
 - **人话**：**德摩根律**：(s ∪ t)ᶜ = sᶜ ∩ tᶜ；(s ∩ t)ᶜ = sᶜ ∪ tᶜ。
