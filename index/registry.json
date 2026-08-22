@@ -4983,5 +4983,40 @@
       "propext"
     ],
     "proof_sha": "d3b0e462ec1b1f25"
+  },
+  {
+    "id": "analysis.special-functions.log",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "对数函数的基本性质",
+    "summary": "自然对数在正半轴上的连续性、严格单调性、加法公式、反函数关系和导数",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.continuity.definition",
+      "analysis.derivative.const"
+    ],
+    "mathlib": [
+      "Real.continuousOn_log",
+      "Real.strictMonoOn_log",
+      "Real.log_mul",
+      "Real.exp_log",
+      "Real.log_exp",
+      "Real.hasDerivAt_log"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：对数函数的基本性质"
+    },
+    "lean_file": "Analysis/SpecialFunctions.lean",
+    "nl_file": "docs/entries/analysis/special-functions/log.md",
+    "added_by": "special-functions-log-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6f126b0aaed3be02"
   }
 ]

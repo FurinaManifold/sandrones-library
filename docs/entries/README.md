@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **166** 个条目（verified 166，pending 0）。
+共 **167** 个条目（verified 167，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -138,6 +138,7 @@
 ## `analysis.special-functions`
 
 - ✅ [`basic.md`](basic.md) — 初等特殊函数基础性质
+- ✅ [`log.md`](log.md) — 对数函数的基本性质
 - ✅ [`log-tan-pow.md`](log-tan-pow.md) — 对数、正切与自然幂函数
 
 ## `linear-algebra.det`

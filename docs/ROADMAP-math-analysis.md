@@ -116,7 +116,7 @@
 | 批次 | 内容 | 状态 |
 |---|---|---|
 | `analysis.special-functions` | `exp`、`sin`、`cos` 的连续性、恒等式和导数 | ✅ 基础批次 |
-| `analysis.special-functions.log` | `log` 的连续性、单调性、加法公式、反函数和导数 | 🔲 |
+| `analysis.special-functions.log` | `log` 的连续性、单调性、加法公式、反函数和导数 | ✅ |
 | `analysis.special-functions.tan-pow` | `tan`、幂函数、反三角函数的基础性质和导数 | 🔲 |
 | `analysis.limits.classical` | `sin x/x`、`(1-cos x)/x²`、`(exp x-1)/x`、`log(1+x)/x` | 🔲 |
 | `analysis.limits.asymptotic` | 指数、对数和幂函数的无穷小/无穷大阶比较 | 🔲 |

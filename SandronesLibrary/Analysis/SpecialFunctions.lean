@@ -74,6 +74,27 @@ theorem continuousOn_log : ContinuousOn Real.log (Set.Ioi 0) := by
 theorem deriv_log (x : ℝ) (hx : x ≠ 0) : deriv Real.log x = 1 / x := by
   simpa [one_div] using (Real.hasDerivAt_log hx).deriv
 
+/-! ### 对数函数的教材层基本性质 -/
+
+/-- 对数函数在正半轴上严格递增。 -/
+theorem strictMonoOn_log_pos : StrictMonoOn Real.log (Set.Ioi 0) := by
+  exact Real.strictMonoOn_log
+
+/-- 正数经过 `log` 后再取指数，恢复原数。 -/
+theorem exp_log_pos {x : ℝ} (hx : 0 < x) : Real.exp (Real.log x) = x := by
+  exact Real.exp_log hx
+
+/-- 指数函数经过 `log` 后恢复原数，说明 `log` 是 `exp` 的反函数。 -/
+theorem log_exp (x : ℝ) : Real.log (Real.exp x) = x := by
+  exact Real.log_exp x
+
+/-- 正数乘法下的对数加法公式。
+> **Entry**: analysis.special-functions.log
+-/
+theorem log_mul_pos {x y : ℝ} (hx : 0 < x) (hy : 0 < y) :
+    Real.log (x * y) = Real.log x + Real.log y := by
+  exact Real.log_mul hx.ne' hy.ne'
+
 /-- 在余弦不为零的点，正切函数的导数为 `1 / cos² x`。 -/
 theorem deriv_tan (x : ℝ) (hcos : Real.cos x ≠ 0) :
     deriv Real.tan x = 1 / (Real.cos x) ^ 2 := by

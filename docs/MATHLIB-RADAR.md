@@ -1188,6 +1188,10 @@
 - **人话**：有限阶 Taylor–Lagrange 余项、Taylor 多项式有限项展开，以及零阶导数退化为原函数。
 - **谁在用**：`analysis.mvt.taylor-examples`，用于 `exp`、`sin`、`cos` 的有限阶展开；不使用级数。
 
+### `Real.continuousOn_log` / `Real.strictMonoOn_log` / `Real.log_mul` / `Real.exp_log` / `Real.log_exp` / `Real.hasDerivAt_log`
+- **人话**：自然对数在正半轴上连续且严格递增，乘法变加法，并与指数函数互为反函数；导数为 `1 / x`。
+- **谁在用**：`analysis.special-functions.log`，用于后续经典极限和初等函数计算。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
