@@ -139,5 +139,20 @@ theorem alternating_series_converges {f : ℕ → ℝ} (hmono : Antitone f)
       atTop (𝓝 l) := by
   exact hmono.tendsto_alternating_series_of_tendsto_zero hzero
 
+/-- 绝对收敛级数在自然数指标的任意等价重排下保持其和。 -/
+/-
+> **Entry**: analysis.series.rearrangement
+-/
+theorem absolute_reindex_tsum {f : ℕ → ℝ} (hf : Summable (fun n => |f n|))
+    (e : ℕ ≃ ℕ) :
+    (∑' n, f (e n)) = ∑' n, f n := by
+  exact e.tsum_eq f
+
+/-- 绝对收敛级数的任意等价重排仍然绝对收敛。 -/
+theorem absolute_reindex_summable {f : ℕ → ℝ} (hf : Summable (fun n => |f n|))
+    (e : ℕ ≃ ℕ) : Summable (fun n => f (e n)) := by
+  apply (e.summable_iff).2
+  exact summable_of_absolute hf
+
 end Analysis.Series
 end SandronesLibrary

@@ -5573,5 +5573,33 @@
       "Classical.choice",
       "Quot.sound"
     ]
+  },
+  {
+    "id": "analysis.series.rearrangement",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "绝对收敛级数的重排不变性",
+    "summary": "任意自然数等价重排保持绝对收敛与级数和",
+    "premises": [
+      "analysis.series.absolute"
+    ],
+    "mathlib": [
+      "Equiv.tsum_eq",
+      "Equiv.summable_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：级数重排"
+    },
+    "lean_file": "Analysis/Series.lean",
+    "nl_file": "docs/entries/analysis/series/rearrangement.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T05:08:05Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
   }
 ]

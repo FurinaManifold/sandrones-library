@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **184** 个条目（verified 184，pending 0）。
+共 **185** 个条目（verified 185，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -148,6 +148,7 @@
 - ✅ [`absolute.md`](absolute.md) — 绝对收敛与尾和
 - ✅ [`basic.md`](basic.md) — 数项级数基础
 - ✅ [`conditional.md`](conditional.md) — 条件收敛与交错级数
+- ✅ [`rearrangement.md`](rearrangement.md) — 绝对收敛级数的重排不变性
 - ✅ [`tests.md`](tests.md) — 数项级数判别法
 
 ## `analysis.special-functions`

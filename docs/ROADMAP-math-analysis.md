@@ -170,7 +170,7 @@
 |---|---|---|---|
 | `analysis.series.absolute` | 绝对收敛、绝对收敛蕴含收敛、部分和趋于级数和 | `analysis.series.basic`, `analysis.series.tests` | ✅ |
 | `analysis.series.conditional` | 条件收敛、交错级数部分和收敛 | `analysis.series.tests` | ✅ |
-| `analysis.series.rearrangement` | Riemann 重排定理：条件收敛级数可重排为任意给定和或发散 | `analysis.series.absolute`, `analysis.series.conditional` | 🔲 |
+| `analysis.series.rearrangement` | 绝对收敛级数的重排不变性（Riemann 条件重排另列） | `analysis.series.absolute`, `analysis.series.conditional` | ✅ |
 | `analysis.power-series.definition` | 幂级数定义、部分和、收敛点集 | `analysis.series.basic` | 🔲 |
 | `analysis.power-series.radius` | 收敛半径：半径内绝对收敛、半径外发散 | `analysis.power-series.definition`, `analysis.series.tests` | 🔲 |
 | `analysis.power-series.endpoints` | 收敛区间端点的独立判定 | `analysis.power-series.radius`, `analysis.series.conditional` | 🔲 |
