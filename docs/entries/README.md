@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **216** 个条目（verified 216，pending 0）。
+共 **225** 个条目（verified 225，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -115,6 +115,12 @@
 
 - ✅ [`asymptotic.md`](asymptotic.md) — 指数、对数与幂函数的渐进比较
 - ✅ [`classical.md`](classical.md) — 四个经典重要极限
+
+## `analysis.multivariable`
+
+- ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
+- ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
+- ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
 
 ## `analysis.mvt`
 
@@ -253,11 +259,6 @@
 - ✅ [`holder.md`](holder.md) — Hölder 不等式
 - ✅ [`minkowski.md`](minkowski.md) — Minkowski 不等式
 
-## `real-analysis.multivariable`
-
-- ✅ [`frechet.md`](frechet.md) — Fréchet 全微分与方向导数
-- ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
-
 ## `real-analysis.measure`
 
 - ✅ [`caratheodory.md`](caratheodory.md) — Carathéodory 定理
@@ -353,9 +354,9 @@
 
 ## `topology.normed-space`
 
-- ✅ [`def.md`](def.md) — 赋范线性空间与 Banach 空间
+- ✅ [`banach.md`](banach.md) — 范数收敛与Banach完备性
+- ✅ [`def.md`](def.md) — 赋范线性空间与Banach空间
 - ✅ [`inequalities.md`](inequalities.md) — 范数基本不等式
-- ✅ [`banach.md`](banach.md) — 范数收敛与 Banach 完备性
 
 ## `topology.separations`
 

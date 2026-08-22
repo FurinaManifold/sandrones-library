@@ -1,9 +1,9 @@
 ---
-id: real-analysis.multivariable.gradient
+id: analysis.multivariable.gradient
 kind: theorem
 state: verified
 title: "梯度与方向导数"
-premises: ["real-analysis.multivariable.frechet"]
+premises: ["analysis.multivariable.frechet"]
 mathlib: ["HasGradientAt", "HasGradientAt.hasFDerivAt", "HasGradientAt.fderiv_apply"]
 provenance:
   source_type: book

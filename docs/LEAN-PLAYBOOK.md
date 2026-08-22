@@ -505,6 +505,18 @@
 - **解法**：`ext x` → `constructor`（双向）→ 每边用 `rintro`/`rcases` 拆合取与析取 → 元素层组装。见 `settheory.set.operations.inter-distrib` 的完整演示。
 - **出处**：`settheory.set.operations.inter-distrib`。
 
+### 5.5 公理审计器必须区分 `namespace` 与命名 `section`
+
+- **症状**：源码中的定理可正常编译，但 `check_axioms.py` 在经过 `end Gradient` 一类
+  命名 section 后，把后续定理打印成无命名空间的短名，并登记为 `<解析失败>`。
+- **诊断（语义）**：Lean 的 `section` 只控制变量和作用域，不参与声明全名；旧审计器却把
+  每个命名 `end` 都当作 namespace 结束，因而误弹出真正的外层 namespace。
+- **解法**：解析时同时跟踪 namespace/section 两类作用域，构造声明全名时只拼接
+  namespace。任何 `<解析失败>` 都不得当作合法公理结果入库，必须先修复定位接口再重跑。
+- **附带教训**：增量审计全部跳过的早退分支也必须删除 `_sha` 等运行时字段，禁止临时
+  状态泄漏到 registry 并制造全文件 diff。
+- **出处**：`analysis.multivariable.coordinates` 登记与 `scripts/check_axioms.py`。
+
 ## 6. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：

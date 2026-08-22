@@ -1680,14 +1680,28 @@
 ### `HasFDerivAt` / `DifferentiableAt` / `HasFDerivAt.comp` / `HasFDerivAt.fderiv`
 - **人话**：Fréchet 全微分的存在、可微性、链式法则以及已知导数与 `fderiv` 的一致性。
 - **出处**：`Mathlib/Analysis/Calculus/FDeriv/Basic.lean`、`FDeriv/Comp.lean`。
-- **谁在用**：`real-analysis.multivariable.frechet`。
+- **谁在用**：`analysis.multivariable.frechet`。
 - **坑**：`fderiv` 在不可微点取零；计算公式必须携带可微或 `HasFDerivAt` 前提。
 
 ### `HasGradientAt` / `HasGradientAt.hasFDerivAt` / `HasGradientAt.fderiv_apply`
 - **人话**：用 Riesz 表示把实值函数的全微分写成梯度内积，并计算任意方向导数。
 - **出处**：`Mathlib/Analysis/Calculus/Gradient/Basic.lean`。
-- **谁在用**：`real-analysis.multivariable.gradient`。
+- **谁在用**：`analysis.multivariable.gradient`。
 - **坑**：梯度需要内积和完备性；一般赋范空间只有全微分，不一定存在梯度向量。
+
+### `LinearMap.pi_apply_eq_sum_univ` / `Pi.single`
+- **人话**：将有限维坐标向量按标准基展开，并计算线性映射在该展开上的作用。
+- **出处**：`Mathlib/LinearAlgebra/Pi.lean`、`Mathlib/Algebra/BigOperators/Pi.lean`。
+- **谁在用**：`analysis.multivariable.coordinates`。
+- **坑**：标准基的底层指示函数可能写成 `if i = j`，而 `Pi.single` 展开成
+  `if j = i`；证明函数相等时需要显式使用等号对称性。
+
+### `Matrix.mulVec` / `Matrix.mul_apply`
+- **人话**：矩阵乘列向量以及矩阵乘法的逐元素有限和公式。
+- **出处**：`Mathlib/Data/Matrix/Mul.lean`。
+- **谁在用**：`analysis.multivariable.coordinates`。
+- **坑**：本库 Jacobian 以输出分量为行、输入变量为列；复合函数对应
+  `Jg(f(x)) * Jf(x)`，不可把乘法次序写反。
 
 ## 附：登记清单自动核对
 

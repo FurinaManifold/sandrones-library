@@ -23,7 +23,7 @@ import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.ProductMeasure
 import SandronesLibrary.RealAnalysis.Lp
 import SandronesLibrary.RealAnalysis.LpInequalities
-import SandronesLibrary.RealAnalysis.MultivariableCalculus
+import SandronesLibrary.Analysis.MultivariableCalculus
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge

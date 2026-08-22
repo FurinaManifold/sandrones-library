@@ -26,8 +26,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "7481ea008a6fcfff",
-    "_sha": "7481ea008a6fcfff"
+    "proof_sha": "7481ea008a6fcfff"
   },
   {
     "id": "settheory.set.ext",
@@ -56,8 +55,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "4dea626a30aeab72",
-    "_sha": "4dea626a30aeab72"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -86,8 +84,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "4dea626a30aeab72",
-    "_sha": "4dea626a30aeab72"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.function.inj-comp",
@@ -111,8 +108,7 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.surj-comp",
@@ -136,8 +132,7 @@
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.subset.trans",
@@ -159,8 +154,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "4dea626a30aeab72",
-    "_sha": "4dea626a30aeab72"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -187,8 +181,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "4dea626a30aeab72",
-    "_sha": "4dea626a30aeab72"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.empty-subset",
@@ -210,8 +203,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "4dea626a30aeab72",
-    "_sha": "4dea626a30aeab72"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -238,8 +230,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.function.image-preimage.preimage-inter",
@@ -266,8 +257,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d065f0fc3976123b",
-    "_sha": "d065f0fc3976123b"
+    "proof_sha": "d065f0fc3976123b"
   },
   {
     "id": "settheory.set.relations.equivalence-class-eq",
@@ -292,8 +282,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a1d7251c89a6e106",
-    "_sha": "a1d7251c89a6e106"
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.set.relations.quotient-surj",
@@ -315,8 +304,7 @@
     "family": "settheory.set.relations",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "a1d7251c89a6e106",
-    "_sha": "a1d7251c89a6e106"
+    "proof_sha": "a1d7251c89a6e106"
   },
   {
     "id": "settheory.cardinal.countable-def",
@@ -338,8 +326,7 @@
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-rat",
@@ -365,8 +352,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.uncountable-real",
@@ -392,8 +378,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.cardinal.countable-union",
@@ -419,8 +404,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "1e3a80b42f47b234",
-    "_sha": "1e3a80b42f47b234"
+    "proof_sha": "1e3a80b42f47b234"
   },
   {
     "id": "settheory.set.operations.complement-union",
@@ -445,8 +429,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4dea626a30aeab72"
+    ]
   },
   {
     "id": "settheory.set.operations.complement-inter",
@@ -472,8 +455,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4dea626a30aeab72"
+    ]
   },
   {
     "id": "settheory.set.operations.diff-inter-complement",
@@ -497,8 +479,7 @@
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
-    "axioms": [],
-    "_sha": "4dea626a30aeab72"
+    "axioms": []
   },
   {
     "id": "settheory.function.inject-surject.bijective-iff-inverse",
@@ -522,8 +503,7 @@
     "proof_sha": "d065f0fc3976123b",
     "axioms": [
       "Classical.choice"
-    ],
-    "_sha": "d065f0fc3976123b"
+    ]
   },
   {
     "id": "analysis.real.bounded-sets.bdd-above",
@@ -551,8 +531,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.bounded-sets.subset",
@@ -580,8 +559,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.density",
@@ -607,8 +585,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.sup",
@@ -639,8 +616,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.bounded-sets.bdd-below",
@@ -668,8 +644,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.inf",
@@ -697,8 +672,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.real.construction-cauchy",
@@ -727,8 +701,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "7481ea008a6fcfff"
+    ]
   },
   {
     "id": "analysis.sequence.definition",
@@ -754,8 +727,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.unique",
@@ -783,8 +755,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.bounded",
@@ -812,8 +783,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.squeeze",
@@ -841,8 +811,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.monotone-convergence",
@@ -873,8 +842,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.subsequence",
@@ -905,8 +873,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.bolzano-weierstrass",
@@ -940,8 +907,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.cauchy",
@@ -975,8 +941,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.liminf-limsup",
@@ -1009,8 +974,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.completeness.nested-intervals",
@@ -1044,8 +1008,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.finite-cover",
@@ -1076,8 +1039,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.accumulation-point",
@@ -1112,8 +1074,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.sup-to-mct",
@@ -1144,8 +1105,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.mct-to-nested-intervals",
@@ -1177,8 +1137,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover",
@@ -1211,8 +1170,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point",
@@ -1246,8 +1204,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy",
@@ -1282,8 +1239,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.completeness.equivalence-cycle.cauchy-to-sup",
@@ -1317,8 +1273,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4550459fa41e6b75"
+    ]
   },
   {
     "id": "analysis.func-limit.definition",
@@ -1349,8 +1304,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.const",
@@ -1378,8 +1332,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.identity",
@@ -1407,8 +1360,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.unique",
@@ -1436,8 +1388,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.congr",
@@ -1465,8 +1416,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.add",
@@ -1494,8 +1444,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.sub",
@@ -1523,8 +1472,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.mul",
@@ -1552,8 +1500,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.div",
@@ -1581,8 +1528,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.const-mul",
@@ -1610,8 +1556,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.le",
@@ -1639,8 +1584,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.heine",
@@ -1672,8 +1616,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.func-limit.at-top",
@@ -1703,8 +1646,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.continuity.definition",
@@ -1734,8 +1676,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.const",
@@ -1763,8 +1704,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.identity",
@@ -1792,8 +1732,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.add",
@@ -1821,8 +1760,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.mul",
@@ -1850,8 +1788,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.div",
@@ -1879,8 +1816,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.comp",
@@ -1909,8 +1845,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.intermediate-value",
@@ -1940,8 +1875,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.max-min",
@@ -1974,8 +1908,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.continuity.uniform",
@@ -2004,8 +1937,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "analysis.derivative.unique",
@@ -2033,8 +1965,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.const",
@@ -2064,8 +1995,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.add",
@@ -2093,8 +2023,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.mul",
@@ -2122,8 +2051,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.div",
@@ -2151,8 +2079,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.const-mul",
@@ -2180,8 +2107,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.derivative.chain-rule",
@@ -2209,8 +2135,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "41540eefbdffabff"
+    ]
   },
   {
     "id": "analysis.mvt.rolle",
@@ -2240,8 +2165,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.lagrange",
@@ -2271,8 +2195,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.lagrange-deriv",
@@ -2302,8 +2225,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.monotone-deriv",
@@ -2334,8 +2256,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.cauchy",
@@ -2365,8 +2286,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.taylor",
@@ -2401,8 +2321,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.mvt.lhopital",
@@ -2432,8 +2351,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.def",
@@ -2464,8 +2382,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.independent",
@@ -2493,8 +2410,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.basis",
@@ -2522,8 +2438,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.dimension",
@@ -2552,8 +2467,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "cfcb0219e1ceffaf"
+    ]
   },
   {
     "id": "linear-algebra.maps.rank-nullity",
@@ -2583,8 +2497,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5"
+    ]
   },
   {
     "id": "linear-algebra.maps.matrix-rank",
@@ -2612,8 +2525,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5"
+    ]
   },
   {
     "id": "linear-algebra.maps.rank-mul",
@@ -2641,8 +2553,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5"
+    ]
   },
   {
     "id": "linear-algebra.det.mul",
@@ -2670,8 +2581,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.det.transpose",
@@ -2699,8 +2609,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.det.invertible",
@@ -2730,8 +2639,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.det.one-zero",
@@ -2760,8 +2668,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.eigen.vector",
@@ -2788,8 +2695,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.eigen.value",
@@ -2816,8 +2722,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.eigen.spectrum",
@@ -2844,8 +2749,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.eigen.charpoly",
@@ -2874,8 +2778,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.subspace",
@@ -2900,8 +2803,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5364b5a65ef7c384"
+    ]
   },
   {
     "id": "linear-algebra.vector-space.span",
@@ -2929,8 +2831,7 @@
     "axioms": [
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5364b5a65ef7c384"
+    ]
   },
   {
     "id": "linear-algebra.eigen.independent",
@@ -2961,8 +2862,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.eigen.similar-diagonal",
@@ -2994,8 +2894,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.eigen.similar-charpoly",
@@ -3029,8 +2928,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "linear-algebra.det.adjugate",
@@ -3060,8 +2958,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.det.cramer",
@@ -3091,8 +2988,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "919dd1205eed5759"
+    ]
   },
   {
     "id": "linear-algebra.maps.row-rank",
@@ -3120,8 +3016,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "b581ff302213c6b5"
+    ]
   },
   {
     "id": "analysis.sequence.add",
@@ -3151,8 +3046,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.sub",
@@ -3182,8 +3076,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.mul",
@@ -3213,8 +3106,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.div",
@@ -3244,8 +3136,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.const-mul",
@@ -3275,8 +3166,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.sequence.le",
@@ -3306,8 +3196,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "4c7a650e6c87f286"
+    ]
   },
   {
     "id": "analysis.func-limit.comp",
@@ -3338,8 +3227,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "ade3f4bb1c8151a5"
+    ]
   },
   {
     "id": "analysis.mvt.constant",
@@ -3370,8 +3258,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "d3b0e462ec1b1f25"
+    ]
   },
   {
     "id": "analysis.continuity.inverse",
@@ -3402,8 +3289,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "3a45f1eca989b821"
+    ]
   },
   {
     "id": "linear-algebra.eigen.charpoly-root",
@@ -3435,8 +3321,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a243bdc18a75813c"
+    ]
   },
   {
     "id": "abstract-algebra.group.def",
@@ -3469,8 +3354,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf",
-    "_sha": "5123bceac3c78caf"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3504,8 +3388,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf",
-    "_sha": "5123bceac3c78caf"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3540,8 +3423,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf",
-    "_sha": "5123bceac3c78caf"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3575,8 +3457,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf",
-    "_sha": "5123bceac3c78caf"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3606,8 +3487,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "5123bceac3c78caf",
-    "_sha": "5123bceac3c78caf"
+    "proof_sha": "5123bceac3c78caf"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -3641,8 +3521,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc",
-    "_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.ring.ideal",
@@ -3678,8 +3557,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc",
-    "_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.ring.domain",
@@ -3714,8 +3592,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc",
-    "_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.ring.iso",
@@ -3745,8 +3622,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "fa56aa592f7a8dfc",
-    "_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "fa56aa592f7a8dfc"
   },
   {
     "id": "abstract-algebra.poly.def",
@@ -3779,8 +3655,7 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "b94e08b2c824fafd",
-    "_sha": "b94e08b2c824fafd"
+    "proof_sha": "b94e08b2c824fafd"
   },
   {
     "id": "abstract-algebra.poly.irreducible",
@@ -3815,8 +3690,7 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "b94e08b2c824fafd",
-    "_sha": "b94e08b2c824fafd"
+    "proof_sha": "b94e08b2c824fafd"
   },
   {
     "id": "abstract-algebra.poly.roots-card",
@@ -3848,8 +3722,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b94e08b2c824fafd",
-    "_sha": "b94e08b2c824fafd"
+    "proof_sha": "b94e08b2c824fafd"
   },
   {
     "id": "topology.space.def",
@@ -3881,8 +3754,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.space.neighborhood",
@@ -3912,8 +3784,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.space.continuous",
@@ -3946,8 +3817,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.space.homeo",
@@ -3980,8 +3850,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.space.subspace",
@@ -4015,8 +3884,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.space.connected",
@@ -4049,8 +3917,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a",
-    "_sha": "15cd2d455397604a"
+    "proof_sha": "15cd2d455397604a"
   },
   {
     "id": "topology.compact.def",
@@ -4083,8 +3950,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "70626d3fed575a3b",
-    "_sha": "70626d3fed575a3b"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.compact.closed-bdd",
@@ -4114,8 +3980,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "70626d3fed575a3b",
-    "_sha": "70626d3fed575a3b"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.compact.finite",
@@ -4147,8 +4012,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "70626d3fed575a3b",
-    "_sha": "70626d3fed575a3b"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "topology.separations",
@@ -4183,8 +4047,7 @@
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
     "dependedOnBy": [],
-    "proof_sha": "afb48d2d1606dd25",
-    "_sha": "afb48d2d1606dd25"
+    "proof_sha": "afb48d2d1606dd25"
   },
   {
     "id": "topology.metric.def",
@@ -4221,8 +4084,7 @@
     "dependedOnBy": [
       "topology.normed-space.def"
     ],
-    "proof_sha": "697b4373a3cb5505",
-    "_sha": "697b4373a3cb5505"
+    "proof_sha": "697b4373a3cb5505"
   },
   {
     "id": "topology.metric.uniform",
@@ -4254,8 +4116,7 @@
     "added_by": "ingestor-topology-T3",
     "added_at": "2026-08-21T10:45:30Z",
     "dependedOnBy": [],
-    "proof_sha": "697b4373a3cb5505",
-    "_sha": "697b4373a3cb5505"
+    "proof_sha": "697b4373a3cb5505"
   },
   {
     "id": "topology.metric.cauchy-complete",
@@ -4289,8 +4150,7 @@
     "dependedOnBy": [
       "topology.normed-space.banach"
     ],
-    "proof_sha": "697b4373a3cb5505",
-    "_sha": "697b4373a3cb5505"
+    "proof_sha": "697b4373a3cb5505"
   },
   {
     "id": "topology.metric.completion",
@@ -4322,8 +4182,7 @@
     "added_by": "ingestor-topology-T3",
     "added_at": "2026-08-21T10:45:30Z",
     "dependedOnBy": [],
-    "proof_sha": "697b4373a3cb5505",
-    "_sha": "697b4373a3cb5505"
+    "proof_sha": "697b4373a3cb5505"
   },
   {
     "id": "topology.separations.urysohn",
@@ -4353,8 +4212,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afb48d2d1606dd25",
-    "_sha": "afb48d2d1606dd25"
+    "proof_sha": "afb48d2d1606dd25"
   },
   {
     "id": "settheory.zorn.zorn",
@@ -4387,8 +4245,7 @@
     "added_by": "ingestor-promote-foundations",
     "added_at": "2026-08-21T10:54:37Z",
     "dependedOnBy": [],
-    "proof_sha": "6e9399d10cc6c449",
-    "_sha": "6e9399d10cc6c449"
+    "proof_sha": "6e9399d10cc6c449"
   },
   {
     "id": "topology.compact.tychonoff",
@@ -4420,8 +4277,7 @@
     "added_by": "ingestor-promote-foundations",
     "added_at": "2026-08-21T10:54:37Z",
     "dependedOnBy": [],
-    "proof_sha": "70626d3fed575a3b",
-    "_sha": "70626d3fed575a3b"
+    "proof_sha": "70626d3fed575a3b"
   },
   {
     "id": "real-analysis.measure.sigma-algebra",
@@ -4453,8 +4309,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.def",
@@ -4489,8 +4344,7 @@
     "dependedOnBy": [
       "real-analysis.measure.product-measure"
     ],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.outer",
@@ -4521,8 +4375,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.caratheodory",
@@ -4553,8 +4406,7 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.measurable-function",
@@ -4587,8 +4439,7 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.lintegral",
@@ -4625,8 +4476,7 @@
       "real-analysis.lp.basic",
       "real-analysis.lp.holder"
     ],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.monotone-convergence",
@@ -4656,8 +4506,7 @@
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.fatou",
@@ -4687,8 +4536,7 @@
     "added_by": "ingestor-realanalysis-R3",
     "added_at": "2026-08-21T11:34:11Z",
     "dependedOnBy": [],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.measure.dominated-convergence",
@@ -4720,8 +4568,7 @@
     "dependedOnBy": [
       "real-analysis.measure.fubini"
     ],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.calculus.ftc",
@@ -4754,8 +4601,7 @@
     "dependedOnBy": [
       "real-analysis.riemann.ftc"
     ],
-    "proof_sha": "29d109d55f452dce",
-    "_sha": "29d109d55f452dce"
+    "proof_sha": "29d109d55f452dce"
   },
   {
     "id": "real-analysis.calculus.ftc-differentiate",
@@ -4787,8 +4633,7 @@
     "dependedOnBy": [
       "real-analysis.riemann.ftc"
     ],
-    "proof_sha": "29d109d55f452dce",
-    "_sha": "29d109d55f452dce"
+    "proof_sha": "29d109d55f452dce"
   },
   {
     "id": "real-analysis.lebesgue-measure",
@@ -4822,8 +4667,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "74fb033d578801ec",
-    "_sha": "74fb033d578801ec"
+    "proof_sha": "74fb033d578801ec"
   },
   {
     "id": "real-analysis.riemann.def",
@@ -4858,8 +4702,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41add8b6a80bec73",
-    "_sha": "41add8b6a80bec73"
+    "proof_sha": "41add8b6a80bec73"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4893,8 +4736,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "3a45f1eca989b821",
-    "_sha": "3a45f1eca989b821"
+    "proof_sha": "3a45f1eca989b821"
   },
   {
     "id": "real-analysis.riemann.cont-integrable",
@@ -4929,8 +4771,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "d009211681b6070a",
-    "_sha": "41add8b6a80bec73"
+    "proof_sha": "d009211681b6070a"
   },
   {
     "id": "real-analysis.riemann.eq-lebesgue",
@@ -4971,8 +4812,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41add8b6a80bec73",
-    "_sha": "41add8b6a80bec73"
+    "proof_sha": "41add8b6a80bec73"
   },
   {
     "id": "real-analysis.riemann.lebesgue-criterion",
@@ -5013,8 +4853,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "13d9340af3b8708e",
-    "_sha": "13d9340af3b8708e"
+    "proof_sha": "13d9340af3b8708e"
   },
   {
     "id": "analysis.special-functions.basic",
@@ -5053,8 +4892,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b0f2b9044ff6b067",
-    "_sha": "b0f2b9044ff6b067"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.special-functions.log-tan-pow",
@@ -5096,8 +4934,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b0f2b9044ff6b067",
-    "_sha": "b0f2b9044ff6b067"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.limits.classical",
@@ -5130,8 +4967,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "96d13ee07ceb66bd",
-    "_sha": "96d13ee07ceb66bd"
+    "proof_sha": "96d13ee07ceb66bd"
   },
   {
     "id": "analysis.derivative.inverse-function",
@@ -5162,8 +4998,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41540eefbdffabff",
-    "_sha": "41540eefbdffabff"
+    "proof_sha": "41540eefbdffabff"
   },
   {
     "id": "analysis.mvt.taylor-examples",
@@ -5194,8 +5029,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d3b0e462ec1b1f25",
-    "_sha": "d3b0e462ec1b1f25"
+    "proof_sha": "d3b0e462ec1b1f25"
   },
   {
     "id": "analysis.special-functions.log",
@@ -5230,8 +5064,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b0f2b9044ff6b067",
-    "_sha": "b0f2b9044ff6b067"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.limits.asymptotic",
@@ -5266,8 +5099,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7d6351c28c694e09",
-    "_sha": "7d6351c28c694e09"
+    "proof_sha": "7d6351c28c694e09"
   },
   {
     "id": "analysis.constants.e-definition",
@@ -5302,8 +5134,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "89eb5ea33e9c2241",
-    "_sha": "89eb5ea33e9c2241"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.constants.pi-definition",
@@ -5339,8 +5170,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "89eb5ea33e9c2241",
-    "_sha": "89eb5ea33e9c2241"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.constants.special-values",
@@ -5376,8 +5206,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "89eb5ea33e9c2241",
-    "_sha": "89eb5ea33e9c2241"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.trigonometric.basic-identities",
@@ -5413,8 +5242,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.add-sub",
@@ -5445,8 +5273,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.double-half",
@@ -5478,8 +5305,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.product-sum",
@@ -5511,8 +5337,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.sum-product",
@@ -5544,8 +5369,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.special-angles",
@@ -5582,8 +5406,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.tan-identities",
@@ -5614,8 +5437,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.half-root",
@@ -5647,8 +5469,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7b6e037fbbfd7065",
-    "_sha": "7b6e037fbbfd7065"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.constants.nth-root-irrational",
@@ -5677,8 +5498,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "89eb5ea33e9c2241",
-    "_sha": "89eb5ea33e9c2241"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.series.basic",
@@ -5715,8 +5535,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "93193367be2f8a29",
-    "_sha": "93193367be2f8a29"
+    "proof_sha": "93193367be2f8a29"
   },
   {
     "id": "analysis.series.tests",
@@ -5750,8 +5569,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "93193367be2f8a29"
+    ]
   },
   {
     "id": "analysis.series.absolute",
@@ -5783,8 +5601,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "93193367be2f8a29"
+    ]
   },
   {
     "id": "analysis.series.conditional",
@@ -5816,8 +5633,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "93193367be2f8a29",
-    "_sha": "93193367be2f8a29"
+    "proof_sha": "93193367be2f8a29"
   },
   {
     "id": "analysis.series.rearrangement",
@@ -5846,8 +5662,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "93193367be2f8a29"
+    ]
   },
   {
     "id": "analysis.series.riemann-rearrangement",
@@ -5881,8 +5696,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "c0b4b0d0d4637988"
+    ]
   },
   {
     "id": "analysis.series.cauchy-product-definition",
@@ -5913,8 +5727,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "621a3e9e7797cf3b"
+    ]
   },
   {
     "id": "analysis.series.cauchy-product-absolute",
@@ -5947,8 +5760,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "621a3e9e7797cf3b"
+    ]
   },
   {
     "id": "analysis.series.mertens",
@@ -5981,8 +5793,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "621a3e9e7797cf3b"
+    ]
   },
   {
     "id": "analysis.series.abel-cauchy-product",
@@ -6012,8 +5823,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "621a3e9e7797cf3b"
+    ]
   },
   {
     "id": "analysis.power-series.definition",
@@ -6045,8 +5855,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "792dbe374d2b85f5"
+    ]
   },
   {
     "id": "analysis.power-series.radius",
@@ -6081,8 +5890,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "792dbe374d2b85f5"
+    ]
   },
   {
     "id": "analysis.power-series.endpoints",
@@ -6114,8 +5922,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "792dbe374d2b85f5"
+    ]
   },
   {
     "id": "analysis.power-series.operations",
@@ -6149,8 +5956,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "792dbe374d2b85f5"
+    ]
   },
   {
     "id": "analysis.series.root-test",
@@ -6181,8 +5987,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "93193367be2f8a29"
+    ]
   },
   {
     "id": "analysis.series.taylor",
@@ -6219,8 +6024,7 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ],
-    "_sha": "de1ad28f49e0306c"
+    ]
   },
   {
     "id": "analysis.constants.e-irrational",
@@ -6255,8 +6059,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "89eb5ea33e9c2241"
+    ]
   },
   {
     "id": "analysis.constants.pi-irrational",
@@ -6284,8 +6087,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "89eb5ea33e9c2241"
+    ]
   },
   {
     "id": "real-analysis.riemann.algebra",
@@ -6322,8 +6124,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "651930ae7e3ab3ed"
+    ]
   },
   {
     "id": "real-analysis.riemann.mean-value",
@@ -6354,8 +6155,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "651930ae7e3ab3ed"
+    ]
   },
   {
     "id": "real-analysis.riemann.eq-lebesgue-general",
@@ -6388,8 +6188,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5713805db6e3bbeb"
+    ]
   },
   {
     "id": "real-analysis.riemann.ftc",
@@ -6424,8 +6223,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5713805db6e3bbeb"
+    ]
   },
   {
     "id": "real-analysis.riemann.parts-substitution",
@@ -6458,8 +6256,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5713805db6e3bbeb"
+    ]
   },
   {
     "id": "analysis.integral.examples",
@@ -6492,8 +6289,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "5713805db6e3bbeb"
+    ]
   },
   {
     "id": "analysis.mvt.taylor-integral-remainder",
@@ -6524,8 +6320,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "490095340a80e7f7"
+    ]
   },
   {
     "id": "analysis.asymptotic.stirling",
@@ -6558,8 +6353,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "37e6cf27ded27807"
+    ]
   },
   {
     "id": "settheory.set.subset.definition",
@@ -6581,8 +6375,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
-    "axioms": [],
-    "_sha": "4dea626a30aeab72"
+    "axioms": []
   },
   {
     "id": "real-analysis.measure.product-measure",
@@ -6614,8 +6407,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "caf2b19cc960532e"
+    ]
   },
   {
     "id": "real-analysis.measure.tonelli",
@@ -6649,8 +6441,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "caf2b19cc960532e"
+    ]
   },
   {
     "id": "real-analysis.measure.fubini",
@@ -6684,8 +6475,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "caf2b19cc960532e"
+    ]
   },
   {
     "id": "real-analysis.lp.basic",
@@ -6727,8 +6517,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "8345c548a7d1297f"
+    ]
   },
   {
     "id": "real-analysis.lp.holder",
@@ -6763,8 +6552,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "76fd1ae2ae0b1ef4"
+    ]
   },
   {
     "id": "analysis.inequalities.young",
@@ -6794,8 +6582,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "20f0eb38a0908ea7"
+    ]
   },
   {
     "id": "analysis.inequalities.holder-finite",
@@ -6828,8 +6615,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "20f0eb38a0908ea7"
+    ]
   },
   {
     "id": "analysis.inequalities.cauchy-schwarz",
@@ -6859,8 +6645,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "20f0eb38a0908ea7"
+    ]
   },
   {
     "id": "analysis.inequalities.minkowski-finite",
@@ -6892,8 +6677,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "20f0eb38a0908ea7"
+    ]
   },
   {
     "id": "real-analysis.lp.chebyshev",
@@ -6923,8 +6707,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "76fd1ae2ae0b1ef4"
+    ]
   },
   {
     "id": "real-analysis.lp.minkowski",
@@ -6958,8 +6741,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "76fd1ae2ae0b1ef4"
+    ]
   },
   {
     "id": "real-analysis.lp.complete",
@@ -6991,8 +6773,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "8345c548a7d1297f"
+    ]
   },
   {
     "id": "topology.normed-space.def",
@@ -7021,7 +6802,7 @@
     "dependedOnBy": [
       "topology.normed-space.inequalities",
       "topology.normed-space.banach",
-      "real-analysis.multivariable.frechet"
+      "analysis.multivariable.frechet"
     ],
     "family": "topology.normed-space",
     "variant": "generated",
@@ -7030,8 +6811,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "67de1cdb940ac569"
+    ]
   },
   {
     "id": "topology.normed-space.inequalities",
@@ -7058,7 +6838,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:12:15Z",
     "dependedOnBy": [
-      "real-analysis.multivariable.frechet"
+      "analysis.multivariable.frechet"
     ],
     "family": "topology.normed-space",
     "variant": "generated",
@@ -7067,8 +6847,7 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "67de1cdb940ac569"
+    ]
   },
   {
     "id": "topology.normed-space.banach",
@@ -7101,11 +6880,10 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "67de1cdb940ac569"
+    ]
   },
   {
-    "id": "real-analysis.multivariable.frechet",
+    "id": "analysis.multivariable.frechet",
     "kind": "theorem",
     "state": "verified",
     "title": "Fréchet全微分与方向导数",
@@ -7124,31 +6902,31 @@
       "source_type": "book",
       "ref": "多元微积分：Fréchet导数与全微分"
     },
-    "lean_file": "RealAnalysis/MultivariableCalculus.lean",
-    "nl_file": "docs/entries/real-analysis/multivariable/frechet.md",
+    "lean_file": "Analysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/analysis/multivariable/frechet.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:20:53Z",
     "dependedOnBy": [
-      "real-analysis.multivariable.gradient"
+      "analysis.multivariable.gradient",
+      "analysis.multivariable.coordinates"
     ],
-    "family": "real-analysis.multivariable",
+    "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "a12dc4ecb516fa4d",
+    "proof_sha": "6e3b1a2b4b9dcfef",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ],
-    "_sha": "a12dc4ecb516fa4d"
+    ]
   },
   {
-    "id": "real-analysis.multivariable.gradient",
+    "id": "analysis.multivariable.gradient",
     "kind": "theorem",
     "state": "verified",
     "title": "梯度与方向导数",
     "summary": "梯度表示全微分以及方向导数等于梯度内积",
     "premises": [
-      "real-analysis.multivariable.frechet"
+      "analysis.multivariable.frechet"
     ],
     "mathlib": [
       "HasGradientAt",
@@ -7159,19 +6937,51 @@
       "source_type": "book",
       "ref": "多元微积分：梯度"
     },
-    "lean_file": "RealAnalysis/MultivariableCalculus.lean",
-    "nl_file": "docs/entries/real-analysis/multivariable/gradient.md",
+    "lean_file": "Analysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/analysis/multivariable/gradient.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:20:53Z",
     "dependedOnBy": [],
-    "family": "real-analysis.multivariable",
+    "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "a12dc4ecb516fa4d",
+    "proof_sha": "6e3b1a2b4b9dcfef",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ]
+  },
+  {
+    "id": "analysis.multivariable.coordinates",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "坐标偏导与Jacobian矩阵",
+    "summary": "坐标偏导、全微分的Jacobian表示及Jacobian链式法则",
+    "premises": [
+      "analysis.multivariable.frechet"
     ],
-    "_sha": "a12dc4ecb516fa4d"
+    "mathlib": [
+      "LinearMap.pi_apply_eq_sum_univ",
+      "Matrix.mulVec",
+      "Matrix.mul_apply",
+      "Pi.single"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：偏导数与Jacobian矩阵"
+    },
+    "lean_file": "Analysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/analysis/multivariable/coordinates.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:27:18Z",
+    "dependedOnBy": [],
+    "family": "analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "6e3b1a2b4b9dcfef",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

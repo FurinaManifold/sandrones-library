@@ -32,6 +32,7 @@ REGISTRY = ROOT / "index" / "registry.json"
 LEAN_ROOT = ROOT / "SandronesLibrary"
 
 NAMESPACE_RE = re.compile(r"^namespace\s+([\w.]+)")
+SECTION_RE = re.compile(r"^section(?:\s+([\w.]+))?")
 END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
 DECL_RE = re.compile(r"^(theorem|lemma|def)\s+(\w+)")
 ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
@@ -44,19 +45,24 @@ def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
     # 收集 (字符偏移, entry_id) 与 (字符偏移, full_decl_name)
     entries: list[tuple[int, str]] = []
     decls: list[tuple[int, str]] = []
-    stack: list[str] = []
+    # 同时跟踪 namespace 和 section；只有 namespace 构成声明全名。旧实现遇到
+    # `end Gradient` 之类的命名 section 时会误弹出外层 namespace。
+    scopes: list[tuple[str, str | None]] = []
     offset = 0
     for line in lean_text.splitlines():
         stripped = line.strip()
         if m := NAMESPACE_RE.match(stripped):
-            stack.append(m.group(1))
+            scopes.append(("namespace", m.group(1)))
+        elif m := SECTION_RE.match(stripped):
+            scopes.append(("section", m.group(1)))
         elif m := END_NS_RE.match(stripped):
-            if stack:
-                stack.pop()
+            if scopes:
+                scopes.pop()
         elif m := ENTRY_RE.search(line):
             entries.append((offset, m.group(1)))
         elif m := DECL_RE.match(stripped):
-            full = ".".join(stack + [m.group(2)])
+            namespaces = [name for kind, name in scopes if kind == "namespace" and name]
+            full = ".".join(namespaces + [m.group(2)])
             decls.append((offset, full))
         offset += len(line) + 1
     # 对每个 decl 找它前面最近（且在 docstring 内）的 Entry
@@ -194,6 +200,11 @@ def main() -> None:
     if not to_probe:
         print(f"[DONE] 全部 {total} 条目增量跳过（{all_skipped} 条）。--full 强制全量。")
         if args.fix:
+            # 即使全部增量跳过，也必须先清除第一遍加入的运行时字段；否则 `_sha`
+            # 会泄漏进 registry，造成下一次审计产生全文件噪声 diff。
+            for rec in data:
+                for k in ("_sha", "_module", "_decls"):
+                    rec.pop(k, None)
             json.dump(data, open(REGISTRY, "w"), ensure_ascii=False, indent=2)
             open(REGISTRY, "a").write("\n")
         sys.exit(0)

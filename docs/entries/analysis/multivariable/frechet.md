@@ -1,5 +1,5 @@
 ---
-id: real-analysis.multivariable.frechet
+id: analysis.multivariable.frechet
 kind: theorem
 state: verified
 title: "Fréchet全微分与方向导数"
