@@ -1244,6 +1244,10 @@
 - **人话**：半角平方根公式，以及在指定区间内正确选择平方根正号。
 - **谁在用**：`analysis.trigonometric.half-root`。
 
+### `irrational_nrt_of_notint_nrt`
+- **人话**：一个实数的正整数次幂是整数，但该整数不是整数同次幂时，这个实数必无理。
+- **谁在用**：`analysis.constants.nth-root-irrational`，作为 `√2` 等具体无理性结论的通用引理。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

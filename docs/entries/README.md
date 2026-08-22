@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **179** 个条目（verified 179，pending 0）。
+共 **180** 个条目（verified 180，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -47,6 +47,7 @@
 ## `analysis.constants`
 
 - ✅ [`e-definition.md`](e-definition.md) — 自然常数 e 的定义与基本范围
+- ✅ [`nth-root-irrational.md`](nth-root-irrational.md) — 非完全幂整数的 n 次根无理性
 - ✅ [`pi-definition.md`](pi-definition.md) — 圆周率 π 的定义接口与基本特殊值
 - ✅ [`special-values.md`](special-values.md) — 初等函数的常用特殊值
 

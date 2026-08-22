@@ -121,5 +121,21 @@ theorem sin_pi_value : Real.sin Real.pi = 0 := by
 theorem cos_pi_value : Real.cos Real.pi = -1 := by
   exact Real.cos_pi
 
+/-! ### 非完全幂的整数根无理性 -/
+
+/-- 若实数的正整数次幂是整数，但该整数不是整数的同次幂，则该实数无理。
+> **Entry**: analysis.constants.nth-root-irrational
+-/
+theorem irrational_nth_root_of_not_perfect {x : ℝ} {n : ℕ} {m : ℤ}
+    (hpow : x ^ n = (m : ℝ))
+    (hnot : ¬ ∃ z : ℤ, (z : ℝ) ^ n = (m : ℝ))
+    (hnpos : 0 < n) : Irrational x := by
+  apply irrational_nrt_of_notint_nrt n m hpow ?_ hnpos
+  rintro ⟨z, hz⟩
+  apply hnot
+  refine ⟨z, ?_⟩
+  rw [← hz]
+  exact hpow
+
 end Analysis.Constants
 end SandronesLibrary

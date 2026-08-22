@@ -149,6 +149,7 @@
 | `analysis.constants.pi-definition` | `π` 的教材层定义接口、正性、`π ≠ 0`、圆周率基本三角值和周期关系 | `analysis.special-functions.basic`, `analysis.special-functions.log-tan-pow` | ✅ |
 | `analysis.constants.special-values` | `exp 0`、`exp 1`、`log 1`、`sin/cos` 在 `0, π/2, π` 的重要值 | `analysis.constants.e-definition`, `analysis.constants.pi-definition` | ✅ |
 | `analysis.constants.sqrt-two-irrational` | `√2` 无理性（作为无理数证明模板） | `analysis.real.archimedean`, `analysis.real.construction-cauchy` | 🔲 |
+| `analysis.constants.nth-root-irrational` | 非完全幂整数的正整数次根无理性通用引理 | `analysis.real.archimedean`, `analysis.real.construction-cauchy` | ✅ |
 | `analysis.constants.pi-irrational` | `π` 无理性 | `analysis.constants.pi-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
 | `analysis.constants.e-irrational` | `e` 无理性 | `analysis.constants.e-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
 
