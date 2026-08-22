@@ -174,7 +174,7 @@
 | `analysis.series.riemann-rearrangement` | Riemann 条件重排的直接分块构造，并指定部分和的 `liminf` 与 `limsup` | `analysis.series.conditional`, `analysis.sequence.liminf-limsup` | ✅ |
 | `analysis.series.cauchy-product-definition` | Cauchy 乘积定义、反对角线表示与有限三角部分和恒等式 | `analysis.series.basic` | ✅ |
 | `analysis.series.cauchy-product-absolute` | 两级数绝对收敛时，Cauchy 乘积绝对收敛且其和等于两级数和之积 | `analysis.series.absolute`, `analysis.series.cauchy-product-definition` | ✅ |
-| `analysis.series.mertens` | Mertens 定理：一个级数绝对收敛、另一个收敛时，Cauchy 乘积收敛到两者和之积 | `analysis.series.cauchy-product-absolute`, `analysis.series.conditional` | 🔲 |
+| `analysis.series.mertens` | Mertens 定理：一个级数绝对收敛、另一个收敛时，Cauchy 乘积收敛到两者和之积 | `analysis.series.cauchy-product-absolute`, `analysis.series.conditional` | ✅ |
 | `analysis.series.abel-cauchy-product` | Abel 型乘积定理：两个级数及其 Cauchy 乘积均收敛时，乘积级数之和等于两级数和之积 | `analysis.series.mertens`, `analysis.power-series.radius` | 🔲 |
 | `analysis.power-series.definition` | 幂级数定义、部分和、收敛点集 | `analysis.series.basic` | 🔲 |
 | `analysis.power-series.radius` | 收敛半径：半径内绝对收敛、半径外发散 | `analysis.power-series.definition`, `analysis.series.tests` | 🔲 |

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **188** 个条目（verified 188，pending 0）。
+共 **189** 个条目（verified 189，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -150,6 +150,7 @@
 - ✅ [`cauchy-product-absolute.md`](cauchy-product-absolute.md) — 绝对收敛级数的 Cauchy 乘积
 - ✅ [`cauchy-product-definition.md`](cauchy-product-definition.md) — Cauchy 乘积的定义与有限三角恒等式
 - ✅ [`conditional.md`](conditional.md) — 条件收敛与交错级数
+- ✅ [`mertens.md`](mertens.md) — Mertens 级数乘积定理
 - ✅ [`rearrangement.md`](rearrangement.md) — 绝对收敛级数的重排不变性
 - ✅ [`riemann-rearrangement.md`](riemann-rearrangement.md) — Riemann 条件重排的直接分块构造
 - ✅ [`tests.md`](tests.md) — 数项级数判别法

@@ -32,6 +32,16 @@
 - **出处**：`Mathlib/Analysis/Normed/Ring/InfiniteSum.lean`。
 - **谁在用**：`analysis.series.cauchy-product-absolute`。
 
+### `cauchy_product`
+- **人话**：一方绝对 Cauchy、另一方 Cauchy 时，两个部分和之积与 Cauchy 乘积部分和之差趋零。
+- **出处**：`Mathlib/Algebra/Order/CauSeq/BigOperators.lean`。
+- **谁在用**：`analysis.series.mertens`。
+
+### `Finset.Nat.sum_antidiagonal_swap`
+- **人话**：交换自然数反对角线上的两个坐标不改变有限和，用来交换 Cauchy 乘积的两个因子。
+- **出处**：`Mathlib/Algebra/BigOperators/NatAntidiagonal.lean`。
+- **谁在用**：`analysis.series.mertens`。
+
 ### `Nat.find`
 - **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
 - **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。
