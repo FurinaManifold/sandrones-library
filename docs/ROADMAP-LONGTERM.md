@@ -296,8 +296,8 @@
 - **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础、Hölder、Chebyshev、Minkowski 与完备性，整批完成。
 - **R6 多元微积分**（进行中）：✅ Fréchet 全微分、方向导数、梯度、坐标偏导与 Jacobian；
   ✅ Hessian/Taylor、反函数定理、隐函数定理、满秩秩定理与一般常秩 `r` 定理；
-  ✅ Lebesgue 闭矩形二重积分、Fubini 教材接口与 Jordan 可测区域基础；随后补多元
-  Riemann 定义及数值桥，
+  ✅ Lebesgue 闭矩形二重积分、Fubini 教材接口、Jordan 可测区域、闭盒多元 Riemann
+  定义及连续函数数值桥；
   再依次推进正常区域、换元、参数化与第一型积分、张量积/外代数/微分形式、第二型
   积分以及 Green/Gauss/Stokes 公式。
 

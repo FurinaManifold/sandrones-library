@@ -127,6 +127,7 @@
 - ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
 - ✅ [`jordan-region.md`](jordan-region.md) — Jordan 可测区域与边界零体积
+- ✅ [`multivariable-riemann.md`](multivariable-riemann.md) — 闭盒多元 Riemann 积分及数值桥
 - ✅ [`rectangle-integral.md`](rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 接口
 
 ## `analysis.mvt`

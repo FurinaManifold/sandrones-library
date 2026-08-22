@@ -30,6 +30,7 @@ import SandronesLibrary.Analysis.InverseImplicit
 import SandronesLibrary.Analysis.ConstantRank
 import SandronesLibrary.Analysis.MultivariableIntegration
 import SandronesLibrary.Analysis.JordanRegion
+import SandronesLibrary.Analysis.MultivariableRiemann
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge

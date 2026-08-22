@@ -21,7 +21,7 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set MeasureTheory
 open scoped ENNReal
 
-abbrev JordanEuc (n : ℕ) := EuclideanSpace ℝ (Fin n)
+abbrev JordanEuc (n : ℕ) := Fin n → ℝ
 
 /-- 教材中的 Jordan 可测有界区域：区域有界且边界的 `n` 维体积为零。 -/
 def IsJordanMeasurable {n : ℕ} (s : Set (JordanEuc n)) : Prop :=
