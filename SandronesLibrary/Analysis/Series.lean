@@ -73,5 +73,17 @@ theorem alternating_series_cauchy {f : ℕ → ℝ} (hmono : Antitone f)
     CauchySeq (fun N : ℕ ↦ ∑ n ∈ Finset.range N, (-1 : ℝ) ^ n * f n) := by
   exact hmono.cauchySeq_alternating_series_of_tendsto_zero hzero
 
+/-- 有界于收敛几何级数的尾项级数可和；这是根值判别法的几何上界下层引理。 -/
+theorem summable_of_eventually_geometric_bound {f : ℕ → ℝ} {r C : ℝ}
+    (hr : |r| < 1) (hC : 0 ≤ C)
+    (hbound : ∀ᶠ n in atTop, |f n| ≤ C * |r| ^ n) : Summable f := by
+  have hgeom : Summable (fun n : ℕ => |r| ^ n) := by
+    simpa [Real.norm_eq_abs] using
+      (summable_geometric_of_norm_lt_one (x := r)
+        (by simpa [Real.norm_eq_abs] using hr))
+  have hmajor : Summable (fun n : ℕ => C * |r| ^ n) := hgeom.mul_left C
+  apply Summable.of_norm_bounded_eventually_nat hmajor
+  simpa only [Real.norm_eq_abs] using hbound
+
 end Analysis.Series
 end SandronesLibrary

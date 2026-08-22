@@ -22,3 +22,4 @@ provenance:
 - `summable_of_ratio_test`
 - `not_summable_of_ratio_test`
 - `alternating_series_cauchy`
+- `summable_of_eventually_geometric_bound`（根值判别法的几何上界下层引理）
