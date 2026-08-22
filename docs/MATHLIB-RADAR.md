@@ -52,6 +52,11 @@
 - **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
 - **谁在用**：`analysis.series.abel-cauchy-product`。
 
+### `summable_of_ne_finset_zero`
+- **人话**：若函数在某个有限集之外恒为零，则对应的无限和可和。
+- **出处**：Mathlib 的无限和基础接口。
+- **谁在用**：`analysis.power-series.definition`，用于证明中心处除常数项外全为零。
+
 ### `Nat.find`
 - **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
 - **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。

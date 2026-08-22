@@ -5481,7 +5481,8 @@
     "added_by": "series-basic-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.series.cauchy-product-definition"
+      "analysis.series.cauchy-product-definition",
+      "analysis.power-series.definition"
     ],
     "axioms": [
       "Classical.choice",
@@ -5765,6 +5766,36 @@
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
     "proof_sha": "621a3e9e7797cf3b",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.power-series.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "实幂级数的定义与收敛点集",
+    "summary": "定义幂级数单项、部分和、自然顺序收敛、绝对收敛、和函数及两类收敛点集",
+    "premises": [
+      "analysis.series.basic"
+    ],
+    "mathlib": [
+      "Summable.of_norm",
+      "Summable.tendsto_sum_tsum_nat",
+      "summable_of_ne_finset_zero"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：幂级数的定义与收敛点集"
+    },
+    "lean_file": "Analysis/PowerSeries.lean",
+    "nl_file": "docs/entries/analysis/power-series/definition.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "807e753c485fc003",
     "axioms": [
       "propext",
       "Classical.choice",
