@@ -5633,7 +5633,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "2a09119b40360548",
+    "proof_sha": "f55e0d6cfeac5250",
     "axioms": [
       "propext",
       "Classical.choice",

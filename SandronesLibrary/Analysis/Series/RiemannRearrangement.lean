@@ -509,7 +509,7 @@ theorem blockSeries_apply (a : ℕ → ℝ) (indP indQ : ℕ → ℕ)
     (E : BlockEnds) (ℓ : ℕ) :
     blockSeries a indP indQ E ℓ = a (blockIndex indP indQ E ℓ) := rfl
 
-/-- The direct target endpoints used by Rudin.  With `α < β`, positive blocks
+/-- The direct target endpoints used by Rudin.  With `α ≤ β`, positive blocks
 cross `β + 1/(k+1)` and negative blocks cross `α - 1/(k+1)`. -/
 noncomputable def lowerTarget (α : ℝ) (k : ℕ) : ℝ := α - 1 / ((k : ℝ) + 1)
 noncomputable def upperTarget (β : ℝ) (k : ℕ) : ℝ := β + 1 / ((k : ℝ) + 1)
@@ -528,7 +528,7 @@ theorem upperTarget_tendsto (β : ℝ) :
     (tendsto_const_nhds : Tendsto (fun _ : ℕ => β) atTop (𝓝 β)).add
       (tendsto_one_div_add_atTop_nhds_zero_nat (𝕜 := ℝ))
 
-theorem lowerTarget_lt_upperTarget {α β : ℝ} (hαβ : α < β) (m n : ℕ) :
+theorem lowerTarget_lt_upperTarget {α β : ℝ} (hαβ : α ≤ β) (m n : ℕ) :
     lowerTarget α m < upperTarget β n := by
   dsimp [lowerTarget, upperTarget]
   have hm : 0 < 1 / ((m : ℝ) + 1) := by positivity
@@ -709,7 +709,7 @@ new upper target.  This is the local fact that forces a nonempty positive
 block; it replaces the previously duplicated global monotonicity chain. -/
 theorem rudin_positive_start_le_succ (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α < β) (n : ℕ) :
+    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
     partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) ≤
       upperTarget β (n + 1) + partialSum Q (rudinNegCount P Q hP hQ α β (n + 1)) := by
   have hlow := rudin_lower_endpoint_crosses P Q hP hQ α β n
@@ -718,7 +718,7 @@ theorem rudin_positive_start_le_succ (P Q : ℕ → ℝ)
 /-- The negative search at stage `n+1` starts below its lower target. -/
 theorem rudin_negative_start_le (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α < β) (n : ℕ) :
+    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
     partialSum Q (rudinNegCount P Q hP hQ α β n) ≤
       partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) - lowerTarget α n := by
   have hupp := rudin_upper_endpoint_crosses P Q hP hQ α β n
@@ -893,7 +893,7 @@ theorem firstNegativeCrossing_after_overshoot {q : ℕ → ℝ}
 
 theorem rudin_upper_endpoint_overshoot (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α < β) (n : ℕ) :
+    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
     partialSum P (rudinPosCount P Q hP hQ α β (n + 2)) -
         partialSum Q (rudinNegCount P Q hP hQ α β (n + 1)) ≤
       upperTarget β (n + 1) +
@@ -905,7 +905,7 @@ theorem rudin_upper_endpoint_overshoot (P Q : ℕ → ℝ)
 
 theorem rudin_lower_endpoint_overshoot (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α < β) (n : ℕ) :
+    (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
     lowerTarget α n - Q (rudinNegCount P Q hP hQ α β (n + 1) - 1) ≤
       partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) -
         partialSum Q (rudinNegCount P Q hP hQ α β (n + 1)) := by
@@ -987,7 +987,7 @@ then prove that their explicit block code is bijective and has the endpoint
 witness.  This is the sole remaining direct-construction obligation. -/
 theorem direct_block_evidence_of_rudin_hypotheses
     {a : ℕ → ℝ} {α β : ℝ}
-    (hαβ : α < β)
+    (hαβ : α ≤ β)
     (S : SourceSplit a)
     (hPzero : Tendsto (signedPositive a S.indP) atTop (𝓝 0))
     (hQzero : Tendsto (signedNegative a S.indQ) atTop (𝓝 0))
@@ -1467,7 +1467,7 @@ separate consequences of the returned evidence.
 -/
 theorem direct_rudin_rearrangement
     {a : ℕ → ℝ} {α β : ℝ}
-    (hαβ : α < β)
+    (hαβ : α ≤ β)
     (S : SourceSplit a)
     (hPzero : Tendsto (signedPositive a S.indP) atTop (𝓝 0))
     (hQzero : Tendsto (signedNegative a S.indQ) atTop (𝓝 0))
