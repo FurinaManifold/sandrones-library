@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **198** 个条目（verified 198，pending 0）。
+共 **199** 个条目（verified 199，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -243,6 +243,7 @@
 
 ## `real-analysis.riemann`
 
+- ✅ [`algebra.md`](algebra.md) — 连续函数 Riemann 积分的代数与序性质
 - ✅ [`cont-integrable.md`](cont-integrable.md) — 连续函数黎曼可积
 - ✅ [`def.md`](def.md) — 黎曼积分定义
 - ✅ [`eq-lebesgue.md`](eq-lebesgue.md) — 黎曼积分值 = Lebesgue 区间积分

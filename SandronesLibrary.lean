@@ -21,6 +21,7 @@ import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
+import SandronesLibrary.RealAnalysis.RiemannAlgebra
 import SandronesLibrary.Analysis.SpecialFunctions
 import SandronesLibrary.Analysis.ClassicalLimits
 import SandronesLibrary.Analysis.Series.RiemannRearrangement

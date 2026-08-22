@@ -184,20 +184,21 @@
 
 ## 第八章 Riemann 积分
 
-| 条目家族 | 内容 | mathlib 参考 |
+| 条目家族 | 内容 | 实现路线 |
 |---|---|---|
-| `analysis.integral.riemann-def` | 达布和与可积性 | `intervalIntegral`, `Darboux` |
-| `analysis.integral.riemann-integrable` | 可积函数类 | `IntervalIntegrable` |
-| `analysis.integral.mean-value` | 积分中值定理 | `intervalIntegral.integral_le` 系 |
-| `analysis.integral.ftc1` | 微积分基本定理（一） | `intervalIntegral.integral_hasDerivAt` |
-| `analysis.integral.ftc2` | 微积分基本定理（二） | `intervalIntegral.integral_deriv_eq_sub` |
-| `analysis.integral.substitution` | 换元法 | `intervalIntegral.integral_comp_mul_deriv` |
+| `real-analysis.riemann.def` | Darboux 分划、上下和与可积性 | 自建，Mathlib 无 Riemann 积分定义 |
+| `real-analysis.riemann.cont-integrable` | 连续函数可积 | 自建 Darboux 证明 |
+| `real-analysis.riemann.eq-lebesgue` | 连续函数的两种积分值相等 | 自建上下和夹逼桥梁 |
+| `real-analysis.riemann.algebra` | 连续函数积分的代数与序性质 | 经等值桥梁计算，再转回 Riemann 积分 |
+| `real-analysis.riemann.mean-value` | 积分中值定理 | 经等值桥梁证明 |
+| `real-analysis.riemann.ftc` | 微积分基本定理 | 经等值桥梁证明 |
+| `real-analysis.riemann.parts-substitution` | 分部积分与换元法 | 经等值桥梁证明 |
 
 ## 第九章补充：Riemann 积分教材层结果
 
 | 批次 | 内容 | 状态 |
 |---|---|---|
-| `analysis.integral.riemann-algebra` | 线性、区间可加性、单调性、正性和绝对值估计 | 🔲 |
+| `real-analysis.riemann.algebra` | 连续函数：常值积分、线性、区间可加性、单调性、正性和绝对值估计 | ✅ |
 | `analysis.integral.mean-value` | 积分中值定理与周期函数积分 | 🔲 |
 | `analysis.integral.ftc` | 与自建 Riemann 定义对齐的微积分基本定理 | 🔲 |
 | `analysis.integral.parts-substitution` | 分部积分与换元积分 | 🔲 |

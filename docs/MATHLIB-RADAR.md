@@ -1397,6 +1397,21 @@
 - **出处**：`Mathlib/Analysis/Real/Pi/Irrational.lean`。
 - **谁在用**：`analysis.constants.pi-irrational`，将 Mathlib 结论转接到本库的教材层 `pi` 接口。
 
+### `intervalIntegral.integral_add` / `intervalIntegral.integral_sub` / `intervalIntegral.integral_const_mul`
+- **人话**：在区间可积前提下，区间积分保持函数加法、减法与常数乘法。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
+- **谁在用**：`real-analysis.riemann.algebra`；先由本库等值桥梁识别积分值，再推出自建 Riemann 积分的线性。
+
+### `intervalIntegral.integral_nonneg` / `intervalIntegral.integral_mono_on`
+- **人话**：区间上非负的函数积分非负；两个区间可积函数逐点有序时，积分保持顺序。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
+- **谁在用**：`real-analysis.riemann.algebra`，用于自建 Riemann 积分的正性与单调性。
+
+### `intervalIntegral.abs_integral_le_integral_abs` / `intervalIntegral.integral_add_adjacent_intervals`
+- **人话**：积分绝对值不超过绝对值的积分；相邻两个区间的积分之和等于合并区间的积分。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
+- **谁在用**：`real-analysis.riemann.algebra`，经连续函数积分值等同定理转回 Riemann 教材接口。
+
 ### `HasSum` / `Summable` / `hasSum_geometric_of_norm_lt_one` / `Real.not_summable_one_div_natCast` / `Summable.of_norm` / `summable_iff_cauchySeq_finset`
 - **人话**：级数的和与收敛、几何级数、调和级数发散、绝对收敛和 Cauchy 准则。
 - **谁在用**：`analysis.series.basic`。

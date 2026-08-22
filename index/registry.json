@@ -4740,7 +4740,9 @@
     "nl_file": "docs/entries/real-analysis/riemann/cont-integrable.md",
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T13:01:23Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.algebra"
+    ],
     "axioms": [
       "propext",
       "Quot.sound"
@@ -4775,7 +4777,9 @@
     "nl_file": "docs/entries/real-analysis/riemann/eq-lebesgue.md",
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T15:26:03Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.algebra"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6041,6 +6045,41 @@
     "added_at": "2026-08-22T10:02:45Z",
     "dependedOnBy": [],
     "proof_sha": "89eb5ea33e9c2241",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.riemann.algebra",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续函数 Riemann 积分的代数与序性质",
+    "summary": "常值积分、线性、相邻区间可加、正性、单调性和绝对值估计",
+    "premises": [
+      "real-analysis.riemann.cont-integrable",
+      "real-analysis.riemann.eq-lebesgue"
+    ],
+    "mathlib": [
+      "intervalIntegral.integral_add",
+      "intervalIntegral.integral_sub",
+      "intervalIntegral.integral_const_mul",
+      "intervalIntegral.integral_nonneg",
+      "intervalIntegral.integral_mono_on",
+      "intervalIntegral.abs_integral_le_integral_abs",
+      "intervalIntegral.integral_add_adjacent_intervals"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：Riemann 积分的基本性质"
+    },
+    "lean_file": "RealAnalysis/RiemannAlgebra.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/algebra.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T10:20:57Z",
+    "dependedOnBy": [],
+    "proof_sha": "d4b29bd79ce3d2d0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
