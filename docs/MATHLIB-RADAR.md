@@ -1184,6 +1184,10 @@
 - **人话**：导数链式法则、邻域内相等函数可替换导数、同一点导数唯一。
 - **谁在用**：`analysis.derivative.inverse-function`，用于反函数求导。
 
+### `taylor_mean_remainder_lagrange_iteratedDeriv` / `taylor_within_apply` / `iteratedDerivWithin_zero`
+- **人话**：有限阶 Taylor–Lagrange 余项、Taylor 多项式有限项展开，以及零阶导数退化为原函数。
+- **谁在用**：`analysis.mvt.taylor-examples`，用于 `exp`、`sin`、`cos` 的有限阶展开；不使用级数。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

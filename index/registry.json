@@ -4952,5 +4952,36 @@
       "propext"
     ],
     "proof_sha": "487f2135543fd213"
+  },
+  {
+    "id": "analysis.mvt.taylor-examples",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "初等函数的有限阶 Taylor 展开",
+    "summary": "exp 一阶、sin 与 cos 二阶的有限阶 Taylor-Lagrange 展开，不使用级数",
+    "premises": [
+      "analysis.mvt.taylor",
+      "analysis.special-functions.basic"
+    ],
+    "mathlib": [
+      "taylor_mean_remainder_lagrange_iteratedDeriv",
+      "taylor_within_apply",
+      "iteratedDerivWithin_zero"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：Taylor–Lagrange 有限阶展开"
+    },
+    "lean_file": "Analysis/MVT.lean",
+    "nl_file": "docs/entries/analysis/mvt/taylor-examples.md",
+    "added_by": "taylor-examples-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d3b0e462ec1b1f25"
   }
 ]

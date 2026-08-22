@@ -21,7 +21,7 @@ open scoped Filter Topology
 * **analysis.derivative.div**（商的导数，分母非零）。
 * **analysis.derivative.const-mul**（常数数乘的导数）。
 * **analysis.derivative.chain-rule**（链式法则）。
-* ~~**analysis.derivative.inverse-function**（反函数求导）~~：留待专门批次（mathlib 单变量需自构造反函数+链式，较繁）。
+* **analysis.derivative.inverse-function**（反函数求导，已完成）。
 -/
 
 namespace SandronesLibrary

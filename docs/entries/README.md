@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **165** 个条目（verified 165，pending 0）。
+共 **166** 个条目（verified 166，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -101,6 +101,7 @@
 - ✅ [`monotone-deriv.md`](monotone-deriv.md) — 导数符号判别单调
 - ✅ [`rolle.md`](rolle.md) — 罗尔定理
 - ✅ [`taylor.md`](taylor.md) — 泰勒公式（Lagrange 余项）
+- ✅ [`taylor-examples.md`](taylor-examples.md) — 初等函数的有限阶 Taylor 展开
 
 ## `analysis.real`
 

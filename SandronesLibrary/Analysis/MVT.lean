@@ -152,6 +152,73 @@ theorem is_constant_of_deriv_zero {f : ℝ → ℝ} (hf : Differentiable ℝ f)
       · exact False.elim (hxy0 h2)
     linarith
 
+/-! ### 有限阶 Taylor–Lagrange 展开实例
+
+这些实例只使用有限阶余项，不使用数项级数或幂级数。 -/
+
+/-- 指数函数的一阶 Taylor–Lagrange 展开。 -/
+theorem exp_taylor_first_order {x : ℝ} (hx : x ≠ 0) :
+    ∃ c ∈ Set.uIoo 0 x, Real.exp x = 1 + Real.exp c * x := by
+  rcases lt_or_gt_of_ne hx with hlt | hgt
+  · have hfc : ContinuousOn Real.exp (Set.Icc x 0) := Real.continuous_exp.continuousOn
+    have hff' : ∀ y ∈ Set.Ioo x 0, HasDerivAt Real.exp (Real.exp y) y := by
+      intro y hy
+      exact Real.hasDerivAt_exp y
+    rcases exists_hasDerivAt_eq_slope Real.exp Real.exp hlt hfc hff' with
+      ⟨c, hc, hcs⟩
+    refine ⟨c, ?_, ?_⟩
+    · rw [Set.uIoo_comm, Set.uIoo_of_lt hlt]
+      exact hc
+    · have hform : Real.exp c = (Real.exp 0 - Real.exp x) / (0 - x) := hcs
+      rw [Real.exp_zero] at hform
+      field_simp at hform ⊢
+      linarith
+  · have hfc : ContinuousOn Real.exp (Set.Icc 0 x) := Real.continuous_exp.continuousOn
+    have hff' : ∀ y ∈ Set.Ioo 0 x, HasDerivAt Real.exp (Real.exp y) y := by
+      intro y hy
+      exact Real.hasDerivAt_exp y
+    rcases exists_hasDerivAt_eq_slope Real.exp Real.exp hgt hfc hff' with
+      ⟨c, hc, hcs⟩
+    refine ⟨c, ?_, ?_⟩
+    · rw [Set.uIoo_of_lt hgt]
+      exact hc
+    · have hform : Real.exp c = (Real.exp x - Real.exp 0) / (x - 0) := hcs
+      rw [Real.exp_zero] at hform
+      field_simp at hform ⊢
+      linarith
+
+/-- 正弦函数的二阶 Taylor–Lagrange 展开。 -/
+theorem sin_taylor_second_order {x : ℝ} (hx : x ≠ 0) :
+    ∃ c ∈ Set.uIoo 0 x, Real.sin x = x - Real.sin c * x ^ 2 / 2 := by
+  rcases taylor_mean_remainder_lagrange_iteratedDeriv (x := x) (x₀ := 0) (n := 1) hx.symm
+      (Real.contDiff_sin.contDiffOn) with ⟨c, hc, h⟩
+  refine ⟨c, hc, ?_⟩
+  have hs : 0 ∈ Set.uIcc (0 : ℝ) x := by simp
+  have hu : UniqueDiffOn ℝ (Set.uIcc (0 : ℝ) x) := uniqueDiffOn_uIcc hx.symm
+  have hd0 : derivWithin Real.sin (Set.uIcc (0 : ℝ) x) 0 = Real.cos 0 :=
+    (Real.hasDerivAt_sin 0).hasDerivWithinAt.derivWithin (hu.uniqueDiffWithinAt hs)
+  have h' := h
+  simp [taylor_within_apply, iteratedDerivWithin_zero, Real.sin_zero, Real.cos_zero,
+    hd0, Real.iteratedDeriv_even_sin] at h'
+  linarith
+
+/-- 余弦函数的二阶 Taylor–Lagrange 展开。
+> **Entry**: analysis.mvt.taylor-examples
+-/
+theorem cos_taylor_second_order {x : ℝ} (hx : x ≠ 0) :
+    ∃ c ∈ Set.uIoo 0 x, Real.cos x = 1 - Real.cos c * x ^ 2 / 2 := by
+  rcases taylor_mean_remainder_lagrange_iteratedDeriv (x := x) (x₀ := 0) (n := 1) hx.symm
+      (Real.contDiff_cos.contDiffOn) with ⟨c, hc, h⟩
+  refine ⟨c, hc, ?_⟩
+  have hs : 0 ∈ Set.uIcc (0 : ℝ) x := by simp
+  have hu : UniqueDiffOn ℝ (Set.uIcc (0 : ℝ) x) := uniqueDiffOn_uIcc hx.symm
+  have hd0 : derivWithin Real.cos (Set.uIcc (0 : ℝ) x) 0 = -Real.sin 0 :=
+    (Real.hasDerivAt_cos 0).hasDerivWithinAt.derivWithin (hu.uniqueDiffWithinAt hs)
+  have h' := h
+  simp [taylor_within_apply, iteratedDerivWithin_zero, Real.cos_zero, Real.sin_zero,
+    hd0] at h'
+  linarith
+
 end Analysis.MVT
 
 end SandronesLibrary

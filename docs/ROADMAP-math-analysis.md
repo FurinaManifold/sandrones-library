@@ -108,7 +108,8 @@
 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | `exists_hasDerivAt_eq_slope` |
 | `analysis.mvt.cauchy` | 柯西中值定理 | `exists_deriv_eq_mvt` 系 |
 | `analysis.mvt.lhopital` | L'Hôpital 法则 | `hasDerivAt.div` + MVT 组合 |
-| `analysis.mvt.taylor` | 泰勒公式（含 Lagrange 余项） | `taylor`, `Taylor` |
+| `analysis.mvt.taylor` | 抽象有限阶 Taylor 公式（含 Lagrange 余项） | `taylor`, `Taylor` |
+| `analysis.mvt.taylor-examples` | `exp` 一阶、`sin/cos` 二阶有限阶展开（不使用级数） | `taylor_mean_remainder_lagrange_iteratedDeriv` |
 
 ## 第七章补充：初等特殊函数与重要极限
 
