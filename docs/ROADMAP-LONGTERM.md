@@ -27,7 +27,7 @@
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3 M4 M5 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1 L2 L3 L4 L5 | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1 A2 A3 A4 | 等价关系/商集 |
-| **Phase 4 点集拓扑** | `topology.*` | T1 T2 T3 | 集合论 + 分析线直观 |
+| **Phase 4 拓扑学基础** | `topology.*` | T1 T2 T3 T4 | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1 R2 R3 R4 R5 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C1 C2 C3 | R2 T3 M4 |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | A4 T3 R4 |
@@ -210,7 +210,7 @@
 
 ---
 
-## 5. Phase 4 — 点集拓扑（T1-T3）
+## 5. Phase 4 — 点集拓扑及代数拓扑入口（T1-T4）
 
 > 家族前缀 `topology.`。
 
@@ -245,6 +245,23 @@
 | 5 | `topology.normed-space.def` | 赋范线性空间、范数诱导度量 | `NormedSpace`、`dist_eq_norm` |
 | 6 | `topology.normed-space.inequalities` | 三角与反三角不等式、数乘范数 | `norm_add_le`、`abs_norm_sub_norm_le` |
 | 7 | `topology.normed-space.banach` | 范数收敛、Cauchy 与 Banach 完备性 | `Metric.tendsto_atTop`、`CompleteSpace` |
+
+### T4 同胚、同伦与基本群（点集拓扑后的代数拓扑入口）
+
+> 依赖顺序固定为“同胚及拓扑不变量 → 道路与同伦 → 同伦等价 → 基本群”。其中 T1
+> 已完成同胚的定义和基本接口；本批次继续发展同胚保持性质，并建立代数拓扑所需结构。
+
+| # | 条目 | 内容 | mathlib |
+|---|---|---|---|
+| 1 | `topology.homeomorph.invariants` | 同胚的复合、逆及对连通性、紧致性等拓扑性质的保持 | `Homeomorph.trans`、`Homeomorph.toHomotopyEquiv` |
+| 2 | `topology.homotopy.path-loop` | 道路、道路复合、逆道路与以基点为端点的环路 | `Path`、`Path.trans`、`Path.symm`、`Path.Homotopic` |
+| 3 | `topology.homotopy.maps` | 映射之间的同伦、相对端点同伦及同伦的复合运算 | `ContinuousMap.Homotopy`、`ContinuousMap.HomotopyRel` |
+| 4 | `topology.homotopy.equivalence` | 同伦等价、同伦逆及同伦等价关系 | `ContinuousMap.HomotopyEquiv`、`Homeomorph.toHomotopyEquiv` |
+| 5 | `topology.fundamental-group.def` | 基点环路按端点固定同伦取商，定义基本群 `π₁(X,x₀)` | `FundamentalGroupoid`、`FundamentalGroup`、`Path.Homotopic.Quotient` |
+| 6 | `topology.fundamental-group.group` | 环路拼接诱导群结构，恒定环路、逆环路及结合律 | `FundamentalGroup.toPath`、`FundamentalGroup.fromPath` |
+| 7 | `topology.fundamental-group.functorial` | 连续映射诱导基本群同态；同伦映射诱导自然同构 | `FundamentalGroupoidFunctor.map`、`FundamentalGroupoidFunctor.homotopicMapsNatIso` |
+| 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
+| 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
 
 ---
 
@@ -354,6 +371,7 @@
 | P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| ✅ |
 | P3 | A3.3-A3.4 域扩张/Galois + A4 模 | 🔲（第二学期）|
 | P4 | T1-T3 点集拓扑 | ✅ |
+| P4.5 | T4 同胚深化、同伦、同伦等价与基本群 | 🔲 |
 | P5 | R1-R5 实分析（R1-R3、R5 及 R5.5 部分）| 🔶（进行中） |
 | P6 | C1-C3 复分析 | 🔲 |
 | P7 | F1-F4 泛函分析 | 🔲 |
