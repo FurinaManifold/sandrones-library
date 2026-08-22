@@ -6915,7 +6915,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "e5dead3d7f79426f",
+    "proof_sha": "1fdabc596e99095d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6947,7 +6947,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "e5dead3d7f79426f",
+    "proof_sha": "1fdabc596e99095d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6982,7 +6982,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "e5dead3d7f79426f",
+    "proof_sha": "1fdabc596e99095d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -6998,7 +6998,8 @@
     "premises": [
       "analysis.multivariable.frechet",
       "analysis.multivariable.coordinates",
-      "analysis.mvt.taylor-integral-remainder"
+      "analysis.mvt.taylor-integral-remainder",
+      "linear-algebra.matrix.symmetric"
     ],
     "mathlib": [
       "iteratedFDeriv",
@@ -7016,7 +7017,70 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "e5dead3d7f79426f",
+    "proof_sha": "1fdabc596e99095d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.matrix.symmetric",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "对称矩阵",
+    "summary": "对称矩阵定义、逐元素判据与对称部分",
+    "premises": [],
+    "mathlib": [
+      "Matrix.IsSymm",
+      "Matrix.IsSymm.ext_iff",
+      "Matrix.transpose_add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：对称矩阵"
+    },
+    "lean_file": "LinearAlgebra/Matrix.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/symmetric.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:41:07Z",
+    "dependedOnBy": [
+      "linear-algebra.matrix.skew-symmetric",
+      "analysis.multivariable.hessian-taylor"
+    ],
+    "family": "linear-algebra.matrix",
+    "variant": "generated",
+    "proof_sha": "7d87df0bdce76551",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.matrix.skew-symmetric",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "反对称矩阵",
+    "summary": "反对称矩阵、对角元为零及对称—反对称分解",
+    "premises": [
+      "linear-algebra.matrix.symmetric"
+    ],
+    "mathlib": [
+      "Matrix.transpose_neg",
+      "Matrix.transpose_sub"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数教材：反对称矩阵与标准分解"
+    },
+    "lean_file": "LinearAlgebra/Matrix.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/skew-symmetric.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:41:07Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.matrix",
+    "variant": "generated",
+    "proof_sha": "7d87df0bdce76551",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

@@ -9,6 +9,7 @@ import SandronesLibrary.Analysis.Sequence
 import SandronesLibrary.LinearAlgebra.Subspace
 import SandronesLibrary.LinearAlgebra.VectorSpace
 import SandronesLibrary.LinearAlgebra.LinearMap
+import SandronesLibrary.LinearAlgebra.Matrix
 import SandronesLibrary.LinearAlgebra.Determinant
 import SandronesLibrary.LinearAlgebra.Eigenvalue
 import SandronesLibrary.AbstractAlgebra.Group

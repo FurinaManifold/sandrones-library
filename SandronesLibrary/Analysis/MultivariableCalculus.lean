@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.NormedSpace
+import SandronesLibrary.LinearAlgebra.Matrix
 import Mathlib.Algebra.BigOperators.Pi
 import Mathlib.Analysis.Calculus.FDeriv.Comp
 import Mathlib.Analysis.Calculus.FDeriv.Symmetric
@@ -211,7 +212,9 @@ noncomputable def multivariableTaylorPolynomial {E F : Type*}
 > **Entry**: analysis.multivariable.hessian-taylor
 -/
 theorem hessian_symmetric {n : ℕ} {f : (Fin n → ℝ) → ℝ} {x : Fin n → ℝ}
-    (hf : ContDiffAt ℝ 2 f x) : (hessian f x).IsSymm := by
+    (hf : ContDiffAt ℝ 2 f x) :
+    SandronesLibrary.LinearAlgebra.Matrix.IsSymmetric (hessian f x) := by
+  rw [SandronesLibrary.LinearAlgebra.Matrix.isSymmetric_iff_mathlib]
   apply Matrix.IsSymm.ext
   intro i j
   simpa [hessian] using

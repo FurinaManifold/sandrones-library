@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **226** 个条目（verified 226，pending 0）。
+共 **228** 个条目（verified 228，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -233,6 +233,11 @@
 - ✅ [`rank-mul.md`](rank-mul.md) — 矩阵乘法秩的界
 - ✅ [`rank-nullity.md`](rank-nullity.md) — 秩-零度定理
 - ✅ [`row-rank.md`](row-rank.md) — 行秩=列秩
+
+## `linear-algebra.matrix`
+
+- ✅ [`skew-symmetric.md`](skew-symmetric.md) — 反对称矩阵
+- ✅ [`symmetric.md`](symmetric.md) — 对称矩阵
 
 ## `linear-algebra.vector-space`
 

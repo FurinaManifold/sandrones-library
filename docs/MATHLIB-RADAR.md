@@ -1711,6 +1711,14 @@
 - **坑**：`iteratedFDeriv ℝ k f x` 接受一个 `Fin k → E` 的方向族；Hessian 元素必须
   明确给出两个标准基方向，不能把它当作普通二元函数直接应用。
 
+### `Matrix.IsSymm` / `Matrix.IsSymm.ext_iff` / `Matrix.transpose_add`
+- **人话**：方阵等于自身转置、该性质的逐元素判据，以及转置保持矩阵加法。
+- **出处**：`Mathlib/LinearAlgebra/Matrix/Symmetric.lean`、
+  `Mathlib/Data/Matrix/Defs.lean`。
+- **谁在用**：`linear-algebra.matrix.symmetric`、`linear-algebra.matrix.skew-symmetric`。
+- **坑**：`IsSymm` 只使用普通转置；复矩阵内积理论通常需要共轭转置与 Hermitian，
+  二者不可混淆。反对称矩阵的对角元为零还需排除特征二。
+
 ### `map_add_eq_sum_add_integral_iteratedFDeriv`
 - **人话**：实赋范空间上的任意阶 Taylor 公式，余项写成沿线段的区间积分。
 - **出处**：`Mathlib/Analysis/Calculus/TaylorIntegral.lean`。
