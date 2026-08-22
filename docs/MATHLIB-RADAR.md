@@ -1615,6 +1615,23 @@
 - **坑**：前两个定理用实指数和 `Real.HolderConjugate`；乘积可积性用扩展实指数及
   `ENNReal.HolderTriple p q 1`。两套接口不可在不转换指数的情况下混用。
 
+### `MeasureTheory.mul_meas_ge_le_pow_eLpNorm'`
+- **人话**：Chebyshev–Markov 不等式的乘法型版本，以 `Lᵖ` 半范数控制范数超水平集
+  的测度，并允许阈值为零。
+- **出处**：`Mathlib/MeasureTheory/Function/LpSeminorm/ChebyshevMarkov.lean`。
+- **谁在用**：`real-analysis.lp.chebyshev`。
+- **坑**：指数是 `ℝ≥0∞`，必须排除 `0` 与 `∞`；水平集使用 `enorm`。若改用除法型
+  版本，还必须另加非零阈值以及无穷值集合的边界条件。
+
+### `MeasureTheory.eLpNorm_add_le` / `ENNReal.lintegral_Lp_add_le`
+- **人话**：前者是一般赋范群值函数的 `Lᵖ` 半范数三角不等式，后者是非负扩展
+  实值函数的显式幂积分 Minkowski 公式。
+- **出处**：`Mathlib/MeasureTheory/Function/LpSeminorm/TriangleInequality.lean`、
+  `Mathlib/MeasureTheory/Integral/MeanInequalities.lean`。
+- **谁在用**：`real-analysis.lp.minkowski`。
+- **坑**：二者的指数类型不同：前者是 `ℝ≥0∞` 并覆盖 `∞`，后者是 `ℝ`；都要求
+  `1 ≤ p`。显式版本的函数值域为 `ℝ≥0∞`，不能直接代入带符号实函数。
+
 ### `Real.young_inequality` / `Real.inner_le_Lp_mul_Lq` / `Finset.sum_mul_sq_le_sq_mul_sq` / `Real.Lp_add_le`
 - **人话**：有限实数族上的 Young、Hölder、Cauchy–Schwarz 与 Minkowski 不等式，
   是积分型 `Lᵖ` 不等式之前的有限维原型。

@@ -248,7 +248,9 @@
 ## `real-analysis.lp`
 
 - ✅ [`basic.md`](basic.md) — Lᵖ 空间与几乎处处等价类
+- ✅ [`chebyshev.md`](chebyshev.md) — Chebyshev 不等式
 - ✅ [`holder.md`](holder.md) — Hölder 不等式
+- ✅ [`minkowski.md`](minkowski.md) — Minkowski 不等式
 
 ## `real-analysis.measure`
 

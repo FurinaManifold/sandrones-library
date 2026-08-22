@@ -55,7 +55,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.operations.inter-distrib",
@@ -84,7 +84,7 @@
       "propext",
       "Quot.sound"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.function.inj-comp",
@@ -154,7 +154,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.subset.antisymm",
@@ -181,7 +181,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.set.empty-subset",
@@ -203,7 +203,7 @@
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "axioms": [],
-    "proof_sha": "f2594d752f021945"
+    "proof_sha": "4dea626a30aeab72"
   },
   {
     "id": "settheory.function.image-preimage.preimage-union",
@@ -425,7 +425,7 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f2594d752f021945",
+    "proof_sha": "4dea626a30aeab72",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -450,7 +450,7 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f2594d752f021945",
+    "proof_sha": "4dea626a30aeab72",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -478,7 +478,7 @@
     "dependedOnBy": [],
     "family": "settheory.set.operations",
     "variant": "ecnu",
-    "proof_sha": "f2594d752f021945",
+    "proof_sha": "4dea626a30aeab72",
     "axioms": []
   },
   {
@@ -1960,7 +1960,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1990,7 +1990,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2018,7 +2018,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2046,7 +2046,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2074,7 +2074,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2102,7 +2102,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2130,7 +2130,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "e5e753f49a56a10c",
+    "proof_sha": "41540eefbdffabff",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2160,7 +2160,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2190,7 +2190,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2220,7 +2220,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2251,7 +2251,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2281,7 +2281,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2316,7 +2316,7 @@
     ],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2346,7 +2346,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3251,7 +3251,7 @@
     "dependedOnBy": [],
     "family": "analysis",
     "variant": "ecnu",
-    "proof_sha": "6a79870f7b23b582",
+    "proof_sha": "d3b0e462ec1b1f25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4886,7 +4886,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "22ce756e2d4004cd"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.special-functions.log-tan-pow",
@@ -4992,7 +4992,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "487f2135543fd213"
+    "proof_sha": "41540eefbdffabff"
   },
   {
     "id": "analysis.mvt.taylor-examples",
@@ -5058,7 +5058,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "6f126b0aaed3be02"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.limits.asymptotic",
@@ -5128,7 +5128,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "5db9c85bcfcdf6d7"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.constants.pi-definition",
@@ -5164,7 +5164,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "5db9c85bcfcdf6d7"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.constants.special-values",
@@ -5200,7 +5200,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "38969d5854047d59"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.trigonometric.basic-identities",
@@ -5236,7 +5236,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "549d8c88af9dc23e"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.add-sub",
@@ -5267,7 +5267,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "db1a5eba81212aba"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.double-half",
@@ -5299,7 +5299,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "65504a594090cc7f"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.product-sum",
@@ -5331,7 +5331,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a9707aa2f166a875"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.sum-product",
@@ -5363,7 +5363,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "8892dcf0775f3dfa"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.special-angles",
@@ -5400,7 +5400,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "427bb0dc6fb26cdc"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.tan-identities",
@@ -5431,7 +5431,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "354a1b36b4317868"
+    "proof_sha": "7b6e037fbbfd7065"
   },
   {
     "id": "analysis.trigonometric.half-root",
@@ -5492,7 +5492,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "7c74875c810ea0ad"
+    "proof_sha": "89eb5ea33e9c2241"
   },
   {
     "id": "analysis.series.basic",
@@ -6500,7 +6500,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:42:25Z",
     "dependedOnBy": [
-      "real-analysis.lp.holder"
+      "real-analysis.lp.holder",
+      "real-analysis.lp.chebyshev"
     ],
     "family": "real-analysis.lp",
     "variant": "generated",
@@ -6534,7 +6535,9 @@
     "nl_file": "docs/entries/real-analysis/lp/holder.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:45:44Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lp.minkowski"
+    ],
     "family": "real-analysis.lp",
     "variant": "generated",
     "proof_sha": "63d9e7f65f19f67b",
@@ -6657,10 +6660,74 @@
     "nl_file": "docs/entries/analysis/inequalities/minkowski-finite.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:49:39Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lp.minkowski"
+    ],
     "family": "analysis.inequalities",
     "variant": "generated",
     "proof_sha": "20f0eb38a0908ea7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.lp.chebyshev",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Chebyshev 不等式",
+    "summary": "Lᵖ半范数对函数超水平集测度的控制",
+    "premises": [
+      "real-analysis.lp.basic"
+    ],
+    "mathlib": [
+      "MeasureTheory.mul_meas_ge_le_pow_eLpNorm'"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Chebyshev–Markov 不等式"
+    },
+    "lean_file": "RealAnalysis/LpInequalities.lean",
+    "nl_file": "docs/entries/real-analysis/lp/chebyshev.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:55:02Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.lp",
+    "variant": "generated",
+    "proof_sha": "3a8bf5f9ae8a444c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.lp.minkowski",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Minkowski 不等式",
+    "summary": "Lᵖ半范数的三角不等式及非负函数的显式积分形式",
+    "premises": [
+      "real-analysis.lp.holder",
+      "analysis.inequalities.minkowski-finite"
+    ],
+    "mathlib": [
+      "MeasureTheory.eLpNorm_add_le",
+      "ENNReal.lintegral_Lp_add_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Minkowski 不等式"
+    },
+    "lean_file": "RealAnalysis/LpInequalities.lean",
+    "nl_file": "docs/entries/real-analysis/lp/minkowski.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:55:02Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.lp",
+    "variant": "generated",
+    "proof_sha": "3a8bf5f9ae8a444c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

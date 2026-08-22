@@ -227,7 +227,8 @@
 | `real-analysis.measure.fubini` | 可积函数的迭代积分与换序 | ✅ |
 | `real-analysis.lp.basic` | `Lᵖ` 空间、范数与几乎处处等价类 | ✅ |
 | `real-analysis.lp.holder` | Hölder 不等式 | ✅ |
-| `real-analysis.lp.minkowski` | Minkowski 不等式 | 🔲 |
+| `real-analysis.lp.chebyshev` | Chebyshev–Markov 超水平集估计 | ✅ |
+| `real-analysis.lp.minkowski` | Minkowski 不等式 | ✅ |
 | `real-analysis.lp.complete` | `Lᵖ` 空间的完备性 | 🔲 |
 
 1. **章节内先后**：严格按表内行序（定义 → 基本性质 → 定理 → 应用型定理），
