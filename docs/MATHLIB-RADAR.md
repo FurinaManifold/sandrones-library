@@ -1559,6 +1559,17 @@
 - **坑**：底层公式使用 `taylorWithinEval`、`iteratedDerivWithin` 和有向区间积分，不能
   直接作为本库教材结果登记；必须逐层转换，并用 `integral_congr_uIoo` 忽略端点差异。
 
+### `Real.tendsto_prod_pi_div_two` / `Stirling.factorial_isEquivalent_stirling` / `Stirling.le_factorial_stirling` / `Stirling.le_log_factorial_stirling`
+- **人话**：Wallis 乘积趋于 `π/2`；以此确定归一化阶乘序列的极限后，得到
+  `n! ~ √(2πn)(n/e)ⁿ`。后两个结果分别给出对所有自然数有效的主项下界，以及正整数
+  上展开后的对数下界。
+- **出处**：`Mathlib/Analysis/Real/Pi/Wallis.lean`、
+  `Mathlib/Analysis/SpecialFunctions/Stirling.lean`。
+- **谁在用**：`analysis.asymptotic.stirling`。
+- **坑**：Stirling 定理位于顶层命名空间 `Stirling`，不是 `Real.Stirling`；在本库同名
+  命名空间内引用时应写 `_root_.Stirling`。渐近等价只控制充分大的指标，不能替代
+  对每个 `n` 有效的 `le_factorial_stirling`。
+
 ---
 
 ## 附：登记清单自动核对

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **205** 个条目（verified 205，pending 0）。
+共 **206** 个条目（verified 206，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -28,6 +28,10 @@
 - ✅ [`domain.md`](domain.md) — 整环、域与素/极大理想
 - ✅ [`ideal.md`](ideal.md) — 理想与商环
 - ✅ [`iso.md`](iso.md) — 环同态基本定理
+
+## `analysis.asymptotic`
+
+- ✅ [`stirling.md`](stirling.md) — Wallis 乘积与 Stirling 公式
 
 ## `analysis.completeness`
 

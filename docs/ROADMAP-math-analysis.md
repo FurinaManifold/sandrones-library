@@ -111,6 +111,7 @@
 | `analysis.mvt.taylor` | 抽象有限阶 Taylor 公式（含 Lagrange 余项） | `taylor`, `Taylor` |
 | `analysis.mvt.taylor-examples` | `exp` 一阶、`sin/cos` 二阶有限阶展开（不使用级数） | `taylor_mean_remainder_lagrange_iteratedDeriv` |
 | `analysis.mvt.taylor-integral-remainder` | 任意阶 Taylor 积分型余项及指数函数实例 | 区间积分余项经积分值桥转为自建 Riemann 积分 | ✅ |
+| `analysis.asymptotic.stirling` | Wallis 乘积、完整 Stirling 渐近公式及全局下界 | Wallis 极限确定归一化阶乘序列的常数 | ✅ |
 
 ## 第七章补充：初等特殊函数与重要极限
 

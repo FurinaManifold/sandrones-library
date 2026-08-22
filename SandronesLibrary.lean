@@ -34,6 +34,7 @@ import SandronesLibrary.Analysis.Series.CauchyProduct
 import SandronesLibrary.Analysis.PowerSeries
 import SandronesLibrary.Analysis.TaylorSeries
 import SandronesLibrary.Analysis.TaylorIntegralRemainder
+import SandronesLibrary.Analysis.Stirling
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

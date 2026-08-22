@@ -5077,7 +5077,9 @@
     "nl_file": "docs/entries/analysis/limits/asymptotic.md",
     "added_by": "limits-asymptotic-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.asymptotic.stirling"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5110,7 +5112,8 @@
     "added_by": "constants-e-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.constants.e-irrational"
+      "analysis.constants.e-irrational",
+      "analysis.asymptotic.stirling"
     ],
     "axioms": [
       "Classical.choice",
@@ -5145,7 +5148,8 @@
     "added_by": "constants-pi-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.constants.pi-irrational"
+      "analysis.constants.pi-irrational",
+      "analysis.asymptotic.stirling"
     ],
     "axioms": [
       "Classical.choice",
@@ -6298,6 +6302,39 @@
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
     "proof_sha": "a6612a395427ea27",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.asymptotic.stirling",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Wallis 乘积与 Stirling 公式",
+    "summary": "Wallis 乘积极限、Stirling 渐近等价及全局下界",
+    "premises": [
+      "analysis.limits.asymptotic",
+      "analysis.constants.pi-definition",
+      "analysis.constants.e-definition"
+    ],
+    "mathlib": [
+      "Real.tendsto_prod_pi_div_two",
+      "Stirling.factorial_isEquivalent_stirling",
+      "Stirling.le_factorial_stirling",
+      "Stirling.le_log_factorial_stirling"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：Wallis 公式与 Stirling 公式"
+    },
+    "lean_file": "Analysis/Stirling.lean",
+    "nl_file": "docs/entries/analysis/asymptotic/stirling.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:31:32Z",
+    "dependedOnBy": [],
+    "proof_sha": "37e6cf27ded27807",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
