@@ -57,6 +57,16 @@
 - **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
 - **谁在用**：`analysis.power-series.radius`。
 
+### `ENNReal.ofReal_toReal`、`ENNReal.ofReal_le_ofReal_iff`、`ENNReal.ofReal_lt_ofReal_iff`
+- **人话**：半径有限时，在扩展非负实数半径与其实数值之间来回转换，并把大小关系转回实数。
+- **出处**：Mathlib 的扩展非负实数基础接口。
+- **谁在用**：`analysis.power-series.endpoints`。
+
+### `abs_eq`
+- **人话**：把 `|u|=r`（`r≥0`）分成 `u=r` 或 `u=-r`，从而识别幂级数的两个端点。
+- **出处**：Mathlib 的线性有序环绝对值接口。
+- **谁在用**：`analysis.power-series.endpoints`。
+
 ### `summable_of_ne_finset_zero`
 - **人话**：若函数在某个有限集之外恒为零，则对应的无限和可和。
 - **出处**：Mathlib 的无限和基础接口。

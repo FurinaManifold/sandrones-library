@@ -178,7 +178,7 @@
 | `analysis.series.abel-cauchy-product` | Abel 型乘积定理：两个级数及其 Cauchy 乘积均收敛时，乘积级数之和等于两级数和之积 | `analysis.series.mertens` | ✅ |
 | `analysis.power-series.definition` | 幂级数定义、部分和、收敛点集 | `analysis.series.basic` | ✅ |
 | `analysis.power-series.radius` | 收敛半径：半径内绝对收敛、半径外发散 | `analysis.power-series.definition`, `analysis.series.tests` | ✅ |
-| `analysis.power-series.endpoints` | 收敛区间端点的独立判定 | `analysis.power-series.radius`, `analysis.series.conditional` | 🔲 |
+| `analysis.power-series.endpoints` | 收敛区间端点的独立判定 | `analysis.power-series.radius`, `analysis.series.conditional` | ✅ |
 | `analysis.power-series.operations` | 收敛区间内逐项加法、乘法、求导和积分 | `analysis.power-series.radius`, `analysis.series.cauchy-product-absolute` | 🔲 |
 
 ## 第八章 Riemann 积分

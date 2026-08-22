@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **192** 个条目（verified 192，pending 0）。
+共 **193** 个条目（verified 193，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -114,6 +114,7 @@
 ## `analysis.power-series`
 
 - ✅ [`definition.md`](definition.md) — 实幂级数的定义与收敛点集
+- ✅ [`endpoints.md`](endpoints.md) — 有限收敛半径的端点分类
 - ✅ [`radius.md`](radius.md) — 幂级数的收敛半径
 
 ## `analysis.real`

@@ -167,4 +167,105 @@ theorem not_mem_convergenceSet_of_radius_lt {a : ℕ → ℝ} {c x : ℝ}
     x ∉ convergenceSet a c :=
   not_convergesAt_of_radius_lt hx
 
+/-! ## 有限收敛半径的端点分类 -/
+
+/-- 有限收敛半径对应的实数值。
+
+当扩展非负实数半径不是 `∞` 时，`toReal` 不丢失信息，因而可以在实轴上写出
+`c-R` 与 `c+R` 两个端点。
+
+> **Entry**: analysis.power-series.endpoints
+-/
+noncomputable def finiteRadius (a : ℕ → ℝ) (c : ℝ) : ℝ :=
+  (radius a c).toReal
+
+/-- 有限收敛区间的左端点 `c-R`。 -/
+noncomputable def leftEndpoint (a : ℕ → ℝ) (c : ℝ) : ℝ := c - finiteRadius a c
+
+/-- 有限收敛区间的右端点 `c+R`。 -/
+noncomputable def rightEndpoint (a : ℕ → ℝ) (c : ℝ) : ℝ := c + finiteRadius a c
+
+/-- 若半径有限，则每个收敛点到中心的距离不超过实数半径。 -/
+theorem abs_le_finiteRadius_of_convergesAt {a : ℕ → ℝ} {c x : ℝ}
+    (hfin : radius a c ≠ ⊤) (hx : ConvergesAt a c x) :
+    |x - c| ≤ finiteRadius a c := by
+  have h := distance_le_radius_of_convergesAt hx
+  rw [← ENNReal.ofReal_toReal hfin] at h
+  exact (ENNReal.ofReal_le_ofReal_iff ENNReal.toReal_nonneg).mp h
+
+/-- 若到中心的距离严格小于有限半径，则该点绝对收敛。 -/
+theorem absolutelyConvergesAt_of_abs_lt_finiteRadius {a : ℕ → ℝ} {c x : ℝ}
+    (hfin : radius a c ≠ ⊤) (hx : |x - c| < finiteRadius a c) :
+    AbsolutelyConvergesAt a c x := by
+  have hRpos : 0 < finiteRadius a c := (abs_nonneg _).trans_lt hx
+  apply absolutelyConvergesAt_of_lt_radius
+  rw [← ENNReal.ofReal_toReal hfin]
+  exact (ENNReal.ofReal_lt_ofReal_iff hRpos).2 hx
+
+/-- 若到中心的距离严格大于有限半径，则该点不收敛。 -/
+theorem not_convergesAt_of_finiteRadius_lt_abs {a : ℕ → ℝ} {c x : ℝ}
+    (hfin : radius a c ≠ ⊤) (hx : finiteRadius a c < |x - c|) :
+    ¬ ConvergesAt a c x := by
+  apply not_convergesAt_of_radius_lt
+  rw [← ENNReal.ofReal_toReal hfin]
+  exact (ENNReal.ofReal_lt_ofReal_iff (ENNReal.toReal_nonneg.trans_lt hx)).2 hx
+
+/-- **有限半径的精确收敛分类**。
+
+一个点收敛，当且仅当它严格位于开区间 `(c-R,c+R)` 内，或者它恰为两个端点之一
+且该端点级数本身收敛。半径定理决定整个开区间与区间外部，却不会替我们决定端点；
+左右端点必须分别代入原级数判定。 -/
+theorem convergesAt_iff_interior_or_endpoints {a : ℕ → ℝ} {c x : ℝ}
+    (hfin : radius a c ≠ ⊤) :
+    ConvergesAt a c x ↔
+      |x - c| < finiteRadius a c ∨
+      (x = leftEndpoint a c ∧ ConvergesAt a c (leftEndpoint a c)) ∨
+      (x = rightEndpoint a c ∧ ConvergesAt a c (rightEndpoint a c)) := by
+  constructor
+  · intro hx
+    have hle := abs_le_finiteRadius_of_convergesAt hfin hx
+    rcases lt_or_eq_of_le hle with hlt | heq
+    · exact Or.inl hlt
+    · rcases (abs_eq ENNReal.toReal_nonneg).mp heq with hpos | hneg
+      · have hxeq : x = rightEndpoint a c := by
+          dsimp [rightEndpoint, finiteRadius]
+          linarith
+        exact Or.inr (Or.inr ⟨hxeq, hxeq ▸ hx⟩)
+      · have hxeq : x = leftEndpoint a c := by
+          dsimp [leftEndpoint, finiteRadius]
+          linarith
+        exact Or.inr (Or.inl ⟨hxeq, hxeq ▸ hx⟩)
+  · rintro (hlt | ⟨rfl, hx⟩ | ⟨rfl, hx⟩)
+    · exact absolutelyConvergesAt_imp_convergesAt
+        (absolutelyConvergesAt_of_abs_lt_finiteRadius hfin hlt)
+    · exact hx
+    · exact hx
+
+/-- 有限半径下绝对收敛点的对应分类；端点是否绝对收敛同样需要分别判定。 -/
+theorem absolutelyConvergesAt_iff_interior_or_endpoints {a : ℕ → ℝ} {c x : ℝ}
+    (hfin : radius a c ≠ ⊤) :
+    AbsolutelyConvergesAt a c x ↔
+      |x - c| < finiteRadius a c ∨
+      (x = leftEndpoint a c ∧ AbsolutelyConvergesAt a c (leftEndpoint a c)) ∨
+      (x = rightEndpoint a c ∧ AbsolutelyConvergesAt a c (rightEndpoint a c)) := by
+  constructor
+  · intro hx
+    have hconv := absolutelyConvergesAt_imp_convergesAt hx
+    have hle := abs_le_finiteRadius_of_convergesAt hfin hconv
+    rcases lt_or_eq_of_le hle with hlt | heq
+    · exact Or.inl hlt
+    · rcases (abs_eq ENNReal.toReal_nonneg).mp heq with hpos | hneg
+      · have hxeq : x = rightEndpoint a c := by
+          dsimp [rightEndpoint, finiteRadius]
+          linarith
+        exact Or.inr (Or.inr ⟨hxeq, hxeq ▸ hx⟩)
+      · have hxeq : x = leftEndpoint a c := by
+          dsimp [leftEndpoint, finiteRadius]
+          linarith
+        exact Or.inr (Or.inl ⟨hxeq, hxeq ▸ hx⟩)
+  · rintro (hlt | ⟨rfl, hx⟩ | ⟨rfl, hx⟩)
+    · exact absolutelyConvergesAt_of_abs_lt_finiteRadius hfin hlt
+    · exact hx
+    · exact hx
+
 end SandronesLibrary.Analysis.PowerSeries

@@ -5578,7 +5578,8 @@
     "added_at": "2026-08-22T05:06:21Z",
     "dependedOnBy": [
       "analysis.series.riemann-rearrangement",
-      "analysis.series.mertens"
+      "analysis.series.mertens",
+      "analysis.power-series.endpoints"
     ],
     "axioms": [
       "propext",
@@ -5799,7 +5800,7 @@
     "dependedOnBy": [
       "analysis.power-series.radius"
     ],
-    "proof_sha": "d85035ac79293df9",
+    "proof_sha": "c2abe09777201c5d",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5830,8 +5831,42 @@
     "nl_file": "docs/entries/analysis/power-series/radius.md",
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [
+      "analysis.power-series.endpoints"
+    ],
+    "proof_sha": "c2abe09777201c5d",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.power-series.endpoints",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限收敛半径的端点分类",
+    "summary": "有限半径下，收敛点恰为开区间内点与各自通过独立判定的左右端点",
+    "premises": [
+      "analysis.power-series.radius",
+      "analysis.series.conditional"
+    ],
+    "mathlib": [
+      "ENNReal.ofReal_toReal",
+      "ENNReal.ofReal_le_ofReal_iff",
+      "ENNReal.ofReal_lt_ofReal_iff",
+      "abs_eq"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：幂级数收敛区间与端点判定"
+    },
+    "lean_file": "Analysis/PowerSeries.lean",
+    "nl_file": "docs/entries/analysis/power-series/endpoints.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "d85035ac79293df9",
+    "proof_sha": "c2abe09777201c5d",
     "axioms": [
       "propext",
       "Classical.choice",
