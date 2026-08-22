@@ -265,6 +265,7 @@
   - ✅ `real-analysis.riemann.eq-lebesgue-general`：任意标准 Riemann 可积函数的黎曼积分值 = Lebesgue 区间积分；
   - ✅ `real-analysis.riemann.ftc`：微积分基本定理的 Newton–Leibniz 与变上限 Riemann 积分版本；
   - ✅ `real-analysis.riemann.parts-substitution`：分部积分与换元法，并完成指数函数例题；
+  - ✅ `analysis.integral.examples`：自然数幂、指数、正弦、余弦及线性换元的 Riemann 定积分公式；
     达布和 = 阶梯函数积分并通过夹逼完成证明。
   - ✅ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。

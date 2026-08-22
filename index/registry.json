@@ -4869,7 +4869,8 @@
     "added_by": "special-functions-batch-1",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "real-analysis.riemann.parts-substitution"
+      "real-analysis.riemann.parts-substitution",
+      "analysis.integral.examples"
     ],
     "axioms": [
       "Classical.choice",
@@ -6193,7 +6194,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "real-analysis.riemann.parts-substitution"
+      "real-analysis.riemann.parts-substitution",
+      "analysis.integral.examples"
     ],
     "proof_sha": "5773b8cb9ff3ff52",
     "axioms": [
@@ -6225,8 +6227,43 @@
     "nl_file": "docs/entries/real-analysis/riemann/parts-substitution.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.integral.examples"
+    ],
     "proof_sha": "d288af5b78e0619c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.integral.examples",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "初等函数的 Riemann 定积分公式",
+    "summary": "自然数幂、指数、正弦、余弦及线性三角换元的定积分",
+    "premises": [
+      "real-analysis.riemann.ftc",
+      "real-analysis.riemann.parts-substitution",
+      "analysis.special-functions.basic"
+    ],
+    "mathlib": [
+      "hasDerivAt_pow",
+      "Real.hasDerivAt_exp",
+      "Real.hasDerivAt_sin",
+      "Real.hasDerivAt_cos"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：Newton–Leibniz 公式的基本计算例"
+    },
+    "lean_file": "RealAnalysis/RiemannIntegralExamples.lean",
+    "nl_file": "docs/entries/analysis/integral/examples.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "ba07ce36dd794d4d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

@@ -203,7 +203,7 @@
 | `real-analysis.riemann.mean-value` | 第一积分中值定理与连续周期函数的整周期积分 | ✅ |
 | `real-analysis.riemann.ftc` | 与自建 Riemann 定义对齐的微积分基本定理 | ✅ |
 | `real-analysis.riemann.parts-substitution` | 分部积分与换元积分；含 `∫xeˣ` 与线性换元例 | ✅ |
-| `analysis.integral.examples` | 多项式、指数、三角函数和幂函数的数值积分 | 🔲 |
+| `analysis.integral.examples` | 自然数幂、指数、正弦、余弦及线性三角换元的数值积分 | ✅ |
 
 ## 推进节奏
 

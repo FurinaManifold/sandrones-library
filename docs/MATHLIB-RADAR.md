@@ -1545,6 +1545,13 @@
 - **坑**：Mathlib 公式使用有向区间 `[[a,b]]`，而当前自建积分桥只覆盖严格正向区间；
   换元后的两个端点也必须显式证明保持严格次序。
 
+### `hasDerivAt_pow` / `Real.hasDerivAt_exp` / `Real.hasDerivAt_sin` / `Real.hasDerivAt_cos`
+- **人话**：初等函数的标准导数，用 Newton–Leibniz 公式计算自建 Riemann 定积分。
+- **谁在用**：`analysis.integral.examples`，得到自然数幂、指数、正弦、余弦的公式；
+  线性余弦例还复用 Riemann 换元定理。
+- **坑**：`x^n` 的原函数含实数分母 `(n+1 : ℝ)`，化简导数时需要先证明该分母非零；
+  正弦的原函数是 `-cos`，应显式处理两次负号。
+
 ---
 
 ## 附：登记清单自动核对

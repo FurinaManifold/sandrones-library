@@ -24,6 +24,7 @@ import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
 import SandronesLibrary.RealAnalysis.RiemannFTC
 import SandronesLibrary.RealAnalysis.RiemannPartsSubstitution
+import SandronesLibrary.RealAnalysis.RiemannIntegralExamples
 import SandronesLibrary.RealAnalysis.RiemannAlgebra
 import SandronesLibrary.RealAnalysis.RiemannMeanValue
 import SandronesLibrary.Analysis.SpecialFunctions
