@@ -243,9 +243,19 @@
 | `analysis.multivariable.implicit-function` | 多元隐函数定理与隐函数导数 | ✅ |
 | `analysis.multivariable.full-rank-theorem` | 满秩秩定理：正则水平集局部正规形 | ✅ |
 | `analysis.multivariable.constant-rank-theorem` | 一般常秩 `r` 定理 | ✅ |
-| `analysis.multivariable.change-variables` | 多重积分与换元公式 | 🔲 |
-| `analysis.multivariable.vector-integrals` | 曲线积分、曲面积分 | 🔲 |
-| `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与 Stokes 定理 | 🔲 |
+| `analysis.multivariable.rectangle-integral` | Lebesgue 闭矩形二重积分与 Fubini 教材接口 | ✅ |
+| `analysis.multivariable.jordan-region` | Jordan 可测区域、有限体积与边界不影响积分 | ✅ |
+| `analysis.multivariable.riemann-box` | 矩形/长方体上的多元 Riemann 定义与可计算性 | 🔲 |
+| `analysis.multivariable.riemann-lebesgue-bridge` | 多元 Riemann 积分与 Lebesgue 积分数值桥 | 🔲 |
+| `analysis.multivariable.normal-domains` | 由连续函数围成的正常区域及累次积分 | 🔲 |
+| `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | 🔲 |
+| `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标及质量、重心、转动惯量例题 | 🔲 |
+| `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🔲 |
+| `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
+| `linear-algebra.tensor-exterior` | 张量积、交替多重线性映射、外代数与楔积 | 🔲 |
+| `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分与定向 | 🔲 |
+| `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🔲 |
+| `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与一般 Stokes 定理 | 🔲 |
 
 1. **章节内先后**：严格按表内行序（定义 → 基本性质 → 定理 → 应用型定理），
    保证每个条目的 premises 已经就绪。

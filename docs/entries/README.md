@@ -119,12 +119,15 @@
 ## `analysis.multivariable`
 
 - ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
+- ✅ [`constant-rank-theorem.md`](constant-rank-theorem.md) — Rudin 一般常秩定理
 - ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
 - ✅ [`full-rank-theorem.md`](full-rank-theorem.md) — 满秩秩定理
 - ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
 - ✅ [`hessian-taylor.md`](hessian-taylor.md) — Hessian与多元Taylor公式
 - ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
+- ✅ [`jordan-region.md`](jordan-region.md) — Jordan 可测区域与边界零体积
+- ✅ [`rectangle-integral.md`](rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 接口
 
 ## `analysis.mvt`
 
@@ -373,6 +376,7 @@
 
 ## `topology.space`
 
+- ✅ [`closure.md`](closure.md) — 内部、闭包与边界
 - ✅ [`connected.md`](connected.md) — 连通集
 - ✅ [`continuous.md`](continuous.md) — 连续映射
 - ✅ [`def.md`](def.md) — 拓扑空间与开闭集公理

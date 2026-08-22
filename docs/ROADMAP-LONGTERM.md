@@ -219,11 +219,12 @@
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
 | 1 | `topology.space.def` | 拓扑/开闭集定义 | `TopologicalSpace`、`IsOpen` |
-| 2 | `topology.space.neighborhood` | 邻域/滤子 | `𝓝`、`nhds`、`Filter` |
-| 3 | `topology.space.continuous` | 连续、点连续 ↔ 连续 | `Continuous`、`ContinuousAt`、`continuous_iff` |
-| 4 | `topology.space.homeo` | 同胚 | `Homeomorph` |
-| 5 | `topology.space.subspace` | 子空间/积/商拓扑 | `Subspace`、`Product`、`Quotient` |
-| 6 | `topology.space.connected` | 连通/道路连通（导言） | `IsConnected`、`PathConnected` |
+| 2 | `topology.space.closure` | 内部、闭包、边界及邻域刻画 | `interior`、`closure`、`frontier` |
+| 3 | `topology.space.neighborhood` | 邻域/滤子 | `𝓝`、`nhds`、`Filter` |
+| 4 | `topology.space.continuous` | 连续、点连续 ↔ 连续 | `Continuous`、`ContinuousAt`、`continuous_iff` |
+| 5 | `topology.space.homeo` | 同胚 | `Homeomorph` |
+| 6 | `topology.space.subspace` | 子空间/积/商拓扑 | `Subspace`、`Product`、`Quotient` |
+| 7 | `topology.space.connected` | 连通/道路连通（导言） | `IsConnected`、`PathConnected` |
 
 ### T2 紧致/分离
 
@@ -295,8 +296,10 @@
 - **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础、Hölder、Chebyshev、Minkowski 与完备性，整批完成。
 - **R6 多元微积分**（进行中）：✅ Fréchet 全微分、方向导数、梯度、坐标偏导与 Jacobian；
   ✅ Hessian/Taylor、反函数定理、隐函数定理、满秩秩定理与一般常秩 `r` 定理；
-  随后推进重积分换元、曲线积分、
-  曲面积分以及 Green/Gauss/Stokes 公式。
+  ✅ Lebesgue 闭矩形二重积分、Fubini 教材接口与 Jordan 可测区域基础；随后补多元
+  Riemann 定义及数值桥，
+  再依次推进正常区域、换元、参数化与第一型积分、张量积/外代数/微分形式、第二型
+  积分以及 Green/Gauss/Stokes 公式。
 
 ### Phase 6 复分析（C1-C3）
 

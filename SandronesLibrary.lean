@@ -16,6 +16,7 @@ import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Space
+import SandronesLibrary.Topology.Closure
 import SandronesLibrary.Topology.Separation
 import SandronesLibrary.Topology.Metric
 import SandronesLibrary.Topology.NormedSpace
@@ -27,6 +28,8 @@ import SandronesLibrary.RealAnalysis.LpInequalities
 import SandronesLibrary.Analysis.MultivariableCalculus
 import SandronesLibrary.Analysis.InverseImplicit
 import SandronesLibrary.Analysis.ConstantRank
+import SandronesLibrary.Analysis.MultivariableIntegration
+import SandronesLibrary.Analysis.JordanRegion
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
