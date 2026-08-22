@@ -40,4 +40,42 @@ theorem sum_cauchyProduct_eq_triangle (a b : ℕ → ℝ) (N : ℕ) :
   simpa [cauchyProduct, Finset.mul_sum] using
     (Finset.sum_range_diag_flip N (fun i j => a i * b j))
 
+/-! ## Absolutely convergent products -/
+
+/-- Two absolutely convergent real series have an absolutely convergent
+Cauchy product.
+
+> **Entry**: analysis.series.cauchy-product-absolute
+-/
+theorem cauchyProduct_summable_absolute {a b : ℕ → ℝ}
+    (ha : Summable (fun n => |a n|))
+    (hb : Summable (fun n => |b n|)) :
+    Summable (fun n => |cauchyProduct a b n|) := by
+  simpa [cauchyProduct, Real.norm_eq_abs] using
+    (summable_norm_sum_mul_range_of_summable_norm
+      (f := a) (g := b)
+      (by simpa [Real.norm_eq_abs] using ha)
+      (by simpa [Real.norm_eq_abs] using hb))
+
+/-- The Cauchy product of two absolutely convergent real series sums to the
+product of their sums. -/
+theorem hasSum_cauchyProduct_of_absolute {a b : ℕ → ℝ}
+    (ha : Summable (fun n => |a n|))
+    (hb : Summable (fun n => |b n|)) :
+    HasSum (cauchyProduct a b) ((∑' n, a n) * ∑' n, b n) := by
+  change HasSum
+    (fun n => ∑ k ∈ Finset.range (n + 1), a k * b (n - k))
+    ((∑' n, a n) * ∑' n, b n)
+  exact hasSum_sum_range_mul_of_summable_norm
+    (f := a) (g := b)
+    (by simpa [Real.norm_eq_abs] using ha)
+    (by simpa [Real.norm_eq_abs] using hb)
+
+/-- `tsum` form of the absolutely convergent Cauchy product formula. -/
+theorem tsum_cauchyProduct_of_absolute {a b : ℕ → ℝ}
+    (ha : Summable (fun n => |a n|))
+    (hb : Summable (fun n => |b n|)) :
+    (∑' n, cauchyProduct a b n) = (∑' n, a n) * ∑' n, b n := by
+  exact (hasSum_cauchyProduct_of_absolute ha hb).tsum_eq
+
 end SandronesLibrary.Analysis.Series

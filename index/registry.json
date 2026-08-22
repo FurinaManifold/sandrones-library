@@ -5543,7 +5543,9 @@
     "nl_file": "docs/entries/analysis/series/absolute.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:04:53Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.cauchy-product-absolute"
+    ],
     "proof_sha": "05c7119be7ac4383",
     "axioms": [
       "propext",
@@ -5663,8 +5665,40 @@
     "nl_file": "docs/entries/analysis/series/cauchy-product-definition.md",
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [
+      "analysis.series.cauchy-product-absolute"
+    ],
+    "proof_sha": "7db96d26f4bd1e2b",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.cauchy-product-absolute",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "绝对收敛级数的 Cauchy 乘积",
+    "summary": "两个绝对收敛级数的 Cauchy 乘积绝对收敛，且乘积级数之和等于两级数和之积",
+    "premises": [
+      "analysis.series.absolute",
+      "analysis.series.cauchy-product-definition"
+    ],
+    "mathlib": [
+      "summable_norm_sum_mul_range_of_summable_norm",
+      "hasSum_sum_range_mul_of_summable_norm"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：绝对收敛级数的 Cauchy 乘积定理"
+    },
+    "lean_file": "Analysis/Series/CauchyProduct.lean",
+    "nl_file": "docs/entries/analysis/series/cauchy-product-absolute.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "7de166d26ba002ee",
+    "proof_sha": "7db96d26f4bd1e2b",
     "axioms": [
       "propext",
       "Classical.choice",

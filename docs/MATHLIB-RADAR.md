@@ -22,6 +22,16 @@
 - **出处**：Mathlib 的有限大算子恒等式。
 - **谁在用**：`analysis.series.cauchy-product-definition`。
 
+### `summable_norm_sum_mul_range_of_summable_norm`
+- **人话**：若两个级数的范数都可和，则它们每条 Cauchy 反对角线之和的范数也可和。
+- **出处**：`Mathlib/Analysis/Normed/Ring/InfiniteSum.lean`。
+- **谁在用**：`analysis.series.cauchy-product-absolute`。
+
+### `hasSum_sum_range_mul_of_summable_norm`
+- **人话**：两个绝对可和级数的 Cauchy 乘积收敛到两级数和的乘积。
+- **出处**：`Mathlib/Analysis/Normed/Ring/InfiniteSum.lean`。
+- **谁在用**：`analysis.series.cauchy-product-absolute`。
+
 ### `Nat.find`
 - **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
 - **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。

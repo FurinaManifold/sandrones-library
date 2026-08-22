@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **187** 个条目（verified 187，pending 0）。
+共 **188** 个条目（verified 188，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -147,6 +147,7 @@
 
 - ✅ [`absolute.md`](absolute.md) — 绝对收敛与尾和
 - ✅ [`basic.md`](basic.md) — 数项级数基础
+- ✅ [`cauchy-product-absolute.md`](cauchy-product-absolute.md) — 绝对收敛级数的 Cauchy 乘积
 - ✅ [`cauchy-product-definition.md`](cauchy-product-definition.md) — Cauchy 乘积的定义与有限三角恒等式
 - ✅ [`conditional.md`](conditional.md) — 条件收敛与交错级数
 - ✅ [`rearrangement.md`](rearrangement.md) — 绝对收敛级数的重排不变性
