@@ -167,5 +167,45 @@ theorem cos_sub_cos (x y : ℝ) :
   rw [← hux, ← huy, Real.cos_add, Real.cos_sub]
   ring
 
+/-! ### 高中常用特殊角 -/
+
+/-- `π/6` 的正弦值。 -/
+theorem sin_pi_div_six : Real.sin (Real.pi / 6) = 1 / 2 := by
+  exact Real.sin_pi_div_six
+
+/-- `π/6` 的余弦值。 -/
+theorem cos_pi_div_six : Real.cos (Real.pi / 6) = √3 / 2 := by
+  exact Real.cos_pi_div_six
+
+/-- `π/6` 的正切值。 -/
+theorem tan_pi_div_six : Real.tan (Real.pi / 6) = 1 / √3 := by
+  exact Real.tan_pi_div_six
+
+/-- `π/4` 的正弦值。 -/
+theorem sin_pi_div_four : Real.sin (Real.pi / 4) = √2 / 2 := by
+  exact Real.sin_pi_div_four
+
+/-- `π/4` 的余弦值。 -/
+theorem cos_pi_div_four : Real.cos (Real.pi / 4) = √2 / 2 := by
+  exact Real.cos_pi_div_four
+
+/-- `π/4` 的正切值。 -/
+theorem tan_pi_div_four : Real.tan (Real.pi / 4) = 1 := by
+  exact Real.tan_pi_div_four
+
+/-- `π/3` 的正弦值。 -/
+theorem sin_pi_div_three : Real.sin (Real.pi / 3) = √3 / 2 := by
+  exact Real.sin_pi_div_three
+
+/-- `π/3` 的余弦值。 -/
+theorem cos_pi_div_three : Real.cos (Real.pi / 3) = 1 / 2 := by
+  exact Real.cos_pi_div_three
+
+/-- `π/3` 的正切值。
+> **Entry**: analysis.trigonometric.special-angles
+-/
+theorem tan_pi_div_three : Real.tan (Real.pi / 3) = √3 := by
+  exact Real.tan_pi_div_three
+
 end Analysis.Trigonometric
 end SandronesLibrary

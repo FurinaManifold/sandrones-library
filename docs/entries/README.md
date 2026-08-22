@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **176** 个条目（verified 176，pending 0）。
+共 **177** 个条目（verified 177，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -154,6 +154,7 @@
 - ✅ [`basic-identities.md`](basic-identities.md) — 三角函数基本对称性、周期性与有界性
 - ✅ [`double-half.md`](double-half.md) — 三角函数倍角与降幂公式
 - ✅ [`product-sum.md`](product-sum.md) — 三角函数积化和差公式
+- ✅ [`special-angles.md`](special-angles.md) — 高中常用三角函数特殊角值
 - ✅ [`sum-product.md`](sum-product.md) — 三角函数和差化积公式
 
 ## `linear-algebra.det`

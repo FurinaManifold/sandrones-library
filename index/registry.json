@@ -5322,5 +5322,42 @@
       "propext"
     ],
     "proof_sha": "8892dcf0775f3dfa"
+  },
+  {
+    "id": "analysis.trigonometric.special-angles",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "高中常用三角函数特殊角值",
+    "summary": "π/6、π/4、π/3 的正弦、余弦和正切值",
+    "premises": [
+      "analysis.trigonometric.double-half",
+      "analysis.constants.pi-definition"
+    ],
+    "mathlib": [
+      "Real.sin_pi_div_six",
+      "Real.cos_pi_div_six",
+      "Real.tan_pi_div_six",
+      "Real.sin_pi_div_four",
+      "Real.cos_pi_div_four",
+      "Real.tan_pi_div_four",
+      "Real.sin_pi_div_three",
+      "Real.cos_pi_div_three",
+      "Real.tan_pi_div_three"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：π/6、π/4、π/3 特殊角"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/special-angles.md",
+    "added_by": "trigonometric-special-angles-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "427bb0dc6fb26cdc"
   }
 ]

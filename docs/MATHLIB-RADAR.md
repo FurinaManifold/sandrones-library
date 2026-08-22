@@ -1232,6 +1232,10 @@
 - **人话**：把正弦、余弦的和差改写成两个半和半差的乘积。
 - **谁在用**：`analysis.trigonometric.sum-product`。
 
+### `Real.sin_pi_div_six` / `Real.cos_pi_div_six` / `Real.tan_pi_div_six` / `Real.sin_pi_div_four` / `Real.cos_pi_div_four` / `Real.tan_pi_div_four` / `Real.sin_pi_div_three` / `Real.cos_pi_div_three` / `Real.tan_pi_div_three`
+- **人话**：`π/6、π/4、π/3` 三个高中常用特殊角的正弦、余弦和正切值。
+- **谁在用**：`analysis.trigonometric.special-angles`。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
