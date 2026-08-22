@@ -1252,6 +1252,11 @@
 - **人话**：级数的和与收敛、几何级数、调和级数发散、绝对收敛和 Cauchy 准则。
 - **谁在用**：`analysis.series.basic`。
 
+- **主题**：数项级数判别法
+- **Mathlib 接口**：`summable_of_isBigO_nat`、`summable_of_ratio_test_tendsto_lt_one`、`not_summable_of_ratio_test_tendsto_gt_one`、`Antitone.cauchySeq_alternating_series_of_tendsto_zero`
+- **本库封装**：`analysis.series.tests`
+- **备注**：根值判别法尚未转正，保留在后续 roadmap 条目中。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

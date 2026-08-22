@@ -5485,5 +5485,36 @@
       "propext"
     ],
     "proof_sha": "781828c9f66977b1"
+  },
+  {
+    "id": "analysis.series.tests",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "数项级数判别法",
+    "summary": "比较、比值与交错级数判别法",
+    "premises": [
+      "analysis.series.basic"
+    ],
+    "mathlib": [
+      "summable_of_isBigO_nat",
+      "summable_of_ratio_test_tendsto_lt_one",
+      "not_summable_of_ratio_test_tendsto_gt_one",
+      "Antitone.cauchySeq_alternating_series_of_tendsto_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：数项级数判别法"
+    },
+    "lean_file": "Analysis/Series.lean",
+    "nl_file": "docs/entries/analysis/series/tests.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T04:56:56Z",
+    "dependedOnBy": [],
+    "proof_sha": "f51b418eaa378c4a",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
   }
 ]

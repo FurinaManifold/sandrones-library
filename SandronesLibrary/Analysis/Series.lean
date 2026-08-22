@@ -15,6 +15,9 @@ import Mathlib
 namespace SandronesLibrary
 namespace Analysis.Series
 
+open Filter Asymptotics
+open scoped Topology
+
 /-- 公比绝对值小于 `1` 时的几何级数。 -/
 theorem geometric_series {r : ℝ} (hr : |r| < 1) :
     HasSum (fun n : ℕ => r ^ n) (1 / (1 - r)) := by
@@ -37,6 +40,38 @@ theorem summable_of_absolute {f : ℕ → ℝ}
 theorem summable_iff_cauchy {f : ℕ → ℝ} :
     Summable f ↔ CauchySeq (fun N : Finset ℕ => ∑ n ∈ N, f n) := by
   exact summable_iff_cauchySeq_finset
+
+/-! ### 判别法
+
+这些定理把教材中的常用判别法保留为面向实数项级数的薄接口；具体的
+过滤器和范数技术仍由 Mathlib 负责。 -/
+
+/-- 以一个可和的实数序列作渐近上界的比较判别法。 -/
+/-
+> **Entry**: analysis.series.tests
+-/
+theorem summable_of_isBigO_nat {f : ℕ → ℝ} {g : ℕ → ℝ}
+    (hg : Summable g) (hfg : f =O[atTop] g) : Summable f := by
+  exact _root_.summable_of_isBigO_nat hg hfg
+
+/-- 比值极限小于 `1` 时的比值判别法。 -/
+theorem summable_of_ratio_test {f : ℕ → ℝ} {l : ℝ} (hl : l < 1)
+    (hne : ∀ᶠ n in atTop, f n ≠ 0)
+    (hlim : Tendsto (fun n ↦ ‖f (n + 1)‖ / ‖f n‖) atTop (𝓝 l)) :
+    Summable f := by
+  exact summable_of_ratio_test_tendsto_lt_one hl hne hlim
+
+/-- 比值极限大于 `1` 时的发散判别法。 -/
+theorem not_summable_of_ratio_test {f : ℕ → ℝ} {l : ℝ} (hl : 1 < l)
+    (hlim : Tendsto (fun n ↦ ‖f (n + 1)‖ / ‖f n‖) atTop (𝓝 l)) :
+    ¬ Summable f := by
+  exact not_summable_of_ratio_test_tendsto_gt_one hl hlim
+
+/-- 非负递减项趋于零时，交错级数的部分和构成 Cauchy 序列。 -/
+theorem alternating_series_cauchy {f : ℕ → ℝ} (hmono : Antitone f)
+    (hzero : Tendsto f atTop (𝓝 0)) :
+    CauchySeq (fun N : ℕ ↦ ∑ n ∈ Finset.range N, (-1 : ℝ) ^ n * f n) := by
+  exact hmono.cauchySeq_alternating_series_of_tendsto_zero hzero
 
 end Analysis.Series
 end SandronesLibrary

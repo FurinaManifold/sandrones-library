@@ -160,7 +160,7 @@
 | 批次 | 内容 | 状态 |
 |---|---|---|
 | `analysis.series.basic` | 级数定义、Cauchy 准则、几何级数、调和级数 | ✅ |
-| `analysis.series.tests` | 比较、比值、根值、交错级数判别法 | 🔲 |
+| `analysis.series.tests` | 比较、比值、交错级数判别法（根值判别法另列待办） | ✅ |
 | `analysis.series.power` | 收敛半径、幂级数逐项求导与逐项积分 | 🔲 |
 | `analysis.series.taylor` | `exp`、`sin`、`cos` 的 Taylor 展开 | 🔲 |
 
