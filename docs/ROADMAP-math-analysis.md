@@ -110,6 +110,7 @@
 | `analysis.mvt.lhopital` | L'Hôpital 法则 | `hasDerivAt.div` + MVT 组合 |
 | `analysis.mvt.taylor` | 抽象有限阶 Taylor 公式（含 Lagrange 余项） | `taylor`, `Taylor` |
 | `analysis.mvt.taylor-examples` | `exp` 一阶、`sin/cos` 二阶有限阶展开（不使用级数） | `taylor_mean_remainder_lagrange_iteratedDeriv` |
+| `analysis.mvt.taylor-integral-remainder` | 任意阶 Taylor 积分型余项及指数函数实例 | 区间积分余项经积分值桥转为自建 Riemann 积分 | ✅ |
 
 ## 第七章补充：初等特殊函数与重要极限
 

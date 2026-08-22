@@ -1552,6 +1552,13 @@
 - **坑**：`x^n` 的原函数含实数分母 `(n+1 : ℝ)`，化简导数时需要先证明该分母非零；
   正弦的原函数是 `-cos`，应显式处理两次负号。
 
+### `taylor_integral_remainder` / `iteratedDerivWithin_eq_iteratedDeriv`
+- **人话**：Mathlib 给出 Taylor 区间积分余项；唯一可微闭区间上，区间内高阶导数在
+  内部等于全局高阶导数。再经积分值桥可得到教材的 Riemann 积分余项。
+- **谁在用**：`analysis.mvt.taylor-integral-remainder`。
+- **坑**：底层公式使用 `taylorWithinEval`、`iteratedDerivWithin` 和有向区间积分，不能
+  直接作为本库教材结果登记；必须逐层转换，并用 `integral_congr_uIoo` 忽略端点差异。
+
 ---
 
 ## 附：登记清单自动核对

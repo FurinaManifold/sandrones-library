@@ -4790,7 +4790,8 @@
     "dependedOnBy": [
       "real-analysis.riemann.algebra",
       "real-analysis.riemann.ftc",
-      "real-analysis.riemann.parts-substitution"
+      "real-analysis.riemann.parts-substitution",
+      "analysis.mvt.taylor-integral-remainder"
     ],
     "axioms": [
       "Classical.choice",
@@ -6032,7 +6033,9 @@
     "nl_file": "docs/entries/analysis/constants/e-irrational.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T10:02:45Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.mvt.taylor-integral-remainder"
+    ],
     "proof_sha": "89eb5ea33e9c2241",
     "axioms": [
       "Classical.choice",
@@ -6264,6 +6267,37 @@
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
     "proof_sha": "ba07ce36dd794d4d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.mvt.taylor-integral-remainder",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Taylor 公式的 Riemann 积分型余项",
+    "summary": "任意阶 Taylor 积分型余项及指数函数实例，积分使用自建 Riemann 定义",
+    "premises": [
+      "analysis.series.taylor",
+      "real-analysis.riemann.eq-lebesgue"
+    ],
+    "mathlib": [
+      "taylor_integral_remainder",
+      "iteratedDerivWithin_eq_iteratedDeriv",
+      "intervalIntegral.integral_congr_uIoo"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：Taylor 公式的积分型余项"
+    },
+    "lean_file": "Analysis/TaylorIntegralRemainder.lean",
+    "nl_file": "docs/entries/analysis/mvt/taylor-integral-remainder.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "a6612a395427ea27",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
