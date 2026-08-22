@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **189** 个条目（verified 189，pending 0）。
+共 **190** 个条目（verified 190，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -145,6 +145,7 @@
 
 ## `analysis.series`
 
+- ✅ [`abel-cauchy-product.md`](abel-cauchy-product.md) — Abel 的 Cauchy 乘积定理
 - ✅ [`absolute.md`](absolute.md) — 绝对收敛与尾和
 - ✅ [`basic.md`](basic.md) — 数项级数基础
 - ✅ [`cauchy-product-absolute.md`](cauchy-product-absolute.md) — 绝对收敛级数的 Cauchy 乘积

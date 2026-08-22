@@ -42,6 +42,16 @@
 - **出处**：`Mathlib/Algebra/BigOperators/NatAntidiagonal.lean`。
 - **谁在用**：`analysis.series.mertens`。
 
+### `Real.tendsto_tsum_powerSeries_nhdsWithin_lt`
+- **人话**：若实级数在 `x=1` 按自然顺序收敛，则其幂级数和在 `x→1⁻` 时趋于该级数和。
+- **出处**：`Mathlib/Analysis/Complex/AbelLimit.lean`。
+- **谁在用**：`analysis.series.abel-cauchy-product`。
+
+### `summable_powerSeries_of_norm_lt_one`
+- **人话**：级数在 `x=1` 收敛时，乘上几何权 `x^n` 后在 `|x|<1` 内绝对可和。
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
+- **谁在用**：`analysis.series.abel-cauchy-product`。
+
 ### `Nat.find`
 - **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
 - **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。

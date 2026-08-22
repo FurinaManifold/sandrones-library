@@ -5669,7 +5669,7 @@
     "dependedOnBy": [
       "analysis.series.cauchy-product-absolute"
     ],
-    "proof_sha": "4d89fb22a66e8c26",
+    "proof_sha": "621a3e9e7797cf3b",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5701,7 +5701,7 @@
     "dependedOnBy": [
       "analysis.series.mertens"
     ],
-    "proof_sha": "4d89fb22a66e8c26",
+    "proof_sha": "621a3e9e7797cf3b",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5731,8 +5731,40 @@
     "nl_file": "docs/entries/analysis/series/mertens.md",
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [
+      "analysis.series.abel-cauchy-product"
+    ],
+    "proof_sha": "621a3e9e7797cf3b",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.abel-cauchy-product",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Abel 的 Cauchy 乘积定理",
+    "summary": "两个级数及其 Cauchy 乘积均按自然顺序收敛时，乘积级数之和等于两级数和之积",
+    "premises": [
+      "analysis.series.mertens"
+    ],
+    "mathlib": [
+      "Real.tendsto_tsum_powerSeries_nhdsWithin_lt",
+      "summable_powerSeries_of_norm_lt_one",
+      "tendsto_nhds_unique"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：Abel 的级数乘积定理"
+    },
+    "lean_file": "Analysis/Series/CauchyProduct.lean",
+    "nl_file": "docs/entries/analysis/series/abel-cauchy-product.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "4d89fb22a66e8c26",
+    "proof_sha": "621a3e9e7797cf3b",
     "axioms": [
       "propext",
       "Classical.choice",

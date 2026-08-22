@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Analysis.Series
+import Mathlib.Analysis.Complex.AbelLimit
 
 /-!
 # 实数项级数的 Cauchy 乘积
@@ -171,5 +172,77 @@ theorem tendsto_sum_cauchyProduct_of_right_absolute {a b : ℕ → ℝ} {A : ℝ
     rw [← Finset.Nat.sum_antidiagonal_swap]
     simp only [Prod.swap, mul_comm]
   simpa [heq, mul_comm] using h
+
+/-! ## Abel 的 Cauchy 乘积定理 -/
+
+/-- 同时给两个输入级数乘以权 `x^n`，会使第 `n` 个 Cauchy 系数整体乘以 `x^n`。
+
+证明只使用反对角线上的指数关系 `k+(n-k)=n`。这是把普通 Cauchy 乘积转化为单位圆内
+幂级数乘积的代数桥梁。 -/
+theorem cauchyProduct_mul_pow (a b : ℕ → ℝ) (x : ℝ) (n : ℕ) :
+    cauchyProduct (fun k => a k * x ^ k) (fun k => b k * x ^ k) n =
+      cauchyProduct a b n * x ^ n := by
+  simp only [cauchyProduct, Finset.sum_mul]
+  apply Finset.sum_congr rfl
+  intro k hk
+  have hkn : k ≤ n := by
+    have : k < n + 1 := Finset.mem_range.mp hk
+    omega
+  calc
+    (a k * x ^ k) * (b (n - k) * x ^ (n - k)) =
+        (a k * b (n - k)) * (x ^ k * x ^ (n - k)) := by ring
+    _ = (a k * b (n - k)) * x ^ n := by
+      rw [← pow_add, Nat.add_sub_of_le hkn]
+
+/-- 在开单位区间内，Cauchy 乘积的加权幂级数等于两个输入加权幂级数之积。
+
+原级数在 `x=1` 仅需按自然顺序收敛；当 `|x|<1` 时，几何权 `x^n` 自动把两级数变为
+绝对收敛级数，于是可应用前面的绝对收敛乘积公式。 -/
+theorem tsum_cauchyProduct_mul_pow {a b : ℕ → ℝ}
+    {A B : ℝ}
+    (ha : Tendsto (fun N => ∑ n ∈ Finset.range N, a n) atTop (𝓝 A))
+    (hb : Tendsto (fun N => ∑ n ∈ Finset.range N, b n) atTop (𝓝 B))
+    {x : ℝ} (hx : |x| < 1) :
+    (∑' n, cauchyProduct a b n * x ^ n) =
+      (∑' n, a n * x ^ n) * ∑' n, b n * x ^ n := by
+  have haS : Summable (fun n => a n * x ^ n) :=
+    summable_powerSeries_of_norm_lt_one ha.cauchySeq (by simpa [Real.norm_eq_abs] using hx)
+  have hbS : Summable (fun n => b n * x ^ n) :=
+    summable_powerSeries_of_norm_lt_one hb.cauchySeq (by simpa [Real.norm_eq_abs] using hx)
+  have h := tsum_cauchyProduct_of_absolute haS.abs hbS.abs
+  simpa only [cauchyProduct_mul_pow] using h
+
+/-- **Abel 的 Cauchy 乘积定理**：若两个原级数及其 Cauchy 乘积都按自然顺序收敛，
+则乘积级数的和必等于两个原级数和的乘积。
+
+证明在 `0<x<1` 上应用 `tsum_cauchyProduct_mul_pow`。Abel 极限定理说明三个加权幂级数
+在 `x→1⁻` 时分别趋于 `A`、`B`、`C`；等式右侧因极限乘法趋于 `A·B`，再由极限唯一性
+得到 `C=A·B`。
+
+> **Entry**: analysis.series.abel-cauchy-product
+-/
+theorem abel_cauchyProduct {a b : ℕ → ℝ} {A B C : ℝ}
+    (ha : Tendsto (fun N => ∑ n ∈ Finset.range N, a n) atTop (𝓝 A))
+    (hb : Tendsto (fun N => ∑ n ∈ Finset.range N, b n) atTop (𝓝 B))
+    (hc : Tendsto (fun N => ∑ n ∈ Finset.range N, cauchyProduct a b n)
+      atTop (𝓝 C)) :
+    C = A * B := by
+  have haAbel := Real.tendsto_tsum_powerSeries_nhdsWithin_lt ha
+  have hbAbel := Real.tendsto_tsum_powerSeries_nhdsWithin_lt hb
+  have hcAbel := Real.tendsto_tsum_powerSeries_nhdsWithin_lt hc
+  have hpos : ∀ᶠ x : ℝ in 𝓝[<] 1, 0 < x :=
+    (eventually_gt_nhds zero_lt_one).filter_mono inf_le_left
+  have hlt : ∀ᶠ x : ℝ in 𝓝[<] 1, x < 1 := self_mem_nhdsWithin
+  have hformula :
+      (fun x => ∑' n, cauchyProduct a b n * x ^ n) =ᶠ[𝓝[<] 1]
+        (fun x => (∑' n, a n * x ^ n) * ∑' n, b n * x ^ n) := by
+    filter_upwards [hpos, hlt] with x hx0 hx1
+    exact tsum_cauchyProduct_mul_pow ha hb (by simpa [abs_of_pos hx0] using hx1)
+  have hprod : Tendsto
+      (fun x => (∑' n, a n * x ^ n) * ∑' n, b n * x ^ n)
+      (𝓝[<] 1) (𝓝 (A * B)) := haAbel.mul hbAbel
+  have hcProduct : Tendsto (fun x => ∑' n, cauchyProduct a b n * x ^ n)
+      (𝓝[<] 1) (𝓝 (A * B)) := hprod.congr' hformula.symm
+  exact tendsto_nhds_unique hcAbel hcProduct
 
 end SandronesLibrary.Analysis.Series
