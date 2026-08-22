@@ -95,4 +95,76 @@ theorem sum_at_center (a : ℕ → ℝ) (c : ℝ) : sum a c c = a 0 := by
   rw [hterm]
   simp
 
+/-! ## 收敛半径 -/
+
+open scoped ENNReal
+
+/-- 若幂级数在 `x` 处收敛，则它在任何严格靠近中心的点 `y` 处绝对收敛。
+
+这是幂级数理论的核心比较引理：已知 `aₙ(x-c)ⁿ` 的部分和为 Cauchy 列，而比值
+`|(y-c)/(x-c)|<1` 提供几何衰减，故较内侧级数绝对可和。 -/
+theorem absolutelyConvergesAt_of_lt_of_convergesAt {a : ℕ → ℝ} {c x y : ℝ}
+    (hyx : |y - c| < |x - c|) (hx : ConvergesAt a c x) :
+    AbsolutelyConvergesAt a c y := by
+  rcases hx with ⟨s, hs⟩
+  change Tendsto (fun N => ∑ n ∈ Finset.range N, a n * (x - c) ^ n)
+    atTop (𝓝 s) at hs
+  have hCauchy : CauchySeq
+      (fun N => ∑ n ∈ Finset.range N, a n * (x - c) ^ n) := hs.cauchySeq
+  have hsum : Summable (fun n => a n * (y - c) ^ n) :=
+    summable_powerSeries_of_norm_lt hCauchy (by simpa [Real.norm_eq_abs] using hyx)
+  change Summable (fun n => |a n * (y - c) ^ n|)
+  exact hsum.abs
+
+/-- 可容许半径集合：某个收敛点到中心的距离以下的所有扩展非负实数。
+
+显式取向下闭包后，上确界可直接表达“半径内”性质。 -/
+def admissibleRadii (a : ℕ → ℝ) (c : ℝ) : Set ℝ≥0∞ :=
+  {r | ∃ x, ConvergesAt a c x ∧ r ≤ ENNReal.ofReal |x - c|}
+
+/-- 幂级数的收敛半径，值域为 `ℝ≥0∞`，因而允许半径为 `∞`。
+
+> **Entry**: analysis.power-series.radius
+-/
+noncomputable def radius (a : ℕ → ℝ) (c : ℝ) : ℝ≥0∞ :=
+  sSup (admissibleRadii a c)
+
+/-- 任一收敛点到中心的距离都不超过收敛半径。 -/
+theorem distance_le_radius_of_convergesAt {a : ℕ → ℝ} {c x : ℝ}
+    (hx : ConvergesAt a c x) :
+    ENNReal.ofReal |x - c| ≤ radius a c := by
+  exact le_sSup ⟨x, hx, le_rfl⟩
+
+/-- **半径内绝对收敛**：若点到中心的距离严格小于收敛半径，则幂级数绝对收敛。 -/
+theorem absolutelyConvergesAt_of_lt_radius {a : ℕ → ℝ} {c x : ℝ}
+    (hx : ENNReal.ofReal |x - c| < radius a c) :
+    AbsolutelyConvergesAt a c x := by
+  rcases lt_sSup_iff.mp hx with ⟨r, ⟨y, hy, hry⟩, hxr⟩
+  have hxyE : ENNReal.ofReal |x - c| < ENNReal.ofReal |y - c| := hxr.trans_le hry
+  have hypos : 0 < |y - c| := by
+    rw [← ENNReal.ofReal_pos]
+    exact lt_of_le_of_lt bot_le hxyE
+  have hxy : |x - c| < |y - c| :=
+    (ENNReal.ofReal_lt_ofReal_iff hypos).mp hxyE
+  exact absolutelyConvergesAt_of_lt_of_convergesAt hxy hy
+
+/-- **半径外发散**：若点到中心的距离严格大于收敛半径，则自然顺序部分和不收敛。 -/
+theorem not_convergesAt_of_radius_lt {a : ℕ → ℝ} {c x : ℝ}
+    (hx : radius a c < ENNReal.ofReal |x - c|) :
+    ¬ ConvergesAt a c x := by
+  intro hconv
+  exact (not_le_of_gt hx) (distance_le_radius_of_convergesAt hconv)
+
+/-- 收敛点集形式的半径内绝对收敛结论。 -/
+theorem mem_absoluteConvergenceSet_of_lt_radius {a : ℕ → ℝ} {c x : ℝ}
+    (hx : ENNReal.ofReal |x - c| < radius a c) :
+    x ∈ absoluteConvergenceSet a c :=
+  absolutelyConvergesAt_of_lt_radius hx
+
+/-- 收敛点集形式的半径外发散结论。 -/
+theorem not_mem_convergenceSet_of_radius_lt {a : ℕ → ℝ} {c x : ℝ}
+    (hx : radius a c < ENNReal.ofReal |x - c|) :
+    x ∉ convergenceSet a c :=
+  not_convergesAt_of_radius_lt hx
+
 end SandronesLibrary.Analysis.PowerSeries

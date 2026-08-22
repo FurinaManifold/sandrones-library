@@ -52,6 +52,11 @@
 - **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
 - **谁在用**：`analysis.series.abel-cauchy-product`。
 
+### `summable_powerSeries_of_norm_lt`
+- **人话**：幂级数在某点收敛时，在到中心距离严格更小的点绝对收敛。
+- **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
+- **谁在用**：`analysis.power-series.radius`。
+
 ### `summable_of_ne_finset_zero`
 - **人话**：若函数在某个有限集之外恒为零，则对应的无限和可和。
 - **出处**：Mathlib 的无限和基础接口。
