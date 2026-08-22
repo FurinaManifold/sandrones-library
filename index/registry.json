@@ -5087,7 +5087,9 @@
     "nl_file": "docs/entries/analysis/constants/e-definition.md",
     "added_by": "constants-e-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.e-irrational"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5120,7 +5122,9 @@
     "nl_file": "docs/entries/analysis/constants/pi-definition.md",
     "added_by": "constants-pi-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.pi-irrational"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5972,12 +5976,75 @@
     "nl_file": "docs/entries/analysis/series/taylor.md",
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.e-irrational"
+    ],
     "proof_sha": "de1ad28f49e0306c",
     "axioms": [
       "propext",
       "Classical.choice",
       "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.constants.e-irrational",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "自然常数 e 的无理性",
+    "summary": "利用指数级数阶乘尾项证明 e 不等于任何有理数",
+    "premises": [
+      "analysis.constants.e-definition",
+      "analysis.series.taylor"
+    ],
+    "mathlib": [
+      "Real.exp_bound",
+      "Real.sum_le_exp_of_nonneg",
+      "Nat.factorial_dvd_factorial",
+      "Nat.dvd_factorial",
+      "Rat.cast_def"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 I：e 的无理性经典阶乘级数证明"
+    },
+    "lean_file": "Analysis/Constants.lean",
+    "nl_file": "docs/entries/analysis/constants/e-irrational.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T10:02:45Z",
+    "dependedOnBy": [],
+    "proof_sha": "89eb5ea33e9c2241",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.constants.pi-irrational",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "圆周率 π 的无理性",
+    "summary": "证明教材层圆周率 pi 是无理数",
+    "premises": [
+      "analysis.constants.pi-definition"
+    ],
+    "mathlib": [
+      "irrational_pi"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Cartwright 积分法；Mathlib Analysis.Real.Pi.Irrational"
+    },
+    "lean_file": "Analysis/Constants.lean",
+    "nl_file": "docs/entries/analysis/constants/pi-irrational.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T10:02:45Z",
+    "dependedOnBy": [],
+    "proof_sha": "89eb5ea33e9c2241",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ]
   }
 ]

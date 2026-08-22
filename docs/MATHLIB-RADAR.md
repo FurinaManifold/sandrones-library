@@ -1382,6 +1382,21 @@
 - **人话**：一个实数的正整数次幂是整数，但该整数不是整数同次幂时，这个实数必无理。
 - **谁在用**：`analysis.constants.nth-root-irrational`，作为 `√2` 等具体无理性结论的通用引理。
 
+### `Real.exp_bound` / `Real.sum_le_exp_of_nonneg`
+- **人话**：指数级数的有限截断不超过指数函数，并且截断误差有显式阶乘上界；在 `x=1` 时可把 `e` 的尾项压到两个相邻阶乘控制的区间内。
+- **出处**：`Mathlib/Analysis/Complex/Exponential.lean`。
+- **谁在用**：`analysis.constants.e-irrational`，用于证明缩放后的指数级数尾项严格位于 `0` 与 `1` 之间。
+
+### `Nat.factorial_dvd_factorial` / `Nat.dvd_factorial` / `Rat.cast_def`
+- **人话**：较小阶乘整除较大阶乘，正自然数整除自身阶乘；有理数在实数中的值等于其约分分子除以正分母。
+- **出处**：`Mathlib/Data/Nat/Factorial/Basic.lean` 与 `Mathlib/Data/Rat/Cast/Defs.lean`。
+- **谁在用**：`analysis.constants.e-irrational`，用于把有限级数和假设中的有理数同时缩放成整数。
+
+### `irrational_pi`
+- **人话**：实圆周率 `Real.pi` 是无理数；Mathlib 使用 Cartwright 积分法给出完整证明。
+- **出处**：`Mathlib/Analysis/Real/Pi/Irrational.lean`。
+- **谁在用**：`analysis.constants.pi-irrational`，将 Mathlib 结论转接到本库的教材层 `pi` 接口。
+
 ### `HasSum` / `Summable` / `hasSum_geometric_of_norm_lt_one` / `Real.not_summable_one_div_natCast` / `Summable.of_norm` / `summable_iff_cauchySeq_finset`
 - **人话**：级数的和与收敛、几何级数、调和级数发散、绝对收敛和 Cauchy 准则。
 - **谁在用**：`analysis.series.basic`。
@@ -1389,7 +1404,7 @@
 - **主题**：数项级数判别法
 - **Mathlib 接口**：`summable_of_isBigO_nat`、`summable_of_ratio_test_tendsto_lt_one`、`not_summable_of_ratio_test_tendsto_gt_one`、`Antitone.cauchySeq_alternating_series_of_tendsto_zero`
 - **本库封装**：`analysis.series.tests`
-- **备注**：根值判别法尚未转正，保留在后续 roadmap 条目中。
+- **备注**：比值、根值与交错级数判别法均已转正；根值判别法另使用实数幂与最终控制接口，见 `analysis.series.root-test`。
 
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
