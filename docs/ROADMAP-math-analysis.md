@@ -110,6 +110,25 @@
 | `analysis.mvt.lhopital` | L'Hôpital 法则 | `hasDerivAt.div` + MVT 组合 |
 | `analysis.mvt.taylor` | 泰勒公式（含 Lagrange 余项） | `taylor`, `Taylor` |
 
+## 第七章补充：初等特殊函数与重要极限
+
+| 批次 | 内容 | 状态 |
+|---|---|---|
+| `analysis.special-functions` | `exp`、`sin`、`cos` 的连续性、恒等式和导数 | ✅ 基础批次 |
+| `analysis.special-functions.log` | `log` 的连续性、单调性、加法公式、反函数和导数 | 🔲 |
+| `analysis.special-functions.tan-pow` | `tan`、幂函数、反三角函数的基础性质和导数 | 🔲 |
+| `analysis.limits.classical` | `sin x/x`、`(1-cos x)/x²`、`(exp x-1)/x`、`log(1+x)/x` | 🔲 |
+| `analysis.limits.asymptotic` | 指数、对数和幂函数的无穷小/无穷大阶比较 | 🔲 |
+
+## 第八章补充：数项级数与幂级数
+
+| 批次 | 内容 | 状态 |
+|---|---|---|
+| `analysis.series.basic` | 级数定义、Cauchy 准则、几何级数、调和级数 | 🔲 |
+| `analysis.series.tests` | 比较、比值、根值、交错级数判别法 | 🔲 |
+| `analysis.series.power` | 收敛半径、幂级数逐项求导与逐项积分 | 🔲 |
+| `analysis.series.taylor` | `exp`、`sin`、`cos` 的 Taylor 展开 | 🔲 |
+
 ## 第八章 Riemann 积分
 
 | 条目家族 | 内容 | mathlib 参考 |
@@ -120,6 +139,16 @@
 | `analysis.integral.ftc1` | 微积分基本定理（一） | `intervalIntegral.integral_hasDerivAt` |
 | `analysis.integral.ftc2` | 微积分基本定理（二） | `intervalIntegral.integral_deriv_eq_sub` |
 | `analysis.integral.substitution` | 换元法 | `intervalIntegral.integral_comp_mul_deriv` |
+
+## 第九章补充：Riemann 积分教材层结果
+
+| 批次 | 内容 | 状态 |
+|---|---|---|
+| `analysis.integral.riemann-algebra` | 线性、区间可加性、单调性、正性和绝对值估计 | 🔲 |
+| `analysis.integral.mean-value` | 积分中值定理与周期函数积分 | 🔲 |
+| `analysis.integral.ftc` | 与自建 Riemann 定义对齐的微积分基本定理 | 🔲 |
+| `analysis.integral.parts-substitution` | 分部积分与换元积分 | 🔲 |
+| `analysis.integral.examples` | 多项式、指数、三角函数和幂函数的数值积分 | 🔲 |
 
 ## 推进节奏
 
