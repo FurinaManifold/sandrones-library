@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **180** 个条目（verified 180，pending 0）。
+共 **181** 个条目（verified 181，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -142,6 +142,10 @@
 - ✅ [`sub.md`](sub.md) — 极限之差
 - ✅ [`subsequence.md`](subsequence.md) — 子序列的定义与性质
 - ✅ [`unique.md`](unique.md) — 极限唯一
+
+## `analysis.series`
+
+- ✅ [`basic.md`](basic.md) — 数项级数基础
 
 ## `analysis.special-functions`
 

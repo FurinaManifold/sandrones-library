@@ -1248,6 +1248,10 @@
 - **人话**：一个实数的正整数次幂是整数，但该整数不是整数同次幂时，这个实数必无理。
 - **谁在用**：`analysis.constants.nth-root-irrational`，作为 `√2` 等具体无理性结论的通用引理。
 
+### `HasSum` / `Summable` / `hasSum_geometric_of_norm_lt_one` / `Real.not_summable_one_div_natCast` / `Summable.of_norm` / `summable_iff_cauchySeq_finset`
+- **人话**：级数的和与收敛、几何级数、调和级数发散、绝对收敛和 Cauchy 准则。
+- **谁在用**：`analysis.series.basic`。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

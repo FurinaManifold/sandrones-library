@@ -159,10 +159,22 @@
 
 | 批次 | 内容 | 状态 |
 |---|---|---|
-| `analysis.series.basic` | 级数定义、Cauchy 准则、几何级数、调和级数 | 🔲 |
+| `analysis.series.basic` | 级数定义、Cauchy 准则、几何级数、调和级数 | ✅ |
 | `analysis.series.tests` | 比较、比值、根值、交错级数判别法 | 🔲 |
 | `analysis.series.power` | 收敛半径、幂级数逐项求导与逐项积分 | 🔲 |
 | `analysis.series.taylor` | `exp`、`sin`、`cos` 的 Taylor 展开 | 🔲 |
+
+### 数项级数与幂级数的验收细化
+
+| 批次 | 内容 | 前置 | 状态 |
+|---|---|---|---|
+| `analysis.series.absolute` | 绝对收敛、绝对收敛蕴含收敛、尾和控制 | `analysis.series.basic`, `analysis.series.tests` | 🔲 |
+| `analysis.series.conditional` | 条件收敛、交错级数和端点型实例 | `analysis.series.tests` | 🔲 |
+| `analysis.series.rearrangement` | Riemann 重排定理：条件收敛级数可重排为任意给定和或发散 | `analysis.series.absolute`, `analysis.series.conditional` | 🔲 |
+| `analysis.power-series.definition` | 幂级数定义、部分和、收敛点集 | `analysis.series.basic` | 🔲 |
+| `analysis.power-series.radius` | 收敛半径：半径内绝对收敛、半径外发散 | `analysis.power-series.definition`, `analysis.series.tests` | 🔲 |
+| `analysis.power-series.endpoints` | 收敛区间端点的独立判定 | `analysis.power-series.radius`, `analysis.series.conditional` | 🔲 |
+| `analysis.power-series.operations` | 收敛区间内逐项加法、乘法、求导和积分 | `analysis.power-series.radius` | 🔲 |
 
 ## 第八章 Riemann 积分
 
