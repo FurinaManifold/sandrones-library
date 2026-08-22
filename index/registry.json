@@ -2307,7 +2307,9 @@
     "nl_file": "docs/entries/analysis/mvt/taylor.md",
     "added_by": "ingestor-chapter7-batch3",
     "added_at": "2026-08-21T05:29:34Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.taylor"
+    ],
     "family": "analysis.mvt",
     "variant": "rudin",
     "proof_sha": "6a79870f7b23b582",
@@ -5899,8 +5901,45 @@
     "nl_file": "docs/entries/analysis/power-series/operations.md",
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.taylor"
+    ],
     "proof_sha": "792dbe374d2b85f5",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.taylor",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "完整 Taylor 展开",
+    "summary": "建立任意阶Taylor多项式、Lagrange余项及误差界，并证明exp、sin、cos的完整无穷展开",
+    "premises": [
+      "analysis.mvt.taylor",
+      "analysis.power-series.operations"
+    ],
+    "mathlib": [
+      "taylor_mean_remainder_lagrange_iteratedDeriv",
+      "iteratedFDerivWithin_eq_iteratedFDeriv",
+      "NormedSpace.expSeries_div_hasSum_exp",
+      "Real.hasSum_sin",
+      "Real.hasSum_cos",
+      "Real.abs_iteratedDeriv_sin_le_one",
+      "Real.abs_iteratedDeriv_cos_le_one"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：Taylor 公式、Lagrange 余项与初等函数幂级数展开"
+    },
+    "lean_file": "Analysis/TaylorSeries.lean",
+    "nl_file": "docs/entries/analysis/series/taylor.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "de1ad28f49e0306c",
     "axioms": [
       "propext",
       "Classical.choice",

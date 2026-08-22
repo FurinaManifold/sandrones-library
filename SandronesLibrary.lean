@@ -26,6 +26,7 @@ import SandronesLibrary.Analysis.ClassicalLimits
 import SandronesLibrary.Analysis.Series.RiemannRearrangement
 import SandronesLibrary.Analysis.Series.CauchyProduct
 import SandronesLibrary.Analysis.PowerSeries
+import SandronesLibrary.Analysis.TaylorSeries
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

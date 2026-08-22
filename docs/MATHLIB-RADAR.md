@@ -1295,7 +1295,22 @@
 
 ### `taylor_mean_remainder_lagrange_iteratedDeriv` / `taylor_within_apply` / `iteratedDerivWithin_zero`
 - **人话**：有限阶 Taylor–Lagrange 余项、Taylor 多项式有限项展开，以及零阶导数退化为原函数。
-- **谁在用**：`analysis.mvt.taylor-examples`，用于 `exp`、`sin`、`cos` 的有限阶展开；不使用级数。
+- **谁在用**：`analysis.mvt.taylor-examples` 用于低阶有限展开；`analysis.series.taylor` 用于任意阶完整展开。
+
+### `iteratedFDerivWithin_eq_iteratedFDeriv`
+- **人话**：在唯一可微集合上且函数足够光滑时，集合内迭代导数等于全局迭代导数。
+- **出处**：Mathlib 的高阶连续可微接口。
+- **谁在用**：`analysis.series.taylor`，把区间 Taylor 多项式转换成教材系数公式。
+
+### `NormedSpace.expSeries_div_hasSum_exp` / `Real.hasSum_sin` / `Real.hasSum_cos`
+- **人话**：指数、正弦和余弦的完整幂级数在全部实数上分别收敛到原函数。
+- **出处**：Mathlib 的指数级数与三角函数级数模块。
+- **谁在用**：`analysis.series.taylor`。
+
+### `Real.abs_iteratedDeriv_sin_le_one` / `Real.abs_iteratedDeriv_cos_le_one`
+- **人话**：正弦和余弦的任意阶导数仍为带符号的正弦或余弦，故绝对值不超过一。
+- **出处**：`Mathlib/Analysis/SpecialFunctions/Trigonometric/Deriv.lean`。
+- **谁在用**：`analysis.series.taylor` 的任意阶余项估计。
 
 ### `Real.continuousOn_log` / `Real.strictMonoOn_log` / `Real.log_mul` / `Real.exp_log` / `Real.log_exp` / `Real.hasDerivAt_log`
 - **人话**：自然对数在正半轴上连续且严格递增，乘法变加法，并与指数函数互为反函数；导数为 `1 / x`。
