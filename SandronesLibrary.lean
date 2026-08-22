@@ -17,6 +17,7 @@ import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Space
 import SandronesLibrary.Topology.Separation
 import SandronesLibrary.Topology.Metric
+import SandronesLibrary.Topology.NormedSpace
 import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.ProductMeasure

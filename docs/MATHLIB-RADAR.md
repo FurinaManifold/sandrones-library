@@ -1651,6 +1651,32 @@
 - **坑**：指数是实数，幂使用 `Real.rpow` 记法；Hölder 的底层定理控制带符号内积，
   标准绝对值版本需应用于 `|f|,|g|`。Minkowski 必须显式假设 `1 ≤ p`。
 
+### `NormedAddCommGroup` / `NormedSpace` / `CompleteSpace` / `dist_eq_norm`
+- **人话**：依次表达带范数的加法群、标量数乘与范数相容、底层一致空间完备，
+  以及范数诱导距离公式 `dist x y = ‖x-y‖`。
+- **出处**：`Mathlib/Analysis/Normed/Group/Basic.lean`、
+  `Mathlib/Analysis/Normed/Module/Basic.lean`。
+- **谁在用**：`topology.normed-space.def`。
+- **坑**：`NormedSpace 𝕜 E` 不单独携带 `E` 的范数和加法群，签名中仍需
+  `[NormedAddCommGroup E]`；`CompleteSpace` 只表达完备性，也不是完整 Banach 结构。
+
+### `norm_nonneg` / `norm_eq_zero` / `norm_add_le` / `abs_norm_sub_norm_le` / `norm_smul`
+- **人话**：范数的正定性、三角不等式、反三角不等式和标量数乘公式。
+- **出处**：`Mathlib/Analysis/Normed/Group/Basic.lean`、
+  `Mathlib/Analysis/Normed/Module/Basic.lean`。
+- **谁在用**：`topology.normed-space.inequalities`。
+- **坑**：Mathlib 底层定理可推广到半范数群，但本库当前教材签名统一限制在
+  `[NormedLinearSpace ℝ E]`。一般空间的范数不是实数绝对值，不可混用 `abs_*` 接口。
+
+### `Metric.tendsto_atTop` / `Metric.cauchySeq_iff` / `cauchySeq_tendsto_of_complete`
+- **人话**：度量序列的 ε–N 收敛判据、Cauchy 判据，以及完备空间中 Cauchy 列
+  必收敛；通过 `dist_eq_norm` 即得到范数版本。
+- **出处**：`Mathlib/Topology/MetricSpace/Pseudo/Constructions.lean`、
+  `Mathlib/Topology/MetricSpace/Isometry.lean`。
+- **谁在用**：`topology.normed-space.banach`。
+- **坑**：`CauchySeq` 使用底层一致结构；范数空间中它与范数 Cauchy 等价，但在
+  一般拓扑空间中不能无条件写 ε–N 距离判据。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

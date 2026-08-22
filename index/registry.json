@@ -2454,7 +2454,9 @@
     "nl_file": "docs/entries/linear-algebra/vector-space/def.md",
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:44:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.normed-space.def"
+    ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
     "proof_sha": "cfcb0219e1ceffaf",
@@ -4216,7 +4218,9 @@
     ],
     "added_by": "ingestor-topology-T3",
     "added_at": "2026-08-21T10:45:30Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.normed-space.def"
+    ],
     "proof_sha": "697b4373a3cb5505",
     "_sha": "697b4373a3cb5505"
   },
@@ -4282,7 +4286,9 @@
     ],
     "added_by": "ingestor-topology-T3",
     "added_at": "2026-08-21T10:45:30Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.normed-space.banach"
+    ],
     "proof_sha": "697b4373a3cb5505",
     "_sha": "697b4373a3cb5505"
   },
@@ -6987,5 +6993,112 @@
       "propext"
     ],
     "_sha": "8345c548a7d1297f"
+  },
+  {
+    "id": "topology.normed-space.def",
+    "kind": "definition",
+    "state": "verified",
+    "title": "赋范线性空间与Banach空间",
+    "summary": "范数、赋范线性空间、Banach空间及范数诱导度量",
+    "premises": [
+      "topology.metric.def",
+      "linear-algebra.vector-space.def"
+    ],
+    "mathlib": [
+      "NormedAddCommGroup",
+      "NormedSpace",
+      "CompleteSpace",
+      "dist_eq_norm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "点集拓扑与泛函分析预备：赋范空间"
+    },
+    "lean_file": "Topology/NormedSpace.lean",
+    "nl_file": "docs/entries/topology/normed-space/def.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:12:15Z",
+    "dependedOnBy": [
+      "topology.normed-space.inequalities",
+      "topology.normed-space.banach"
+    ],
+    "family": "topology.normed-space",
+    "variant": "generated",
+    "proof_sha": "67de1cdb940ac569",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "_sha": "67de1cdb940ac569"
+  },
+  {
+    "id": "topology.normed-space.inequalities",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "范数基本不等式",
+    "summary": "范数三角不等式、反三角不等式与数乘相容性",
+    "premises": [
+      "topology.normed-space.def"
+    ],
+    "mathlib": [
+      "norm_nonneg",
+      "norm_eq_zero",
+      "norm_add_le",
+      "abs_norm_sub_norm_le",
+      "norm_smul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "赋范空间：范数基本性质"
+    },
+    "lean_file": "Topology/NormedSpace.lean",
+    "nl_file": "docs/entries/topology/normed-space/inequalities.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:12:15Z",
+    "dependedOnBy": [],
+    "family": "topology.normed-space",
+    "variant": "generated",
+    "proof_sha": "67de1cdb940ac569",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "_sha": "67de1cdb940ac569"
+  },
+  {
+    "id": "topology.normed-space.banach",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "范数收敛与Banach完备性",
+    "summary": "范数收敛和Cauchy判据及Banach空间中Cauchy列收敛",
+    "premises": [
+      "topology.normed-space.def",
+      "topology.metric.cauchy-complete"
+    ],
+    "mathlib": [
+      "Metric.tendsto_atTop",
+      "Metric.cauchySeq_iff",
+      "cauchySeq_tendsto_of_complete"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "赋范空间：收敛、Cauchy与完备性"
+    },
+    "lean_file": "Topology/NormedSpace.lean",
+    "nl_file": "docs/entries/topology/normed-space/banach.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:12:15Z",
+    "dependedOnBy": [],
+    "family": "topology.normed-space",
+    "variant": "generated",
+    "proof_sha": "67de1cdb940ac569",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "_sha": "67de1cdb940ac569"
   }
 ]
