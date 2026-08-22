@@ -5390,5 +5390,37 @@
       "propext"
     ],
     "proof_sha": "354a1b36b4317868"
+  },
+  {
+    "id": "analysis.trigonometric.half-root",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角函数半角平方根公式",
+    "summary": "正弦和余弦半角的绝对值平方根公式及区间内去绝对值版本",
+    "premises": [
+      "analysis.trigonometric.double-half"
+    ],
+    "mathlib": [
+      "Real.abs_sin_half",
+      "Real.cos_sq",
+      "Real.sqrt_sq_eq_abs",
+      "Real.sin_nonneg_of_nonneg_of_le_pi",
+      "Real.cos_nonneg_of_mem_Icc"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数半角公式"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/half-root.md",
+    "added_by": "trigonometric-half-root-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7b6e037fbbfd7065"
   }
 ]

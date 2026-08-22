@@ -236,5 +236,38 @@ theorem tan_two_mul (x : ℝ) :
     Real.tan (2 * x) = 2 * Real.tan x / (1 - Real.tan x ^ 2) := by
   exact Real.tan_two_mul
 
+/-! ### 半角平方根公式 -/
+
+/-- 正弦半角平方根的绝对值公式。 -/
+theorem abs_sin_half (x : ℝ) :
+    |Real.sin (x / 2)| = Real.sqrt ((1 - Real.cos x) / 2) := by
+  exact Real.abs_sin_half x
+
+/-- 余弦半角平方根公式。 -/
+theorem abs_cos_half (x : ℝ) :
+    |Real.cos (x / 2)| = Real.sqrt ((1 + Real.cos x) / 2) := by
+  have h := Real.cos_sq (x / 2)
+  rw [show 2 * (x / 2) = x by ring] at h
+  rw [← Real.sqrt_sq_eq_abs]
+  convert congrArg Real.sqrt h using 1 <;> ring
+
+/-- 在 `0 ≤ x ≤ π` 上，正弦半角平方根公式可以去掉绝对值。 -/
+theorem sin_half_root {x : ℝ} (hx₀ : 0 ≤ x) (hxπ : x ≤ Real.pi) :
+    Real.sin (x / 2) = Real.sqrt ((1 - Real.cos x) / 2) := by
+  have h := Real.abs_sin_half x
+  rw [abs_of_nonneg (Real.sin_nonneg_of_nonneg_of_le_pi (by linarith) (by linarith))] at h
+  exact h
+
+/-- 在 `-π ≤ x ≤ π` 上，余弦半角平方根公式可以去掉绝对值。
+> **Entry**: analysis.trigonometric.half-root
+-/
+theorem cos_half_root {x : ℝ} (hnegπ : -Real.pi ≤ x) (hxπ : x ≤ Real.pi) :
+    Real.cos (x / 2) = Real.sqrt ((1 + Real.cos x) / 2) := by
+  have h := abs_cos_half x
+  rw [abs_of_nonneg] at h
+  · exact h
+  · apply Real.cos_nonneg_of_mem_Icc
+    constructor <;> linarith
+
 end Analysis.Trigonometric
 end SandronesLibrary

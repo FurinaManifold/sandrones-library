@@ -1240,6 +1240,10 @@
 - **人话**：正切的和角、差角和倍角公式；和差公式保留正切极点条件。
 - **谁在用**：`analysis.trigonometric.tan-identities`。
 
+### `Real.abs_sin_half` / `Real.cos_sq` / `Real.sqrt_sq_eq_abs` / `Real.sin_nonneg_of_nonneg_of_le_pi` / `Real.cos_nonneg_of_mem_Icc`
+- **人话**：半角平方根公式，以及在指定区间内正确选择平方根正号。
+- **谁在用**：`analysis.trigonometric.half-root`。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
