@@ -1412,6 +1412,16 @@
 - **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
 - **谁在用**：`real-analysis.riemann.algebra`，经连续函数积分值等同定理转回 Riemann 教材接口。
 
+### `intermediate_value_uIcc`
+- **人话**：连续函数在两个点之间的无序闭区间上取遍两个端点函数值之间的所有值，不必预先判断两点或两函数值的顺序。
+- **出处**：`Mathlib/Topology/Order/IntermediateValue.lean`。
+- **谁在用**：`real-analysis.riemann.mean-value`，从积分平均值位于最小值与最大值之间推出中值点存在。
+
+### `Function.Periodic.intervalIntegral_add_eq`
+- **人话**：周期函数在任意一个完整周期上的区间积分与积分起点无关。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Periodic.lean`。
+- **谁在用**：`real-analysis.riemann.mean-value`，经积分值桥梁得到连续周期函数的 Riemann 积分版本。
+
 ### `HasSum` / `Summable` / `hasSum_geometric_of_norm_lt_one` / `Real.not_summable_one_div_natCast` / `Summable.of_norm` / `summable_iff_cauchySeq_finset`
 - **人话**：级数的和与收敛、几何级数、调和级数发散、绝对收敛和 Cauchy 准则。
 - **谁在用**：`analysis.series.basic`。

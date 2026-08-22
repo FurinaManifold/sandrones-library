@@ -1865,7 +1865,9 @@
     "nl_file": "docs/entries/analysis/continuity/intermediate-value.md",
     "added_by": "ingestor-chapter5-batch",
     "added_at": "2026-08-21T03:13:14Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.mean-value"
+    ],
     "family": "analysis.continuity",
     "variant": "ecnu",
     "proof_sha": "3a45f1eca989b821",
@@ -1896,7 +1898,9 @@
     "nl_file": "docs/entries/analysis/continuity/max-min.md",
     "added_by": "ingestor-chapter5-batch",
     "added_at": "2026-08-21T03:13:14Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.mean-value"
+    ],
     "family": "analysis.continuity",
     "variant": "ecnu",
     "proof_sha": "3a45f1eca989b821",
@@ -6078,8 +6082,41 @@
     "nl_file": "docs/entries/real-analysis/riemann/algebra.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T10:20:57Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.mean-value"
+    ],
     "proof_sha": "d4b29bd79ce3d2d0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.riemann.mean-value",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Riemann 积分中值定理与周期积分",
+    "summary": "证明第一积分中值定理及连续周期函数整周期积分与起点无关",
+    "premises": [
+      "real-analysis.riemann.algebra",
+      "analysis.continuity.max-min",
+      "analysis.continuity.intermediate-value"
+    ],
+    "mathlib": [
+      "intermediate_value_uIcc",
+      "Function.Periodic.intervalIntegral_add_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：积分中值定理与周期函数积分"
+    },
+    "lean_file": "RealAnalysis/RiemannMeanValue.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/mean-value.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T10:24:33Z",
+    "dependedOnBy": [],
+    "proof_sha": "0ff2a5f5de2f7b17",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

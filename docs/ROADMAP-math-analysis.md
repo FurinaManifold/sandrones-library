@@ -199,7 +199,7 @@
 | 批次 | 内容 | 状态 |
 |---|---|---|
 | `real-analysis.riemann.algebra` | 连续函数：常值积分、线性、区间可加性、单调性、正性和绝对值估计 | ✅ |
-| `analysis.integral.mean-value` | 积分中值定理与周期函数积分 | 🔲 |
+| `real-analysis.riemann.mean-value` | 第一积分中值定理与连续周期函数的整周期积分 | ✅ |
 | `analysis.integral.ftc` | 与自建 Riemann 定义对齐的微积分基本定理 | 🔲 |
 | `analysis.integral.parts-substitution` | 分部积分与换元积分 | 🔲 |
 | `analysis.integral.examples` | 多项式、指数、三角函数和幂函数的数值积分 | 🔲 |
