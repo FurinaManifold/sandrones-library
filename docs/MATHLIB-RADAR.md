@@ -1144,6 +1144,23 @@
 - **人话**：测度 `Measure X`（值域 ℝ≥0∞）；空集零测；**可数可加** `measure_sUnion`；
   单调性 `measure_mono`；有限可加 `measure_union`。Lebesgue 测度 `volume` 是其特例。
 - **签名**：`measure_sUnion (hs : S.Countable) (hd : S.Pairwise Disjoint) : μ (⋃₀ S) = ∑' s : S, μ s`
+
+### `MeasureTheory.measure_biUnion_finset` / `MeasureTheory.measure_iUnion_null` / `measure_toMeasurable`
+- **人话**：有限个两两不交集合的测度可以相加；可数个零测集的并仍为零测；`toMeasurable` 把集合扩成同测度的可测集合。
+- **签名**：`measure_biUnion_finset` 处理有限指标并；`measure_iUnion_null` 处理可数并的零测结论；`measure_toMeasurable` 保持测度不变。
+- **谁在用**：`real-analysis.riemann.lebesgue-criterion`，用于把正振荡层的零测性组装成不连续点集零测，以及把零测集放入开覆盖。
+
+### `Set.exists_isOpen_lt_of_lt` / `ENNReal.le_of_forall_pos_le_add`
+- **人话**：零测集可以被任意小测度的开集覆盖；若一个非负无穷值小于任意正数加项，则它为零。
+- **谁在用**：`real-analysis.riemann.lebesgue-criterion`，分别用于正向覆盖和反向测度矛盾。
+
+### `Metric.ediam` / `Metric.uniformContinuousOn_iff` / `OscillationWithin.eq_zero_iff_continuousWithinAt`
+- **人话**：`ediam` 描述集合像的扩展直径；紧集上的连续函数可用一致连续性控制振荡；局部振荡为零等价于区间内连续。
+- **谁在用**：`real-analysis.riemann.lebesgue-criterion`，用于连续区域的有限覆盖和不连续点集的振荡分层。
+
+### `Real.volume_Ioc`
+- **人话**：实数半开区间的 Lebesgue 测度等于端点差（取非负部分）。
+- **谁在用**：`real-analysis.riemann.lebesgue-criterion`，用于把区间长度估计翻译成测度估计。
 - **出处**：`Mathlib/MeasureTheory/Measure/`
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。

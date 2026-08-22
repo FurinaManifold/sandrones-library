@@ -20,6 +20,7 @@ import SandronesLibrary.Topology.Metric
 import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.Riemann
+import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

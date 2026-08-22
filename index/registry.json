@@ -4674,7 +4674,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b61b787b7d2ae969"
+    "proof_sha": "41add8b6a80bec73"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4777,6 +4777,45 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b61b787b7d2ae969"
+    "proof_sha": "41add8b6a80bec73"
+  },
+  {
+    "id": "real-analysis.riemann.lebesgue-criterion",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "黎曼可积的 Lebesgue 判据",
+    "summary": "闭区间有界函数黎曼可积，当且仅当其不连续点集具有 Lebesgue 零测度",
+    "premises": [
+      "real-analysis.riemann.def",
+      "real-analysis.riemann.cont-integrable",
+      "real-analysis.lebesgue-measure"
+    ],
+    "mathlib": [
+      "MeasureTheory.measure_mono",
+      "MeasureTheory.measure_biUnion_finset",
+      "MeasureTheory.measure_iUnion_null",
+      "MeasureTheory.measure_toMeasurable",
+      "Set.exists_isOpen_lt_of_lt",
+      "Metric.ediam",
+      "Metric.uniformContinuousOn_iff",
+      "OscillationWithin.eq_zero_iff_continuousWithinAt",
+      "Real.volume_Ioc",
+      "ENNReal.le_of_forall_pos_le_add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Lebesgue criterion for Riemann integrability"
+    },
+    "lean_file": "RealAnalysis/RiemannCriterion.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/lebesgue-criterion.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:59:10Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "13d9340af3b8708e"
   }
 ]

@@ -261,8 +261,8 @@
 - **R5.5 黎曼积分的测度理论定位**：
   - ✅ `real-analysis.riemann.def`：黎曼积分的定义（达布分划/上下和/可积/均匀分划/积分值，全部自建）。
   - ✅ `real-analysis.riemann.cont-integrable`：连续 ⟹ 黎曼可积（一致连续 + 均匀分划 + 振荡界，自证）。
-  - ⏳ `real-analysis.riemann.eq-lebesgue`：黎曼可积时数值 = Lebesgue 积分。已定义 riemannIntegral 值 +
-    连续 ⟹ Lebesgue 可积；夹逼证明（达布和 = 阶梯函数积分 → 夹逼 intervalIntegral）待续。
+  - ✅ `real-analysis.riemann.eq-lebesgue`：连续函数的黎曼积分值 = Lebesgue 区间积分；
+    达布和 = 阶梯函数积分并通过夹逼完成证明。
   - ⏳ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据，待续）。
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
 - **R4 乘积/Lᵖ**（待做）；**R6 多元微积分**（待做）。
@@ -340,8 +340,8 @@
 | P2 | L5 内积/谱 | 🔲（第二学期）|
 | P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| ✅ |
 | P3 | A3.3-A3.4 域扩张/Galois + A4 模 | 🔲（第二学期）|
-| P4 | T1-T3 点集拓扑 | 🔲（进行中）|
-| P5 | R1-R5 实分析 | 🔲 |
+| P4 | T1-T3 点集拓扑 | ✅ |
+| P5 | R1-R5 实分析（R1-R3、R5 及 R5.5 部分）| 🔶（进行中） |
 | P6 | C1-C3 复分析 | 🔲 |
 | P7 | F1-F4 泛函分析 | 🔲 |
 | P8 | Pr1-Pr3 概率论 | 🔲 |
