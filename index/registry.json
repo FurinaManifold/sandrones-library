@@ -5480,7 +5480,9 @@
     "nl_file": "docs/entries/analysis/series/basic.md",
     "added_by": "series-basic-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.cauchy-product-definition"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5634,6 +5636,35 @@
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
     "proof_sha": "f55e0d6cfeac5250",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.cauchy-product-definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Cauchy 乘积的定义与有限三角恒等式",
+    "summary": "定义 c_n=Σ_{k=0}^n a_k b_{n-k}，并证明反对角线表示与有限三角部分和恒等式",
+    "premises": [
+      "analysis.series.basic"
+    ],
+    "mathlib": [
+      "Finset.Nat.sum_antidiagonal_eq_sum_range_succ",
+      "Finset.sum_range_diag_flip"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：级数的 Cauchy 乘积"
+    },
+    "lean_file": "Analysis/Series/CauchyProduct.lean",
+    "nl_file": "docs/entries/analysis/series/cauchy-product-definition.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "7de166d26ba002ee",
     "axioms": [
       "propext",
       "Classical.choice",

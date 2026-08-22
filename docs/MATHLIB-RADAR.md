@@ -12,6 +12,16 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+### `Finset.Nat.sum_antidiagonal_eq_sum_range_succ`
+- **人话**：把 `i+j=n` 上的有限反对角线和改写成 `k=0,…,n` 的卷积和。
+- **出处**：`Mathlib/Algebra/BigOperators/NatAntidiagonal.lean`。
+- **谁在用**：`analysis.series.cauchy-product-definition`。
+
+### `Finset.sum_range_diag_flip`
+- **人话**：把逐条反对角线求和改写成对有限三角区域 `i+j<N` 的迭代求和。
+- **出处**：Mathlib 的有限大算子恒等式。
+- **谁在用**：`analysis.series.cauchy-product-definition`。
+
 ### `Nat.find`
 - **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
 - **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。

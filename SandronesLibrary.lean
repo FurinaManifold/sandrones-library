@@ -24,6 +24,7 @@ import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.Analysis.SpecialFunctions
 import SandronesLibrary.Analysis.ClassicalLimits
 import SandronesLibrary.Analysis.Series.RiemannRearrangement
+import SandronesLibrary.Analysis.Series.CauchyProduct
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
