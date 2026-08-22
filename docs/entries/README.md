@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **201** 个条目（verified 201，pending 0）。
+共 **202** 个条目（verified 202，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -248,6 +248,7 @@
 - ✅ [`def.md`](def.md) — 黎曼积分定义
 - ✅ [`eq-lebesgue.md`](eq-lebesgue.md) — 黎曼积分值 = Lebesgue 区间积分
 - ✅ [`eq-lebesgue-general.md`](eq-lebesgue-general.md) — 任意 Riemann 可积函数的积分值桥梁
+- ✅ [`ftc.md`](ftc.md) — 自建 Riemann 积分的微积分基本定理
 - ✅ [`lebesgue-criterion.md`](lebesgue-criterion.md) — 黎曼可积的 Lebesgue 判据
 - ✅ [`mean-value.md`](mean-value.md) — Riemann 积分中值定理与周期积分
 

@@ -1529,6 +1529,14 @@
   必须先经 Lebesgue 判据删去可测零测坏点。Darboux 像集的上下确界合法性来自显式
   `BoundedOn`，对应 `csInf_le` 与 `le_csSup` 的有界性前提。
 
+### `eventually_gt_nhds` / `HasDerivAt.congr_of_eventuallyEq`（变上限 Riemann 积分求导）
+- **人话**：积分值桥只在 `a<u` 时可用。若目标点满足 `a<x`，则邻域中最终有
+  `a<u`，从而自建变上限 Riemann 积分与 Mathlib 的变上限区间积分局部相等；导数只
+  依赖局部函数值，因此可把已有 FTC 导数结论转移过来。
+- **谁在用**：`real-analysis.riemann.ftc`。
+- **坑**：不能要求两种变上限函数在所有实数上相等；本库尚未给 `u≤a` 的自建积分
+  规定有向区间约定。应使用最终相等，而非证明全局函数相等。
+
 ---
 
 ## 附：登记清单自动核对

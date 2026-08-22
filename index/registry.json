@@ -4584,7 +4584,9 @@
     ],
     "added_by": "ingestor-realanalysis-R5",
     "added_at": "2026-08-21T11:38:39Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.ftc"
+    ],
     "proof_sha": "29d109d55f452dce"
   },
   {
@@ -4614,7 +4616,9 @@
     ],
     "added_by": "ingestor-realanalysis-R5",
     "added_at": "2026-08-21T11:38:39Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.ftc"
+    ],
     "proof_sha": "29d109d55f452dce"
   },
   {
@@ -4784,7 +4788,8 @@
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T15:26:03Z",
     "dependedOnBy": [
-      "real-analysis.riemann.algebra"
+      "real-analysis.riemann.algebra",
+      "real-analysis.riemann.ftc"
     ],
     "axioms": [
       "Classical.choice",
@@ -6154,6 +6159,38 @@
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
     "proof_sha": "ee0a481089ec7e8a",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.riemann.ftc",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "自建 Riemann 积分的微积分基本定理",
+    "summary": "Newton–Leibniz 公式与连续函数变上限 Riemann 积分的求导公式",
+    "premises": [
+      "real-analysis.riemann.eq-lebesgue",
+      "real-analysis.calculus.ftc",
+      "real-analysis.calculus.ftc-differentiate"
+    ],
+    "mathlib": [
+      "intervalIntegral.integral_of_le",
+      "eventually_gt_nhds",
+      "HasDerivAt.congr_of_eventuallyEq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：微积分基本定理与 Newton–Leibniz 公式"
+    },
+    "lean_file": "RealAnalysis/RiemannFTC.lean",
+    "nl_file": "docs/entries/real-analysis/riemann/ftc.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "5773b8cb9ff3ff52",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
