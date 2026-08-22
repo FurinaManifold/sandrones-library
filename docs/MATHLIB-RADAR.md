@@ -1192,6 +1192,10 @@
 - **人话**：自然对数在正半轴上连续且严格递增，乘法变加法，并与指数函数互为反函数；导数为 `1 / x`。
 - **谁在用**：`analysis.special-functions.log`，用于后续经典极限和初等函数计算。
 
+### `Real.continuous_arctan` / `Real.hasDerivAt_arctan` / `Real.tan_arctan` / `Real.hasDerivAt_arcsin` / `Real.hasDerivAt_arccos`
+- **人话**：反正切、反正弦、反余弦的连续性与导数，以及 `tan` 与 `arctan` 的互逆恒等式。
+- **谁在用**：`analysis.special-functions.tan-pow`，用于反三角函数的教材层性质。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

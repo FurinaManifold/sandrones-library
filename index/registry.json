@@ -4858,8 +4858,8 @@
     "id": "analysis.special-functions.log-tan-pow",
     "kind": "theorem",
     "state": "verified",
-    "title": "对数、正切与自然幂函数",
-    "summary": "对数乘法公式、对数连续性、对数/正切导数以及自然幂函数连续性和导数",
+    "title": "对数、正切、幂函数与反三角函数",
+    "summary": "对数、正切和自然幂函数基础性质，以及反三角函数的连续性、互逆恒等式和导数",
     "premises": [
       "analysis.special-functions.basic",
       "analysis.continuity.definition",
@@ -4871,7 +4871,14 @@
       "Real.hasDerivAt_log",
       "Real.hasDerivAt_tan",
       "Continuous.pow",
-      "HasDerivAt.pow"
+      "HasDerivAt.pow",
+      "Real.continuous_arctan",
+      "Real.hasDerivAt_arctan",
+      "Real.tan_arctan",
+      "Real.continuous_arcsin",
+      "Real.continuous_arccos",
+      "Real.hasDerivAt_arcsin",
+      "Real.hasDerivAt_arccos"
     ],
     "provenance": {
       "source_type": "textbook",
@@ -4887,7 +4894,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "85f8de43df636046"
+    "proof_sha": "b0f2b9044ff6b067"
   },
   {
     "id": "analysis.limits.classical",

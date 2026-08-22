@@ -139,7 +139,7 @@
 
 - ✅ [`basic.md`](basic.md) — 初等特殊函数基础性质
 - ✅ [`log.md`](log.md) — 对数函数的基本性质
-- ✅ [`log-tan-pow.md`](log-tan-pow.md) — 对数、正切与自然幂函数
+- ✅ [`log-tan-pow.md`](log-tan-pow.md) — 对数、正切、幂函数与反三角函数
 
 ## `linear-algebra.det`
 

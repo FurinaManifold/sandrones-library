@@ -111,5 +111,39 @@ theorem deriv_pow_nat (n : ℕ) (x : ℝ) :
     deriv (fun y : ℝ => y ^ n) x = (n : ℝ) * x ^ (n - 1) := by
   simpa [Function.id_def, mul_assoc] using (hasDerivAt_id x).pow n |>.deriv
 
+/-! ### 反三角函数的教材层基本性质 -/
+
+/-- 反正切函数在整个实轴上连续。 -/
+theorem continuous_arctan : Continuous (Real.arctan : ℝ → ℝ) := by
+  exact Real.continuous_arctan
+
+/-- 反正切函数的导数公式。 -/
+theorem deriv_arctan (x : ℝ) : deriv Real.arctan x = 1 / (1 + x ^ 2) := by
+  exact (Real.hasDerivAt_arctan x).deriv
+
+/-- `tan` 与 `arctan` 在实轴上互为右逆。 -/
+theorem tan_arctan (x : ℝ) : Real.tan (Real.arctan x) = x := by
+  exact Real.tan_arctan x
+
+/-- 反正弦函数在整个实轴上连续。 -/
+theorem continuous_arcsin : Continuous (Real.arcsin : ℝ → ℝ) := by
+  exact Real.continuous_arcsin
+
+/-- 反余弦函数在整个实轴上连续。
+> **Entry**: analysis.special-functions.tan-pow
+-/
+theorem continuous_arccos : Continuous (Real.arccos : ℝ → ℝ) := by
+  exact Real.continuous_arccos
+
+/-- 反正弦在不触及端点 `±1` 的点的导数。 -/
+theorem hasDerivAt_arcsin {x : ℝ} (h₁ : x ≠ -1) (h₂ : x ≠ 1) :
+    HasDerivAt Real.arcsin (1 / Real.sqrt (1 - x ^ 2)) x := by
+  exact Real.hasDerivAt_arcsin h₁ h₂
+
+/-- 反余弦在不触及端点 `±1` 的点的导数。 -/
+theorem hasDerivAt_arccos {x : ℝ} (h₁ : x ≠ -1) (h₂ : x ≠ 1) :
+    HasDerivAt Real.arccos (-(1 / Real.sqrt (1 - x ^ 2))) x := by
+  exact Real.hasDerivAt_arccos h₁ h₂
+
 end Analysis.SpecialFunctions
 end SandronesLibrary
