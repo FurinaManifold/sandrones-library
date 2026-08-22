@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **228** 个条目（verified 228，pending 0）。
+共 **231** 个条目（verified 231，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -120,8 +120,11 @@
 
 - ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
 - ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
+- ✅ [`full-rank-theorem.md`](full-rank-theorem.md) — 满秩秩定理
 - ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
 - ✅ [`hessian-taylor.md`](hessian-taylor.md) — Hessian与多元Taylor公式
+- ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
+- ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
 
 ## `analysis.mvt`
 

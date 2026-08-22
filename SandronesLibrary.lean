@@ -25,6 +25,7 @@ import SandronesLibrary.RealAnalysis.ProductMeasure
 import SandronesLibrary.RealAnalysis.Lp
 import SandronesLibrary.RealAnalysis.LpInequalities
 import SandronesLibrary.Analysis.MultivariableCalculus
+import SandronesLibrary.Analysis.InverseImplicit
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge

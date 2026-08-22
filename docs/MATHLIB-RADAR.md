@@ -1726,6 +1726,23 @@
 - **坑**：次数 `N` 的余项使用 `N+1` 阶导数；值域需完备，光滑性假设覆盖整条
   `x+t y` 线段，而不只是基点 `x`。
 
+### `ContDiffAt.toOpenPartialHomeomorph` / `HasStrictFDerivAt.to_localInverse`
+- **人话**：可逆全微分把 `C¹` 映射提升为局部同胚，并给出局部逆的严格导数。
+- **出处**：`Mathlib/Analysis/Calculus/InverseFunctionTheorem/ContDiff.lean`、
+  `InverseFunctionTheorem/FDeriv.lean`。
+- **谁在用**：`analysis.multivariable.inverse-function`。
+- **坑**：定理构造的是带 source/target 的局部同胚，不是全局双射；逆映射导数的
+  基点必须是 `f a`。
+
+### `ContDiffAt.implicitFunction` / `ContDiffAt.eventually_apply_eq_iff_implicitFunction`
+- **人话**：偏全微分可逆时构造隐函数，并把原水平集在邻域内刻画为隐函数图像。
+- **出处**：`Mathlib/Analysis/Calculus/ImplicitContDiff.lean`、
+  `ImplicitFunction/ProdDomain.lean`。
+- **谁在用**：`analysis.multivariable.implicit-function`、
+  `analysis.multivariable.full-rank-theorem`。
+- **坑**：`.inl/.inr` 决定哪组变量保留、哪组变量被解出；交换二者会得到类型正确但
+  数学方向相反的定理。Mathlib 尚无一般常秩 `r` 正规形的直接接口。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

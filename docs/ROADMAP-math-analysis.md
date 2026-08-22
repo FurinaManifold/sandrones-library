@@ -239,7 +239,10 @@
 | `analysis.multivariable.gradient` | 梯度及方向导数—梯度公式 | ✅ |
 | `analysis.multivariable.coordinates` | 偏导数与 Jacobian 矩阵 | ✅ |
 | `analysis.multivariable.hessian-taylor` | Hessian 与多元 Taylor 公式 | ✅ |
-| `analysis.multivariable.inverse-implicit` | 反函数定理与隐函数定理 | 🔲 |
+| `analysis.multivariable.inverse-function` | 多元反函数定理与逆导数公式 | ✅ |
+| `analysis.multivariable.implicit-function` | 多元隐函数定理与隐函数导数 | ✅ |
+| `analysis.multivariable.full-rank-theorem` | 满秩秩定理：正则水平集局部正规形 | ✅ |
+| `analysis.multivariable.constant-rank-theorem` | 一般常秩 `r` 定理 | 🔲 |
 | `analysis.multivariable.change-variables` | 多重积分与换元公式 | 🔲 |
 | `analysis.multivariable.vector-integrals` | 曲线积分、曲面积分 | 🔲 |
 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与 Stokes 定理 | 🔲 |

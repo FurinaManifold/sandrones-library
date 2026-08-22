@@ -6911,7 +6911,8 @@
     "dependedOnBy": [
       "analysis.multivariable.gradient",
       "analysis.multivariable.coordinates",
-      "analysis.multivariable.hessian-taylor"
+      "analysis.multivariable.hessian-taylor",
+      "analysis.multivariable.inverse-function"
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
@@ -6978,7 +6979,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:27:18Z",
     "dependedOnBy": [
-      "analysis.multivariable.hessian-taylor"
+      "analysis.multivariable.hessian-taylor",
+      "analysis.multivariable.inverse-function"
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
@@ -7081,6 +7083,103 @@
     "family": "linear-algebra.matrix",
     "variant": "generated",
     "proof_sha": "7d87df0bdce76551",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.multivariable.inverse-function",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "多元反函数定理",
+    "summary": "可逆全微分推出局部微分同胚及逆映射导数公式",
+    "premises": [
+      "analysis.multivariable.frechet",
+      "analysis.multivariable.coordinates"
+    ],
+    "mathlib": [
+      "ContDiffAt.toOpenPartialHomeomorph",
+      "HasStrictFDerivAt.to_localInverse"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：反函数定理"
+    },
+    "lean_file": "Analysis/InverseImplicit.lean",
+    "nl_file": "docs/entries/analysis/multivariable/inverse-function.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:48:35Z",
+    "dependedOnBy": [
+      "analysis.multivariable.implicit-function"
+    ],
+    "family": "analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "4bbacecb2877bd34",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.multivariable.implicit-function",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "多元隐函数定理",
+    "summary": "偏全微分可逆时的隐函数、局部方程及导数公式",
+    "premises": [
+      "analysis.multivariable.inverse-function"
+    ],
+    "mathlib": [
+      "ContDiffAt.implicitFunction",
+      "ContDiffAt.hasStrictFDerivAt_implicitFunction"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：隐函数定理"
+    },
+    "lean_file": "Analysis/InverseImplicit.lean",
+    "nl_file": "docs/entries/analysis/multivariable/implicit-function.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:48:35Z",
+    "dependedOnBy": [
+      "analysis.multivariable.full-rank-theorem"
+    ],
+    "family": "analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "4bbacecb2877bd34",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.multivariable.full-rank-theorem",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "满秩秩定理",
+    "summary": "正则水平集局部表示为隐函数图像",
+    "premises": [
+      "analysis.multivariable.implicit-function"
+    ],
+    "mathlib": [
+      "ContDiffAt.eventually_apply_eq_iff_implicitFunction"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：秩定理的满秩形式"
+    },
+    "lean_file": "Analysis/InverseImplicit.lean",
+    "nl_file": "docs/entries/analysis/multivariable/full-rank-theorem.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:48:35Z",
+    "dependedOnBy": [],
+    "family": "analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "4bbacecb2877bd34",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
