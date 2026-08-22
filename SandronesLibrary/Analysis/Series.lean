@@ -85,5 +85,12 @@ theorem summable_of_eventually_geometric_bound {f : ℕ → ℝ} {r C : ℝ}
   apply Summable.of_norm_bounded_eventually_nat hmajor
   simpa only [Real.norm_eq_abs] using hbound
 
+/-- 根值判别法的几何主项界形式：最终被某个收敛几何级数控制即收敛。 -/
+theorem root_test_of_eventually_geometric_majorant {f : ℕ → ℝ}
+    (hroot : ∃ r C : ℝ, |r| < 1 ∧ 0 ≤ C ∧
+      ∀ᶠ n in atTop, |f n| ≤ C * |r| ^ n) : Summable f := by
+  rcases hroot with ⟨r, C, hr, hC, hbound⟩
+  exact summable_of_eventually_geometric_bound hr hC hbound
+
 end Analysis.Series
 end SandronesLibrary
