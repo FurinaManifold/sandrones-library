@@ -148,10 +148,12 @@
 | `analysis.constants.e-definition` | `e := exp 1` 的定义接口、正性、`2 < e < 3`、对数反函数关系 | `analysis.special-functions.basic`, `analysis.special-functions.log` | ✅ |
 | `analysis.constants.pi-definition` | `π` 的教材层定义接口、正性、`π ≠ 0`、圆周率基本三角值和周期关系 | `analysis.special-functions.basic`, `analysis.special-functions.log-tan-pow` | ✅ |
 | `analysis.constants.special-values` | `exp 0`、`exp 1`、`log 1`、`sin/cos` 在 `0, π/2, π` 的重要值 | `analysis.constants.e-definition`, `analysis.constants.pi-definition` | ✅ |
-| `analysis.constants.sqrt-two-irrational` | `√2` 无理性（作为无理数证明模板） | `analysis.real.archimedean`, `analysis.real.construction-cauchy` | 🔲 |
 | `analysis.constants.nth-root-irrational` | 非完全幂整数的正整数次根无理性通用引理 | `analysis.real.archimedean`, `analysis.real.construction-cauchy` | ✅ |
 | `analysis.constants.pi-irrational` | `π` 无理性 | `analysis.constants.pi-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
 | `analysis.constants.e-irrational` | `e` 无理性 | `analysis.constants.e-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
+| `analysis.constants.root-irrational-examples` | 具体 `√2、√3、√5、√7、√11` 等实例 | `analysis.constants.nth-root-irrational` | ⏭️（由通用引理覆盖，不单独登记） |
+| `analysis.constants.e-transcendence` | `e` 的超越性 | 代数数、超越数、Lindemann–Weierstrass | 🔲（远期专题） |
+| `analysis.constants.pi-transcendence` | `π` 的超越性 | 复分析、代数数、Lindemann–Weierstrass | 🔲（远期专题） |
 
 ## 第八章补充：数项级数与幂级数
 
