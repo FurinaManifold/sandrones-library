@@ -12,6 +12,39 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+### `Nat.find`
+- **人话**：从自然数上的存在性证明中选出满足谓词的最小下标。
+- **签名**：若 `h : ∃ n, p n`，则 `Nat.find h : ℕ`，并有 `Nat.find_spec`、`Nat.find_min`。
+- **出处**：`Mathlib/Data/Nat/Find.lean`。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
+### `Finset.sum_Ico_eq_sub`
+- **人话**：有限区间 `[m,n)` 上的和等于两个前缀和之差。
+- **签名**：`∑ k ∈ Ico m n, f k = (∑ k ∈ range n, f k) - ∑ k ∈ range m, f k`（`m ≤ n`）。
+- **出处**：`Mathlib/Algebra/BigOperators/Intervals.lean`。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
+### `Equiv.ofBijective`
+- **人话**：把一个已证明为双射的函数包装成等价 `Equiv`。
+- **签名**：`Equiv.ofBijective f hf : α ≃ β`。
+- **出处**：`Mathlib/Logic/Equiv/Defs.lean`。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
+### `Filter.liminf_le_iff`
+- **人话**：在适当有界条件下，用“最终低于任意严格上界”刻画 `liminf ≤ a`。
+- **出处**：`Mathlib/Order/LiminfLimsup.lean`。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
+### `Filter.le_limsup_iff`
+- **人话**：在适当有界条件下，用“任意严格下界被频繁超过”刻画 `a ≤ limsup`。
+- **出处**：`Mathlib/Order/LiminfLimsup.lean`。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
+### `tendsto_of_tendsto_of_tendsto_of_le_of_le'`
+- **人话**：夹逼定理；若上下两个函数趋于同一极限，且最终夹住中间函数，则中间函数同趋于该极限。
+- **出处**：Mathlib 的序滤子极限基础模块。
+- **谁在用**：`analysis.series.riemann-rearrangement`。
+
 ---
 
 ## G1. 收敛与滤子语言（Tendsto / atTop / 𝓝）

@@ -964,7 +964,9 @@
     "nl_file": "docs/entries/analysis/sequence/liminf-limsup.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T10:39:15Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.riemann-rearrangement"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "4c7a650e6c87f286",
@@ -5567,7 +5569,9 @@
     "nl_file": "docs/entries/analysis/series/conditional.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:06:21Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.series.riemann-rearrangement"
+    ],
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5596,6 +5600,40 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:08:05Z",
     "dependedOnBy": [],
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.riemann-rearrangement",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Riemann 条件重排的直接分块构造",
+    "summary": "由正负子级数发散和项趋零构造指标双射，使重排部分和具有指定的下极限与上极限",
+    "premises": [
+      "analysis.series.conditional",
+      "analysis.sequence.liminf-limsup"
+    ],
+    "mathlib": [
+      "Nat.find",
+      "Finset.sum_Ico_eq_sub",
+      "Equiv.ofBijective",
+      "Filter.liminf_le_iff",
+      "Filter.le_limsup_iff",
+      "tendsto_of_tendsto_of_tendsto_of_le_of_le'"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Walter Rudin, Principles of Mathematical Analysis, Chapter 3, Theorem 3.54"
+    },
+    "lean_file": "Analysis/Series/RiemannRearrangement.lean",
+    "nl_file": "docs/entries/analysis/series/riemann-rearrangement.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "2a09119b40360548",
     "axioms": [
       "propext",
       "Classical.choice",
