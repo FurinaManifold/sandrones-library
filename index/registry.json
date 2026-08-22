@@ -4888,5 +4888,38 @@
       "propext"
     ],
     "proof_sha": "85f8de43df636046"
+  },
+  {
+    "id": "analysis.limits.classical",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "四个经典重要极限",
+    "summary": "正弦、余弦、指数和对数的四个基本重要极限",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log-tan-pow",
+      "analysis.func-limit.definition"
+    ],
+    "mathlib": [
+      "HasDerivAt.tendsto_slope_zero",
+      "Real.cos_two_mul_eq_one_sub",
+      "Filter.Tendsto.comp",
+      "Filter.Tendsto.pow"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：经典重要极限"
+    },
+    "lean_file": "Analysis/ClassicalLimits.lean",
+    "nl_file": "docs/entries/analysis/limits/classical.md",
+    "added_by": "classical-limits-batch-1",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "96d13ee07ceb66bd"
   }
 ]

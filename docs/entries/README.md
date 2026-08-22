@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **163** 个条目（verified 163，pending 0）。
+共 **164** 个条目（verified 164，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -85,6 +85,10 @@
 - ✅ [`mul.md`](mul.md) — 函数极限乘法
 - ✅ [`sub.md`](sub.md) — 函数极限减法
 - ✅ [`unique.md`](unique.md) — 函数极限唯一
+
+## `analysis.limits`
+
+- ✅ [`classical.md`](classical.md) — 四个经典重要极限
 
 ## `analysis.mvt`
 

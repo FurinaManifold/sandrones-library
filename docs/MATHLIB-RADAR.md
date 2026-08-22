@@ -1179,6 +1179,10 @@
 ### `Real.hasDerivAt_tan` / `Continuous.pow` / `HasDerivAt.pow`
 - **人话**：正切函数的导数公式，以及自然幂函数的连续性和导数公式。
 - **谁在用**：`analysis.special-functions.log-tan-pow`。
+
+### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
+- **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
+- **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
 - **出处**：`Mathlib/MeasureTheory/Measure/`
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。

@@ -22,6 +22,7 @@ import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.Analysis.SpecialFunctions
+import SandronesLibrary.Analysis.ClassicalLimits
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function
