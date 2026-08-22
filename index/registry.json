@@ -5058,5 +5058,37 @@
       "propext"
     ],
     "proof_sha": "7d6351c28c694e09"
+  },
+  {
+    "id": "analysis.constants.e-definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "自然常数 e 的定义与基本范围",
+    "summary": "定义 e = exp 1，并证明正性、2 < e < 3 及 log e = 1",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log"
+    ],
+    "mathlib": [
+      "Real.exp_pos",
+      "Real.exp_one_gt_two",
+      "Real.exp_one_lt_three",
+      "Real.log_exp"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：指数函数与自然常数 e"
+    },
+    "lean_file": "Analysis/Constants.lean",
+    "nl_file": "docs/entries/analysis/constants/e-definition.md",
+    "added_by": "constants-e-definition-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "caa98430c2bd3573"
   }
 ]

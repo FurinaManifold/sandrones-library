@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **168** 个条目（verified 168，pending 0）。
+共 **169** 个条目（verified 169，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -43,6 +43,10 @@
 - ✅ [`mct-to-nested-intervals.md`](mct-to-nested-intervals.md) — 单调收敛 ⟹ 闭区间套
 - ✅ [`nested-intervals-to-finite-cover.md`](nested-intervals-to-finite-cover.md) — 闭区间套 ⟹ 有限覆盖
 - ✅ [`sup-to-mct.md`](sup-to-mct.md) — 确界 ⟹ 单调收敛
+
+## `analysis.constants`
+
+- ✅ [`e-definition.md`](e-definition.md) — 自然常数 e 的定义与基本范围
 
 ## `analysis.continuity`
 

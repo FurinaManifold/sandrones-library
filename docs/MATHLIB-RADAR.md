@@ -1200,6 +1200,10 @@
 - **人话**：对数趋于无穷但比恒等函数慢，指数函数比任意固定自然幂增长更快。
 - **谁在用**：`analysis.limits.asymptotic`，用于无穷小与无穷大阶比较。
 
+### `Real.exp_pos` / `Real.exp_one_gt_two` / `Real.exp_one_lt_three` / `Real.log_exp`
+- **人话**：自然常数 `e = exp 1` 为正且满足 `2 < e < 3`，并有 `log e = 1`。
+- **谁在用**：`analysis.constants.e-definition`，作为重要常数的教材层接口。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。
