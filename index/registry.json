@@ -5638,7 +5638,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "f55e0d6cfeac5250",
+    "proof_sha": "c0b4b0d0d4637988",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5669,7 +5669,7 @@
     "dependedOnBy": [
       "analysis.series.cauchy-product-absolute"
     ],
-    "proof_sha": "b335ee4e9515c95b",
+    "proof_sha": "4d89fb22a66e8c26",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5701,7 +5701,7 @@
     "dependedOnBy": [
       "analysis.series.mertens"
     ],
-    "proof_sha": "b335ee4e9515c95b",
+    "proof_sha": "4d89fb22a66e8c26",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5732,7 +5732,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "b335ee4e9515c95b",
+    "proof_sha": "4d89fb22a66e8c26",
     "axioms": [
       "propext",
       "Classical.choice",

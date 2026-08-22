@@ -6,12 +6,28 @@ Authors: Sandrone's Library contributors
 import SandronesLibrary.Analysis.Series
 
 /-!
-# Riemann rearrangement theorem
+# Riemann 条件重排定理：Rudin 的直接分块构造
 
-This module formalizes Rudin's direct alternating-block construction.  Positive
-and negative terms are consumed in order until moving upper and lower targets
-are crossed.  The resulting block code is a permutation, and its partial sums
-have prescribed `liminf` and `limsup`.
+本文件形式化 Rudin《数学分析原理》定理 3.54 的直接构造。设原级数的正项和与负项
+绝对值之和都发散到 `+∞`，且每一项趋于零。给定 `α ≤ β`，交替执行：
+
+1. 依原顺序加入尚未使用的正项，直到部分和首次超过 `β + 1/(k+1)`；
+2. 依原顺序加入尚未使用的负项，直到部分和首次低于 `α - 1/(k+1)`。
+
+由“首次越界”的超调量至多等于最后加入的一项，而原级数项趋零，可知正块端点趋于
+`β`、负块端点趋于 `α`；块内单调性再把端点估计推广到所有部分和。因此所得重排满足
+`liminf = α`、`limsup = β`。
+
+形式化还必须补出纸面证明通常省略的组合部分：每个新位置属于唯一的正块或负块，
+每个原正项和负项恰好使用一次，最终的指标函数确实是 `ℕ` 上的双射。文件分为四层：
+
+* `BlockEnds`、`blockTag`：抽象的交替分块及其双射证明；
+* `firstPositiveCrossing`、`rudinCounts`：首次越界递归；
+* `EndpointWitness`：全局上下界与趋于端点的子列；
+* `direct_rudin_rearrangement`：将组合双射和极限估计组装为最终定理。
+
+下标约定：Rudin 的位置从 `1` 开始；Lean 序列从 `0` 开始。`partialSum u N` 含前
+`N` 项 `u 0,…,u (N-1)`，代码中通过位置 `ℓ+1` 与教材的一基位置对应。
 -/
 
 namespace SandronesLibrary.Analysis.Series.RudinDirect
@@ -19,16 +35,19 @@ namespace SandronesLibrary.Analysis.Series.RudinDirect
 open Filter
 open scoped Topology
 
-/-- Finite partial sums, indexed by the number of terms retained. -/
+/-- 有限部分和：`partialSum u N` 是序列 `u` 的前 `N` 项之和。 -/
 def partialSum (u : ℕ → ℝ) (N : ℕ) : ℝ := ∑ j ∈ Finset.range N, u j
 
-/-- The positive and negative enumerations are kept as *signed* terms. -/
+/-- 原级数正项与负项的枚举；两者都保留原来的符号。 -/
 def signedPositive (a : ℕ → ℝ) (indP : ℕ → ℕ) : ℕ → ℝ := fun j => a (indP j)
 def signedNegative (a : ℕ → ℝ) (indQ : ℕ → ℕ) : ℕ → ℝ := fun j => a (indQ j)
 
-/-- `pblock k` and `nblock k` are the cumulative positions in the rearranged
-series after the `k`-th positive and negative block respectively.  Thus
-`nblock (k-1) < pblock k < nblock k`. -/
+/-- 交替分块的累计端点。
+
+`posCount k`、`negCount k` 分别记录前 `k` 轮已经使用的正项、负项数；`pblock k`、
+`nblock k` 分别是第 `k` 个正块、负块结束时在重排序列中的累计位置。因而教材的一基
+关系为 `nblock (k-1) < pblock k < nblock k`。`covers` 明确断言每个正位置恰落在某个
+正块或负块中，是后续定义全局指标函数的基础。 -/
 structure BlockEnds where
   posCount : ℕ → ℕ
   negCount : ℕ → ℕ
@@ -45,9 +64,10 @@ structure BlockEnds where
   covers : ∀ ℓ, 0 < ℓ → (∃ k, nblock k < ℓ ∧ ℓ ≤ pblock (k + 1)) ∨
     (∃ k, pblock (k + 1) < ℓ ∧ ℓ ≤ nblock (k + 1))
 
-/-- The original index selected at rearranged position `ℓ`.  The two branches
-are the direct affine formulae in `1.txt`, with `posCount` and `negCount`
-recording how many terms of each sign have already been consumed. -/
+/-- 重排位置 `ℓ` 所选取的原序列下标。
+
+先把零基位置转为一基位置 `r=ℓ+1`，再判断它属于负块还是正块。块内使用仿射偏移，
+加上此前已消耗的同号项数，最后通过 `indP` 或 `indQ` 回到原序列下标。 -/
 noncomputable def blockIndex (indP indQ : ℕ → ℕ) (E : BlockEnds) (ℓ : ℕ) : ℕ := by
   classical
   let r := ℓ + 1
@@ -58,7 +78,10 @@ noncomputable def blockIndex (indP indQ : ℕ → ℕ) (E : BlockEnds) (ℓ : �
     let k := Nat.find ((E.covers r (by omega)).resolve_right h)
     indP (E.posCount k + (r - E.nblock k - 1))
 
-/-- The same block code before the two signed enumerations are applied. -/
+/-- 尚未通过 `indP`、`indQ` 回到原指标前的纯组合标签。
+
+`Sum.inl j` 表示第 `j` 个正项，`Sum.inr j` 表示第 `j` 个负项。把双射证明先放在
+`ℕ ⊕ ℕ` 上，可将分块组合学与原序列的具体指标枚举分离。 -/
 noncomputable def blockTag (E : BlockEnds) (ℓ : ℕ) : ℕ ⊕ ℕ := by
   classical
   let r := ℓ + 1
@@ -69,9 +92,10 @@ noncomputable def blockTag (E : BlockEnds) (ℓ : ℕ) : ℕ ⊕ ℕ := by
     let k := Nat.find ((E.covers r (by omega)).resolve_right h)
     Sum.inl (E.posCount k + (r - E.nblock k - 1))
 
-/-- A disjoint exhaustive indexing of original terms by their sign classes.
-Zero terms require a separate insertion policy; this direct Rudin core is the
-zero-free part of the rearrangement. -/
+/-- 原序列按正、负号分成两个互不相交且穷尽的无限枚举。
+
+`equiv : ℕ ⊕ ℕ ≃ ℕ` 同时保证两类指标互不重复并覆盖原指标集。本直接构造处理无零项
+核心；若原序列含零项，需要先采用独立策略把零项插入重排。 -/
 structure SourceSplit (a : ℕ → ℝ) where
   equiv : ℕ ⊕ ℕ ≃ ℕ
   positive : ∀ j, 0 < a (equiv (Sum.inl j))
@@ -100,8 +124,13 @@ theorem SourceSplit.indP_ne_indQ {a : ℕ → ℝ} (S : SourceSplit a) (i j : �
   have : Sum.inl i = Sum.inr j := S.equiv.injective h
   cases this
 
-/-- Positive counters strictly grow because every positive block has positive
-length. -/
+/-! ## 一、抽象分块的组合性质
+
+这一节只使用自然数区间和 `BlockEnds` 字段，不涉及级数大小。目标是证明正负块依次排列、
+块内标签可逆，并最终得到 `blockTag : ℕ → ℕ ⊕ ℕ` 的双射性。
+-/
+
+/-- 每个正块至少加入一项，因此累计正项数严格递增。 -/
 theorem BlockEnds.posCount_strictMono (E : BlockEnds) : StrictMono E.posCount := by
   apply strictMono_nat_of_lt_succ
   intro n
@@ -115,8 +144,7 @@ theorem BlockEnds.posCount_strictMono (E : BlockEnds) : StrictMono E.posCount :=
       rw [E.nblock_eq n, E.pblock_eq (n + 1)] at h
       omega
 
-/-- Negative counters strictly grow because every negative block has positive
-length. -/
+/-- 每个负块至少加入一项，因此累计负项数严格递增。 -/
 theorem BlockEnds.negCount_strictMono (E : BlockEnds) : StrictMono E.negCount := by
   apply strictMono_nat_of_lt_succ
   intro n
@@ -177,6 +205,12 @@ theorem not_posBlock_of_negBlock (E : BlockEnds) {k r : ℕ}
     · have hlt : k + 1 ≤ l := Nat.succ_le_iff.mpr (lt_of_le_of_ne hkl heq)
       have hmono := E.nblock_strictMono.monotone hlt
       exact (Nat.not_lt_of_ge (hneg.2.trans hmono)) hleft
+
+/-! ### 块长度、标签所在区间与显式原像
+
+累计端点差正好等于本块新加入的同号项数。严格递增计数使每个标签落入唯一的相邻计数
+区间；由此可写出该标签在重排序列中的原像。
+-/
 
 theorem nblock_add_posBlockLength (E : BlockEnds) (k : ℕ) :
     E.nblock k + (E.posCount (k + 1) - E.posCount k) = E.pblock (k + 1) := by
@@ -412,6 +446,8 @@ theorem blockTag_eq_inl_of_posBlock (E : BlockEnds) {ℓ k : ℕ}
   rw [dif_neg hnotneg]
   rw [hfind]
 
+/-! ### 标签双射与原指标双射 -/
+
 theorem negTag_offset_mem_interval (E : BlockEnds) {ℓ k : ℕ}
     (hmem : E.pblock (k + 1) < ℓ + 1 ∧ ℓ + 1 ≤ E.nblock (k + 1)) :
     E.negCount k ≤ E.negCount k + (ℓ + 1 - E.pblock (k + 1) - 1) ∧
@@ -436,8 +472,7 @@ theorem blockIndex_eq_sourceSplit_apply {a : ℕ → ℝ} (S : SourceSplit a)
   simp only [blockIndex, blockTag, SourceSplit.indP, SourceSplit.indQ]
   split <;> rfl
 
-/-- The original-index map is bijective as soon as the purely combinatorial
-block-tag map is bijective. -/
+/-- 若纯组合标签 `blockTag` 是双射，则与源指标等价复合后的 `blockIndex` 也是双射。 -/
 theorem blockIndex_bijective_of_blockTag_bijective {a : ℕ → ℝ}
     (S : SourceSplit a) (E : BlockEnds)
     (hTag : Function.Bijective (blockTag E)) :
@@ -447,8 +482,10 @@ theorem blockIndex_bijective_of_blockTag_bijective {a : ℕ → ℝ}
     exact blockIndex_eq_sourceSplit_apply S E ℓ]
   exact S.equiv.bijective.comp hTag
 
-/-- TODO 1 (injectivity): ordered block intervals do not overlap, and each
-affine offset inside one block is injective. -/
+/-- `blockTag` 的单射性。
+
+不同正负类型由 `Sum.inl`、`Sum.inr` 自动区分；同类型位置先由计数区间唯一性确定属于
+同一个块，再由块内仿射偏移相等推出两个重排位置相等。 -/
 theorem blockTag_injective_of_block_recursion (E : BlockEnds)
     : Function.Injective (blockTag E) := by
   intro x y hxy
@@ -484,8 +521,10 @@ theorem blockTag_injective_of_block_recursion (E : BlockEnds)
       subst ky
       omega
 
-/-- TODO 2 (surjectivity): strict growth of the two counters makes the union
-of their consecutive block intervals cover every positive and negative tag. -/
+/-- `blockTag` 的满射性。
+
+正、负累计计数严格递增且趋于无穷，因此每个同号标签都落在唯一的相邻计数区间中；
+`posTagPreimage`、`negTagPreimage` 给出对应的显式块内原像。 -/
 theorem blockTag_surjective_of_block_recursion (E : BlockEnds)
     : Function.Surjective (blockTag E) := by
   intro x
@@ -493,15 +532,14 @@ theorem blockTag_surjective_of_block_recursion (E : BlockEnds)
   | inl j => exact ⟨posTagPreimage E j, blockTag_posTagPreimage E j⟩
   | inr j => exact ⟨negTagPreimage E j, blockTag_negTagPreimage E j⟩
 
-/-- Assembly of the two checked lower interfaces. -/
+/-- 由已经证明的单射性与满射性组装 `blockTag` 的双射性。 -/
 theorem blockTag_bijective_of_block_recursion (E : BlockEnds)
     :
     Function.Bijective (blockTag E) :=
   ⟨blockTag_injective_of_block_recursion E,
     blockTag_surjective_of_block_recursion E⟩
 
-/-- The direct Rudin sequence is the original sequence composed with the
-explicit direct block index map. -/
+/-- Rudin 直接构造出的重排序列：原序列与显式分块指标函数的复合。 -/
 noncomputable def blockSeries (a : ℕ → ℝ) (indP indQ : ℕ → ℕ)
     (E : BlockEnds) (ℓ : ℕ) : ℝ := a (blockIndex indP indQ E ℓ)
 
@@ -509,8 +547,16 @@ theorem blockSeries_apply (a : ℕ → ℝ) (indP indQ : ℕ → ℕ)
     (E : BlockEnds) (ℓ : ℕ) :
     blockSeries a indP indQ E ℓ = a (blockIndex indP indQ E ℓ) := rfl
 
-/-- The direct target endpoints used by Rudin.  With `α ≤ β`, positive blocks
-cross `β + 1/(k+1)` and negative blocks cross `α - 1/(k+1)`. -/
+/-! ## 二、移动目标与首次越界
+
+正项序列及负项绝对值序列的部分和都趋于 `+∞`，所以从任意旧端点以后都能找到首次
+越过目标的位置。`Nat.find` 选择这个最小位置；其最小性稍后给出“超调量不超过末项”。
+-/
+
+/-- Rudin 构造使用的移动下、上目标。
+
+第 `k` 轮负块越过 `α-1/(k+1)`，正块越过 `β+1/(k+1)`。两目标分别趋于 `α`、`β`；
+即使 `α=β`，每一轮仍严格满足下目标小于上目标。 -/
 noncomputable def lowerTarget (α : ℝ) (k : ℕ) : ℝ := α - 1 / ((k : ℝ) + 1)
 noncomputable def upperTarget (β : ℝ) (k : ℕ) : ℝ := β + 1 / ((k : ℝ) + 1)
 
@@ -535,8 +581,7 @@ theorem lowerTarget_lt_upperTarget {α β : ℝ} (hαβ : α ≤ β) (m n : ℕ)
   have hn : 0 < 1 / ((n : ℝ) + 1) := by positivity
   linarith
 
-/-- A divergent nonnegative partial sum eventually crosses any prescribed
-level after any prescribed starting index. -/
+/-- 部分和趋于 `+∞` 的非负级数，在任意指定起点之后终会越过任意给定高度。 -/
 theorem choose_positive_tail {p : ℕ → ℝ}
     (hp : Tendsto (partialSum p) atTop atTop) (start : ℕ) (y : ℝ) :
     ∃ m, start ≤ m ∧ y < partialSum p m := by
@@ -634,12 +679,11 @@ theorem lt_firstNegativeCrossing {q : ℕ → ℝ}
   rw [heq] at hspec
   exact (not_lt_of_ge hstart hspec.2)
 
-/-- Rudin's direct recursive counts.  Lean's `partialSum P m` contains the
-zero-based entries `P 0, ..., P (m - 1)`.  Thus the count `m` is precisely
-the one-based endpoint called `m` in `1.txt`: it means that the first `m`
-terms have been used.  At stage `n+1` first add positive terms until the
-upper target is crossed, then add negative magnitudes until the lower target
-is crossed. -/
+/-- Rudin 直接构造中的递归累计计数。
+
+`partialSum P m` 包含零基项 `P 0,…,P (m-1)`，所以计数 `m` 正好对应教材的一基端点：
+已经使用前 `m` 项。第 `n+1` 轮先寻找首次超过上目标的正项累计数 `m`，再寻找首次使
+总和低于下目标的负项绝对值累计数 `k`。搜索从旧计数 `+1` 开始，保证每块非空。 -/
 noncomputable def rudinCounts (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
     (hQ : Tendsto (partialSum Q) atTop atTop)
@@ -704,9 +748,9 @@ theorem rudin_lower_endpoint_crosses (P Q : ℕ → ℝ)
     (partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) - lowerTarget α n)).2
   linarith
 
-/-- After a negative block, the next positive search really starts below its
-new upper target.  This is the local fact that forces a nonempty positive
-block; it replaces the previously duplicated global monotonicity chain. -/
+/-- 一个负块结束后，当前和不超过下一轮的新上目标。
+
+因此从旧正项计数 `+1` 开始的首次越界搜索确实会加入新正项，保证下一正块非空。 -/
 theorem rudin_positive_start_le_succ (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
     (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
@@ -715,7 +759,7 @@ theorem rudin_positive_start_le_succ (P Q : ℕ → ℝ)
   have hlow := rudin_lower_endpoint_crosses P Q hP hQ α β n
   linarith [lowerTarget_lt_upperTarget hαβ n (n + 1)]
 
-/-- The negative search at stage `n+1` starts below its lower target. -/
+/-- 正块结束时，旧负项绝对值部分和尚未越过本轮下目标，因此随后的负块搜索非空。 -/
 theorem rudin_negative_start_le (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
     (hQ : Tendsto (partialSum Q) atTop atTop) {α β : ℝ} (hαβ : α ≤ β) (n : ℕ) :
@@ -723,6 +767,12 @@ theorem rudin_negative_start_le (P Q : ℕ → ℝ)
       partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) - lowerTarget α n := by
   have hupp := rudin_upper_endpoint_crosses P Q hP hQ α β n
   linarith [lowerTarget_lt_upperTarget hαβ n n]
+
+/-! ### 计数严格增长与累计块端点
+
+每次搜索从旧计数 `+1` 开始，故每个正块、负块都至少包含一项。由累计计数构造的
+`rudinPBlock`、`rudinNBlock` 因而严格交错并覆盖全部正位置。
+-/
 
 theorem rudinPosCount_succ_lt (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
@@ -777,9 +827,10 @@ theorem rudinNegCount_strictMono (P Q : ℕ → ℝ)
     StrictMono (rudinNegCount P Q hP hQ α β) :=
   strictMono_nat_of_lt_succ (rudinNegCount_succ_lt P Q hP hQ α β)
 
-/-- The direct bridge from Rudin's recursive counters to the four numerical
-fields used by the clean block interface.  The remaining `covers` proof is
-the global interval-cover statement, not another growth proof. -/
+/-- 把 Rudin 的正负累计计数转换成 `BlockEnds` 所需的正块累计端点。
+
+正块结束位置等于本轮正项累计数加上上一轮负项累计数。与 `rudinNBlock` 配合后，
+递归计数可接入前半部分已经验证的抽象分块双射接口。 -/
 noncomputable def rudinPBlock (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
     (hQ : Tendsto (partialSum Q) atTop atTop)
@@ -856,9 +907,10 @@ theorem firstNegativeCrossing_overshoot {q : ℕ → ℝ}
     q (firstNegativeCrossing q hq start y - 1) ≤ _
   linarith
 
-/-- Version of the overshoot estimate matching the one-based recursion:
-the search begins at `prev + 1`, while the sum before the new block is
-controlled at `prev`. -/
+/-- 与一基递归相匹配的首次越界超调估计。
+
+搜索从 `prev+1` 开始，而新块加入前可控制的是 `prev` 处的部分和。首次越界的最小性
+说明越界前一刻仍未越界，故越界后的超调量至多为最后加入的一项。 -/
 theorem firstPositiveCrossing_after_overshoot {p : ℕ → ℝ}
     (hp : Tendsto (partialSum p) atTop atTop) {prev : ℕ} {y : ℝ}
     (hprev : partialSum p prev ≤ y) :
@@ -914,24 +966,31 @@ theorem rudin_lower_endpoint_overshoot (P Q : ℕ → ℝ)
     (rudin_negative_start_le P Q hP hQ hαβ n)
   linarith
 
-/-- The exact information needed to identify `liminf` and `limsup`; it is
-separate from the permutation proof. -/
+/-! ## 三、端点证据与上下极限
+
+这一层不再关心指标函数如何构造，只提取确定 `liminf`、`limsup` 的四项分析信息。
+这种分离让排列双射和极限估计可以独立检查。
+-/
+
+/-- 确定 `liminf` 与 `limsup` 所需的端点证据，与排列双射证明相互独立。
+
+四个分量依次是：所有充分靠后的部分和不低于 `α-ε`；存在严格递增子列趋于 `α`；
+所有充分靠后的部分和不高于 `β+ε`；存在严格递增子列趋于 `β`。 -/
 def EndpointWitness (g : ℕ → ℝ) (α β : ℝ) : Prop :=
   (∀ ε > 0, ∀ᶠ N in atTop, α - ε ≤ partialSum g N) ∧
   (∃ u : ℕ → ℕ, StrictMono u ∧ Tendsto (fun k => partialSum g (u k)) atTop (𝓝 α)) ∧
   (∀ ε > 0, ∀ᶠ N in atTop, partialSum g N ≤ β + ε) ∧
   (∃ v : ℕ → ℕ, StrictMono v ∧ Tendsto (fun k => partialSum g (v k)) atTop (𝓝 β))
 
-/-- The two independent outputs of the direct block recursion: a bijective
-index code and the endpoint information.  The latter already determines the
-order limits by `liminf_limsup_of_endpointWitness`. -/
+/-- 直接分块递归的两个独立产物：指标编码是双射，以及重排部分和具有端点证据。
+
+前者证明所得序列确实是重排；后者经 `liminf_limsup_of_endpointWitness` 确定上下极限。 -/
 def DirectBlockEvidence (a : ℕ → ℝ) (α β : ℝ) : Prop :=
   ∃ indP indQ E,
     Function.Bijective (blockIndex indP indQ E) ∧
       EndpointWitness (blockSeries a indP indQ E) α β
 
-/-- Once bijectivity of the explicit block index is proved, the desired
-rearrangement equivalence is constructed without any further combinatorics. -/
+/-- 显式指标函数一旦证明为双射，即可直接提升为 `ℕ ≃ ℕ`，无需再做组合论证。 -/
 theorem directBlockEvidence_rearrangement {a : ℕ → ℝ} {α β : ℝ}
     (h : DirectBlockEvidence a α β) :
     ∃ indP indQ E, ∃ e : ℕ ≃ ℕ,
@@ -942,7 +1001,7 @@ theorem directBlockEvidence_rearrangement {a : ℕ → ℝ} {α β : ℝ}
   intro n
   rfl
 
-/-- Endpoint bounds and endpoint subsequences determine the two order limits. -/
+/-- 由最终全局界和趋于端点的子列确定部分和序列的下极限与上极限。 -/
 theorem liminf_limsup_of_endpointWitness {g : ℕ → ℝ} {α β : ℝ}
     (h : EndpointWitness g α β) :
     Filter.liminf (partialSum g) atTop = α ∧
@@ -982,9 +1041,17 @@ theorem liminf_limsup_of_endpointWitness {g : ℕ → ℝ} {α β : ℝ}
         (tendsto_order.1 hβ).1 y hy
       exact hv.tendsto_atTop.frequently hev.frequently
 
-/-- TODO 1: construct the recursive block ends from the crossing recursion,
-then prove that their explicit block code is bijective and has the endpoint
-witness.  This is the sole remaining direct-construction obligation. -/
+/-! ## 四、Rudin 递归的最终组装
+
+下面把第二节的递归计数填入第一节的抽象 `BlockEnds`，逐块计算重排部分和，再用末项趋零
+控制首次越界的超调。最终同时得到指标双射与 `EndpointWitness`。
+-/
+
+/-- 从首次越界递归构造完整的分块证据。
+
+证明依次完成：构造 `BlockEnds` 并验证覆盖性；计算每个正负块的有限和；证明块端点
+分别逼近 `β` 与 `α`；把端点估计推广到块内所有部分和；最后与前面已经证明的
+`blockTag` 双射组装为 `DirectBlockEvidence`。 -/
 theorem direct_block_evidence_of_rudin_hypotheses
     {a : ℕ → ℝ} {α β : ℝ}
     (hαβ : α ≤ β)
@@ -1067,8 +1134,8 @@ theorem direct_block_evidence_of_rudin_hypotheses
       ∑ ℓ ∈ Finset.Ico (E.nblock k) (E.pblock (k + 1)),
         blockSeries a S.indP S.indQ E ℓ =
       partialSum P (E.posCount (k + 1)) - partialSum P (E.posCount k) := by
-    /- TODO positive-block finite sum: rewrite each term with
-    `blockTag_eq_inl_of_posBlock`, then use `Finset.sum_Ico_eq_sub`. -/
+    /- 正块有限和：逐项改写成对应的正项枚举，再用 `Finset.sum_Ico_eq_sub`
+    化为两个正项部分和之差。 -/
     intro k
     have hterm : ∀ ℓ ∈ Finset.Ico (E.nblock k) (E.pblock (k + 1)),
         blockSeries a S.indP S.indQ E ℓ =
@@ -1106,8 +1173,8 @@ theorem direct_block_evidence_of_rudin_hypotheses
       ∑ ℓ ∈ Finset.Ico (E.pblock (k + 1)) (E.nblock (k + 1)),
         blockSeries a S.indP S.indQ E ℓ =
       -(partialSum Q (E.negCount (k + 1)) - partialSum Q (E.negCount k)) := by
-    /- TODO negative-block finite sum: rewrite each term with
-    `blockTag_eq_inr_of_negBlock`, then use `Finset.sum_Ico_eq_sub`. -/
+    /- 负块有限和：逐项改写成带原符号的负项枚举，再用 `Finset.sum_Ico_eq_sub`
+    化为两个负项绝对值部分和之差的相反数。 -/
     intro k
     have hterm : ∀ ℓ ∈ Finset.Ico (E.pblock (k + 1)) (E.nblock (k + 1)),
         blockSeries a S.indP S.indQ E ℓ =
@@ -1147,8 +1214,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
         partialSum P (E.posCount (k + 1)) - partialSum Q (E.negCount k) ∧
       partialSum (blockSeries a S.indP S.indQ E) (E.nblock (k + 1)) =
         partialSum P (E.posCount (k + 1)) - partialSum Q (E.negCount (k + 1)) := by
-    /- TODO endpoint-sum formula: finite induction, assembled from
-    `hPositiveBlockSum` and `hNegativeBlockSum`. -/
+    /- 端点部分和公式：对轮数作有限归纳，依次拼接已经计算出的正块和与负块和。 -/
     intro k
     induction k with
     | zero =>
@@ -1288,7 +1354,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
       simpa [partialSum] using (sub_nonpos.mp hs)
   have hEndpoint : EndpointWitness (blockSeries a S.indP S.indQ E) α β := by
     refine ⟨?_, ?_, ?_, ?_⟩
-    · /- TODO endpoint-lower-bound: every block minimum is eventually above `α`. -/
+    · /- 最终下界：每个充分靠后的块中，所有部分和都不低于 `α-ε`。 -/
       intro ε hε
       have hL : Tendsto
           (fun k => lowerTarget α k - Q (rudinNegCount P Q hP hQ α β (k + 1) - 1))
@@ -1336,7 +1402,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
             partialSum (blockSeries a S.indP S.indQ E) (E.nblock (k + 1)) := by
           linarith
         exact hend.trans (hNegPartialBounds hkleft.le hkright).1
-    · /- TODO endpoint-lower-limit: negative block endpoints converge to `α`. -/
+    · /- 下端点极限：负块结束处的部分和趋于 `α`。 -/
       refine ⟨fun k => E.nblock (k + 1), ?_, ?_⟩
       · apply E.nblock_strictMono.comp
         intro i j hij
@@ -1364,7 +1430,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
         exact Eventually.of_forall fun k => by
           rw [← hpos, ← hneg]
           exact (hEndpointSums k).2.symm
-    · /- TODO endpoint-upper-bound: every block maximum is eventually below `β`. -/
+    · /- 最终上界：每个充分靠后的块中，所有部分和都不高于 `β+ε`。 -/
       intro ε hε
       have hshift : Tendsto (fun k : ℕ => k + 1) atTop atTop := by
         exact (show StrictMono (fun k : ℕ => k + 1) by
@@ -1421,7 +1487,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
         have hend : partialSum (blockSeries a S.indP S.indQ E) (E.pblock (k + 1)) ≤ β + ε := by
           linarith
         exact (hNegPartialBounds hkleft.le hkright).2.trans hend
-    · /- TODO endpoint-upper-limit: positive block endpoints converge to `β`. -/
+    · /- 上端点极限：正块结束处的部分和趋于 `β`。 -/
       refine ⟨fun k => E.pblock (k + 2), ?_, ?_⟩
       · apply E.pblock_strictMono.comp
         intro i j hij
@@ -1460,8 +1526,13 @@ theorem direct_block_evidence_of_rudin_hypotheses
   exact blockIndex_bijective_of_blockTag_bijective S E
     (blockTag_bijective_of_block_recursion E)
 
-/-- Top-level direct Rudin construction.  Rearrangement and order limits are
-separate consequences of the returned evidence.
+/-- Rudin 直接构造的顶层定理。
+
+假设原序列可无遗漏地分成无限正项与无限负项，正项和、负项绝对值之和都趋于 `+∞`，
+且两类项本身趋于零。则对任意 `α ≤ β`，可构造一个指标双射，使重排部分和具有
+下极限 `α` 和上极限 `β`。本定理返回组合双射与端点极限的统一证据；具体排列等价和
+`liminf`/`limsup` 等式可分别由 `directBlockEvidence_rearrangement` 与
+`liminf_limsup_of_endpointWitness` 提取。
 
 > **Entry**: analysis.series.riemann-rearrangement
 -/
