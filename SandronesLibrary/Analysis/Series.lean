@@ -112,6 +112,48 @@ theorem eventually_geometric_bound_of_root_bound {f : ℕ → ℝ} {r : ℝ}
   rw [hleft] at hpow
   simpa [Real.rpow_natCast, one_mul] using hpow
 
+/-- **最终上界形式的根值判别法**。
+
+若从某项开始，`|fₙ|^(1/n)` 不超过某个 `0≤r<1`，则原级数绝对收敛。证明先把根值
+不等式升到 `n` 次方，得到几何主项界，再调用比较判别法。
+
+> **Entry**: analysis.series.root-test
+-/
+theorem summable_of_eventually_root_le {f : ℕ → ℝ} {r : ℝ}
+    (hr0 : 0 ≤ r) (hr1 : r < 1)
+    (hroot : ∀ᶠ n in atTop, 1 ≤ n → |f n| ^ (1 / (n : ℝ)) ≤ r) :
+    Summable f := by
+  rcases eventually_geometric_bound_of_root_bound hr0 hr1 1 hroot with
+    ⟨C, hC, hbound⟩
+  apply summable_of_eventually_geometric_bound (r := r)
+    (by simpa [abs_of_nonneg hr0] using hr1) hC
+  simpa [abs_of_nonneg hr0] using hbound
+
+/-- **根值极限判别法（收敛方向）**。
+
+若 `|fₙ|^(1/n)` 的极限 `l<1`，在 `l` 与 `1` 之间选取非负数 `r`。极限定义保证根值
+最终小于 `r`，于是化归到上一条最终上界形式。 -/
+theorem summable_of_root_test {f : ℕ → ℝ} {l : ℝ}
+    (hl : l < 1)
+    (hlim : Tendsto (fun n => |f n| ^ (1 / (n : ℝ))) atTop (𝓝 l)) :
+    Summable f := by
+  let r : ℝ := (max l 0 + 1) / 2
+  have hr0 : 0 ≤ r := by
+    dsimp [r]
+    positivity
+  have hlr : l < r := by
+    dsimp [r]
+    have hlmax : l ≤ max l 0 := le_max_left _ _
+    linarith
+  have hr1 : r < 1 := by
+    dsimp [r]
+    have hmax : max l 0 < 1 := max_lt hl zero_lt_one
+    linarith
+  apply summable_of_eventually_root_le hr0 hr1
+  filter_upwards [(tendsto_order.1 hlim).2 r hlr] with n hn
+  intro _
+  exact hn.le
+
 /-- 实数项级数绝对收敛与收敛的等价判据。 -/
 /-
 > **Entry**: analysis.series.absolute

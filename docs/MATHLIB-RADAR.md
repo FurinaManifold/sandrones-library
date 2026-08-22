@@ -57,6 +57,16 @@
 - **出处**：`Mathlib/Analysis/SpecificLimits/Normed.lean`。
 - **谁在用**：`analysis.power-series.radius`。
 
+### `Real.rpow_le_rpow` / `Real.rpow_inv_natCast_pow`
+- **人话**：非负实数实幂保持大小关系，并把先取 `n` 次方根再取 `n` 次幂还原为原数。
+- **出处**：Mathlib 的实数幂接口。
+- **谁在用**：`analysis.series.root-test`。
+
+### `Summable.of_norm_bounded_eventually_nat` / `tendsto_order`
+- **人话**：最终被可和非负数列控制即可和；序拓扑中的极限可转成最终严格上下界。
+- **出处**：Mathlib 的无限和与序极限接口。
+- **谁在用**：`analysis.series.root-test`。
+
 ### `Summable.tsum_add`
 - **人话**：两个可和级数可以逐项相加，且总和等于两个总和之和。
 - **出处**：Mathlib 的无限和加法接口。

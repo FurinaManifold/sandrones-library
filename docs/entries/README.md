@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **195** 个条目（verified 195，pending 0）。
+共 **196** 个条目（verified 196，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -161,6 +161,7 @@
 - ✅ [`mertens.md`](mertens.md) — Mertens 级数乘积定理
 - ✅ [`rearrangement.md`](rearrangement.md) — 绝对收敛级数的重排不变性
 - ✅ [`riemann-rearrangement.md`](riemann-rearrangement.md) — Riemann 条件重排的直接分块构造
+- ✅ [`root-test.md`](root-test.md) — 数项级数根值判别法
 - ✅ [`taylor.md`](taylor.md) — 完整 Taylor 展开
 - ✅ [`tests.md`](tests.md) — 数项级数判别法
 

@@ -5491,7 +5491,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "781828c9f66977b1"
+    "proof_sha": "93193367be2f8a29"
   },
   {
     "id": "analysis.series.tests",
@@ -5517,9 +5517,10 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T04:56:56Z",
     "dependedOnBy": [
-      "analysis.power-series.radius"
+      "analysis.power-series.radius",
+      "analysis.series.root-test"
     ],
-    "proof_sha": "f51b418eaa378c4a",
+    "proof_sha": "93193367be2f8a29",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5551,7 +5552,7 @@
     "dependedOnBy": [
       "analysis.series.cauchy-product-absolute"
     ],
-    "proof_sha": "05c7119be7ac4383",
+    "proof_sha": "93193367be2f8a29",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5587,7 +5588,8 @@
       "propext",
       "Classical.choice",
       "Quot.sound"
-    ]
+    ],
+    "proof_sha": "93193367be2f8a29"
   },
   {
     "id": "analysis.series.rearrangement",
@@ -5611,6 +5613,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:08:05Z",
     "dependedOnBy": [],
+    "proof_sha": "93193367be2f8a29",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5905,6 +5908,37 @@
       "analysis.series.taylor"
     ],
     "proof_sha": "792dbe374d2b85f5",
+    "axioms": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  {
+    "id": "analysis.series.root-test",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "数项级数根值判别法",
+    "summary": "证明最终根值小于某个r<1时级数可和，并推出根值极限小于1的收敛判别",
+    "premises": [
+      "analysis.series.tests"
+    ],
+    "mathlib": [
+      "Real.rpow_le_rpow",
+      "Real.rpow_inv_natCast_pow",
+      "Summable.of_norm_bounded_eventually_nat",
+      "tendsto_order"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 II：Cauchy 根值判别法"
+    },
+    "lean_file": "Analysis/Series.lean",
+    "nl_file": "docs/entries/analysis/series/root-test.md",
+    "added_by": "codex",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "93193367be2f8a29",
     "axioms": [
       "propext",
       "Classical.choice",

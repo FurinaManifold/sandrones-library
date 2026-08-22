@@ -160,7 +160,7 @@
 | 批次 | 内容 | 状态 |
 |---|---|---|
 | `analysis.series.basic` | 级数定义、Cauchy 准则、几何级数、调和级数 | ✅ |
-| `analysis.series.tests` | 比较、比值、交错级数判别法（根值判别法另列待办） | ✅ |
+| `analysis.series.tests` | 比较、比值、交错级数判别法 | ✅ |
 | `analysis.series.power` | 收敛半径、幂级数逐项求导与逐项积分 | ✅ |
 | `analysis.series.taylor` | `exp`、`sin`、`cos` 的 Taylor 展开 | ✅ |
 
@@ -169,6 +169,7 @@
 | 批次 | 内容 | 前置 | 状态 |
 |---|---|---|---|
 | `analysis.series.absolute` | 绝对收敛、绝对收敛蕴含收敛、部分和趋于级数和 | `analysis.series.basic`, `analysis.series.tests` | ✅ |
+| `analysis.series.root-test` | 根值最终上界判别与根值极限小于 `1` 的收敛判别 | `analysis.series.tests` | ✅ |
 | `analysis.series.conditional` | 条件收敛、交错级数部分和收敛 | `analysis.series.tests` | ✅ |
 | `analysis.series.rearrangement` | 绝对收敛级数的重排不变性（Riemann 条件重排另列） | `analysis.series.absolute`, `analysis.series.conditional` | ✅ |
 | `analysis.series.riemann-rearrangement` | Riemann 条件重排的直接分块构造，并指定部分和的 `liminf` 与 `limsup` | `analysis.series.conditional`, `analysis.sequence.liminf-limsup` | ✅ |
