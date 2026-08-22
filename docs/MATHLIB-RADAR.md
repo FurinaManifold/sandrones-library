@@ -1236,6 +1236,10 @@
 - **人话**：`π/6、π/4、π/3` 三个高中常用特殊角的正弦、余弦和正切值。
 - **谁在用**：`analysis.trigonometric.special-angles`。
 
+### `Real.tan_add` / `Real.tan_sub` / `Real.tan_two_mul`
+- **人话**：正切的和角、差角和倍角公式；和差公式保留正切极点条件。
+- **谁在用**：`analysis.trigonometric.tan-identities`。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

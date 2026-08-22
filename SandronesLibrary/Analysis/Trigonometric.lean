@@ -207,5 +207,34 @@ theorem cos_pi_div_three : Real.cos (Real.pi / 3) = 1 / 2 := by
 theorem tan_pi_div_three : Real.tan (Real.pi / 3) = √3 := by
   exact Real.tan_pi_div_three
 
+/-! ### 正切的和差与倍角公式 -/
+
+/-- 正切和角公式；假设两角同时避开正切的极点，或两角同时为极点。 -/
+theorem tan_add {x y : ℝ} (h :
+    ((∀ k : ℤ, x ≠ (2 * (k : ℝ) + 1) * Real.pi / 2) ∧
+      ∀ l : ℤ, y ≠ (2 * (l : ℝ) + 1) * Real.pi / 2) ∨
+      ((∃ k : ℤ, x = (2 * (k : ℝ) + 1) * Real.pi / 2) ∧
+        ∃ l : ℤ, y = (2 * (l : ℝ) + 1) * Real.pi / 2)) :
+    Real.tan (x + y) = (Real.tan x + Real.tan y) /
+      (1 - Real.tan x * Real.tan y) := by
+  exact Real.tan_add h
+
+/-- 正切差角公式；极点条件与正切和角公式相同。 -/
+theorem tan_sub {x y : ℝ} (h :
+    ((∀ k : ℤ, x ≠ (2 * (k : ℝ) + 1) * Real.pi / 2) ∧
+      ∀ l : ℤ, y ≠ (2 * (l : ℝ) + 1) * Real.pi / 2) ∨
+      ((∃ k : ℤ, x = (2 * (k : ℝ) + 1) * Real.pi / 2) ∧
+        ∃ l : ℤ, y = (2 * (l : ℝ) + 1) * Real.pi / 2)) :
+    Real.tan (x - y) = (Real.tan x - Real.tan y) /
+      (1 + Real.tan x * Real.tan y) := by
+  exact Real.tan_sub h
+
+/-- 正切倍角公式。
+> **Entry**: analysis.trigonometric.tan-identities
+-/
+theorem tan_two_mul (x : ℝ) :
+    Real.tan (2 * x) = 2 * Real.tan x / (1 - Real.tan x ^ 2) := by
+  exact Real.tan_two_mul
+
 end Analysis.Trigonometric
 end SandronesLibrary

@@ -5359,5 +5359,36 @@
       "propext"
     ],
     "proof_sha": "427bb0dc6fb26cdc"
+  },
+  {
+    "id": "analysis.trigonometric.tan-identities",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正切的和差与倍角公式",
+    "summary": "带极点条件的正切和差公式与正切倍角公式",
+    "premises": [
+      "analysis.trigonometric.add-sub",
+      "analysis.trigonometric.double-half"
+    ],
+    "mathlib": [
+      "Real.tan_add",
+      "Real.tan_sub",
+      "Real.tan_two_mul"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：正切和差与倍角公式"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/tan-identities.md",
+    "added_by": "trigonometric-tan-identities-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "354a1b36b4317868"
   }
 ]
