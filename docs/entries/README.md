@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **171** 个条目（verified 171，pending 0）。
+共 **172** 个条目（verified 172，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -147,6 +147,10 @@
 - ✅ [`basic.md`](basic.md) — 初等特殊函数基础性质
 - ✅ [`log.md`](log.md) — 对数函数的基本性质
 - ✅ [`log-tan-pow.md`](log-tan-pow.md) — 对数、正切、幂函数与反三角函数
+
+## `analysis.trigonometric`
+
+- ✅ [`basic-identities.md`](basic-identities.md) — 三角函数基本对称性、周期性与有界性
 
 ## `linear-algebra.det`
 

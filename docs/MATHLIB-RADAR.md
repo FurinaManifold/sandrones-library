@@ -1212,6 +1212,10 @@
 - **人话**：指数、对数、正弦和余弦在教材常用点 `0、1、π/2、π` 的特殊值。
 - **谁在用**：`analysis.constants.special-values`，用于后续极限、级数和积分计算。
 
+### `Real.sin_neg` / `Real.cos_neg` / `Real.sin_add_two_pi` / `Real.cos_add_two_pi` / `Real.neg_one_le_sin` / `Real.cos_le_one`
+- **人话**：正弦奇、余弦偶，二者以 `2π` 为周期，并且都被 `[-1,1]` 控制。
+- **谁在用**：`analysis.trigonometric.basic-identities`，作为高中三角恒等式批次的基础。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

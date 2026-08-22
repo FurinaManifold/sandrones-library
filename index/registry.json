@@ -5159,5 +5159,41 @@
       "propext"
     ],
     "proof_sha": "38969d5854047d59"
+  },
+  {
+    "id": "analysis.trigonometric.basic-identities",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角函数基本对称性、周期性与有界性",
+    "summary": "正弦奇性、余弦偶性、2π 周期性以及正弦余弦的绝对值界",
+    "premises": [
+      "analysis.constants.pi-definition",
+      "analysis.constants.special-values"
+    ],
+    "mathlib": [
+      "Real.sin_neg",
+      "Real.cos_neg",
+      "Real.sin_add_two_pi",
+      "Real.cos_add_two_pi",
+      "Real.neg_one_le_sin",
+      "Real.sin_le_one",
+      "Real.neg_one_le_cos",
+      "Real.cos_le_one"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数基本性质"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/basic-identities.md",
+    "added_by": "trigonometric-basic-identities-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "549d8c88af9dc23e"
   }
 ]
