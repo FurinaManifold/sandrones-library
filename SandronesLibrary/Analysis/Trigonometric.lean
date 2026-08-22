@@ -65,5 +65,34 @@ theorem cos_sub (x y : ℝ) :
     Real.cos (x - y) = Real.cos x * Real.cos y + Real.sin x * Real.sin y := by
   exact Real.cos_sub x y
 
+/-! ### 倍角、降幂与平方恒等式 -/
+
+/-- 正弦倍角公式。 -/
+theorem sin_two_mul (x : ℝ) :
+    Real.sin (2 * x) = 2 * Real.sin x * Real.cos x := by
+  exact Real.sin_two_mul x
+
+/-- 余弦倍角公式。 -/
+theorem cos_two_mul (x : ℝ) :
+    Real.cos (2 * x) = 2 * Real.cos x ^ 2 - 1 := by
+  exact Real.cos_two_mul x
+
+/-- 正弦降幂公式。 -/
+theorem sin_sq_eq_half_sub (x : ℝ) :
+    Real.sin x ^ 2 = 1 / 2 - Real.cos (2 * x) / 2 := by
+  exact Real.sin_sq_eq_half_sub x
+
+/-- 余弦降幂公式。 -/
+theorem cos_sq (x : ℝ) :
+    Real.cos x ^ 2 = 1 / 2 + Real.cos (2 * x) / 2 := by
+  exact Real.cos_sq x
+
+/-- 正弦余弦平方和恒等式。
+> **Entry**: analysis.trigonometric.double-half
+-/
+theorem sin_sq_add_cos_sq (x : ℝ) :
+    Real.sin x ^ 2 + Real.cos x ^ 2 = 1 := by
+  exact Real.sin_sq_add_cos_sq x
+
 end Analysis.Trigonometric
 end SandronesLibrary

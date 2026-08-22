@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **173** 个条目（verified 173，pending 0）。
+共 **174** 个条目（verified 174，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -152,6 +152,7 @@
 
 - ✅ [`add-sub.md`](add-sub.md) — 正弦与余弦的和差公式
 - ✅ [`basic-identities.md`](basic-identities.md) — 三角函数基本对称性、周期性与有界性
+- ✅ [`double-half.md`](double-half.md) — 三角函数倍角与降幂公式
 
 ## `linear-algebra.det`
 

@@ -1220,6 +1220,10 @@
 - **人话**：正弦、余弦的和角与差角公式。
 - **谁在用**：`analysis.trigonometric.add-sub`，用于倍角、半角和积化和差公式。
 
+### `Real.sin_two_mul` / `Real.cos_two_mul` / `Real.sin_sq_eq_half_sub` / `Real.cos_sq` / `Real.sin_sq_add_cos_sq`
+- **人话**：正弦余弦倍角、降幂和平方和恒等式。
+- **谁在用**：`analysis.trigonometric.double-half`，用于后续积化和差与三角积分。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

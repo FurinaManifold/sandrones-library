@@ -5226,5 +5226,37 @@
       "propext"
     ],
     "proof_sha": "db1a5eba81212aba"
+  },
+  {
+    "id": "analysis.trigonometric.double-half",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角函数倍角与降幂公式",
+    "summary": "正弦余弦倍角、降幂和平方和恒等式",
+    "premises": [
+      "analysis.trigonometric.add-sub"
+    ],
+    "mathlib": [
+      "Real.sin_two_mul",
+      "Real.cos_two_mul",
+      "Real.sin_sq_eq_half_sub",
+      "Real.cos_sq",
+      "Real.sin_sq_add_cos_sq"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "高中数学：三角函数倍角、半角与降幂公式"
+    },
+    "lean_file": "Analysis/Trigonometric.lean",
+    "nl_file": "docs/entries/analysis/trigonometric/double-half.md",
+    "added_by": "trigonometric-double-half-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "65504a594090cc7f"
   }
 ]
