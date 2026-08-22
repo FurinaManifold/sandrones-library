@@ -92,5 +92,25 @@ theorem root_test_of_eventually_geometric_majorant {f : ℕ → ℝ}
   rcases hroot with ⟨r, C, hr, hC, hbound⟩
   exact summable_of_eventually_geometric_bound hr hC hbound
 
+/-- 最终根值上界推出几何主项界；第零项由 `n₀` 排除。 -/
+theorem eventually_geometric_bound_of_root_bound {f : ℕ → ℝ} {r : ℝ}
+    (hr : 0 ≤ r) (hr1 : r < 1) (n₀ : ℕ)
+    (hroot : ∀ᶠ n in atTop, n₀ ≤ n → |f n| ^ (1 / (n : ℝ)) ≤ r) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ᶠ n in atTop, |f n| ≤ C * r ^ n := by
+  refine ⟨1, zero_le_one, ?_⟩
+  filter_upwards [hroot, eventually_ge_atTop (max n₀ 1)] with n hn hN
+  have hn0 : n₀ ≤ n := (le_max_left n₀ 1).trans hN
+  have hnpos : 0 < n := lt_of_lt_of_le Nat.zero_lt_one
+    ((le_max_right n₀ 1).trans hN)
+  have hncast : (0 : ℝ) < n := by exact_mod_cast hnpos
+  have hpow := Real.rpow_le_rpow (x := |f n| ^ (1 / (n : ℝ)))
+    (y := r) (z := (n : ℝ)) (by positivity) (hn hn0) hncast.le
+  have hleft : (|f n| ^ (1 / (n : ℝ))) ^ (n : ℝ) = |f n| := by
+    rw [show (1 / (n : ℝ)) = (n : ℝ)⁻¹ by simp [one_div]]
+    simpa [Real.rpow_natCast] using
+      (Real.rpow_inv_natCast_pow (abs_nonneg (f n)) (Nat.ne_of_gt hnpos))
+  rw [hleft] at hpow
+  simpa [Real.rpow_natCast, one_mul] using hpow
+
 end Analysis.Series
 end SandronesLibrary
