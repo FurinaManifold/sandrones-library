@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **167** 个条目（verified 167，pending 0）。
+共 **168** 个条目（verified 168，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -89,6 +89,7 @@
 
 ## `analysis.limits`
 
+- ✅ [`asymptotic.md`](asymptotic.md) — 指数、对数与幂函数的渐进比较
 - ✅ [`classical.md`](classical.md) — 四个经典重要极限
 
 ## `analysis.mvt`

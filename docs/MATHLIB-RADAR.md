@@ -1196,6 +1196,10 @@
 - **人话**：反正切、反正弦、反余弦的连续性与导数，以及 `tan` 与 `arctan` 的互逆恒等式。
 - **谁在用**：`analysis.special-functions.tan-pow`，用于反三角函数的教材层性质。
 
+### `Real.tendsto_log_atTop` / `Real.isLittleO_log_id_atTop` / `Real.tendsto_exp_div_pow_atTop` / `Real.isLittleO_pow_exp_atTop`
+- **人话**：对数趋于无穷但比恒等函数慢，指数函数比任意固定自然幂增长更快。
+- **谁在用**：`analysis.limits.asymptotic`，用于无穷小与无穷大阶比较。
+
 ### `HasDerivAt.tendsto_slope_zero` / `Real.cos_two_mul_eq_one_sub`
 - **人话**：导数给出一点处的差商极限；余弦二倍角公式把余弦二阶极限化为正弦平方极限。
 - **谁在用**：`analysis.limits.classical`，用于四个经典重要极限。

@@ -5025,5 +5025,38 @@
       "propext"
     ],
     "proof_sha": "6f126b0aaed3be02"
+  },
+  {
+    "id": "analysis.limits.asymptotic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "指数、对数与幂函数的渐进比较",
+    "summary": "对数相对于恒等函数为高阶无穷小，指数相对于任意固定自然幂为高阶无穷大",
+    "premises": [
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log",
+      "analysis.limits.classical"
+    ],
+    "mathlib": [
+      "Real.tendsto_log_atTop",
+      "Real.isLittleO_log_id_atTop",
+      "Real.tendsto_exp_div_pow_atTop",
+      "Real.isLittleO_pow_exp_atTop"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析 I：无穷小与无穷大的阶"
+    },
+    "lean_file": "Analysis/Asymptotic.lean",
+    "nl_file": "docs/entries/analysis/limits/asymptotic.md",
+    "added_by": "limits-asymptotic-batch",
+    "added_at": "2026-08-22T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7d6351c28c694e09"
   }
 ]
