@@ -4467,7 +4467,8 @@
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [
       "real-analysis.measure.tonelli",
-      "real-analysis.lp.basic"
+      "real-analysis.lp.basic",
+      "real-analysis.lp.holder"
     ],
     "proof_sha": "74fb033d578801ec"
   },
@@ -6498,10 +6499,45 @@
     "nl_file": "docs/entries/real-analysis/lp/basic.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:42:25Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lp.holder"
+    ],
     "family": "real-analysis.lp",
     "variant": "generated",
     "proof_sha": "98635a6373052319",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "real-analysis.lp.holder",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hölder 不等式",
+    "summary": "共轭指数下的乘积积分估计及Lᵖ乘Lᑫ包含于L¹",
+    "premises": [
+      "real-analysis.lp.basic",
+      "real-analysis.measure.lintegral"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral_mul_norm_le_Lp_mul_Lq",
+      "MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg",
+      "MeasureTheory.MemLp.integrable_mul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "实分析：Hölder 不等式"
+    },
+    "lean_file": "RealAnalysis/LpHolder.lean",
+    "nl_file": "docs/entries/real-analysis/lp/holder.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:45:44Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.lp",
+    "variant": "generated",
+    "proof_sha": "63d9e7f65f19f67b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

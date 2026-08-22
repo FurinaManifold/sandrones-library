@@ -1606,6 +1606,15 @@
 - **坑**：`norm_toLp` 的右侧是 `ENNReal.toReal (eLpNorm ...)`；转成实数合法是因为
   `MemLp` 已含有限性。不要在没有 `MemLp` 前提时直接对 `eLpNorm` 取实数值并当作范数。
 
+### `MeasureTheory.integral_mul_norm_le_Lp_mul_Lq` / `MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg` / `MeasureTheory.MemLp.integrable_mul`
+- **人话**：Hölder 不等式的范数版本、非负实函数版本，以及抽象的
+  `Lᵖ · Lᑫ ⊆ L¹` 可积性结论。
+- **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Basic.lean`、
+  `Mathlib/MeasureTheory/Function/L1Space/Integrable.lean`。
+- **谁在用**：`real-analysis.lp.holder`。
+- **坑**：前两个定理用实指数和 `Real.HolderConjugate`；乘积可积性用扩展实指数及
+  `ENNReal.HolderTriple p q 1`。两套接口不可在不转换指数的情况下混用。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

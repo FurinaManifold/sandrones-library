@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **211** 个条目（verified 211，pending 0）。
+共 **212** 个条目（verified 212，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -241,6 +241,7 @@
 ## `real-analysis.lp`
 
 - ✅ [`basic.md`](basic.md) — Lᵖ 空间与几乎处处等价类
+- ✅ [`holder.md`](holder.md) — Hölder 不等式
 
 ## `real-analysis.measure`
 
