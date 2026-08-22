@@ -121,6 +121,21 @@
 | `analysis.limits.classical` | `sin x/x`、`(1-cos x)/x²`、`(exp x-1)/x`、`log(1+x)/x` | ✅ |
 | `analysis.limits.asymptotic` | 指数、对数和幂函数的无穷小/无穷大阶比较 | ✅ |
 
+## 第七章补充：重要常数与零散基础结果
+
+> 这些结论不宜埋在特殊函数条目中。先建立常数的教材层定义和基本数值性质，
+> 再在级数或积分工具完备后处理无理性；其中 `e` 的无理性需要独立的算术估计，
+> 不能由 `exp` 的连续性或导数公式直接推出。
+
+| 批次 | 内容 | 前置 | 状态 |
+|---|---|---|---|
+| `analysis.constants.e-definition` | `e := exp 1` 的定义接口、正性、`2 < e < 3`、对数反函数关系 | `analysis.special-functions.basic`, `analysis.special-functions.log` | 🔲 |
+| `analysis.constants.pi-definition` | `π` 的教材层定义接口、正性、`π ≠ 0`、圆周率基本三角值和周期关系 | `analysis.special-functions.basic`, `analysis.special-functions.tan-pow` | 🔲 |
+| `analysis.constants.special-values` | `exp 0`、`exp 1`、`log 1`、`sin/cos` 在 `0, π/2, π` 的重要值 | `analysis.constants.e-definition`, `analysis.constants.pi-definition` | 🔲 |
+| `analysis.constants.sqrt-two-irrational` | `√2` 无理性（作为无理数证明模板） | `analysis.real.archimedean`, `analysis.real.construction-cauchy` | 🔲 |
+| `analysis.constants.pi-irrational` | `π` 无理性 | `analysis.constants.pi-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
+| `analysis.constants.e-irrational` | `e` 无理性 | `analysis.constants.e-definition`, `analysis.series.basic` 或 Riemann 积分工具 | 🔲 |
+
 ## 第八章补充：数项级数与幂级数
 
 | 批次 | 内容 | 状态 |
