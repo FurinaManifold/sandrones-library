@@ -249,6 +249,7 @@
 
 - ✅ [`basic.md`](basic.md) — Lᵖ 空间与几乎处处等价类
 - ✅ [`chebyshev.md`](chebyshev.md) — Chebyshev 不等式
+- ✅ [`complete.md`](complete.md) — Lᵖ空间的完备性
 - ✅ [`holder.md`](holder.md) — Hölder 不等式
 - ✅ [`minkowski.md`](minkowski.md) — Minkowski 不等式
 

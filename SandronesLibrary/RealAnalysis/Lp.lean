@@ -5,6 +5,7 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.RealAnalysis.ProductMeasure
 import Mathlib.MeasureTheory.Function.LpSpace.Basic
+import Mathlib.MeasureTheory.Function.LpSpace.Complete
 
 /-!
 # `Lᵖ` 空间：定义、几乎处处等价类与范数
@@ -16,12 +17,13 @@ import Mathlib.MeasureTheory.Function.LpSpace.Basic
 * `MeasureTheory.Lp E p μ` 是把函数按 `μ`-几乎处处相等取商后，再限制到有限
   `eLpNorm` 的真正赋范空间。
 
-本文件固定这两层之间的教材接口。Hölder、Minkowski 和完备性将在后续独立条目中建立。
+本文件固定这两层之间的教材接口，并在最后记录 `p ≥ 1` 时的 Riesz–Fischer 完备性。
+Hölder、Chebyshev 与 Minkowski 等估计集中放在 `LpInequalities.lean`。
 -/
 
 namespace SandronesLibrary.RealAnalysis.Lp
 
-open MeasureTheory
+open MeasureTheory Filter Topology
 open scoped ENNReal
 
 variable {α E : Type*} [MeasurableSpace α] [NormedAddCommGroup E]
@@ -70,5 +72,30 @@ theorem add_ae_eq (f g : LpSpace E p μ) :
 theorem zero_iff_ae_zero (f : LpSpace E p μ) :
     f = 0 ↔ f =ᵐ[μ] (0 : α → E) := by
   exact MeasureTheory.Lp.eq_zero_iff_ae_eq_zero
+
+/-! ## Riesz–Fischer 完备性 -/
+
+/-- **`Lᵖ` 空间的完备性（Riesz–Fischer 定理）**：若值域 `E` 完备且 `p ≥ 1`，
+则按几乎处处相等取商后的 `Lᵖ` 空间也是完备空间。
+
+指数条件使用 `Fact (1 ≤ p)`，因为 `LpSpace E p μ` 的范数和度量结构本身就需要
+在类型类搜索阶段知道 `p ≥ 1`。在具体应用中可用
+`letI : Fact (1 ≤ p) := ⟨hp⟩` 把普通不等式假设安装为局部实例。
+
+> **Entry**: real-analysis.lp.complete
+-/
+theorem completeSpace_lp [CompleteSpace E] [Fact (1 ≤ p)] :
+    CompleteSpace (LpSpace E p μ) := by
+  infer_instance
+
+/-- **Riesz–Fischer 的序列形式**：`Lᵖ` 中的每个 Cauchy 列都收敛到某个 `Lᵖ`
+元素。这是完备性的教材展开式，便于后续直接构造极限函数时引用。
+
+极限元素是几乎处处等价类，而不是预先指定的逐点函数；因此结论使用 `LpSpace`
+中的范数拓扑收敛。 -/
+theorem cauchySeq_tendsto_lp [CompleteSpace E] [Fact (1 ≤ p)]
+    {u : ℕ → LpSpace E p μ} (hu : CauchySeq u) :
+    ∃ f : LpSpace E p μ, Tendsto u atTop (𝓝 f) := by
+  exact CompleteSpace.complete hu
 
 end SandronesLibrary.RealAnalysis.Lp

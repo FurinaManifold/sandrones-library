@@ -1632,6 +1632,15 @@
 - **坑**：二者的指数类型不同：前者是 `ℝ≥0∞` 并覆盖 `∞`，后者是 `ℝ`；都要求
   `1 ≤ p`。显式版本的函数值域为 `ℝ≥0∞`，不能直接代入带符号实函数。
 
+### `MeasureTheory.Lp.instCompleteSpace` / `CompleteSpace.complete`
+- **人话**：值域完备且 `p≥1` 时，`Lᵖ` 空间完备；通用完备空间接口进一步把任意
+  Cauchy 滤子（特别是 Cauchy 序列）送到某个极限。
+- **出处**：`Mathlib/MeasureTheory/Function/LpSpace/Complete.lean`、
+  `Mathlib/Topology/MetricSpace/Completion.lean`。
+- **谁在用**：`real-analysis.lp.complete`。
+- **坑**：`Lp` 的拓扑实例本身要求 `[Fact (1 ≤ p)]`，不能只在证明体内迟到地提供
+  普通假设 `hp : 1 ≤ p`。具体使用时应先把 `hp` 安装为局部 `Fact` 实例。
+
 ### `Real.young_inequality` / `Real.inner_le_Lp_mul_Lq` / `Finset.sum_mul_sq_le_sq_mul_sq` / `Real.Lp_add_le`
 - **人话**：有限实数族上的 Young、Hölder、Cauchy–Schwarz 与 Minkowski 不等式，
   是积分型 `Lᵖ` 不等式之前的有限维原型。
