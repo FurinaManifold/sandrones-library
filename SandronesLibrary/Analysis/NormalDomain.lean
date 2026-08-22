@@ -260,4 +260,121 @@ theorem riemannBoxIntegral_xNormalDomain_eq_iteratedRiemann
   rw [riemannIntegral_eq_interval hab houter]
   exact integral_Icc_eq_integral_Ioc
 
+/-! ## `y`-型正常区域 -/
+
+/-- `y`-型正常区域：`c ≤ y ≤ d` 且 `left y ≤ x ≤ right y`。 -/
+def yNormalDomain (c d : ℝ) (left right : ℝ → ℝ) : Set (ℝ × ℝ) :=
+  {p | p.2 ∈ Icc c d ∧ p.1 ∈ Icc (left p.2) (right p.2)}
+
+/-- 可测左右边界围成的 `y`-型正常区域可测。 -/
+theorem measurableSet_yNormalDomain_of_measurable {c d : ℝ} {left right : ℝ → ℝ}
+    (hleft : Measurable left) (hright : Measurable right) :
+    MeasurableSet (yNormalDomain c d left right) := by
+  unfold yNormalDomain
+  measurability
+
+/-- `y`-型正常区域的示性函数按水平截面分解。 -/
+lemma indicator_yNormalDomain_section (f : ℝ × ℝ → ℝ) (c d : ℝ)
+    (left right : ℝ → ℝ) (y : ℝ) :
+    (fun x ↦ (yNormalDomain c d left right).indicator f (x, y)) =
+      (Icc c d).indicator
+        (fun y ↦ (Icc (left y) (right y)).indicator (fun x ↦ f (x, y))) y := by
+  funext x
+  by_cases hy : y ∈ Icc c d
+  · by_cases hx : x ∈ Icc (left y) (right y)
+    · simp only [mem_Icc] at hy hx
+      simp [Set.indicator, yNormalDomain, hy, hx]
+    · simp only [mem_Icc] at hy hx
+      simp [Set.indicator, yNormalDomain, hy, hx]
+  · simp only [mem_Icc] at hy
+    simp [Set.indicator, yNormalDomain, hy]
+
+/-- **`y`-型正常区域的 Fubini 公式**：先沿水平截面对 `x` 积分，再对 `y` 积分。
+左右边界只需可测。 -/
+theorem integral_yNormalDomain_eq_iterated_of_measurable
+    {f : ℝ × ℝ → ℝ} {c d : ℝ} {left right : ℝ → ℝ}
+    (hleft : Measurable left) (hright : Measurable right)
+    (hf : IntegrableOn f (yNormalDomain c d left right) (volume.prod volume)) :
+    (∫ z in yNormalDomain c d left right, f z ∂(volume.prod volume)) =
+      ∫ y in Icc c d, ∫ x in Icc (left y) (right y), f (x, y) := by
+  have hD := measurableSet_yNormalDomain_of_measurable
+    (c := c) (d := d) hleft hright
+  have hfi : Integrable ((yNormalDomain c d left right).indicator f)
+      (volume.prod volume) := hf.integrable_indicator hD
+  calc
+    (∫ z in yNormalDomain c d left right, f z ∂(volume.prod volume)) =
+        ∫ z, (yNormalDomain c d left right).indicator f z ∂(volume.prod volume) :=
+      (integral_indicator hD).symm
+    _ = ∫ y, ∫ x, (yNormalDomain c d left right).indicator f (x, y) :=
+      integral_prod_symm _ hfi
+    _ = ∫ y, (Icc c d).indicator
+        (fun y ↦ ∫ x, (Icc (left y) (right y)).indicator (fun x ↦ f (x, y)) x) y := by
+      congr 1
+      funext y
+      rw [indicator_yNormalDomain_section]
+      by_cases hy : y ∈ Icc c d <;> simp [hy]
+    _ = ∫ y in Icc c d, ∫ x in Icc (left y) (right y), f (x, y) := by
+      simp_rw [integral_indicator measurableSet_Icc]
+
+/-- 把 `y`-型正常区域搬到盒积分的 `Fin 2 → ℝ` 坐标。 -/
+def yNormalDomainFin (c d : ℝ) (left right : ℝ → ℝ) : Set (Fin 2 → ℝ) :=
+  MeasurableEquiv.finTwoArrow ⁻¹' yNormalDomain c d left right
+
+/-- **`y`-型区域的 Riemann--Fubini 计算桥**：多元 Riemann 积分先变成 Lebesgue
+积分，交换 Fubini 次序后，再把每条水平截面转回一维 Riemann 积分。区域不需要
+Jordan 可测，左右边界也只需可测。 -/
+theorem riemannBoxIntegral_yNormalDomain_eq_integral_riemann_of_aeContinuous
+    {f : ℝ × ℝ → ℝ} {c d : ℝ} {left right : ℝ → ℝ}
+    (hleft : Measurable left) (hright : Measurable right)
+    (hlr : ∀ y ∈ Icc c d, left y < right y)
+    (hsection : ∀ y ∈ Icc c d,
+      ContinuousOn (fun x ↦ f (x, y)) (Icc (left y) (right y)))
+    (hfi : IntegrableOn f (yNormalDomain c d left right) (volume.prod volume))
+    (I : RiemannBox 2)
+    (hb : ∃ C : ℝ, ∀ v ∈ Box.Icc I,
+      ‖(yNormalDomainFin c d left right).indicator
+        (fun w ↦ f (MeasurableEquiv.finTwoArrow w)) v‖ ≤ C)
+    (hc : ∀ᵐ v ∂volume, ContinuousAt
+      ((yNormalDomainFin c d left right).indicator
+        (fun w ↦ f (MeasurableEquiv.finTwoArrow w))) v)
+    (hsub : yNormalDomainFin c d left right ⊆ (I : Set (Fin 2 → ℝ))) :
+    riemannBoxIntegral
+        ((yNormalDomainFin c d left right).indicator
+          (fun v ↦ f (MeasurableEquiv.finTwoArrow v))) I =
+      ∫ y in Icc c d, riemannIntegral (fun x ↦ f (x, y)) (left y) (right y) := by
+  have hD := measurableSet_yNormalDomain_of_measurable
+    (c := c) (d := d) hleft hright
+  have hDFin : MeasurableSet (yNormalDomainFin c d left right) :=
+    hD.preimage MeasurableEquiv.finTwoArrow.measurable
+  calc
+    riemannBoxIntegral
+        ((yNormalDomainFin c d left right).indicator
+          (fun v ↦ f (MeasurableEquiv.finTwoArrow v))) I =
+        ∫ v in yNormalDomainFin c d left right,
+          f (MeasurableEquiv.finTwoArrow v) :=
+      (hasRiemannBoxIntegral_indicator_eq_setIntegral_of_aeContinuous
+        hDFin.nullMeasurableSet I hb hc hsub).integral_eq
+    _ = ∫ p in yNormalDomain c d left right, f p := by
+      let e : (Fin 2 → ℝ) → ℝ × ℝ := MeasurableEquiv.finTwoArrow
+      let g : ℝ × ℝ → ℝ := (yNormalDomain c d left right).indicator f
+      have he : MeasurePreserving e volume (volume.prod volume) :=
+        volume_preserving_finTwoArrow ℝ
+      have hemb : MeasurableEmbedding e := MeasurableEquiv.finTwoArrow.measurableEmbedding
+      calc
+        _ = ∫ v, (yNormalDomainFin c d left right).indicator
+            (fun v ↦ f (MeasurableEquiv.finTwoArrow v)) v :=
+          (integral_indicator hDFin).symm
+        _ = ∫ v, g (e v) := by rfl
+        _ = ∫ p, g p ∂(volume.prod volume) := he.integral_comp hemb g
+        _ = _ := integral_indicator hD
+    _ = ∫ y in Icc c d, ∫ x in Icc (left y) (right y), f (x, y) :=
+      integral_yNormalDomain_eq_iterated_of_measurable hleft hright hfi
+    _ = ∫ y in Icc c d,
+        riemannIntegral (fun x ↦ f (x, y)) (left y) (right y) := by
+      apply setIntegral_congr_fun measurableSet_Icc
+      intro y hy
+      dsimp
+      rw [riemannIntegral_eq_interval (hlr y hy) (hsection y hy)]
+      exact integral_Icc_eq_integral_Ioc
+
 end SandronesLibrary.Analysis.Multivariable

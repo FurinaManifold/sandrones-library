@@ -129,7 +129,7 @@
 - ✅ [`jordan-region.md`](jordan-region.md) — Jordan 可测区域与边界零体积
 - ✅ [`jordan-riemann-bridge.md`](jordan-riemann-bridge.md) — Jordan 区域零延拓积分桥
 - ✅ [`multivariable-riemann.md`](multivariable-riemann.md) — 闭盒多元 Riemann 积分及数值桥
-- ✅ [`normal-domain.md`](normal-domain.md) — `x`-型正常区域的变限累次积分
+- ✅ [`normal-domain.md`](normal-domain.md) — `x`/`y`-型正常区域、Fubini 与 Riemann 降维
 - ✅ [`rectangle-integral.md`](rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 接口
 
 ## `analysis.mvt`

@@ -2,7 +2,7 @@
 id: analysis.multivariable.x-normal-domain
 kind: theorem
 state: verified
-title: "x 型正常区域的变限累次积分"
+title: "x/y 型正常区域的变限累次积分"
 premises: ["analysis.multivariable.jordan-riemann-bridge", "real-analysis.measure.fubini", "real-analysis.riemann.eq-lebesgue-general"]
 mathlib: ["MeasureTheory.integral_prod", "MeasureTheory.integral_indicator", "MeasureTheory.volume_preserving_finTwoArrow"]
 provenance:
@@ -50,6 +50,11 @@ Riemann 可积性所需条件直接施加于真正参与盒积分的零延拓函
 `riemannBoxIntegral_xNormalDomain_eq_integral_riemann` 中：边界零测自动提供零延拓的
 几乎处处连续性。它不再限制核心计算接口可以处理的区域。
 
-# 后续
+# y 型区域
 
-下一条给出交换坐标后的 `y`-型正常区域公式；两者共同支持交换积分次序和区域重写。
+`yNormalDomain c d left right` 表示
+`{(x,y) | c ≤ y ≤ d, left y ≤ x ≤ right y}`。可测左右边界已经足以建立区域可测性；
+`integral_yNormalDomain_eq_iterated_of_measurable` 使用反向 Fubini，先对 `x` 积分。
+对应的 Riemann 降维桥同样不要求区域 Jordan 可测。
+
+`x`/`y` 两套接口共同支持交换积分次序和区域重写。下一项进入多重积分换元公式。
