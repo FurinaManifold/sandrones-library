@@ -275,8 +275,9 @@
   - ✅ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
   - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
 - **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础、Hölder、Chebyshev、Minkowski 与完备性，整批完成。
-- **R6 多元微积分**（待做）。
-- **R6 多元微积分（照常）**：ℝⁿ 重积分/换元、曲线积分、曲面积分、Green/Gauss/Stokes 公式、外微分初步。
+- **R6 多元微积分**（进行中）：✅ Fréchet 全微分、方向导数与梯度；下一步补齐坐标偏导与
+  Jacobian，随后依次推进 Hessian/Taylor、反函数与隐函数定理、重积分换元、曲线积分、
+  曲面积分以及 Green/Gauss/Stokes 公式。
 
 ### Phase 6 复分析（C1-C3）
 

@@ -253,6 +253,11 @@
 - ✅ [`holder.md`](holder.md) — Hölder 不等式
 - ✅ [`minkowski.md`](minkowski.md) — Minkowski 不等式
 
+## `real-analysis.multivariable`
+
+- ✅ [`frechet.md`](frechet.md) — Fréchet 全微分与方向导数
+- ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
+
 ## `real-analysis.measure`
 
 - ✅ [`caratheodory.md`](caratheodory.md) — Carathéodory 定理

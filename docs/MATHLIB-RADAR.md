@@ -1677,6 +1677,18 @@
 - **坑**：`CauchySeq` 使用底层一致结构；范数空间中它与范数 Cauchy 等价，但在
   一般拓扑空间中不能无条件写 ε–N 距离判据。
 
+### `HasFDerivAt` / `DifferentiableAt` / `HasFDerivAt.comp` / `HasFDerivAt.fderiv`
+- **人话**：Fréchet 全微分的存在、可微性、链式法则以及已知导数与 `fderiv` 的一致性。
+- **出处**：`Mathlib/Analysis/Calculus/FDeriv/Basic.lean`、`FDeriv/Comp.lean`。
+- **谁在用**：`real-analysis.multivariable.frechet`。
+- **坑**：`fderiv` 在不可微点取零；计算公式必须携带可微或 `HasFDerivAt` 前提。
+
+### `HasGradientAt` / `HasGradientAt.hasFDerivAt` / `HasGradientAt.fderiv_apply`
+- **人话**：用 Riesz 表示把实值函数的全微分写成梯度内积，并计算任意方向导数。
+- **出处**：`Mathlib/Analysis/Calculus/Gradient/Basic.lean`。
+- **谁在用**：`real-analysis.multivariable.gradient`。
+- **坑**：梯度需要内积和完备性；一般赋范空间只有全微分，不一定存在梯度向量。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

@@ -7020,7 +7020,8 @@
     "added_at": "2026-08-22T12:12:15Z",
     "dependedOnBy": [
       "topology.normed-space.inequalities",
-      "topology.normed-space.banach"
+      "topology.normed-space.banach",
+      "real-analysis.multivariable.frechet"
     ],
     "family": "topology.normed-space",
     "variant": "generated",
@@ -7056,7 +7057,9 @@
     "nl_file": "docs/entries/topology/normed-space/inequalities.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:12:15Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.multivariable.frechet"
+    ],
     "family": "topology.normed-space",
     "variant": "generated",
     "proof_sha": "67de1cdb940ac569",
@@ -7100,5 +7103,75 @@
       "propext"
     ],
     "_sha": "67de1cdb940ac569"
+  },
+  {
+    "id": "real-analysis.multivariable.frechet",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Fréchet全微分与方向导数",
+    "summary": "全微分、可微蕴含连续、方向导数与多元链式法则",
+    "premises": [
+      "topology.normed-space.def",
+      "topology.normed-space.inequalities"
+    ],
+    "mathlib": [
+      "HasFDerivAt",
+      "DifferentiableAt",
+      "HasFDerivAt.comp",
+      "HasFDerivAt.fderiv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：Fréchet导数与全微分"
+    },
+    "lean_file": "RealAnalysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/real-analysis/multivariable/frechet.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:20:53Z",
+    "dependedOnBy": [
+      "real-analysis.multivariable.gradient"
+    ],
+    "family": "real-analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "a12dc4ecb516fa4d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "_sha": "a12dc4ecb516fa4d"
+  },
+  {
+    "id": "real-analysis.multivariable.gradient",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "梯度与方向导数",
+    "summary": "梯度表示全微分以及方向导数等于梯度内积",
+    "premises": [
+      "real-analysis.multivariable.frechet"
+    ],
+    "mathlib": [
+      "HasGradientAt",
+      "HasGradientAt.hasFDerivAt",
+      "HasGradientAt.fderiv_apply"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：梯度"
+    },
+    "lean_file": "RealAnalysis/MultivariableCalculus.lean",
+    "nl_file": "docs/entries/real-analysis/multivariable/gradient.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T12:20:53Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.multivariable",
+    "variant": "generated",
+    "proof_sha": "a12dc4ecb516fa4d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "_sha": "a12dc4ecb516fa4d"
   }
 ]
