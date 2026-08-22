@@ -11,6 +11,10 @@ import Mathlib
 本文件当前条目：
 
 * **settheory.set.ext**（外延性原理）：两个集合相等 ⟺ 元素完全相同。
+* **settheory.set.subset.definition**（子集的逐元素刻画）：
+  `A ⊆ B` 当且仅当 `A` 的每个元素都属于 `B`。
+* **settheory.set.subset.trans / antisymm / empty-subset**：
+  包含关系的传递性、反对称性与空集最小性。
 * **settheory.set.operations.inter-distrib**（交对并的分配律）：
   `A ∩ (B ∪ C) = (A ∩ B) ∪ (A ∩ C)`，依赖 `settheory.set.ext`。
 * **settheory.set.operations.complement-union**（德摩根律之一）：
@@ -66,6 +70,18 @@ theorem inter_distrib_left {α : Type*} (A B C : Set α) :
     rintro (⟨hxA, hxB⟩ | ⟨hxA, hxC⟩)
     · exact ⟨hxA, Or.inl hxB⟩
     · exact ⟨hxA, Or.inr hxC⟩
+
+/--
+> **Entry**: settheory.set.subset.definition
+> **一句话**: `A ⊆ B` 当且仅当 `A` 的每个元素都属于 `B`。
+> **直觉**: 子集不是额外的代数结构；它就是一个逐元素的全称命题。
+> **依赖**: 无
+> **mathlib**: 无（`Set.Subset` 的定义展开）
+-/
+theorem subset_iff_forall_mem {α : Type*} (A B : Set α) :
+    A ⊆ B ↔ ∀ x : α, x ∈ A → x ∈ B := by
+  -- `A ⊆ B` 在 Lean 中定义为右侧的逐元素函数类型，因此两边定义相同。
+  rfl
 
 /--
 > **Entry**: settheory.set.subset.trans

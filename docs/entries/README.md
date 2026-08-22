@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **206** 个条目（verified 206，pending 0）。
+共 **207** 个条目（verified 207，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -303,6 +303,7 @@
 ## `settheory.set.subset`
 
 - ✅ [`antisymm.md`](antisymm.md) — 包含的反对称性
+- ✅ [`definition.md`](definition.md) — 子集的逐元素刻画
 - ✅ [`trans.md`](trans.md) — 包含的传递性
 
 ## `settheory.zorn`

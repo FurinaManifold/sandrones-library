@@ -6340,5 +6340,27 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "settheory.set.subset.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "子集的逐元素刻画",
+    "summary": "A ⊆ B 当且仅当 A 的每个元素都属于 B",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+    },
+    "lean_file": "SetTheory/Set.lean",
+    "nl_file": "docs/entries/settheory/set/subset/definition.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-22T11:35:27Z",
+    "dependedOnBy": [],
+    "family": "settheory.set.subset",
+    "variant": "ecnu",
+    "proof_sha": "4dea626a30aeab72",
+    "axioms": []
   }
 ]
