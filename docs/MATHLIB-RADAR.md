@@ -1980,6 +1980,48 @@
 - **谁在用**：`analysis.multivariable.coordinate-integrals`。
 - **坑**：行列式是 `r`，换元公式实际使用 `|r|`；只有在标准区域 `r>0` 上才能化成 `r`。
 
+### `HasDerivAt.smul_const`
+- **人话**：若实函数 `f` 在一点的导数为 `f'`，则固定向量倍函数
+  `x ↦ f x • v` 的导数为 `f' • v`。
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/Mul.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，用于计算仿射直线速度。
+- **坑**：这是“标量函数乘固定向量”，不要与两个变量函数相乘的乘积法则混淆。
+
+### `intervalIntegral.integral_const`
+- **人话**：常向量在有向区间上的积分为 `(b-a) • c`；当 `a>b` 时符号自动反向。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，用于仿射直线弧长公式。
+- **坑**：结果使用标量作用 `•`；对实数值函数可再化成普通乘法。
+
+### `HasDerivAt.scomp`
+- **人话**：向量值函数与实参数函数复合时的链式法则：新速度等于参数变化率数乘原速度。
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/Comp.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，已转成教材层的
+  `curveVelocity_comp`。
+- **坑**：向量值外层函数使用 `scomp`；普通标量乘法版本使用 `comp`。
+
+### `intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg`
+- **人话**：一维保向换元公式；若参数函数连续、可导且导数非负，则
+  `∫ g(φ(t)) φ'(t) dt = ∫ g(u) du`，积分端点随 `φ` 变化。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/IntegrationByParts.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，已转成保向换参数下的
+  弧长不变性。
+- **坑**：非负导数负责保向；若允许反向，速率中的绝对值与有向积分端点必须分别处理。
+
+### `Fintype.linearIndependent_iff`
+- **人话**：有限向量族线性无关，当且仅当任意有限系数组合等于零时每个系数都为零。
+- **出处**：`Mathlib/LinearAlgebra/LinearIndependent/Defs.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，用于把仿射平面微分单射
+  转成两个生成方向线性无关的教材判据。
+- **坑**：系数写成整个有限类型上的函数；二元情形需要把它展开成两个坐标。
+
+### `Submodule.mem_span_pair`
+- **人话**：向量属于 `u,v` 张成的子空间，当且仅当它可以写成 `a u + b v`。
+- **出处**：`Mathlib/LinearAlgebra/Span/Defs.lean`。
+- **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，已用于证明仿射平面的像是
+  `p + span{u,v}`，并推出生成方向换基不改变平面。
+- **坑**：等式方向是 `a • u + b • v = z`；从点集条件恢复参数时要先处理基点平移。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
