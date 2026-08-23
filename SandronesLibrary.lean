@@ -39,6 +39,7 @@ import SandronesLibrary.Analysis.NormalDomain
 import SandronesLibrary.Analysis.ChangeOfVariables
 import SandronesLibrary.Analysis.CoordinateIntegrals
 import SandronesLibrary.Analysis.ParametrizedGeometry
+import SandronesLibrary.Analysis.FirstKindIntegrals
 import SandronesLibrary.Analysis.DifferentialForms
 import SandronesLibrary.Analysis.SecondKindIntegrals
 import SandronesLibrary.Analysis.GreenGaussStokes

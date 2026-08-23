@@ -7367,5 +7367,31 @@
       "propext"
     ],
     "proof_sha": "a6a57c53562a35b9"
+  },
+  {
+    "id": "analysis.multivariable.first-kind-integrals",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "第一型曲线积分与曲面积分",
+    "summary": "第一型曲线和曲面积分的定义、常密度公式与换参数不变性",
+    "premises": [],
+    "mathlib": [
+      "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg",
+      "MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：第一型曲线积分与第一型曲面积分"
+    },
+    "lean_file": "Analysis/FirstKindIntegrals.lean",
+    "nl_file": "docs/entries/analysis/multivariable/first-kind-integrals.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T03:48:54Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **236** 个条目（verified 236，pending 0）。
+共 **237** 个条目（verified 237，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -120,6 +120,7 @@
 
 - ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
 - ✅ [`differential-forms.md`](differential-forms.md) — 微分形式、外微分与连续楔积
+- ✅ [`first-kind-integrals.md`](first-kind-integrals.md) — 第一型曲线积分与曲面积分
 - ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
 - ✅ [`full-rank-theorem.md`](full-rank-theorem.md) — 满秩秩定理
 - ✅ [`gradient.md`](gradient.md) — 梯度与方向导数

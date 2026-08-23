@@ -253,7 +253,7 @@
 | `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | ✅ |
 | `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标理论；具体计算置于顶层 `Examples` | ✅ |
 | `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长、三维面积元、仿射面积及一般换参数不变性 | ✅ |
-| `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
+| `analysis.multivariable.first-kind-integrals` | 第一型曲线/曲面积分、常密度公式及换参数不变性 | ✅ |
 | `linear-algebra.tensor-exterior` | 对偶空间、张量积、交替多重线性映射、外代数与楔积 | 🚧 |
 | `topology.orientation.vector-space` | 有限维实向量空间的定向与保向/反向判据 | ✅ |
 | `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分、楔积与定向 | 🚧 |
