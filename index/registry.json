@@ -7200,6 +7200,9 @@
       "Module.Dual.eval",
       "Module.bijective_dual_eval",
       "Module.finrank_tensorProduct",
+      "Module.Basis.dualBasis",
+      "Module.Basis.tensorProduct",
+      "exteriorPower.finrank_eq",
       "TensorProduct.lift",
       "contractLeft",
       "ExteriorAlgebra.ι_sq_zero",
@@ -7215,7 +7218,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:19:42Z",
     "dependedOnBy": [],
-    "proof_sha": "c93ef088b581202d",
+    "proof_sha": "af7385158851263c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7388,6 +7391,69 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T03:48:54Z",
     "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.inner-product",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "内积、正交分解与伴随算子",
+    "summary": "Cauchy–Schwarz、Gram–Schmidt、有限向量组的唯一正交分解以及伴随与自伴算子",
+    "premises": [
+      "linear-algebra.vector-space.def"
+    ],
+    "mathlib": [
+      "abs_real_inner_le_norm",
+      "InnerProductSpace.gramSchmidtNormed_orthonormal",
+      "Submodule.starProjection",
+      "LinearMap.adjoint_inner_right"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数：内积空间、正交化与伴随算子"
+    },
+    "lean_file": "LinearAlgebra/InnerProduct.lean",
+    "nl_file": "docs/entries/linear-algebra/inner-product.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T09:41:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "d14eff3a781ca05b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.spectral-quadratic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实谱定理、二次型与惯性定律",
+    "summary": "自伴算子的标准正交特征基、二次型正交对角化及Sylvester惯性定律",
+    "premises": [
+      "linear-algebra.inner-product",
+      "linear-algebra.matrix.symmetric"
+    ],
+    "mathlib": [
+      "LinearMap.IsSymmetric.eigenvectorBasis",
+      "LinearMap.IsSymmetric.apply_eigenvectorBasis",
+      "QuadraticForm.equivalent_one_zero_neg_one_weighted_sum_squared",
+      "QuadraticForm.sigPos_of_equiv_weightedSumSquares"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数：实对称谱定理、二次型与Sylvester惯性定律"
+    },
+    "lean_file": "LinearAlgebra/SpectralQuadratic.lean",
+    "nl_file": "docs/entries/linear-algebra/spectral-quadratic.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T09:47:34Z",
+    "dependedOnBy": [],
+    "proof_sha": "c62e6596c53ba922",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

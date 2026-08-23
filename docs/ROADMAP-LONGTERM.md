@@ -160,6 +160,28 @@
 | 4 | `linear-algebra.inner.spectral` | **谱定理**（实对称） | `isDiagonalizable`、`spectrum` 系 |
 | 5 | `linear-algebra.inner.quadratic` | 二次型、双线性型 | `QuadraticForm`、`QuadraticForm.associated` |
 
+### L6 保结构矩阵与经典矩阵群
+
+| # | 条目 | 内容 | mathlib |
+|---|---|---|---|
+| 1 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵、酉矩阵、共轭转置、逆矩阵公式、行列式模长与正交/酉群 | `Matrix.unitaryGroup`、`Matrix.conjTranspose`、`Matrix.mem_unitaryGroup_iff` |
+| 2 | `linear-algebra.matrix.normal` | 正规矩阵、Hermitian/斜 Hermitian 矩阵及复谱定理 | `IsStarNormal`、`IsSelfAdjoint`、复内积空间谱理论 |
+| 3 | `linear-algebra.matrix.symplectic` | 标准辛形式、辛矩阵 `AᵀJA=J`、乘法与逆封闭、行列式为一 | `Matrix.symplecticGroup`、`Matrix.mem_iff'`、`Matrix.det_eq_one` |
+| 4 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | `AlternatingMap`、`BilinForm`、辛空间接口 |
+
+### L7 矩阵分解与数值线性代数基础
+
+| # | 条目 | 内容 | mathlib |
+|---|---|---|---|
+| 1 | `linear-algebra.decomposition.elimination` | 初等行变换、阶梯形、秩与高斯消元 | `Matrix.rowOperation`、可逆初等矩阵 |
+| 2 | `linear-algebra.decomposition.lu` | LU/LDU 分解的存在条件与唯一性；任意可逆矩阵的 PLU 分解 | mathlib 现有矩阵分块接口，不足处本库构造消元过程 |
+| 3 | `linear-algebra.decomposition.qr` | 满列秩矩阵的薄 QR、方阵 QR、对角元规范化后的唯一性 | Gram–Schmidt、`Orthonormal`、矩阵等距接口 |
+| 4 | `linear-algebra.decomposition.cholesky` | 实对称/复 Hermitian 正定矩阵的 Cholesky 分解及唯一性 | 正定矩阵与三角矩阵接口 |
+| 5 | `linear-algebra.decomposition.schur` | 复方阵的酉 Schur 三角化；实 Schur 准三角形式 | 复谱理论、酉基与不变子空间 |
+| 6 | `linear-algebra.decomposition.svd` | 奇异值分解、奇异值与秩/核/算子范数、低秩逼近前置 | `singularValues`、伴随与正算子谱定理 |
+| 7 | `linear-algebra.decomposition.polar` | 方阵及线性算子的极分解，正半定因子与部分等距因子 | `Isometry`、正平方根、伴随 |
+| 8 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆、最小二乘正规方程与最小范数解 | SVD、正交投影 |
+
 ### 线性代数补遗批次（2026-08 审计）
 
 此前“L1–L4 完成”只表示首批骨架已建立，并不等于标准本科线性代数内容齐全。
@@ -172,9 +194,21 @@
 | 3 | `linear-algebra.vector-space.sum-quotient` | 子空间和、直和、商空间及维数公式 | ✅ |
 | 4 | `linear-algebra.eigen.diagonalization` | 特征基判据、几何/代数重数、Cayley–Hamilton、最小多项式 | ✅ |
 | 5 | `linear-algebra.eigen.jordan` | Jordan 链、标准形存在性、矩阵相似形式及由广义核维数确定块大小的唯一性 | ✅ |
-| 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | 🔲 |
-| 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | 🔲 |
-| 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | 🚧 |
+| 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | ✅ |
+| 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | ✅ |
+| 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | ✅ |
+| 9 | `linear-algebra.matrix.orthogonal-unitary` | 正交/酉矩阵、共轭转置、群运算与行列式性质 | 🔲 |
+| 10 | `linear-algebra.matrix.normal` | 正规、Hermitian、斜 Hermitian 矩阵与复谱定理 | 🔲 |
+| 11 | `linear-algebra.matrix.symplectic` | 标准辛矩阵、辛群基本性质与行列式为一 | 🔲 |
+| 12 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | 🔲 |
+| 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | 🔲 |
+| 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | 🔲 |
+| 15 | `linear-algebra.decomposition.qr` | 薄/方 QR 分解及规范化唯一性 | 🔲 |
+| 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | 🔲 |
+| 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | 🔲 |
+| 18 | `linear-algebra.decomposition.svd` | 奇异值分解及奇异值基本性质 | 🔲 |
+| 19 | `linear-algebra.decomposition.polar` | 极分解与正半定平方根 | 🔲 |
+| 20 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆与最小二乘 | 🔲 |
 
 ---
 
@@ -468,7 +502,9 @@
 | P1 | M4 导数 | ✅ |
 | P1 | M5 中值/泰勒 | ✅ |
 | P2 | L1-L4 线性代数（第一学期）| ✅ |
-| P2 | L5 内积/谱 | 🔲（第二学期）|
+| P2 | L5 内积/谱/二次型 | ✅ |
+| P2 | L6 保结构矩阵（正交/酉/正规/辛） | 🔲（第二学期）|
+| P2 | L7 矩阵分解与数值线性代数基础 | 🔲（第二学期）|
 | P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| ✅ |
 | P3 | A3.3-A3.4 域扩张/Galois + A4 模 | 🔲（第二学期）|
 | P4 | T1-T3 点集拓扑 | ✅ |

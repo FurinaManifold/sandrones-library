@@ -6,6 +6,7 @@ title: "对偶空间、张量积与外代数"
 premises: ["linear-algebra.vector-space.def"]
 mathlib: ["Subspace.dual_finrank_eq", "Module.Dual.eval", "Module.bijective_dual_eval",
   "Module.finrank_tensorProduct", "TensorProduct.lift", "contractLeft",
+  "Module.Basis.dualBasis", "Module.Basis.tensorProduct", "exteriorPower.finrank_eq",
   "ExteriorAlgebra.ι_sq_zero", "ExteriorAlgebra.ι_add_mul_swap",
   "AlternatingMap.map_eq_zero_of_eq"]
 provenance:
@@ -32,8 +33,11 @@ provenance:
 - `V*` 是从 `V` 到标量域的线性泛函空间，且 `dim V* = dim V`；有限维时自然评价
   `V → V**` 是双射。
 - 自然配对为 `⟨φ,v⟩ = φ(v)`；双对偶评价把 `v` 送到 `φ ↦ φ(v)`。
+- 任意有限基都有对偶基，且对偶基与原基的配对矩阵为单位矩阵。
 - 纯张量对两个变量分别线性，任意双线性映射可提升为张量积上的线性映射，且
   `dim(V ⊗ W)=dim(V)dim(W)`。
+- 两组基的逐对纯张量构成张量积的一组基；`n` 维空间的 `k` 次外幂维数为
+  二项式系数 `C(n,k)`。
 - `V* ⊗ V` 可通过缩并映到标量域，`φ ⊗ v ↦ φ(v)`。
 - 向量楔积满足双线性、`v ∧ v = 0` 和 `u ∧ v = -(v ∧ u)`。
 - 整个外代数上的楔积满足结合律；特别地 `(u ∧ v) ∧ w = u ∧ (v ∧ w)`。
@@ -41,8 +45,9 @@ provenance:
 
 # 陈述（Lean 对照）
 
-教材记号分别由 `DualSpace`、`TensorSpace`、`ExteriorSpace` 和 `AlternatingForm`
-承载。主要接口是 `dim_dual_eq_dim`、`tensorLift_pureTensor`、
+教材记号分别由 `DualSpace`、`TensorSpace`、`ExteriorSpace`、`ExteriorPowerSpace`
+和 `AlternatingForm` 承载。主要接口是 `exists_dual_basis`、`tensor_product_basis`、
+`dim_exteriorPower_eq_choose`、`dim_dual_eq_dim`、`tensorLift_pureTensor`、
 `dualTensorContraction_pureTensor`、`vectorWedge_self`、`vectorWedge_swap` 与
 `exteriorWedge_assoc`、`vectorWedge_assoc`、`alternatingForm_eq_zero_of_repeat`。
 
@@ -60,6 +65,7 @@ provenance:
 - 双线性映射的线性化 ↔ `tensorLift K B`
 - `φ(v)` 缩并 ↔ `dualTensorContraction K`
 - `u ∧ v` ↔ `vectorWedge K u v`
+- `⋀^k V` ↔ `ExteriorPowerSpace K V k`
 - `k`-形式 ↔ `AlternatingForm K V k`
 
 # 依赖（人话版）
@@ -71,5 +77,5 @@ provenance:
 
 - 一般张量不一定是单个纯张量，不能只对 `v ⊗ w` 做模式匹配。
 - `V` 与 `V**` 的自然映射无需选择基；有限维时才进一步得到同构。
-- `u ∧ v` 位于整个外代数中；后续会补其属于二次外幂以及外幂维数。
-- 当前完成向量楔积，形式之间的分次楔积仍是下一批工作。
+- `u ∧ v` 的当前便捷接口位于整个外代数中；`ExteriorPowerSpace` 则明确表示各次
+  齐次分量。二者之间转换时不能把嵌入与恒等混为一谈。

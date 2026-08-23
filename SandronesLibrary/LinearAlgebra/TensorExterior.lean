@@ -5,8 +5,11 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.LinearAlgebra.VectorSpace
 import Mathlib.LinearAlgebra.Dual.Lemmas
+import Mathlib.LinearAlgebra.Dual.Basis
 import Mathlib.LinearAlgebra.Contraction
 import Mathlib.LinearAlgebra.ExteriorAlgebra.Basic
+import Mathlib.LinearAlgebra.ExteriorPower.Basis
+import Mathlib.LinearAlgebra.TensorProduct.Basis
 
 /-!
 # 对偶空间、张量积与外代数
@@ -69,6 +72,17 @@ theorem doubleDualEvaluation_bijective {V : Type v}
     Function.Bijective (doubleDualEvaluation K (V := V)) := by
   exact Module.bijective_dual_eval K V
 
+/-- 有限基存在唯一的对偶基；其配对矩阵为单位矩阵。 -/
+theorem exists_dual_basis {V : Type v} [AddCommGroup V] [LinearSpace K V]
+    {n : ℕ} (b : Fin n → V) (hb : IsBasis K b) :
+    ∃ φ : Fin n → DualSpace K V,
+      IsBasis K φ ∧ ∀ i j, φ i (b j) = if i = j then 1 else 0 := by
+  let B : Module.Basis (Fin n) K V := Module.Basis.mk hb.1 (by simpa [hb.2])
+  refine ⟨B.dualBasis, ?_, ?_⟩
+  · exact ⟨B.dualBasis.linearIndependent, B.dualBasis.span_eq⟩
+  · intro i j
+    simpa [B, eq_comm] using B.dualBasis_apply_self i j
+
 /-! ## 张量积 -/
 
 /-- `V` 与 `W` 在 `K` 上的张量积。 -/
@@ -91,6 +105,26 @@ theorem dim_tensor_eq_mul {V : Type v} {W : Type w}
 def pureTensor {V : Type v} {W : Type w}
     [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
     (v : V) (w : W) : TensorSpace K V W := v ⊗ₜ[K] w
+
+/-- 两组有限基的逐对纯张量构成张量积的一组基。 -/
+theorem tensor_product_basis {V : Type v} {W : Type w}
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    {n m : ℕ} (b : Fin n → V) (c : Fin m → W)
+    (hb : IsBasis K b) (hc : IsBasis K c) :
+    IsBasis K (fun p : Fin n × Fin m => pureTensor K (b p.1) (c p.2)) := by
+  let B : Module.Basis (Fin n) K V := Module.Basis.mk hb.1 (by simpa [hb.2])
+  let C : Module.Basis (Fin m) K W := Module.Basis.mk hc.1 (by simpa [hc.2])
+  let D := B.tensorProduct C
+  have hB (i : Fin n) : B i = b i := by simp [B]
+  have hC (j : Fin m) : C j = c j := by simp [C]
+  have hD (p : Fin n × Fin m) :
+      D p = pureTensor K (b p.1) (c p.2) := by
+    rw [show D p = B p.1 ⊗ₜ[K] C p.2 by
+      exact Module.Basis.tensorProduct_apply' B C p]
+    rw [hB, hC]
+    rfl
+  rw [← funext hD]
+  exact ⟨D.linearIndependent, D.span_eq⟩
 
 @[simp] theorem pureTensor_add_left {V : Type v} {W : Type w}
     [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
@@ -140,6 +174,21 @@ def dualTensorContraction {V : Type v} [AddCommGroup V] [LinearSpace K V] :
 /-- 向量空间的外代数；乘法就是楔积。 -/
 abbrev ExteriorSpace (V : Type v) [AddCommGroup V] [LinearSpace K V] :=
   ExteriorAlgebra K V
+
+/-- `V` 的 `k` 次外幂，即外代数的 `k` 次齐次分量。 -/
+abbrev ExteriorPowerSpace (V : Type v) [AddCommGroup V] [LinearSpace K V]
+    (k : ℕ) := ⋀[K]^k V
+
+instance exteriorPowerLinearSpace (V : Type v)
+    [AddCommGroup V] [LinearSpace K V] (k : ℕ) :
+    LinearSpace K (ExteriorPowerSpace K V k) where
+  toModule := inferInstance
+
+/-- `n` 维空间的 `k` 次外幂维数为二项式系数 `C(n,k)`。 -/
+theorem dim_exteriorPower_eq_choose {V : Type v}
+    [AddCommGroup V] [LinearSpace K V] [IsFiniteDimensional K V] (k : ℕ) :
+    dim K (ExteriorPowerSpace K V k) = Nat.choose (dim K V) k := by
+  exact exteriorPower.finrank_eq K k
 
 /-- 把一次向量嵌入外代数。 -/
 def exteriorVector {V : Type v} [AddCommGroup V] [LinearSpace K V] :

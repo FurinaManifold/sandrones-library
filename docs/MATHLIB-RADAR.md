@@ -2217,6 +2217,60 @@
 - **出处**：Mathlib Fréchet 导数的加法群运算接口。
 - **谁在用**：Green 公式中从 `P` 转到 `-P`。
 
+## 内积空间、正交化与伴随（2026-08-23）
+
+### `abs_real_inner_le_norm`
+- **人话**：实内积的绝对值不超过两向量范数之积，即 Cauchy–Schwarz 不等式。
+- **谁在用**：`linear-algebra.inner-product` 的教材不等式接口。
+
+### `InnerProductSpace.gramSchmidtNormed_orthonormal`
+- **人话**：线性无关有限向量组经归一化 Gram–Schmidt 后成为标准正交组。
+- **谁在用**：`linear-algebra.inner-product` 的标准正交基构造。
+- **坑**：保持张成空间还需配合 `span_gramSchmidtNormed_range` 与
+  `span_gramSchmidt`，归一化结论本身不包含张成性。
+
+### `Submodule.starProjection`
+- **人话**：把向量正交投影到一个具有正交投影的闭子空间；有限维子空间自动满足条件。
+- **谁在用**：`linear-algebra.inner-product` 的有限向量组唯一正交分解。
+- **坑**：这是证明内部接口；公开教材定理不暴露 `Submodule`。
+
+### `LinearMap.adjoint_inner_right`
+- **人话**：有限维伴随满足 `⟪x,T*y⟫=⟪Tx,y⟫`，并由此唯一确定。
+- **谁在用**：`linear-algebra.inner-product` 的伴随刻画与自伴判据。
+
+## 实谱定理与二次型（2026-08-23）
+
+### `LinearMap.IsSymmetric.eigenvectorBasis`
+- **人话**：有限维自伴算子存在按实特征值排列的标准正交特征基。
+- **谁在用**：`linear-algebra.spectral-quadratic` 的实谱定理教材接口。
+- **坑**：需要显式给出空间维数等于指标 `n`；返回的是标准正交基，不只是普通基。
+
+### `LinearMap.IsSymmetric.apply_eigenvectorBasis`
+- **人话**：上述基的每个向量都满足特征方程，特征值是实数。
+- **谁在用**：谱定理的逐基向量特征方程与二次型对角公式。
+
+### `QuadraticForm.equivalent_one_zero_neg_one_weighted_sum_squared`
+- **人话**：任意有限维实二次型经可逆线性换基后成为系数为 `-1,0,1` 的平方和。
+- **谁在用**：`linear-algebra.spectral-quadratic` 的 Sylvester 标准形存在性。
+
+### `QuadraticForm.sigPos_of_equiv_weightedSumSquares`
+- **人话**：任何等价加权平方和中正权重的个数等于原二次型的正惯性指数。
+- **谁在用**：Sylvester 惯性定律的唯一性；负指数使用对应的 `sigNeg` 版本。
+
+## 对偶基、张量积基与外幂维数（2026-08-23）
+
+### `Module.Basis.dualBasis`
+- **人话**：有限基诱导对偶空间的一组基，并满足坐标泛函的 Kronecker 配对公式。
+- **谁在用**：`linear-algebra.tensor-exterior` 的对偶基存在性。
+
+### `Module.Basis.tensorProduct`
+- **人话**：两组基的所有逐对纯张量构成张量积的一组基。
+- **谁在用**：`linear-algebra.tensor-exterior` 的张量积基定理。
+
+### `exteriorPower.finrank_eq`
+- **人话**：有限维空间的 `k` 次外幂维数等于 `Nat.choose n k`。
+- **谁在用**：`linear-algebra.tensor-exterior` 的外幂分次维数公式。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
