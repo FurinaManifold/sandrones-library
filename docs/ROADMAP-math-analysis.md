@@ -252,7 +252,7 @@
 | `analysis.multivariable.y-normal-domain` | `y`-型正常区域及变限累次积分 | ✅ |
 | `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | ✅ |
 | `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标及质量、重心、转动惯量例题 | ✅ |
-| `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🔲 |
+| `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🚧 |
 | `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
 | `linear-algebra.tensor-exterior` | 张量积、交替多重线性映射、外代数与楔积 | 🔲 |
 | `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分与定向 | 🔲 |

@@ -132,6 +132,7 @@
 - ✅ [`normal-domain.md`](normal-domain.md) — `x`/`y`-型正常区域、Fubini 与 Riemann 降维
 - ✅ [`change-of-variables.md`](change-of-variables.md) — 多重积分换元与 Jacobian 公式
 - ✅ [`coordinate-integrals.md`](coordinate-integrals.md) — 极、柱、球坐标及质量、重心、转动惯量例题
+- 🚧 [`parametrized-geometry.md`](parametrized-geometry.md) — 参数曲线、曲面、弧长与正则性
 - ✅ [`rectangle-integral.md`](rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 接口
 
 ## `analysis.mvt`
