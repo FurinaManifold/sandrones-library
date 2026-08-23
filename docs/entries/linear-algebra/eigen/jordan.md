@@ -45,6 +45,8 @@ provenance:
   得到任意有限维算子的完整 Jordan 标准基。
 - 任意 `n × n` 方阵都与重编号后的 Jordan 块对角矩阵相似；正式结论
   `matrix_is_similar_to_jordan` 同时给出互逆换基矩阵 `P,Q` 及等式 `J = P A Q`。
+- 代数学基本定理给出 `ℂ` 的代数闭性，因此 `complex_matrix_is_similar_to_jordan`
+  将抽象的代数闭域结论实例化为“每个复方阵都有 Jordan 相似标准型”。
 - 有限维时广义特征子空间在 `dim V` 阶稳定。
 - 代数闭域上，所有 `dim V` 阶广义特征子空间共同张成全空间。
 

@@ -1,5 +1,7 @@
 import SandronesLibrary.Basic
 import SandronesLibrary.Analysis.Real
+import SandronesLibrary.Analysis.Complex
+import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
 import SandronesLibrary.Analysis.Completeness
 import SandronesLibrary.Analysis.FuncLimit
 import SandronesLibrary.Analysis.Continuity

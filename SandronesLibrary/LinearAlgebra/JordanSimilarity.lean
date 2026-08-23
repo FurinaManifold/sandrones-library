@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.LinearAlgebra.JordanNormalForm
+import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
 
 /-!
 # LinearAlgebra / JordanSimilarity —— 矩阵的 Jordan 相似标准型
@@ -113,5 +114,17 @@ theorem matrix_is_similar_to_jordan [IsAlgClosed K] {n : ℕ}
   · rw [← hJordan, operatorMatrix_change_basis std b' hstd hb' T,
       hstandardMatrix]
 
-end SandronesLibrary.LinearAlgebra.Jordan
+/-- **代数学基本定理的矩阵应用**：每个复方阵都相似于 Jordan 标准矩阵。
 
+`FundamentalTheoremAlgebra` 先证明复数域代数闭；一般的代数闭域 Jordan 定理随后给出
+有限个 Jordan 块、将这些块重编号为原矩阵下标的等价，以及实现相似变换的互逆矩阵。 -/
+theorem complex_matrix_is_similar_to_jordan {n : ℕ}
+    (A : Matrix (Fin n) (Fin n) ℂ) :
+    ∃ (d : JordanFormData ℂ)
+      (e : (Σ i : d.Block, Fin (d.length i + 1)) ≃ Fin n),
+      MatricesAreSimilar A (Matrix.reindex e e (jordanNormalMatrix d)) := by
+  letI : IsAlgClosed ℂ :=
+    SandronesLibrary.Analysis.Complex.complex_is_algebraically_closed
+  exact matrix_is_similar_to_jordan A
+
+end SandronesLibrary.LinearAlgebra.Jordan
