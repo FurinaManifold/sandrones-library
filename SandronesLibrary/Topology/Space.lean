@@ -190,7 +190,7 @@ theorem topo_continuous_subtype_val {X : Type*} [TopologicalSpace X] {p : X → 
 -/
 theorem topo_continuous_restrict {X Y : Type*} [TopologicalSpace X] [TopologicalSpace Y]
     {f : X → Y} (hf : Continuous f) (s : Set X) : Continuous (s.domRestrict f) := by
-  exact ContinuousOn.restrict (Continuous.continuousOn hf)
+  exact ContinuousOn.domRestrict (Continuous.continuousOn hf)
 
 /-- **连续函数的投影分量连续**：f : X → Y×Z 连续 ⟹ 各分量连续。 
 > **Entry**: topology.space.subspace

@@ -12,6 +12,8 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## 数项级数与幂级数
+
 ### `Finset.Nat.sum_antidiagonal_eq_sum_range_succ`
 - **人话**：把 `i+j=n` 上的有限反对角线和改写成 `k=0,…,n` 的卷积和。
 - **出处**：`Mathlib/Algebra/BigOperators/NatAntidiagonal.lean`。
@@ -1048,6 +1050,8 @@
 - **出处**：`Mathlib/LinearAlgebra/Matrix/`（Adjugate.lean、Cramer.lean、Rank.lean）
 - **谁在用**：`linear-algebra.det.adjugate`、`linear-algebra.det.cramer`、`linear-algebra.maps.row-rank`。
 
+## G16. 抽象代数基础
+
 ### `Group` / `Subgroup` / `Subgroup.ext` / `Subgroup.one_mem` / `Subgroup.mul_mem` / `Subgroup.inv_mem` / `Subgroup.mem_bot` / `Subgroup.mem_top`
 - **人话**：`Group G` 是群 typeclass（乘法 `*`、单位元 `1`、逆 `⁻¹`）；`Subgroup G` 是子群结构；
   `ext` 子群外延性；子群含单位元/对乘/逆封闭；`⊥` 平凡子群（只含 1）、`⊤` 全子群。
@@ -1144,6 +1148,8 @@
 - **出处**：`Mathlib/Algebra/Polynomial/Roots.lean`
 - **谁在用**：`abstract-algebra.poly.roots-card`。
 - **坑**：`card_roots` 用 `WithBot ℕ` 的 `degree`；根个数含重数（multiset）。
+
+## G17. 点集拓扑与度量空间
 
 ### `TopologicalSpace` / `IsOpen` / `IsClosed` / `isOpen_iUnion` / `isClosed_iInter` / `isOpen_compl_iff`
 - **人话**：`TopologicalSpace X` 拓扑 typeclass；`IsOpen`/`IsClosed` 开闭集谓词；开集公理
@@ -1253,6 +1259,8 @@
 - **谁在用**：`topology.compact.tychonoff`。
 - **坑**：无限积的紧致性才是 Tychonoff 的本质；有限积紧可绕过（不需要 AC）。
 
+## G18. 测度空间与外测度基础
+
 ### `MeasurableSpace` / `MeasurableSet` / `MeasurableSet.empty/compl/iUnion/inter/union`
 - **人话**：σ-代数 `MeasurableSpace X`；可测集 `MeasurableSet s`；公理：∅/X 可测、补可测、
   可数并可测（`[Countable ι]`）、有限交并可测。测度的定义域。
@@ -1282,6 +1290,8 @@
 ### `Real.volume_Ioc`
 - **人话**：实数半开区间的 Lebesgue 测度等于端点差（取非负部分）。
 - **谁在用**：`real-analysis.riemann.lebesgue-criterion`，用于把区间长度估计翻译成测度估计。
+
+## G19. 特殊函数、经典极限与三角恒等式
 
 ### `Real.exp_pos` / `Real.exp_add` / `Real.continuous_exp` / `Real.hasDerivAt_exp`
 - **人话**：指数函数处处为正、把加法变成乘法、处处连续且导数等于自身。
@@ -1397,6 +1407,8 @@
 - **出处**：`Mathlib/Analysis/Real/Pi/Irrational.lean`。
 - **谁在用**：`analysis.constants.pi-irrational`，将 Mathlib 结论转接到本库的教材层 `pi` 接口。
 
+## G20. 一元 Riemann 积分与数值公式
+
 ### `intervalIntegral.integral_add` / `intervalIntegral.integral_sub` / `intervalIntegral.integral_const_mul`
 - **人话**：在区间可积前提下，区间积分保持函数加法、减法与常数乘法。
 - **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/Basic.lean`。
@@ -1437,6 +1449,8 @@
 - **出处**：`Mathlib/MeasureTheory/Measure/`
 - **谁在用**：`real-analysis.measure.def`。
 - **坑**：可数可加前提是两两不交 + 可测；测度值用 ENNReal 可含 ∞。
+
+## G21. Lebesgue 测度与积分
 
 ### `OuterMeasure` / `measure_iUnion_le` / `OuterMeasure.caratheodory` / `isCaratheodory_iff`
 - **人话**：外测度 `OuterMeasure`（全体子集上次可加函数）；次可加 `measure_iUnion_le`；
@@ -1572,6 +1586,8 @@
 
 ---
 
+## G22. 乘积测度与 Lp 空间
+
 ### `MeasureTheory.Measure.prod_prod` / `MeasureTheory.lintegral_prod` / `MeasureTheory.lintegral_prod_symm`
 - **人话**：乘积测度在矩形上等于边测度之积；Tonelli 定理把非负可测函数的乘积
   积分写成迭代 `lintegral`，并可在两个 `SFinite` 测度之间交换次序。
@@ -1650,6 +1666,8 @@
   `analysis.inequalities.cauchy-schwarz`、`analysis.inequalities.minkowski-finite`。
 - **坑**：指数是实数，幂使用 `Real.rpow` 记法；Hölder 的底层定理控制带符号内积，
   标准绝对值版本需应用于 `|f|,|g|`。Minkowski 必须显式假设 `1 ≤ p`。
+
+## G23. 赋范空间与多元微积分
 
 ### `NormedAddCommGroup` / `NormedSpace` / `CompleteSpace` / `dist_eq_norm`
 - **人话**：依次表达带范数的加法群、标量数乘与范数相容、底层一致空间完备，
@@ -1743,7 +1761,7 @@
 - **坑**：`.inl/.inr` 决定哪组变量保留、哪组变量被解出；交换二者会得到类型正确但
   数学方向相反的定理。Mathlib 尚无一般常秩 `r` 正规形的直接接口。
 
-## 多元积分、Jordan 区域与换元（2026-08-22 补录）
+## 多元积分、Jordan 区域与换元
 
 ### `nullMeasurableSet_of_null_frontier` / `closure_ae_eq_of_null_frontier`
 - **人话**：边界为零测集时，原集合是零可测集；而且集合与其闭包只相差一个零测集，
@@ -1811,7 +1829,7 @@
 - **坑**：积分等式对 Bochner 积分的默认零值约定仍可形式成立；要进行教材中的合法
   数值计算，应先用本条确认可积性，而不是只引用积分等式。
 
-## 历史 front matter 缺项集中补录（2026-08-22）
+## 分析基础、级数与积分工具
 
 ### `Continuous.mul` / `Continuous.div`
 - **人话**：连续实函数的乘积仍连续；分母处处非零时商函数连续。
@@ -1899,6 +1917,8 @@
 - **谁在用**：`topology.space.closure`。
 - **坑**：`interior` 是定义而非定理；`mem_closure_iff` 的邻域表述需要相应拓扑假设版本。
 
+## 线性代数与矩阵基础工具
+
 ### `Module.finrank_pi` / `Module.finrank_self`
 - **人话**：有限坐标函数空间的维数等于各坐标维数之和；域作为自身的一维向量空间
   维数为一。
@@ -1946,6 +1966,8 @@
 - **出处**：`Mathlib/Data/Matrix/Basic.lean`。
 - **谁在用**：`linear-algebra.matrix.skew-symmetric`。
 - **坑**：普通转置不含共轭；复矩阵 Hermitian/反 Hermitian 性质应使用共轭转置。
+
+## 多元微分、特殊函数与坐标积分
 
 ### `ContDiffAt.hasStrictFDerivAt_implicitFunction`
 - **人话**：隐函数定理构造出的局部隐函数具有严格 Fréchet 导数，并给出由偏导数组合
@@ -2007,6 +2029,8 @@
 - **谁在用**：`analysis.multivariable.parametrized-curves-surfaces`，已转成保向换参数下的
   弧长不变性。
 - **坑**：非负导数负责保向；若允许反向，速率中的绝对值与有向积分端点必须分别处理。
+
+## 对偶、张量、外代数与微分形式
 
 ### `Fintype.linearIndependent_iff`
 - **人话**：有限向量族线性无关，当且仅当任意有限系数组合等于零时每个系数都为零。
@@ -2155,6 +2179,8 @@
 - **谁在用**：`analysis.multivariable.differential-forms`，用于构造 `wedgeContinuousBilinear`。
 - **坑**：后续求导时需统一连续交替映射的半范数与范数实例。
 
+## 定向、第二型积分与经典积分公式
+
 ### `Orientation` / `Orientation.map`
 - **出处**：`Mathlib/LinearAlgebra/Orientation.lean`。
 - **人话**：把非零顶次交替形式的正射线作为定向，并让线性同构搬运定向。
@@ -2217,7 +2243,7 @@
 - **出处**：Mathlib Fréchet 导数的加法群运算接口。
 - **谁在用**：Green 公式中从 `P` 转到 `-P`。
 
-## 内积空间、正交化与伴随（2026-08-23）
+## 内积空间、正交化与伴随
 
 ### `abs_real_inner_le_norm`
 - **人话**：实内积的绝对值不超过两向量范数之积，即 Cauchy–Schwarz 不等式。
@@ -2238,7 +2264,7 @@
 - **人话**：有限维伴随满足 `⟪x,T*y⟫=⟪Tx,y⟫`，并由此唯一确定。
 - **谁在用**：`linear-algebra.inner-product` 的伴随刻画与自伴判据。
 
-## 实谱定理与二次型（2026-08-23）
+## 实谱定理与二次型
 
 ### `LinearMap.IsSymmetric.eigenvectorBasis`
 - **人话**：有限维自伴算子存在按实特征值排列的标准正交特征基。
@@ -2257,7 +2283,7 @@
 - **人话**：任何等价加权平方和中正权重的个数等于原二次型的正惯性指数。
 - **谁在用**：Sylvester 惯性定律的唯一性；负指数使用对应的 `sigNeg` 版本。
 
-## 对偶基、张量积基与外幂维数（2026-08-23）
+## 对偶基、张量积基与外幂维数
 
 ### `Module.Basis.dualBasis`
 - **人话**：有限基诱导对偶空间的一组基，并满足坐标泛函的 Kronecker 配对公式。
@@ -2271,7 +2297,7 @@
 - **人话**：有限维空间的 `k` 次外幂维数等于 `Nat.choose n k`。
 - **谁在用**：`linear-algebra.tensor-exterior` 的外幂分次维数公式。
 
-## 正交矩阵与酉矩阵（2026-08-23）
+## 正交矩阵与酉矩阵
 
 ### `Matrix.mem_unitaryGroup_iff`
 - **人话**：方阵属于酉群当且仅当它与共轭转置的乘积为单位阵。
@@ -2289,7 +2315,7 @@
 - **人话**：酉元素取星后仍是酉元素；矩阵的星就是共轭转置。
 - **谁在用**：酉矩阵的共轭转置封闭性。
 
-## 正规与 Hermitian 矩阵（2026-08-23）
+## 正规与 Hermitian 矩阵
 
 ### `Matrix.IsHermitian.spectral_theorem`
 - **人话**：有限 Hermitian 方阵可由酉矩阵对角化，且对角元来自实特征值。
@@ -2307,7 +2333,7 @@
 - **人话**：共轭转置保持矩阵减法。
 - **谁在用**：斜 Hermitian 部分 `(A-Aᴴ)/2` 的验证。
 
-## 辛矩阵与辛群（2026-08-23）
+## 辛矩阵与辛群
 
 ### `Matrix.J`
 - **人话**：分块矩阵 `[[0,-I],[I,0]]`，即标准辛形式的矩阵。

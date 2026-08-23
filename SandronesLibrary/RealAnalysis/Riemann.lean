@@ -332,7 +332,7 @@ theorem integral_sum_indicator_Ioc {n : ℕ} {x : ℕ → ℝ} {c : ℕ → ℝ}
       (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) ∂volume) =
       ∑ i ∈ Finset.range n, (∫ t : ℝ,
         (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t ∂volume) := by
-    exact integral_finset_sum (s := Finset.range n) (f := fun i => fun t : ℝ =>
+    exact integral_finsetSum (s := Finset.range n) (f := fun i => fun t : ℝ =>
       (Set.Ioc (x i) (x (i+1))).indicator (fun _ : ℝ => c i) t) (μ := volume) hf
   -- 逐项: ∫(cᵢ·1_{Ioc xᵢ xᵢ₊₁}) = cᵢ·(xᵢ₊₁-xᵢ)
   calc
@@ -668,7 +668,7 @@ theorem darboux_lower_le_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
           exact ENNReal.ofReal_ne_top
         exact integrableOn_const (μ := volume) (s := Set.Ioc (P.x i) (P.x (i+1)))
           (C := sInf (f '' Set.Icc (P.x i) (P.x (i+1)))) (hs := hfin)
-      exact integrable_finset_sum (s := Finset.range P.n) hin
+      exact integrable_finsetSum (s := Finset.range P.n) hin
     have hident : (Set.Ioc a b).indicator sP = sP := by
       funext t
       exact hsP t
@@ -838,7 +838,7 @@ theorem darboux_upper_ge_interval {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤ b)
             exact ENNReal.ofReal_ne_top
           exact integrableOn_const (μ := volume) (s := Set.Ioc (P.x i) (P.x (i+1)))
             (C := sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) (hs := hfin)
-        exact integrable_finset_sum (s := Finset.range P.n) hin
+        exact integrable_finsetSum (s := Finset.range P.n) hin
       have hident : (Set.Ioc a b).indicator uP = uP := by
         funext t
         exact step_indicator_identity (c := fun i => sSup (f '' Set.Icc (P.x i) (P.x (i+1)))) hsub t
