@@ -17,6 +17,9 @@ import SandronesLibrary.LinearAlgebra.Eigenvalue
 import SandronesLibrary.LinearAlgebra.Diagonalization
 import SandronesLibrary.LinearAlgebra.Jordan
 import SandronesLibrary.LinearAlgebra.JordanDecomposition
+import SandronesLibrary.LinearAlgebra.JordanMatrix
+import SandronesLibrary.LinearAlgebra.JordanNormalForm
+import SandronesLibrary.LinearAlgebra.JordanSimilarity
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.LinearAlgebra.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group

@@ -33,7 +33,9 @@
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | A4 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1 Pr2 Pr3 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1 S2 | Pr |
-| **Phase 10+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X* | 各自分支前置达标 |
+| **Phase 10 数论分支** | `number-theory.*` | N1 N2 N3 | A2/A3；N3 另需 C1-C3 |
+| **Phase 11 集合论深化** | `set-theory.*` | ST1 ST2 ST3 | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 12+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X* | 各自分支前置达标 |
 
 **为什么实分析在拓扑之后、且用测度积分**：测度论需要 σ-代数/可测空间（拓扑的抽象层）；
 而 mathlib 内置积分是**一般测度的 Lebesgue 积分**，不是黎曼积分——所以一元微积分只做到导数/中值，
@@ -146,7 +148,7 @@
 | 1 | `linear-algebra.eigen.eigenvalue` | 特征值/特征向量定义 | `Module.End.HasEigenvalue`、`HasEigenvector` |
 | 2 | `linear-algebra.eigen.characteristic` | 特征多项式、特征子空间维数 | `Matrix.charpoly` |
 | 3 | `linear-algebra.eigen.similar` | 相似变换、对角化判据 | `Matrix.Similar`、`IsDiagonalizable` |
-| 4 | `linear-algebra.eigen.jordan` | Jordan 标准形（理性/实矩阵） | `Matrix.JordanForm`、`exists_jordanForm` |
+| 4 | `linear-algebra.eigen.jordan` | 代数闭域上的 Jordan 标准形与矩阵相似形式 | 本库自建 Jordan 链、块对角矩阵与换基接口 |
 
 ### L5 内积空间/正交/谱/二次型
 
@@ -169,7 +171,7 @@
 | 2 | `linear-algebra.coordinates.change-basis` | 坐标映射、过渡矩阵、换基公式、相似矩阵表示同一算子 | ✅ |
 | 3 | `linear-algebra.vector-space.sum-quotient` | 子空间和、直和、商空间及维数公式 | ✅ |
 | 4 | `linear-algebra.eigen.diagonalization` | 特征基判据、几何/代数重数、Cayley–Hamilton、最小多项式 | ✅ |
-| 5 | `linear-algebra.eigen.jordan` | Jordan 链与 Jordan 标准形（幂零算子的完整链基分解已完成；待组装各广义特征子空间并证明块大小唯一性） | 🚧 |
+| 5 | `linear-algebra.eigen.jordan` | Jordan 链与 Jordan 标准形（完整存在性及矩阵相似标准型已完成；待证明块大小唯一性） | 🚧 |
 | 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | 🔲 |
 | 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | 🔲 |
 | 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | 🚧 |
@@ -284,7 +286,7 @@
 
 ## 6. Phase 5+ — 实分析与后续（批次级，条目在批处理时按同粒度落地）
 
-> 这四门及之后先列到"批次 + 核心定理清单"，具体条目 id 在每批开工时按 §0 铁律4 在文件头展开成与上表相同的表格。为什么不提前全部展开：这些批次量极大（R 有 5 批、后续每门数批），
+> 这些课程及后续分支先列到"批次 + 核心定理清单"，具体条目 id 在每批开工时按 §0 铁律4 在文件头展开成与上表相同的表格。为什么不提前全部展开：这些批次量极大（R 有 5 批、后续每门数批），
 > 现在列出可执行、可追踪、可逐条打勾的粒度；具体 theorem 名在批处理时结合 mathlib 现状定稿。
 
 ### Phase 5 实分析 = 数学分析第二学期（R1-R6，测度积分 + 多元微积分）
@@ -359,7 +361,58 @@
 
 估计（MLE/矩/充分性）→ 检验（似然比/Neyman-Pearson）与回归。
 
-### Phase 10 前沿分叉（X*）
+### Phase 10 数论分支（N1-N3）
+
+> 数论不作为一条必须等全部分析课程结束后才启动的单线：N1 在整数、整除和初等代数
+> 齐备后即可进行；N2 依赖域扩张、理想与有限生成模；N3 则等待复分析的留数、解析延拓
+> 等工具。三个批次分别使用 `number-theory.elementary.*`、`number-theory.algebraic.*`、
+> `number-theory.analytic.*` 家族。
+
+- **N1 初等数论**：
+  - 整除、带余除法、最大公因数、Bézout、Euclid 引理与算术基本定理；
+  - 同余、剩余类环、中国剩余定理、Euler φ 函数、Fermat/Euler 定理；
+  - 素数无穷、素数判定与典型 Diophantine 方程；
+  - 二次剩余、Legendre/Jacobi 符号、Gauss 引理与二次互反律；
+  - 连分数、最佳有理逼近与 Pell 方程。
+- **N2 代数数论**：
+  - 数域、代数整数、整数环、范数、迹、判别式与整基；
+  - Dedekind 整环中的分式理想、理想唯一分解、理想类群与类数；
+  - 素理想在数域扩张中的分解、分歧指数与惯性次数；
+  - Minkowski 嵌入与界、单位群的 Dirichlet 定理；
+  - 赋值、完备化、`p`-进数和局部域入口，最后建立局部—整体问题的接口。
+- **N3 解析数论**：
+  - 算术函数、Dirichlet 卷积、Möbius 反演与部分求和；
+  - Dirichlet 级数、Euler 乘积、Riemann ζ 函数的基本解析性质；
+  - 素数计数函数、Chebyshev 估计与素数定理；
+  - Dirichlet 特征、`L`-函数及算术级数中的素数定理；
+  - 后续专题：零点分布、显式公式、筛法和加性数论，按依赖另立扩展批次。
+
+### Phase 11 集合论深化（ST1-ST3）
+
+> 现有 `SetTheory` 中的集合、函数、关系、基数入口和 Zorn 引理是本分支前置。本阶段
+> 区分“序数/基数的集合论大小”与“googology 的可表示有限大数”；后者必须同时发展
+> 递归论、证明论序数和增长层级，不能只靠基数理论。
+
+- **ST1 序数理论**（`set-theory.ordinal.*`）：
+  - 良序、序型、序数比较与超限归纳/递归；
+  - 序数加法、乘法、幂及其非交换性；
+  - 极限序数、后继序数、上确界、共尾性与正规函数；
+  - Cantor 正规形、ε 数、`ε₀`，并连接 Goodstein 定理所需的序数下降论证。
+- **ST2 基数理论**（`set-theory.cardinal.*`）：
+  - 等势、基数比较、Cantor–Bernstein 与 Cantor 定理；
+  - 基数加法、乘法、幂，有限/可数/不可数集；
+  - `aleph`、`beth` 层级、共尾性、正则/奇异基数与 König 定理；
+  - 选择公理、良序定理、Zorn 引理的等价关系；
+  - 连续统假设只登记准确陈述和相对独立性边界，不伪造库内不可得的模型论证明。
+- **ST3 Googology、递归与增长层级**（`set-theory.googology.*`）：
+  - 原始递归、Ackermann 函数、超运算与 Knuth/Conway 大数记号；
+  - Hardy 层级、快速增长层级与由序数基本列控制的增长率比较；
+  - Goodstein 序列、Hydra 游戏及其与 `ε₀`、Peano 算术不可证性的边界；
+  - Graham 数、TREE 函数、Busy Beaver 等典型大数的严格定义与已知比较；
+  - 更强证明论序数和大基数相关记号仅在相应基础建立后加入，明确区分有限大数、
+    无限基数和证明论强度三种概念。
+
+### Phase 12 前沿分叉（X*）
 
 交换代数、同调代数、代数拓扑、代数表示论、微分几何——各自前置达标后逐批细化。
 
@@ -422,9 +475,15 @@
 | P7 | F1-F4 泛函分析 | 🔲 |
 | P8 | Pr1-Pr3 概率论 | 🔲 |
 | P9 | S1-S2 统计推断 | 🔲 |
-| P10 | X* 前沿 | 🔲 |
+| P10 | N1 初等数论 | 🔲 |
+| P10 | N2 代数数论 | 🔲 |
+| P10 | N3 解析数论 | 🔲（等待复分析） |
+| P11 | ST1 序数理论 | 🔲 |
+| P11 | ST2 基数理论 | 🔲 |
+| P11 | ST3 Googology、递归与增长层级 | 🔲 |
+| P12 | X* 前沿 | 🔲 |
 
-### P10 后续分支：微分几何与代数拓扑
+### P12 后续分支：微分几何与代数拓扑
 
 de Rham 上同调从数学分析 II 主线移至此分支，依赖顺序为：光滑流形与切/余切丛 →
 流形上的微分形式、拉回与积分 → de Rham 复形及 `Hᵏ_dR` → 同伦不变性 →
