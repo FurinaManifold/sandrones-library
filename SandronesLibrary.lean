@@ -13,6 +13,7 @@ import SandronesLibrary.LinearAlgebra.Matrix
 import SandronesLibrary.LinearAlgebra.Determinant
 import SandronesLibrary.LinearAlgebra.Eigenvalue
 import SandronesLibrary.LinearAlgebra.TensorExterior
+import SandronesLibrary.LinearAlgebra.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
@@ -39,6 +40,7 @@ import SandronesLibrary.Analysis.CoordinateIntegrals
 import SandronesLibrary.Analysis.CoordinateIntegralExamples
 import SandronesLibrary.Analysis.SphericalMomentExamples
 import SandronesLibrary.Analysis.ParametrizedGeometry
+import SandronesLibrary.Analysis.DifferentialForms
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge

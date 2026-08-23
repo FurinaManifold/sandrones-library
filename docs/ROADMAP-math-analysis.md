@@ -255,7 +255,7 @@
 | `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🚧 |
 | `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
 | `linear-algebra.tensor-exterior` | 对偶空间、张量积、交替多重线性映射、外代数与楔积 | 🚧 |
-| `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分与定向 | 🔲 |
+| `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分、楔积与定向 | 🚧 |
 | `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🔲 |
 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与一般 Stokes 定理 | 🔲 |
 

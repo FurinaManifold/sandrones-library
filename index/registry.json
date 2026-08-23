@@ -7221,5 +7221,46 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "analysis.multivariable.differential-forms",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "微分形式、外微分与连续楔积",
+    "summary": "欧氏空间上的微分形式、外微分、连续楔积、次数重编号及楔积可微性",
+    "premises": [
+      "linear-algebra.tensor-exterior",
+      "analysis.multivariable.frechet"
+    ],
+    "mathlib": [
+      "ContinuousAlternatingMap.compContinuousLinearMap",
+      "extDeriv",
+      "extDeriv_add",
+      "extDeriv_smul",
+      "extDeriv_constOfIsEmpty",
+      "extDeriv_extDeriv",
+      "extDeriv_pullback",
+      "extDeriv_apply",
+      "AlternatingMap.domCoprod",
+      "AlternatingMap.domCoprod'",
+      "AlternatingMap.mkContinuous",
+      "LinearMap.mk₂",
+      "LinearMap.mkContinuous₂"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "经典微分几何：微分形式与外微分"
+    },
+    "lean_file": "Analysis/DifferentialForms.lean",
+    "nl_file": "docs/entries/analysis/multivariable/differential-forms.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T01:27:21Z",
+    "dependedOnBy": [],
+    "proof_sha": "4baa79a3a095758b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

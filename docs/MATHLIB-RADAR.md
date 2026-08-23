@@ -2076,6 +2076,85 @@
 - **谁在用**：`linear-algebra.tensor-exterior`，已转成教材层交替形式判据。
 - **坑**：除了输入相等，还必须提供两个位置指标不同。
 
+### `ContinuousAlternatingMap.compContinuousLinearMap`
+- **人话**：把交替形式的每个输入都先经过同一个连续线性映射；这是微分形式拉回的点态操作。
+- **出处**：`Mathlib/Analysis/Normed/Module/Alternating/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`。
+- **坑**：真正的拉回还要在每一点代入映射的导数，而不只是复合底层函数。
+
+### `extDeriv`
+- **人话**：对赋范空间上的微分形式作外微分，把 `k`-形式变成 `k+1`-形式。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，已包装为 `exteriorDerivative`。
+- **坑**：定义采用 Fréchet 导数后交替化；不同教材可能在归一化系数上使用另一约定。
+
+### `extDeriv_add`
+- **人话**：外微分保持形式的加法。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`。
+- **坑**：点态版本需要两个形式在该点可微。
+
+### `extDeriv_smul`
+- **人话**：外微分与常数数乘交换。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`。
+- **坑**：这里的系数是常数；函数系数对应 Leibniz 法则，不能直接套用。
+
+### `extDeriv_constOfIsEmpty`
+- **人话**：函数视为零次形式时，其外微分就是函数的 Fréchet 微分对应的一次形式。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`。
+- **坑**：零次形式用空指标集编码，需通过 `constOfIsEmpty` 与普通函数连接。
+
+### `extDeriv_extDeriv`
+- **人话**：充分光滑的微分形式满足 `d(dω)=0`。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，已转成 `exteriorDerivative_squared_zero`。
+- **坑**：证明依赖二阶导数对称性，因此需要至少二阶光滑性。
+
+### `extDeriv_pullback`
+- **人话**：外微分与光滑映射的拉回交换，即 `d(f*ω)=f*(dω)`。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`。
+- **坑**：映射需要足够光滑，形式也必须在像点可微。
+
+### `extDeriv_apply`
+- **人话**：外微分在一组方向上的值等于逐项删去一个方向、沿该方向求导并乘
+  `(-1)^i` 后的总和。
+- **出处**：`Mathlib/Analysis/Calculus/DifferentialForm/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于公开教材计算公式。
+- **坑**：Lean 的 `Fin` 从零编号，所以第一项符号对应 `i=0`；与从一编号教材比较时要平移。
+
+### `AlternatingMap.domCoprod`
+- **人话**：对两个交替多重线性映射按全部 shuffle 作带符号求和，得到取值于两个陪域张量积的交替映射。
+- **出处**：`Mathlib/LinearAlgebra/Alternating/DomCoprod.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于形式楔积的代数核心。
+- **坑**：指标先变成和类型 `Fin k ⊕ Fin l`，值先落入 `ℝ ⊗[ℝ] ℝ`；还需分别重新编号和收缩。
+
+### `AlternatingMap.domCoprod'`
+- **人话**：把 `domCoprod` 打包成从两个交替映射的张量积出发的线性映射，因此可直接推出楔积对两个变量的加法性。
+- **出处**：`Mathlib/LinearAlgebra/Alternating/DomCoprod.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于证明楔积左右可加及零元性质。
+- **坑**：它表达的是双线性化后的代数构造，不会自动给出连续交替映射所需的范数界。
+
+### `AlternatingMap.mkContinuous`
+- **人话**：若一个代数交替多重线性映射满足统一的“常数乘各输入范数之积”估计，就把它连同该估计打包成连续交替映射。
+- **出处**：`Mathlib/Analysis/Normed/Module/Alternating/Basic.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于把有限 shuffle 和恢复为真正的连续形式楔积。
+- **坑**：构造器不会生成范数估计；必须先显式证明每个输入组上的乘积界。
+
+### `LinearMap.mk₂`
+- **人话**：由一个对左右变量分别满足加法和数乘规律的二元运算，构造柯里化双线性映射。
+- **出处**：mathlib 线性映射双线性接口。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于楔积的代数双线性封装。
+- **坑**：只提供代数结构，不包含连续性。
+
+### `LinearMap.mkContinuous₂`
+- **人话**：由 `‖f x y‖ ≤ C‖x‖‖y‖` 将双线性映射升级为连续双线性算子。
+- **出处**：`Mathlib/Analysis/Normed/Operator/Bilinear.lean`。
+- **谁在用**：`analysis.multivariable.differential-forms`，用于构造 `wedgeContinuousBilinear`。
+- **坑**：后续求导时需统一连续交替映射的半范数与范数实例。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
