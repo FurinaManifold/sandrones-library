@@ -29,6 +29,7 @@ import SandronesLibrary.LinearAlgebra.OrthogonalUnitary
 import SandronesLibrary.LinearAlgebra.NormalMatrix
 import SandronesLibrary.LinearAlgebra.NormalSpectral
 import SandronesLibrary.LinearAlgebra.SymplecticMatrix
+import SandronesLibrary.LinearAlgebra.SymplecticBasis
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.LinearAlgebra.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group

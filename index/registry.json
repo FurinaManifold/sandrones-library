@@ -7553,5 +7553,36 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.symplectic.basis",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "辛正交补、辛基与线性 Darboux 定理",
+    "summary": "定义有限维实辛空间及辛正交补，证明规范辛对、二维辛平面分解、辛基存在性与维数为偶数",
+    "premises": [
+      "linear-algebra.matrix.symplectic",
+      "linear-algebra.vector-space.basis"
+    ],
+    "mathlib": [
+      "LinearMap.BilinForm.orthogonal",
+      "LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate",
+      "LinearMap.BilinForm.finrank_orthogonal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数与经典辛几何：有限维线性 Darboux 定理"
+    },
+    "lean_file": "LinearAlgebra/SymplecticBasis.lean",
+    "nl_file": "docs/entries/linear-algebra/symplectic/basis.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T11:16:18Z",
+    "dependedOnBy": [],
+    "proof_sha": "a2bef3b4d94d8651",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
