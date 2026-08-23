@@ -16,7 +16,7 @@ import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 noncomputable section
 
-namespace SandronesLibrary.Analysis.Multivariable
+namespace SandronesLibrary.Examples.CoordinateIntegrals
 
 open Set MeasureTheory Real
 open scoped Interval
@@ -77,4 +77,4 @@ theorem uniform_ball_mass_jacobian_integral (δ : ℝ) {R : ℝ} (hR : 0 ≤ R) 
   rw [integral_const_mul, integral_Ioo_sq_zero_radius hR]
   ring
 
-end SandronesLibrary.Analysis.Multivariable
+end SandronesLibrary.Examples.CoordinateIntegrals

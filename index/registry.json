@@ -7332,5 +7332,40 @@
       "propext"
     ],
     "proof_sha": "93682b7d030bf48c"
+  },
+  {
+    "id": "analysis.multivariable.green-gauss-stokes",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Green、Gauss与Stokes公式",
+    "summary": "从矩形Green公式开始统一区域内部导数与有向边界积分",
+    "premises": [
+      "analysis.multivariable.second-kind-integrals"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral2_divergence_prod_of_hasFDerivAt",
+      "MeasureTheory.integral_divergence_of_hasFDerivAt_off_countable",
+      "HasFDerivAt.neg",
+      "intervalIntegral.integral_neg",
+      "intervalIntegral.integral_add_adjacent_intervals",
+      "intervalIntegral.integral_deriv_eq_sub",
+      "MeasureTheory.integral_biUnion_finset",
+      "Matrix.crossProduct"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：Green、Gauss与Stokes公式"
+    },
+    "lean_file": "Analysis/GreenGaussStokes.lean",
+    "nl_file": "docs/entries/analysis/multivariable/green-gauss-stokes.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T02:38:51Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a6a57c53562a35b9"
   }
 ]

@@ -2175,7 +2175,15 @@
 ### `intervalIntegral.integral_deriv_eq_sub`
 - **人话**：可积导数在有向区间上的积分等于函数的终值减初值。
 - **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean`。
-- **谁在用**：`analysis.multivariable.second-kind-integrals` 的恰当 1-形式端点公式。
+- **谁在用**：`analysis.multivariable.second-kind-integrals` 的恰当 1-形式端点公式；
+  `analysis.multivariable.green-gauss-stokes` 对双正常域的每条水平、竖直截面使用该公式。
+
+### `MeasureTheory.integral_biUnion_finset`
+- **人话**：有限个两两不交可测集合上的积分之和，等于它们并集上的积分。
+- **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Set.lean`。
+- **谁在用**：`analysis.multivariable.green-gauss-stokes` 的有限分片 Green 拼接定理。
+- **坑**：闭分片通常共享边界，应用前要利用边界零测性改成互不相交的半开分片，
+  或明确把公共边只分配给其中一片。
 
 ### `intervalIntegral.integral_comp_mul_deriv_of_deriv_nonpos`
 - **人话**：导数非正的参数替换仍满足有向积分换元，端点次序会自动反转。
@@ -2192,6 +2200,22 @@
 - **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Basic.lean`。
 - **谁在用**：`analysis.multivariable.second-kind-integrals` 的曲面积分线性。
 - **坑**：必须提供两项可积性，不能对默认零值的不可积积分无条件使用。
+
+### `MeasureTheory.integral2_divergence_prod_of_hasFDerivAt`
+- **人话**：平面矩形内部的散度二重积分等于四条边上的外向通量之和。
+- **出处**：`Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean`。
+- **谁在用**：`analysis.multivariable.green-gauss-stokes`；对旋转场 `(Q,-P)` 使用后得到 Green 公式。
+
+### `MeasureTheory.integral_divergence_of_hasFDerivAt_off_countable`
+- **人话**：有限维实坐标盒内的散度积分等于所有相对面的外向通量差之和。
+- **出处**：`Mathlib/MeasureTheory/Integral/DivergenceTheorem.lean`。
+- **谁在用**：`analysis.multivariable.green-gauss-stokes` 的三维盒 Gauss 公式。
+- **坑**：空间维数写成 `Fin (n+1)`；三维实例化时取 `n=2`，每个面使用 `Fin 2` 参数。
+
+### `HasFDerivAt.neg`
+- **人话**：函数取负后，Fréchet 导数也取负。
+- **出处**：Mathlib Fréchet 导数的加法群运算接口。
+- **谁在用**：Green 公式中从 `P` 转到 `-P`。
 
 ## 附：登记清单自动核对
 

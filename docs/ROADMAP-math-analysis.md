@@ -251,18 +251,21 @@
 | `analysis.multivariable.x-normal-domain` | `x`-型正常区域及变限累次积分 | ✅ |
 | `analysis.multivariable.y-normal-domain` | `y`-型正常区域及变限累次积分 | ✅ |
 | `analysis.multivariable.change-variables` | Lebesgue/Bochner 多重积分换元与 Jacobian | ✅ |
-| `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标及质量、重心、转动惯量例题 | ✅ |
-| `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长与面积 | 🚧 |
+| `analysis.multivariable.coordinate-integrals` | 极、柱、球坐标理论；具体计算置于顶层 `Examples` | ✅ |
+| `analysis.multivariable.parametrized-curves-surfaces` | 正则曲线、曲面参数化、弧长、三维面积元、仿射面积及一般换参数不变性 | ✅ |
 | `analysis.multivariable.first-kind-integrals` | 第一型曲线积分与曲面积分 | 🔲 |
 | `linear-algebra.tensor-exterior` | 对偶空间、张量积、交替多重线性映射、外代数与楔积 | 🚧 |
 | `topology.orientation.vector-space` | 有限维实向量空间的定向与保向/反向判据 | ✅ |
 | `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分、楔积与定向 | 🚧 |
 | `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🚧 |
-| `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与一般 Stokes 定理 | 🔲 |
+| `analysis.multivariable.green-gauss-stokes` | Green/Gauss/Stokes 局部公式、有限片/多图册拼接、边面自动抵消与闭曲面推论 | 🚧 |
 
 > **范围边界**：本数学分析 II 路线只做到欧氏空间（特别是星形/单连通区域）上的
 > Poincaré 型结论以及第二型积分和 Green–Gauss–Stokes 公式。de Rham 上同调、
 > 同伦不变性与 de Rham 定理移入后续微分几何/代数拓扑路线，不作为本阶段前置。
+
+> **例子分层**：教材例题、具体区域和数值计算统一放在顶层 `SandronesLibrary/Examples`，
+> 与 `Analysis`、`Topology` 等学科目录平行；理论模块不得依赖例子模块。
 
 1. **章节内先后**：严格按表内行序（定义 → 基本性质 → 定理 → 应用型定理），
    保证每个条目的 premises 已经就绪。

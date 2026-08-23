@@ -38,11 +38,10 @@ import SandronesLibrary.Analysis.JordanRiemannBridge
 import SandronesLibrary.Analysis.NormalDomain
 import SandronesLibrary.Analysis.ChangeOfVariables
 import SandronesLibrary.Analysis.CoordinateIntegrals
-import SandronesLibrary.Analysis.CoordinateIntegralExamples
-import SandronesLibrary.Analysis.SphericalMomentExamples
 import SandronesLibrary.Analysis.ParametrizedGeometry
 import SandronesLibrary.Analysis.DifferentialForms
 import SandronesLibrary.Analysis.SecondKindIntegrals
+import SandronesLibrary.Analysis.GreenGaussStokes
 import SandronesLibrary.RealAnalysis.Riemann
 import SandronesLibrary.RealAnalysis.RiemannCriterion
 import SandronesLibrary.RealAnalysis.RiemannIntegralBridge
@@ -62,3 +61,7 @@ import SandronesLibrary.SetTheory.Function
 import SandronesLibrary.SetTheory.Relations
 import SandronesLibrary.SetTheory.Cardinal
 import SandronesLibrary.SetTheory.Zorn
+import SandronesLibrary.Examples.CoordinateIntegrals
+import SandronesLibrary.Examples.SphericalMoments
+import SandronesLibrary.Examples.GreenRegions
+import SandronesLibrary.Examples.GaussStokes

@@ -4,8 +4,12 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Analysis.MultivariableCalculus
+import SandronesLibrary.Analysis.MultivariableIntegration
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.Basic
 import Mathlib.MeasureTheory.Integral.IntervalIntegral.IntegrationByParts
+import Mathlib.MeasureTheory.Integral.Prod
+import Mathlib.LinearAlgebra.CrossProduct
+import Mathlib.LinearAlgebra.Basis.Fin
 
 /-!
 # 参数曲线与参数曲面
@@ -17,8 +21,8 @@ noncomputable section
 
 namespace SandronesLibrary.Analysis.Multivariable
 
-open Set MeasureTheory
-open scoped Interval
+open Set MeasureTheory Matrix
+open scoped Interval Matrix
 
 /-- `ℝⁿ` 中的参数曲线。 -/
 abbrev ParametrizedCurve (n : ℕ) := ℝ → (Fin n → ℝ)
@@ -241,5 +245,213 @@ theorem range_affinePlane_eq_of_span_eq {n : ℕ}
   rw [range_affinePlane, range_affinePlane]
   ext x
   simp only [affinePlaneSet, Set.mem_ofPred_eq, hspan]
+
+/-! ## 三维曲面的面积元与面积 -/
+
+/-- 三维参数曲面在参数点 `p` 处的面积元 `‖σᵤ × σᵥ‖`。
+
+叉积的长度等于两条坐标切向量张成的平行四边形面积；因此该定义不依赖曲面的
+平移，只记录参数化在该点沿两个坐标方向造成的面积伸缩。
+-/
+def surfaceAreaElement3 (σ : ParametrizedSurface 3) (p : ℝ × ℝ) : ℝ :=
+  ‖surfaceTangent₁ σ p ⨯₃ surfaceTangent₂ σ p‖
+
+/-- 三维参数曲面在参数域 `s` 上的面积，即面积元关于参数平面 Lebesgue 测度的积分。 -/
+def surfaceAreaOn3 (σ : ParametrizedSurface 3) (s : Set (ℝ × ℝ)) : ℝ :=
+  ∫ p in s, surfaceAreaElement3 σ p ∂(volume.prod volume)
+
+/-- 曲面面积元总是非负。 -/
+theorem surfaceAreaElement3_nonneg (σ : ParametrizedSurface 3) (p : ℝ × ℝ) :
+    0 ≤ surfaceAreaElement3 σ p := by
+  exact norm_nonneg _
+
+/-- 仿射平面的面积元是常数 `‖u × v‖`。 -/
+theorem surfaceAreaElement3_affinePlane
+    (p u v : Fin 3 → ℝ) (a : ℝ × ℝ) :
+    surfaceAreaElement3 (affinePlane p u v) a = ‖u ⨯₃ v‖ := by
+  simp [surfaceAreaElement3, surfaceTangent₁_affinePlane,
+    surfaceTangent₂_affinePlane]
+
+/-- 三维仿射平面在一点正则，当且仅当该点的面积元非零。
+
+对仿射参数化而言，两条切向量恒为 `u,v`；叉积非零恰好刻画这两个向量线性无关。
+-/
+theorem surfaceRegularAt_affinePlane_iff_areaElement_ne_zero
+    (p u v : Fin 3 → ℝ) (a : ℝ × ℝ) :
+    SurfaceRegularAt (affinePlane p u v) a ↔
+      surfaceAreaElement3 (affinePlane p u v) a ≠ 0 := by
+  rw [surfaceRegularAt_affinePlane_iff, surfaceAreaElement3_affinePlane]
+  simpa only [norm_ne_zero_iff] using
+    (crossProduct_ne_zero_iff_linearIndependent (v := u) (w := v)).symm
+
+/-- 仿射平面在闭参数矩形上的面积：参数矩形面积乘以平行四边形面积 `‖u×v‖`。 -/
+theorem surfaceAreaOn3_affinePlane_closedRectangle
+    (p u v : Fin 3 → ℝ) (a b c d : ℝ) (hab : a ≤ b) (hcd : c ≤ d) :
+    surfaceAreaOn3 (affinePlane p u v) (closedRectangle a b c d) =
+      (b - a) * (d - c) * ‖u ⨯₃ v‖ := by
+  rw [surfaceAreaOn3]
+  simp_rw [surfaceAreaElement3_affinePlane]
+  rw [setIntegral_const]
+  have harea : (volume.prod volume).real (closedRectangle a b c d) =
+      (b - a) * (d - c) := by
+    simpa [rectangleIntegral] using rectangleIntegral_one hab hcd
+  rw [harea]
+  simp [smul_eq_mul]
+
+/-! ## 一般可微换参数的面积元公式 -/
+
+/-- 二维连续线性映射在标准基下的 Jacobian 行列式。 -/
+def jacobianDet2 (L : ℝ × ℝ →L[ℝ] ℝ × ℝ) : ℝ :=
+  (L (1, 0)).1 * (L (0, 1)).2 - (L (1, 0)).2 * (L (0, 1)).1
+
+/-- 抽象线性映射行列式与标准基坐标公式 `jacobianDet2` 一致。 -/
+theorem det_eq_jacobianDet2 (L : ℝ × ℝ →L[ℝ] ℝ × ℝ) :
+    L.det = jacobianDet2 L := by
+  unfold ContinuousLinearMap.det
+  rw [← LinearMap.det_toMatrix (Module.Basis.finTwoProd ℝ) L.toLinearMap]
+  rw [Matrix.det_fin_two]
+  simp [LinearMap.toMatrix_apply, jacobianDet2, Module.Basis.coe_finTwoProd_repr]
+  ring
+
+/-- 复合参数化的第一条切向量是原两条切向量按 `Dφ(1,0)` 坐标作线性组合。 -/
+theorem surfaceTangent₁_comp_reparam
+    (σ : ParametrizedSurface 3) (φ : ℝ × ℝ → ℝ × ℝ) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ (φ p)) (hφ : DifferentiableAt ℝ φ p) :
+    surfaceTangent₁ (σ ∘ φ) p =
+      (fderiv ℝ φ p (1, 0)).1 • surfaceTangent₁ σ (φ p) +
+      (fderiv ℝ φ p (1, 0)).2 • surfaceTangent₂ σ (φ p) := by
+  have hcomp := hσ.hasFDerivAt.comp p hφ.hasFDerivAt
+  rw [surfaceTangent₁, hcomp.fderiv, surfaceTangent₁, surfaceTangent₂]
+  have hw : fderiv ℝ φ p (1, 0) =
+      (fderiv ℝ φ p (1, 0)).1 • (1, 0) +
+        (fderiv ℝ φ p (1, 0)).2 • (0, 1) := by
+    ext <;> simp
+  change fderiv ℝ σ (φ p) (fderiv ℝ φ p (1, 0)) = _
+  calc
+    _ = fderiv ℝ σ (φ p)
+        ((fderiv ℝ φ p (1, 0)).1 • (1, 0) +
+          (fderiv ℝ φ p (1, 0)).2 • (0, 1)) := congrArg _ hw
+    _ = _ := by rw [map_add, map_smul, map_smul]
+
+/-- 复合参数化的第二条切向量是原两条切向量按 `Dφ(0,1)` 坐标作线性组合。 -/
+theorem surfaceTangent₂_comp_reparam
+    (σ : ParametrizedSurface 3) (φ : ℝ × ℝ → ℝ × ℝ) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ (φ p)) (hφ : DifferentiableAt ℝ φ p) :
+    surfaceTangent₂ (σ ∘ φ) p =
+      (fderiv ℝ φ p (0, 1)).1 • surfaceTangent₁ σ (φ p) +
+      (fderiv ℝ φ p (0, 1)).2 • surfaceTangent₂ σ (φ p) := by
+  have hcomp := hσ.hasFDerivAt.comp p hφ.hasFDerivAt
+  rw [surfaceTangent₂, hcomp.fderiv, surfaceTangent₁, surfaceTangent₂]
+  have hw : fderiv ℝ φ p (0, 1) =
+      (fderiv ℝ φ p (0, 1)).1 • (1, 0) +
+        (fderiv ℝ φ p (0, 1)).2 • (0, 1) := by
+    ext <;> simp
+  change fderiv ℝ σ (φ p) (fderiv ℝ φ p (0, 1)) = _
+  calc
+    _ = fderiv ℝ σ (φ p)
+        ((fderiv ℝ φ p (0, 1)).1 • (1, 0) +
+          (fderiv ℝ φ p (0, 1)).2 • (0, 1)) := congrArg _ hw
+    _ = _ := by rw [map_add, map_smul, map_smul]
+
+/-- 两组线性组合的叉积等于系数矩阵行列式乘原叉积。 -/
+theorem cross_linear_combinations
+    (u v : Fin 3 → ℝ) (a b c d : ℝ) :
+    (a • u + b • v) ⨯₃ (c • u + d • v) =
+      (a * d - b * c) • (u ⨯₃ v) := by
+  ext i
+  fin_cases i <;> simp [cross_apply] <;> ring
+
+/-- **曲面面积元的一般换参数公式**。
+
+复合参数化的两条切向量由链式法则给出；叉积的双线性使其获得二维 Jacobian
+行列式因子，取范数后只保留行列式绝对值。
+-/
+theorem surfaceAreaElement3_comp_reparam
+    (σ : ParametrizedSurface 3) (φ : ℝ × ℝ → ℝ × ℝ) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ (φ p)) (hφ : DifferentiableAt ℝ φ p) :
+    surfaceAreaElement3 (σ ∘ φ) p =
+      |jacobianDet2 (fderiv ℝ φ p)| * surfaceAreaElement3 σ (φ p) := by
+  rw [surfaceAreaElement3, surfaceAreaElement3,
+    surfaceTangent₁_comp_reparam σ φ p hσ hφ,
+    surfaceTangent₂_comp_reparam σ φ p hσ hφ,
+    cross_linear_combinations]
+  rw [norm_smul, Real.norm_eq_abs]
+  rfl
+
+/-- **曲面面积的一般换参数不变性**。
+
+设 `s` 是可测参数域，`φ` 是在 `s` 上单射的全局可微参数变换。点态面积元公式给出
+Jacobian 绝对值因子；一般二维积分换元公式恰好吸收该因子，因此复合参数化在 `s`
+上的面积等于原参数化在像域 `φ '' s` 上的面积。
+-/
+theorem surfaceAreaOn3_comp_reparam
+    (σ : ParametrizedSurface 3) (φ : ℝ × ℝ → ℝ × ℝ)
+    (s : Set (ℝ × ℝ)) (hs : MeasurableSet s)
+    (hφ : Differentiable ℝ φ) (hinj : InjOn φ s)
+    (hσ : Differentiable ℝ σ) :
+    surfaceAreaOn3 (σ ∘ φ) s = surfaceAreaOn3 σ (φ '' s) := by
+  rw [surfaceAreaOn3, surfaceAreaOn3]
+  have hchange := MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul
+    (μ := volume) (f' := fun x ↦ fderiv ℝ φ x) hs
+    (fun x _ ↦ (hφ x).hasFDerivAt.hasFDerivWithinAt) hinj (surfaceAreaElement3 σ)
+  rw [← Measure.volume_eq_prod]
+  rw [hchange]
+  apply setIntegral_congr_fun hs
+  intro x hx
+  rw [surfaceAreaElement3_comp_reparam σ φ x (hσ (φ x)) (hφ x)]
+  change |jacobianDet2 (fderiv ℝ φ x)| * surfaceAreaElement3 σ (φ x) =
+    |(fderiv ℝ φ x).det| * surfaceAreaElement3 σ (φ x)
+  rw [det_eq_jacobianDet2]
+
+/-! ## 交换曲面参数 -/
+
+/-- 交换两个参数后，第一条坐标切向量变为原参数化的第二条切向量。 -/
+theorem surfaceTangent₁_comp_swap (σ : ParametrizedSurface 3) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ p.swap) :
+    surfaceTangent₁ (σ ∘ Prod.swap) p = surfaceTangent₂ σ p.swap := by
+  have hswap : HasFDerivAt Prod.swap
+      ((ContinuousLinearMap.snd ℝ ℝ ℝ).prod
+        (ContinuousLinearMap.fst ℝ ℝ ℝ)) p := by
+    exact hasFDerivAt_snd.prodMk hasFDerivAt_fst
+  have hcomp := hσ.hasFDerivAt.comp p hswap
+  rw [surfaceTangent₁, hcomp.fderiv, surfaceTangent₂, hσ.hasFDerivAt.fderiv]
+  simp
+
+/-- 交换两个参数后，第二条坐标切向量变为原参数化的第一条切向量。 -/
+theorem surfaceTangent₂_comp_swap (σ : ParametrizedSurface 3) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ p.swap) :
+    surfaceTangent₂ (σ ∘ Prod.swap) p = surfaceTangent₁ σ p.swap := by
+  have hswap : HasFDerivAt Prod.swap
+      ((ContinuousLinearMap.snd ℝ ℝ ℝ).prod
+        (ContinuousLinearMap.fst ℝ ℝ ℝ)) p := by
+    exact hasFDerivAt_snd.prodMk hasFDerivAt_fst
+  have hcomp := hσ.hasFDerivAt.comp p hswap
+  rw [surfaceTangent₂, hcomp.fderiv, surfaceTangent₁, hσ.hasFDerivAt.fderiv]
+  simp
+
+/-- 交换参数会反转有向面积向量，但不会改变面积元。 -/
+theorem surfaceAreaElement3_comp_swap (σ : ParametrizedSurface 3) (p : ℝ × ℝ)
+    (hσ : DifferentiableAt ℝ σ p.swap) :
+    surfaceAreaElement3 (σ ∘ Prod.swap) p = surfaceAreaElement3 σ p.swap := by
+  rw [surfaceAreaElement3, surfaceAreaElement3,
+    surfaceTangent₁_comp_swap σ p hσ, surfaceTangent₂_comp_swap σ p hσ]
+  rw [← cross_anticomm]
+  exact norm_neg _
+
+/-- **曲面面积的参数交换不变性**。
+
+若原参数域为 `s × t`，交换参数后的区域为 `t × s`。面积元的点态不变性配合
+乘积测度的交换不变性，说明两个参数化给出的曲面面积完全相同。
+-/
+theorem surfaceAreaOn3_comp_swap_prod (σ : ParametrizedSurface 3)
+    (s t : Set ℝ) (hσ : Differentiable ℝ σ) :
+    surfaceAreaOn3 (σ ∘ Prod.swap) (t ×ˢ s) = surfaceAreaOn3 σ (s ×ˢ t) := by
+  rw [surfaceAreaOn3, surfaceAreaOn3]
+  have hpoint : ∀ p : ℝ × ℝ,
+      surfaceAreaElement3 (σ ∘ Prod.swap) p = surfaceAreaElement3 σ p.swap := by
+    intro p
+    exact surfaceAreaElement3_comp_swap σ p (hσ p.swap)
+  simp_rw [hpoint]
+  exact setIntegral_prod_swap s t (surfaceAreaElement3 σ)
 
 end SandronesLibrary.Analysis.Multivariable

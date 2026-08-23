@@ -3,7 +3,7 @@ Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
-import SandronesLibrary.Analysis.CoordinateIntegralExamples
+import SandronesLibrary.Examples.CoordinateIntegrals
 
 /-!
 # 均匀球体的重心与转动惯量
@@ -15,7 +15,9 @@ import SandronesLibrary.Analysis.CoordinateIntegralExamples
 
 noncomputable section
 
-namespace SandronesLibrary.Analysis.Multivariable
+namespace SandronesLibrary.Examples.SphericalMoments
+
+open SandronesLibrary.Examples.CoordinateIntegrals
 
 open Set MeasureTheory Real
 open scoped Interval
@@ -175,4 +177,4 @@ theorem uniform_ball_inertia_eq_two_fifths_mass (δ R : ℝ) :
       (2 / 5 : ℝ) * (4 * π * δ * R ^ 3 / 3) * R ^ 2 := by
   ring
 
-end SandronesLibrary.Analysis.Multivariable
+end SandronesLibrary.Examples.SphericalMoments
