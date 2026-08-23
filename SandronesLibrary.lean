@@ -25,6 +25,10 @@ import SandronesLibrary.LinearAlgebra.JordanSimilarity
 import SandronesLibrary.LinearAlgebra.JordanUniqueness
 import SandronesLibrary.LinearAlgebra.InnerProduct
 import SandronesLibrary.LinearAlgebra.SpectralQuadratic
+import SandronesLibrary.LinearAlgebra.OrthogonalUnitary
+import SandronesLibrary.LinearAlgebra.NormalMatrix
+import SandronesLibrary.LinearAlgebra.NormalSpectral
+import SandronesLibrary.LinearAlgebra.SymplecticMatrix
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.LinearAlgebra.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group

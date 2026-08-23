@@ -197,9 +197,9 @@
 | 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | ✅ |
 | 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | ✅ |
 | 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | ✅ |
-| 9 | `linear-algebra.matrix.orthogonal-unitary` | 正交/酉矩阵、共轭转置、群运算与行列式性质 | 🔲 |
-| 10 | `linear-algebra.matrix.normal` | 正规、Hermitian、斜 Hermitian 矩阵与复谱定理 | 🔲 |
-| 11 | `linear-algebra.matrix.symplectic` | 标准辛矩阵、辛群基本性质与行列式为一 | 🔲 |
+| 9 | `linear-algebra.matrix.orthogonal-unitary` | 正交/酉矩阵、共轭转置、群运算与行列式性质 | ✅ |
+| 10 | `linear-algebra.matrix.normal` | 正规、Hermitian、斜 Hermitian 矩阵与复谱定理 | ✅ |
+| 11 | `linear-algebra.matrix.symplectic` | 标准辛矩阵、辛群基本性质与行列式为一 | ✅ |
 | 12 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | 🔲 |
 | 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | 🔲 |
 | 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | 🔲 |

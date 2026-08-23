@@ -2271,6 +2271,56 @@
 - **人话**：有限维空间的 `k` 次外幂维数等于 `Nat.choose n k`。
 - **谁在用**：`linear-algebra.tensor-exterior` 的外幂分次维数公式。
 
+## 正交矩阵与酉矩阵（2026-08-23）
+
+### `Matrix.mem_unitaryGroup_iff`
+- **人话**：方阵属于酉群当且仅当它与共轭转置的乘积为单位阵。
+- **谁在用**：`linear-algebra.matrix.orthogonal-unitary` 的教材定义桥。
+
+### `Matrix.mem_orthogonalGroup_iff`
+- **人话**：实方阵属于正交群当且仅当它与转置的乘积为单位阵。
+- **谁在用**：正交矩阵教材定义桥。
+
+### `Matrix.det_of_mem_unitary`
+- **人话**：酉矩阵的行列式是酉标量；复数情形即模长为一。
+- **谁在用**：酉矩阵及实正交矩阵的行列式结论。
+
+### `Unitary.star_mem`
+- **人话**：酉元素取星后仍是酉元素；矩阵的星就是共轭转置。
+- **谁在用**：酉矩阵的共轭转置封闭性。
+
+## 正规与 Hermitian 矩阵（2026-08-23）
+
+### `Matrix.IsHermitian.spectral_theorem`
+- **人话**：有限 Hermitian 方阵可由酉矩阵对角化，且对角元来自实特征值。
+- **谁在用**：`linear-algebra.matrix.normal` 的 Hermitian 酉对角化。
+
+### `Matrix.IsHermitian.eigenvectorUnitary`
+- **人话**：Hermitian 方阵的标准正交特征向量组成一个酉矩阵。
+- **谁在用**：酉对角化中换基矩阵的构造。
+
+### `Matrix.conjTranspose_add`
+- **人话**：共轭转置保持矩阵加法。
+- **谁在用**：Hermitian 部分 `(A+Aᴴ)/2` 的验证。
+
+### `Matrix.conjTranspose_sub`
+- **人话**：共轭转置保持矩阵减法。
+- **谁在用**：斜 Hermitian 部分 `(A-Aᴴ)/2` 的验证。
+
+## 辛矩阵与辛群（2026-08-23）
+
+### `Matrix.J`
+- **人话**：分块矩阵 `[[0,-I],[I,0]]`，即标准辛形式的矩阵。
+- **谁在用**：`linear-algebra.matrix.symplectic` 的标准辛矩阵。
+
+### `Matrix.symplecticGroup`
+- **人话**：保持标准辛形式的方阵组成的乘法群。
+- **谁在用**：辛矩阵教材定义的群运算封闭性。
+
+### `SymplecticGroup.det_eq_one`
+- **人话**：交换环上的辛矩阵行列式等于一。
+- **谁在用**：实辛矩阵的行列式定理。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

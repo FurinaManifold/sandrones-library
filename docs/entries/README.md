@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **239** 个条目（verified 239，pending 0）。
+共 **242** 个条目（verified 242，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -249,8 +249,11 @@
 
 ## `linear-algebra.matrix`
 
+- ✅ [`normal.md`](normal.md) — 正规、Hermitian与斜Hermitian矩阵
+- ✅ [`orthogonal-unitary.md`](orthogonal-unitary.md) — 正交矩阵与酉矩阵
 - ✅ [`skew-symmetric.md`](skew-symmetric.md) — 反对称矩阵
 - ✅ [`symmetric.md`](symmetric.md) — 对称矩阵
+- ✅ [`symplectic.md`](symplectic.md) — 辛矩阵与辛群
 
 ## `linear-algebra.vector-space`
 

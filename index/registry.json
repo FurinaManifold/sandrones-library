@@ -7459,5 +7459,99 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.matrix.orthogonal-unitary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正交矩阵与酉矩阵",
+    "summary": "正交与酉矩阵的教材定义、群封闭性及行列式性质",
+    "premises": [
+      "linear-algebra.inner-product",
+      "linear-algebra.det.mul"
+    ],
+    "mathlib": [
+      "Matrix.mem_unitaryGroup_iff",
+      "Matrix.mem_orthogonalGroup_iff",
+      "Matrix.det_of_mem_unitary",
+      "Unitary.star_mem"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数：正交矩阵、酉矩阵与经典矩阵群"
+    },
+    "lean_file": "LinearAlgebra/OrthogonalUnitary.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/orthogonal-unitary.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T09:57:44Z",
+    "dependedOnBy": [],
+    "proof_sha": "2d27be3ecfa49299",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.matrix.normal",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正规、Hermitian与斜Hermitian矩阵",
+    "summary": "三类复矩阵、Hermitian-斜Hermitian分解及一般正规矩阵酉谱定理",
+    "premises": [
+      "linear-algebra.matrix.orthogonal-unitary",
+      "linear-algebra.spectral-quadratic"
+    ],
+    "mathlib": [
+      "Matrix.IsHermitian.spectral_theorem",
+      "Matrix.IsHermitian.eigenvectorUnitary",
+      "Matrix.conjTranspose_add",
+      "Matrix.conjTranspose_sub"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数：正规矩阵、Hermitian矩阵与酉谱定理"
+    },
+    "lean_file": "LinearAlgebra/NormalSpectral.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/normal.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T10:02:10Z",
+    "dependedOnBy": [],
+    "proof_sha": "2ae66e6778954915",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "linear-algebra.matrix.symplectic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "辛矩阵与辛群",
+    "summary": "标准辛矩阵、辛矩阵的群运算、逆矩阵公式与行列式为一",
+    "premises": [
+      "linear-algebra.matrix.orthogonal-unitary"
+    ],
+    "mathlib": [
+      "Matrix.J",
+      "Matrix.symplecticGroup",
+      "SymplecticGroup.det_eq_one"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "本科线性代数与辛几何前置：辛矩阵及辛群"
+    },
+    "lean_file": "LinearAlgebra/SymplecticMatrix.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/symplectic.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T10:51:35Z",
+    "dependedOnBy": [],
+    "proof_sha": "b1a06d90393c5f6a",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
