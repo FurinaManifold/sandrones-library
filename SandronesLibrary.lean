@@ -12,6 +12,7 @@ import SandronesLibrary.LinearAlgebra.LinearMap
 import SandronesLibrary.LinearAlgebra.Matrix
 import SandronesLibrary.LinearAlgebra.Determinant
 import SandronesLibrary.LinearAlgebra.Eigenvalue
+import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly

@@ -2022,6 +2022,60 @@
   `p + span{u,v}`，并推出生成方向换基不改变平面。
 - **坑**：等式方向是 `a • u + b • v = z`；从点集条件恢复参数时要先处理基点平移。
 
+### `Subspace.dual_finrank_eq`
+- **人话**：向量空间与其对偶空间的维数相同。
+- **出处**：`Mathlib/LinearAlgebra/Dual/Lemmas.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已转成教材层的 `dim_dual_eq_dim`。
+- **坑**：定理历史上位于 `Subspace` 命名空间，名字容易误以为需要先给一个子空间。
+
+### `Module.Dual.eval`
+- **人话**：自然地把向量 `v` 送入双对偶，所得泛函在 `φ` 上取值为 `φ(v)`。
+- **出处**：`Mathlib/LinearAlgebra/Dual/Defs.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，用于双对偶评价映射。
+- **坑**：这是无需选择基的自然映射；断言它是同构还需要有限维等条件。
+
+### `Module.bijective_dual_eval`
+- **人话**：反身模的自然双对偶评价映射是双射；有限维向量空间自动满足此前提。
+- **出处**：`Mathlib/LinearAlgebra/Dual/Defs.lean` 与 `Dual/Lemmas.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，用于有限维空间与双对偶的自然对应。
+- **坑**：无限维代数对偶通常不与原空间同构，不能无条件使用。
+
+### `Module.finrank_tensorProduct`
+- **人话**：有限维张量积的维数等于两个因子维数的乘积。
+- **出处**：`Mathlib/LinearAlgebra/Dimension/Constructions.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已转成 `dim_tensor_eq_mul`。
+- **坑**：这是有限维 `finrank` 公式；无限维时应改用基数值的 `Module.rank`。
+
+### `TensorProduct.lift`
+- **人话**：张量积的泛性质，把一个双线性映射唯一线性化为张量积上的线性映射。
+- **出处**：`Mathlib/LinearAlgebra/TensorProduct/Basic.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已包装为教材接口 `tensorLift`。
+- **坑**：应先把双线性映射写成柯里化的线性映射 `V →ₗ W →ₗ X`。
+
+### `contractLeft`
+- **人话**：对偶张量的自然缩并，把 `φ ⊗ v` 送到标量 `φ(v)`。
+- **出处**：`Mathlib/LinearAlgebra/Contraction.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`。
+- **坑**：左右缩并的张量因子顺序不同；这里采用 `V* ⊗ V`。
+
+### `ExteriorAlgebra.ι_sq_zero`
+- **人话**：向量嵌入外代数后与自身楔乘为零，即 `v ∧ v = 0`。
+- **出处**：`Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已转成 `vectorWedge_self`。
+- **坑**：结论发生在整个外代数中；所属的齐次外幂需要另行登记。
+
+### `ExteriorAlgebra.ι_add_mul_swap`
+- **人话**：两个一次向量的两个乘法次序之和为零，由此得到 `u ∧ v = -v ∧ u`。
+- **出处**：`Mathlib/LinearAlgebra/ExteriorAlgebra/Basic.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已转成向量楔积反交换律。
+- **坑**：特征为二时负号等于正号，但“平方为零”的交替性质仍是核心定义。
+
+### `AlternatingMap.map_eq_zero_of_eq`
+- **人话**：交替多重线性映射只要两个不同位置输入相同向量，输出就为零。
+- **出处**：`Mathlib/LinearAlgebra/Alternating/Basic.lean`。
+- **谁在用**：`linear-algebra.tensor-exterior`，已转成教材层交替形式判据。
+- **坑**：除了输入相等，还必须提供两个位置指标不同。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

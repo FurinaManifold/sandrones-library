@@ -1,12 +1,12 @@
 # Entries 索引
 
-> 自动生成（2026-08-22）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-08-23）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **231** 个条目（verified 231，pending 0）。
+共 **232** 个条目（verified 232，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -119,21 +119,12 @@
 ## `analysis.multivariable`
 
 - ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
-- ✅ [`constant-rank-theorem.md`](constant-rank-theorem.md) — Rudin 一般常秩定理
 - ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
 - ✅ [`full-rank-theorem.md`](full-rank-theorem.md) — 满秩秩定理
 - ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
 - ✅ [`hessian-taylor.md`](hessian-taylor.md) — Hessian与多元Taylor公式
 - ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
-- ✅ [`jordan-region.md`](jordan-region.md) — Jordan 可测区域与边界零体积
-- ✅ [`jordan-riemann-bridge.md`](jordan-riemann-bridge.md) — Jordan 区域零延拓积分桥
-- ✅ [`multivariable-riemann.md`](multivariable-riemann.md) — 闭盒多元 Riemann 积分及数值桥
-- ✅ [`normal-domain.md`](normal-domain.md) — `x`/`y`-型正常区域、Fubini 与 Riemann 降维
-- ✅ [`change-of-variables.md`](change-of-variables.md) — 多重积分换元与 Jacobian 公式
-- ✅ [`coordinate-integrals.md`](coordinate-integrals.md) — 极、柱、球坐标及质量、重心、转动惯量例题
-- 🚧 [`parametrized-geometry.md`](parametrized-geometry.md) — 参数曲线、曲面、弧长与正则性
-- ✅ [`rectangle-integral.md`](rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 接口
 
 ## `analysis.mvt`
 
@@ -218,6 +209,10 @@
 - ✅ [`special-angles.md`](special-angles.md) — 高中常用三角函数特殊角值
 - ✅ [`sum-product.md`](sum-product.md) — 三角函数和差化积公式
 - ✅ [`tan-identities.md`](tan-identities.md) — 正切的和差与倍角公式
+
+## `linear-algebra`
+
+- ✅ [`tensor-exterior.md`](tensor-exterior.md) — 对偶空间、张量积与外代数
 
 ## `linear-algebra.det`
 
@@ -382,7 +377,6 @@
 
 ## `topology.space`
 
-- ✅ [`closure.md`](closure.md) — 内部、闭包与边界
 - ✅ [`connected.md`](connected.md) — 连通集
 - ✅ [`continuous.md`](continuous.md) — 连续映射
 - ✅ [`def.md`](def.md) — 拓扑空间与开闭集公理

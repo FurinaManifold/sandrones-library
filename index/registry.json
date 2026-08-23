@@ -7185,5 +7185,41 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "linear-algebra.tensor-exterior",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "对偶空间、张量积与外代数",
+    "summary": "对偶配对、张量积泛性质、缩并、交替形式和向量楔积",
+    "premises": [
+      "linear-algebra.vector-space.def"
+    ],
+    "mathlib": [
+      "Subspace.dual_finrank_eq",
+      "Module.Dual.eval",
+      "Module.bijective_dual_eval",
+      "Module.finrank_tensorProduct",
+      "TensorProduct.lift",
+      "contractLeft",
+      "ExteriorAlgebra.ι_sq_zero",
+      "ExteriorAlgebra.ι_add_mul_swap",
+      "AlternatingMap.map_eq_zero_of_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "线性代数与经典微分几何：对偶空间、张量积和外代数"
+    },
+    "lean_file": "LinearAlgebra/TensorExterior.lean",
+    "nl_file": "docs/entries/linear-algebra/tensor-exterior.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T01:19:42Z",
+    "dependedOnBy": [],
+    "proof_sha": "c93ef088b581202d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
