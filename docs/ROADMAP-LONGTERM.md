@@ -171,7 +171,7 @@
 | 2 | `linear-algebra.coordinates.change-basis` | 坐标映射、过渡矩阵、换基公式、相似矩阵表示同一算子 | ✅ |
 | 3 | `linear-algebra.vector-space.sum-quotient` | 子空间和、直和、商空间及维数公式 | ✅ |
 | 4 | `linear-algebra.eigen.diagonalization` | 特征基判据、几何/代数重数、Cayley–Hamilton、最小多项式 | ✅ |
-| 5 | `linear-algebra.eigen.jordan` | Jordan 链与 Jordan 标准形（完整存在性及矩阵相似标准型已完成；待证明块大小唯一性） | 🚧 |
+| 5 | `linear-algebra.eigen.jordan` | Jordan 链、标准形存在性、矩阵相似形式及由广义核维数确定块大小的唯一性 | ✅ |
 | 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | 🔲 |
 | 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | 🔲 |
 | 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | 🚧 |
