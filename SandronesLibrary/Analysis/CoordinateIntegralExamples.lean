@@ -1,0 +1,80 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
+import SandronesLibrary.Analysis.CoordinateIntegrals
+import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
+
+/-!
+# 坐标积分例题
+
+本文件收录数学分析教材中的多重积分计算例题。这些定理不再建立换元理论，
+而是调用 `CoordinateIntegrals` 的坐标公式和一维特殊函数积分接口，给出可直接
+在教材中引用的数值结果。
+-/
+
+noncomputable section
+
+namespace SandronesLibrary.Analysis.Multivariable
+
+open Set MeasureTheory Real
+open scoped Interval
+
+/-- 极角积分 `∫₀^π sin φ dφ = 2`。开区间与有向区间的端点只差零测集。 -/
+theorem integral_Ioo_sin_zero_pi :
+    (∫ φ in Ioo (0 : ℝ) π, sin φ) = 2 := by
+  rw [← integral_Ioc_eq_integral_Ioo, ← intervalIntegral.integral_of_le pi_pos.le]
+  rw [integral_sin]
+  norm_num
+
+/-- 径向积分 `∫₀ʳ ρ² dρ = R³/3`。 -/
+theorem integral_Ioo_sq_zero_radius {R : ℝ} (hR : 0 ≤ R) :
+    (∫ ρ in Ioo (0 : ℝ) R, ρ ^ 2) = R ^ 3 / 3 := by
+  rw [← integral_Ioc_eq_integral_Ioo, ← intervalIntegral.integral_of_le hR]
+  rw [integral_pow]
+  norm_num
+
+/-- **球体体积的球坐标计算**：半径 `R` 的球体在标准球坐标参数盒中的 Jacobian
+积分为 `4πR³/3`。这就是教材中球体体积计算的数值步骤。 -/
+theorem spherical_ball_jacobian_integral {R : ℝ} (hR : 0 ≤ R) :
+    (∫ ρ in Ioo (0 : ℝ) R, ∫ _θ in Ioo (-π) π,
+      ∫ φ in Ioo (0 : ℝ) π, ρ ^ 2 * sin φ) =
+        4 * π * R ^ 3 / 3 := by
+  have hphi (ρ : ℝ) :
+      (∫ φ in Ioo (0 : ℝ) π, ρ ^ 2 * sin φ) = ρ ^ 2 * 2 := by
+    rw [integral_const_mul, integral_Ioo_sin_zero_pi]
+  simp_rw [hphi]
+  have htheta (ρ : ℝ) :
+      (∫ _θ in Ioo (-π) π, ρ ^ 2 * 2) = 4 * π * ρ ^ 2 := by
+    rw [setIntegral_const]
+    simp [pi_pos.le]
+    ring
+  simp_rw [htheta]
+  rw [integral_const_mul, integral_Ioo_sq_zero_radius hR]
+  ring
+
+/-- **均匀球体的质量**：若密度为常数 `δ`，则半径 `R` 的球体质量积分为
+`4πδR³/3`。 -/
+theorem uniform_ball_mass_jacobian_integral (δ : ℝ) {R : ℝ} (hR : 0 ≤ R) :
+    (∫ ρ in Ioo (0 : ℝ) R, ∫ _θ in Ioo (-π) π,
+      ∫ φ in Ioo (0 : ℝ) π, δ * (ρ ^ 2 * sin φ)) =
+        4 * π * δ * R ^ 3 / 3 := by
+  have hphi (ρ : ℝ) :
+      (∫ φ in Ioo (0 : ℝ) π, δ * (ρ ^ 2 * sin φ)) =
+        δ * (ρ ^ 2 * 2) := by
+    rw [← mul_assoc, integral_const_mul, integral_const_mul,
+      integral_Ioo_sin_zero_pi]
+    ring
+  simp_rw [hphi]
+  have htheta (ρ : ℝ) :
+      (∫ _θ in Ioo (-π) π, δ * (ρ ^ 2 * 2)) =
+        4 * π * δ * ρ ^ 2 := by
+    rw [setIntegral_const]
+    simp [pi_pos.le]
+    ring
+  simp_rw [htheta]
+  rw [integral_const_mul, integral_Ioo_sq_zero_radius hR]
+  ring
+
+end SandronesLibrary.Analysis.Multivariable
