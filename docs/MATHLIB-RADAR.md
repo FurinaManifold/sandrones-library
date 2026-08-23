@@ -2160,3 +2160,14 @@
 - 登记过的名字在此文件的 `### ` 标题里。
 - 快速检查"某个名字有没有登记"：`grep "### \`名字\`" docs/MATHLIB-RADAR.md`。
 - 叙述层每条目 front matter 的 `mathlib:` 字段应都能在本文找到锚点。
+- `Orientation` / `Orientation.map`
+  - **上游位置**：`Mathlib.LinearAlgebra.Orientation`
+  - **人话**：把非零顶次交替形式的正射线作为定向，并让线性同构搬运定向。
+  - **谁在用**：`topology.orientation.vector-space`；分析层据此定义正向线性重参数化。
+  - **坑**：这是向量空间的线性定向，不是一般流形的定向图册或可定向性。
+
+- `Orientation.map_eq_iff_det_pos` / `Orientation.map_eq_neg_iff_det_neg`
+  - **上游位置**：`Mathlib.LinearAlgebra.Orientation`
+  - **人话**：维数与顶次指标匹配时，保向等价于行列式为正，反向等价于行列式为负。
+  - **谁在用**：`topology.orientation.vector-space` 与微分形式的正向重参数化判据。
+  - **坑**：必须显式提供 `Fintype.card ι = finrank ℝ E`；本库以 `n = finrank ℝ E` 包装。

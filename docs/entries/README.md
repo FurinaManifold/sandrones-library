@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **233** 个条目（verified 233，pending 0）。
+共 **234** 个条目（verified 234，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -119,7 +119,7 @@
 ## `analysis.multivariable`
 
 - ✅ [`coordinates.md`](coordinates.md) — 坐标偏导与Jacobian矩阵
-- ✅ [`differential-forms.md`](differential-forms.md) — 微分形式、拉回与外微分
+- ✅ [`differential-forms.md`](differential-forms.md) — 微分形式、外微分与连续楔积
 - ✅ [`frechet.md`](frechet.md) — Fréchet全微分与方向导数
 - ✅ [`full-rank-theorem.md`](full-rank-theorem.md) — 满秩秩定理
 - ✅ [`gradient.md`](gradient.md) — 梯度与方向导数
@@ -371,6 +371,10 @@
 - ✅ [`banach.md`](banach.md) — 范数收敛与Banach完备性
 - ✅ [`def.md`](def.md) — 赋范线性空间与Banach空间
 - ✅ [`inequalities.md`](inequalities.md) — 范数基本不等式
+
+## `topology.orientation`
+
+- ✅ [`vector-space.md`](vector-space.md) — 有限维实向量空间的定向
 
 ## `topology.separations`
 

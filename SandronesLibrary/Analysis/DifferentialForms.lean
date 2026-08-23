@@ -5,7 +5,7 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.LinearAlgebra.NormedAlternating
-import SandronesLibrary.Topology.NormedSpace
+import SandronesLibrary.Topology.Orientation
 import Mathlib.Analysis.Calculus.DifferentialForm.Basic
 import Mathlib.Analysis.Normed.Operator.Bilinear
 import Mathlib.LinearAlgebra.Alternating.DomCoprod
@@ -36,6 +36,28 @@ open SandronesLibrary.LinearAlgebra.NormedAlternating
 open scoped _root_.Topology
 
 universe u v
+
+/-! ## 定向与坐标变换 -/
+
+/-- 微分形式积分所使用的环境空间定向，直接调用拓扑层的线性定向。 -/
+abbrev FormOrientation (E : Type u) [AddCommGroup E] [Module ℝ E] (n : ℕ) :=
+  SandronesLibrary.Topology.Orientation.VectorOrientation E n
+
+/-- 一个线性重参数化相对于环境定向是正向的。 -/
+abbrev IsPositiveLinearReparametrization
+    {E : Type u} [AddCommGroup E] [Module ℝ E] {n : ℕ}
+    (o : FormOrientation E n) (f : E ≃ₗ[ℝ] E) : Prop :=
+  SandronesLibrary.Topology.Orientation.IsOrientationPreserving o f
+
+/-- 正向线性重参数化的实用判据是雅可比行列式为正。 -/
+theorem isPositiveLinearReparametrization_iff_det_pos
+    {E : Type u} [NormedAddCommGroup E] [NormedSpace ℝ E]
+    [FiniteDimensional ℝ E] {n : ℕ} (o : FormOrientation E n)
+    (f : E ≃ₗ[ℝ] E) (hdim : n = Module.finrank ℝ E) :
+    IsPositiveLinearReparametrization o f ↔
+      0 < LinearMap.det (f : E →ₗ[ℝ] E) := by
+  exact SandronesLibrary.Topology.Orientation.isOrientationPreserving_iff_det_pos
+    o f hdim
 
 /-- 赋范空间 `E` 上的光滑性尚未打包的 `k` 次微分形式。 -/
 abbrev DifferentialForm (E : Type u) [NormedAddCommGroup E] [NormedSpace ℝ E] (k : ℕ) :=

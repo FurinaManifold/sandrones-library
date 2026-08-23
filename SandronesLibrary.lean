@@ -22,6 +22,7 @@ import SandronesLibrary.Topology.Closure
 import SandronesLibrary.Topology.Separation
 import SandronesLibrary.Topology.Metric
 import SandronesLibrary.Topology.NormedSpace
+import SandronesLibrary.Topology.Orientation
 import SandronesLibrary.RealAnalysis.Measure
 import SandronesLibrary.RealAnalysis.Calculus
 import SandronesLibrary.RealAnalysis.ProductMeasure

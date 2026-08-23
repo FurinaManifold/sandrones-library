@@ -7230,7 +7230,8 @@
     "summary": "欧氏空间上的微分形式、外微分、连续楔积、次数重编号及楔积可微性",
     "premises": [
       "linear-algebra.tensor-exterior",
-      "analysis.multivariable.frechet"
+      "analysis.multivariable.frechet",
+      "topology.orientation.vector-space"
     ],
     "mathlib": [
       "ContinuousAlternatingMap.compContinuousLinearMap",
@@ -7256,11 +7257,46 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:27:21Z",
     "dependedOnBy": [],
-    "proof_sha": "4baa79a3a095758b",
+    "proof_sha": "86c190f23eb26ffb",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "topology.orientation.vector-space",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限维实向量空间的定向",
+    "summary": "有序基诱导定向，线性自同构保向或反向，并由行列式的正负判别",
+    "premises": [
+      "topology.normed-space.def",
+      "linear-algebra.det.mul"
+    ],
+    "mathlib": [
+      "Orientation",
+      "Orientation.map",
+      "Orientation.map_eq_iff_det_pos",
+      "Orientation.map_eq_neg_iff_det_neg",
+      "Basis.orientation"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "有限维实向量空间的定向与保向坐标变换"
+    },
+    "lean_file": "Topology/Orientation.lean",
+    "nl_file": "docs/entries/topology/orientation/vector-space.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T02:20:58Z",
+    "dependedOnBy": [
+      "analysis.multivariable.differential-forms"
+    ],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "3b2d3e7c0abf2cc0"
   }
 ]

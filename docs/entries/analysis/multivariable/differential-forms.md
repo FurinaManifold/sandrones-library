@@ -3,7 +3,8 @@ id: analysis.multivariable.differential-forms
 kind: theorem
 state: verified
 title: "微分形式、外微分与连续楔积"
-premises: ["linear-algebra.tensor-exterior", "analysis.multivariable.frechet"]
+premises: ["linear-algebra.tensor-exterior", "analysis.multivariable.frechet",
+  "topology.orientation.vector-space"]
 mathlib: ["ContinuousAlternatingMap.compContinuousLinearMap", "extDeriv", "extDeriv_add",
   "extDeriv_smul", "extDeriv_constOfIsEmpty", "extDeriv_extDeriv", "extDeriv_pullback",
   "extDeriv_apply", "AlternatingMap.domCoprod", "AlternatingMap.domCoprod'",
@@ -93,5 +94,6 @@ provenance:
   定理必须带相应可微或光滑假设。
 - `d²=0` 需要二阶光滑性，不能只从一次可微推出。
 - 当前楔积已经完成代数构造、有限 shuffle 范数估计和连续性封装；外微分 Leibniz
-  法则所需的双线性与可微性前置也已完成；分次组合恒等式、Poincaré 引理、
-  上同调和定向仍属于下一批。
+  法则所需的双线性与可微性前置也已完成；积分所需的线性定向已经由拓扑层提供，
+  并在本模块包装为正向线性重参数化。分次组合恒等式和 Poincaré 引理仍属于下一批。
+  de Rham 上同调不在本条目及本阶段范围内，已移至后续微分几何/代数拓扑路线。
