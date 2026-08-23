@@ -7298,5 +7298,39 @@
       "propext"
     ],
     "proof_sha": "3b2d3e7c0abf2cc0"
+  },
+  {
+    "id": "analysis.multivariable.second-kind-integrals",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "第二型曲线积分与曲面积分",
+    "summary": "微分形式沿有向参数曲线和参数曲面的积分、保向换参数不变性及恰当形式端点公式",
+    "premises": [
+      "analysis.multivariable.differential-forms"
+    ],
+    "mathlib": [
+      "AlternatingMap.map_smul_univ",
+      "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg",
+      "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonpos",
+      "intervalIntegral.integral_deriv_eq_sub",
+      "intervalIntegral.integral_add",
+      "MeasureTheory.integral_add",
+      "HasDerivAt.const_sub"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "数学分析 II：第二型曲线积分与曲面积分"
+    },
+    "lean_file": "Analysis/SecondKindIntegrals.lean",
+    "nl_file": "docs/entries/analysis/multivariable/second-kind-integrals.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-23T02:28:49Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93682b7d030bf48c"
   }
 ]

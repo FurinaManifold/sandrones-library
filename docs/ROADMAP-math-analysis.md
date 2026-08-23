@@ -257,7 +257,7 @@
 | `linear-algebra.tensor-exterior` | 对偶空间、张量积、交替多重线性映射、外代数与楔积 | 🚧 |
 | `topology.orientation.vector-space` | 有限维实向量空间的定向与保向/反向判据 | ✅ |
 | `analysis.multivariable.differential-forms` | 微分形式、拉回、外微分、楔积与定向 | 🚧 |
-| `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🔲 |
+| `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🚧 |
 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss 与一般 Stokes 定理 | 🔲 |
 
 > **范围边界**：本数学分析 II 路线只做到欧氏空间（特别是星形/单连通区域）上的

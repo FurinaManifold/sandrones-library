@@ -2155,19 +2155,46 @@
 - **谁在用**：`analysis.multivariable.differential-forms`，用于构造 `wedgeContinuousBilinear`。
 - **坑**：后续求导时需统一连续交替映射的半范数与范数实例。
 
+### `Orientation` / `Orientation.map`
+- **出处**：`Mathlib/LinearAlgebra/Orientation.lean`。
+- **人话**：把非零顶次交替形式的正射线作为定向，并让线性同构搬运定向。
+- **谁在用**：`topology.orientation.vector-space`；分析层据此定义正向线性重参数化。
+- **坑**：这是向量空间的线性定向，不是一般流形的定向图册或可定向性。
+
+### `Orientation.map_eq_iff_det_pos` / `Orientation.map_eq_neg_iff_det_neg`
+- **出处**：`Mathlib/LinearAlgebra/Orientation.lean`。
+- **人话**：维数与顶次指标匹配时，保向等价于行列式为正，反向等价于行列式为负。
+- **谁在用**：`topology.orientation.vector-space` 与微分形式的正向重参数化判据。
+- **坑**：必须显式提供指标基数与空间维数相等的证明。
+
+### `AlternatingMap.map_smul_univ`
+- **人话**：多重线性映射的每个输入分别数乘后，总因子等于所有标量之积。
+- **出处**：`Mathlib/LinearAlgebra/Alternating/Basic.lean`。
+- **谁在用**：`analysis.multivariable.second-kind-integrals` 的换参数密度公式。
+
+### `intervalIntegral.integral_deriv_eq_sub`
+- **人话**：可积导数在有向区间上的积分等于函数的终值减初值。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/FundThmCalculus.lean`。
+- **谁在用**：`analysis.multivariable.second-kind-integrals` 的恰当 1-形式端点公式。
+
+### `intervalIntegral.integral_comp_mul_deriv_of_deriv_nonpos`
+- **人话**：导数非正的参数替换仍满足有向积分换元，端点次序会自动反转。
+- **出处**：`Mathlib/MeasureTheory/Integral/IntervalIntegral/IntegrationByParts.lean`。
+- **谁在用**：`analysis.multivariable.second-kind-integrals` 的曲线反向变号公式。
+
+### `HasDerivAt.const_sub`
+- **人话**：若 `f'=c`，则常数减函数的导数为 `-c`。
+- **出处**：`Mathlib/Analysis/Calculus/Deriv/Add.lean`。
+- **谁在用**：反向仿射参数 `t ↦ a+b-t` 的导数计算。
+
+### `MeasureTheory.integral_add`
+- **人话**：两个 Bochner 可积函数之和的积分等于积分之和。
+- **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Basic.lean`。
+- **谁在用**：`analysis.multivariable.second-kind-integrals` 的曲面积分线性。
+- **坑**：必须提供两项可积性，不能对默认零值的不可积积分无条件使用。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
 - 快速检查"某个名字有没有登记"：`grep "### \`名字\`" docs/MATHLIB-RADAR.md`。
 - 叙述层每条目 front matter 的 `mathlib:` 字段应都能在本文找到锚点。
-- `Orientation` / `Orientation.map`
-  - **上游位置**：`Mathlib.LinearAlgebra.Orientation`
-  - **人话**：把非零顶次交替形式的正射线作为定向，并让线性同构搬运定向。
-  - **谁在用**：`topology.orientation.vector-space`；分析层据此定义正向线性重参数化。
-  - **坑**：这是向量空间的线性定向，不是一般流形的定向图册或可定向性。
-
-- `Orientation.map_eq_iff_det_pos` / `Orientation.map_eq_neg_iff_det_neg`
-  - **上游位置**：`Mathlib.LinearAlgebra.Orientation`
-  - **人话**：维数与顶次指标匹配时，保向等价于行列式为正，反向等价于行列式为负。
-  - **谁在用**：`topology.orientation.vector-space` 与微分形式的正向重参数化判据。
-  - **坑**：必须显式提供 `Fintype.card ι = finrank ℝ E`；本库以 `n = finrank ℝ E` 包装。

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **234** 个条目（verified 234，pending 0）。
+共 **235** 个条目（verified 235，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -126,6 +126,7 @@
 - ✅ [`hessian-taylor.md`](hessian-taylor.md) — Hessian与多元Taylor公式
 - ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
+- ✅ [`second-kind-integrals.md`](second-kind-integrals.md) — 第二型曲线积分与曲面积分
 
 ## `analysis.mvt`
 
