@@ -158,6 +158,22 @@
 | 4 | `linear-algebra.inner.spectral` | **谱定理**（实对称） | `isDiagonalizable`、`spectrum` 系 |
 | 5 | `linear-algebra.inner.quadratic` | 二次型、双线性型 | `QuadraticForm`、`QuadraticForm.associated` |
 
+### 线性代数补遗批次（2026-08 审计）
+
+此前“L1–L4 完成”只表示首批骨架已建立，并不等于标准本科线性代数内容齐全。
+后续按下列顺序补齐：
+
+| 顺序 | 条目 | 缺失内容 | 状态 |
+|---|---|---|---|
+| 1 | `linear-algebra.maps.basic` | 核/像判据、单射/满射、线性同构与维数保持、第一同构定理 | ✅ |
+| 2 | `linear-algebra.coordinates.change-basis` | 坐标映射、过渡矩阵、换基公式、相似矩阵表示同一算子 | ✅ |
+| 3 | `linear-algebra.vector-space.sum-quotient` | 子空间和、直和、商空间及维数公式 | ✅ |
+| 4 | `linear-algebra.eigen.diagonalization` | 特征基判据、几何/代数重数、Cayley–Hamilton、最小多项式 | ✅ |
+| 5 | `linear-algebra.eigen.jordan` | Jordan 链与 Jordan 标准形（幂零算子的完整链基分解已完成；待组装各广义特征子空间并证明块大小唯一性） | 🚧 |
+| 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | 🔲 |
+| 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | 🔲 |
+| 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | 🚧 |
+
 ---
 
 ## 4. Phase 3 — 抽象代数（A1-A4）

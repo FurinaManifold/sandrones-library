@@ -14,6 +14,8 @@ open scoped Filter Topology
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
+* **linear-algebra.maps.basic**（单射与核、满射与像、线性同构保持维数）。
+* **linear-algebra.maps.first-isomorphism**（第一同构定理 `V/ker f ≃ im f`）。
 * **linear-algebra.maps.rank**（线性映射的秩与零度）。
 * **linear-algebra.maps.rank-nullity**（秩-零度定理：rank f + nullity f = dim V）。
 * **linear-algebra.maps.matrix-rank**（矩阵的秩 = 列向量张成子空间的维数）。
@@ -31,6 +33,33 @@ open LinearAlgebra.VectorSpace
 
 namespace LinearAlgebra.LinearMap
 
+/-! ## 核、像与线性同构 -/
+
+/-- 线性映射单射当且仅当其核是零子空间。 -/
+theorem injective_iff_kernel_trivial {K V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    (f : V →ₗ[K] W) : Function.Injective f ↔ f.ker = ⊥ := by
+  exact LinearMap.ker_eq_bot.symm
+
+/-- 线性映射满射当且仅当其像是整个陪域。 -/
+theorem surjective_iff_image_whole {K V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    (f : V →ₗ[K] W) : Function.Surjective f ↔ f.range = ⊤ := by
+  exact LinearMap.range_eq_top.symm
+
+/-- 有限维向量空间线性同构时维数相等。 -/
+theorem dim_eq_of_linearEquiv {K V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    [IsFiniteDimensional K V] [IsFiniteDimensional K W]
+    (e : V ≃ₗ[K] W) : dim K V = dim K W := by
+  exact LinearEquiv.finrank_eq e
+
+/-- **线性映射第一同构定理**：定义域对核的商空间线性同构于映射的像空间。 -/
+noncomputable def firstIsomorphism {K V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    (f : V →ₗ[K] W) : (V ⧸ f.ker) ≃ₗ[K] f.range :=
+  f.quotKerEquivRange
+
 /-- 线性映射的**秩**：像空间 im f 的维数。 -/
 noncomputable abbrev rank (K : Type*) {V W : Type*} [Field K]
     [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
@@ -42,6 +71,13 @@ noncomputable abbrev nullity (K : Type*) {V W : Type*} [Field K]
     [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
     (f : V →ₗ[K] W) : ℕ :=
   Module.finrank K f.ker
+
+/-- 第一同构定理的维数推论：`dim(V/ker f)=rank f`。 -/
+theorem quotientKer_dim_eq_rank {K V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [IsFiniteDimensional K V]
+    [AddCommGroup W] [LinearSpace K W]
+    (f : V →ₗ[K] W) : Module.finrank K (V ⧸ f.ker) = rank K f := by
+  exact LinearEquiv.finrank_eq (firstIsomorphism f)
 
 /-- **秩-零度定理**：线性映射 f: V → W 满足 rank f + nullity f = dim V。
   （像的维数加核的维数等于定义域维数。） 

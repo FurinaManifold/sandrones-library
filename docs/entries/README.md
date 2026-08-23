@@ -230,6 +230,8 @@
 ## `linear-algebra.eigen`
 
 - ✅ [`charpoly.md`](charpoly.md) — 特征多项式
+- ✅ [`diagonalization.md`](diagonalization.md) — 特征基、重数、Cayley–Hamilton 与最小多项式
+- 🚧 [`jordan.md`](jordan.md) — 广义特征空间、Jordan 链与单块矩阵
 - ✅ [`charpoly-root.md`](charpoly-root.md) — 特征值是特征多项式的根
 - ✅ [`independent.md`](independent.md) — 不同特征值对应特征向量线性无关
 - ✅ [`similar-charpoly.md`](similar-charpoly.md) — 相似保持行列式/特征多项式
@@ -245,6 +247,10 @@
 - ✅ [`rank-nullity.md`](rank-nullity.md) — 秩-零度定理
 - ✅ [`row-rank.md`](row-rank.md) — 行秩=列秩
 
+## `linear-algebra.coordinates`
+
+- ✅ [`change-basis.md`](change-basis.md) — 坐标、过渡矩阵与算子换基公式
+
 ## `linear-algebra.matrix`
 
 - ✅ [`skew-symmetric.md`](skew-symmetric.md) — 反对称矩阵
@@ -258,6 +264,7 @@
 - ✅ [`independent.md`](independent.md) — 线性无关
 - ✅ [`span.md`](span.md) — 生成子空间
 - ✅ [`subspace.md`](subspace.md) — 子空间
+- ✅ [`sum-quotient.md`](sum-quotient.md) — 子空间和、直和与商空间维数
 
 ## `real-analysis`
 

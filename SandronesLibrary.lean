@@ -9,9 +9,14 @@ import SandronesLibrary.Analysis.Sequence
 import SandronesLibrary.LinearAlgebra.Subspace
 import SandronesLibrary.LinearAlgebra.VectorSpace
 import SandronesLibrary.LinearAlgebra.LinearMap
+import SandronesLibrary.LinearAlgebra.Coordinates
+import SandronesLibrary.LinearAlgebra.SubspaceSumQuotient
 import SandronesLibrary.LinearAlgebra.Matrix
 import SandronesLibrary.LinearAlgebra.Determinant
 import SandronesLibrary.LinearAlgebra.Eigenvalue
+import SandronesLibrary.LinearAlgebra.Diagonalization
+import SandronesLibrary.LinearAlgebra.Jordan
+import SandronesLibrary.LinearAlgebra.JordanDecomposition
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.LinearAlgebra.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
