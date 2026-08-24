@@ -11,7 +11,8 @@ import Mathlib
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
 * **abstract-algebra.ring.def**（交换环/单位/零环判据、子环与生成子环、环同态保运算）✅。
-* **abstract-algebra.ring.ideal**（理想判定/吸收乘法/含单位元理想全环/商环判等/核值域）✅。
+* **abstract-algebra.ring.ideal**（理想判定/吸收乘法/含单位元理想全环/核值域）✅；
+  商环的显式构造、投影与泛性质已移至 `RingQuotient` 模块。
 * **abstract-algebra.ring.domain**（无零因子/域非零元可逆/素理想判据/极大⟹素/素⟹商整环/域⟺零理想极大/商环域⟹极大）✅。
 * **abstract-algebra.ring.iso**（环同态基本定理 R/ker≅im）✅。
 

@@ -19,7 +19,9 @@
 - [x] 子环集合：`SubringSet`。
 - [x] 环同态：`RingHomomorphism`。
 - [x] 理想：区分左理想、右理想和双边理想，定义理想和、积与生成理想，并完成 Mathlib 桥。
-- [ ] 商环：先定义模理想同余关系与商映射，再陈述运算和泛性质。
+- [x] 商环：`idealCongruent`、`quotientRingSet` 与自然投影已经建立；商集上的具名运算、
+  `RingAxioms`、投影的核以及下降映射的存在唯一泛性质均已证明。Mathlib
+  `Ideal.Quotient` 仅保留为兼容接口。
 - [ ] 零因子、整环与域：自建谓词，Mathlib 的 `IsDomain`、`IsField` 退到桥接层。
 - [ ] 素理想与极大理想：自建谓词并重写商整环/商域判据。
 - [ ] 环同构定理：公开陈述使用本库核、像和商映射接口。
