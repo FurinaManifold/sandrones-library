@@ -98,7 +98,7 @@ noncomputable def blockTag (E : BlockEnds) (ℓ : ℕ) : ℕ ⊕ ℕ := by
 核心；若原序列含零项，需要先采用独立策略把零项插入重排。 -/
 structure SourceSplit (a : ℕ → ℝ) where
   equiv : ℕ ⊕ ℕ ≃ ℕ
-  positive : ∀ j, 0 < a (equiv (Sum.inl j))
+  nonnegative : ∀ j, 0 ≤ a (equiv (Sum.inl j))
   negative : ∀ j, a (equiv (Sum.inr j)) < 0
 
 def SourceSplit.indP {a : ℕ → ℝ} (S : SourceSplit a) : ℕ → ℕ :=
@@ -117,12 +117,6 @@ theorem SourceSplit.indQ_injective {a : ℕ → ℝ} (S : SourceSplit a) :
   intro i j hij
   apply Sum.inr.inj
   exact S.equiv.injective hij
-
-theorem SourceSplit.indP_ne_indQ {a : ℕ → ℝ} (S : SourceSplit a) (i j : ℕ) :
-    S.indP i ≠ S.indQ j := by
-  intro h
-  have : Sum.inl i = Sum.inr j := S.equiv.injective h
-  cases this
 
 /-! ## 一、抽象分块的组合性质
 
@@ -186,25 +180,6 @@ theorem not_negBlock_of_posBlock (E : BlockEnds) {k r : ℕ}
       have hmono := E.pblock_strictMono.monotone hlt
       have hstep := E.pblock_strictMono.monotone (Nat.le_succ l)
       exact (Nat.not_lt_of_ge (hpos.2.trans (hmono.trans hstep))) hleft
-
-theorem not_posBlock_of_negBlock (E : BlockEnds) {k r : ℕ}
-    (hneg : E.pblock (k + 1) < r ∧ r ≤ E.nblock (k + 1)) :
-    ¬ ∃ l, E.nblock l < r ∧ r ≤ E.pblock (l + 1) := by
-  rintro ⟨l, hleft, hright⟩
-  rcases le_total l k with hlk | hkl
-  · by_cases heq : l = k
-    · subst l
-      omega
-    · have hlt : l + 1 ≤ k := Nat.succ_le_iff.mpr (lt_of_le_of_ne hlk heq)
-      have hmono := E.pblock_strictMono.monotone hlt
-      have hstep := E.pblock_strictMono.monotone (Nat.le_succ k)
-      exact (Nat.not_lt_of_ge (hright.trans (hmono.trans hstep))) hneg.1
-  · by_cases heq : k = l
-    · subst l
-      omega
-    · have hlt : k + 1 ≤ l := Nat.succ_le_iff.mpr (lt_of_le_of_ne hkl heq)
-      have hmono := E.nblock_strictMono.monotone hlt
-      exact (Nat.not_lt_of_ge (hneg.2.trans hmono)) hleft
 
 /-! ### 块长度、标签所在区间与显式原像
 
@@ -543,10 +518,6 @@ theorem blockTag_bijective_of_block_recursion (E : BlockEnds)
 noncomputable def blockSeries (a : ℕ → ℝ) (indP indQ : ℕ → ℕ)
     (E : BlockEnds) (ℓ : ℕ) : ℝ := a (blockIndex indP indQ E ℓ)
 
-theorem blockSeries_apply (a : ℕ → ℝ) (indP indQ : ℕ → ℕ)
-    (E : BlockEnds) (ℓ : ℕ) :
-    blockSeries a indP indQ E ℓ = a (blockIndex indP indQ E ℓ) := rfl
-
 /-! ## 二、移动目标与首次越界
 
 正项序列及负项绝对值序列的部分和都趋于 `+∞`，所以从任意旧端点以后都能找到首次
@@ -600,27 +571,6 @@ theorem firstPositiveCrossing_spec {p : ℕ → ℝ}
       y < partialSum p (firstPositiveCrossing p hp start y) :=
   Nat.find_spec (choose_positive_tail hp start y)
 
-theorem firstPositiveCrossing_prev_le {p : ℕ → ℝ}
-    (hp : Tendsto (partialSum p) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum p start ≤ y) :
-    partialSum p (firstPositiveCrossing p hp start y - 1) ≤ y := by
-  have hspec := firstPositiveCrossing_spec hp start y
-  have hlt : start < firstPositiveCrossing p hp start y := by
-    by_contra hnot
-    have heq : firstPositiveCrossing p hp start y = start :=
-      Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-    rw [heq] at hspec
-    exact (not_lt_of_ge hstart hspec.2)
-  by_contra hnot
-  have hpred_start : start ≤ firstPositiveCrossing p hp start y - 1 := by omega
-  have hpred_cross : y < partialSum p (firstPositiveCrossing p hp start y - 1) :=
-    lt_of_not_ge hnot
-  have hmin := Nat.find_min' (choose_positive_tail hp start y)
-    ⟨hpred_start, hpred_cross⟩
-  have hpos : 0 < firstPositiveCrossing p hp start y :=
-    lt_of_le_of_lt (Nat.zero_le start) hlt
-  exact (Nat.not_le_of_gt (Nat.sub_lt hpos Nat.zero_lt_one)) hmin
-
 theorem choose_negative_tail {q : ℕ → ℝ}
     (hq : Tendsto (partialSum q) atTop atTop) (start : ℕ) (y : ℝ) :
     ∃ m, start ≤ m ∧ y < partialSum q m :=
@@ -635,49 +585,6 @@ theorem firstNegativeCrossing_spec {q : ℕ → ℝ}
     start ≤ firstNegativeCrossing q hq start y ∧
       y < partialSum q (firstNegativeCrossing q hq start y) :=
   Nat.find_spec (choose_negative_tail hq start y)
-
-theorem firstNegativeCrossing_prev_le {q : ℕ → ℝ}
-    (hq : Tendsto (partialSum q) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum q start ≤ y) :
-    partialSum q (firstNegativeCrossing q hq start y - 1) ≤ y := by
-  have hspec := firstNegativeCrossing_spec hq start y
-  have hlt : start < firstNegativeCrossing q hq start y := by
-    by_contra hnot
-    have heq : firstNegativeCrossing q hq start y = start :=
-      Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-    rw [heq] at hspec
-    exact (not_lt_of_ge hstart hspec.2)
-  by_contra hnot
-  have hpred_start : start ≤ firstNegativeCrossing q hq start y - 1 := by omega
-  have hpred_cross : y < partialSum q (firstNegativeCrossing q hq start y - 1) :=
-    lt_of_not_ge hnot
-  have hmin := Nat.find_min' (choose_negative_tail hq start y)
-    ⟨hpred_start, hpred_cross⟩
-  have hpos : 0 < firstNegativeCrossing q hq start y :=
-    lt_of_le_of_lt (Nat.zero_le start) hlt
-  exact (Nat.not_le_of_gt (Nat.sub_lt hpos Nat.zero_lt_one)) hmin
-
-theorem lt_firstPositiveCrossing {p : ℕ → ℝ}
-    (hp : Tendsto (partialSum p) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum p start ≤ y) :
-    start < firstPositiveCrossing p hp start y := by
-  have hspec := firstPositiveCrossing_spec hp start y
-  by_contra hnot
-  have heq : firstPositiveCrossing p hp start y = start :=
-    Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-  rw [heq] at hspec
-  exact (not_lt_of_ge hstart hspec.2)
-
-theorem lt_firstNegativeCrossing {q : ℕ → ℝ}
-    (hq : Tendsto (partialSum q) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum q start ≤ y) :
-    start < firstNegativeCrossing q hq start y := by
-  have hspec := firstNegativeCrossing_spec hq start y
-  by_contra hnot
-  have heq : firstNegativeCrossing q hq start y = start :=
-    Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-  rw [heq] at hspec
-  exact (not_lt_of_ge hstart hspec.2)
 
 /-- Rudin 直接构造中的递归累计计数。
 
@@ -796,17 +703,6 @@ theorem rudinNegCount_succ_lt (P Q : ℕ → ℝ)
     (partialSum P (rudinPosCount P Q hP hQ α β (n + 1)) - lowerTarget α n)).1
   omega
 
-theorem rudinPosCount_le_succ (P Q : ℕ → ℝ)
-    (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop)
-    (α β : ℝ) (n : ℕ) :
-    rudinPosCount P Q hP hQ α β n ≤ rudinPosCount P Q hP hQ α β (n + 1) := by
-  rw [rudinPosCount_succ]
-  have h := (firstPositiveCrossing_spec hP
-    (rudinPosCount P Q hP hQ α β n + 1)
-    (upperTarget β n + partialSum Q (rudinNegCount P Q hP hQ α β n))).1
-  omega
-
 theorem rudinPosCount_strictMono (P Q : ℕ → ℝ)
     (hP : Tendsto (partialSum P) atTop atTop)
     (hQ : Tendsto (partialSum Q) atTop atTop) (α β : ℝ) :
@@ -844,68 +740,6 @@ noncomputable def rudinNBlock (P Q : ℕ → ℝ)
     (α β : ℝ) : ℕ → ℕ
   | 0 => 0
   | n + 1 => rudinPosCount P Q hP hQ α β (n + 1) + rudinNegCount P Q hP hQ α β (n + 1)
-
-theorem rudinPBlock_succ (P Q : ℕ → ℝ)
-    (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop)
-    (α β : ℝ) (n : ℕ) :
-    rudinPBlock P Q hP hQ α β (n + 1) =
-      rudinPosCount P Q hP hQ α β (n + 1) + rudinNegCount P Q hP hQ α β n := rfl
-
-theorem rudinNBlock_succ (P Q : ℕ → ℝ)
-    (hP : Tendsto (partialSum P) atTop atTop)
-    (hQ : Tendsto (partialSum Q) atTop atTop)
-    (α β : ℝ) (n : ℕ) :
-    rudinNBlock P Q hP hQ α β (n + 1) =
-      rudinPosCount P Q hP hQ α β (n + 1) + rudinNegCount P Q hP hQ α β (n + 1) := rfl
-
-theorem firstPositiveCrossing_overshoot {p : ℕ → ℝ}
-    (hp : Tendsto (partialSum p) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum p start ≤ y) :
-    partialSum p (firstPositiveCrossing p hp start y) ≤
-      y + p (firstPositiveCrossing p hp start y - 1) := by
-  have hlt : start < firstPositiveCrossing p hp start y := by
-    have hspec := firstPositiveCrossing_spec hp start y
-    by_contra hnot
-    have heq : firstPositiveCrossing p hp start y = start :=
-      Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-    rw [heq] at hspec
-    exact (not_lt_of_ge hstart hspec.2)
-  have hpos : 0 < firstPositiveCrossing p hp start y :=
-    lt_of_le_of_lt (Nat.zero_le start) hlt
-  have hprev := firstPositiveCrossing_prev_le hp hstart
-  have hsucc : firstPositiveCrossing p hp start y =
-      (firstPositiveCrossing p hp start y - 1) + 1 := by omega
-  rw [hsucc, partialSum, Finset.sum_range_succ]
-  rw [show firstPositiveCrossing p hp start y - 1 + 1 - 1 =
-    firstPositiveCrossing p hp start y - 1 by omega]
-  change partialSum p (firstPositiveCrossing p hp start y - 1) +
-    p (firstPositiveCrossing p hp start y - 1) ≤ _
-  linarith
-
-theorem firstNegativeCrossing_overshoot {q : ℕ → ℝ}
-    (hq : Tendsto (partialSum q) atTop atTop) {start : ℕ} {y : ℝ}
-    (hstart : partialSum q start ≤ y) :
-    partialSum q (firstNegativeCrossing q hq start y) ≤
-      y + q (firstNegativeCrossing q hq start y - 1) := by
-  have hlt : start < firstNegativeCrossing q hq start y := by
-    have hspec := firstNegativeCrossing_spec hq start y
-    by_contra hnot
-    have heq : firstNegativeCrossing q hq start y = start :=
-      Nat.le_antisymm (Nat.le_of_not_gt hnot) hspec.1
-    rw [heq] at hspec
-    exact (not_lt_of_ge hstart hspec.2)
-  have hpos : 0 < firstNegativeCrossing q hq start y :=
-    lt_of_le_of_lt (Nat.zero_le start) hlt
-  have hprev := firstNegativeCrossing_prev_le hq hstart
-  have hsucc : firstNegativeCrossing q hq start y =
-      (firstNegativeCrossing q hq start y - 1) + 1 := by omega
-  rw [hsucc, partialSum, Finset.sum_range_succ]
-  rw [show firstNegativeCrossing q hq start y - 1 + 1 - 1 =
-    firstNegativeCrossing q hq start y - 1 by omega]
-  change partialSum q (firstNegativeCrossing q hq start y - 1) +
-    q (firstNegativeCrossing q hq start y - 1) ≤ _
-  linarith
 
 /-- 与一基递归相匹配的首次越界超调估计。
 
@@ -982,24 +816,10 @@ def EndpointWitness (g : ℕ → ℝ) (α β : ℝ) : Prop :=
   (∀ ε > 0, ∀ᶠ N in atTop, partialSum g N ≤ β + ε) ∧
   (∃ v : ℕ → ℕ, StrictMono v ∧ Tendsto (fun k => partialSum g (v k)) atTop (𝓝 β))
 
-/-- 直接分块递归的两个独立产物：指标编码是双射，以及重排部分和具有端点证据。
-
-前者证明所得序列确实是重排；后者经 `liminf_limsup_of_endpointWitness` 确定上下极限。 -/
-def DirectBlockEvidence (a : ℕ → ℝ) (α β : ℝ) : Prop :=
-  ∃ indP indQ E,
-    Function.Bijective (blockIndex indP indQ E) ∧
-      EndpointWitness (blockSeries a indP indQ E) α β
-
-/-- 显式指标函数一旦证明为双射，即可直接提升为 `ℕ ≃ ℕ`，无需再做组合论证。 -/
-theorem directBlockEvidence_rearrangement {a : ℕ → ℝ} {α β : ℝ}
-    (h : DirectBlockEvidence a α β) :
-    ∃ indP indQ E, ∃ e : ℕ ≃ ℕ,
-      ∀ n, blockSeries a indP indQ E n = a (e n) := by
-  rcases h with ⟨indP, indQ, E, hbij, -⟩
-  let e : ℕ ≃ ℕ := Equiv.ofBijective (blockIndex indP indQ E) hbij
-  refine ⟨indP, indQ, E, e, ?_⟩
-  intro n
-  rfl
+/-- 直接分块递归的两个产物：块端点给出的指标编码是双射，且部分和具有端点证据。 -/
+def DirectBlockEvidence {a : ℕ → ℝ} (S : SourceSplit a) (α β : ℝ) : Prop :=
+  ∃ E, Function.Bijective (blockIndex S.indP S.indQ E) ∧
+    EndpointWitness (blockSeries a S.indP S.indQ E) α β
 
 /-- 由最终全局界和趋于端点的子列确定部分和序列的下极限与上极限。 -/
 theorem liminf_limsup_of_endpointWitness {g : ℕ → ℝ} {α β : ℝ}
@@ -1060,14 +880,12 @@ theorem direct_block_evidence_of_rudin_hypotheses
     (hQzero : Tendsto (signedNegative a S.indQ) atTop (𝓝 0))
     (hP : Tendsto (partialSum (signedPositive a S.indP)) atTop atTop)
     (hQ : Tendsto (partialSum (fun j => -signedNegative a S.indQ j)) atTop atTop) :
-    DirectBlockEvidence a α β := by
+    DirectBlockEvidence S α β := by
   let P := signedPositive a S.indP
   let Q := fun j => - signedNegative a S.indQ j
   have hEnds : ∃ E : BlockEnds,
       E.posCount = rudinPosCount P Q hP hQ α β ∧
-      E.negCount = rudinNegCount P Q hP hQ α β ∧
-      E.pblock = rudinPBlock P Q hP hQ α β ∧
-      E.nblock = rudinNBlock P Q hP hQ α β := by
+      E.negCount = rudinNegCount P Q hP hQ α β := by
     let hpstrict := rudinPosCount_strictMono P Q hP hQ α β
     let hnstrict := rudinNegCount_strictMono P Q hP hQ α β
     refine ⟨{
@@ -1083,7 +901,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
       pos_before_neg := ?_
       pblock_eq := by intro k; rfl
       nblock_eq := by intro k; rfl
-      covers := ?_ }, rfl, rfl, rfl, rfl⟩
+      covers := ?_ }, rfl, rfl⟩
     · intro k
       cases k with
       | zero =>
@@ -1129,7 +947,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
       by_cases hpos : ell ≤ rudinPBlock P Q hP hQ α β (k + 1)
       · exact Or.inl ⟨k, hprev, hpos⟩
       · exact Or.inr ⟨k, Nat.lt_of_not_ge hpos, hk⟩
-  rcases hEnds with ⟨E, hpos, hneg, hpblock, hnblock⟩
+  rcases hEnds with ⟨E, hpos, hneg⟩
   have hPositiveBlockSum : ∀ k,
       ∑ ℓ ∈ Finset.Ico (E.nblock k) (E.pblock (k + 1)),
         blockSeries a S.indP S.indQ E ℓ =
@@ -1294,7 +1112,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
     change 0 ≤ a (blockIndex S.indP S.indQ E ℓ)
     rw [blockIndex_eq_sourceSplit_apply S E,
       blockTag_eq_inl_of_posBlock E hmem]
-    exact (S.positive _).le
+    exact S.nonnegative _
   have hNegTerm : ∀ {k ℓ},
       E.pblock (k + 1) ≤ ℓ → ℓ < E.nblock (k + 1) →
       blockSeries a S.indP S.indQ E ℓ ≤ 0 := by
@@ -1522,7 +1340,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
         exact Eventually.of_forall fun k => by
           rw [← hpos, ← hneg]
           simpa [Nat.add_assoc] using (hEndpointSums (k + 1)).1.symm
-  refine ⟨S.indP, S.indQ, E, ?_, hEndpoint⟩
+  refine ⟨E, ?_, hEndpoint⟩
   exact blockIndex_bijective_of_blockTag_bijective S E
     (blockTag_bijective_of_block_recursion E)
 
@@ -1531,8 +1349,7 @@ theorem direct_block_evidence_of_rudin_hypotheses
 假设原序列可无遗漏地分成无限正项与无限负项，正项和、负项绝对值之和都趋于 `+∞`，
 且两类项本身趋于零。则对任意 `α ≤ β`，可构造一个指标双射，使重排部分和具有
 下极限 `α` 和上极限 `β`。本定理返回组合双射与端点极限的统一证据；具体排列等价和
-`liminf`/`limsup` 等式可分别由 `directBlockEvidence_rearrangement` 与
-`liminf_limsup_of_endpointWitness` 提取。
+`liminf`/`limsup` 等式可由 `liminf_limsup_of_endpointWitness` 提取。
 
 > **Entry**: analysis.series.riemann-rearrangement
 -/
@@ -1544,7 +1361,203 @@ theorem direct_rudin_rearrangement
     (hQzero : Tendsto (signedNegative a S.indQ) atTop (𝓝 0))
     (hP : Tendsto (partialSum (signedPositive a S.indP)) atTop atTop)
     (hQ : Tendsto (partialSum (fun j => -signedNegative a S.indQ j)) atTop atTop) :
-    DirectBlockEvidence a α β := by
+    DirectBlockEvidence S α β := by
   exact direct_block_evidence_of_rudin_hypotheses hαβ S hPzero hQzero hP hQ
+
+/-! ## 五、通常的条件收敛接口 -/
+
+/-- 按通常顺序收敛、但不无条件可和。对实数级数，后一个条件等价于不绝对收敛。 -/
+def ConditionallyConvergent (a : ℕ → ℝ) : Prop :=
+  (∃ s, Tendsto (partialSum a) atTop (𝓝 s)) ∧ ¬Summable a
+
+/-- 收敛级数的通项趋于零。 -/
+private theorem term_tendsto_zero_of_partialSum_tendsto
+    {a : ℕ → ℝ} {s : ℝ} (ha : Tendsto (partialSum a) atTop (𝓝 s)) :
+    Tendsto a atTop (𝓝 0) := by
+  have hsucc := ha.comp (Filter.tendsto_add_atTop_nat 1)
+  simpa [partialSum, Finset.sum_range_succ] using hsucc.sub ha
+
+/-- 条件收敛时，正部和负部都不可能可和。 -/
+private theorem not_summable_parts_of_conditionallyConvergent
+    {a : ℕ → ℝ} (ha : ConditionallyConvergent a) :
+    ¬Summable (fun n => (a n)⁺) ∧ ¬Summable (fun n => (a n)⁻) := by
+  rcases ha with ⟨⟨s, ha⟩, habs⟩
+  have hneg_of_pos (hp : Summable (fun n => (a n)⁺)) :
+      Summable (fun n => (a n)⁻) := by
+    have hp_lim := hp.hasSum.tendsto_sum_nat
+    have hn_lim : Tendsto (partialSum (fun n => (a n)⁻)) atTop
+        (𝓝 (∑' n, (a n)⁺ - s)) := by
+      convert hp_lim.sub ha using 1
+      funext n
+      simp only [partialSum]
+      rw [← Finset.sum_sub_distrib]
+      apply Finset.sum_congr rfl
+      intro i hi
+      linarith [posPart_sub_negPart (a i)]
+    rcases hn_lim.bddAbove_range with ⟨c, hc⟩
+    exact summable_of_sum_range_le (fun n => negPart_nonneg (a n)) fun n => hc ⟨n, rfl⟩
+  have hpos_of_neg (hn : Summable (fun n => (a n)⁻)) :
+      Summable (fun n => (a n)⁺) := by
+    have hn_lim := hn.hasSum.tendsto_sum_nat
+    have hp_lim : Tendsto (partialSum (fun n => (a n)⁺)) atTop
+        (𝓝 (s + ∑' n, (a n)⁻)) := by
+      convert ha.add hn_lim using 1
+      funext n
+      simp only [partialSum, ← Finset.sum_add_distrib]
+      apply Finset.sum_congr rfl
+      intro i hi
+      linarith [posPart_sub_negPart (a i)]
+    rcases hp_lim.bddAbove_range with ⟨c, hc⟩
+    exact summable_of_sum_range_le (fun n => posPart_nonneg (a n)) fun n => hc ⟨n, rfl⟩
+  constructor
+  · intro hp
+    have hn := hneg_of_pos hp
+    apply habs
+    apply Summable.of_abs
+    simpa only [posPart_add_negPart] using hp.add hn
+  · intro hn
+    have hp := hpos_of_neg hn
+    apply habs
+    apply Summable.of_abs
+    simpa only [posPart_add_negPart] using hp.add hn
+
+/-- 条件收敛序列的非负项集合与负项集合都是无限集。 -/
+private theorem infinite_sign_sets_of_conditionallyConvergent
+    {a : ℕ → ℝ} (ha : ConditionallyConvergent a) :
+    Set.Infinite {n | 0 ≤ a n} ∧ Set.Infinite {n | a n < 0} := by
+  rcases not_summable_parts_of_conditionallyConvergent ha with ⟨hp, hn⟩
+  constructor
+  · intro hfinite
+    apply hp
+    apply summable_of_hasFiniteSupport
+    apply hfinite.subset
+    intro n hnmem
+    change (a n)⁺ ≠ 0 at hnmem
+    by_contra hnonneg
+    exact hnmem (posPart_eq_zero.mpr (le_of_not_ge hnonneg))
+  · intro hfinite
+    apply hn
+    apply summable_of_hasFiniteSupport
+    apply hfinite.subset
+    intro n hnmem
+    change (a n)⁻ ≠ 0 at hnmem
+    by_contra hneg
+    exact hnmem (negPart_eq_zero.mpr (le_of_not_gt hneg))
+
+/-- 两个无限符号类给出覆盖所有原指标的枚举。 -/
+private theorem sourceSplit_of_infinite_sign_sets {a : ℕ → ℝ}
+    (hpos : Set.Infinite {n | 0 ≤ a n}) (hneg : Set.Infinite {n | a n < 0}) :
+    Nonempty (SourceSplit a) := by
+  classical
+  let s : Set ℕ := {n | 0 ≤ a n}
+  have hs : Set.Infinite s := hpos
+  have hsc : Set.Infinite (sᶜ : Set ℕ) := by
+    convert hneg using 1
+    ext n
+    simp [s, not_le]
+  let _ : Infinite s := Set.Infinite.to_subtype hs
+  let _ : Infinite (sᶜ : Set ℕ) := Set.Infinite.to_subtype hsc
+  let ep : ℕ ≃ s := Classical.choice inferInstance
+  let en : ℕ ≃ (sᶜ : Set ℕ) := Classical.choice inferInstance
+  let e : ℕ ⊕ ℕ ≃ ℕ := (Equiv.sumCongr ep en).trans (Equiv.Set.sumCompl s)
+  refine ⟨{ equiv := e, nonnegative := ?_, negative := ?_ }⟩
+  · intro j
+    have hp := (ep j).property
+    change 0 ≤ a (ep j : ℕ) at hp
+    simpa [e] using hp
+  · intro j
+    have hn' := (en j).property
+    change ¬0 ≤ a (en j : ℕ) at hn'
+    have hn : a (en j : ℕ) < 0 := not_le.mp hn'
+    simpa [e] using hn
+
+/-- 条件收敛序列按 `a n ≥ 0` 和 `a n < 0` 枚举后，得到 Rudin 构造所需的数据。 -/
+private theorem rudin_data_of_conditionallyConvergent
+    {a : ℕ → ℝ} (ha : ConditionallyConvergent a) :
+    ∃ S : SourceSplit a,
+      Tendsto (signedPositive a S.indP) atTop (𝓝 0) ∧
+      Tendsto (signedNegative a S.indQ) atTop (𝓝 0) ∧
+      Tendsto (partialSum (signedPositive a S.indP)) atTop atTop ∧
+      Tendsto (partialSum (fun j => -signedNegative a S.indQ j)) atTop atTop := by
+  rcases infinite_sign_sets_of_conditionallyConvergent ha with ⟨hpos, hneg⟩
+  let S := Classical.choice (sourceSplit_of_infinite_sign_sets hpos hneg)
+  rcases not_summable_parts_of_conditionallyConvergent ha with ⟨hp, hn⟩
+  rcases ha.1 with ⟨s, hsum⟩
+  have hzero := term_tendsto_zero_of_partialSum_tendsto hsum
+  have hPzero : Tendsto (signedPositive a S.indP) atTop (𝓝 0) :=
+    hzero.comp S.indP_injective.nat_tendsto_atTop
+  have hQzero : Tendsto (signedNegative a S.indQ) atTop (𝓝 0) :=
+    hzero.comp S.indQ_injective.nat_tendsto_atTop
+  have hPnot : ¬Summable (signedPositive a S.indP) := by
+    intro hP
+    have hP' : Summable (fun j => a (S.equiv (Sum.inl j))) := by
+      change Summable (fun j => a (S.indP j)) at hP
+      simpa only [SourceSplit.indP] using hP
+    have hleft : Summable ((fun n => (a n)⁺) ∘ S.equiv ∘ Sum.inl) := by
+      simpa [Function.comp_def, posPart_eq_self.mpr (S.nonnegative _)] using hP'
+    have hright : Summable ((fun n => (a n)⁺) ∘ S.equiv ∘ Sum.inr) := by
+      simp [Function.comp_def, posPart_eq_zero.mpr (S.negative _).le]
+    apply hp
+    exact S.equiv.summable_iff.mp
+      (Summable.sum ((fun n => (a n)⁺) ∘ S.equiv) hleft hright)
+  have hQnot : ¬Summable (fun j => -signedNegative a S.indQ j) := by
+    intro hQ
+    have hleft : Summable ((fun n => (a n)⁻) ∘ S.equiv ∘ Sum.inl) := by
+      simp [Function.comp_def, negPart_eq_zero.mpr (S.nonnegative _)]
+    have hright : Summable ((fun n => (a n)⁻) ∘ S.equiv ∘ Sum.inr) := by
+      simpa [Function.comp_def, signedNegative, SourceSplit.indQ,
+        negPart_eq_neg.mpr (S.negative _).le] using hQ
+    apply hn
+    exact S.equiv.summable_iff.mp
+      (Summable.sum ((fun n => (a n)⁻) ∘ S.equiv) hleft hright)
+  refine ⟨S, hPzero, hQzero, ?_, ?_⟩
+  · exact (not_summable_iff_tendsto_nat_atTop_of_nonneg S.nonnegative).mp hPnot
+  · apply (not_summable_iff_tendsto_nat_atTop_of_nonneg
+      (fun j => neg_nonneg.mpr (S.negative j).le)).mp hQnot
+
+/-- 当上下端点相同时，端点证据就是通常的收敛。 -/
+private theorem EndpointWitness.tendsto {g : ℕ → ℝ} {r : ℝ}
+    (h : EndpointWitness g r r) : Tendsto (partialSum g) atTop (𝓝 r) := by
+  rcases h with ⟨hlow, -, hupp, -⟩
+  rw [tendsto_order]
+  constructor
+  · intro y hy
+    have hε : 0 < (r - y) / 2 := by linarith
+    filter_upwards [hlow ((r - y) / 2) hε] with n hn
+    linarith
+  · intro y hy
+    have hε : 0 < (y - r) / 2 := by linarith
+    filter_upwards [hupp ((y - r) / 2) hε] with n hn
+    linarith
+
+/-- 条件收敛级数存在具有指定下、上端点证据的重排。 -/
+theorem exists_rearrangement_endpointWitness {a : ℕ → ℝ}
+    (ha : ConditionallyConvergent a) {α β : ℝ} (hαβ : α ≤ β) :
+    ∃ e : ℕ ≃ ℕ, EndpointWitness (fun n => a (e n)) α β := by
+  rcases rudin_data_of_conditionallyConvergent ha with
+    ⟨S, hPzero, hQzero, hP, hQ⟩
+  rcases direct_rudin_rearrangement hαβ S hPzero hQzero hP hQ with
+    ⟨E, hbij, hw⟩
+  let e : ℕ ≃ ℕ := Equiv.ofBijective (blockIndex S.indP S.indQ E) hbij
+  refine ⟨e, ?_⟩
+  have heq : (fun n => a (e n)) = blockSeries a S.indP S.indQ E := by
+    funext n
+    rfl
+  simpa only [heq] using hw
+
+/-- Riemann 重排定理的 `liminf`/`limsup` 形式。 -/
+theorem exists_rearrangement_liminf_limsup {a : ℕ → ℝ}
+    (ha : ConditionallyConvergent a) {α β : ℝ} (hαβ : α ≤ β) :
+    ∃ e : ℕ ≃ ℕ,
+      Filter.liminf (partialSum (fun n => a (e n))) atTop = α ∧
+      Filter.limsup (partialSum (fun n => a (e n))) atTop = β := by
+  rcases exists_rearrangement_endpointWitness ha hαβ with ⟨e, he⟩
+  exact ⟨e, liminf_limsup_of_endpointWitness he⟩
+
+/-- Riemann 重排定理：条件收敛实级数可以重排到任意指定的实数。 -/
+theorem riemann_rearrangement {a : ℕ → ℝ} (ha : ConditionallyConvergent a) (r : ℝ) :
+    ∃ e : ℕ ≃ ℕ, Tendsto (partialSum (fun n => a (e n))) atTop (𝓝 r) := by
+  rcases exists_rearrangement_endpointWitness ha (α := r) (β := r) le_rfl with ⟨e, he⟩
+  exact ⟨e, he.tendsto⟩
 
 end SandronesLibrary.Analysis.Series.RudinDirect
