@@ -7,7 +7,7 @@
 - 局部下降与无界停机关系提交：`b58ba5a`
 - 无借位下降、Hydra 赋值与经典最大值提交：`c95de8b`
 - 首个借位、复制下降与有限候选稳定提交：`d0cbf78`
-- 平方借位、兄弟森林与可计算性定义门提交：待本轮提交后回填
+- 平方借位、兄弟森林与可计算性定义门提交：`3ece959`
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -210,7 +210,8 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
   `[siblings.length,0]` 的执行结果和共同左森林前缀保持严格比较；右兄弟情形仍明确排除。
 - `st3_busy_beaver`（第四批）：`ComputabilityFoundations.lean` 与两篇新 `settheory.computability`
   文档。负责人核对输入、输出和总停机量词均直接连接现有 `BinaryMachine`/`runSteps`，没有把
-  Lean 的 `DecidablePred` 冒充机器判定性。三个第四批子包均无独立子提交，审核后收敛于本轮提交。
+  Lean 的 `DecidablePred` 冒充机器判定性。三个第四批子包均无独立子提交，审核后收敛于学科提交
+  `3ece959`。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
