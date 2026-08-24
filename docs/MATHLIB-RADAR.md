@@ -1060,6 +1060,17 @@
 - **谁在用**：`abstract-algebra.group.def`。
 - **坑**：`(⊥ : Subgroup G)` 不是 `Set`，与 `{1}` 类型不同，用 `((⊥ : Subgroup G) : Set G) = {1}`。
 
+### `mul_left_cancel` / `mul_right_cancel` / `mul_inv_rev` / `zpow_add` / `zpow_neg`
+- **人话**：群中的左右消去律、乘积取逆反序，以及整数幂的加法与负指数法则。
+- **谁在用**：`abstract-algebra.group.def` 的群公理直接推论。
+- **坑**：`zpow_add` 的指数是整数；自然数幂使用对应的 `pow_add`。非交换群只能合并同底幂。
+
+### `Subgroup.closure` / `Subgroup.closure_le` / `Subgroup.closure_union` / `Subgroup.zpowers_eq_closure` / `MonoidHom.map_closure`
+- **人话**：集合生成的最小子群、其最小性、并集生成公式、单元素生成与整数幂子群的对应，
+  以及同态像与生成子群可交换。
+- **谁在用**：`abstract-algebra.group.def` 的生成子群和子群格接口。
+- **坑**：这里的 `closure` 是代数闭包，不是拓扑闭包。
+
 ### `mem_leftCoset_iff` / `leftCoset_eq_iff` / `Subgroup.leftCosetEquivSubgroup` / `Subgroup.card_mul_index` / `Subgroup.index_eq_card`
 - **人话**：左陪集 `a • (H : Set G)` 的成员刻画 `x∈aH ↔ a⁻¹·x∈H`；陪集相等 `aH=bH ↔ b⁻¹·a∈H`；
   陪集与子群等势（`leftCosetEquivSubgroup` 显式双射）；**Lagrange** `Nat.card H * H.index = Nat.card G`；
@@ -2346,6 +2357,45 @@
 ### `SymplecticGroup.det_eq_one`
 - **人话**：交换环上的辛矩阵行列式等于一。
 - **谁在用**：实辛矩阵的行列式定理。
+
+## 循环群与元素阶
+
+### `Subgroup.zpowers`
+- **人话**：元素 `g` 的所有整数次幂组成的循环子群 `⟨g⟩`。
+- **谁在用**：`abstract-algebra.group.cyclic` 的循环子群定义。
+
+### `Subgroup.mem_zpowers_iff`
+- **人话**：`x ∈ ⟨g⟩` 当且仅当存在整数 `n` 使 `gⁿ=x`。
+- **谁在用**：循环子群的教材元素刻画。
+
+### `Nat.card_zpowers`
+- **人话**：循环子群 `⟨g⟩` 的基数等于元素 g 的阶。
+- **谁在用**：循环子群阶公式。
+
+### `isCyclic_iff_exists_zpowers_eq_top`
+- **人话**：群是循环群当且仅当某个元素生成顶子群，即生成整个群。
+- **谁在用**：循环群的生成元判据。
+
+### `Subgroup.le_zpowers_iff`
+- **人话**：`⟨g⟩` 的每个子群都形如 `⟨gⁿ⟩`。
+- **谁在用**：循环群子群分类的存在性陈述。
+
+### `zpowers_eq_top_of_prime_card`
+- **人话**：素数阶群中任意非单位元生成整个群。
+- **谁在用**：素数阶群为循环群的经典结论。
+
+### `zmodMulEquivOfGenerator`
+- **人话**：给定阶为 n 的循环群及指定生成元 g，构造
+  `Multiplicative (ZMod n) ≃* G`，并把 `1 mod n` 送到 g。
+- **谁在用**：`abstract-algebra.group.cyclic` 的指定生成元分类同构。
+
+### `zmodCyclicMulEquiv`
+- **人话**：不指定生成元时，任意循环群与 `Multiplicative (ZMod (Nat.card G))` 同构。
+- **谁在用**：循环群的统一分类；`Nat.card G=0` 时同时覆盖无限循环群。
+
+### `mulEquivOfCyclicCardEq`
+- **人话**：两个基数相同的循环群彼此同构。
+- **谁在用**：有限循环群由群阶唯一决定的教材结论。
 
 ## 附：登记清单自动核对
 

@@ -5,15 +5,13 @@ Authors: Sandrone's Library contributors
 -/
 import Mathlib
 
-open scoped BigOperators
-
 /-!
 # AbstractAlgebra / Group —— 群论基础（抽象代数第一学期 A1）
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **abstract-algebra.group.def**（子群判定/含单位元/外延性/平凡子群/全子群）✅。
-* **abstract-algebra.group.coset**（左陪集成员/相等判据/自身在陪集/单位元陪集/陪集等势/Lagrange）✅。
+* **abstract-algebra.group.def**（单位元与逆元唯一/消去与方程/整数幂/生成子群/子群格）✅。
+* **abstract-algebra.group.coset**（左右陪集/陪集分割/Lagrange/子群阶与元素阶的整除推论）✅。
 * **abstract-algebra.group.normal**（共轭封闭/交换性/平凡与全正规/商群保运算）✅。
 * **abstract-algebra.group.index-two**（指数 2 子群必正规）✅。
 * **abstract-algebra.group.hom**（核值域刻画/保单位元乘法逆/单射⟺核平凡/满射⟺值域全/同态基本定理）✅。
@@ -22,11 +20,119 @@ open scoped BigOperators
 > `MonoidHom`/`QuotientGroup` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
 -/
 
+open scoped BigOperators
+
 namespace SandronesLibrary
 
 namespace AbstractAlgebra.Group
 
 open scoped Pointwise
+
+/-! ### 群公理的直接推论 -/
+
+/-- 左单位元是唯一的：若 `e * x = x` 对所有 x 成立，则 `e = 1`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem left_identity_unique {G : Type*} [Group G] (e : G)
+    (he : ∀ x : G, e * x = x) : e = 1 := by
+  simpa using he 1
+
+/-- 右单位元是唯一的。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem right_identity_unique {G : Type*} [Group G] (e : G)
+    (he : ∀ x : G, x * e = x) : e = 1 := by
+  simpa using he 1
+
+/-- 左逆元是唯一的：`yx=1` 蕴含 `y=x⁻¹`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem left_inverse_unique {G : Type*} [Group G] {x y : G}
+    (h : y * x = 1) : y = x⁻¹ := by
+  exact eq_inv_of_mul_eq_one_left h
+
+/-- 右逆元是唯一的：`xy=1` 蕴含 `y=x⁻¹`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem right_inverse_unique {G : Type*} [Group G] {x y : G}
+    (h : x * y = 1) : y = x⁻¹ := by
+  exact eq_inv_of_mul_eq_one_right h
+
+/-- 群乘法的左消去律。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem group_mul_left_cancel {G : Type*} [Group G] {a x y : G}
+    (h : a * x = a * y) : x = y := by
+  exact mul_left_cancel h
+
+/-- 群乘法的右消去律。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem group_mul_right_cancel {G : Type*} [Group G] {a x y : G}
+    (h : x * a = y * a) : x = y := by
+  exact mul_right_cancel h
+
+/-- 左乘方程 `ax=b` 的唯一解是 `x=a⁻¹b`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem solve_mul_left_iff {G : Type*} [Group G] (a x b : G) :
+    a * x = b ↔ x = a⁻¹ * b := by
+  constructor <;> intro h
+  · rw [← h]
+    group
+  · rw [h]
+    group
+
+/-- 右乘方程 `xa=b` 的唯一解是 `x=ba⁻¹`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem solve_mul_right_iff {G : Type*} [Group G] (a x b : G) :
+    x * a = b ↔ x = b * a⁻¹ := by
+  constructor <;> intro h
+  · rw [← h]
+    group
+  · rw [h]
+    group
+
+/-- 乘积取逆时次序反转：`(ab)⁻¹=b⁻¹a⁻¹`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem inverse_mul_reverse {G : Type*} [Group G] (a b : G) :
+    (a * b)⁻¹ = b⁻¹ * a⁻¹ := by
+  exact mul_inv_rev a b
+
+/-- 整数零次幂等于单位元。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem zpow_zero_basic {G : Type*} [Group G] (a : G) : a ^ (0 : ℤ) = 1 := by
+  exact zpow_zero a
+
+/-- 整数一次幂等于自身。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem zpow_one_basic {G : Type*} [Group G] (a : G) : a ^ (1 : ℤ) = a := by
+  exact zpow_one a
+
+/-- 同底整数幂相乘：`a^(m+n)=a^m a^n`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem zpow_add_basic {G : Type*} [Group G] (a : G) (m n : ℤ) :
+    a ^ (m + n) = a ^ m * a ^ n := by
+  exact zpow_add a m n
+
+/-- 负整数幂等于对应幂的逆。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem zpow_neg_basic {G : Type*} [Group G] (a : G) (n : ℤ) :
+    a ^ (-n) = (a ^ n)⁻¹ := by
+  exact zpow_neg a n
+
+/-- 整数幂的幂法则：`a^(mn)=(a^m)^n`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem zpow_mul_basic {G : Type*} [Group G] (a : G) (m n : ℤ) :
+    a ^ (m * n) = (a ^ m) ^ n := by
+  exact zpow_mul a m n
 
 /-- **子群判定定理**（教材核心判据）：子集 S 含单位元、对乘法与取逆封闭 ⟹ S 是子群。 
 > **Entry**: abstract-algebra.group.def
@@ -75,6 +181,99 @@ theorem subgroup_top_eq_univ {G : Type*} [Group G] :
   · intro hx
     exact Subgroup.mem_top x
 
+/-! ### 生成子群与子群格 -/
+
+/-- **由集合生成的子群**：`generatedSubgroup S` 是包含 `S` 的最小子群。
+教材中常记作 `⟨S⟩`；这里使用具名定义，避免与 Lean 的语法符号混淆。
+> **Entry**: abstract-algebra.group.def
+-/
+def generatedSubgroup {G : Type*} [Group G] (S : Set G) : Subgroup G :=
+  Subgroup.closure S
+
+/-- 每个生成元都属于它们生成的子群，即 `S ⊆ ⟨S⟩`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subset_generatedSubgroup {G : Type*} [Group G] (S : Set G) :
+    S ⊆ generatedSubgroup S := by
+  exact Subgroup.subset_closure
+
+/-- **生成子群的最小性**：`⟨S⟩ ≤ H` 当且仅当 `H` 包含所有生成元。
+这是从生成元定义同态、证明两个子群相等时最常用的消去原则。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroup_le_iff {G : Type*} [Group G]
+    (S : Set G) (H : Subgroup G) :
+    generatedSubgroup S ≤ H ↔ S ⊆ H := by
+  exact Subgroup.closure_le H
+
+/-- 扩大生成元集合只会扩大生成子群。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroup_mono {G : Type*} [Group G]
+    {S T : Set G} (hST : S ⊆ T) :
+    generatedSubgroup S ≤ generatedSubgroup T := by
+  exact Subgroup.closure_mono hST
+
+/-- 一个子群的底层集合重新生成出的子群仍是它自身。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroup_coe {G : Type*} [Group G] (H : Subgroup G) :
+    generatedSubgroup (H : Set G) = H := by
+  exact Subgroup.closure_eq H
+
+/-- 两组生成元的并生成两个生成子群在子群格中的上确界。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroup_union {G : Type*} [Group G] (S T : Set G) :
+    generatedSubgroup (S ∪ T) = generatedSubgroup S ⊔ generatedSubgroup T := by
+  exact Subgroup.closure_union S T
+
+/-- 两个子群的下确界就是它们的集合交：元素属于 `H ⊓ K` 当且仅当同时属于二者。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem mem_subgroup_inf_iff {G : Type*} [Group G]
+    (H K : Subgroup G) (x : G) :
+    x ∈ H ⊓ K ↔ x ∈ H ∧ x ∈ K := by
+  exact Subgroup.mem_inf
+
+/-- 任意族子群的下确界就是共同交集。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem mem_subgroup_iInf_iff {G : Type*} [Group G]
+    {ι : Sort*} (H : ι → Subgroup G) (x : G) :
+    x ∈ ⨅ i, H i ↔ ∀ i, x ∈ H i := by
+  exact Subgroup.mem_iInf
+
+/-- 子群上确界的序刻画：`H ⊔ K ≤ L` 当且仅当 H、K 都包含于 L。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subgroup_sup_le_iff {G : Type*} [Group G] (H K L : Subgroup G) :
+    H ⊔ K ≤ L ↔ H ≤ L ∧ K ≤ L := by
+  exact sup_le_iff
+
+/-- 子群下确界的序刻画：`L ≤ H ⊓ K` 当且仅当 L 同时包含于 H、K。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subgroup_le_inf_iff {G : Type*} [Group G] (H K L : Subgroup G) :
+    L ≤ H ⊓ K ↔ L ≤ H ∧ L ≤ K := by
+  exact le_inf_iff
+
+/-- 单元素集合生成的子群就是该元素的所有整数次幂组成的子群。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroup_singleton_eq_zpowers {G : Type*} [Group G] (g : G) :
+    generatedSubgroup ({g} : Set G) = Subgroup.zpowers g := by
+  exact (Subgroup.zpowers_eq_closure g).symm
+
+/-- 同态把由 S 生成的子群映到由 `f(S)` 生成的子群。
+这使得只在生成元上指定映射成为可能。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem map_generatedSubgroup {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (S : Set G) :
+    Subgroup.map f (generatedSubgroup S) = generatedSubgroup (f '' S) := by
+  exact MonoidHom.map_closure f S
+
 /-- **左陪集元素刻画**：x ∈ aH ⟺ a⁻¹·x ∈ H（左陪集 aH = { a·h | h ∈ H }）。 
 > **Entry**: abstract-algebra.group.coset
 -/
@@ -107,6 +306,65 @@ theorem one_left_coset {G : Type*} [Group G] (H : Subgroup G) :
     (1 : G) • (H : Set G) = (H : Set G) := by
   exact one_leftCoset (s := (H : Set G))
 
+/-- **右陪集元素刻画**：`x ∈ Ha` 当且仅当 `x a⁻¹ ∈ H`。
+它与左陪集判据互为镜像，但在非交换群中二者不能混用。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem right_coset_mem_iff {G : Type*} [Group G] (H : Subgroup G) (a x : G) :
+    x ∈ MulOpposite.op a • (H : Set G) ↔ x * a⁻¹ ∈ H := by
+  exact mem_rightCoset_iff a
+
+/-- **右陪集相等判据**：`Ha = Hb` 当且仅当 `b a⁻¹ ∈ H`。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem right_coset_eq_iff {G : Type*} [Group G] (H : Subgroup G) (a b : G) :
+    MulOpposite.op a • (H : Set G) = MulOpposite.op b • (H : Set G) ↔
+      b * a⁻¹ ∈ H := by
+  exact _root_.rightCoset_eq_iff H
+
+/-- 每个代表元都属于自己的右陪集 `Ha`。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem right_coset_mem_self {G : Type*} [Group G] (H : Subgroup G) (a : G) :
+    a ∈ MulOpposite.op a • (H : Set G) := by
+  exact mem_own_rightCoset H.toSubmonoid a
+
+/-- **陪集相交判据**：两个左陪集有公共元素，当且仅当它们相等。
+
+向前方向取公共元素 `x`，则 `a⁻¹x,b⁻¹x ∈ H`，所以
+`a⁻¹b = (a⁻¹x)(b⁻¹x)⁻¹ ∈ H`，由陪集相等判据得到结论。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem left_coset_inter_nonempty_iff_eq {G : Type*} [Group G]
+    (H : Subgroup G) (a b : G) :
+    (a • (H : Set G) ∩ b • (H : Set G)).Nonempty ↔
+      a • (H : Set G) = b • (H : Set G) := by
+  constructor
+  · rintro ⟨x, hxa, hxb⟩
+    apply (_root_.leftCoset_eq_iff H).2
+    have ha : a⁻¹ * x ∈ H := (left_coset_mem_iff H a x).1 hxa
+    have hb : b⁻¹ * x ∈ H := (left_coset_mem_iff H b x).1 hxb
+    have hid : a⁻¹ * b = (a⁻¹ * x) * (b⁻¹ * x)⁻¹ := by group
+    rw [hid]
+    exact H.mul_mem ha (H.inv_mem hb)
+  · intro hab
+    exact ⟨a, left_coset_mem_self H a, hab ▸ left_coset_mem_self H a⟩
+
+/-- **陪集分割的核心性质**：任意两个左陪集或者相等，或者不相交。
+配合每个元素属于自己的陪集，这说明左陪集把整个群分割成等势的块。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem left_cosets_eq_or_disjoint {G : Type*} [Group G]
+    (H : Subgroup G) (a b : G) :
+    a • (H : Set G) = b • (H : Set G) ∨
+      Disjoint (a • (H : Set G)) (b • (H : Set G)) := by
+  by_cases hab : a • (H : Set G) = b • (H : Set G)
+  · exact Or.inl hab
+  · right
+    rw [Set.disjoint_left]
+    intro x hxa hxb
+    exact hab ((left_coset_inter_nonempty_iff_eq H a b).1 ⟨x, hxa, hxb⟩)
+
 /-- **陪集与子群等势**：左陪集 aH 与子群 H 的元素个数相同（陪集都是"同样大小"）。 
 > **Entry**: abstract-algebra.group.coset
 -/
@@ -120,6 +378,30 @@ theorem leftCoset_card_eq {G : Type*} [Group G] (H : Subgroup G) (a : G) :
 theorem lagrange {G : Type*} [Group G] (H : Subgroup G) :
     Nat.card ↥H * H.index = Nat.card G := by
   exact Subgroup.card_mul_index H
+
+/-- **Lagrange 的整除形式**：子群的阶整除群的阶。
+这里使用 `Nat.card`，有限群时就是通常的有限基数；等式中的商因子正是子群指数。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem subgroup_card_dvd_group_card {G : Type*} [Group G] (H : Subgroup G) :
+    Nat.card H ∣ Nat.card G := by
+  exact ⟨H.index, (lagrange H).symm⟩
+
+/-- **元素阶整除群阶**：有限群中每个元素生成的循环子群之阶整除群阶。
+这是 Lagrange 定理应用于循环子群 `⟨x⟩` 的标准推论。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem element_order_dvd_group_order {G : Type*} [Group G] [Fintype G] (x : G) :
+    orderOf x ∣ Fintype.card G := by
+  exact orderOf_dvd_card
+
+/-- **有限群中的幂公式**：对每个 `x ∈ G`，都有 `x ^ |G| = 1`。
+它由元素阶整除群阶立即得到，是 Euler 与 Fermat 型合同的群论原型。
+> **Entry**: abstract-algebra.group.coset
+-/
+theorem pow_group_order_eq_one {G : Type*} [Group G] [Fintype G] (x : G) :
+    x ^ Fintype.card G = 1 := by
+  exact pow_card_eq_one
 
 /-- **正规子群的共轭封闭性**：H 正规 ⟹ 对 n ∈ H、任意 g，共轭 g·n·g⁻¹ ∈ H。
   这是正规子群的定义本质（教材定义）。 
@@ -162,7 +444,8 @@ theorem normal_top {G : Type*} [Group G] : (⊤ : Subgroup G).Normal := by
 > **Entry**: abstract-algebra.group.normal
 -/
 theorem quotient_mk_mul {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal) (a b : G) :
-    (QuotientGroup.mk (s := H) (a * b)) = QuotientGroup.mk (s := H) a * QuotientGroup.mk (s := H) b := by
+    QuotientGroup.mk (s := H) (a * b) =
+      QuotientGroup.mk (s := H) a * QuotientGroup.mk (s := H) b := by
   exact QuotientGroup.mk_mul H a b
 
 /-- **商群单位元**：商群的单位元是 `↑1`（H 所在的陪集）。 
@@ -187,9 +470,6 @@ theorem normal_of_index_two {G : Type*} [Group G] (H : Subgroup G) (hH : H.index
     H.Normal := by
   exact Subgroup.normal_of_index_eq_two hH
 
-end AbstractAlgebra.Group
-
-end SandronesLibrary
 /-- **同态核元素刻画**：x 在核中 ⟺ f(x) = 1（核 = 映到单位元的元素集）。 
 > **Entry**: abstract-algebra.group.hom
 -/
@@ -208,13 +488,7 @@ theorem hom_mem_range {G N : Type*} [Group G] [Group N] (f : G →* N) (y : N) :
 > **Entry**: abstract-algebra.group.hom
 -/
 theorem hom_map_one {G M : Type*} [Group G] [Group M] (f : G →* M) : f 1 = 1 := by
-  -- 教科书证明：f 1 = f(1·1) = f 1 · f 1，消去得 f 1 = 1
-  have h : f 1 * f 1 = f 1 := by
-    calc
-      f 1 * f 1 = f (1 * 1) := by rw [f.map_mul]
-      _ = f 1 := by rw [one_mul]
-  have h2 := congrArg (fun x : M => x⁻¹ * x) h
-  simpa using h2
+  exact f.map_one
 
 /-- **同态保乘法**：f(a·b) = f(a)·f(b)。 
 > **Entry**: abstract-algebra.group.hom
@@ -256,3 +530,7 @@ theorem hom_surjective_iff_range_top {G N : Type*} [Group G] [Group N] (f : G �
 theorem first_isomorphism_theorem {G N : Type*} [Group G] [Group N] (f : G →* N) :
     Nonempty (G ⧸ f.ker ≃* f.range) := by
   exact ⟨QuotientGroup.quotientKerEquivRange f⟩
+
+end AbstractAlgebra.Group
+
+end SandronesLibrary

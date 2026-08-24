@@ -41,6 +41,7 @@ import SandronesLibrary.LinearAlgebra.MatrixPseudoinverse
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.Analysis.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
+import SandronesLibrary.AbstractAlgebra.GroupCyclic
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Space

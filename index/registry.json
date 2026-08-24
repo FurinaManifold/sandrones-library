@@ -2492,7 +2492,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "b581ff302213c6b5",
+    "proof_sha": "1c3a5b085e7101ab",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2520,7 +2520,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "b581ff302213c6b5",
+    "proof_sha": "1c3a5b085e7101ab",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2548,7 +2548,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.maps",
     "variant": "ecnu",
-    "proof_sha": "b581ff302213c6b5",
+    "proof_sha": "1c3a5b085e7101ab",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2691,7 +2691,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2718,7 +2718,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2745,7 +2745,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -2773,7 +2773,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2857,7 +2857,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2889,7 +2889,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2923,7 +2923,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3011,7 +3011,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra",
     "variant": "ecnu",
-    "proof_sha": "b581ff302213c6b5",
+    "proof_sha": "1c3a5b085e7101ab",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3316,7 +3316,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
-    "proof_sha": "a243bdc18a75813c",
+    "proof_sha": "b966df01524bc1ba",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3327,18 +3327,22 @@
     "id": "abstract-algebra.group.def",
     "kind": "theorem",
     "title": "子群判定与基本性质",
-    "summary": "子群判定定理（含单位元+乘/逆封闭⟹子群）；子群含单位元；外延性；平凡子群；全子群",
+    "summary": "群公理直接推论、整数幂；子群判定；生成子群的泛性质、同态像及子群格",
     "family": "abstract-algebra.group",
     "variant": "rotman",
     "premises": [],
     "mathlib": [
+      "mul_left_cancel",
+      "mul_right_cancel",
+      "mul_inv_rev",
+      "zpow_add",
+      "zpow_neg",
       "Subgroup",
-      "Subgroup.ext",
-      "Subgroup.one_mem",
-      "Subgroup.mul_mem",
-      "Subgroup.inv_mem",
-      "Subgroup.mem_bot",
-      "Subgroup.mem_top"
+      "Subgroup.closure",
+      "Subgroup.closure_le",
+      "Subgroup.closure_union",
+      "Subgroup.zpowers_eq_closure",
+      "MonoidHom.map_closure"
     ],
     "lean_file": "AbstractAlgebra/Group.lean",
     "nl_file": "docs/entries/abstract-algebra/group/def.md",
@@ -3348,19 +3352,20 @@
     },
     "state": "verified",
     "axioms": [
-      "propext",
-      "Quot.sound"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf"
+    "proof_sha": "0ccfa7994b504d9a"
   },
   {
     "id": "abstract-algebra.group.coset",
     "kind": "theorem",
     "title": "陪集与 Lagrange 定理",
-    "summary": "左陪集 aH 元素刻画与相等判据；自身在陪集；单位元陪集；陪集与子群等势；Lagrange |H|·[G:H]=|G|",
+    "summary": "左右陪集的成员与相等判据；陪集相交即相等并形成分割；Lagrange 及子群阶、元素阶整除推论",
     "family": "abstract-algebra.group",
     "variant": "rotman",
     "premises": [
@@ -3369,9 +3374,12 @@
     "mathlib": [
       "mem_leftCoset_iff",
       "leftCoset_eq_iff",
+      "mem_rightCoset_iff",
+      "rightCoset_eq_iff",
       "Subgroup.leftCosetEquivSubgroup",
       "Subgroup.card_mul_index",
-      "Subgroup.index_eq_card"
+      "orderOf_dvd_card",
+      "pow_card_eq_one"
     ],
     "lean_file": "AbstractAlgebra/Group.lean",
     "nl_file": "docs/entries/abstract-algebra/group/coset.md",
@@ -3388,7 +3396,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf"
+    "proof_sha": "5ba373efa42b7ee0"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3423,7 +3431,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf"
+    "proof_sha": "732a28d8cb69d462"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3457,7 +3465,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5123bceac3c78caf"
+    "proof_sha": "8fabdcba353eceb3"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3487,7 +3495,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "5123bceac3c78caf"
+    "proof_sha": "732a28d8cb69d462"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -3754,7 +3762,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.space.neighborhood",
@@ -3784,7 +3792,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.space.continuous",
@@ -3817,7 +3825,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.space.homeo",
@@ -3850,7 +3858,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.space.subspace",
@@ -3884,7 +3892,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.space.connected",
@@ -3917,7 +3925,7 @@
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
     "dependedOnBy": [],
-    "proof_sha": "15cd2d455397604a"
+    "proof_sha": "8f07729dfc967e60"
   },
   {
     "id": "topology.compact.def",
@@ -4702,7 +4710,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41add8b6a80bec73"
+    "proof_sha": "70f28afaa0f76087"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4812,7 +4820,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41add8b6a80bec73"
+    "proof_sha": "70f28afaa0f76087"
   },
   {
     "id": "real-analysis.riemann.lebesgue-criterion",
@@ -7260,7 +7268,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:27:21Z",
     "dependedOnBy": [],
-    "proof_sha": "86c190f23eb26ffb",
+    "proof_sha": "4bf3525f81c7b120",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7369,7 +7377,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a6a57c53562a35b9"
+    "proof_sha": "80c1a82465da073f"
   },
   {
     "id": "analysis.multivariable.first-kind-integrals",
@@ -7395,7 +7403,8 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
-    ]
+    ],
+    "proof_sha": "de28566ee5f499fd"
   },
   {
     "id": "linear-algebra.inner-product",
@@ -7517,7 +7526,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T10:02:10Z",
     "dependedOnBy": [],
-    "proof_sha": "2ae66e6778954915",
+    "proof_sha": "ec9663a65046d019",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7579,6 +7588,43 @@
     "added_at": "2026-08-23T11:16:18Z",
     "dependedOnBy": [],
     "proof_sha": "a2bef3b4d94d8651",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.cyclic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "循环群与元素阶",
+    "summary": "循环子群的整数幂刻画与阶；循环群生成元判据；循环群子群分类；素数阶群由任意非单位元生成",
+    "premises": [
+      "abstract-algebra.group.def",
+      "abstract-algebra.group.coset"
+    ],
+    "mathlib": [
+      "Subgroup.zpowers",
+      "Subgroup.mem_zpowers_iff",
+      "Nat.card_zpowers",
+      "isCyclic_iff_exists_zpowers_eq_top",
+      "Subgroup.le_zpowers_iff",
+      "zpowers_eq_top_of_prime_card",
+      "zmodMulEquivOfGenerator",
+      "zmodCyclicMulEquiv",
+      "mulEquivOfCyclicCardEq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（循环群）"
+    },
+    "lean_file": "AbstractAlgebra/GroupCyclic.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/cyclic.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T07:20:32Z",
+    "dependedOnBy": [],
+    "proof_sha": "850fd26ee110f923",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

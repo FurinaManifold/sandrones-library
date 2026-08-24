@@ -1,16 +1,17 @@
 # Entries 索引
 
-> 自动生成（2026-08-23）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-08-24）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **242** 个条目（verified 242，pending 0）。
+共 **244** 个条目（verified 244，pending 0）。
 
 ## `abstract-algebra.group`
 
 - ✅ [`coset.md`](coset.md) — 陪集与 Lagrange 定理
+- ✅ [`cyclic.md`](cyclic.md) — 循环群与元素阶
 - ✅ [`def.md`](def.md) — 子群判定与基本性质
 - ✅ [`hom.md`](hom.md) — 同态与同态基本定理
 - ✅ [`index-two.md`](index-two.md) — 指数 2 子群正规
@@ -254,6 +255,10 @@
 - ✅ [`skew-symmetric.md`](skew-symmetric.md) — 反对称矩阵
 - ✅ [`symmetric.md`](symmetric.md) — 对称矩阵
 - ✅ [`symplectic.md`](symplectic.md) — 辛矩阵与辛群
+
+## `linear-algebra.symplectic`
+
+- ✅ [`basis.md`](basis.md) — 辛正交补、辛基与线性 Darboux 定理
 
 ## `linear-algebra.vector-space`
 

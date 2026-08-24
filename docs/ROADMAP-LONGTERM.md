@@ -26,11 +26,11 @@
 |---|---|---|---|
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3 M4 M5 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1 L2 L3 L4 L5 | 集合论预备 |
-| **Phase 3 抽象代数** | `abstract-algebra.*` | A1 A2 A3 A4 | 等价关系/商集 |
+| **Phase 3 抽象代数** | `abstract-algebra.*` | A1 A2 A3 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1 T2 T3 T4 | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1 R2 R3 R4 R5 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C1 C2 C3 | R2 T3 M4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | A4 T3 R4 |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | L5 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1 Pr2 Pr3 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1 S2 | Pr |
 | **Phase 10 数论分支** | `number-theory.*` | N1 N2 N3 | A2/A3；N3 另需 C1-C3 |
@@ -212,53 +212,69 @@
 
 ---
 
-## 4. Phase 3 — 抽象代数（A1-A4）
+## 4. Phase 3 — 抽象代数（A1-A3）
 
 > 家族前缀 `abstract-algebra.`。mathlib 用 Typeclass（`Group`/`Ring`/`Module`）+ 子结构
 > （`Subgroup`/`Ideal`/`Subring`）。先集合论/等价关系已备。
 >
 > **学期分界**：第一学期 = A1 群 + A2 环 + A3 的多项式环部分（A3.1-A3.2，域扩张前置）；
-> 第二学期 = A3 域扩张/Galois（A3.3-A3.4）+ A4 模。分界依据：经典近世代数一学期内容
+> 第二学期 = A3 域扩张/Galois。分界依据：经典近世代数一学期内容
 > 即群论+环论（含多项式环），域扩张/Galois 与模需要更多抽象背景，与 L 线"第一学期基础结构、
 > 第二学期深层理论"的惯例一致。
 >
 > **阶段语言可用性**：抽象代数阶段，mathlib 的 `Group`/`Subgroup`/`MonoidHom`/`Ring`/`Subring`/
-> `Ideal`/`Polynomial` 等**教材结构直接可出现在签名**（学到什么用什么）；但 **`Module` 仍不允许**
-> ——线性代数阶段已用 `LinearSpace` 承载，保持体系一致，A4 模阶段再作决定。
+> `Ideal`/`Polynomial` 等**教材结构直接可出现在签名**（学到什么用什么）；但 **`Module` 仍不允许**。
+> 模论不属于本阶段，统一留到未来交换代数批次；线性代数继续用 `LinearSpace` 承载。
 
 ### A1 群
 
-| # | 条目 | 内容 | mathlib |
+> 现有 `AbstractAlgebra/Group.lean` 已完成子群、陪集、正规子群和第一同构定理的基础
+> 接口，但尚不是完整群论课程。后续必须补齐循环群、群作用、Sylow 理论和有限生成交换群。
+
+| # | 条目 | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `abstract-algebra.group.def` | 群定义、子群 | `Group`、`Subgroup` |
-| 2 | `abstract-algebra.group.coset` | 陪集、Lagrange | `Subgroup.card_mul_finset_card`、`QuotientGroup` |
-| 3 | `abstract-algebra.group.normal` | 正规子群、商群 | `NormalSubgroup`、`QuotientGroup.quotient_mk` |
-| 4 | `abstract-algebra.group.hom` | 同态、同构、同态定理 | `MonoidHom`、`MonoidHom.ker/range` |
+| 1 | `abstract-algebra.group.def` | 群公理的直接推论；子群判定、交与生成子群、子群格 | ✅ |
+| 2 | `abstract-algebra.group.coset` | 左右陪集、陪集分割、指数、Lagrange 及元素阶整除群阶 | ✅ |
+| 3 | `abstract-algebra.group.cyclic` | 元素阶、循环子群、循环群子群分类、有限循环群与 `Z/nZ` | ✅ |
+| 4 | `abstract-algebra.group.normal` | 正规子群的等价刻画、商群运算、商映射的泛性质 | 🟡（共轭与基本运算已有） |
+| 5 | `abstract-algebra.group.hom` | 核与像、单满射判据、第一同构定理、同构保持不变量 | ✅（基础版） |
+| 6 | `abstract-algebra.group.iso-theorems` | 第二、第三同构定理及对应定理 | 🔲 |
+| 7 | `abstract-algebra.group.product` | 直积、内部直积、半直积的入门接口 | 🔲 |
+| 8 | `abstract-algebra.group.action` | 群作用、轨道、稳定子、轨道—稳定子定理、类方程 | 🔲 |
+| 9 | `abstract-algebra.group.permutation` | 置换群、Cayley 定理、循环分解、奇偶性与交错群 | 🔲 |
+| 10 | `abstract-algebra.group.sylow` | Cauchy 定理、Sylow 三定理及低阶群应用 | 🔲 |
+| 11 | `abstract-algebra.group.abelian-structure` | 有限生成交换群结构定理及有限交换群分类 | 🔲 |
 
 ### A2 环
 
-| # | 条目 | 内容 | mathlib |
+> 现有 `AbstractAlgebra/Ring.lean` 覆盖子环、理想、商环、素/极大理想和第一同构
+> 定理的基础接口。完整章节还需系统处理整除理论和典型构造。
+
+| # | 条目 | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `abstract-algebra.ring.def` | 环定义、子环 | `Ring`、`Subring` |
-| 2 | `abstract-algebra.ring.ideal` | 理想、商环 | `Ideal`、`Ideal.quotient` |
-| 3 | `abstract-algebra.ring.domain` | 整环/域、素/极大理想 | `IsDomain`、`IsField`、`Ideal.IsPrime/Maximal` |
+| 1 | `abstract-algebra.ring.def` | 环、交换环、单位、子环与环同态的基本性质 | 🟡（基础接口已有） |
+| 2 | `abstract-algebra.ring.ideal` | 左/右/双边理想、生成理想、理想和积、商环 | 🟡（判定与商环判等已有） |
+| 3 | `abstract-algebra.ring.iso` | 环同态第一、第二、第三同构定理与对应定理 | 🟡（第一同构定理已有） |
+| 4 | `abstract-algebra.ring.domain` | 零因子、整环、域、素理想与极大理想、商环判据 | ✅（基础版） |
+| 5 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约与素元、最大公因子 | 🔲 |
+| 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | 🔲 |
+| 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | 🔲 |
+| 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | 🔲 |
+| 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | 🔲 |
 
 ### A3 多项式与域扩张
 
-| # | 条目 | 内容 | mathlib |
+| # | 条目 | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `abstract-algebra.poly.def` | 多项式环、整除 | `Polynomial`、`Polynomial.dvd` |
-| 2 | `abstract-algebra.poly.irreducible` | 不可约、欧几里得 | `IrreduciblePolynomial`、`Polynomial.isDomain` |
-| 3 | `abstract-algebra.field.extension` | 扩域、代数扩张、L→Alg | `IntermediateField`、`Algebra` |
-| 4 | `abstract-algebra.field.galois` | **Galois 对应初步** | `IsGalois`、`IntermediateField.fixedField` |
-
-### A4 模
-
-| # | 条目 | 内容 | mathlib |
-|---|---|---|---|
-| 1 | `abstract-algebra.module.def` | 模定义、子模/商模（系统化，L1 已用） | `Module`、`Submodule.map/ker`、`Module.quotient` |
-| 2 | `abstract-algebra.module.hom` | 模同态、同态定理 | `LinearMap`、`Module.map_top` 系 |
-| 3 | `abstract-algebra.module.free` | 自由模、有限自由/投影模 | `Module.Free`、`Module.Projective` |
+| 1 | `abstract-algebra.poly.def` | 系数、次数、求值、根、整除及多项式环整环性 | 🟡（求值、根与整环性已有） |
+| 2 | `abstract-algebra.poly.division` | 首一多项式带余除法、Euclidean 算法、gcd 与 Bézout | 🟡（带余除法接口已有） |
+| 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | 🟡（一次多项式已有） |
+| 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | 🟡（根数上界已有） |
+| 5 | `abstract-algebra.field.extension` | 扩域、子域、单扩张、代数元与超越元、最小多项式 | 🔲 |
+| 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | 🔲 |
+| 7 | `abstract-algebra.field.splitting` | 分裂域、代数闭包、有限域基础 | 🔲 |
+| 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
+| 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
 
 ---
 
@@ -453,6 +469,18 @@
 
 交换代数、同调代数、代数拓扑、代数表示论、微分几何——各自前置达标后逐批细化。
 
+其中交换代数分支负责统一引入一般环上的模论，初步顺序固定为：
+
+1. `commutative-algebra.module.def`：模、子模、生成子模、商模与直和；
+2. `commutative-algebra.module.hom`：模同态、核像与三个同构定理；
+3. `commutative-algebra.module.free`：自由模、基、有限生成模与秩；
+4. `commutative-algebra.module.exact`：正合列与分裂正合列；
+5. `commutative-algebra.module.projective`：投影模及自由模直和项刻画；
+6. `commutative-algebra.module.pid-structure`：PID 上有限生成模结构定理；
+7. 在此基础上再进入 Noether 环、整扩张、维数、局部环及交换代数的同调工具。
+
+只有进入该分支后，教材层公开签名才允许出现 `Module`。
+
 ---
 
 ## 7. 批次纳入节奏（沿用 INGESTION_PROTOCOL）
@@ -505,8 +533,9 @@
 | P2 | L5 内积/谱/二次型 | ✅ |
 | P2 | L6 保结构矩阵（正交/酉/正规/辛） | 🔲（第二学期）|
 | P2 | L7 矩阵分解与数值线性代数基础 | 🔲（第二学期）|
-| P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| ✅ |
-| P3 | A3.3-A3.4 域扩张/Galois + A4 模 | 🔲（第二学期）|
+| P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| 🟡（基础框架已有，按详细清单扩展中） |
+| P3 | A3 域扩张/Galois | 🔲（第二学期）|
+| P12 | 交换代数：模论、Noether 理论与局部化 | 🔲（未来分支）|
 | P4 | T1-T3 点集拓扑 | ✅ |
 | P4.5 | T4 同胚深化、同伦、同伦等价与基本群 | 🔲 |
 | P5 | R1-R5 实分析（R1-R3、R5 及 R5.5 部分）| 🔶（进行中） |
