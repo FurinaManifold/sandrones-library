@@ -372,7 +372,7 @@ theorem exists_real_invariant_pair {n : ℕ}
       Matrix.mulVec, dotProduct, x, y, Complex.mul_im, add_comm] using him
 
 /-- 每个正维实方阵都有一个维数为一或二的非零不变子空间。 -/
-theorem exists_real_invariant_subspace_finrank_le_two {n : ℕ}
+private theorem exists_real_invariant_subspace_finrank_le_two {n : ℕ}
     (A : Matrix (Fin (n + 1)) (Fin (n + 1)) ℝ) :
     ∃ W : Submodule ℝ (Fin (n + 1) → ℝ),
       W ≠ ⊥ ∧ Module.finrank ℝ W ≤ 2 ∧
@@ -420,7 +420,7 @@ theorem exists_real_invariant_subspace_finrank_le_two {n : ℕ}
     simpa [T, Matrix.toLin'_apply', Matrix.mulVecLin_apply] using hmaps hv
 
 /-- 由子空间及其正交补的标准正交基拼成全空间的适配正交归一基。 -/
-noncomputable def adaptedOrthonormalBasis
+private noncomputable def adaptedOrthonormalBasis
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E) :
     OrthonormalBasis
@@ -430,7 +430,7 @@ noncomputable def adaptedOrthonormalBasis
     W.orthogonalDecomposition.symm
 
 /-- 适配基左半部分属于原子空间。 -/
-theorem adaptedOrthonormalBasis_inl_mem
+private theorem adaptedOrthonormalBasis_inl_mem
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     (i : Fin (Module.finrank ℝ W)) :
@@ -440,7 +440,7 @@ theorem adaptedOrthonormalBasis_inl_mem
   simpa using (stdOrthonormalBasis ℝ W i).property
 
 /-- 适配基右半部分属于正交补。 -/
-theorem adaptedOrthonormalBasis_inr_mem
+private theorem adaptedOrthonormalBasis_inr_mem
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     (i : Fin (Module.finrank ℝ Wᗮ)) :
@@ -450,7 +450,7 @@ theorem adaptedOrthonormalBasis_inr_mem
   simpa using (stdOrthonormalBasis ℝ Wᗮ i).property
 
 /-- 若 `W` 对线性算子不变，则算子在适配基下的左下块为零。 -/
-theorem adapted_operator_lowerLeft_zero
+private theorem adapted_operator_lowerLeft_zero
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) (W : Submodule ℝ E)
     (hW : ∀ v ∈ W, T v ∈ W)
@@ -464,7 +464,7 @@ theorem adapted_operator_lowerLeft_zero
   exact ((Submodule.mem_orthogonal' W _).mp (adaptedOrthonormalBasis_inr_mem W i)) _
     (hW _ (adaptedOrthonormalBasis_inl_mem W j))
 
-theorem adaptedOrthonormalBasis_inr_apply
+private theorem adaptedOrthonormalBasis_inr_apply
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     (i : Fin (Module.finrank ℝ Wᗮ)) :
@@ -475,14 +475,14 @@ theorem adaptedOrthonormalBasis_inr_apply
   simp
 
 /-- 算子在正交补上的压缩：先作用，再正交投影回 `Wᗮ`。 -/
-noncomputable def orthogonalComplementCompression
+private noncomputable def orthogonalComplementCompression
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) (W : Submodule ℝ E) :
     Wᗮ →ₗ[ℝ] Wᗮ :=
   Wᗮ.orthogonalProjectionOnto.toLinearMap.comp (T.comp Wᗮ.subtype)
 
 /-- 压缩算子的矩阵就是适配基下全矩阵的右下块。 -/
-theorem orthogonalComplementCompression_matrix
+private theorem orthogonalComplementCompression_matrix
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) (W : Submodule ℝ E)
     (i j : Fin (Module.finrank ℝ Wᗮ)) :
@@ -504,7 +504,7 @@ universe u
 
 /-- 实 Schur 分解的递归证书：每一步抽取维数一或二的不变子空间，
 然后在其正交补压缩算子上继续。 -/
-inductive RealSchurDecomposition :
+private inductive RealSchurDecomposition :
     {E : Type u} → [NormedAddCommGroup E] → [InnerProductSpace ℝ E] →
       [FiniteDimensional ℝ E] → (E →ₗ[ℝ] E) → Type (u + 1)
   | zero {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
@@ -519,7 +519,7 @@ inductive RealSchurDecomposition :
       RealSchurDecomposition T
 
 /-- 任意正维有限维实内积空间上的算子都有非零、至多二维的不变子空间。 -/
-theorem exists_small_invariant_subspace
+private theorem exists_small_invariant_subspace
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E)
     (hpos : 0 < Module.finrank ℝ E) :
@@ -563,7 +563,7 @@ theorem exists_small_invariant_subspace
     exact hTz
 
 /-- 任意有限维实内积空间上的线性算子都有递归实 Schur 分解。 -/
-theorem exists_realSchurDecomposition
+private theorem exists_realSchurDecomposition
     {E : Type*} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) :
     Nonempty (RealSchurDecomposition T) := by
@@ -604,7 +604,7 @@ structure ExplicitRealSchur
     (LinearMap.toMatrix basis.toBasis basis.toBasis T)
 
 /-- 把 `W` 的标准正交基和 `Wᗮ` 上任意正交基拼接成 `E` 的正交基。 -/
-noncomputable def adaptedOrthonormalBasisWith
+private noncomputable def adaptedOrthonormalBasisWith
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     {ι : Type} [Fintype ι] (c : OrthonormalBasis ι ℝ Wᗮ) :
@@ -612,7 +612,7 @@ noncomputable def adaptedOrthonormalBasisWith
   ((stdOrthonormalBasis ℝ W).prod c).map W.orthogonalDecomposition.symm
 
 /-- 广义适配基的左半部分属于 `W`。 -/
-theorem adaptedOrthonormalBasisWith_inl_mem
+private theorem adaptedOrthonormalBasisWith_inl_mem
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     {ι : Type} [Fintype ι] (c : OrthonormalBasis ι ℝ Wᗮ)
@@ -623,7 +623,7 @@ theorem adaptedOrthonormalBasisWith_inl_mem
   simpa using (stdOrthonormalBasis ℝ W i).property
 
 /-- 广义适配基的右半部分就是给定的正交补基。 -/
-theorem adaptedOrthonormalBasisWith_inr_apply
+private theorem adaptedOrthonormalBasisWith_inr_apply
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (W : Submodule ℝ E)
     {ι : Type} [Fintype ι] (c : OrthonormalBasis ι ℝ Wᗮ) (i : ι) :
@@ -633,7 +633,7 @@ theorem adaptedOrthonormalBasisWith_inr_apply
   simp
 
 /-- 不变子空间保证广义适配矩阵的左下块为零。 -/
-theorem adaptedWith_operator_lowerLeft_zero
+private theorem adaptedWith_operator_lowerLeft_zero
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) (W : Submodule ℝ E)
     (hW : ∀ v ∈ W, T v ∈ W)
@@ -649,7 +649,7 @@ theorem adaptedWith_operator_lowerLeft_zero
     (hW _ (adaptedOrthonormalBasisWith_inl_mem W c j))
 
 /-- 广义适配矩阵的右下块是压缩算子在给定尾部基下的矩阵。 -/
-theorem orthogonalComplementCompression_matrix_with
+private theorem orthogonalComplementCompression_matrix_with
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] (T : E →ₗ[ℝ] E) (W : Submodule ℝ E)
     {ι : Type} [Fintype ι] [DecidableEq ι]
@@ -667,7 +667,7 @@ theorem orthogonalComplementCompression_matrix_with
   exact Submodule.inner_orthogonalProjectionOnto_eq_of_mem_left _ _
 
 /-- 递归实 Schur 证书可以展平为一个正交基及其显式块上三角矩阵。 -/
-theorem RealSchurDecomposition.toExplicit
+private theorem RealSchurDecomposition.toExplicit
     {E : Type u} [NormedAddCommGroup E] [InnerProductSpace ℝ E]
     [FiniteDimensional ℝ E] {T : E →ₗ[ℝ] E}
     (d : RealSchurDecomposition T) : Nonempty (ExplicitRealSchur T) := by

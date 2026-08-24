@@ -201,7 +201,25 @@ theorem similar_det {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n
   （等价于线性变换 `A.toLin'` 以 μ 为特征值。） -/
 def MatrixHasEigenvalue {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
     (A : Matrix n n K) (μ : K) : Prop :=
-  Module.End.HasEigenvalue (A.toLin') μ
+  ∃ x : n → K, x ≠ 0 ∧ A.mulVec x = μ • x
+
+/-- 教材式矩阵特征值定义与 mathlib 特征空间定义等价；仅供本文件证明调用。 -/
+private theorem matrixHasEigenvalue_iff_mathlib {K : Type*} [Field K]
+    {n : Type*} [Fintype n] [DecidableEq n]
+    (A : Matrix n n K) (μ : K) :
+    MatrixHasEigenvalue A μ ↔ Module.End.HasEigenvalue A.toLin' μ := by
+  constructor
+  · rintro ⟨x, hx0, hx⟩
+    rw [Module.End.hasEigenvalue_iff]
+    intro hbot
+    have hxmem : x ∈ Module.End.eigenspace A.toLin' μ :=
+      Module.End.mem_eigenspace_iff.mpr (by simpa using hx)
+    rw [hbot] at hxmem
+    exact hx0 (by simpa using hxmem)
+  · intro h
+    rw [Module.End.hasEigenvalue_iff] at h
+    obtain ⟨x, hx, hx0⟩ := Submodule.exists_mem_ne_zero_of_ne_bot h
+    exact ⟨x, hx0, by simpa using Module.End.mem_eigenspace_iff.mp hx⟩
 
 /-- **特征值是特征多项式的根**：μ 是方阵 A 的特征值 ⟺ μ 是 A 的特征多项式 charpoly 的根。
   教材核心：charpoly = det(X·1 − A)，其根恰为特征值。 
@@ -209,7 +227,7 @@ def MatrixHasEigenvalue {K : Type*} [Field K] {n : Type*} [Fintype n] [Decidable
 -/
 theorem eigenvalue_iff_isRoot_charpoly {K : Type*} [Field K] {n : Type*} [Fintype n] [DecidableEq n]
     (A : Matrix n n K) (μ : K) : MatrixHasEigenvalue A μ ↔ A.charpoly.IsRoot μ := by
-  unfold MatrixHasEigenvalue
+  rw [matrixHasEigenvalue_iff_mathlib]
   rw [Module.End.hasEigenvalue_iff_isRoot_charpoly (f := A.toLin') μ]
   rw [Matrix.charpoly_toLin']
 

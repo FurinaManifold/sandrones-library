@@ -230,11 +230,16 @@ theorem orthonormal_leftSingularVector (T : E →ₗ[𝕜] F) :
     field_simp
   · simp [hij]
 
+/-- 将非零奇异值的秩索引按原序嵌入值域基索引。 -/
+noncomputable def rangeIndexEmbedding (T : E →ₗ[𝕜] F) :
+    Fin (finrank 𝕜 T.range) ↪ Fin (finrank 𝕜 F) :=
+  Fin.castLEEmb (Submodule.finrank_le T.range)
+
 /-- 正左奇异向量可扩充为整个值域空间的一组正交归一基。 -/
 theorem exists_leftSingularBasis (T : E →ₗ[𝕜] F) :
     ∃ b : OrthonormalBasis (Fin (finrank 𝕜 F)) 𝕜 F,
       ∀ i : Fin (finrank 𝕜 T.range),
-        b (Fin.castLE (Submodule.finrank_le T.range) i) = leftSingularVector T i := by
+        b (rangeIndexEmbedding T i) = leftSingularVector T i := by
   classical
   let r := finrank 𝕜 T.range
   let m := finrank 𝕜 F
@@ -251,8 +256,8 @@ theorem exists_leftSingularBasis (T : E →ₗ[𝕜] F) :
     simpa [Set.domRestrict, w, hi, hj, Fin.ext_iff, Subtype.ext_iff] using horth
   obtain ⟨b, hb⟩ := hw.exists_orthonormalBasis_extension_of_card_eq (by simp [m])
   refine ⟨b, fun i => ?_⟩
-  have hi : (Fin.castLE (Submodule.finrank_le T.range) i).val < r := i.isLt
-  rw [hb (Fin.castLE (Submodule.finrank_le T.range) i) hi]
+  have hi : (rangeIndexEmbedding T i).val < r := i.isLt
+  rw [hb (rangeIndexEmbedding T i) hi]
   change (if h : i.val < r then leftSingularVector T ⟨i.val, h⟩ else 0) = _
   rw [dif_pos i.isLt]
 
@@ -282,7 +287,7 @@ structure SingularValueDecomposition (T : E →ₗ[𝕜] F) where
   map_right : ∀ i : Fin (finrank 𝕜 E),
     if hi : i.val < finrank 𝕜 T.range then
       T (rightBasis i) = (T.singularValues i : 𝕜) •
-        leftBasis (Fin.castLE (Submodule.finrank_le T.range) ⟨i.val, hi⟩)
+        leftBasis (rangeIndexEmbedding T ⟨i.val, hi⟩)
     else T (rightBasis i) = 0
 
 /-- 任意有限维实或复内积空间之间的线性映射都有 SVD。 -/
@@ -320,7 +325,7 @@ theorem SingularValueDecomposition.toMatrix_eq_singularDiagonal
     rw [LinearMap.toMatrix_apply]
     change (d.leftBasis.toBasis.repr (T (d.rightBasis j))) i = _
     rw [hmap]
-    simp [singularDiagonal, hj, Fin.ext_iff, Algebra.smul_def]
+    simp [singularDiagonal, hj, rangeIndexEmbedding, Fin.ext_iff, Algebra.smul_def]
   · have hmap := d.map_right j
     rw [dif_neg hj] at hmap
     rw [LinearMap.toMatrix_apply]

@@ -72,11 +72,17 @@ noncomputable abbrev nullity (K : Type*) {V W : Type*} [Field K]
     (f : V →ₗ[K] W) : ℕ :=
   Module.finrank K f.ker
 
+/-- 定义域对核的商空间维数。底层商空间结构封装在该教材记号内部。 -/
+noncomputable abbrev quotientKernelDimension (K : Type*) {V W : Type*} [Field K]
+    [AddCommGroup V] [LinearSpace K V] [AddCommGroup W] [LinearSpace K W]
+    (f : V →ₗ[K] W) : ℕ :=
+  Module.finrank K (V ⧸ f.ker)
+
 /-- 第一同构定理的维数推论：`dim(V/ker f)=rank f`。 -/
 theorem quotientKer_dim_eq_rank {K V W : Type*} [Field K]
     [AddCommGroup V] [LinearSpace K V] [IsFiniteDimensional K V]
     [AddCommGroup W] [LinearSpace K W]
-    (f : V →ₗ[K] W) : Module.finrank K (V ⧸ f.ker) = rank K f := by
+    (f : V →ₗ[K] W) : quotientKernelDimension K f = rank K f := by
   exact LinearEquiv.finrank_eq (firstIsomorphism f)
 
 /-- **秩-零度定理**：线性映射 f: V → W 满足 rank f + nullity f = dim V。
@@ -90,13 +96,17 @@ theorem rank_add_nullity {K : Type*} {V W : Type*} [Field K]
   unfold rank nullity LinearAlgebra.VectorSpace.dim
   exact LinearMap.finrank_range_add_finrank_ker f
 
-/-- 矩阵的**秩**：`A.rank`，等于列向量张成的子空间的维数（列秩）。
-  mathlib 的 `Matrix.rank` 即由此定义。 
+/-- 矩阵列空间的维数。底层张成子空间结构封装在该教材记号内部。
 > **Entry**: linear-algebra.maps.matrix-rank
 -/
-lemma matrix_rank_eq_finrank_span_cols {K : Type*} {m n : Type*} [Field K]
+noncomputable abbrev columnRank (K : Type*) {m n : Type*} [Field K]
+    [Fintype m] [Fintype n] (A : Matrix m n K) : ℕ :=
+  Module.finrank K (Submodule.span K (Set.range A.col))
+
+/-- 矩阵的秩等于列空间的维数。 -/
+lemma matrix_rank_eq_columnRank {K : Type*} {m n : Type*} [Field K]
     [Fintype m] [Fintype n] (A : Matrix m n K) :
-    A.rank = Module.finrank K (Submodule.span K (Set.range A.col)) :=
+    A.rank = columnRank K A :=
   Matrix.rank_eq_finrank_span_cols A
 
 /-- 矩阵乘法的秩的界：rank(A·B) ≤ min rank A rank B。
