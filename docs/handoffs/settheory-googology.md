@@ -8,6 +8,7 @@
 - 无借位下降、Hydra 赋值与经典最大值提交：`c95de8b`
 - 首个借位、复制下降与有限候选稳定提交：`d0cbf78`
 - 平方借位、兄弟森林与可计算性定义门提交：`3ece959`
+- 有限幂借位、父内兄弟与部分可计算性提交：待本轮提交后回填
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -30,6 +31,9 @@
 - `SandronesLibrary/SetTheory/GoodsteinHigherBorrow.lean`
 - `SandronesLibrary/SetTheory/HydraSiblingDescent.lean`
 - `SandronesLibrary/SetTheory/ComputabilityFoundations.lean`
+- `SandronesLibrary/SetTheory/GoodsteinFinitePowerBorrow.lean`
+- `SandronesLibrary/SetTheory/HydraParentSiblingDescent.lean`
+- `SandronesLibrary/SetTheory/PartialComputability.lean`
 - `docs/entries/settheory/googology/*.md`
 
 ## 顶层导入
@@ -54,6 +58,9 @@ import SandronesLibrary.SetTheory.BusyBeaverConvergence
 import SandronesLibrary.SetTheory.GoodsteinHigherBorrow
 import SandronesLibrary.SetTheory.HydraSiblingDescent
 import SandronesLibrary.SetTheory.ComputabilityFoundations
+import SandronesLibrary.SetTheory.GoodsteinFinitePowerBorrow
+import SandronesLibrary.SetTheory.HydraParentSiblingDescent
+import SandronesLibrary.SetTheory.PartialComputability
 ```
 
 ## Registry
@@ -96,6 +103,10 @@ import SandronesLibrary.SetTheory.ComputabilityFoundations
 34. `settheory.googology.hydra-sibling-descent`（`theorem`）
 35. `settheory.computability.nat-computable`（`definition`）
 36. `settheory.computability.machine-decidable`（`definition`）
+37. `settheory.googology.goodstein-finite-power-borrow`（`theorem`）
+38. `settheory.googology.hydra-parent-sibling-descent`（`theorem`）
+39. `settheory.computability.partial-nat-computable`（`definition`）
+40. `settheory.computability.universal-interpreter-spec`（`definition`）
 
 ## 定义边界
 
@@ -151,6 +162,13 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 但复制父分支必须位于最右端；这一顺序条件正是避免右侧序数和吸收差异所必需。可计算性定义门
 用 `NatProgram` 封装现有有限状态机，冻结一元输入、有限解释器、总函数计算与谓词判定规格，并
 证明判定器等价于计算零一特征函数；当前没有停机不可判定或 Busy Beaver 不可计算性定理。
+
+第六小批不再枚举固定幂，而用 `finitePowerBorrowExpansion base k` 递归展开
+`(base+1)^k-1`；对 `0<k<base` 的数字指数统一证明合法重编码、求值正确与 `ω` 度量下降，指数
+本身需要遗传展开的情形仍未覆盖。Hydra 进一步允许复制父节点内部保留任意左兄弟森林，同时根部
+也保留任意左兄弟；双层最右条件保证路径替换和序数比较闭合。部分可计算性用单值输入输出关系
+表达发散，证明总可计算函数和谓词判定嵌入；`UniversalNatInterpreter` 仅是编码、逐燃料求值和
+精确模拟的抽象规格，本批没有构造其实例，更没有声称现有机器已经具有可计算自解释器。
 
 本批只建立递归与增长的起点，尚未宣称形式化 Ackermann 非原始递归、Goodstein 终止、PA
 不可证性或 Busy Beaver 不可计算性。这些结论需要后续编码与支配定理。
@@ -212,6 +230,13 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
   文档。负责人核对输入、输出和总停机量词均直接连接现有 `BinaryMachine`/`runSteps`，没有把
   Lean 的 `DecidablePred` 冒充机器判定性。三个第四批子包均无独立子提交，审核后收敛于学科提交
   `3ece959`。
+- `st3_goodstein`（第五批）：`GoodsteinFinitePowerBorrow.lean` 与一篇文档。负责人核对递归式
+  `q^(k+1)-1=q^k·base+(q^k-1)` 同时驱动自然数求值和 Cantor 型序数上界，不是新增固定算例。
+- `st3_hydra`（第五批）：`HydraParentSiblingDescent.lean` 与一篇文档。负责人核对路径
+  `[rootSiblings.length,parentSiblings.length]`、复制结果和双层最右顺序边界。
+- `st3_busy_beaver`（第五批）：`PartialComputability.lean` 与两篇文档。负责人核对部分函数图像
+  的单值性由确定执行证明；通用解释器结构无 inhabitant，也没有被文档描述成已经实现。三个第五批
+  子包均无独立子提交，审核后收敛于本轮学科提交。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -231,6 +256,8 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 `ω^level` 低于 `ω^(level+1)` 的接口；有限燃料 Busy Beaver 候选的单调性、经典上界与最终稳定。
 第五批新增的稳定接口包括：`head+B²` 的显式平方借位下降；最右复制分支保留任意左兄弟森林时的
 真实 Hydra 单步下降；一元输入机器程序、自然数函数可计算性、谓词机器判定性和特征函数规格。
+第六批新增的稳定接口包括：有限数字指数的统一 Goodstein 借位展开；根部和复制父内同时保留左兄弟
+森林时的真实 Hydra 下降；部分自然数函数图像、总函数/判定器桥，以及通用解释器的抽象模拟规格。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
