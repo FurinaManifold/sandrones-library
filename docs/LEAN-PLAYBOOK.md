@@ -184,6 +184,15 @@
 > 下一轮；通过后追加 `verdict: accepted`、复验提交和命令结果，再随集成提交进入 main。只有聊天
 > 回复、没有 review 文件；review 文件仍为未跟踪状态；或处理记录未提交，均不算完成返工闭环。
 
+> **10. 可切换角色的固定 ROLE 文件**
+>
+> - Main 负责人执行 `docs/roles/MAIN-ROLE.md`。
+> - 学科负责人执行 `docs/roles/SUBJECT-MAINTAINER-ROLE.md`。
+> - 用户只需指定角色；除无法从仓库判定的歧义外，不得要求用户填写租约、提交、文件清单、验证
+>   命令或 handoff 表格。角色窗口应从 git、worktree、ROADMAP、handoff 和 review 自动发现状态。
+> - 学科负责人被临时提拔为 main 时，先暂停学科开发、保存当前成果，再进入主 worktree 按 Main
+>   ROLE 接管；main 任期结束后回到原学科 worktree，不能在两个角色下同时写共享状态。
+
 > **5 次试错法**：同一证明试错 ≥ 5 次 ⟹ 停止盲试，拆成子 todo（带 sorry 框架），逐个解决。
 
 > **用途**：把"用 Lean 表达数学推理"的实战经验沉淀为可检索知识。
