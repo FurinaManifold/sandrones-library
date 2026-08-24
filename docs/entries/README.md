@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **270** 个条目（verified 270，pending 0）。
+共 **285** 个条目（verified 285，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -15,7 +15,7 @@
 - ✅ [`automorphism.md`](automorphism.md) — 群的自同构与内自同构
 - ✅ [`coset.md`](coset.md) — 陪集与 Lagrange 定理
 - ✅ [`cyclic.md`](cyclic.md) — 循环群与元素阶
-- ✅ [`def.md`](def.md) — 子群判定与基本性质
+- ✅ [`def.md`](def.md) — 群公理、子群与生成子群
 - ✅ [`hom.md`](hom.md) — 同态与同态基本定理
 - ✅ [`index-two.md`](index-two.md) — 指数 2 子群正规
 - ✅ [`iso-theorems.md`](iso-theorems.md) — 群的第二、第三同构定理与对应定理
@@ -278,11 +278,26 @@
 
 ## `number-theory.elementary`
 
+- ✅ [`best-rational-approximation.md`](best-rational-approximation.md) — 最佳有理逼近
 - ✅ [`chinese-remainder.md`](chinese-remainder.md) — 中国剩余定理
 - ✅ [`congruence.md`](congruence.md) — 同余与剩余环
+- ✅ [`continued-fraction-convergent.md`](continued-fraction-convergent.md) — 实数连分数的有理收敛子
+- ✅ [`continued-fraction-recursion.md`](continued-fraction-recursion.md) — 连分数收敛子的递归公式
 - ✅ [`divisibility.md`](divisibility.md) — 带余除法、最大公因数与 Bézout 等式
 - ✅ [`fermat-euler.md`](fermat-euler.md) — Euler 定理与 Fermat 小定理
+- ✅ [`finite-best-approximation.md`](finite-best-approximation.md) — 有限候选集中的最佳逼近存在
+- ✅ [`infinite-primes.md`](infinite-primes.md) — Euclid 定理：素数有无穷多个
+- ✅ [`legendre-criterion.md`](legendre-criterion.md) — Legendre 连分数判据
+- ✅ [`linear-diophantine.md`](linear-diophantine.md) — 二元一次不定方程的 gcd 可解判据
+- ✅ [`pell-composition.md`](pell-composition.md) — Pell 解的 Brahmagupta 合成
+- ✅ [`pell-equation.md`](pell-equation.md) — Pell 方程的整数解
+- ✅ [`pell-fundamental-solution.md`](pell-fundamental-solution.md) — Pell 基本解存在
+- ✅ [`pell-positive-existence.md`](pell-positive-existence.md) — 正非平方参数的 Pell 非平凡解存在
 - ✅ [`prime-factorization.md`](prime-factorization.md) — 算术基本定理：素因子分解的存在性与唯一性
+- ✅ [`prime-tests.md`](prime-tests.md) — 平方根试除、素数测试与合数证书
+- ✅ [`pythagorean-triples.md`](pythagorean-triples.md) — 勾股三元组的 Euclid 参数化
+- ✅ [`quadratic-reciprocity.md`](quadratic-reciprocity.md) — Legendre/Jacobi 二次互反律
+- ✅ [`quadratic-residues.md`](quadratic-residues.md) — 二次剩余、Legendre/Jacobi 符号与 Gauss 引理
 - ✅ [`totient.md`](totient.md) — Euler φ 函数
 
 ## `real-analysis`

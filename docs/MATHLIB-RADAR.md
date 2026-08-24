@@ -2659,6 +2659,76 @@
 - **人话**：`a ≡ 0 (mod p)` 当且仅当 `p ∣ a`。
 - **谁在用**：Fermat 小定理无条件形式的整除分支。
 
+## 初等数论：素数、Diophantine 方程与勾股数
+
+### `Nat.prime_def_le_sqrt` / `Nat.not_prime_iff_exists_dvd_lt`
+- **人话**：用平方根界内的试除刻画素数，并在合数情形给出有限范围内的真因子证书。
+- **谁在用**：`number-theory.elementary.prime-tests`。
+
+### `Nat.minFac_prime` / `Nat.minFac_dvd` / `Nat.Prime.dvd_factorial`
+- **人话**：最小素因子确为素数且整除原数；不超过 `n` 的素数整除 `n!`。
+- **谁在用**：`number-theory.elementary.infinite-primes` 的 Euclid 构造。
+
+### `Set.infinite_of_not_bddAbove`
+- **人话**：自然数集合若没有上界，则该集合无限。
+- **谁在用**：把“任意界之上都有素数”转成素数集合无限。
+
+### `Int.gcd_eq_gcd_ab` / `Int.gcd_dvd_left` / `Int.gcd_dvd_right`
+- **人话**：扩展 Euclidean 算法给出 Bézout 系数，且 gcd 整除两个输入。
+- **谁在用**：`number-theory.elementary.linear-diophantine` 的可解判据和显式解。
+
+### `PythagoreanTriple.coprime_classification'` / `PythagoreanTriple.classification`
+- **人话**：分别分类规范化的本原勾股三元组和带符号、交换及公因子的整数勾股三元组。
+- **谁在用**：`number-theory.elementary.pythagorean-triples`；公开概念使用本库谓词。
+
+## 初等数论：二次剩余与互反律
+
+### `legendreSym.eq_one_iff` / `legendreSym.eq_neg_one_iff` / `isSquare_iff_exists_sq`
+- **人话**：Legendre 符号的正负值分别对应非零二次剩余和非剩余，并桥接显式平方证书。
+- **谁在用**：`number-theory.elementary.quadratic-residues`。
+
+### `ZMod.euler_criterion` / `ZMod.gauss_lemma`
+- **人话**：分别以幂同余和上半区代表元计数的奇偶性计算 Legendre 符号。
+- **谁在用**：Euler 判别法和 Gauss 引理的教材接口。
+
+### `jacobiSym.legendreSym.to_jacobiSym` / `jacobiSym.mul_left` / `jacobiSym.at_two` / `χ₈`
+- **人话**：把素模 Legendre 符号送入 Jacobi 符号，给出分子乘法性及分子为二的补充律。
+- **谁在用**：Jacobi 符号接口及“Jacobi 等于一未必是平方”的合数模反例。
+
+### `legendreSym.quadratic_reciprocity` / `legendreSym.sq_one`
+- **人话**：给出 Legendre 二次互反律和非零符号平方为一。
+- **谁在用**：`number-theory.elementary.quadratic-reciprocity` 的乘积式、等式式和模四特化。
+
+### `jacobiSym.quadratic_reciprocity`
+- **人话**：奇正合数参数下的 Jacobi 二次互反律。
+- **谁在用**：二次互反律的 Jacobi 推广。
+
+## 初等数论：连分数与 Pell 方程
+
+### `Real.convergent` / `Real.convergent_zero` / `Real.convergent_succ`
+- **人话**：实数简单连分数收敛子的定义、零阶值和递归公式。
+- **谁在用**：连分数收敛子定义及递归条目；Mathlib 对象只作为实现承载。
+
+### `Finset.exists_min_image`
+- **人话**：非空有限候选集上，取值函数可以达到最小值。
+- **谁在用**：`number-theory.elementary.finite-best-approximation`。
+
+### `Real.exists_rat_eq_convergent`
+- **人话**：满足 Legendre 误差界的有理数是给定实数的某个连分数收敛子。
+- **谁在用**：`number-theory.elementary.legendre-criterion`。
+
+### `Pell.Solution₁.exists_pos_of_not_isSquare` / `Pell.Solution₁.prop`
+- **人话**：正非平方参数存在正 Pell 解，Mathlib 解对象满足对应 Pell 恒等式。
+- **谁在用**：本库坐标式 Pell 正解存在定理的私有桥。
+
+### `Pell.IsFundamental` / `Pell.IsFundamental.exists_of_not_isSquare`
+- **人话**：Mathlib 的基本 Pell 解谓词及其存在定理。
+- **谁在用**：`number-theory.elementary.pell-fundamental-solution` 的最小正解证明后端。
+
+### `Pell.Solution₁.mk` / `Pell.Solution₁.x_mk`
+- **人话**：由坐标和方程证书构造 Mathlib Pell 解，并读取第一坐标。
+- **谁在用**：本库坐标接口与 Mathlib 基本解接口之间的私有桥。
+
 ## 序数理论
 
 ### `Ordinal.type_eq`

@@ -3396,7 +3396,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "a7b1ac366d962096"
+    "proof_sha": "b2919948fd20ade9"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3433,7 +3433,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "a7b1ac366d962096"
+    "proof_sha": "b2919948fd20ade9"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3502,7 +3502,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a7b1ac366d962096"
+    "proof_sha": "b2919948fd20ade9"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -7892,6 +7892,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "number-theory.elementary.linear-diophantine",
       "number-theory.elementary.prime-factorization"
     ],
     "proof_sha": "c5f90fdbec1f96b8",
@@ -7923,7 +7924,9 @@
     "nl_file": "docs/entries/number-theory/elementary/prime-factorization.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "number-theory.elementary.prime-tests"
+    ],
     "proof_sha": "ed94e7ac948bfaa3",
     "axioms": [
       "Classical.choice",
@@ -8386,7 +8389,8 @@
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
       "number-theory.elementary.chinese-remainder",
-      "number-theory.elementary.fermat-euler"
+      "number-theory.elementary.fermat-euler",
+      "number-theory.elementary.quadratic-residues"
     ],
     "proof_sha": "b127bfdea64e34c9",
     "axioms": [
@@ -8479,8 +8483,458 @@
     "nl_file": "docs/entries/number-theory/elementary/fermat-euler.md",
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "number-theory.elementary.quadratic-residues"
+    ],
     "proof_sha": "b66ab3833319df28",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.prime-tests",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "平方根试除、素数测试与合数证书",
+    "summary": "用平方根以内的有限试除刻画素数，并为布尔测试的真、假结果给出可核验规格",
+    "premises": [
+      "number-theory.elementary.prime-factorization"
+    ],
+    "mathlib": [
+      "Nat.prime_def_le_sqrt",
+      "Nat.not_prime_iff_exists_dvd_lt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy–Wright, An Introduction to the Theory of Numbers, Ch 1"
+    },
+    "lean_file": "NumberTheory/Elementary/Primes.lean",
+    "nl_file": "docs/entries/number-theory/elementary/prime-tests.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.infinite-primes"
+    ],
+    "proof_sha": "71d9fbd063c5c3a9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.infinite-primes",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Euclid 定理：素数有无穷多个",
+    "summary": "用 n!+1 的素因子构造严格大于任意给定界的素数，并推出素数集合无限",
+    "premises": [
+      "number-theory.elementary.prime-tests"
+    ],
+    "mathlib": [
+      "Nat.minFac_prime",
+      "Nat.minFac_dvd",
+      "Nat.Prime.dvd_factorial",
+      "Set.infinite_of_not_bddAbove"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Euclid, Elements, Book IX, Proposition 20"
+    },
+    "lean_file": "NumberTheory/Elementary/Primes.lean",
+    "nl_file": "docs/entries/number-theory/elementary/infinite-primes.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "71d9fbd063c5c3a9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.linear-diophantine",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二元一次不定方程的 gcd 可解判据",
+    "summary": "方程 ax+by=c 有整数解当且仅当 gcd(a,b) 整除 c，并由扩展 Euclid 系数构造解",
+    "premises": [
+      "number-theory.elementary.divisibility"
+    ],
+    "mathlib": [
+      "Int.gcd_eq_gcd_ab",
+      "Int.gcd_dvd_left",
+      "Int.gcd_dvd_right"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Niven–Zuckerman–Montgomery, An Introduction to the Theory of Numbers, Ch 1"
+    },
+    "lean_file": "NumberTheory/Elementary/LinearDiophantine.lean",
+    "nl_file": "docs/entries/number-theory/elementary/linear-diophantine.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.pythagorean-triples"
+    ],
+    "proof_sha": "d08d55f2914459c8",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.pythagorean-triples",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "勾股三元组的 Euclid 参数化",
+    "summary": "自建勾股与本原谓词，验证参数构造，并给出一般整数分类和带奇偶、符号规范的本原分类",
+    "premises": [
+      "number-theory.elementary.linear-diophantine"
+    ],
+    "mathlib": [
+      "PythagoreanTriple.coprime_classification'",
+      "PythagoreanTriple.classification"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy–Wright, An Introduction to the Theory of Numbers, Ch 13"
+    },
+    "lean_file": "NumberTheory/Elementary/PythagoreanTriples.lean",
+    "nl_file": "docs/entries/number-theory/elementary/pythagorean-triples.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "4f28258e3f4c36b6",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.quadratic-residues",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二次剩余、Legendre/Jacobi 符号与 Gauss 引理",
+    "summary": "从平方同余定义出发，建立 Legendre 分类、Euler 判别、Gauss 奇偶判别与 Jacobi 合数模接口",
+    "premises": [
+      "number-theory.elementary.congruence",
+      "number-theory.elementary.fermat-euler"
+    ],
+    "mathlib": [
+      "isSquare_iff_exists_sq",
+      "legendreSym.eq_one_iff",
+      "legendreSym.eq_neg_one_iff",
+      "ZMod.euler_criterion",
+      "ZMod.gauss_lemma",
+      "neg_one_pow_eq_one_iff_even",
+      "neg_one_pow_eq_neg_one_iff_odd",
+      "jacobiSym.legendreSym.to_jacobiSym",
+      "jacobiSym.mul_left",
+      "jacobiSym.eq_one_or_neg_one",
+      "jacobiSym.at_two",
+      "χ₈"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapters 5-6"
+    },
+    "lean_file": "NumberTheory/Elementary/QuadraticResidues.lean",
+    "nl_file": "docs/entries/number-theory/elementary/quadratic-residues.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.quadratic-reciprocity"
+    ],
+    "proof_sha": "bb6fafb0c82073c4",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.quadratic-reciprocity",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Legendre/Jacobi 二次互反律",
+    "summary": "由互反律乘积式推导等式式、模 4 特化、平方剩余互换及奇合数 Jacobi 版本",
+    "premises": [
+      "number-theory.elementary.quadratic-residues"
+    ],
+    "mathlib": [
+      "legendreSym.quadratic_reciprocity",
+      "legendreSym.sq_one",
+      "prime_ne_zero",
+      "neg_one_pow_div_two_of_one_mod_four",
+      "neg_one_pow_div_two_of_three_mod_four",
+      "legendreSym.eq_zero_iff",
+      "jacobiSym.quadratic_reciprocity"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapter 6"
+    },
+    "lean_file": "NumberTheory/Elementary/QuadraticReciprocity.lean",
+    "nl_file": "docs/entries/number-theory/elementary/quadratic-reciprocity.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "00b4935048e11a81",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.continued-fraction-convergent",
+    "kind": "definition",
+    "state": "verified",
+    "title": "实数连分数的有理收敛子",
+    "summary": "用递归的有理数序列表示实数简单连分数的逐级截断",
+    "premises": [],
+    "mathlib": [
+      "Real.convergent",
+      "Real.convergent_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, continued fractions"
+    },
+    "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
+    "nl_file": "docs/entries/number-theory/elementary/continued-fraction-convergent.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.continued-fraction-recursion",
+      "number-theory.elementary.legendre-criterion"
+    ],
+    "proof_sha": "33e3375a15dd29a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.continued-fraction-recursion",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连分数收敛子的递归公式",
+    "summary": "去掉整数部分并取倒数后，后一层收敛子由同一规则递归产生",
+    "premises": [
+      "number-theory.elementary.continued-fraction-convergent"
+    ],
+    "mathlib": [
+      "Real.convergent_succ",
+      "Int.fract"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, continued fractions"
+    },
+    "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
+    "nl_file": "docs/entries/number-theory/elementary/continued-fraction-recursion.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "33e3375a15dd29a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.best-rational-approximation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "最佳有理逼近",
+    "summary": "分母不超过给定有理数分母的所有候选都不能取得更小绝对误差",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy--Wright, An Introduction to the Theory of Numbers, continued fractions"
+    },
+    "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
+    "nl_file": "docs/entries/number-theory/elementary/best-rational-approximation.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "33e3375a15dd29a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.finite-best-approximation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限候选集中的最佳逼近存在",
+    "summary": "每个非空有限有理数候选集都有绝对误差最小者",
+    "premises": [],
+    "mathlib": [
+      "Finset.exists_min_image"
+    ],
+    "provenance": {
+      "source_type": "derivation",
+      "ref": "有限线性序集取最小值"
+    },
+    "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
+    "nl_file": "docs/entries/number-theory/elementary/finite-best-approximation.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "33e3375a15dd29a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.legendre-criterion",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Legendre 连分数判据",
+    "summary": "误差小于分母平方倒数的一半时，该有理数必为连分数收敛子",
+    "premises": [
+      "number-theory.elementary.continued-fraction-convergent"
+    ],
+    "mathlib": [
+      "Real.exists_rat_eq_convergent"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy--Wright, An Introduction to the Theory of Numbers, Legendre theorem"
+    },
+    "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
+    "nl_file": "docs/entries/number-theory/elementary/legendre-criterion.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "33e3375a15dd29a0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.pell-equation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Pell 方程的整数解",
+    "summary": "用整数坐标记录正 Pell 方程 x²-dy²=1 的解",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+    },
+    "lean_file": "NumberTheory/Elementary/Pell.lean",
+    "nl_file": "docs/entries/number-theory/elementary/pell-equation.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.pell-composition",
+      "number-theory.elementary.pell-fundamental-solution",
+      "number-theory.elementary.pell-positive-existence"
+    ],
+    "proof_sha": "675a807110aa2a48",
+    "axioms": []
+  },
+  {
+    "id": "number-theory.elementary.pell-composition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Pell 解的 Brahmagupta 合成",
+    "summary": "两个同参数 Pell 解按显式坐标公式合成后仍是解",
+    "premises": [
+      "number-theory.elementary.pell-equation"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+    },
+    "lean_file": "NumberTheory/Elementary/Pell.lean",
+    "nl_file": "docs/entries/number-theory/elementary/pell-composition.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "675a807110aa2a48",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.pell-positive-existence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正非平方参数的 Pell 非平凡解存在",
+    "summary": "d>0 且 d 不是平方时，存在 x>1、y>0 满足 x²-dy²=1",
+    "premises": [
+      "number-theory.elementary.pell-equation"
+    ],
+    "mathlib": [
+      "Pell.Solution₁.exists_pos_of_not_isSquare",
+      "Pell.Solution₁.prop"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+    },
+    "lean_file": "NumberTheory/Elementary/Pell.lean",
+    "nl_file": "docs/entries/number-theory/elementary/pell-positive-existence.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.pell-fundamental-solution"
+    ],
+    "proof_sha": "675a807110aa2a48",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.pell-fundamental-solution",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Pell 基本解存在",
+    "summary": "正非平方参数存在第一坐标最小的正非平凡 Pell 解",
+    "premises": [
+      "number-theory.elementary.pell-equation",
+      "number-theory.elementary.pell-positive-existence"
+    ],
+    "mathlib": [
+      "Pell.IsFundamental",
+      "Pell.IsFundamental.exists_of_not_isSquare",
+      "Pell.Solution₁.mk",
+      "Pell.Solution₁.prop",
+      "Pell.Solution₁.x_mk"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+    },
+    "lean_file": "NumberTheory/Elementary/Pell.lean",
+    "nl_file": "docs/entries/number-theory/elementary/pell-fundamental-solution.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "675a807110aa2a48",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

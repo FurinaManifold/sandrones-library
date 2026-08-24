@@ -10,6 +10,13 @@ import SandronesLibrary.NumberTheory.Elementary.Divisibility
 import SandronesLibrary.NumberTheory.Elementary.PrimeFactorization
 import SandronesLibrary.NumberTheory.Elementary.Congruence
 import SandronesLibrary.NumberTheory.Elementary.FermatEuler
+import SandronesLibrary.NumberTheory.Elementary.Primes
+import SandronesLibrary.NumberTheory.Elementary.LinearDiophantine
+import SandronesLibrary.NumberTheory.Elementary.PythagoreanTriples
+import SandronesLibrary.NumberTheory.Elementary.QuadraticResidues
+import SandronesLibrary.NumberTheory.Elementary.QuadraticReciprocity
+import SandronesLibrary.NumberTheory.Elementary.ContinuedFractions
+import SandronesLibrary.NumberTheory.Elementary.Pell
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Complex
 import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
