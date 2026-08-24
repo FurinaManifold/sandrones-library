@@ -6,6 +6,7 @@
 - Conway/Goodstein/Hydra 提交：`92ae43e`
 - 局部下降与无界停机关系提交：`b58ba5a`
 - 无借位下降、Hydra 赋值与经典最大值提交：`c95de8b`
+- 首个借位、复制下降与有限候选稳定提交：待本轮提交后回填
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -22,6 +23,9 @@
 - `SandronesLibrary/SetTheory/GoodsteinNoBorrow.lean`
 - `SandronesLibrary/SetTheory/HydraOrdinalAssignment.lean`
 - `SandronesLibrary/SetTheory/BusyBeaverExistence.lean`
+- `SandronesLibrary/SetTheory/GoodsteinBorrow.lean`
+- `SandronesLibrary/SetTheory/HydraOneLevelDescent.lean`
+- `SandronesLibrary/SetTheory/BusyBeaverConvergence.lean`
 - `docs/entries/settheory/googology/*.md`
 
 ## 顶层导入
@@ -40,6 +44,9 @@ import SandronesLibrary.SetTheory.BusyBeaver
 import SandronesLibrary.SetTheory.GoodsteinNoBorrow
 import SandronesLibrary.SetTheory.HydraOrdinalAssignment
 import SandronesLibrary.SetTheory.BusyBeaverExistence
+import SandronesLibrary.SetTheory.GoodsteinBorrow
+import SandronesLibrary.SetTheory.HydraOneLevelDescent
+import SandronesLibrary.SetTheory.BusyBeaverConvergence
 ```
 
 ## Registry
@@ -75,6 +82,9 @@ import SandronesLibrary.SetTheory.BusyBeaverExistence
 27. `settheory.googology.goodstein-positive-tail-no-borrow`（`theorem`）
 28. `settheory.googology.hydra-ordinal-assignment`（`theorem`）
 29. `settheory.googology.busy-beaver-existence`（`theorem`）
+30. `settheory.googology.goodstein-base-power-one-borrow`（`theorem`）
+31. `settheory.googology.hydra-one-level-descent`（`theorem`）
+32. `settheory.googology.busy-beaver-convergence`（`theorem`）
 
 ## 定义边界
 
@@ -117,6 +127,13 @@ Hydra 子包固定一种有限有序树、零编号阶段且复制 `stage+1` 份
 模块直接复用上一批 `EventuallyHalts`、`HasHaltingOnesScore` 和 `IsBusyBeaverValue`，由有限机器
 全集取最大值，证明每个状态数都有经典最大值，并在此后才定义 `noncomputable` 总函数；没有建立
 第二套同义关系，也没有证明不可计算性。
+
+本轮再推进三个可验证台阶。`BasePowerOneTailBorrowForm` 覆盖复合头部加 `B¹` 的首个真实借位形：
+升底减一后把 `(base+1)¹-1` 明确重编码成新底数下的数字 `base`，并证明 `ω` 度量由无限末项降为
+有限末项；任意指数与连锁借位仍未覆盖。`OneLevelReplicatedCut` 是路径 `[0,0]` 的真实阶段相关
+Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低 `ω` 幂仍低于下一幂，因此结构
+赋值严格下降，但没有推广到任意树形。Busy Beaver 有限候选被证明关于燃料单调、始终受经典值
+控制，并在某个仅存在而不可由本证明算出的阈值后永久稳定为经典值；没有提供停机判定算法。
 
 本批只建立递归与增长的起点，尚未宣称形式化 Ackermann 非原始递归、Goodstein 终止、PA
 不可证性或 Busy Beaver 不可计算性。这些结论需要后续编码与支配定理。
@@ -163,6 +180,13 @@ Hydra 子包固定一种有限有序树、零编号阶段且复制 `stage+1` 份
 - `st3_busy_beaver`（续批）：`BusyBeaverExistence.lean` 与一篇文档。初稿重复定义无界停机、输出
   和最大值关系，负责人退回；返工后改为直接复用 `BusyBeaver.lean` 的唯一公开定义链，并删除重复
   Entry。三个续批子包均无独立子提交，审核后收敛于学科提交 `c95de8b`。
+- `st3_goodstein`（第三批）：`GoodsteinBorrow.lean` 与一篇文档。负责人核对新底数中的数字
+  `base` 正是 `(base+1)^1-1`，并确认序数端只用已定义的本库加法、乘法和幂公开接口。
+- `st3_hydra`（第三批）：`HydraOneLevelDescent.lean` 与一篇文档。负责人核对该关系确由
+  `chop stage` 的 `[0,0]` 路径产生，而非只比较两棵无关树；结论仍限定于唯一父枝、唯一头。
+- `st3_busy_beaver`（第三批）：`BusyBeaverConvergence.lean` 与一篇文档。负责人核对阈值来自
+  经典冠军的某个停机时刻，定理只给存在性，没有把最终稳定误述为可判定的停止准则。三个第三批
+  子包均无独立子提交，审核后收敛于本轮学科提交。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -178,6 +202,8 @@ Hydra 子包固定一种有限有序树、零编号阶段且复制 `stage+1` 份
 续批新增的稳定接口包括：正末项复合 Goodstein 表达式的无借位下降；Hydra 结构性序数赋值、最右
 根头下降与复制森林的重复和公式；每个状态数的 Busy Beaver 最大值存在，以及随后定义的经典
 `noncomputable` 总函数规格。
+第三批新增的稳定接口包括：`head+B¹` 的显式一次借位下降；一层真实 Hydra 阶段复制步骤及有限份
+`ω^level` 低于 `ω^(level+1)` 的接口；有限燃料 Busy Beaver 候选的单调性、经典上界与最终稳定。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
