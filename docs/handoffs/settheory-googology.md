@@ -10,6 +10,7 @@
 - 平方借位、兄弟森林与可计算性定义门提交：`3ece959`
 - 有限幂借位、父内兄弟与部分可计算性提交：`3d138d3`
 - 遗传指数借位、任意深最右脊柱与条件式对角论证提交：`9f562d4`
+- 具体配对编码与认证 Hydra 轨迹终止提交：见本批学科提交
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -38,6 +39,8 @@
 - `SandronesLibrary/SetTheory/GoodsteinHereditaryExponentBorrow.lean`
 - `SandronesLibrary/SetTheory/HydraRightmostSpineDescent.lean`
 - `SandronesLibrary/SetTheory/ComputabilityDiagonal.lean`
+- `SandronesLibrary/SetTheory/ConcretePairingCode.lean`
+- `SandronesLibrary/SetTheory/HydraCertifiedPlayTermination.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
 
@@ -69,6 +72,8 @@ import SandronesLibrary.SetTheory.PartialComputability
 import SandronesLibrary.SetTheory.GoodsteinHereditaryExponentBorrow
 import SandronesLibrary.SetTheory.HydraRightmostSpineDescent
 import SandronesLibrary.SetTheory.ComputabilityDiagonal
+import SandronesLibrary.SetTheory.ConcretePairingCode
+import SandronesLibrary.SetTheory.HydraCertifiedPlayTermination
 ```
 
 ## Registry
@@ -120,6 +125,8 @@ import SandronesLibrary.SetTheory.ComputabilityDiagonal
 43. `settheory.computability.pairing-code`（`definition`）
 44. `settheory.computability.executable-universal-spec`（`definition`）
 45. `settheory.computability.conditional-diagonal`（`theorem`）
+46. `settheory.computability.concrete-pairing-code`（`definition`）
+47. `settheory.googology.hydra-certified-play-termination`（`theorem`）
 
 ## 定义边界
 
@@ -194,6 +201,12 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 程序判定。当前没有构造这些结构的实例，核心矛盾也不使用 `runner_spec`，因此该结论不能改写为
 现有机器模型的无条件停机不可判定，更没有推出 Busy Beaver 不可计算。
 
+第八小批关闭配对规格的实例门：`natPairingCode` 以 Mathlib 的显式 `Nat.pair`/`Nat.unpair` 为
+计算与证明后端，给出本库 `PairingCode` 的实际值及恢复、单射接口；这仍不等于已经用 `NatProgram`
+实现配对，更没有构造通用 runner 或翻转编译器。Hydra 线把每一步均携带最右脊柱证书的轨迹定义为
+`CertifiedInfinitePlay`，由每步序数下降和序数良基性证明该类型为空；结论只排除认证子关系上的
+无限轨迹，不保证任意 Hydra 状态可继续、不提供步数界，也不是所有 `Hydra.Step` 的终止定理。
+
 ## RADAR
 
 - `Nat.rec`
@@ -267,6 +280,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_busy_beaver`（第六批）：`ComputabilityDiagonal.lean` 与三篇文档。负责人核对配对与通用机均
   是本库公开规格，`DiagonalFlipClosure` 仍是待构造参数；又要求文档明确核心对角矛盾没有使用
   `runner_spec`，不得把条件定理过报成现有机器的无条件停机不可判定或 Busy Beaver 不可计算。
+- `st3_busy_beaver`（第七批）：`ConcretePairingCode.lean` 与一篇文档。负责人核对 `Nat.pair` 与
+  `Nat.unpair` 只作 Mathlib 计算／证明后端，公开对象确为本库 `PairingCode` 实例；接受“显式自然数
+  函数”意义的可计算性，但保留尚未由本库 `NatProgram` 实现的边界。
+- `st3_hydra`（第七批）：`HydraCertifiedPlayTermination.lean` 与一篇文档。负责人核对无限轨迹
+  自身携带每一步证书，序数良基性只排除该受限关系的下降链；不接受将其描述成所有 Hydra 游戏
+  终止或可计算步数界。
+- `st3_goodstein`（第七批探索）：未形成正式文件。负责人接受其结构性阻塞报告：对 `k>1`，
+  `B^(B^k)` 升底后的有限幂展开会出现不小于新底数的指数数字，现有合法性接口无法闭合；在建立
+  任意自然数的遗传正规编码器前不伪造推广定理。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -291,6 +313,9 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 第七批新增的稳定接口包括：嵌套指数恰为 `B¹` 时的 Goodstein 借位下降；任意有限最右祖先链上的
 真实 Hydra 步骤与序数下降；自然数配对、可执行通用解释器及翻转编译闭包的规格，以及在后两者作为
 显式参数时的自应用对角矛盾。后者是条件接口，不提供任何结构实例。
+第八批新增的稳定接口包括：具体 `PairingCode` 实例及其恢复、单射规格；每一步都属于认证最右脊柱
+子关系时，不存在自然数长度的无限 Hydra 轨迹。不可据此依赖 `NatProgram` 配对实现、通用解释器
+实例、一般 Hydra 终止或可计算步数上界。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -309,6 +334,12 @@ Busy Beaver 不可计算性。因此当前仍不得将完整 ST3 标记为完成
 `RightmostSpineReplicatedCut`、`PairingCode`、`ExecutableUniversalInterpreter`、`SelfHalts` 与
 `DiagonalFlipClosure`。Mathlib 的 `Order.IsNormal.strictMono`、`Ordinal.natCast_lt_omega0` 仅作
 证明后端；原生 `Ordinal` 运算只经本库既有 `ordinalAdd`、`ordinalMul`、`ordinalPow` 定义桥使用。
+
+收到外部 review inbox 通知后，负责人按 `4616ec7..新尖端` 重新划定验收范围：该范围共新增五个
+模块、七个 Entry 与七篇文档。加入具体配对和认证轨迹模块后，集合论 29 个模块及依赖闭包联合
+构建通过，共 1084 个任务；聚合文件同时导入并 `#check` 七个 Entry 的关键 API。七篇文档的精确
+八段、Entry 对照、禁用占位扫描与 `git diff --check` 均通过。Goodstein 的 `B^(B^k)` 探索因缺少
+任意自然数的遗传正规编码器而停止，没有产生或登记正式文件。
 
 ## 合并后验收
 
