@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **285** 个条目（verified 285，pending 0）。
+共 **347** 个条目（verified 347，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -15,7 +15,7 @@
 - ✅ [`automorphism.md`](automorphism.md) — 群的自同构与内自同构
 - ✅ [`coset.md`](coset.md) — 陪集与 Lagrange 定理
 - ✅ [`cyclic.md`](cyclic.md) — 循环群与元素阶
-- ✅ [`def.md`](def.md) — 群公理、子群与生成子群
+- ✅ [`def.md`](def.md) — 子群判定与基本性质
 - ✅ [`hom.md`](hom.md) — 同态与同态基本定理
 - ✅ [`index-two.md`](index-two.md) — 指数 2 子群正规
 - ✅ [`iso-theorems.md`](iso-theorems.md) — 群的第二、第三同构定理与对应定理
@@ -346,10 +346,36 @@
 
 ## `settheory.cardinal`
 
+- ✅ [`addition.md`](addition.md) — 基数加法：用不交并合并两批对象
+- ✅ [`aleph-hierarchy.md`](aleph-hierarchy.md) — Aleph 层级：依次编号所有无限基数
+- ✅ [`beth-hierarchy.md`](beth-hierarchy.md) — Beth 层级：反复取幂集产生的无穷
+- ✅ [`cantor-bernstein.md`](cantor-bernstein.md) — Cantor–Bernstein 定理
+- ✅ [`cantor-theorem.md`](cantor-theorem.md) — Cantor 定理：幂集严格更大
+- ✅ [`cardinal-cofinality.md`](cardinal-cofinality.md) — 基数共尾性：逼近一个基数至少需要多长
+- ✅ [`classical-choice-wellordering.md`](classical-choice-wellordering.md) — 经典基础中的选择原则与良序原则可用性
+- ✅ [`comparison.md`](comparison.md) — 基数比较：用单射定义不大于
+- ✅ [`continuum-hypothesis.md`](continuum-hypothesis.md) — 连续统假设：可数与连续统之间没有中间基数
 - ✅ [`countable-def.md`](countable-def.md) — 可数集定义
 - ✅ [`countable-rat.md`](countable-rat.md) — 有理数可数
 - ✅ [`countable-union.md`](countable-union.md) — 可数个可数集的并可数
+- ✅ [`equinumerous.md`](equinumerous.md) — 等势：用双射比较集合大小
+- ✅ [`exponentiation.md`](exponentiation.md) — 基数幂：计算所有函数的数量
+- ✅ [`finite-set.md`](finite-set.md) — 有限集：能够完整编号到某个 Fin n
+- ✅ [`konig-theorem.md`](konig-theorem.md) — König 定理：逐坐标的严格不等式不能在和与积之间消失
+- ✅ [`multiplication.md`](multiplication.md) — 基数乘法：用笛卡尔积记录成对选择
+- ✅ [`regular-singular.md`](regular-singular.md) — 正则与奇异基数：能否由较短序列逼近
 - ✅ [`uncountable-real.md`](uncountable-real.md) — 实数不可数
+
+## `settheory.computability`
+
+- ✅ [`concrete-pairing-code.md`](concrete-pairing-code.md) — 可计算的自然数配对实例
+- ✅ [`conditional-diagonal.md`](conditional-diagonal.md) — 自应用停机判定的条件式对角矛盾
+- ✅ [`executable-universal-spec.md`](executable-universal-spec.md) — 可由程序实现的通用解释器规格
+- ✅ [`machine-decidable.md`](machine-decidable.md) — 谓词的机器判定与特征函数
+- ✅ [`nat-computable.md`](nat-computable.md) — 自然数函数的机器可计算性
+- ✅ [`pairing-code.md`](pairing-code.md) — 自然数有序对编码
+- ✅ [`partial-nat-computable.md`](partial-nat-computable.md) — 部分自然数函数的可计算性
+- ✅ [`universal-interpreter-spec.md`](universal-interpreter-spec.md) — 通用自然数解释器的抽象规格
 
 ## `settheory.function`
 
@@ -364,6 +390,48 @@
 ## `settheory.function.inject-surject`
 
 - ✅ [`bijective-iff-inverse.md`](bijective-iff-inverse.md) — 双射 ⟺ 有逆映射
+
+## `settheory.googology`
+
+- ✅ [`ackermann.md`](ackermann.md) — Ackermann 函数：定义与计算方程
+- ✅ [`binary-machine.md`](binary-machine.md) — 二符号有限状态图灵机
+- ✅ [`bounded-halting.md`](bounded-halting.md) — 限定步数停机
+- ✅ [`busy-beaver-candidate.md`](busy-beaver-candidate.md) — 限定步数的 Busy Beaver 候选最大值
+- ✅ [`busy-beaver-convergence.md`](busy-beaver-convergence.md) — 有限燃料 Busy Beaver 候选的最终稳定
+- ✅ [`busy-beaver-existence.md`](busy-beaver-existence.md) — 经典 Busy Beaver 最大值的存在性
+- ✅ [`busy-beaver-value-relation.md`](busy-beaver-value-relation.md) — 经典 Busy Beaver 的最大值关系与有限候选桥
+- ✅ [`conway-chain.md`](conway-chain.md) — Conway 链式箭头：有限语法与诚实的受限求值
+- ✅ [`conway-recursion.md`](conway-recursion.md) — 一般有限 Conway 链的递归求值
+- ✅ [`fast-growing-hierarchy.md`](fast-growing-hierarchy.md) — 快速增长层级：后继处迭代前一级函数
+- ✅ [`fundamental-sequence-system.md`](fundamental-sequence-system.md) — 基本列接口：先说明极限处怎样向下逼近
+- ✅ [`goodstein-base-power-one-borrow.md`](goodstein-base-power-one-borrow.md) — Goodstein 首个借位形：将底数一次幂展开为有限末项
+- ✅ [`goodstein-base-power-two-borrow.md`](goodstein-base-power-two-borrow.md) — Goodstein 高幂借位：底数平方的显式展开
+- ✅ [`goodstein-certified-state.md`](goodstein-certified-state.md) — Goodstein 带证书状态：数值与表示不可分离
+- ✅ [`goodstein-finite-power-borrow.md`](goodstein-finite-power-borrow.md) — Goodstein 有限指数借位：递归展开底数幂减一
+- ✅ [`goodstein-hereditary-base-exponent-borrow.md`](goodstein-hereditary-base-exponent-borrow.md) — Goodstein 遗传指数借位：底数自身进入指数
+- ✅ [`goodstein-ordinal-measure.md`](goodstein-ordinal-measure.md) — Goodstein 序数度量：把有限底数换成 ω
+- ✅ [`goodstein-positive-digit-descent.md`](goodstein-positive-digit-descent.md) — Goodstein 的非零数字正规形下降
+- ✅ [`goodstein-positive-tail-no-borrow.md`](goodstein-positive-tail-no-borrow.md) — Goodstein 正末位无借位下降：复合前缀与正数字末项
+- ✅ [`goodstein-reencoding.md`](goodstein-reencoding.md) — Goodstein 重编码单步：换底减一后补齐新证书
+- ✅ [`goodstein-sequence.md`](goodstein-sequence.md) — Goodstein 带证书序列：把重编码单步串起来
+- ✅ [`goodstein-step.md`](goodstein-step.md) — Goodstein 单步：遗传换底之后减一
+- ✅ [`graham-number.md`](graham-number.md) — Graham 数：让前一项决定下一步的箭头数量
+- ✅ [`hardy-hierarchy.md`](hardy-hierarchy.md) — Hardy 层级：沿记号下降，把后继变成输入递增
+- ✅ [`hereditary-base.md`](hereditary-base.md) — 遗传基表示：连指数也用同一底数展开
+- ✅ [`hydra-certified-play-termination.md`](hydra-certified-play-termination.md) — 带最右脊柱证书的 Hydra 轨迹不可能无限
+- ✅ [`hydra-game-step.md`](hydra-game-step.md) — 有限 Hydra 游戏的定义与阶段相关单步
+- ✅ [`hydra-one-level-descent.md`](hydra-one-level-descent.md) — 含阶段复制的一层 Hydra 砍头严格下降
+- ✅ [`hydra-ordinal-assignment.md`](hydra-ordinal-assignment.md) — Hydra 的结构性序数赋值与两个已验证接口
+- ✅ [`hydra-parent-sibling-descent.md`](hydra-parent-sibling-descent.md) — 父节点内部保留左兄弟的 Hydra 复制下降
+- ✅ [`hydra-rightmost-spine-descent.md`](hydra-rightmost-spine-descent.md) — 任意有限最右祖先链上的 Hydra 复制下降
+- ✅ [`hydra-root-cut-measure.md`](hydra-root-cut-measure.md) — Hydra 根旁砍头：一个诚实的局部序数下降
+- ✅ [`hydra-sibling-descent.md`](hydra-sibling-descent.md) — 保留左兄弟森林的一层 Hydra 复制下降
+- ✅ [`hyperoperation.md`](hyperoperation.md) — 超运算：把重复运算本身逐级迭代
+- ✅ [`knuth-arrow.md`](knuth-arrow.md) — Knuth 上箭头：用符号数量提升运算等级
+- ✅ [`machine-execution.md`](machine-execution.md) — 有限状态机的单步与多步执行
+- ✅ [`primitive-recursion.md`](primitive-recursion.md) — 原始递归：从初值逐步生成自然数函数
+- ✅ [`tree-function.md`](tree-function.md) — TREE 函数：有限标号树与坏序列的严格定义入口
+- ✅ [`unbounded-halting-relation.md`](unbounded-halting-relation.md) — 无时间界停机关系与最终输出
 
 ## `settheory.ordinal`
 

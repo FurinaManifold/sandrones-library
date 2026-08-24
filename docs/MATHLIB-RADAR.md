@@ -2839,6 +2839,79 @@
 - **人话**：序数的严格小于关系是良基关系，不存在无限严格下降。
 - **谁在用**：`settheory.ordinal.no-infinite-descent`。
 
+## 基数理论、递归层级与可计算性
+
+### `Embedding.schroeder_bernstein` / `Equiv.ofBijective`
+- **人话**：双向嵌入给出等势，并把显式双射包装为等价。
+- **谁在用**：`settheory.cardinal.cantor-bernstein` 与基数比较闭环；本库的
+  `Equinumerous`、`CardinalLE` 仍是公开教材定义。
+
+### `Equiv.sumCongr` / `Equiv.prodCongr` / `Equiv.arrowCongr`
+- **人话**：等价可分别提升到不交并、直积和函数空间。
+- **谁在用**：三种教材基数算术的等势保持证明。
+
+### `Cardinal.aleph` / `Cardinal.aleph_zero` / `Cardinal.succ_aleph`
+- **人话**：Mathlib 的 aleph 层级、首项和后继递推。
+- **谁在用**：`settheory.cardinal.aleph-hierarchy` 的实现承载与证明后端。
+
+### `Cardinal.beth` / `Cardinal.beth_zero` / `Cardinal.beth_succ` / `Cardinal.beth_one`
+- **人话**：beth 层级及其零、后继和第一项公式。
+- **谁在用**：beth 层级和连续统假设的本库接口。
+
+### `Cardinal.two_power_aleph0`
+- **人话**：实数连续统的基数等于二的可数无限次幂。
+- **谁在用**：`settheory.cardinal.continuum-hypothesis` 的准确命题桥。
+
+### `Cardinal.ord` / `Ordinal.cof_ord_le` / `Cardinal.isRegular_aleph0`
+- **人话**：取基数的初始序数、其共尾性上界，以及 `ℵ₀` 的正则性。
+- **谁在用**：基数共尾性与正则／奇异分类入口。
+
+### `Cardinal.sum_lt_prod` / `Cardinal.lt_power_cof_ord`
+- **人话**：König 型基数和小于基数积，以及共尾性控制的幂严格不等式。
+- **谁在用**：`settheory.cardinal.konig-theorem`。
+
+### `Classical.choice` / `WellOrderingRel`
+- **人话**：在 Lean 的经典基础中选择见证，并为任意类型取得良序关系。
+- **谁在用**：`settheory.cardinal.classical-choice-wellordering`；这里只证明可用性，不冒充
+  AC、良序定理与 Zorn 在无选择基础中的双向等价。
+
+### `Nat.rec` / `Nat.hyperoperation` / `Nat.ack`
+- **人话**：自然数递归、Mathlib 超运算和 Ackermann 函数的对照实现。
+- **谁在用**：本库原始递归、超运算与 Ackermann 计算方程；Mathlib 名称只作对照后端。
+
+### `Finset.range` / `Finset.map` / `Finset.sup` / `Classical.choose`
+- **人话**：枚举有限候选、映射候选并取有限上确界，再从经典存在证明中抽取见证。
+- **谁在用**：有限燃料 Busy Beaver 候选、经典最大值及最终稳定性。
+
+### `Ordinal.opow_mul_lt_opow` / `Ordinal.opow_mul_add_lt_opow`
+- **人话**：有限系数和有限余项仍严格低于下一层 `ω` 幂。
+- **谁在用**：Goodstein 的平方／有限幂借位与 Hydra 局部复制下降。
+
+### `Ordinal.natCast_lt_omega0` / `Order.IsNormal.strictMono`
+- **人话**：每个有限序数小于 `ω`，正规函数严格保序。
+- **谁在用**：嵌套指数 `B^(B¹)` 的 Goodstein 度量下降及 Hydra 脊柱提升。
+
+### `Nat.add_sub_assoc` / `Nat.sub_one_lt` / `Order.lt_succ`
+- **人话**：在正数证书下移动减一、证明减一严格变小，并使用后继严格上界。
+- **谁在用**：Goodstein 的局部换底减一和显式借位公式。
+
+### `Nat.pair` / `Nat.unpair` / `Nat.unpair_pair`
+- **人话**：自然数有序对的显式配对、拆对和恢复定理。
+- **谁在用**：`settheory.computability.concrete-pairing-code`；尚未证明由本库 `NatProgram`
+  实现。
+
+### `wellFounded_iff_isEmpty_descending_chain`
+- **人话**：良基关系等价于不存在自然数长度的无限严格下降链。
+- **谁在用**：排除每一步都携带最右脊柱证书的无限 Hydra 轨迹。
+
+### `add_lt_add_iff_left` / `add_lt_add_right` / `mul_lt_mul_of_pos_left`
+- **人话**：在共同左前缀或正左因子下保持严格不等式。
+- **谁在用**：Goodstein 与 Hydra 序数赋值的局部下降组装。
+
+### `Nat.cast_lt` / `Ordinal.mul_succ`
+- **人话**：把自然数不等式送入序数，并展开序数右乘后继。
+- **谁在用**：有限复制森林和有限序数度量计算。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

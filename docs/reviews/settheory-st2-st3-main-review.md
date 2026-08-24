@@ -280,3 +280,37 @@ Registry、RADAR、ROADMAP、公理生成、audit 和全库构建。只有 Main 
 | 未跟踪成果 | resolved | `ConcretePairingCode` 与 `HydraCertifiedPlayTermination` 源码、文档已提交为 `ba895df`；Goodstein `B^(B^k)` 探索因正规化接口缺失停止，未产生正式文件。 |
 | 重跑验收 | resolved | 集合论 29 模块闭包构建 1084 jobs 通过；聚合导入与七个新 Entry API 检查通过；Entry/文档及精确八段 7/7；占位扫描零命中；`git diff --check` 通过。 |
 | 共有文件边界 | resolved | 未修改顶层 import、Registry、RADAR、ROADMAP、Playbook 或生成文件；不报告全库 build 或已进入 main。 |
+
+## Round 3 — Main 最新范围复验与集成
+
+- reviewed_range: `4616ec7c42bd9398b0bde9504e33ec807748a451..169da85`
+- reviewed_commit: `169da85`
+- reviewer: main
+- verdict: `accepted`
+- reviewed_at: 2026-08-24
+
+### 复验通过
+
+- 本轮范围新增五个模块、七个唯一 Entry 和七篇文档；源码、Registry 与文档 id 一一对应。
+- 五个最新模块联合构建通过（1073 jobs），聚合导入并 `#check` 七个公开 API 通过。
+- 文档八段、占位扫描与 `git diff --check` 通过；公开标题与 Lean 结论保持同强度。
+- 对角结论保持条件式；具体配对未冒充 `NatProgram` 实现；Goodstein 只覆盖 `B^(B¹)`；Hydra
+  只排除认证最右脊柱子关系的无限轨迹。
+
+### Main 集成记录
+
+- 已按审核过的学科提交序列接收 ST2 与 ST3 foundations，没有整体 merge 旧分支，也没有覆盖
+  main 上已有的数论、抽象代数和协作协议。
+- 顶层新增 28 个 SetTheory imports；Registry 新增 62 个 verified 条目，总数更新为 347。
+- 已更新 RADAR、ROADMAP 和自动生成 Entries 索引；G-ST 依赖门打开，完整 ST3 保持未完成。
+- `check_axioms.py` 修复多行公理列表和声明名末尾 `?` 的解析，并成功重算新条目的公理与指纹；
+  无 `<解析失败>` 残留。
+- `python3 scripts/check_axioms.py --all`、`python3 scripts/audit.py`、Registry 唯一性、集合论
+  source/Registry/docs id 双射和 `git diff --check` 均通过。
+- main 完整 `lake build` 通过，共 8850 jobs；既有 linter warning 未混入本批源码返工。
+
+### 未纳入边界
+
+审核或集成期间集合论 worktree 新产生的所有未跟踪文件均属于下一批开发，不在 `169da85` 或本次
+集成范围；Main 未修改、移动或提交这些文件。一般 Goodstein/Hydra 终止、PA 不可证性、无条件
+停机不可判定和 Busy Beaver 不可计算性仍未完成。

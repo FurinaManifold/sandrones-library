@@ -18,7 +18,10 @@
     "nl_file": "docs/entries/analysis/real/archimedean.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:43:52Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.nth-root-irrational",
+      "analysis.series.basic"
+    ],
     "family": "analysis.real.archimedean",
     "variant": "generated",
     "axioms": [
@@ -47,7 +50,10 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:55:42Z",
     "dependedOnBy": [
-      "settheory.set.operations.inter-distrib"
+      "settheory.function.image-preimage.preimage-inter",
+      "settheory.function.image-preimage.preimage-union",
+      "settheory.set.operations.inter-distrib",
+      "settheory.set.subset.antisymm"
     ],
     "family": "settheory.set.ext",
     "variant": "ecnu",
@@ -275,7 +281,9 @@
     "nl_file": "docs/entries/settheory/set/relations/equivalence-class-eq.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.real.construction-cauchy"
+    ],
     "family": "settheory.set.relations",
     "variant": "ecnu",
     "axioms": [
@@ -300,7 +308,9 @@
     "nl_file": "docs/entries/settheory/set/relations/quotient-surj.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.real.construction-cauchy"
+    ],
     "family": "settheory.set.relations",
     "variant": "ecnu",
     "axioms": [],
@@ -522,7 +532,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T09:22:26Z",
     "dependedOnBy": [
-      "analysis.completeness.accumulation-point"
+      "analysis.completeness.accumulation-point",
+      "analysis.real.bounded-sets.subset",
+      "analysis.real.sup"
     ],
     "family": "analysis.real.bounded-sets",
     "variant": "ecnu",
@@ -606,8 +618,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T09:22:26Z",
     "dependedOnBy": [
+      "analysis.completeness.equivalence-cycle.sup-to-mct",
       "analysis.completeness.nested-intervals",
-      "analysis.completeness.equivalence-cycle.sup-to-mct"
+      "analysis.sequence.monotone-convergence"
     ],
     "family": "analysis.real",
     "variant": "ecnu",
@@ -635,7 +648,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T12:00:00Z",
     "dependedOnBy": [
-      "analysis.completeness.accumulation-point"
+      "analysis.completeness.accumulation-point",
+      "analysis.real.inf"
     ],
     "family": "analysis.real",
     "variant": "ecnu",
@@ -693,7 +707,9 @@
     "nl_file": "docs/entries/analysis/real/construction-cauchy.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T12:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.nth-root-irrational"
+    ],
     "family": "analysis.real",
     "variant": "ecnu",
     "proof_sha": "7481ea008a6fcfff",
@@ -719,7 +735,18 @@
     "nl_file": "docs/entries/analysis/sequence/definition.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T13:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.sequence.add",
+      "analysis.sequence.bounded",
+      "analysis.sequence.const-mul",
+      "analysis.sequence.div",
+      "analysis.sequence.le",
+      "analysis.sequence.mul",
+      "analysis.sequence.squeeze",
+      "analysis.sequence.sub",
+      "analysis.sequence.subsequence",
+      "analysis.sequence.unique"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "4c7a650e6c87f286",
@@ -775,7 +802,10 @@
     "nl_file": "docs/entries/analysis/sequence/bounded.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T13:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.sequence.bolzano-weierstrass",
+      "analysis.sequence.liminf-limsup"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "4c7a650e6c87f286",
@@ -832,8 +862,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T13:00:00Z",
     "dependedOnBy": [
-      "analysis.completeness.nested-intervals",
-      "analysis.completeness.equivalence-cycle.mct-to-nested-intervals"
+      "analysis.completeness.equivalence-cycle.mct-to-nested-intervals",
+      "analysis.completeness.nested-intervals"
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
@@ -865,7 +895,10 @@
     "nl_file": "docs/entries/analysis/sequence/subsequence.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T10:39:15Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.sequence.bolzano-weierstrass",
+      "analysis.sequence.cauchy"
+    ],
     "family": "analysis.sequence",
     "variant": "ecnu",
     "proof_sha": "4c7a650e6c87f286",
@@ -932,7 +965,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T10:39:15Z",
     "dependedOnBy": [
-      "analysis.completeness.equivalence-cycle.cauchy-to-sup"
+      "analysis.completeness.equivalence-cycle.cauchy-to-sup",
+      "analysis.series.basic"
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
@@ -1295,7 +1329,9 @@
     "added_by": "ingestor-chapter4-batch",
     "added_at": "2026-08-19T14:00:21Z",
     "dependedOnBy": [
-      "analysis.func-limit.heine"
+      "analysis.func-limit.comp",
+      "analysis.func-limit.heine",
+      "analysis.limits.classical"
     ],
     "family": "analysis.func-limit",
     "variant": "ecnu",
@@ -1668,7 +1704,12 @@
     "nl_file": "docs/entries/analysis/continuity/definition.md",
     "added_by": "ingestor-chapter5-batch",
     "added_at": "2026-08-21T03:13:14Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.continuity.uniform-compact",
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log",
+      "analysis.special-functions.log-tan-pow"
+    ],
     "family": "analysis.continuity",
     "variant": "ecnu",
     "proof_sha": "3a45f1eca989b821",
@@ -1929,7 +1970,10 @@
     "nl_file": "docs/entries/analysis/continuity/uniform.md",
     "added_by": "ingestor-chapter5-batch",
     "added_at": "2026-08-21T03:13:14Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.continuity.uniform-compact",
+      "real-analysis.riemann.cont-integrable"
+    ],
     "family": "analysis.continuity",
     "variant": "ecnu",
     "proof_sha": "3a45f1eca989b821",
@@ -1957,7 +2001,9 @@
     "nl_file": "docs/entries/analysis/derivative/unique.md",
     "added_by": "ingestor-chapter6-batch",
     "added_at": "2026-08-21T04:24:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.calculus.ftc"
+    ],
     "family": "analysis.derivative",
     "variant": "ecnu",
     "proof_sha": "41540eefbdffabff",
@@ -1987,7 +2033,11 @@
     "nl_file": "docs/entries/analysis/derivative/const.md",
     "added_by": "ingestor-chapter6-batch",
     "added_at": "2026-08-21T04:24:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.special-functions.basic",
+      "analysis.special-functions.log",
+      "analysis.special-functions.log-tan-pow"
+    ],
     "family": "analysis.derivative",
     "variant": "ecnu",
     "proof_sha": "41540eefbdffabff",
@@ -2127,7 +2177,14 @@
     "nl_file": "docs/entries/analysis/derivative/chain-rule.md",
     "added_by": "ingestor-chapter6-batch",
     "added_at": "2026-08-21T04:24:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.derivative.inverse-function",
+      "analysis.mvt.lagrange",
+      "analysis.mvt.lagrange-deriv",
+      "analysis.mvt.monotone-deriv",
+      "analysis.mvt.rolle",
+      "analysis.mvt.taylor"
+    ],
     "family": "analysis.derivative",
     "variant": "ecnu",
     "proof_sha": "41540eefbdffabff",
@@ -2187,7 +2244,11 @@
     "nl_file": "docs/entries/analysis/mvt/lagrange.md",
     "added_by": "ingestor-chapter7-batch",
     "added_at": "2026-08-21T04:31:33Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.mvt.cauchy",
+      "analysis.mvt.constant",
+      "analysis.mvt.taylor"
+    ],
     "family": "analysis.mvt",
     "variant": "ecnu",
     "proof_sha": "d3b0e462ec1b1f25",
@@ -2278,7 +2339,9 @@
     "nl_file": "docs/entries/analysis/mvt/cauchy.md",
     "added_by": "ingestor-chapter7-batch2",
     "added_at": "2026-08-21T04:47:35Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.mvt.lhopital"
+    ],
     "family": "analysis.mvt",
     "variant": "ecnu",
     "proof_sha": "d3b0e462ec1b1f25",
@@ -2312,6 +2375,7 @@
     "added_by": "ingestor-chapter7-batch3",
     "added_at": "2026-08-21T05:29:34Z",
     "dependedOnBy": [
+      "analysis.mvt.taylor-examples",
       "analysis.series.taylor"
     ],
     "family": "analysis.mvt",
@@ -2373,6 +2437,8 @@
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:44:24Z",
     "dependedOnBy": [
+      "linear-algebra.inner-product",
+      "linear-algebra.tensor-exterior",
       "topology.normed-space.def"
     ],
     "family": "linear-algebra.vector-space",
@@ -2430,7 +2496,9 @@
     "nl_file": "docs/entries/linear-algebra/vector-space/basis.md",
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:44:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.symplectic.basis"
+    ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
     "proof_sha": "cfcb0219e1ceffaf",
@@ -2459,7 +2527,9 @@
     "nl_file": "docs/entries/linear-algebra/vector-space/dimension.md",
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:51:18Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.maps.rank-nullity"
+    ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
     "proof_sha": "56ab6cfe20365847",
@@ -2573,7 +2643,10 @@
     "nl_file": "docs/entries/linear-algebra/det/mul.md",
     "added_by": "ingestor-linalg-L3",
     "added_at": "2026-08-21T06:04:14Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.matrix.orthogonal-unitary",
+      "topology.orientation.vector-space"
+    ],
     "family": "linear-algebra.det",
     "variant": "ecnu",
     "proof_sha": "919dd1205eed5759",
@@ -2688,7 +2761,9 @@
     "nl_file": "docs/entries/linear-algebra/eigen/vector.md",
     "added_by": "ingestor-linalg-L4",
     "added_at": "2026-08-21T06:09:28Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.eigen.independent"
+    ],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
@@ -2715,7 +2790,9 @@
     "nl_file": "docs/entries/linear-algebra/eigen/value.md",
     "added_by": "ingestor-linalg-L4",
     "added_at": "2026-08-21T06:09:28Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.eigen.charpoly-root"
+    ],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
@@ -2770,7 +2847,10 @@
     "nl_file": "docs/entries/linear-algebra/eigen/charpoly.md",
     "added_by": "ingestor-linalg-L4",
     "added_at": "2026-08-21T06:09:28Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.eigen.charpoly-root",
+      "linear-algebra.eigen.similar-diagonal"
+    ],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
@@ -2886,7 +2966,9 @@
     "nl_file": "docs/entries/linear-algebra/eigen/similar-diagonal.md",
     "added_by": "ingestor-linalg-L4c",
     "added_at": "2026-08-21T07:27:44Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.eigen.similar-charpoly"
+    ],
     "family": "linear-algebra.eigen",
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
@@ -3281,7 +3363,9 @@
     "nl_file": "docs/entries/analysis/continuity/inverse.md",
     "added_by": "ingestor-promote-analysis",
     "added_at": "2026-08-21T08:51:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.derivative.inverse-function"
+    ],
     "family": "analysis.continuity",
     "variant": "rudin",
     "proof_sha": "3a45f1eca989b821",
@@ -3358,8 +3442,12 @@
     ],
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
-    "dependedOnBy": [],
-    "proof_sha": "a7b1ac366d962096"
+    "dependedOnBy": [
+      "abstract-algebra.group.coset",
+      "abstract-algebra.group.cyclic",
+      "abstract-algebra.group.normal"
+    ],
+    "proof_sha": "b2919948fd20ade9"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3395,7 +3483,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.cyclic",
+      "abstract-algebra.group.index-two"
+    ],
     "proof_sha": "b2919948fd20ade9"
   },
   {
@@ -3432,7 +3523,9 @@
     ],
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.hom"
+    ],
     "proof_sha": "b2919948fd20ade9"
   },
   {
@@ -3471,8 +3564,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
-    "dependedOnBy": [],
-    "proof_sha": "a7b1ac366d962096"
+    "dependedOnBy": [
+      "abstract-algebra.group.iso-theorems"
+    ],
+    "proof_sha": "b2919948fd20ade9"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3540,7 +3635,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.poly.def",
+      "abstract-algebra.ring.ideal"
+    ],
     "proof_sha": "3cc4ea24381c87fa"
   },
   {
@@ -3576,7 +3674,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.ring.domain",
+      "abstract-algebra.ring.iso"
+    ],
     "proof_sha": "3cc4ea24381c87fa"
   },
   {
@@ -3674,7 +3775,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.poly.irreducible",
+      "abstract-algebra.poly.roots-card"
+    ],
     "proof_sha": "b94e08b2c824fafd"
   },
   {
@@ -3773,7 +3877,15 @@
     ],
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.compact.closed-bdd",
+      "topology.compact.def",
+      "topology.metric.cauchy-complete",
+      "topology.metric.def",
+      "topology.separations",
+      "topology.space.continuous",
+      "topology.space.neighborhood"
+    ],
     "proof_sha": "8f07729dfc967e60"
   },
   {
@@ -3836,7 +3948,12 @@
     ],
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.metric.uniform",
+      "topology.space.connected",
+      "topology.space.homeo",
+      "topology.space.subspace"
+    ],
     "proof_sha": "8f07729dfc967e60"
   },
   {
@@ -3969,7 +4086,10 @@
     ],
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.compact.finite",
+      "topology.compact.tychonoff"
+    ],
     "proof_sha": "70626d3fed575a3b"
   },
   {
@@ -4066,7 +4186,10 @@
     ],
     "added_by": "ingestor-topology-T2",
     "added_at": "2026-08-21T10:40:22Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.compact.finite",
+      "topology.separations.urysohn"
+    ],
     "proof_sha": "afb48d2d1606dd25"
   },
   {
@@ -4168,6 +4291,7 @@
     "added_by": "ingestor-topology-T3",
     "added_at": "2026-08-21T10:45:30Z",
     "dependedOnBy": [
+      "topology.metric.completion",
       "topology.normed-space.banach"
     ],
     "proof_sha": "697b4373a3cb5505"
@@ -4328,7 +4452,11 @@
     ],
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lebesgue-measure",
+      "real-analysis.measure.def",
+      "real-analysis.measure.measurable-function"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4362,6 +4490,8 @@
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:25:48Z",
     "dependedOnBy": [
+      "real-analysis.measure.lintegral",
+      "real-analysis.measure.outer",
       "real-analysis.measure.product-measure"
     ],
     "proof_sha": "74fb033d578801ec"
@@ -4394,7 +4524,9 @@
     ],
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.measure.caratheodory"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4425,7 +4557,9 @@
     ],
     "added_by": "ingestor-realanalysis-R1",
     "added_at": "2026-08-21T11:28:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.lebesgue-measure"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4458,7 +4592,9 @@
     ],
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.measure.lintegral"
+    ],
     "proof_sha": "74fb033d578801ec"
   },
   {
@@ -4492,9 +4628,16 @@
     "added_by": "ingestor-realanalysis-R2",
     "added_at": "2026-08-21T11:30:40Z",
     "dependedOnBy": [
-      "real-analysis.measure.tonelli",
+      "real-analysis.calculus.ftc",
+      "real-analysis.calculus.ftc-differentiate",
       "real-analysis.lp.basic",
-      "real-analysis.lp.holder"
+      "real-analysis.lp.holder",
+      "real-analysis.measure.dominated-convergence",
+      "real-analysis.measure.fatou",
+      "real-analysis.measure.monotone-convergence",
+      "real-analysis.measure.tonelli",
+      "real-analysis.riemann.def",
+      "real-analysis.riemann.eq-lebesgue"
     ],
     "proof_sha": "74fb033d578801ec"
   },
@@ -4681,7 +4824,10 @@
     "nl_file": "docs/entries/real-analysis/lebesgue-measure.md",
     "added_by": "ingestor-realanalysis-R55",
     "added_at": "2026-08-21T11:46:18Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.def",
+      "real-analysis.riemann.lebesgue-criterion"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4715,7 +4861,10 @@
     "added_by": "ingestor-realanalysis-R55",
     "added_at": "2026-08-21T11:53:48Z",
     "dependedOnBy": [
-      "real-analysis.riemann.eq-lebesgue-general"
+      "real-analysis.riemann.cont-integrable",
+      "real-analysis.riemann.eq-lebesgue",
+      "real-analysis.riemann.eq-lebesgue-general",
+      "real-analysis.riemann.lebesgue-criterion"
     ],
     "axioms": [
       "Classical.choice",
@@ -4750,7 +4899,10 @@
     "nl_file": "docs/entries/analysis/continuity/uniform-compact.md",
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T12:12:42Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "real-analysis.riemann.cont-integrable",
+      "real-analysis.riemann.eq-lebesgue"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4785,7 +4937,9 @@
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T13:01:23Z",
     "dependedOnBy": [
-      "real-analysis.riemann.algebra"
+      "real-analysis.riemann.algebra",
+      "real-analysis.riemann.eq-lebesgue",
+      "real-analysis.riemann.lebesgue-criterion"
     ],
     "axioms": [
       "propext",
@@ -4822,10 +4976,10 @@
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T15:26:03Z",
     "dependedOnBy": [
+      "analysis.mvt.taylor-integral-remainder",
       "real-analysis.riemann.algebra",
       "real-analysis.riemann.ftc",
-      "real-analysis.riemann.parts-substitution",
-      "analysis.mvt.taylor-integral-remainder"
+      "real-analysis.riemann.parts-substitution"
     ],
     "axioms": [
       "Classical.choice",
@@ -4904,8 +5058,15 @@
     "added_by": "special-functions-batch-1",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "real-analysis.riemann.parts-substitution",
-      "analysis.integral.examples"
+      "analysis.constants.e-definition",
+      "analysis.constants.pi-definition",
+      "analysis.integral.examples",
+      "analysis.limits.asymptotic",
+      "analysis.limits.classical",
+      "analysis.mvt.taylor-examples",
+      "analysis.special-functions.log",
+      "analysis.special-functions.log-tan-pow",
+      "real-analysis.riemann.parts-substitution"
     ],
     "axioms": [
       "Classical.choice",
@@ -4948,7 +5109,10 @@
     "nl_file": "docs/entries/analysis/special-functions/log-tan-pow.md",
     "added_by": "special-functions-batch-2",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.pi-definition",
+      "analysis.limits.classical"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4981,7 +5145,9 @@
     "nl_file": "docs/entries/analysis/limits/classical.md",
     "added_by": "classical-limits-batch-1",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.limits.asymptotic"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5078,7 +5244,10 @@
     "nl_file": "docs/entries/analysis/special-functions/log.md",
     "added_by": "special-functions-log-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.constants.e-definition",
+      "analysis.limits.asymptotic"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5146,8 +5315,9 @@
     "added_by": "constants-e-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
+      "analysis.asymptotic.stirling",
       "analysis.constants.e-irrational",
-      "analysis.asymptotic.stirling"
+      "analysis.constants.special-values"
     ],
     "axioms": [
       "Classical.choice",
@@ -5182,8 +5352,11 @@
     "added_by": "constants-pi-definition-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
+      "analysis.asymptotic.stirling",
       "analysis.constants.pi-irrational",
-      "analysis.asymptotic.stirling"
+      "analysis.constants.special-values",
+      "analysis.trigonometric.basic-identities",
+      "analysis.trigonometric.special-angles"
     ],
     "axioms": [
       "Classical.choice",
@@ -5220,7 +5393,9 @@
     "nl_file": "docs/entries/analysis/constants/special-values.md",
     "added_by": "constants-special-values-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.trigonometric.basic-identities"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5256,7 +5431,9 @@
     "nl_file": "docs/entries/analysis/trigonometric/basic-identities.md",
     "added_by": "trigonometric-basic-identities-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.trigonometric.add-sub"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5287,7 +5464,12 @@
     "nl_file": "docs/entries/analysis/trigonometric/add-sub.md",
     "added_by": "trigonometric-add-sub-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.trigonometric.double-half",
+      "analysis.trigonometric.product-sum",
+      "analysis.trigonometric.sum-product",
+      "analysis.trigonometric.tan-identities"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5319,7 +5501,12 @@
     "nl_file": "docs/entries/analysis/trigonometric/double-half.md",
     "added_by": "trigonometric-double-half-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.trigonometric.half-root",
+      "analysis.trigonometric.product-sum",
+      "analysis.trigonometric.special-angles",
+      "analysis.trigonometric.tan-identities"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5351,7 +5538,9 @@
     "nl_file": "docs/entries/analysis/trigonometric/product-sum.md",
     "added_by": "trigonometric-product-sum-batch",
     "added_at": "2026-08-22T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.trigonometric.sum-product"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -5547,8 +5736,10 @@
     "added_by": "series-basic-batch",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
+      "analysis.power-series.definition",
+      "analysis.series.absolute",
       "analysis.series.cauchy-product-definition",
-      "analysis.power-series.definition"
+      "analysis.series.tests"
     ],
     "axioms": [
       "Classical.choice",
@@ -5582,6 +5773,8 @@
     "added_at": "2026-08-22T04:56:56Z",
     "dependedOnBy": [
       "analysis.power-series.radius",
+      "analysis.series.absolute",
+      "analysis.series.conditional",
       "analysis.series.root-test"
     ],
     "proof_sha": "93193367be2f8a29",
@@ -5614,7 +5807,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:04:53Z",
     "dependedOnBy": [
-      "analysis.series.cauchy-product-absolute"
+      "analysis.series.cauchy-product-absolute",
+      "analysis.series.rearrangement"
     ],
     "proof_sha": "93193367be2f8a29",
     "axioms": [
@@ -5644,9 +5838,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:06:21Z",
     "dependedOnBy": [
-      "analysis.series.riemann-rearrangement",
+      "analysis.power-series.endpoints",
       "analysis.series.mertens",
-      "analysis.power-series.endpoints"
+      "analysis.series.riemann-rearrangement"
     ],
     "axioms": [
       "propext",
@@ -5772,8 +5966,8 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.series.mertens",
-      "analysis.power-series.operations"
+      "analysis.power-series.operations",
+      "analysis.series.mertens"
     ],
     "proof_sha": "621a3e9e7797cf3b",
     "axioms": [
@@ -6037,7 +6231,8 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "analysis.constants.e-irrational"
+      "analysis.constants.e-irrational",
+      "analysis.mvt.taylor-integral-remainder"
     ],
     "proof_sha": "de1ad28f49e0306c",
     "axioms": [
@@ -6071,9 +6266,7 @@
     "nl_file": "docs/entries/analysis/constants/e-irrational.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T10:02:45Z",
-    "dependedOnBy": [
-      "analysis.mvt.taylor-integral-remainder"
-    ],
+    "dependedOnBy": [],
     "proof_sha": "89eb5ea33e9c2241",
     "axioms": [
       "Classical.choice",
@@ -6235,8 +6428,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [
-      "real-analysis.riemann.parts-substitution",
-      "analysis.integral.examples"
+      "analysis.integral.examples",
+      "real-analysis.riemann.parts-substitution"
     ],
     "proof_sha": "5713805db6e3bbeb",
     "axioms": [
@@ -6528,9 +6721,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:42:25Z",
     "dependedOnBy": [
-      "real-analysis.lp.holder",
       "real-analysis.lp.chebyshev",
-      "real-analysis.lp.complete"
+      "real-analysis.lp.complete",
+      "real-analysis.lp.holder"
     ],
     "family": "real-analysis.lp",
     "variant": "generated",
@@ -6822,9 +7015,10 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:12:15Z",
     "dependedOnBy": [
-      "topology.normed-space.inequalities",
+      "analysis.multivariable.frechet",
       "topology.normed-space.banach",
-      "analysis.multivariable.frechet"
+      "topology.normed-space.inequalities",
+      "topology.orientation.vector-space"
     ],
     "family": "topology.normed-space",
     "variant": "generated",
@@ -6929,8 +7123,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:20:53Z",
     "dependedOnBy": [
-      "analysis.multivariable.gradient",
       "analysis.multivariable.coordinates",
+      "analysis.multivariable.differential-forms",
+      "analysis.multivariable.gradient",
       "analysis.multivariable.hessian-taylor",
       "analysis.multivariable.inverse-function"
     ],
@@ -7067,8 +7262,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T12:41:07Z",
     "dependedOnBy": [
+      "analysis.multivariable.hessian-taylor",
       "linear-algebra.matrix.skew-symmetric",
-      "analysis.multivariable.hessian-taylor"
+      "linear-algebra.spectral-quadratic"
     ],
     "family": "linear-algebra.matrix",
     "variant": "generated",
@@ -7237,7 +7433,9 @@
     "nl_file": "docs/entries/linear-algebra/tensor-exterior.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:19:42Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.differential-forms"
+    ],
     "proof_sha": "af7385158851263c",
     "axioms": [
       "Classical.choice",
@@ -7279,7 +7477,9 @@
     "nl_file": "docs/entries/analysis/multivariable/differential-forms.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:27:21Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.second-kind-integrals"
+    ],
     "proof_sha": "4bf3525f81c7b120",
     "axioms": [
       "Classical.choice",
@@ -7348,7 +7548,9 @@
     "nl_file": "docs/entries/analysis/multivariable/second-kind-integrals.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T02:28:49Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.green-gauss-stokes"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7441,7 +7643,10 @@
     "nl_file": "docs/entries/linear-algebra/inner-product.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T09:41:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.matrix.orthogonal-unitary",
+      "linear-algebra.spectral-quadratic"
+    ],
     "proof_sha": "d14eff3a781ca05b",
     "axioms": [
       "Classical.choice",
@@ -7473,7 +7678,9 @@
     "nl_file": "docs/entries/linear-algebra/spectral-quadratic.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T09:47:34Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.matrix.normal"
+    ],
     "proof_sha": "c62e6596c53ba922",
     "axioms": [
       "Classical.choice",
@@ -7505,7 +7712,10 @@
     "nl_file": "docs/entries/linear-algebra/matrix/orthogonal-unitary.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T09:57:44Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.matrix.normal",
+      "linear-algebra.matrix.symplectic"
+    ],
     "proof_sha": "2d27be3ecfa49299",
     "axioms": [
       "Classical.choice",
@@ -7567,7 +7777,9 @@
     "nl_file": "docs/entries/linear-algebra/matrix/symplectic.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T10:51:35Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.symplectic.basis"
+    ],
     "proof_sha": "b1a06d90393c5f6a",
     "axioms": [
       "Classical.choice",
@@ -7665,7 +7877,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/iso-theorems.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T07:44:03Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.automorphism"
+    ],
     "proof_sha": "edab3029e45caabb",
     "axioms": [
       "Classical.choice",
@@ -7697,7 +7911,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/product.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T07:48:44Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.action"
+    ],
     "proof_sha": "8fa292d68e38fbd8",
     "axioms": [
       "Classical.choice",
@@ -7728,7 +7944,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/automorphism.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T07:54:32Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.product"
+    ],
     "proof_sha": "49217f52cd5af76d",
     "axioms": [
       "Classical.choice",
@@ -7761,7 +7979,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/action.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T07:58:59Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.permutation"
+    ],
     "proof_sha": "03ca86eb20ad7214",
     "axioms": [
       "Classical.choice",
@@ -7793,7 +8013,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/permutation.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T08:03:01Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.sylow"
+    ],
     "proof_sha": "a931a07e8c92e655",
     "axioms": [
       "Classical.choice",
@@ -7828,7 +8050,9 @@
     "nl_file": "docs/entries/abstract-algebra/group/sylow.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T08:07:54Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.group.abelian-structure"
+    ],
     "proof_sha": "2a8f4f7252c6eea2",
     "axioms": [
       "Classical.choice",
@@ -7892,6 +8116,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "number-theory.elementary.congruence",
       "number-theory.elementary.linear-diophantine",
       "number-theory.elementary.prime-factorization"
     ],
@@ -7954,8 +8179,9 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
-      "settheory.ordinal.transfinite-induction",
-      "settheory.ordinal.successor-limit"
+      "settheory.ordinal.addition",
+      "settheory.ordinal.successor-limit",
+      "settheory.ordinal.transfinite-induction"
     ],
     "family": "settheory.ordinal.order-type",
     "variant": "generated",
@@ -7987,8 +8213,8 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
-      "settheory.ordinal.transfinite-recursion",
-      "settheory.ordinal.no-infinite-descent"
+      "settheory.ordinal.no-infinite-descent",
+      "settheory.ordinal.transfinite-recursion"
     ],
     "family": "settheory.ordinal.transfinite-induction",
     "variant": "generated",
@@ -8020,6 +8246,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "settheory.ordinal.exponentiation",
       "settheory.ordinal.supremum"
     ],
     "family": "settheory.ordinal.transfinite-recursion",
@@ -8055,6 +8282,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "settheory.googology.hydra-ordinal-assignment",
       "settheory.ordinal.multiplication"
     ],
     "family": "settheory.ordinal.addition",
@@ -8126,8 +8354,10 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
-      "settheory.ordinal.normal-function",
-      "settheory.ordinal.cantor-normal-form"
+      "settheory.googology.goodstein-ordinal-measure",
+      "settheory.googology.hydra-ordinal-assignment",
+      "settheory.ordinal.cantor-normal-form",
+      "settheory.ordinal.normal-function"
     ],
     "family": "settheory.ordinal.exponentiation",
     "variant": "generated",
@@ -8160,7 +8390,9 @@
     "nl_file": "docs/entries/settheory/ordinal/successor-limit.md",
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.ordinal.cofinality"
+    ],
     "family": "settheory.ordinal.successor-limit",
     "variant": "generated",
     "axioms": [
@@ -8191,6 +8423,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "settheory.ordinal.cofinality",
       "settheory.ordinal.normal-function"
     ],
     "family": "settheory.ordinal.supremum",
@@ -8227,7 +8460,9 @@
     "nl_file": "docs/entries/settheory/ordinal/cofinality.md",
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.cardinal.cardinal-cofinality"
+    ],
     "family": "settheory.ordinal.cofinality",
     "variant": "generated",
     "axioms": [
@@ -8354,7 +8589,10 @@
     "nl_file": "docs/entries/settheory/ordinal/no-infinite-descent.md",
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.googology.hydra-certified-play-termination",
+      "settheory.googology.hydra-root-cut-measure"
+    ],
     "family": "settheory.ordinal.no-infinite-descent",
     "variant": "generated",
     "axioms": [
@@ -8940,5 +9178,1915 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "settheory.cardinal.addition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基数加法：用不交并合并两批对象",
+    "summary": "α 与 β 的基数和由不交并 Sum α β 表示。若把 α 换成等势的 α'，所得不交并仍等势，说明该运算不依赖代表的具体名称。",
+    "premises": [
+      "settheory.cardinal.equinumerous"
+    ],
+    "mathlib": [
+      "Equiv.sumCongr"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/addition.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.konig-theorem"
+    ],
+    "family": "settheory.cardinal.addition",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.aleph-hierarchy",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Aleph 层级：依次编号所有无限基数",
+    "summary": "定义 AlephLevel(α)=ℵ_α。零层等于 ℵ₀；下一序数对应当前 aleph 的后继基数。因此 ℵ_(α+1) 是严格大于 ℵ_α 的最小基数，而不是基数算术中的 ℵ_α+1。本条公开验证零层与后继层；极限层的上确界性质由底层 Cardinal.aleph 的完整理论提供，本条没有另行登记公开定理。",
+    "premises": [
+      "settheory.cardinal.finite-set"
+    ],
+    "mathlib": [
+      "Cardinal.aleph",
+      "Cardinal.aleph_zero",
+      "Cardinal.succ_aleph"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 5: Alephs"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/aleph-hierarchy.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.beth-hierarchy",
+      "settheory.cardinal.continuum-hypothesis"
+    ],
+    "family": "settheory.cardinal.aleph-hierarchy",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.beth-hierarchy",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Beth 层级：反复取幂集产生的无穷",
+    "summary": "定义 BethLevel(α)=ℶ_α。零层是 ℵ₀；后继层是二的上一层次幂，也就是上一层集合的幂集基数。本条公开验证零层与后继递推。Cantor 定理说明每个后继步骤严格增长，但该严格性不是本条新登记的 Lean 结论。",
+    "premises": [
+      "settheory.cardinal.exponentiation",
+      "settheory.cardinal.aleph-hierarchy"
+    ],
+    "mathlib": [
+      "Cardinal.beth",
+      "Cardinal.beth_zero",
+      "Cardinal.beth_succ"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 5: Beth Numbers"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/beth-hierarchy.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.continuum-hypothesis"
+    ],
+    "family": "settheory.cardinal.beth-hierarchy",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.cantor-bernstein",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cantor–Bernstein 定理",
+    "summary": "若 α 能单射到 β，同时 β 能单射到 α，则 α 与 β 等势。结论只保证存在某个双射，不声称输入的两个单射互为逆。",
+    "premises": [
+      "settheory.cardinal.equinumerous",
+      "settheory.cardinal.comparison"
+    ],
+    "mathlib": [
+      "Embedding.schroeder_bernstein",
+      "Equiv.ofBijective"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cantor-Bernstein Theorem"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/cantor-bernstein.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.cantor-bernstein",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.cantor-theorem",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cantor 定理：幂集严格更大",
+    "summary": "对任意 f : α → Set α，f 都不是满射。另一方面，单元素映射 x ↦ {x} 把 α 单射进 Set α；若反方向也有单射，Cantor–Bernstein 会给出等势，与对角线结论矛盾。因此本库意义下 CardinalLT α (Set α)，即原类型严格小于其幂集。",
+    "premises": [
+      "settheory.cardinal.comparison"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cantor's Theorem"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/cantor-theorem.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.cantor-theorem",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.cardinal-cofinality",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基数共尾性：逼近一个基数至少需要多长",
+    "summary": "一个基数本身没有指定顺序。先取代表它的最小序数，即初始序数，再取该序数的共尾性，定义为基数共尾性。对每个基数 c，其共尾性不超过 c。本条只公开该定义和上界；具体基数的等式需要额外定理。",
+    "premises": [
+      "settheory.ordinal.cofinality"
+    ],
+    "mathlib": [
+      "Cardinal.ord",
+      "Ordinal.cof_ord_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 5: Cofinality"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/cardinal-cofinality.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.regular-singular"
+    ],
+    "family": "settheory.cardinal.cardinal-cofinality",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.classical-choice-wellordering",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "经典基础中的选择原则与良序原则可用性",
+    "summary": "对任意非空类型族 A i，经典选择可产生依赖选择函数 f : ∀ i, A i。对任意类型 α，经典良序设施可提供关系 r 使 α 在 r 下良序。本条公开定理同时给出这两个可用性结论；它没有定义 Zorn 原则，也没有证明三项原则之间任何无选择基础上的双向蕴含。",
+    "premises": [],
+    "mathlib": [
+      "Classical.choice",
+      "WellOrderingRel"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, The Axiom of Choice, Chapters 1-2"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/classical-choice-wellordering.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.classical-choice-wellordering",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.comparison",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基数比较：用单射定义不大于",
+    "summary": "称 α 的基数不大于 β，若存在从 α 到 β 的单射。这个关系自反且传递；若两个方向都 成立，Cantor–Bernstein 将它们合成为等势，因此它在“按等势识别类型”的意义下满足反对称性。",
+    "premises": [
+      "settheory.cardinal.equinumerous"
+    ],
+    "mathlib": [
+      "Function.Injective"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Comparing Cardinals"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/comparison.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.cantor-bernstein",
+      "settheory.cardinal.cantor-theorem"
+    ],
+    "family": "settheory.cardinal.comparison",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.continuum-hypothesis",
+    "kind": "definition",
+    "state": "verified",
+    "title": "连续统假设：可数与连续统之间没有中间基数",
+    "summary": "本库把连续统假设定义为 ℶ₁=ℵ₁，并证明它等价于常见公式 2^ℵ₀=ℵ₁。教材中“ℵ₀ 与连续统之间不存在中间基数”是同一命题的顺序表述，但本条公开 Lean 接口登记的是上述两个等式之间的等价。",
+    "premises": [
+      "settheory.cardinal.aleph-hierarchy",
+      "settheory.cardinal.beth-hierarchy"
+    ],
+    "mathlib": [
+      "Cardinal.beth_one",
+      "Cardinal.two_power_aleph0"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 15: The Continuum Problem"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/continuum-hypothesis.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.continuum-hypothesis",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.equinumerous",
+    "kind": "definition",
+    "state": "verified",
+    "title": "等势：用双射比较集合大小",
+    "summary": "类型 α 与 β 等势，当且仅当二者之间存在双射。等价地，存在函数 f : α → β，它既单射又满射。",
+    "premises": [],
+    "mathlib": [
+      "Equiv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cardinal Numbers"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/equinumerous.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.addition",
+      "settheory.cardinal.cantor-bernstein",
+      "settheory.cardinal.comparison",
+      "settheory.cardinal.exponentiation",
+      "settheory.cardinal.finite-set",
+      "settheory.cardinal.multiplication"
+    ],
+    "family": "settheory.cardinal.equinumerous",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.exponentiation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基数幂：计算所有函数的数量",
+    "summary": "底数类型 α、指数类型 β 的基数幂，由所有函数 β → α 组成的类型表示。把底数替换成等势类型时，逐点搬运输出会给出等势的函数空间。",
+    "premises": [
+      "settheory.cardinal.equinumerous"
+    ],
+    "mathlib": [
+      "Equiv.arrowCongr"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/exponentiation.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.beth-hierarchy"
+    ],
+    "family": "settheory.cardinal.exponentiation",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.finite-set",
+    "kind": "definition",
+    "state": "verified",
+    "title": "有限集：能够完整编号到某个 Fin n",
+    "summary": "类型 α 可由有限枚举，当且仅当存在 n : ℕ 使 α 与 Fin n 等势。这样的精确枚举还给出一个较弱结论：α 可以单射到某个 Fin n，即拥有有限大小上界。",
+    "premises": [
+      "settheory.cardinal.equinumerous"
+    ],
+    "mathlib": [
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Finite Cardinals"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/finite-set.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.aleph-hierarchy"
+    ],
+    "family": "settheory.cardinal.finite-set",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.konig-theorem",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "König 定理：逐坐标的严格不等式不能在和与积之间消失",
+    "summary": "若对每个指标 i 都有 κᵢ<λᵢ，则所有 κᵢ 的基数和严格小于所有 λᵢ 的基数积。另一个公开推论说：无限基数 c 严格小于 c 的 cf(c) 次幂。",
+    "premises": [
+      "settheory.cardinal.addition",
+      "settheory.cardinal.multiplication"
+    ],
+    "mathlib": [
+      "Cardinal.sum_lt_prod",
+      "Cardinal.lt_power_cof_ord"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 5: König's Theorem"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/konig-theorem.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.konig-theorem",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.multiplication",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基数乘法：用笛卡尔积记录成对选择",
+    "summary": "α 与 β 的基数积由 α × β 表示。将任一因子替换为等势类型，不改变积的等势类；当前公开定理登记了替换第一因子的情形。",
+    "premises": [
+      "settheory.cardinal.equinumerous"
+    ],
+    "mathlib": [
+      "Equiv.prodCongr"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/multiplication.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.cardinal.konig-theorem"
+    ],
+    "family": "settheory.cardinal.multiplication",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.cardinal.regular-singular",
+    "kind": "definition",
+    "state": "verified",
+    "title": "正则与奇异基数：能否由较短序列逼近",
+    "summary": "本库把无限且满足 cf(c)=c 的基数定义为正则，把无限且满足 cf(c)<c 的基数定义为奇异。公开结论包括：ℵ₀ 正则；正则与奇异不能同时成立；每个无限基数按线性序比较落入二者之一。这里给出的是定义层面的分类接口，不包含“所有无限后继基数正则”等更深定理。",
+    "premises": [
+      "settheory.cardinal.cardinal-cofinality"
+    ],
+    "mathlib": [
+      "Cardinal.isRegular_aleph0"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 5: Regular and Singular Cardinals"
+    },
+    "lean_file": "SetTheory/CardinalTheory.lean",
+    "nl_file": "docs/entries/settheory/cardinal/regular-singular.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.cardinal.regular-singular",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1d5af7db314bdf10"
+  },
+  {
+    "id": "settheory.computability.concrete-pairing-code",
+    "kind": "definition",
+    "state": "verified",
+    "title": "可计算的自然数配对实例",
+    "summary": "natPairingCode 是本库 PairingCode 的具体值：配对字段取 Nat.pair，左右投影取 Nat.unpair 的第一和第二分量。本库证明两个投影分别恢复输入，合起来恢复整个有序对，并由既有 抽象定理推出该配对函数对自然数有序对单射。",
+    "premises": [
+      "settheory.computability.pairing-code"
+    ],
+    "mathlib": [
+      "Nat.pair",
+      "Nat.unpair",
+      "Nat.unpair_pair"
+    ],
+    "provenance": {
+      "source_type": "library_bridge",
+      "ref": "Mathlib.Data.Nat.Pairing"
+    },
+    "lean_file": "SetTheory/ConcretePairingCode.lean",
+    "nl_file": "docs/entries/settheory/computability/concrete-pairing-code.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.computability.concrete-pairing-code",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9e91df2e009800b2"
+  },
+  {
+    "id": "settheory.computability.conditional-diagonal",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "自应用停机判定的条件式对角矛盾",
+    "summary": "SelfHalts universal code 表示通用解释器在代码同时作为程序代码和普通输入时最终产生某个输出。 DiagonalFlipClosure 要求：若某程序判定这个谓词，就能编译出一台程序，它恰在谓词为假时输出零， 为真时没有输出。给定可执行通用解释器和该翻转闭包后，不存在程序判定 SelfHalts。",
+    "premises": [
+      "settheory.computability.executable-universal-spec",
+      "settheory.computability.machine-decidable"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Turing's diagonal argument for the halting problem"
+    },
+    "lean_file": "SetTheory/ComputabilityDiagonal.lean",
+    "nl_file": "docs/entries/settheory/computability/conditional-diagonal.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.computability.conditional-diagonal",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "64bae62690ec3ea6"
+  },
+  {
+    "id": "settheory.computability.executable-universal-spec",
+    "kind": "definition",
+    "state": "verified",
+    "title": "可由程序实现的通用解释器规格",
+    "summary": "ExecutableUniversalInterpreter 包含上一批抽象通用解释器、一份配对编码和一台 runner 程序。 runner_spec 要求 runner 在配对代码输入上的 ProgramOutput，当且仅当抽象解释器在原代码与 输入上产生相同输出。结合抽象解释器对已编码程序的模拟定律，可推出 runner 运行编码程序与原程序 自身运行的最终输出关系完全相同。",
+    "premises": [
+      "settheory.computability.pairing-code"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Universal machine and acceptable programming system"
+    },
+    "lean_file": "SetTheory/ComputabilityDiagonal.lean",
+    "nl_file": "docs/entries/settheory/computability/executable-universal-spec.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.conditional-diagonal"
+    ],
+    "family": "settheory.computability.executable-universal-spec",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "64bae62690ec3ea6"
+  },
+  {
+    "id": "settheory.computability.machine-decidable",
+    "kind": "definition",
+    "state": "verified",
+    "title": "谓词的机器判定与特征函数",
+    "summary": "DecidesPredicate program P 要求每个输入满足两个分支之一：P input 且程序最终输出一，或者 ¬P input 且程序最终输出零。MachineDecidable P 表示存在这样的程序。若 P 在 Lean 中具有 逐点可判定实例，则程序判定 P 当且仅当同一程序计算其零一特征函数。",
+    "premises": [
+      "settheory.computability.nat-computable"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Decidable sets and characteristic functions"
+    },
+    "lean_file": "SetTheory/ComputabilityFoundations.lean",
+    "nl_file": "docs/entries/settheory/computability/machine-decidable.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.conditional-diagonal"
+    ],
+    "family": "settheory.computability.machine-decidable",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8c2f2d139a20f1b8"
+  },
+  {
+    "id": "settheory.computability.nat-computable",
+    "kind": "definition",
+    "state": "verified",
+    "title": "自然数函数的机器可计算性",
+    "summary": "NatProgram 封装一个自然数状态偏移量和具有 stateOffset+1 个工作状态的二符号机器。 interpretWithin program fuel input 有限运行：界内停机则返回最终 1 数，否则返回 none。 程序计算 f，是指每个输入都存在某个燃料得到 some (f input)；函数可计算，是指存在这样的程序。",
+    "premises": [
+      "settheory.googology.unbounded-halting-relation"
+    ],
+    "mathlib": [
+      "Finset.range",
+      "Finset.map"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Turing-machine computability with unary input encoding"
+    },
+    "lean_file": "SetTheory/ComputabilityFoundations.lean",
+    "nl_file": "docs/entries/settheory/computability/nat-computable.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.machine-decidable",
+      "settheory.computability.partial-nat-computable"
+    ],
+    "family": "settheory.computability.nat-computable",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8c2f2d139a20f1b8"
+  },
+  {
+    "id": "settheory.computability.pairing-code",
+    "kind": "definition",
+    "state": "verified",
+    "title": "自然数有序对编码",
+    "summary": "PairingCode 包含配对函数和左右投影，并要求两条投影还原定律。由这些定律，本库证明配对函数在 自然数有序对上单射，也证明把配对代码同时送入两个投影，结果恰是原有序对。本条只冻结规格， 没有选择某个具体 Cantor 配对公式。",
+    "premises": [
+      "settheory.computability.universal-interpreter-spec"
+    ],
+    "mathlib": [
+      "Function.Injective"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Gödel coding of finite tuples"
+    },
+    "lean_file": "SetTheory/ComputabilityDiagonal.lean",
+    "nl_file": "docs/entries/settheory/computability/pairing-code.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.concrete-pairing-code",
+      "settheory.computability.executable-universal-spec"
+    ],
+    "family": "settheory.computability.pairing-code",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "64bae62690ec3ea6"
+  },
+  {
+    "id": "settheory.computability.partial-nat-computable",
+    "kind": "definition",
+    "state": "verified",
+    "title": "部分自然数函数的可计算性",
+    "summary": "ProgramOutput program input output 表示存在有限燃料使现有解释器返回 some output。 SingleValued graph 要求同一输入的任意两个关系输出相等。程序计算部分函数图像，是指关系成立 当且仅当程序最终产生该输出；单值关系部分可计算，是指存在这样的程序。总可计算函数的等式图像 总是部分可计算。",
+    "premises": [
+      "settheory.computability.nat-computable"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Partial recursive functions as single-valued computably enumerable graphs"
+    },
+    "lean_file": "SetTheory/PartialComputability.lean",
+    "nl_file": "docs/entries/settheory/computability/partial-nat-computable.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.universal-interpreter-spec"
+    ],
+    "family": "settheory.computability.partial-nat-computable",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "34110086596c68bf"
+  },
+  {
+    "id": "settheory.computability.universal-interpreter-spec",
+    "kind": "definition",
+    "state": "verified",
+    "title": "通用自然数解释器的抽象规格",
+    "summary": "UniversalNatInterpreter 包含程序到自然数的编码、编码单射性、按代码运行的有限解释函数，以及 逐程序、逐燃料、逐输入与现有 interpretWithin 完全一致的模拟定律。它的 Outputs 关系表示 存在燃料使某代码产生某输出。对任何实际程序，其编码的通用输出关系等价于该程序自身的 ProgramOutput。",
+    "premises": [
+      "settheory.computability.partial-nat-computable"
+    ],
+    "mathlib": [
+      "Function.Injective"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Gödel numbering and universal machine specification"
+    },
+    "lean_file": "SetTheory/PartialComputability.lean",
+    "nl_file": "docs/entries/settheory/computability/universal-interpreter-spec.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.pairing-code"
+    ],
+    "family": "settheory.computability.universal-interpreter-spec",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "34110086596c68bf"
+  },
+  {
+    "id": "settheory.googology.ackermann",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Ackermann 函数：定义与计算方程",
+    "summary": "定义 A(0,n)=n+1，A(m+1,0)=A(m,1)，以及 A(m+1,n+1)=A(m,A(m+1,n))。本条证明这三条就是所定义函数的计算方程；没有在当前批次证明它不属于原始递归函数类。",
+    "premises": [
+      "settheory.googology.primitive-recursion"
+    ],
+    "mathlib": [
+      "Nat.ack"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Herbert Enderton, A Mathematical Introduction to Logic, Section 3.4"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/ackermann.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.ackermann",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.binary-machine",
+    "kind": "definition",
+    "state": "verified",
+    "title": "二符号有限状态图灵机",
+    "summary": "一个 n 状态二符号机器为每个工作状态和每个布尔符号指定唯一指令。指令写入一个布尔值，选择 左右移动，并给出可选的新状态；没有新状态表示停机。配置则记录当前状态、整数坐标表示的头位置， 以及所有值为 1 的位置组成的有限集。标准初始纸带不含任何 1，所以读到 0。",
+    "premises": [],
+    "mathlib": [
+      "Fin",
+      "Finset"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/GoogologyComputability.lean",
+    "nl_file": "docs/entries/settheory/googology/binary-machine.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.machine-execution"
+    ],
+    "family": "settheory.googology.binary-machine",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "076f3a4437b17f0b"
+  },
+  {
+    "id": "settheory.googology.bounded-halting",
+    "kind": "definition",
+    "state": "verified",
+    "title": "限定步数停机",
+    "summary": "对至少一个工作状态的机器，从状态零、原点和空白纸带开始运行 fuel 步。最终状态为 halted 时定义 HaltsWithin fuel machine 成立，为 running 时不成立。它等价于存在一张最终纸带，使多步 执行经 haltedTape? 提取后恰好得到该纸带。",
+    "premises": [
+      "settheory.googology.machine-execution"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Computability theory: bounded simulation"
+    },
+    "lean_file": "SetTheory/GoogologyComputability.lean",
+    "nl_file": "docs/entries/settheory/googology/bounded-halting.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.busy-beaver-candidate",
+      "settheory.googology.unbounded-halting-relation"
+    ],
+    "family": "settheory.googology.bounded-halting",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "076f3a4437b17f0b"
+  },
+  {
+    "id": "settheory.googology.busy-beaver-candidate",
+    "kind": "definition",
+    "state": "verified",
+    "title": "限定步数的 Busy Beaver 候选最大值",
+    "summary": "boundedOnesScore fuel machine 在机器于给定步数内停机时返回最终有限纸带上 1 的个数，否则 返回零。busyBeaverCandidate n fuel 穷举所有 n+1 状态机器并取这些分数的上确界；由于机器集 有限且分数为自然数，这就是最大值。每一台机器的限定分数不超过该候选值。",
+    "premises": [
+      "settheory.googology.bounded-halting"
+    ],
+    "mathlib": [
+      "Finset.sup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/GoogologyComputability.lean",
+    "nl_file": "docs/entries/settheory/googology/busy-beaver-candidate.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.busy-beaver-convergence",
+      "settheory.googology.busy-beaver-value-relation"
+    ],
+    "family": "settheory.googology.busy-beaver-candidate",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "076f3a4437b17f0b"
+  },
+  {
+    "id": "settheory.googology.busy-beaver-convergence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限燃料 Busy Beaver 候选的最终稳定",
+    "summary": "对固定机器，boundedOnesScore fuel machine 关于 fuel 单调；所以固定状态数的 busyBeaverCandidate n fuel 也单调。任意有限燃料候选都不超过 classicalBusyBeaverValue n。 此外存在某个自然数阈值，使每个不小于该阈值的燃料都让有限候选恰好等于经典值。",
+    "premises": [
+      "settheory.googology.busy-beaver-candidate",
+      "settheory.googology.busy-beaver-existence"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "derivation",
+      "ref": "Finite-machine maximum and deterministic bounded simulation"
+    },
+    "lean_file": "SetTheory/BusyBeaverConvergence.lean",
+    "nl_file": "docs/entries/settheory/googology/busy-beaver-convergence.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.busy-beaver-convergence",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "113d3b1d4e8b311b"
+  },
+  {
+    "id": "settheory.googology.busy-beaver-existence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "经典 Busy Beaver 最大值的存在性",
+    "summary": "上一条公开定义 IsBusyBeaverValue n value 同时要求：任何 n+1 状态机器的任何最终停机输出 都不超过 value；并且存在一台这种机器最终输出恰为 value。本条证明对每个 n 都存在满足 该既有规格的值，并定义 classicalBusyBeaverValue n 为有限机器全集上最终分数的最大值。",
+    "premises": [
+      "settheory.googology.unbounded-halting-relation",
+      "settheory.googology.busy-beaver-value-relation"
+    ],
+    "mathlib": [
+      "Finset.sup",
+      "Classical.choose"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/BusyBeaverExistence.lean",
+    "nl_file": "docs/entries/settheory/googology/busy-beaver-existence.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.busy-beaver-convergence"
+    ],
+    "family": "settheory.googology.busy-beaver-existence",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "265990f8a4948b95"
+  },
+  {
+    "id": "settheory.googology.busy-beaver-value-relation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "经典 Busy Beaver 的最大值关系与有限候选桥",
+    "summary": "IsBusyBeaverValue n value 表示：每台 n+1 状态二符号机器的每个停机输出分数都不超过 value，并且某台机器最终取得 value。若该关系成立，则任意固定燃料候选都不超过 value； 冠军机器在某个有限时刻停机，所以存在燃料使候选恰好等于 value。满足关系的值至多一个。",
+    "premises": [
+      "settheory.googology.unbounded-halting-relation",
+      "settheory.googology.busy-beaver-candidate"
+    ],
+    "mathlib": [
+      "Finset.sup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/BusyBeaver.lean",
+    "nl_file": "docs/entries/settheory/googology/busy-beaver-value-relation.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.busy-beaver-existence"
+    ],
+    "family": "settheory.googology.busy-beaver-value-relation",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "af4776860fcbb84c"
+  },
+  {
+    "id": "settheory.googology.conway-chain",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Conway 链式箭头：有限语法与诚实的受限求值",
+    "summary": "一般 Conway 链被定义为一个非空有限自然数列表，并要求列表中的每一项都为正。为了不给未完成的一般递推披上“已经可执行”的外衣，本条另设长度不超过二的受限链：它要么是 a，要么是 a → b。受限求值分别返回 a 和 a^b，并有单独的合法性谓词检查输入是否为正。",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "John H. Conway and Richard K. Guy, The Book of Numbers, Chapter 2"
+    },
+    "lean_file": "SetTheory/GoogologyNotation.lean",
+    "nl_file": "docs/entries/settheory/googology/conway-chain.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.conway-recursion"
+    ],
+    "family": "settheory.googology.conway-chain",
+    "variant": "generated",
+    "axioms": [],
+    "proof_sha": "4e29ba9935388eb8"
+  },
+  {
+    "id": "settheory.googology.conway-recursion",
+    "kind": "definition",
+    "state": "verified",
+    "title": "一般有限 Conway 链的递归求值",
+    "summary": "非空有限链从右端递归构造。单项链 a 的值为 a，两项链 a → b 的值为 a^b。对更长链，X → a → 1 = X → a，X → 1 → Y = X；当 a,b>1 时， X → a → b = X → (X → (a-1) → b) → (b-1)。 这些规则对所有有限正整数链给出唯一的自然数值。实现使用“链长、末项、倒数第二项”的字典序作为终止度量。",
+    "premises": [
+      "settheory.googology.conway-chain"
+    ],
+    "mathlib": [
+      "Prod.Lex"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "John H. Conway and Richard K. Guy, The Book of Numbers, chained-arrow notation"
+    },
+    "lean_file": "SetTheory/ConwayRecursion.lean",
+    "nl_file": "docs/entries/settheory/googology/conway-recursion.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.conway-recursion",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "031fce0ccd433eeb"
+  },
+  {
+    "id": "settheory.googology.fast-growing-hierarchy",
+    "kind": "definition",
+    "state": "verified",
+    "title": "快速增长层级：后继处迭代前一级函数",
+    "summary": "燃料近似的规则为：F⁽ᶠ⁺¹⁾_0(n)=n+1；若 a 是 b 的后继，则 F⁽ᶠ⁺¹⁾_a(n) 等于函数 x ↦ F⁽ᶠ⁾_b(x) 从 n 开始迭代 n+1 次；若 a 是极限，则 F⁽ᶠ⁺¹⁾_a(n)=F⁽ᶠ⁾_{a[n]}(n)。零燃料时返回 n，表示不再展开。",
+    "premises": [
+      "settheory.googology.fundamental-sequence-system"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "S. S. Wainer, A Classification of the Ordinal Recursive Functions"
+    },
+    "lean_file": "SetTheory/GrowthHierarchy.lean",
+    "nl_file": "docs/entries/settheory/googology/fast-growing-hierarchy.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.fast-growing-hierarchy",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "e4e74eb33a6e15a1"
+  },
+  {
+    "id": "settheory.googology.fundamental-sequence-system",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基本列接口：先说明极限处怎样向下逼近",
+    "summary": "一个基本列系统由记号类型、严格下级关系和分类函数组成。分类函数对每个记号返回三者之一：零；带一个前项的后继；带函数 ℕ → 记号 的极限。系统合法是指：后继的前项严格低于它，极限基本列的每一项也严格低于该极限。",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "S. S. Wainer, A Classification of the Ordinal Recursive Functions"
+    },
+    "lean_file": "SetTheory/GrowthHierarchy.lean",
+    "nl_file": "docs/entries/settheory/googology/fundamental-sequence-system.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.fast-growing-hierarchy",
+      "settheory.googology.hardy-hierarchy"
+    ],
+    "family": "settheory.googology.fundamental-sequence-system",
+    "variant": "generated",
+    "axioms": [],
+    "proof_sha": "e4e74eb33a6e15a1"
+  },
+  {
+    "id": "settheory.googology.goodstein-base-power-one-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 首个借位形：将底数一次幂展开为有限末项",
+    "summary": "对底数至少为二、头部 P 在该底数下合法的表达式 P+B¹，其 Goodstein 换底减一值等于 P 在新底数下的值加 b。表达式 P+b 是该值在新底数下的合法重编码，且其 ω 度量严格小于原表达式的 ω 度量。",
+    "premises": [
+      "settheory.googology.goodstein-positive-tail-no-borrow",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Ordinal.natCast_lt_omega0",
+      "add_lt_add_iff_left"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/GoodsteinBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-base-power-one-borrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-base-power-two-borrow"
+    ],
+    "family": "settheory.googology.goodstein-base-power-one-borrow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "eb4cfe388f888e7a"
+  },
+  {
+    "id": "settheory.googology.goodstein-base-power-two-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 高幂借位：底数平方的显式展开",
+    "summary": "对底数 b≥3 以及在该底数下合法的复合头部 P，表达式 P+B² 在换到底数 b+1 并减一后，可显式重编码为 P+(B·b+b)。该重编码在新底数下合法且求值正确；它的 ω 度量严格小于原表达式的 ω 度量。",
+    "premises": [
+      "settheory.googology.goodstein-base-power-one-borrow",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Ordinal.mul_succ",
+      "Ordinal.natCast_lt_omega0",
+      "mul_lt_mul_of_pos_left"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/GoodsteinHigherBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-base-power-two-borrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-finite-power-borrow"
+    ],
+    "family": "settheory.googology.goodstein-base-power-two-borrow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "de580e9ffd83ba15"
+  },
+  {
+    "id": "settheory.googology.goodstein-certified-state",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Goodstein 带证书状态：数值与表示不可分离",
+    "summary": "一个合法的带证书 Goodstein 状态包含底数、自然数值和遗传基表达式。底数至少为二；表达式在该底数下合法；其求值等于状态记录的数值。",
+    "premises": [
+      "settheory.googology.hereditary-base"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/Goodstein.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-certified-state.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-ordinal-measure",
+      "settheory.googology.goodstein-reencoding"
+    ],
+    "family": "settheory.googology.goodstein-certified-state",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "dbee80a134b9008e"
+  },
+  {
+    "id": "settheory.googology.goodstein-finite-power-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 有限指数借位：递归展开底数幂减一",
+    "summary": "finitePowerBorrowExpansion base k 是新底数 base+1 下 (base+1)^k-1 的递归展开。它对任意 k≤base 都是合法表达式，求值正好等于所声称的幂减一，而其 ω 解释严格小于 ω^k。因此，对带任意合法头部的 head+B^k，用该展开重编码换底减一的结果，其数值正确且序数度量严格下降。",
+    "premises": [
+      "settheory.googology.goodstein-base-power-two-borrow",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Ordinal.opow_mul_add_lt_opow",
+      "Ordinal.natCast_lt_omega0"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/GoodsteinFinitePowerBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-finite-power-borrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-hereditary-base-exponent-borrow"
+    ],
+    "family": "settheory.googology.goodstein-finite-power-borrow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "cd3addcb1e53765b"
+  },
+  {
+    "id": "settheory.googology.goodstein-hereditary-base-exponent-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 遗传指数借位：底数自身进入指数",
+    "summary": "BaseExponentOneNormalForm 是遗传指数 B¹ 的证书子类：它在原底数下合法，在新底数下求值为 q，换成 ω 解释后求值为 ω。对任意合法头部 head，head+B^(B¹) 换底减一后，用 q^q-1 的有限递归展开重编码。新编码合法、求值正确，并且 ω 度量严格下降。",
+    "premises": [
+      "settheory.googology.goodstein-finite-power-borrow",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Order.IsNormal.strictMono",
+      "Ordinal.natCast_lt_omega0"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-hereditary-base-exponent-borrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.goodstein-hereditary-base-exponent-borrow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "70f27f5635d83369"
+  },
+  {
+    "id": "settheory.googology.goodstein-ordinal-measure",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Goodstein 序数度量：把有限底数换成 ω",
+    "summary": "omegaValue 递归地把遗传表式解释为序数：零、数字、加法和乘法保留各自结构，底数幂节点改用 ω 为底。一个状态的 ordinalMeasure 就是对该状态携带的表达式执行这种解释。",
+    "premises": [
+      "settheory.googology.goodstein-certified-state",
+      "settheory.ordinal.exponentiation"
+    ],
+    "mathlib": [
+      "Ordinal.omega0"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/Goodstein.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-ordinal-measure.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-base-power-one-borrow",
+      "settheory.googology.goodstein-base-power-two-borrow",
+      "settheory.googology.goodstein-finite-power-borrow",
+      "settheory.googology.goodstein-hereditary-base-exponent-borrow",
+      "settheory.googology.goodstein-positive-digit-descent",
+      "settheory.googology.goodstein-positive-tail-no-borrow"
+    ],
+    "family": "settheory.googology.goodstein-ordinal-measure",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "dbee80a134b9008e"
+  },
+  {
+    "id": "settheory.googology.goodstein-positive-digit-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 的非零数字正规形下降",
+    "summary": "设 0<k<b，并把 k 看作底数 b 下的单数字正规形。它的 Goodstein 单步值是 k-1。表达式 digit (k-1) 在新底数 b+1 下合法，其求值恰好是该单步值，并且它的 ω 度量严格小于原表达式的 ω 度量。",
+    "premises": [
+      "settheory.googology.goodstein-step",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Nat.sub_one_lt"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Goodstein 证明中的序数下降思路（数字情形）"
+    },
+    "lean_file": "SetTheory/GoodsteinDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-positive-digit-descent.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-positive-tail-no-borrow"
+    ],
+    "family": "settheory.googology.goodstein-positive-digit-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7a5ffcc8cf7f257e"
+  },
+  {
+    "id": "settheory.googology.goodstein-positive-tail-no-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 正末位无借位下降：复合前缀与正数字末项",
+    "summary": "给定底数 b 下一个合法的遗传前缀 P 和一个合法正数字 d，用 P+(d-1) 作为 P+d 换底减一后的显式重编码。该重编码在新底数下合法，求值正确，并且它的 ω 解释严格小于原表达式的 ω 解释。",
+    "premises": [
+      "settheory.googology.goodstein-positive-digit-descent",
+      "settheory.googology.goodstein-ordinal-measure"
+    ],
+    "mathlib": [
+      "Nat.add_sub_assoc",
+      "Order.lt_succ"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/GoodsteinNoBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-positive-tail-no-borrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-base-power-one-borrow"
+    ],
+    "family": "settheory.googology.goodstein-positive-tail-no-borrow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a1a6a15384f64a4a"
+  },
+  {
+    "id": "settheory.googology.goodstein-reencoding",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Goodstein 重编码单步：换底减一后补齐新证书",
+    "summary": "带证书状态 s 到 t 构成一次 Goodstein 重编码单步，当且仅当 t 的底数是 s 的底数加一，并且 t 的数值等于对 s 的表达式执行换底减一所得的数值。",
+    "premises": [
+      "settheory.googology.goodstein-certified-state",
+      "settheory.googology.goodstein-step"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/Goodstein.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-reencoding.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-sequence"
+    ],
+    "family": "settheory.googology.goodstein-reencoding",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "dbee80a134b9008e"
+  },
+  {
+    "id": "settheory.googology.goodstein-sequence",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Goodstein 带证书序列：把重编码单步串起来",
+    "summary": "一个从自然数索引到带证书状态的函数称为带证书 Goodstein 序列，当且仅当对每个 n，第 n 项到第 n+1 项都构成一次 Goodstein 重编码单步。",
+    "premises": [
+      "settheory.googology.goodstein-reencoding"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/Goodstein.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-sequence.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.goodstein-sequence",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "dbee80a134b9008e"
+  },
+  {
+    "id": "settheory.googology.goodstein-step",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Goodstein 单步：遗传换底之后减一",
+    "summary": "对底数 b 和遗传表达式 e，Goodstein 单步等于 e 在新底数 b+1 下的值减一。以 4 的遗传二进制表达式 B^(B^1) 为例，换到三进制得到 27，减一后得到 26。",
+    "premises": [
+      "settheory.googology.hereditary-base"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-step.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-positive-digit-descent",
+      "settheory.googology.goodstein-reencoding"
+    ],
+    "family": "settheory.googology.goodstein-step",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.graham-number",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Graham 数：让前一项决定下一步的箭头数量",
+    "summary": "本库零编号：G₀=knuthArrow(3,4,3)，G_(n+1)=knuthArrow(3,G_n,3)，并定义 Graham 数为 G₆₃。从 0 到 63 恰有 64 项，对应文献常写的 g₁ 到 g₆₄。",
+    "premises": [
+      "settheory.googology.knuth-arrow"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ronald Graham, Bruce Rothschild, Joel Spencer, Ramsey Theory"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/graham-number.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.graham-number",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.hardy-hierarchy",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Hardy 层级：沿记号下降，把后继变成输入递增",
+    "summary": "燃料近似满足三条规则：零记号处 H⁽ᶠ⁺¹⁾_0(n)=n；若 a 是 b 的后继，则 H⁽ᶠ⁺¹⁾_a(n)=H⁽ᶠ⁾_b(n+1)；若 a 是极限且基本列为 a[k]，则 H⁽ᶠ⁺¹⁾_a(n)=H⁽ᶠ⁾_{a[n]}(n)。燃料为零时，对任何记号都返回当前输入。",
+    "premises": [
+      "settheory.googology.fundamental-sequence-system"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "S. S. Wainer, A Classification of the Ordinal Recursive Functions"
+    },
+    "lean_file": "SetTheory/GrowthHierarchy.lean",
+    "nl_file": "docs/entries/settheory/googology/hardy-hierarchy.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hardy-hierarchy",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "e4e74eb33a6e15a1"
+  },
+  {
+    "id": "settheory.googology.hereditary-base",
+    "kind": "definition",
+    "state": "verified",
+    "title": "遗传基表示：连指数也用同一底数展开",
+    "summary": "定义遗传表达式及其在底数 b 下的求值，并规定每个数字叶必须小于 b。4 的遗传二进制树是 B^(B^1)：在 B=2 时为 4，在 B=3 时为 27，而且它在底数 2 下合法。",
+    "premises": [
+      "settheory.googology.primitive-recursion"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurence Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/hereditary-base.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.goodstein-certified-state",
+      "settheory.googology.goodstein-step"
+    ],
+    "family": "settheory.googology.hereditary-base",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.hydra-certified-play-termination",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "带最右脊柱证书的 Hydra 轨迹不可能无限",
+    "summary": "CertifiedStep before after 表示存在阶段和完整最右脊柱数据，使 before 到 after 满足上一条 RightmostSpineReplicatedCut。有限认证游戏是一张 Hydra 列表，其中每一对相邻状态构成认证步；空列表和单状态列表也算有限游戏。无限认证游戏则给出每个自然数时刻的 Hydra，并证明每次相邻转换都是认证步。任意认证步都使结构序数严格下降，所以无限认证游戏类型为空。",
+    "premises": [
+      "settheory.googology.hydra-rightmost-spine-descent",
+      "settheory.ordinal.no-infinite-descent"
+    ],
+    "mathlib": [
+      "wellFounded_iff_isEmpty_descending_chain"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "序数下降终止法；本条只应用于本库最右脊柱证书步骤"
+    },
+    "lean_file": "SetTheory/HydraCertifiedPlayTermination.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-certified-play-termination.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hydra-certified-play-termination",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7ddec711234d34af"
+  },
+  {
+    "id": "settheory.googology.hydra-game-step",
+    "kind": "definition",
+    "state": "verified",
+    "title": "有限 Hydra 游戏的定义与阶段相关单步",
+    "summary": "有限 Hydra 是子 Hydra 的有限有序列表构成的递归树。位置是自然数列表：每个数选择当前节点的第几个孩子；非空有效路径若终点是叶子，便是可砍的头位置。chop stage h path 在路径无效或终点不是头时返回失败；对根的直接孩子只删除；对更深的头，在其祖父处把原父子树替换成 stage + 1 份删头后的父子树，并沿更高路径只更新被选中的分支。Step stage before after 表示存在一个合法头位置，使这次计算恰好得到 after。",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条固定一种有限有序树变体"
+    },
+    "lean_file": "SetTheory/Hydra.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-game-step.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-ordinal-assignment",
+      "settheory.googology.hydra-root-cut-measure"
+    ],
+    "family": "settheory.googology.hydra-game-step",
+    "variant": "generated",
+    "axioms": [
+      "propext"
+    ],
+    "proof_sha": "45dd5a607039c2f8"
+  },
+  {
+    "id": "settheory.googology.hydra-one-level-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "含阶段复制的一层 Hydra 砍头严格下降",
+    "summary": "先证明一般关键不等式：任意序数层级 level 和任意有限份数 copies，ω^level 的 copies 次本库重复和严格小于 ω^(level+1)。然后定义一层复制砍头：旧树固定为“根—父节点—叶头”，新树是 stage + 1 个空父节点。该形状确实由上一条 chop stage 在路径 [0,0] 的单步产生，并且对每个自然数阶段，其结构序数赋值都严格下降。",
+    "premises": [
+      "settheory.googology.hydra-ordinal-assignment"
+    ],
+    "mathlib": [
+      "Ordinal.opow_mul_lt_opow",
+      "Ordinal.natCast_lt_omega0"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明固定一层子类"
+    },
+    "lean_file": "SetTheory/HydraOneLevelDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-one-level-descent.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-sibling-descent"
+    ],
+    "family": "settheory.googology.hydra-one-level-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e495ce13c9b2c213"
+  },
+  {
+    "id": "settheory.googology.hydra-ordinal-assignment",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hydra 的结构性序数赋值与两个已验证接口",
+    "summary": "hydraOrdinal 与 forestOrdinal 相互递归：节点的值是其孩子列表的值；空列表值为零；以 child 开头的列表值为 ω^(child 的值) 与剩余列表值的本库序数加法。ordinalRepeat term n 用本库序数加法定义 term 的 n 次有限重复和。若一步只删除根下最右端的叶头，则赋值严格下降。另一方面，同一父子树复制 copies 份后的森林值，等于该父子树贡献项的 copies 次重复和。",
+    "premises": [
+      "settheory.googology.hydra-game-step",
+      "settheory.ordinal.addition",
+      "settheory.ordinal.exponentiation"
+    ],
+    "mathlib": [
+      "Order.lt_succ"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条仅形式化后续下降证明所需的结构性入口"
+    },
+    "lean_file": "SetTheory/HydraOrdinalAssignment.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-ordinal-assignment.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-one-level-descent"
+    ],
+    "family": "settheory.googology.hydra-ordinal-assignment",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "0d0357c686d618b4"
+  },
+  {
+    "id": "settheory.googology.hydra-parent-sibling-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "父节点内部保留左兄弟的 Hydra 复制下降",
+    "summary": "旧树由两段有序前缀描述：根的孩子先是 rootSiblings，最右端是被选父节点；该父节点的孩子先是 parentSiblings，最右端是叶头。新树保留 rootSiblings，并把删去最右叶头后的父节点，也就是只含 parentSiblings 的节点，复制 stage + 1 份。路径正是两段前缀长度 [rootSiblings.length, parentSiblings.length]。此路径产生合法 Hydra.Step，且新树的结构序数严格小于旧树。",
+    "premises": [
+      "settheory.googology.hydra-sibling-descent"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明双层最右子类"
+    },
+    "lean_file": "SetTheory/HydraParentSiblingDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-parent-sibling-descent.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-rightmost-spine-descent"
+    ],
+    "family": "settheory.googology.hydra-parent-sibling-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "92a00821e7ecf3e9"
+  },
+  {
+    "id": "settheory.googology.hydra-rightmost-spine-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "任意有限最右祖先链上的 Hydra 复制下降",
+    "summary": "最右脊柱是左兄弟森林的有限列表。plugRightmostSpine 从内向外把焦点子树依次放在每层左兄弟之后；rightmostSpinePath 相应地在局部路径前依次加入每层左兄弟的长度。若局部双层最右复制砍头发生在路径 [grandparentSiblings.length, parentSiblings.length]，则添加任意脊柱后，所得完整路径仍执行同一次底部复制，在高层只替换唯一右端分支。该路径是合法头位置、chop 得到声明的新树，而且结构序数严格下降。",
+    "premises": [
+      "settheory.googology.hydra-parent-sibling-descent"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明带最右脊柱证书的子类"
+    },
+    "lean_file": "SetTheory/HydraRightmostSpineDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-rightmost-spine-descent.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-certified-play-termination"
+    ],
+    "family": "settheory.googology.hydra-rightmost-spine-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a16c3976c43cd8f9"
+  },
+  {
+    "id": "settheory.googology.hydra-root-cut-measure",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hydra 根旁砍头：一个诚实的局部序数下降",
+    "summary": "定义 ordinalMeasure h 为 Hydra h 的节点总数所对应的有限序数。对任意阶段、任意根孩子编号，只要路径 [i] 的 chop 成功得到 after，就有 after 的序数度量严格小于砍头前的度量。",
+    "premises": [
+      "settheory.googology.hydra-game-step",
+      "settheory.ordinal.no-infinite-descent"
+    ],
+    "mathlib": [
+      "Ordinal",
+      "Nat.cast_lt"
+    ],
+    "provenance": {
+      "source_type": "internal",
+      "ref": "本库有限有序 Hydra 规则的直接分析"
+    },
+    "lean_file": "SetTheory/HydraMeasure.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-root-cut-measure.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hydra-root-cut-measure",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "85647b8f5dcb078b"
+  },
+  {
+    "id": "settheory.googology.hydra-sibling-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "保留左兄弟森林的一层 Hydra 复制下降",
+    "summary": "首先证明两个结构引理：本库序数加法在右参数上严格递增；若两个后缀森林的赋值严格有序，那么在二者左边追加同一个有序森林后仍严格有序。随后定义最右分支复制砍头：旧树的根孩子为 siblings 后接一个“父—独头”分支，新树为相同 siblings 后接 stage + 1 个空父节点。沿路径 [siblings.length, 0] 执行 chop 确实得到新树，并且结构序数赋值严格下降。",
+    "premises": [
+      "settheory.googology.hydra-one-level-descent"
+    ],
+    "mathlib": [
+      "add_lt_add_right"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明最右复制分支子类"
+    },
+    "lean_file": "SetTheory/HydraSiblingDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-sibling-descent.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.hydra-parent-sibling-descent"
+    ],
+    "family": "settheory.googology.hydra-sibling-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b977f6be1db9a75d"
+  },
+  {
+    "id": "settheory.googology.hyperoperation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "超运算：把重复运算本身逐级迭代",
+    "summary": "本库规定 H₀(a,b)=b+1，并用 H_(r+1)(a,b+1)=H_r(a,H_(r+1)(a,b)) 递推。零输入按等级取不同初值：加法层为 a，乘法层为 0，幂及更高层为 1。由此可证明前四级恰为后继、加法、乘法、幂。",
+    "premises": [
+      "settheory.googology.primitive-recursion"
+    ],
+    "mathlib": [
+      "Nat.hyperoperation"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "R. L. Goodstein, Transfinite Ordinals in Recursive Number Theory"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/hyperoperation.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.knuth-arrow"
+    ],
+    "family": "settheory.googology.hyperoperation",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.knuth-arrow",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Knuth 上箭头：用符号数量提升运算等级",
+    "summary": "本库定义 a ↑^r b 为第 r+2 级超运算，因此一支箭头满足 a ↑ b=a^b。递推式为：拥有 r+1 支箭头且右参数加一的值，等于先算同样箭头数的前一步，再把结果送入 r 支箭头运算。",
+    "premises": [
+      "settheory.googology.hyperoperation"
+    ],
+    "mathlib": [
+      "Nat.hyperoperation"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "Donald Knuth, Mathematics and Computer Science: Coping with Finiteness, 1976"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/knuth-arrow.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.graham-number"
+    ],
+    "family": "settheory.googology.knuth-arrow",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.machine-execution",
+    "kind": "definition",
+    "state": "verified",
+    "title": "有限状态机的单步与多步执行",
+    "summary": "executeStep 对运行配置执行一条指令，对停机结果保持不变。runSteps machine k status 递归执行 恰好 k 次上述转换。零步返回原状态；k+1 步等于先执行一步，再从所得状态执行 k 步。",
+    "premises": [
+      "settheory.googology.binary-machine"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/GoogologyComputability.lean",
+    "nl_file": "docs/entries/settheory/googology/machine-execution.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.bounded-halting"
+    ],
+    "family": "settheory.googology.machine-execution",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "076f3a4437b17f0b"
+  },
+  {
+    "id": "settheory.googology.primitive-recursion",
+    "kind": "definition",
+    "state": "verified",
+    "title": "原始递归：从初值逐步生成自然数函数",
+    "summary": "给定初值 z 与更新规则 step，定义函数 f：f(0)=z，且 f(n+1)=step(n,f(n))。例如固定 a，取初值 a、每步加一便得到 a+n；取初值 1、第 n 步乘 n+1 便得到阶乘。",
+    "premises": [],
+    "mathlib": [
+      "Nat.rec"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Piergiorgio Odifreddi, Classical Recursion Theory, Section I.2"
+    },
+    "lean_file": "SetTheory/Googology.lean",
+    "nl_file": "docs/entries/settheory/googology/primitive-recursion.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.googology.ackermann",
+      "settheory.googology.hereditary-base",
+      "settheory.googology.hyperoperation"
+    ],
+    "family": "settheory.googology.primitive-recursion",
+    "variant": "generated",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "93da0bf9b708449f"
+  },
+  {
+    "id": "settheory.googology.tree-function",
+    "kind": "definition",
+    "state": "verified",
+    "title": "TREE 函数：有限标号树与坏序列的严格定义入口",
+    "summary": "一个具有 colors 种标号的有限根树由非空有限顶点集、每点标号和祖先关系组成；祖先关系是偏序，根是所有点的祖先，同一顶点的任意两个祖先可比较。拓扑嵌入是保持根和标号的单射，并双向保持祖先关系。长度为 m 的坏序列要求第 i 棵树至多有 i+1 个顶点，且当 i<j 时第 i 棵树不能嵌入第 j 棵树。value 是 TREE 值，意为长度 value 可实现，而且所有可实现长度都不超过它。",
+    "premises": [],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "Harvey Friedman, finite forms of Kruskal's tree theorem"
+    },
+    "lean_file": "SetTheory/GoogologyNotation.lean",
+    "nl_file": "docs/entries/settheory/googology/tree-function.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.tree-function",
+    "variant": "generated",
+    "axioms": [],
+    "proof_sha": "4e29ba9935388eb8"
+  },
+  {
+    "id": "settheory.googology.unbounded-halting-relation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "无时间界停机关系与最终输出",
+    "summary": "EventuallyHalts machine 表示存在步数和最终纸带，使机器从标准空白纸带运行该步数后处于停机 状态。HasHaltingOnesScore machine score 还要求该纸带恰有 score 个 1。机器最终停机，当且 仅当它拥有某个停机输出分数；在给定燃料内停机则必然最终停机。",
+    "premises": [
+      "settheory.googology.bounded-halting"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Tibor Rado, On Non-Computable Functions, 1962"
+    },
+    "lean_file": "SetTheory/BusyBeaver.lean",
+    "nl_file": "docs/entries/settheory/googology/unbounded-halting-relation.md",
+    "added_by": "main-settheory-integration",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.computability.nat-computable",
+      "settheory.googology.busy-beaver-existence",
+      "settheory.googology.busy-beaver-value-relation"
+    ],
+    "family": "settheory.googology.unbounded-halting-relation",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "af4776860fcbb84c"
   }
 ]

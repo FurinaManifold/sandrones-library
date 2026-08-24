@@ -34,9 +34,9 @@ LEAN_ROOT = ROOT / "SandronesLibrary"
 NAMESPACE_RE = re.compile(r"^namespace\s+([\w.]+)")
 SECTION_RE = re.compile(r"^section(?:\s+([\w.]+))?")
 END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
-DECL_RE = re.compile(r"^(theorem|lemma|def)\s+(\w+)")
+DECL_RE = re.compile(r"^(theorem|lemma|def)\s+([\w!?]+)")
 ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
-AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]")
+AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]", re.DOTALL)
 AXIOMS_NONE = re.compile(r"does not depend on any axioms")
 
 

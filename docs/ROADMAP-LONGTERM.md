@@ -37,7 +37,7 @@
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🚧review ST3🚧staging | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础47项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
@@ -76,7 +76,7 @@
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
 | G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧 |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
-| G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | 🚧（ST2 Round 2） |
+| G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
 | G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
 
 依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
@@ -90,7 +90,7 @@
 | P0 | C1 复微分 | 全纯、复可微、Cauchy–Riemann 与幂级数入口 | C1-D 定义/代数；C1-CR Cauchy–Riemann；C1-P 局部幂级数 | 为 C2 复积分提供稳定公开签名 |
 | P1 | F1 泛函基础 | 赋范空间、连续线性映射、Banach 基础 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | 不提前引用开映射/闭图定理 |
 | P1 | Pr1 概率基础 | 概率空间、随机变量、分布、期望、独立性 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | 打开 G-Pr，且所有概率概念先有本库定义层 |
-| P1 | ST2/ST3 返工 | 完成 Round 2 文档同步并收敛 staging | ST2 三篇文档；ST3 首批边界复核 | main 接收后才推进 G-ST |
+| P1 | ST2/ST3 基础集成 | ST2 基数基础与 ST3 递归/增长/可计算性定义层 | 62 个新增 verified 条目 | ✅ 已进入 main；纵深路线转入下一波 |
 
 Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和文件分片；main 确认没有跨学科签名冲突后，
 子 Agent 才进入证明阶段。A2 和 C1 是关键路径，main 优先审核它们的 handoff。
@@ -103,7 +103,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | C1 完成 | C2 复积分 | C2-I 路径积分；C2-C Cauchy 定理/公式；C2-A 解析性与唯一性 | 打开 Laurent/残数路线 |
 | F1 完成 | F2 Banach 定理 | 一致有界；开映像；闭图与逆算子 | 三大定理分别独立文件，公共 Baire 接口先行 |
 | Pr1 完成 | Pr2 概率极限定理 | 条件期望；大数律；中心极限定理前置 | S1 只在期望/方差/分布接口稳定后启动 |
-| ST2/ST3 首批进入 main | ST3 深层 | 原始递归函数类；Goodstein 完整状态；可计算性定义 | 支配、终止、不可计算性仍受定义门控制 |
+| ✅ G-ST 已打开 | ST3 深层 | 原始递归函数类；一般 Goodstein 正规化；通用机与翻转编译器实例 | 支配、终止、不可计算性仍须逐项证明 |
 | main 有空闲审核槽 | T4 代数拓扑入口 | 道路/同伦；同伦等价；基本群；教材例子 | 圆周基本群若 Mathlib 缺桥则明确降级，不伪造闭环 |
 
 #### Wave C：受门控的纵深工作
@@ -654,47 +654,51 @@ C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main
 
 13 个序数入口已进入 main；Goodstein 状态编码不属于 ST1 完成范围。
 
-### ST2 基数理论 🚧（staging Round 2，尚未进入 main）
+### ST2 基数理论：基础接口 ✅，选择等价与独立性仍待开发
 
 | # | 条目 id | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `settheory.cardinal.equinumerous` | 双射定义等势 | staging |
-| 2 | `settheory.cardinal.comparison` | 单射比较闭环 | staging-review |
-| 3 | `settheory.cardinal.cantor-bernstein` | 双向单射推出等势 | staging |
-| 4 | `settheory.cardinal.cantor-theorem` | 对角论证与幂集严格比较 | staging-review |
-| 5 | `settheory.cardinal.addition` | 不交并定义加法 | staging |
-| 6 | `settheory.cardinal.multiplication` | 笛卡尔积定义乘法 | staging |
-| 7 | `settheory.cardinal.exponentiation` | 函数空间定义幂 | staging |
-| 8 | `settheory.cardinal.finite-set` | 与 Fin n 等势定义有限 | staging |
-| 9 | `settheory.cardinal.aleph-hierarchy` | aleph 层级 | staging |
-| 10 | `settheory.cardinal.beth-hierarchy` | beth 层级 | staging |
-| 11 | `settheory.cardinal.cardinal-cofinality` | 基数共尾性 | staging |
-| 12 | `settheory.cardinal.regular-singular` | 无限基数分类 | staging |
-| 13 | `settheory.cardinal.konig-theorem` | König 定理 | staging |
-| 14 | `settheory.cardinal.classical-choice-wellordering` | 经典选择与良序可用 | staging-review |
-| 15 | `settheory.cardinal.continuum-hypothesis` | CH 准确陈述 | staging |
+| 1 | `settheory.cardinal.equinumerous` | 双射定义等势 | verified |
+| 2 | `settheory.cardinal.comparison` | 单射比较闭环 | verified |
+| 3 | `settheory.cardinal.cantor-bernstein` | 双向单射推出等势 | verified |
+| 4 | `settheory.cardinal.cantor-theorem` | 对角论证与幂集严格比较 | verified |
+| 5 | `settheory.cardinal.addition` | 不交并定义加法 | verified |
+| 6 | `settheory.cardinal.multiplication` | 笛卡尔积定义乘法 | verified |
+| 7 | `settheory.cardinal.exponentiation` | 函数空间定义幂 | verified |
+| 8 | `settheory.cardinal.finite-set` | 与 Fin n 等势定义有限 | verified |
+| 9 | `settheory.cardinal.aleph-hierarchy` | aleph 层级 | verified |
+| 10 | `settheory.cardinal.beth-hierarchy` | beth 层级 | verified |
+| 11 | `settheory.cardinal.cardinal-cofinality` | 基数共尾性 | verified |
+| 12 | `settheory.cardinal.regular-singular` | 无限基数分类 | verified |
+| 13 | `settheory.cardinal.konig-theorem` | König 定理 | verified |
+| 14 | `settheory.cardinal.classical-choice-wellordering` | 经典基础中选择与良序可用 | verified（非三原则等价） |
+| 15 | `settheory.cardinal.continuum-hypothesis` | CH 准确陈述 | verified |
 
 边界：无选择基础中的 AC/良序/Zorn 双向等价和 CH 独立性证明均未完成。
 
-### ST3 递归与增长层级 🚧（首批 staging）
+### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 47 项 ✅，纵深 🚧
 
 | # | 条目 id | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `settheory.googology.primitive-recursion` | 单层递归生成器 | staging |
-| 2 | `settheory.googology.hyperoperation` | 超运算 | staging |
-| 3 | `settheory.googology.ackermann` | Ackermann 定义与方程 | staging |
-| 4 | `settheory.googology.knuth-arrow` | Knuth 上箭头 | staging |
-| 5 | `settheory.googology.graham-number` | Graham 数 | staging |
-| 6 | `settheory.googology.hereditary-base` | 遗传基表达式 | staging |
-| 7 | `settheory.googology.goodstein-step` | 换底减一单步 | staging |
-| 8 | `settheory.googology.primitive-recursive-class` | 原始递归函数类 | 🔲 |
-| 9 | `settheory.googology.ackermann-domination` | 支配与非原始递归 | 🔒 |
-| 10 | `settheory.googology.goodstein-sequence` | 正规编码与完整序列 | 🔲 |
-| 11 | `settheory.googology.goodstein-ordinal-descent` | ε₀ 严格下降 | 🔒 |
-| 12 | `settheory.googology.goodstein-termination` | Goodstein 终止 | 🔒 |
-| 13 | `settheory.googology.fast-growing-hierarchy` | 快速增长层级 | 🔒 |
-| 14 | `settheory.googology.computability-entry` | 可计算/不可计算定义 | 🔲 |
-| 15 | `settheory.googology.busy-beaver` | Busy Beaver 不可计算性 | 🔒 |
+本轮进入 main 的 47 项包括：递归定义与大数记号 7 项，Conway/TREE 与带燃料增长层级 10 项，
+Goodstein 状态、局部借位和序数下降 10 项，Hydra 步骤、局部下降、赋值与认证轨迹 9 项，
+Busy Beaver 有限候选、经典存在与收敛 6 项，以及机器可计算性、部分可计算性和条件式对角接口
+5 项。逐项权威状态见 Registry；以下表格保留下一阶段真正尚缺的课程门。
+
+| # | 待开发条目 | 需要补齐的内容 | 状态 |
+|---|---|---|---|
+| 1 | `settheory.googology.primitive-recursive-class` | 冻结原始递归函数类并证明闭包 | 🚧 |
+| 2 | `settheory.googology.ackermann-domination` | 支配全部原始递归函数及非原始递归性 | 🔒 |
+| 3 | `settheory.googology.hereditary-normalization` | 任意自然数的遗传基正规编码与正确性 | 🚧 |
+| 4 | `settheory.googology.goodstein-ordinal-descent` | 从局部借位推广到一般正规 Goodstein 步骤 | 🔒 |
+| 5 | `settheory.googology.goodstein-termination` | 用序数良基性证明完整序列终止 | 🔒 |
+| 6 | `settheory.googology.goodstein-pa-independence` | 精确形式化 PA 不可证性边界 | 🔒 |
+| 7 | `settheory.googology.hydra-general-descent` | 消除最右脊柱证书限制，覆盖一般游戏步骤 | 🚧 |
+| 8 | `settheory.googology.hydra-termination` | 一般 Hydra 游戏终止及强度边界 | 🔒 |
+| 9 | `settheory.computability.universal-machine-instance` | 为当前 `NatProgram` 构造通用 runner | 🚧 |
+| 10 | `settheory.computability.diagonal-flip-instance` | 实现并验证翻转编译闭包 | 🔒 |
+| 11 | `settheory.computability.halting-undecidable` | 去除结构参数的停机不可判定定理 | 🔒 |
+| 12 | `settheory.googology.busy-beaver-uncomputable` | 从停机问题完成不可计算性归约 | 🔒 |
 
 ## 13. Phase 12+ — 高阶学科群（每门独立建设）
 
