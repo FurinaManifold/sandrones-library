@@ -203,9 +203,9 @@
 | 12 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | ✅ |
 | 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | ✅ |
 | 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | ✅ |
-| 15 | `linear-algebra.decomposition.qr` | 薄/方 QR 分解及规范化唯一性 | 🔲 |
-| 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | 🔲 |
-| 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | 🔲 |
+| 15 | `linear-algebra.decomposition.qr` | 薄/方 QR 分解及规范化唯一性 | ✅ |
+| 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | ✅ |
+| 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | ✅ |
 | 18 | `linear-algebra.decomposition.svd` | 奇异值分解及奇异值基本性质 | 🔲 |
 | 19 | `linear-algebra.decomposition.polar` | 极分解与正半定平方根 | 🔲 |
 | 20 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆与最小二乘 | 🔲 |
