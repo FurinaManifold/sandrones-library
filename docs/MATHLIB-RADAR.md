@@ -2904,6 +2904,15 @@
 - **人话**：良基关系等价于不存在自然数长度的无限严格下降链。
 - **谁在用**：排除每一步都携带最右脊柱证书的无限 Hydra 轨迹。
 
+### `Nat.strongRec` / `Nat.div_add_mod`
+- **人话**：按所有更小自然数作强递归，并用商乘除数加余数还原原数。
+- **谁在用**：`settheory.googology.hereditary-natural-encoding` 的商余递归、终止与精确求值。
+
+### `WellFounded.onFun` / `WellFounded.mono` / `WellFounded.induction`
+- **人话**：沿秩函数拉回良基关系、限制到子关系，并执行良基归纳。
+- **谁在用**：认证 Hydra 步骤子关系的 `WellFounded`、`Acc` 与归纳接口；不覆盖任意
+  `Hydra.Step`。
+
 ### `add_lt_add_iff_left` / `add_lt_add_right` / `mul_lt_mul_of_pos_left`
 - **人话**：在共同左前缀或正左因子下保持严格不等式。
 - **谁在用**：Goodstein 与 Hydra 序数赋值的局部下降组装。

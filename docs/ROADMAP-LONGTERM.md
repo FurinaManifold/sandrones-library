@@ -37,7 +37,7 @@
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础47项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础50项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
@@ -676,20 +676,20 @@ C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main
 
 边界：无选择基础中的 AC/良序/Zorn 双向等价和 CH 独立性证明均未完成。
 
-### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 47 项 ✅，纵深 🚧
+### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 50 项 ✅，纵深 🚧
 
 | # | 条目 id | 内容 | 状态 |
 |---|---|---|---|
-本轮进入 main 的 47 项包括：递归定义与大数记号 7 项，Conway/TREE 与带燃料增长层级 10 项，
-Goodstein 状态、局部借位和序数下降 10 项，Hydra 步骤、局部下降、赋值与认证轨迹 9 项，
-Busy Beaver 有限候选、经典存在与收敛 6 项，以及机器可计算性、部分可计算性和条件式对角接口
+当前进入 main 的 50 项包括：递归定义与大数记号 7 项，Conway/TREE 与带燃料增长层级 10 项，
+Goodstein 状态、自然数遗传编码、局部借位和序数下降 11 项，Hydra 步骤、局部下降、赋值、认证
+轨迹与良基归纳 10 项，Busy Beaver 有限候选、经典输出/时间最大值与收敛 7 项，以及机器可计算性、部分可计算性和条件式对角接口
 5 项。逐项权威状态见 Registry；以下表格保留下一阶段真正尚缺的课程门。
 
 | # | 待开发条目 | 需要补齐的内容 | 状态 |
 |---|---|---|---|
 | 1 | `settheory.googology.primitive-recursive-class` | 冻结原始递归函数类并证明闭包 | 🚧 |
 | 2 | `settheory.googology.ackermann-domination` | 支配全部原始递归函数及非原始递归性 | 🔒 |
-| 3 | `settheory.googology.hereditary-normalization` | 任意自然数的遗传基正规编码与正确性 | 🚧 |
+| 3 | `settheory.googology.hereditary-encoding-order` | 补齐遗传编码序数值关于输入的精确比较接口 | 🚧 |
 | 4 | `settheory.googology.goodstein-ordinal-descent` | 从局部借位推广到一般正规 Goodstein 步骤 | 🔒 |
 | 5 | `settheory.googology.goodstein-termination` | 用序数良基性证明完整序列终止 | 🔒 |
 | 6 | `settheory.googology.goodstein-pa-independence` | 精确形式化 PA 不可证性边界 | 🔒 |

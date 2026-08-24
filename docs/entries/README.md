@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **347** 个条目（verified 347，pending 0）。
+共 **350** 个条目（verified 350，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -399,6 +399,7 @@
 - ✅ [`busy-beaver-candidate.md`](busy-beaver-candidate.md) — 限定步数的 Busy Beaver 候选最大值
 - ✅ [`busy-beaver-convergence.md`](busy-beaver-convergence.md) — 有限燃料 Busy Beaver 候选的最终稳定
 - ✅ [`busy-beaver-existence.md`](busy-beaver-existence.md) — 经典 Busy Beaver 最大值的存在性
+- ✅ [`busy-beaver-time.md`](busy-beaver-time.md) — 时间型 Busy Beaver：最大首次停机时间
 - ✅ [`busy-beaver-value-relation.md`](busy-beaver-value-relation.md) — 经典 Busy Beaver 的最大值关系与有限候选桥
 - ✅ [`conway-chain.md`](conway-chain.md) — Conway 链式箭头：有限语法与诚实的受限求值
 - ✅ [`conway-recursion.md`](conway-recursion.md) — 一般有限 Conway 链的递归求值
@@ -418,7 +419,9 @@
 - ✅ [`graham-number.md`](graham-number.md) — Graham 数：让前一项决定下一步的箭头数量
 - ✅ [`hardy-hierarchy.md`](hardy-hierarchy.md) — Hardy 层级：沿记号下降，把后继变成输入递增
 - ✅ [`hereditary-base.md`](hereditary-base.md) — 遗传基表示：连指数也用同一底数展开
+- ✅ [`hereditary-natural-encoding.md`](hereditary-natural-encoding.md) — 任意自然数的遗传基编码
 - ✅ [`hydra-certified-play-termination.md`](hydra-certified-play-termination.md) — 带最右脊柱证书的 Hydra 轨迹不可能无限
+- ✅ [`hydra-certified-step-well-founded.md`](hydra-certified-step-well-founded.md) — 认证 Hydra 步骤的良基关系与归纳原理
 - ✅ [`hydra-game-step.md`](hydra-game-step.md) — 有限 Hydra 游戏的定义与阶段相关单步
 - ✅ [`hydra-one-level-descent.md`](hydra-one-level-descent.md) — 含阶段复制的一层 Hydra 砍头严格下降
 - ✅ [`hydra-ordinal-assignment.md`](hydra-ordinal-assignment.md) — Hydra 的结构性序数赋值与两个已验证接口

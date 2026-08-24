@@ -136,6 +136,9 @@ import SandronesLibrary.SetTheory.HydraRightmostSpineDescent
 import SandronesLibrary.SetTheory.ComputabilityDiagonal
 import SandronesLibrary.SetTheory.ConcretePairingCode
 import SandronesLibrary.SetTheory.HydraCertifiedPlayTermination
+import SandronesLibrary.SetTheory.HereditaryNatEncoding
+import SandronesLibrary.SetTheory.HydraCertifiedStepWellFounded
+import SandronesLibrary.SetTheory.BusyBeaverTime
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

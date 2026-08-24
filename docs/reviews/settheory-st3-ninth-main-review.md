@@ -47,3 +47,13 @@
 - `resolved`：本闭环提交只纳入 review 文件，不纳入第十批未跟踪源码、文档或正在迁移的编码器修改。
 - `resolved`：确认 `fc34325` 的 accepted 仅覆盖 `169da85..fc34325`；不据此报告下一批或 Main 集成门禁通过。
 
+## Main 集成记录
+
+- Main 已选择性集成 `ea5b440`、`fc34325` 与闭环提交 `d86524a`；学科 worktree 中正在开发的
+  第十批修改和未跟踪文件均未纳入。
+- 已向顶层聚合文件加入三个模块，并为三个 Entry 建立 Registry 记录；全库 Registry 现为
+  350 条。
+- 已同步 `MATHLIB-RADAR.md`、`ROADMAP-LONGTERM.md` 与生成的条目索引。
+- `lake build` 全库构建通过，共 8853 个任务。
+- `check_axioms.py --all --fix`、随后无修复重跑、`audit.py`、Registry ID 唯一性、集合论
+  source/Registry/docs ID 双射以及 `git diff --check` 全部通过。
