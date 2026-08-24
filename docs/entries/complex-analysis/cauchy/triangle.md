@@ -1,10 +1,10 @@
 ---
-id: complex-analysis.cauchy.triangle
+id: complex-analysis.cauchy.triangle-ball
 family: complex-analysis.cauchy
 variant: ball
 kind: theorem
 state: verified
-title: 三角形边界上的 Cauchy 结论（圆盘版）
+title: 球内三角形边界积分为零
 summary: 由圆盘上全纯函数的原函数存在性推出三条有向边上的路径积分之和为零
 premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.path]
 mathlib: [DifferentiableOn.isExactOn_ball, intervalIntegral.integral_eq_sub_of_hasDerivAt, curveIntegral_segment, convex_ball]
@@ -15,7 +15,7 @@ provenance:
 
 # 动机
 
-经典 Cauchy–Goursat 定理说明，全纯函数沿三角形边界的积分为零。当前 Mathlib 尚未提供这一经典局部三角形定理本身，但已经证明全纯函数在圆盘上有原函数。因此这里先给出 Mathlib 后端能够完整支撑、且不混淆假设强弱的圆盘版本。
+经典 Cauchy–Goursat 定理说明，全纯函数沿三角形边界的积分为零。当前 Mathlib 尚未提供这一经典局部三角形定理本身，但已经证明全纯函数在圆盘上有原函数。因此这个 foundation 条目只给出后端能够完整支撑的圆盘版本；一般 Goursat 条目继续保持未完成。
 
 # 直觉
 

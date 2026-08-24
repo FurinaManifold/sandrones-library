@@ -11,11 +11,6 @@ provenance:
   ref: "Conway, Functions of One Complex Variable I（Cauchy 积分公式）"
 ---
 
-# 定义
-
-`∮ z in C(c, R), g z` 表示沿以 `c` 为圆心、`R` 为半径的正向圆周路径积分。
-`ball c R` 是开圆盘，`closedBall c R` 包含边界。
-
 # 动机
 
 Cauchy 公式说明，全纯函数的内部值完全由边界值决定，它是导数公式、平均值性质和各种
@@ -28,6 +23,8 @@ Cauchy 公式说明，全纯函数的内部值完全由边界值决定，它是�
 
 # 陈述（自然语言）
 
+记 `∮ z in C(c,R), g z` 为沿以 `c` 为圆心、`R` 为半径的正向圆周路径积分；
+`ball c R` 是开圆盘，`closedBall c R` 是包含边界的闭圆盘。
 若 `f` 在整个闭圆盘的每一点附近全纯，且 `w` 严格位于开圆盘内，则
 `∮ f(z)/(z-w) dz = 2πi f(w)`。
 

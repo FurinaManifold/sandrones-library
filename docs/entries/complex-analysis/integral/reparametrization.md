@@ -1,3 +1,18 @@
+---
+id: complex-analysis.integral.reparametrization
+family: complex-analysis.integral
+variant: parameter-space
+kind: theorem
+state: verified
+title: 路径反向、拼接与参数空间换元
+summary: 证明路径积分在反向时变号、在可积拼接时相加，并给出底层有向区间换元公式
+premises: [complex-analysis.integral.path]
+mathlib: [curveIntegral_symm, curveIntegral_trans, intervalIntegral.integral_deriv_smul_comp]
+provenance:
+  source_type: book
+  ref: "Conway, Functions of One Complex Variable I（路径积分的基本运算）"
+---
+
 # 动机
 
 路径积分的三个基本运算是反向、拼接和换参数。前两者已经能在 Mathlib 的 `Path` 上精确表达；换参数目前先公开证明中真正使用的参数空间换元公式。

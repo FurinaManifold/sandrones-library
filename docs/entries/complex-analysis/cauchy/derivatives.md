@@ -11,11 +11,6 @@ provenance:
   ref: "Conway, Functions of One Complex Variable I（Cauchy 导数公式与估计）"
 ---
 
-# 定义
-
-`iteratedDeriv n f c` 是 `f` 在 `c` 处的 `n` 阶复导数。`Metric.sphere c R` 是边界圆周，
-`n.factorial` 是 `n!`。
-
 # 动机
 
 高阶 Cauchy 公式表明全纯性自动带来任意阶可微性。对积分取范数后，边界值的一个简单上界
@@ -28,6 +23,8 @@ provenance:
 
 # 陈述（自然语言）
 
+`iteratedDeriv n f c` 表示 `f` 在 `c` 处的 `n` 阶复导数，`Metric.sphere c R` 表示边界圆周，
+`n.factorial` 表示 `n!`。
 若 `R>0` 且 `f` 在闭圆盘附近全纯，则圆心的 `n` 阶导数由核
 `1/(z-c)^(n+1)` 的圆周积分给出。若边界上 `‖f z‖≤C`，则
 `‖f⁽ⁿ⁾(c)‖ ≤ n! C / Rⁿ`。

@@ -1,11 +1,11 @@
 ---
-id: complex-analysis.cauchy.homotopy
+id: complex-analysis.cauchy.path-independence-primitive
 family: complex-analysis.cauchy
 variant: primitive
 kind: theorem
 state: verified
-title: 原函数条件下的路径无关与同伦不变
-summary: 在显式原函数、路径可微与可积条件下证明路径积分只依赖端点，并推出同伦路径积分相等
+title: 原函数条件下的路径无关
+summary: 在显式原函数、路径可微与可积条件下证明路径积分只依赖端点；同伦相等仅作为直接推论
 premises: [complex-analysis.integral.path]
 mathlib: [curveIntegral_eq_intervalIntegral_deriv, intervalIntegral.integral_eq_sub_of_hasDerivAt, HasDerivAt.comp_hasFDerivAt, ContinuousMap.Homotopy]
 provenance:
@@ -15,7 +15,7 @@ provenance:
 
 # 动机
 
-路径积分的同伦不变性是 Cauchy 理论连接拓扑与分析的核心接口。但“全纯函数在任意单连通开集上都有原函数”目前尚不是 Mathlib 已完成的定理。本条目因此从确实可用的原函数假设出发，给出更强的端点依赖结论及其同伦不变推论。
+路径积分的一般全纯同伦不变性是 Cauchy 理论连接拓扑与分析的核心接口。但“全纯函数在任意单连通开集上都有原函数”目前尚不是 Mathlib 已完成的定理。本 foundation 条目只从显式原函数假设出发，证明路径无关；一般同伦条目继续保持未完成。
 
 # 直觉
 

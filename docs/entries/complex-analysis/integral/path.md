@@ -1,3 +1,18 @@
+---
+id: complex-analysis.integral.path
+family: complex-analysis.integral
+variant: textbook
+kind: definition
+state: verified
+title: 复路径与路径积分
+summary: 以标量一形式定义复路径积分及可积性，并给出连续 integrand 沿 C1 路径的可积性与线段公式
+premises: [complex-analysis.holomorphic.definition]
+mathlib: [Path, curveIntegral, CurveIntegrable, curveIntegral_segment, ContinuousLinearMap.smulRight]
+provenance:
+  source_type: book
+  ref: "Conway, Functions of One Complex Variable I（复路径积分）"
+---
+
 # 动机
 
 复分析教材写 `∫_γ f(z) dz`，而 Mathlib 的核心对象是连续路径 `Path a b` 上的一形式曲线积分。本条目提供两者之间的显式桥梁，同时保留 Mathlib 已有的端点、反向与拼接结构。
