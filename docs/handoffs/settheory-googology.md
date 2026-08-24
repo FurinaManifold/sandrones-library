@@ -9,6 +9,7 @@
 - 首个借位、复制下降与有限候选稳定提交：`d0cbf78`
 - 平方借位、兄弟森林与可计算性定义门提交：`3ece959`
 - 有限幂借位、父内兄弟与部分可计算性提交：`3d138d3`
+- 遗传指数借位、任意深最右脊柱与条件式对角论证提交：见本批学科提交
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -34,7 +35,11 @@
 - `SandronesLibrary/SetTheory/GoodsteinFinitePowerBorrow.lean`
 - `SandronesLibrary/SetTheory/HydraParentSiblingDescent.lean`
 - `SandronesLibrary/SetTheory/PartialComputability.lean`
+- `SandronesLibrary/SetTheory/GoodsteinHereditaryExponentBorrow.lean`
+- `SandronesLibrary/SetTheory/HydraRightmostSpineDescent.lean`
+- `SandronesLibrary/SetTheory/ComputabilityDiagonal.lean`
 - `docs/entries/settheory/googology/*.md`
+- `docs/entries/settheory/computability/*.md`
 
 ## 顶层导入
 
@@ -61,6 +66,9 @@ import SandronesLibrary.SetTheory.ComputabilityFoundations
 import SandronesLibrary.SetTheory.GoodsteinFinitePowerBorrow
 import SandronesLibrary.SetTheory.HydraParentSiblingDescent
 import SandronesLibrary.SetTheory.PartialComputability
+import SandronesLibrary.SetTheory.GoodsteinHereditaryExponentBorrow
+import SandronesLibrary.SetTheory.HydraRightmostSpineDescent
+import SandronesLibrary.SetTheory.ComputabilityDiagonal
 ```
 
 ## Registry
@@ -107,6 +115,11 @@ import SandronesLibrary.SetTheory.PartialComputability
 38. `settheory.googology.hydra-parent-sibling-descent`（`theorem`）
 39. `settheory.computability.partial-nat-computable`（`definition`）
 40. `settheory.computability.universal-interpreter-spec`（`definition`）
+41. `settheory.googology.goodstein-hereditary-base-exponent-borrow`（`theorem`）
+42. `settheory.googology.hydra-rightmost-spine-descent`（`theorem`）
+43. `settheory.computability.pairing-code`（`definition`）
+44. `settheory.computability.executable-universal-spec`（`definition`）
+45. `settheory.computability.conditional-diagonal`（`theorem`）
 
 ## 定义边界
 
@@ -173,6 +186,14 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 本批只建立递归与增长的起点，尚未宣称形式化 Ackermann 非原始递归、Goodstein 终止、PA
 不可证性或 Busy Beaver 不可计算性。这些结论需要后续编码与支配定理。
 
+第七小批首次让底数真正进入 Goodstein 指数子树：参数族 `head+B^(B¹)` 升底后成为
+`head+q^q`，再用上一批有限幂展开重编码 `q^q-1`，并由 `E_q<ω^q<ω^ω` 得到严格下降；它仍不
+覆盖任意遗传指数。Hydra 的双层局部复制下降可沿任意有限最右祖先链提升，复制仍只发生在头的
+祖父层，高层只替换最右分支；非最右路径及所有步骤终止尚未覆盖。可计算性线新增自然数配对、
+可执行通用解释器规格与对角翻转编译闭包，在这些结构参数被显式给定时证明自应用停机谓词不可由
+程序判定。当前没有构造这些结构的实例，核心矛盾也不使用 `runner_spec`，因此该结论不能改写为
+现有机器模型的无条件停机不可判定，更没有推出 Busy Beaver 不可计算。
+
 ## RADAR
 
 - `Nat.rec`
@@ -237,6 +258,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_busy_beaver`（第五批）：`PartialComputability.lean` 与两篇文档。负责人核对部分函数图像
   的单值性由确定执行证明；通用解释器结构无 inhabitant，也没有被文档描述成已经实现。三个第五批
   子包均无独立子提交，审核后收敛于学科提交 `3d138d3`。
+- `st3_goodstein`（第六批）：`GoodsteinHereditaryExponentBorrow.lean` 与一篇文档。负责人首次
+  独立构建时发现序数幂改写尚未暴露目标指数且有未使用 `simp` 参数，退回修复；复验确认参数族
+  `head+B^(B¹)` 的新底数指数确为 `q`，下降链为 `E_q<ω^q<ω^ω`，且文档没有外推到任意遗传指数。
+- `st3_hydra`（第六批）：`HydraRightmostSpineDescent.lean` 与一篇文档。负责人首次独立构建发现
+  无进展 `simp`，并退回依赖存在见证定义形状的 `pathEq := rfl` 写法；返工后改为显式底部路径、
+  局部 `chop` 计算和递归提升，复验确认只覆盖逐层最右的有限证书。
+- `st3_busy_beaver`（第六批）：`ComputabilityDiagonal.lean` 与三篇文档。负责人核对配对与通用机均
+  是本库公开规格，`DiagonalFlipClosure` 仍是待构造参数；又要求文档明确核心对角矛盾没有使用
+  `runner_spec`，不得把条件定理过报成现有机器的无条件停机不可判定或 Busy Beaver 不可计算。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -258,10 +288,27 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 真实 Hydra 单步下降；一元输入机器程序、自然数函数可计算性、谓词机器判定性和特征函数规格。
 第六批新增的稳定接口包括：有限数字指数的统一 Goodstein 借位展开；根部和复制父内同时保留左兄弟
 森林时的真实 Hydra 下降；部分自然数函数图像、总函数/判定器桥，以及通用解释器的抽象模拟规格。
+第七批新增的稳定接口包括：嵌套指数恰为 `B¹` 时的 Goodstein 借位下降；任意有限最右祖先链上的
+真实 Hydra 步骤与序数下降；自然数配对、可执行通用解释器及翻转编译闭包的规格，以及在后两者作为
+显式参数时的自应用对角矛盾。后者是条件接口，不提供任何结构实例。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
 Busy Beaver 不可计算性。因此当前仍不得将完整 ST3 标记为完成。
+
+## 本批学科验证
+
+- 三个新增模块分别构建通过：773、1049、1039 个任务，零警告。
+- 集合论 27 个模块及依赖闭包联合构建通过，共 1082 个任务；未运行全库 `lake build`。
+- `/tmp/sandrones-settheory-aggregate.lean` 同时导入本批及既有集合论模块，并 `#check` 五个新增
+  Entry 的关键公开 API：通过。
+- 五篇新增文档的精确八段模板、Lean Entry id 与文档 id 均为 5/5；禁用占位符与占位文字零命中；
+  `git diff --check` 通过。
+
+本批公开教材定义是 `BaseExponentOneNormalForm`、`HereditaryBaseExponentTailBorrowForm`、
+`RightmostSpineReplicatedCut`、`PairingCode`、`ExecutableUniversalInterpreter`、`SelfHalts` 与
+`DiagonalFlipClosure`。Mathlib 的 `Order.IsNormal.strictMono`、`Ordinal.natCast_lt_omega0` 仅作
+证明后端；原生 `Ordinal` 运算只经本库既有 `ordinalAdd`、`ordinalMul`、`ordinalPow` 定义桥使用。
 
 ## 合并后验收
 
