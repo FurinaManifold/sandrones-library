@@ -3,6 +3,7 @@
 - 分支：`codex/settheory-ordinal`
 - 首批提交：`bcf79d5`
 - 本轮扩展提交：`ff1179f`
+- Conway/Goodstein/Hydra 提交：`92ae43e`
 
 本文件供集成 Codex 使用。当前批次包含：
 
