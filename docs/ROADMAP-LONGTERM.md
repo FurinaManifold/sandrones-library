@@ -201,8 +201,8 @@
 | 10 | `linear-algebra.matrix.normal` | 正规、Hermitian、斜 Hermitian 矩阵与复谱定理 | ✅ |
 | 11 | `linear-algebra.matrix.symplectic` | 标准辛矩阵、辛群基本性质与行列式为一 | ✅ |
 | 12 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | ✅ |
-| 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | 🔲 |
-| 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | 🔲 |
+| 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | ✅ |
+| 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | ✅ |
 | 15 | `linear-algebra.decomposition.qr` | 薄/方 QR 分解及规范化唯一性 | 🔲 |
 | 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | 🔲 |
 | 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | 🔲 |
