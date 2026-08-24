@@ -6,16 +6,19 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **244** 个条目（verified 244，pending 0）。
+共 **247** 个条目（verified 247，pending 0）。
 
 ## `abstract-algebra.group`
 
+- ✅ [`automorphism.md`](automorphism.md) — 群的自同构与内自同构
 - ✅ [`coset.md`](coset.md) — 陪集与 Lagrange 定理
 - ✅ [`cyclic.md`](cyclic.md) — 循环群与元素阶
 - ✅ [`def.md`](def.md) — 子群判定与基本性质
 - ✅ [`hom.md`](hom.md) — 同态与同态基本定理
 - ✅ [`index-two.md`](index-two.md) — 指数 2 子群正规
+- ✅ [`iso-theorems.md`](iso-theorems.md) — 群的第二、第三同构定理与对应定理
 - ✅ [`normal.md`](normal.md) — 正规子群与商群
+- ✅ [`product.md`](product.md) — 群的直积、内部直积与半直积
 
 ## `abstract-algebra.poly`
 

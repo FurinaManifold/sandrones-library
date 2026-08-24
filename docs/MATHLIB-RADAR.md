@@ -2417,6 +2417,60 @@
 - **人话**：两个基数相同的循环群彼此同构。
 - **谁在用**：有限循环群由群阶唯一决定的教材结论。
 
+## 群的高阶同构定理
+
+### `QuotientGroup.quotientInfEquivProdNormalQuotient`
+- **人话**：若 `N` 正规，给出 `H/(H∩N) ≃ (H∨N)/N` 的规范群同构。
+- **谁在用**：`abstract-algebra.group.iso-theorems` 的第二同构定理。
+
+### `QuotientGroup.quotientQuotientEquivQuotient`
+- **人话**：若 `N ≤ M` 且二者正规，给出 `(G/N)/(M/N) ≃ G/M`。
+- **谁在用**：`abstract-algebra.group.iso-theorems` 的第三同构定理。
+
+### `QuotientGroup.comapMk'OrderIso`
+- **人话**：以商映射原像构造 `G/N` 子群与包含 `N` 的 `G` 子群之间的保序同构。
+- **谁在用**：`abstract-algebra.group.iso-theorems` 的对应定理。
+
+## 群的自同构与内自同构
+
+### `MulAut`
+- **人话**：一个群到自身的乘法同构；这些自同构在复合下组成 `Aut(G)`。
+- **谁在用**：`abstract-algebra.group.automorphism` 的自同构群定义。
+
+### `MulAut.conj`
+- **人话**：把 `g` 送到共轭自同构 `x ↦ gxg⁻¹` 的群同态 `G → Aut(G)`。
+- **谁在用**：内自同构群、共轭同态的核与中心。
+
+### `Subgroup.center`
+- **人话**：由所有与群中每个元素交换的元素组成的中心子群 `Z(G)`。
+- **谁在用**：`ker(conj)=Z(G)` 与 `G/Z(G) ≅ Inn(G)`。
+
+### `QuotientGroup.quotientMulEquivOfEq`
+- **人话**：相等的正规子群给出对应商群之间的规范同构。
+- **谁在用**：把第一同构定理中的 `G/ker(conj)` 改写为 `G/Z(G)`。
+
+## 群的直积与半直积
+
+### `MulEquiv.prodComm`
+- **人话**：交换两个直积因子得到规范群同构。
+- **谁在用**：`abstract-algebra.group.product` 的直积交换律。
+
+### `MulEquiv.prodAssoc`
+- **人话**：给出三个群直积的规范结合群同构。
+- **谁在用**：`abstract-algebra.group.product` 的直积结合律。
+
+### `MonoidHom.noncommCoprod`
+- **人话**：当两个同态的值逐元素交换时，坐标乘法定义从直积出发的同态。
+- **谁在用**：`abstract-algebra.group.product` 的内部直积同构。
+
+### `SemidirectProduct.mulEquivProd`
+- **人话**：平凡作用形成的半直积同构于通常直积。
+- **谁在用**：`abstract-algebra.group.product` 的平凡作用退化公式。
+
+### `SemidirectProduct.mulEquivSubgroup`
+- **人话**：正规互补子群按共轭作用形成的半直积同构于环境群。
+- **谁在用**：`abstract-algebra.group.product` 的内部半直积定理。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

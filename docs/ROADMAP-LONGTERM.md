@@ -238,12 +238,13 @@
 | 3 | `abstract-algebra.group.cyclic` | 元素阶、循环子群、循环群子群分类、有限循环群与 `Z/nZ` | ✅ |
 | 4 | `abstract-algebra.group.normal` | 正规子群的等价刻画、商群运算、商映射的泛性质 | ✅ |
 | 5 | `abstract-algebra.group.hom` | 核与像、单满射判据、第一同构定理、同构保持不变量 | ✅ |
-| 6 | `abstract-algebra.group.iso-theorems` | 第二、第三同构定理及对应定理 | 🔲 |
-| 7 | `abstract-algebra.group.product` | 直积、内部直积、半直积的入门接口 | 🔲 |
-| 8 | `abstract-algebra.group.action` | 群作用、轨道、稳定子、轨道—稳定子定理、类方程 | 🔲 |
-| 9 | `abstract-algebra.group.permutation` | 置换群、Cayley 定理、循环分解、奇偶性与交错群 | 🔲 |
-| 10 | `abstract-algebra.group.sylow` | Cauchy 定理、Sylow 三定理及低阶群应用 | 🔲 |
-| 11 | `abstract-algebra.group.abelian-structure` | 有限生成交换群结构定理及有限交换群分类 | 🔲 |
+| 6 | `abstract-algebra.group.iso-theorems` | 第二、第三同构定理及对应定理 | ✅ |
+| 7 | `abstract-algebra.group.automorphism` | 自同构群、内自同构、共轭同态及 `G/Z(G) ≅ Inn(G)` | ✅ |
+| 8 | `abstract-algebra.group.product` | 直积、内部直积、半直积的入门接口 | ✅ |
+| 9 | `abstract-algebra.group.action` | 群作用、轨道、稳定子、轨道—稳定子定理、类方程 | 🔲 |
+| 10 | `abstract-algebra.group.permutation` | 置换群、Cayley 定理、循环分解、奇偶性与交错群 | 🔲 |
+| 11 | `abstract-algebra.group.sylow` | Cauchy 定理、Sylow 三定理及低阶群应用 | 🔲 |
+| 12 | `abstract-algebra.group.abelian-structure` | 有限生成交换群结构定理及有限交换群分类 | 🔲 |
 
 ### A2 环
 

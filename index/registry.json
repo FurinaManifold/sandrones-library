@@ -7637,5 +7637,98 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "abstract-algebra.group.iso-theorems",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "群的第二、第三同构定理与对应定理",
+    "summary": "第二同构定理、第三同构定理、子群保序对应及正规性保持",
+    "premises": [
+      "abstract-algebra.group.hom"
+    ],
+    "mathlib": [
+      "QuotientGroup.quotientInfEquivProdNormalQuotient",
+      "QuotientGroup.quotientQuotientEquivQuotient",
+      "QuotientGroup.comapMk'OrderIso"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups, Ch 2（同构定理）"
+    },
+    "lean_file": "AbstractAlgebra/GroupIsomorphismTheorems.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/iso-theorems.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T07:44:03Z",
+    "dependedOnBy": [],
+    "proof_sha": "edab3029e45caabb",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.product",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "群的直积、内部直积与半直积",
+    "summary": "外直积的规范同构、内部直积判据、半直积运算与内部半直积定理",
+    "premises": [
+      "abstract-algebra.group.automorphism"
+    ],
+    "mathlib": [
+      "MulEquiv.prodComm",
+      "MulEquiv.prodAssoc",
+      "MonoidHom.noncommCoprod",
+      "SemidirectProduct.mulEquivProd",
+      "SemidirectProduct.mulEquivSubgroup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups（直积与半直积）"
+    },
+    "lean_file": "AbstractAlgebra/GroupProduct.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/product.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T07:48:44Z",
+    "dependedOnBy": [],
+    "proof_sha": "8fa292d68e38fbd8",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.automorphism",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "群的自同构与内自同构",
+    "summary": "自同构群的运算、共轭同态、内自同构群以及 G/Z(G) 与 Inn(G) 的同构",
+    "premises": [
+      "abstract-algebra.group.iso-theorems"
+    ],
+    "mathlib": [
+      "MulAut",
+      "MulAut.conj",
+      "Subgroup.center",
+      "QuotientGroup.quotientMulEquivOfEq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups（自同构与内自同构）"
+    },
+    "lean_file": "AbstractAlgebra/GroupAutomorphism.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/automorphism.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T07:54:32Z",
+    "dependedOnBy": [],
+    "proof_sha": "49217f52cd5af76d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

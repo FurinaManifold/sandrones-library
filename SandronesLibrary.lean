@@ -1,4 +1,7 @@
 import SandronesLibrary.Basic
+import SandronesLibrary.AbstractAlgebra.GroupIsomorphismTheorems
+import SandronesLibrary.AbstractAlgebra.GroupAutomorphism
+import SandronesLibrary.AbstractAlgebra.GroupProduct
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Complex
 import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
