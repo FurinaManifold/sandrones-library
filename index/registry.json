@@ -3359,7 +3359,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "0ccfa7994b504d9a"
+    "proof_sha": "a7b1ac366d962096"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3396,7 +3396,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "5ba373efa42b7ee0"
+    "proof_sha": "a7b1ac366d962096"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3433,7 +3433,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "61ddf1887580755c"
+    "proof_sha": "a7b1ac366d962096"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3502,7 +3502,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "732a28d8cb69d462"
+    "proof_sha": "a7b1ac366d962096"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -7725,6 +7725,137 @@
     "added_at": "2026-08-24T07:54:32Z",
     "dependedOnBy": [],
     "proof_sha": "49217f52cd5af76d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.action",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "群作用、轨道、稳定子与类方程",
+    "summary": "群作用公理、轨道分割、稳定子、轨道—稳定子定理、传递作用与有限群类方程",
+    "premises": [
+      "abstract-algebra.group.product"
+    ],
+    "mathlib": [
+      "MulAction.orbit",
+      "MulAction.stabilizer",
+      "MulAction.orbitEquivQuotientStabilizer",
+      "MulAction.orbitProdStabilizerEquivGroup",
+      "MulAction.stabilizerEquivStabilizerOfOrbitRel",
+      "Group.nat_card_center_add_sum_card_noncenter_eq_card"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups（群作用与类方程）"
+    },
+    "lean_file": "AbstractAlgebra/GroupAction.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/action.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T07:58:59Z",
+    "dependedOnBy": [],
+    "proof_sha": "03ca86eb20ad7214",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.permutation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "置换群、循环分解与交错群",
+    "summary": "Cayley 定理、互不相交循环分解、换位分解、符号同态、奇偶性与交错群",
+    "premises": [
+      "abstract-algebra.group.action"
+    ],
+    "mathlib": [
+      "Equiv.Perm.subgroupOfMulAction",
+      "Equiv.Perm.cycleFactorsFinset",
+      "Equiv.Perm.truncSwapFactors",
+      "Equiv.Perm.sign",
+      "alternatingGroup"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups（置换群）"
+    },
+    "lean_file": "AbstractAlgebra/GroupPermutation.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/permutation.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T08:03:01Z",
+    "dependedOnBy": [],
+    "proof_sha": "a931a07e8c92e655",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.sylow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "p 群、Sylow 子群定义与 Sylow 三定理",
+    "summary": "自建 p 群与 Sylow 子群定义，以及 Cauchy 定理、Sylow 三定理、正规性判据和低阶群应用",
+    "premises": [
+      "abstract-algebra.group.permutation"
+    ],
+    "mathlib": [
+      "IsPGroup",
+      "Sylow",
+      "exists_prime_orderOf_dvd_card'",
+      "IsPGroup.exists_le_sylow",
+      "Sylow.card_eq_multiplicity",
+      "Sylow.isPretransitive_of_finite",
+      "card_sylow_modEq_one",
+      "Sylow.card_dvd_index"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, An Introduction to the Theory of Groups（Sylow 理论）"
+    },
+    "lean_file": "AbstractAlgebra/GroupSylow.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/sylow.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T08:07:54Z",
+    "dependedOnBy": [],
+    "proof_sha": "2a8f4f7252c6eea2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.group.abelian-structure",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限生成交换群结构定理",
+    "summary": "自建有限生成群定义，并给出有限生成交换群结构定理与有限交换群的双向分类",
+    "premises": [
+      "abstract-algebra.group.sylow"
+    ],
+    "mathlib": [
+      "Group.fg_iff",
+      "CommGroup.equiv_free_prod_prod_multiplicative_zmod",
+      "AddCommGroup.equiv_directSum_zmod_of_finite",
+      "CommGroup.equiv_prod_multiplicative_zmod_of_finite"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Dummit and Foote, Abstract Algebra（有限生成交换群结构定理）"
+    },
+    "lean_file": "AbstractAlgebra/GroupAbelianStructure.lean",
+    "nl_file": "docs/entries/abstract-algebra/group/abelian-structure.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "d69d56e6fac7341c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

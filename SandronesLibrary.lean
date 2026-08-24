@@ -2,6 +2,10 @@ import SandronesLibrary.Basic
 import SandronesLibrary.AbstractAlgebra.GroupIsomorphismTheorems
 import SandronesLibrary.AbstractAlgebra.GroupAutomorphism
 import SandronesLibrary.AbstractAlgebra.GroupProduct
+import SandronesLibrary.AbstractAlgebra.GroupAction
+import SandronesLibrary.AbstractAlgebra.GroupPermutation
+import SandronesLibrary.AbstractAlgebra.GroupSylow
+import SandronesLibrary.AbstractAlgebra.GroupAbelianStructure
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Complex
 import SandronesLibrary.Analysis.FundamentalTheoremAlgebra

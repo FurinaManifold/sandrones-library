@@ -2471,6 +2471,106 @@
 - **人话**：正规互补子群按共轭作用形成的半直积同构于环境群。
 - **谁在用**：`abstract-algebra.group.product` 的内部半直积定理。
 
+## 群作用、轨道与稳定子
+
+### `MulAction.orbit`
+- **人话**：点 `x` 在群作用下所有像 `g • x` 组成的轨道。
+- **谁在用**：`abstract-algebra.group.action` 的轨道定义与轨道分割。
+
+### `MulAction.stabilizer`
+- **人话**：所有满足 `g • x = x` 的群元素组成的稳定子群。
+- **谁在用**：稳定子成员刻画和轨道—稳定子定理。
+
+### `MulAction.orbitEquivQuotientStabilizer`
+- **人话**：轨道与稳定子陪集空间 `G/Gₓ` 之间的规范集合等价。
+- **谁在用**：轨道—稳定子定理的结构形式。
+
+### `MulAction.orbitProdStabilizerEquivGroup`
+- **人话**：轨道与稳定子的笛卡尔积作为集合等价于作用群。
+- **谁在用**：`|Orb(x)|·|Gₓ|=|G|` 的基数公式。
+
+### `MulAction.stabilizerEquivStabilizerOfOrbitRel`
+- **人话**：同一轨道中两点的稳定子群同构。
+- **谁在用**：同轨稳定子不变量。
+
+### `Group.nat_card_center_add_sum_card_noncenter_eq_card`
+- **人话**：有限群阶等于中心阶加所有非中心共轭类大小之和。
+- **谁在用**：`abstract-algebra.group.action` 的类方程。
+
+## 置换群、循环与奇偶性
+
+### `Equiv.Perm.subgroupOfMulAction`
+- **人话**：忠实群作用把作用群同构到相应置换表示的值域子群；正则作用给出 Cayley 定理。
+- **谁在用**：`abstract-algebra.group.permutation` 的 Cayley 同构。
+
+### `Equiv.Perm.cycleFactorsFinset`
+- **人话**：有限置换的规范互不相交循环因子有限集。
+- **谁在用**：循环因子性质与循环乘积恢复原置换。
+
+### `Equiv.Perm.truncSwapFactors`
+- **人话**：有限置换存在换位列表分解，不依赖底集上的线性次序选择。
+- **谁在用**：换位分解存在性。
+
+### `Equiv.Perm.sign`
+- **人话**：置换符号同态 `Sym(X) → {±1}`，区分偶置换和奇置换。
+- **谁在用**：符号乘法性、换位为奇置换及交错群。
+
+### `alternatingGroup`
+- **人话**：符号同态的核，即所有偶置换组成的交错群。
+- **谁在用**：交错群成员判据、指数二与 `n!/2` 阶公式。
+
+## Cauchy 与 Sylow 理论
+
+### `IsPGroup`
+- **人话**：Mathlib 对“群中每个元素都被某个 `p` 的幂次消去”的底层表示。
+- **谁在用**：仅用于证明本库 `IsPrimePowerGroup` 与底层实现定义等价；公开教材签名使用本库定义。
+
+### `Sylow`
+- **人话**：Mathlib 将极大 `p`-子群打包成结构的底层表示。
+- **谁在用**：仅用于本库 `SylowSubgroup` 的私有等价桥和后续证明；公开教材签名使用本库定义。
+
+### `exists_prime_orderOf_dvd_card'`
+- **人话**：素数 `p` 整除有限群阶时，存在阶为 `p` 的元素。
+- **谁在用**：`abstract-algebra.group.sylow` 的 Cauchy 定理。
+
+### `IsPGroup.exists_le_sylow`
+- **人话**：每个 `p`-子群都包含在某个极大 `p`-子群中。
+- **谁在用**：Sylow 第一定理的包含形式。
+
+### `Sylow.card_eq_multiplicity`
+- **人话**：Sylow `p`-子群阶为 `p ^ v_p(|G|)`。
+- **谁在用**：Sylow 第一定理的群阶公式。
+
+### `Sylow.isPretransitive_of_finite`
+- **人话**：群对 Sylow `p`-子群的共轭作用是传递的。
+- **谁在用**：Sylow 第二定理。
+
+### `card_sylow_modEq_one`
+- **人话**：Sylow `p`-子群个数模 `p` 余一。
+- **谁在用**：Sylow 第三定理的同余条件。
+
+### `Sylow.card_dvd_index`
+- **人话**：Sylow `p`-子群个数整除任一 Sylow 子群的指数。
+- **谁在用**：Sylow 第三定理的整除条件。
+
+## 有限生成交换群结构
+
+### `Group.fg_iff`
+- **人话**：Mathlib 的有限生成群类等价于存在有限生成集合。
+- **谁在用**：仅用于本库 `IsFinitelyGeneratedGroup` 与底层实现的定义桥。
+
+### `CommGroup.equiv_free_prod_prod_multiplicative_zmod`
+- **人话**：有限生成交换群分解为有限秩自由交换群与素数幂阶循环群的有限直积。
+- **谁在用**：`finitely_generated_abelian_structure`；公开前提使用本库有限生成定义。
+
+### `AddCommGroup.equiv_directSum_zmod_of_finite`
+- **人话**：有限交换群的加法版本可分解为有限多个素数幂阶 `ZMod` 的直和。
+- **谁在用**：`finite_abelian_prime_power_structure`，证明内部转回乘法群直积语言。
+
+### `CommGroup.equiv_prod_multiplicative_zmod_of_finite`
+- **人话**：有限交换群同构于有限多个非平凡有限循环群的直积。
+- **谁在用**：`finite_abelian_cyclic_structure` 及双向分类的正向。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

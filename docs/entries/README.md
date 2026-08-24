@@ -6,10 +6,12 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **247** 个条目（verified 247，pending 0）。
+共 **251** 个条目（verified 251，pending 0）。
 
 ## `abstract-algebra.group`
 
+- ✅ [`abelian-structure.md`](abelian-structure.md) — 有限生成交换群结构定理
+- ✅ [`action.md`](action.md) — 群作用、轨道、稳定子与类方程
 - ✅ [`automorphism.md`](automorphism.md) — 群的自同构与内自同构
 - ✅ [`coset.md`](coset.md) — 陪集与 Lagrange 定理
 - ✅ [`cyclic.md`](cyclic.md) — 循环群与元素阶
@@ -18,7 +20,9 @@
 - ✅ [`index-two.md`](index-two.md) — 指数 2 子群正规
 - ✅ [`iso-theorems.md`](iso-theorems.md) — 群的第二、第三同构定理与对应定理
 - ✅ [`normal.md`](normal.md) — 正规子群与商群
+- ✅ [`permutation.md`](permutation.md) — 置换群、循环分解与交错群
 - ✅ [`product.md`](product.md) — 群的直积、内部直积与半直积
+- ✅ [`sylow.md`](sylow.md) — p 群、Sylow 子群定义与 Sylow 三定理
 
 ## `abstract-algebra.poly`
 
