@@ -16,8 +16,9 @@ import Mathlib
 * **abstract-algebra.group.index-two**（指数 2 子群必正规）✅。
 * **abstract-algebra.group.hom**（复合与子群像/单满射判据/显式第一同构定理/同构不变量）✅。
 
-> **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Group`/`Subgroup`/
-> `MonoidHom`/`QuotientGroup` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
+> **语言说明**：Mathlib 的 `Group`/`Subgroup`/`MonoidHom`/`QuotientGroup` 只能作为实现承载，
+> 不能代替本库教材定义。概念首次出现时必须逐项给出公理或集合谓词，再建立到 Mathlib 的桥；
+> 旧公开接口将在定义依赖自底向上的迁移中保留为兼容层。`Module` 仍不得出现在公开签名中。
 -/
 
 open scoped BigOperators
@@ -27,6 +28,136 @@ namespace SandronesLibrary
 namespace AbstractAlgebra.Group
 
 open scoped Pointwise
+
+/-! ### 群、子群与群同态的教材定义层 -/
+
+/-- **群公理**：在给定单位元、乘法和逆运算后，逐项要求结合律、左右单位律及左右逆元律。
+Mathlib 的 `[Group G]` 是这些数据与公理的实现打包，不是本库对群概念的定义。
+> **Entry**: abstract-algebra.group.def
+-/
+structure GroupAxioms (G : Type*) [One G] [Mul G] [Inv G] : Prop where
+  mul_assoc : ∀ a b c : G, a * b * c = a * (b * c)
+  one_mul : ∀ a : G, 1 * a = a
+  mul_one : ∀ a : G, a * 1 = a
+  inv_mul : ∀ a : G, a⁻¹ * a = 1
+  mul_inv : ∀ a : G, a * a⁻¹ = 1
+
+/-- **交换群公理**：满足群公理，并且乘法交换。
+> **Entry**: abstract-algebra.group.def
+-/
+def CommutativeGroupAxioms (G : Type*) [One G] [Mul G] [Inv G] : Prop :=
+  GroupAxioms G ∧ ∀ a b : G, a * b = b * a
+
+/-- **子群集合判据**：集合包含单位元，并对乘法和逆运算封闭。
+> **Entry**: abstract-algebra.group.def
+-/
+def SubgroupSet {G : Type*} [One G] [Mul G] [Inv G] (H : Set G) : Prop :=
+  1 ∈ H ∧ (∀ ⦃x y : G⦄, x ∈ H → y ∈ H → x * y ∈ H) ∧
+    (∀ ⦃x : G⦄, x ∈ H → x⁻¹ ∈ H)
+
+/-- **群同态谓词**：普通函数保持单位元、乘法和逆运算。这样可先用教材语言陈述同态，
+再在证明后端把它打包成 Mathlib `MonoidHom`。
+> **Entry**: abstract-algebra.group.hom
+-/
+def GroupHomomorphism {G H : Type*} [One G] [Mul G] [Inv G]
+    [One H] [Mul H] [Inv H] (f : G → H) : Prop :=
+  f 1 = 1 ∧ (∀ x y : G, f (x * y) = f x * f y) ∧
+    (∀ x : G, f x⁻¹ = (f x)⁻¹)
+
+/-- **由集合生成的子群集合**：所有包含 `S` 的子群集合之交；这直接表达“包含 `S` 的
+最小子群”，不依赖 Mathlib `Subgroup.closure` 作为定义。
+> **Entry**: abstract-algebra.group.def
+-/
+def generatedSubgroupSet {G : Type*} [One G] [Mul G] [Inv G] (S : Set G) : Set G :=
+  {x | ∀ H : Set G, SubgroupSet H → S ⊆ H → x ∈ H}
+
+/-- 每个 Mathlib 群实例都满足本库逐条列出的群公理。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem group_has_groupAxioms (G : Type*) [Group G] : GroupAxioms G := by
+  exact ⟨mul_assoc, one_mul, mul_one, (fun a => by simp), (fun a => by simp)⟩
+
+/-- 每个 Mathlib 交换群实例都满足本库交换群公理。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem commGroup_has_commutativeGroupAxioms (G : Type*) [CommGroup G] :
+    CommutativeGroupAxioms G :=
+  ⟨group_has_groupAxioms G, mul_comm⟩
+
+/-- 本库子群集合判据与“存在底层集合恰为 `H` 的 Mathlib 子群”完全等价。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subgroupSet_iff_exists_subgroup {G : Type*} [Group G] (H : Set G) :
+    SubgroupSet H ↔ ∃ K : Subgroup G, (K : Set G) = H := by
+  constructor
+  · rintro ⟨h1, hmul, hinv⟩
+    let ssg : Subsemigroup G := ⟨H, fun hx hy => hmul hx hy⟩
+    let sm : Submonoid G := ⟨ssg, h1⟩
+    let K : Subgroup G := ⟨sm, fun hx => hinv hx⟩
+    exact ⟨K, rfl⟩
+  · rintro ⟨K, rfl⟩
+    exact ⟨K.one_mem, (fun {_ _} hx hy => K.mul_mem hx hy),
+      (fun {_} hx => K.inv_mem hx)⟩
+
+/-- 打包的 Mathlib 同态满足本库逐运算群同态谓词。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem monoidHom_is_groupHomomorphism {G H : Type*} [Group G] [Group H]
+    (f : G →* H) : GroupHomomorphism f :=
+  ⟨f.map_one, f.map_mul, f.map_inv⟩
+
+/-- 满足本库群同态谓词的普通函数可以打包成 Mathlib `MonoidHom`，且底层函数不变。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem groupHomomorphism_exists_monoidHom {G H : Type*} [Group G] [Group H]
+    (f : G → H) (hf : GroupHomomorphism f) : ∃ F : G →* H, ⇑F = f := by
+  exact ⟨{ toFun := f, map_one' := hf.1, map_mul' := hf.2.1 }, rfl⟩
+
+/-- 由 `S` 生成的集合确实满足子群集合判据。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroupSet_is_subgroup {G : Type*} [Group G] (S : Set G) :
+    SubgroupSet (generatedSubgroupSet S) := by
+  refine ⟨?_, ?_, ?_⟩
+  · intro H hH hSH
+    exact hH.1
+  · intro x y hx hy H hH hSH
+    exact hH.2.1 (hx H hH hSH) (hy H hH hSH)
+  · intro x hx H hH hSH
+    exact hH.2.2 (hx H hH hSH)
+
+/-- 每个生成元都属于生成子群集合。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subset_generatedSubgroupSet {G : Type*} [Group G] (S : Set G) :
+    S ⊆ generatedSubgroupSet S := by
+  intro x hx H hH hSH
+  exact hSH hx
+
+/-- **生成子群的最小性**：任何包含 `S` 的子群集合都包含 `generatedSubgroupSet S`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroupSet_least {G : Type*} [Group G] {S H : Set G}
+    (hH : SubgroupSet H) (hSH : S ⊆ H) : generatedSubgroupSet S ⊆ H := by
+  intro x hx
+  exact hx H hH hSH
+
+/-- 本库生成子群集合与 Mathlib `Subgroup.closure` 的底层集合相同；后者从此只作为承载桥。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem generatedSubgroupSet_eq_mathlib_closure {G : Type*} [Group G] (S : Set G) :
+    generatedSubgroupSet S = ((Subgroup.closure S : Subgroup G) : Set G) := by
+  ext x
+  constructor
+  · intro hx
+    apply hx ((Subgroup.closure S : Subgroup G) : Set G)
+    · exact (subgroupSet_iff_exists_subgroup _).2 ⟨Subgroup.closure S, rfl⟩
+    · exact Subgroup.subset_closure
+  · intro hx H hH hSH
+    obtain ⟨K, hK⟩ := (subgroupSet_iff_exists_subgroup H).1 hH
+    change x ∈ Subgroup.closure S at hx
+    rw [← hK]
+    exact (Subgroup.closure_le K |>.mpr (by simpa [hK] using hSH)) hx
 
 /-! ### 群公理的直接推论 -/
 
@@ -183,8 +314,8 @@ theorem subgroup_top_eq_univ {G : Type*} [Group G] :
 
 /-! ### 生成子群与子群格 -/
 
-/-- **由集合生成的子群**：`generatedSubgroup S` 是包含 `S` 的最小子群。
-教材中常记作 `⟨S⟩`；这里使用具名定义，避免与 Lean 的语法符号混淆。
+/-- Mathlib 打包的生成子群承载。教材公开定义是 `generatedSubgroupSet`；此对象保留给旧定理
+及与 Mathlib 子群格互操作，不能再被描述为本库对生成子群的定义。
 > **Entry**: abstract-algebra.group.def
 -/
 def generatedSubgroup {G : Type*} [Group G] (S : Set G) : Subgroup G :=

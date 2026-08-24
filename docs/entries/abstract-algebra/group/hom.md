@@ -5,7 +5,7 @@ variant: rotman
 kind: theorem
 state: verified
 title: 同态与同态基本定理
-summary: 同态的恒等与复合、子群像和逆像、核像判据、双射升级、显式第一同构定理及同构不变量
+summary: 本库定义群同态谓词并建立 MonoidHom 桥；旧接口含核像、双射升级及第一同构定理
 premises: [abstract-algebra.group.normal]
 mathlib: [MonoidHom.comp, Subgroup.map, Subgroup.comap, MonoidHom.range_comp, MonoidHom.ker_eq_bot_iff, MonoidHom.range_eq_top, MulEquiv.ofBijective, QuotientGroup.quotientKerEquivRange, MulEquiv.orderOf_eq, Nat.card_congr]
 provenance:
@@ -21,6 +21,10 @@ provenance:
 - **一句话**: 同态核是正规子群；单射⟺核平凡；G/ker ≅ im。
 
 ## 直觉
+
+`GroupHomomorphism f` 是普通函数上的本库教材谓词：`f` 保持单位元、乘法与逆元。
+`monoidHom_is_groupHomomorphism` 和 `groupHomomorphism_exists_monoidHom` 给出与 Mathlib
+承载结构的双向桥。核、像和商群接口仍待底层定义完成后迁移。
 
 群同态可复合，并把子群送到子群、把目标子群拉回源群。核是单位元子群的逆像，像是全群
 的同态像。单射性由核决定，满射性由像决定；双射同态就是群同构。
@@ -44,13 +48,14 @@ provenance:
 
 ## 依赖（人话版）
 
-前提：abstract-algebra.group.normal（ker 正规）。mathlib 的 `MonoidHom` 是群同态，
+前提：abstract-algebra.group.normal（ker 正规）。本库群同态定义不依赖 `MonoidHom`；后者是
+证明后端的打包承载。
 `MonoidHom.mem_ker/mem_range/ker_eq_bot_iff/range_eq_top` 是基本性质，
 `QuotientGroup.quotientKerEquivRange` 正是同态基本定理的显式同构。
 
 ## 应用与陷阱
 
-- 同态基本定理在 mathlib 是 `quotientKerEquivRange : G ⧸ ker φ ≃* range φ`，直接可用。
+- 旧同态基本定理仍使用 `quotientKerEquivRange`；商群、核和像转正后必须改由本库接口陈述。
 - `f.ker = ⊥` 中的 `⊥` 是平凡子群（与 Set 的 {1} 需区分）。
 - `Subgroup.map f H` 是 H 的像；`Subgroup.comap f K` 是 K 的逆像，方向不要写反。
 - 第一同构定理的右端是子类型 `f.range`，其元素同时携带目标群元素及属于像的证明。

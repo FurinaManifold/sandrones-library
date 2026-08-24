@@ -27,7 +27,11 @@
 
 ## A1 群论回修
 
-- [ ] 群公理、子群集合与群同态目前仍由 `Group`、`Subgroup`、`MonoidHom` 承担定义。
+- [x] 群公理与交换群公理：`GroupAxioms`、`CommutativeGroupAxioms`。
+- [x] 子群集合与生成子群集合：`SubgroupSet`、`generatedSubgroupSet`，并完成承载桥。
+- [x] 群同态谓词：`GroupHomomorphism`，并完成 `MonoidHom` 双向桥。
+- [ ] 旧子群格与同态公开接口仍使用 `Subgroup`、`MonoidHom`，需迁移到上述定义层。
+- [ ] 陪集、正规子群、商同余、商群与商映射需自建定义层。
 - [ ] 群作用、轨道、稳定子目前直接使用 `MulAction` API。
 - [ ] 循环群目前直接使用 `IsCyclic`。
 - [ ] 自同构、内自同构、置换循环、换位、符号和交错群缺本库定义层。
