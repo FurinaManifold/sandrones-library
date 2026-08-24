@@ -21,10 +21,9 @@ the remainder digit. -/
 def hereditaryNatEncode (base : ℕ) (hbase : 2 ≤ base) (n : ℕ) : HereditaryBaseExpr :=
   Nat.strongRec (motive := fun _ => HereditaryBaseExpr) (fun n rec =>
     if hn : n = 0 then .zero else
-      .add (.mul
+      .add (.mul (.basePow (.digit 1))
         (rec (n / base) (Nat.div_lt_self (Nat.pos_of_ne_zero hn)
-          (lt_of_lt_of_le Nat.one_lt_two hbase)))
-        (.basePow (.digit 1))) (.digit (n % base))) n
+          (lt_of_lt_of_le Nat.one_lt_two hbase)))) (.digit (n % base))) n
 
 theorem hereditaryNatEncode_zero (base : ℕ) (hbase : 2 ≤ base) :
     hereditaryNatEncode base hbase 0 = .zero := by
@@ -34,8 +33,8 @@ theorem hereditaryNatEncode_zero (base : ℕ) (hbase : 2 ≤ base) :
 theorem hereditaryNatEncode_of_pos (base : ℕ) (hbase : 2 ≤ base)
     {n : ℕ} (hn : 0 < n) :
     hereditaryNatEncode base hbase n =
-      .add (.mul (hereditaryNatEncode base hbase (n / base))
-        (.basePow (.digit 1))) (.digit (n % base)) := by
+      .add (.mul (.basePow (.digit 1))
+        (hereditaryNatEncode base hbase (n / base))) (.digit (n % base)) := by
   rw [hereditaryNatEncode, Nat.strongRec_eq]
   simp only [dif_neg (Nat.ne_of_gt hn)]
   rfl
@@ -60,10 +59,10 @@ theorem hereditaryNatEncode_valid_eval (base : ℕ) (hbase : 2 ≤ base) :
           (lt_of_lt_of_le Nat.one_lt_two hbase)
         have hrec := ih (n / base) hdiv
         constructor
-        · exact ⟨⟨hrec.1, lt_of_lt_of_le Nat.one_lt_two hbase⟩,
+        · exact ⟨⟨lt_of_lt_of_le Nat.one_lt_two hbase, hrec.1⟩,
             Nat.mod_lt n (by omega)⟩
         · simp only [HereditaryBaseExpr.eval, hrec.2, pow_one]
-          rw [Nat.mul_comm, Nat.div_add_mod]
+          rw [Nat.div_add_mod]
 
 /-- A mechanically available strict ordinal ceiling for the encoded tree.  It contains no
 comparison information about different inputs and is insufficient for a general borrow lemma. -/

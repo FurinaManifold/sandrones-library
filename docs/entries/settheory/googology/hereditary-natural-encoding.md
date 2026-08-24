@@ -22,7 +22,7 @@ provenance: {source_type: textbook, ref: "Goodstein sequences, hereditary base n
 
 # 陈述（Lean 对照）
 
-`hereditaryNatEncode` 在零处返回 `.zero`；在正数 `n` 处返回 `encode (n/base) · B¹ + digit (n%base)`。`hereditaryNatEncode_zero` 和 `hereditaryNatEncode_of_pos` 公开这两条计算方程。`hereditaryNatEncode_valid_eval` 对 `n` 做强归纳，同时证明 `Valid base` 和 `eval base = n`。
+`hereditaryNatEncode` 在零处返回 `.zero`；在正数 `n` 处返回 `B¹ · encode (n/base) + digit (n%base)`。`hereditaryNatEncode_zero` 和 `hereditaryNatEncode_of_pos` 公开这两条计算方程。`hereditaryNatEncode_valid_eval` 对 `n` 做强归纳，同时证明 `Valid base` 和 `eval base = n`。
 
 # 思维脉络（thinking trace）
 
@@ -30,7 +30,7 @@ provenance: {source_type: textbook, ref: "Goodstein sequences, hereditary base n
 
 # 自然语言 ↔ Lean 映射
 
-“商严格变小”对应 `Nat.div_lt_self`；“对商继续编码”对应 `Nat.strongRec` 提供的 `rec (n/base)`；“乘以底数”对应 `.mul ... (.basePow (.digit 1))`；“加上本位余数”对应 `.digit (n%base)`；“商余还原”对应 `Nat.div_add_mod`。
+“商严格变小”对应 `Nat.div_lt_self`；“对商继续编码”对应 `Nat.strongRec` 提供的 `rec (n/base)`；“底数乘以递归商”对应 `.mul (.basePow (.digit 1)) ...`；“加上本位余数”对应 `.digit (n%base)`；“商余还原”对应 `Nat.div_add_mod`。
 
 # 依赖（人话版）
 

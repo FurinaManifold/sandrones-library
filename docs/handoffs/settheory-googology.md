@@ -12,6 +12,7 @@
 - 遗传指数借位、任意深最右脊柱与条件式对角论证提交：`9f562d4`
 - 具体配对编码与认证 Hydra 轨迹终止提交：`ba895df`
 - 遗传自然数编码、认证步骤良基与时间型 Busy Beaver 提交：`ea5b440`
+- 遗传编码次序修正、认证多步下降与统一停机界提交：见本批学科提交
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -45,6 +46,9 @@
 - `SandronesLibrary/SetTheory/HereditaryNatEncoding.lean`
 - `SandronesLibrary/SetTheory/HydraCertifiedStepWellFounded.lean`
 - `SandronesLibrary/SetTheory/BusyBeaverTime.lean`
+- `SandronesLibrary/SetTheory/HereditaryNatEncodingOrder.lean`
+- `SandronesLibrary/SetTheory/HydraCertifiedTransitiveDescent.lean`
+- `SandronesLibrary/SetTheory/BusyBeaverTimeHaltingBound.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
 
@@ -81,6 +85,9 @@ import SandronesLibrary.SetTheory.HydraCertifiedPlayTermination
 import SandronesLibrary.SetTheory.HereditaryNatEncoding
 import SandronesLibrary.SetTheory.HydraCertifiedStepWellFounded
 import SandronesLibrary.SetTheory.BusyBeaverTime
+import SandronesLibrary.SetTheory.HereditaryNatEncodingOrder
+import SandronesLibrary.SetTheory.HydraCertifiedTransitiveDescent
+import SandronesLibrary.SetTheory.BusyBeaverTimeHaltingBound
 ```
 
 ## Registry
@@ -137,6 +144,10 @@ import SandronesLibrary.SetTheory.BusyBeaverTime
 48. `settheory.googology.hereditary-natural-encoding`（`theorem`）
 49. `settheory.googology.hydra-certified-step-well-founded`（`theorem`）
 50. `settheory.googology.busy-beaver-time`（`theorem`）
+51. `settheory.googology.hereditary-natural-encoding-same-block-order`（`theorem`）
+52. `settheory.googology.hereditary-natural-encoding-strict-order`（`theorem`）
+53. `settheory.googology.hydra-certified-transitive-descent`（`theorem`）
+54. `settheory.googology.busy-beaver-time-halting-bound`（`theorem`）
 
 ## 定义边界
 
@@ -224,6 +235,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 `WellFounded`、`Acc` 与量化所有认证后继的归纳原理；范围仍不含普通 `Hydra.Step`。可计算性线
 复用唯一 `EventuallyHalts` 关系定义首次停机时间，并在有限机器全集上构造经典最大首次停机时间，
 证明上界、取得、存在和唯一；这是 `noncomputable` 存在性基础，不是算法或不可计算性定理。
+
+第十小批首先修正第九批编码器的序数乘法方向：自然数乘法虽交换，序数乘法不交换；原先
+`encode(quotient)·B¹` 会在 `ω` 解释下吸收有限系数，现原位迁移为
+`B¹·encode(quotient)+digit(remainder)`，合法性与自然数求值保持不变。新次序模块证明精确公式
+`R(n)=ω·R(n/base)+n%base`、同商块严格保序、不同商的 `ω` 块分离，最终得到固定底数下全局
+`StrictMono R`。Hydra 线定义恰好 `n` 个认证步骤和非空有限传递闭包，证明正步端点严格下降、
+闭包良基并给出归纳接口。时间型 Busy Beaver 线证明停机状态持久，将经典最大首次停机时间转成
+固定状态数机器的统一停机界，并给出“已知显式正确界时”的有限布尔检查；经典界仍不可计算且数值
+未知，因此没有得到一般可执行停机算法。
 
 ## RADAR
 
@@ -316,6 +336,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_busy_beaver`（第八批）：`BusyBeaverTime.lean` 与一篇文档。负责人核对最终停机语义直接复用
   `EventuallyHalts`，首次时间由 `Nat.find` 取得，有限最大值用立即停机机器排除补零假冠军；结论
   仅为经典存在唯一性，不是计算算法或不可计算性证明。
+- `st3_goodstein`（第九批）：初稿审计发现原 `encode(quotient)·B¹` 在自然数求值正确却会在序数
+  解释中吸收有限系数。负责人拒绝保留反例模块再新增同义编码器，退回原位迁移为
+  `B¹·encode(quotient)`；返工后 `HereditaryNatEncodingOrder.lean` 证明精确方程、同商块与全局
+  严格保序。此修改触及 Main 已接受但尚未集成的第九批文件，handoff 明确要求重新语义复验。
+- `st3_hydra`（第九批）：`HydraCertifiedTransitiveDescent.lean` 与一篇文档。负责人核对零步只有
+  相等，严格下降仅对 `n+1` 步成立；非空闭包的良基性通过既有认证前驱的 `TransGen` 获得。
+- `st3_busy_beaver`（第九批）：`BusyBeaverTimeHaltingBound.lean` 与一篇文档。负责人核对
+  `haltsByFuel` 只在显式给定正确统一界时形成有限判定；代入 `noncomputable` 经典最大时间只是
+  命题等价，文档没有把未知常量包装成算法。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -347,6 +376,10 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 `WellFounded`、`Acc` 和良基归纳接口；时间型 Busy Beaver 的首次停机时间以及固定状态数经典最大
 时间的存在、取得、上界和唯一性。仍不可依赖编码序数值的输入单调性、一般 Goodstein 借位、所有
 Hydra 步骤的良基性、时间最大值算法或任何 Busy Beaver 不可计算性结论。
+第十批新增的稳定接口包括：修正后遗传自然数编码的精确序数方程、同商块与全局严格保序；认证
+Hydra 的精确有限步、非空传递下降、闭包良基与归纳；时间型经典最大值的统一停机界规格，以及在
+使用者显式给出正确界时的有限布尔判定桥。仍不可依赖一般 Goodstein 借位/终止、普通 Hydra.Step
+多步下降、经典时间界的可计算值、一般停机算法或 Busy Beaver 不可计算性。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -381,6 +414,18 @@ Busy Beaver 不可计算性。因此当前仍不得将完整 ST3 标记为完成
 `IsFirstHaltingTime` 与 `IsBusyBeaverTimeValue`。`Nat.strongRec`/商余引理、`WellFounded.onFun`、
 `Nat.find` 和 `Finset.sup` 仅承担终止、关系拉回或经典有限极值的证明后端；没有取代本库遗传语法、
 Hydra 认证步骤或机器停机关系。
+
+第十批加入三个模块并迁移第九批 `HereditaryNatEncoding` 后，集合论 35 个模块及依赖闭包联合构建
+通过，共 1090 个任务；聚合文件同时检查修正编码的精确方程和全局 `StrictMono`、认证多步端点
+下降与闭包良基、统一停机界和显式界判定桥。四个新增 Entry 与四篇新增文档一一对应；连同被迁移
+的原编码文档，五篇受影响文档的精确八段与非空内容为 5/5。禁用证明占位及
+`TODO`/`FIXME`/`TBD` 零命中，`git diff --check` 通过。
+
+第十批公开教材定义是 `CertifiedExactSteps`、`CertifiedTransitiveStep`、
+`CertifiedTransitivePredecessor`、`IsUniformHaltingBound` 与 `haltsByFuel`；
+`hereditaryNatEncode` 则是原公开定义的语义修正，不另建同义编码器。`Relation.TransGen`、
+`WellFounded.transGen` 和原生序数乘法引理只作闭包或证明后端；停机判断仍直接连接本库
+`BinaryMachine` 与 `runSteps`。
 
 ## 合并后验收
 
