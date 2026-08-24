@@ -49,7 +49,9 @@ theorem choice_and_wellOrder_available (A : ι → Type) (α : Type) :
 
 # 依赖（人话版）
 
-逻辑上依赖 Lean/mathlib 已采用的经典选择设施。本条 frontmatter 提到 Zorn 与序数序型，是课程路线背景，不表示证明体从本库 Zorn 定理推导选择。真正的“选择公理、良序定理、Zorn 引理等价”仍需在明确的弱基础中分别定义原则并证明各方向。
+逻辑上依赖 Lean/mathlib 已采用的经典选择设施。历史版本曾把 Zorn 与序数序型列作课程路线背景；
+本次降级后，frontmatter 已删除这些 premises，当前为空列表。真正的“选择公理、良序定理、Zorn
+引理等价”仍需在明确的无选择弱基础中分别定义三个原则并证明各个方向。
 
 # 应用与陷阱
 

@@ -18,7 +18,8 @@ provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Compar
 
 # 陈述（自然语言）
 
-称 `α` 的基数不大于 `β`，若存在从 `α` 到 `β` 的单射。若 `α` 与 `β` 等势，则正向双射及其逆都单射，所以得到双向比较。
+称 `α` 的基数不大于 `β`，若存在从 `α` 到 `β` 的单射。这个关系自反且传递；若两个方向都
+成立，Cantor–Bernstein 将它们合成为等势，因此它在“按等势识别类型”的意义下满足反对称性。
 
 # 陈述（Lean 对照）
 
@@ -28,25 +29,42 @@ def CardinalLE (α β : Type*) : Prop :=
 
 theorem equinumerous_implies_both_le (h : Equinumerous α β) :
     CardinalLE α β ∧ CardinalLE β α
+
+theorem cardinalLE_refl (α : Type*) : CardinalLE α α
+theorem cardinalLE_trans (hαβ : CardinalLE α β) (hβγ : CardinalLE β γ) :
+    CardinalLE α γ
+theorem cardinalLE_antisymm (hαβ : CardinalLE α β) (hβα : CardinalLE β α) :
+    Equinumerous α β
 ```
 
-`CardinalLE` 是本库公开定义，`Function.Injective` 是实现其含义的 mathlib 谓词。当前公开配套定理只登记“等势推出双向比较”；自反、传递以及由 Cantor–Bernstein 得到的反对称闭环不在本条已登记接口中。
+`CardinalLE` 是本库公开定义，`Function.Injective` 是实现其含义的 mathlib 谓词。三个新增定理已
+公开比较闭环：恒等函数证明自反，单射复合证明传递，`cardinalLE_antisymm` 调用本库
+`cantor_bernstein` 得到等势。这里的反对称结论是 `Equinumerous α β`，不是 Lean 类型相等。
 
 # 思维脉络（thinking trace）
 
-展开 `Equinumerous` 得到 `e : α ≃ β`。正向用 `e.injective` 作为 `CardinalLE α β` 的见证，反向用 `e.symm.injective` 作为 `CardinalLE β α` 的见证。反方向“两个比较推出等势”由下一条 `cantor_bernstein` 单独处理，避免误把输入函数当成彼此的逆。
+自反性选择恒等函数。传递性从单射 `f : α → β`、`g : β → γ` 构造复合 `g ∘ f`，并用
+`hg.comp hf` 验证不会碰撞。等势推出双向比较时分别使用 `e.injective` 与
+`e.symm.injective`。反对称闭环不把输入单射误当成互逆，而是调用 Cantor–Bernstein 重新构造
+双射。
 
 # 自然语言 ↔ Lean 映射
 
 - `|α| ≤ |β|` ↔ `CardinalLE α β`。
 - “把 `α` 嵌入 `β`” ↔ `∃ f : α → β, Function.Injective f`。
 - “等势给出正反两个嵌入” ↔ `e.injective` 与 `e.symm.injective`。
+- “任何大小不大于自身” ↔ `cardinalLE_refl`。
+- “比较可以串接” ↔ `cardinalLE_trans` 与函数复合。
+- “双向不大于推出同样大” ↔ `cardinalLE_antisymm`，结论为 `Equinumerous`。
 - `Function.Injective` 是证明后端谓词；它不额外携带满射或逆函数。
 
 # 依赖（人话版）
 
-概念上依赖前一条等势定义和基本函数论。Lean 中只需 `Function.Injective` 与 `Equiv` 的单射性质；不依赖选择公理。完整的反对称解释依赖后续 Cantor–Bernstein 定理。
+概念上依赖等势、基本函数论和 Cantor–Bernstein。自反与传递只用恒等函数及函数复合；反对称
+闭环依赖下一条已经公开的 `cantor_bernstein`。这些证明不需要选择公理。
 
 # 应用与陷阱
 
-函数方向不能写反：`α → β` 的单射表达 `α` 不大于 `β`。不要把双向单射误解为两个现成函数互逆，也不要把类型大小比较混同于某个具体子集的包含。当前条目是比较关系的基础入口，并未单独公开预序或偏序的全部定律。
+函数方向不能写反：`α → β` 的单射表达 `α` 不大于 `β`。不要把双向单射误解为两个现成函数
+互逆，也不要把类型大小比较混同于具体子集包含。当前已经公开自反、传递和等势意义下的反对称
+定理，但尚未把类型及等势商封装成 Lean 的 `Preorder` 或 `PartialOrder` 实例。
