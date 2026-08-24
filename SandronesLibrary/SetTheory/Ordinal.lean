@@ -16,12 +16,12 @@ import Mathlib.SetTheory.Cardinal.Cofinality.Ordinal
 * **settheory.ordinal.order-type**：良序同构当且仅当序型相同，且自然数序型为 `ω`。
 * **settheory.ordinal.transfinite-induction**：序数上的超限归纳。
 * **settheory.ordinal.transfinite-recursion**：按零、后继、极限三类进行超限递归。
-* **settheory.ordinal.addition**：序数加法不交换。
-* **settheory.ordinal.multiplication**：序数乘法不交换。
-* **settheory.ordinal.exponentiation**：序数幂的后继递推式。
+* **settheory.ordinal.addition**：以良序拼接的序型定义加法，并证明递推式与非交换性。
+* **settheory.ordinal.multiplication**：以字典序积的序型定义乘法，并证明递推式与非交换性。
+* **settheory.ordinal.exponentiation**：以超限递归定义序数幂，并证明零、后继与极限方程。
 * **settheory.ordinal.successor-limit**：后继序数与极限序数的基本性质。
 * **settheory.ordinal.supremum**：序数族上确界的严格小于刻画。
-* **settheory.ordinal.cofinality**：零、后继与 `ω` 的共尾数。
+* **settheory.ordinal.cofinality**：由规范良序载体定义共尾数，并计算零、后继与 `ω`。
 * **settheory.ordinal.normal-function**：底数大于一的序数幂函数是正规函数。
 * **settheory.ordinal.cantor-normal-form**：Cantor 正规形求值还原原序数。
 * **settheory.ordinal.epsilon-zero**：`ε₀` 是 `α ↦ ω^α` 的最小前不动点。
@@ -33,6 +33,8 @@ namespace SandronesLibrary.SetTheory.Ordinal
 open Order
 
 noncomputable section
+
+universe u
 
 /--
 > **Entry**: settheory.ordinal.order-type
@@ -64,32 +66,70 @@ theorem transfinite_induction {P : Ordinal → Prop}
 > **mathlib**: `Ordinal.limitRecOn`
 -/
 def transfiniteRec {M : Ordinal → Sort*} (zero : M 0)
-    (succ : ∀ α, M α → M (α + 1))
+    (succ : ∀ α, M α → M (Order.succ α))
     (limit : ∀ α, IsSuccLimit α → (∀ β < α, M β) → M α) : ∀ α, M α :=
-  fun α ↦ Ordinal.limitRecOn α zero succ limit
+  fun α ↦ Ordinal.limitRecOn α zero
+    (fun β ih ↦ (Order.succ_eq_add_one β) ▸ succ β ih) limit
 
 /--
 > **Entry**: settheory.ordinal.addition
-> **一句话**: `1 + ω = ω`，但 `ω + 1 ≠ ω`，所以序数加法不交换。
-> **依赖**: 无
-> **mathlib**: `Ordinal.add_omega0`、`Order.lt_succ`
+> **一句话**: 两个良序前后拼接的序型定义序数加法；该运算满足后继递推且不交换。
+> **依赖**: `settheory.ordinal.order-type`
+> **mathlib**: `Ordinal.type`、`Ordinal.type_sum_lex`、`Ordinal.add_omega0`、`Order.lt_succ`
 -/
+def ordinalAdd (a b : Ordinal.{u}) : Ordinal.{u} :=
+  Ordinal.type (Sum.Lex ((· < ·) : a.ToType → a.ToType → Prop)
+    ((· < ·) : b.ToType → b.ToType → Prop))
+
+-- 私有桥只用于把本库教材定义交给 mathlib 验证；公开接口不暴露原生 `+`。
+private theorem ordinalAdd_eq_mathlib (a b : Ordinal.{u}) : ordinalAdd a b = a + b := by
+  simp [ordinalAdd]
+
+@[simp]
+theorem ordinalAdd_zero (a : Ordinal.{u}) : ordinalAdd a 0 = a := by
+  rw [ordinalAdd_eq_mathlib, add_zero]
+
+theorem ordinalAdd_succ (a b : Ordinal.{u}) :
+    ordinalAdd a (Order.succ b) = Order.succ (ordinalAdd a b) := by
+  rw [ordinalAdd_eq_mathlib, ordinalAdd_eq_mathlib]
+  simp only [Order.succ_eq_add_one]
+  rw [add_assoc]
+
 theorem addition_not_commutative :
-    (1 : Ordinal) + Ordinal.omega0 = Ordinal.omega0 ∧
-      Ordinal.omega0 + 1 ≠ Ordinal.omega0 := by
-  constructor
-  · exact Ordinal.add_omega0 Ordinal.one_lt_omega0
-  · exact ne_of_gt (Order.lt_succ Ordinal.omega0)
+    ordinalAdd (1 : Ordinal) Ordinal.omega0 = Ordinal.omega0 ∧
+      ordinalAdd Ordinal.omega0 (1 : Ordinal) ≠ Ordinal.omega0 := by
+  rw [ordinalAdd_eq_mathlib, ordinalAdd_eq_mathlib]
+  exact ⟨Ordinal.add_omega0 Ordinal.one_lt_omega0,
+    ne_of_gt (Order.lt_succ Ordinal.omega0)⟩
 
 /--
 > **Entry**: settheory.ordinal.multiplication
-> **一句话**: `2 · ω = ω`，但 `ω · 2 ≠ ω`，所以序数乘法不交换。
+> **一句话**: 在右因子副本之间取字典序所得的序型定义序数乘法；该运算用本库加法递推且不交换。
 > **依赖**: `settheory.ordinal.addition`
-> **mathlib**: `Ordinal.natCast_mul_omega0`、`Ordinal.mul_two`
+> **mathlib**: `Ordinal.type`、`Ordinal.type_prod_lex`、`Ordinal.mul_succ`、
+>   `Ordinal.natCast_mul_omega0`、`Ordinal.mul_two`
 -/
+def ordinalMul (a b : Ordinal.{u}) : Ordinal.{u} :=
+  Ordinal.type (Prod.Lex ((· < ·) : b.ToType → b.ToType → Prop)
+    ((· < ·) : a.ToType → a.ToType → Prop))
+
+-- 与加法同样，原生 `*` 仅是证明后端，不是本库对乘法的公开定义。
+private theorem ordinalMul_eq_mathlib (a b : Ordinal.{u}) : ordinalMul a b = a * b := by
+  simp [ordinalMul]
+
+@[simp]
+theorem ordinalMul_zero (a : Ordinal.{u}) : ordinalMul a 0 = 0 := by
+  rw [ordinalMul_eq_mathlib, mul_zero]
+
+theorem ordinalMul_succ (a b : Ordinal.{u}) :
+    ordinalMul a (Order.succ b) = ordinalAdd (ordinalMul a b) a := by
+  rw [ordinalMul_eq_mathlib, ordinalMul_eq_mathlib, ordinalAdd_eq_mathlib]
+  exact Ordinal.mul_succ a b
+
 theorem multiplication_not_commutative :
-    (2 : Ordinal) * Ordinal.omega0 = Ordinal.omega0 ∧
-      Ordinal.omega0 * 2 ≠ Ordinal.omega0 := by
+    ordinalMul (2 : Ordinal) Ordinal.omega0 = Ordinal.omega0 ∧
+      ordinalMul Ordinal.omega0 (2 : Ordinal) ≠ Ordinal.omega0 := by
+  rw [ordinalMul_eq_mathlib, ordinalMul_eq_mathlib]
   constructor
   · exact Ordinal.natCast_mul_omega0 (by decide)
   · rw [Ordinal.mul_two]
@@ -97,12 +137,50 @@ theorem multiplication_not_commutative :
 
 /--
 > **Entry**: settheory.ordinal.exponentiation
-> **一句话**: 序数幂在后继指数处满足 `a^(b+1) = a^b · a`。
-> **依赖**: `settheory.ordinal.multiplication`
-> **mathlib**: `Ordinal.opow_succ`
+> **一句话**: 序数幂由零、后继与极限三个分支超限递归定义，后继分支调用本库乘法。
+> **依赖**: `settheory.ordinal.transfinite-recursion`、`settheory.ordinal.multiplication`
+> **mathlib**: `Ordinal.limitRecOn`、`Ordinal.opow_succ`、`Ordinal.opow_limit`
 -/
-theorem exponentiation_successor (a b : Ordinal) :
-    a ^ Order.succ b = a ^ b * a := Ordinal.opow_succ a b
+def ordinalPow (a b : Ordinal.{u}) : Ordinal.{u} :=
+  if a = 0 then if b = 0 then 1 else 0 else
+    Ordinal.limitRecOn b 1 (fun _ x => ordinalMul x a)
+      (fun o _ f => ⨆ x : Set.Iio o, f x.1 x.2)
+
+@[simp]
+theorem ordinalPow_zero (a : Ordinal.{u}) : ordinalPow a 0 = 1 := by
+  simp [ordinalPow, Ordinal.limitRecOn_zero]
+
+theorem ordinalPow_succ (a b : Ordinal.{u}) :
+    ordinalPow a (Order.succ b) = ordinalMul (ordinalPow a b) a := by
+  rw [Order.succ_eq_add_one]
+  obtain rfl | ha := eq_or_ne a 0
+  · simp [ordinalPow, ordinalMul_eq_mathlib]
+  · simp [ordinalPow, ha, Ordinal.limitRecOn_add_one]
+
+theorem ordinalPow_limit (a b : Ordinal.{u}) (ha : a ≠ 0) (hb : IsSuccLimit b) :
+    ordinalPow a b = ⨆ x : Set.Iio b, ordinalPow a x.1 := by
+  simp only [ordinalPow, ha, ↓reduceIte]
+  exact Ordinal.limitRecOn_limit _ _ _ _ hb
+
+-- 私有桥验证超限递归定义与 mathlib 序数幂一致。
+private theorem ordinalPow_eq_mathlib (a b : Ordinal.{u}) : ordinalPow a b = a ^ b := by
+  obtain rfl | ha := eq_or_ne a 0
+  · obtain rfl | hb := eq_or_ne b 0
+    · simp [ordinalPow]
+    · simp [ordinalPow, hb, Ordinal.zero_opow hb]
+  induction b using Ordinal.limitRecOn with
+  | zero => simp [ordinalPow, ha]
+  | add_one b ih =>
+      rw [← Order.succ_eq_add_one b, ordinalPow_succ, ordinalMul_eq_mathlib, ih,
+        Ordinal.opow_succ]
+  | limit b hb ih =>
+      rw [ordinalPow_limit a b ha hb]
+      have hfun : (fun x : Set.Iio b => ordinalPow a x.1) =
+          (fun x : Set.Iio b => a ^ x.1) := by
+        funext x
+        exact ih x.1 x.2
+      rw [hfun]
+      exact (Ordinal.opow_limit ha hb).symm
 
 /--
 > **Entry**: settheory.ordinal.successor-limit
@@ -127,32 +205,47 @@ theorem lt_supremum_iff {ι : Type} [Small ι] (f : ι → Ordinal) (a : Ordinal
 
 /--
 > **Entry**: settheory.ordinal.cofinality
-> **一句话**: 零的共尾数为零，后继序数的共尾数为一，而 `ω` 的共尾数为 `ℵ₀`。
+> **一句话**: 以序数规范良序载体的最小共尾子集基数定义共尾数，并计算零、后继与 `ω`。
 > **依赖**: `settheory.ordinal.successor-limit`、`settheory.ordinal.supremum`
-> **mathlib**: `Ordinal.cof_zero`、`Ordinal.cof_add_one`、`Ordinal.cof_omega0`
+> **mathlib**: `Order.cof`、`Ordinal.cof_toType`、`Ordinal.cof_zero`、
+>   `Ordinal.cof_add_one`、`Ordinal.cof_omega0`
 -/
+def ordinalCofinality (a : Ordinal.{u}) : Cardinal.{u} :=
+  Order.cof a.ToType
+
+-- 原生 `Ordinal.cof` 仅用于验证本库从规范良序载体给出的定义。
+private theorem ordinalCofinality_eq_mathlib (a : Ordinal.{u}) :
+    ordinalCofinality a = a.cof := by
+  exact Ordinal.cof_toType a
+
 theorem basic_cofinalities (a : Ordinal) :
-    (0 : Ordinal).cof = 0 ∧ (a + 1).cof = 1 ∧ Ordinal.omega0.cof = Cardinal.aleph0 := by
+    ordinalCofinality 0 = 0 ∧ ordinalCofinality (Order.succ a) = 1 ∧
+      ordinalCofinality Ordinal.omega0 = Cardinal.aleph0 := by
+  rw [ordinalCofinality_eq_mathlib, ordinalCofinality_eq_mathlib,
+    ordinalCofinality_eq_mathlib, Order.succ_eq_add_one]
   exact ⟨Ordinal.cof_zero, Ordinal.cof_add_one a, Ordinal.cof_omega0⟩
 
 /--
 > **Entry**: settheory.ordinal.normal-function
-> **一句话**: 当 `1 < a` 时，函数 `β ↦ a^β` 严格递增且在极限处连续，因而是正规函数。
+> **一句话**: 当 `1 < a` 时，本库函数 `β ↦ ordinalPow a β` 严格递增且在极限处连续。
 > **依赖**: `settheory.ordinal.exponentiation`、`settheory.ordinal.supremum`
 > **mathlib**: `Ordinal.isNormal_opow`
 -/
 theorem exponentiation_isNormal {a : Ordinal} (ha : 1 < a) :
-    IsNormal (fun β : Ordinal ↦ a ^ β) := Ordinal.isNormal_opow ha
+    IsNormal (fun β : Ordinal ↦ ordinalPow a β) := by
+  simpa only [ordinalPow_eq_mathlib] using Ordinal.isNormal_opow ha
 
 /--
 > **Entry**: settheory.ordinal.cantor-normal-form
-> **一句话**: 将序数的 Cantor 正规形按 `b^指数 · 系数 + 余项` 求值，会精确还原原序数。
+> **一句话**: 用本库幂、乘、加求值 Cantor 正规形，会精确还原原序数。
 > **依赖**: `settheory.ordinal.exponentiation`
 > **mathlib**: `Ordinal.CNF.foldr`
 -/
 theorem cantorNormalForm_reconstructs (b o : Ordinal) :
-    (Ordinal.CNF b o).foldr (fun p r ↦ b ^ p.1 * p.2 + r) 0 = o :=
-  Ordinal.CNF.foldr b o
+    (Ordinal.CNF b o).foldr
+      (fun p r ↦ ordinalAdd (ordinalMul (ordinalPow b p.1) p.2) r) 0 = o := by
+  simp_rw [ordinalAdd_eq_mathlib, ordinalMul_eq_mathlib, ordinalPow_eq_mathlib]
+  exact Ordinal.CNF.foldr b o
 
 /--
 > **Entry**: settheory.ordinal.epsilon-zero
@@ -161,8 +254,9 @@ theorem cantorNormalForm_reconstructs (b o : Ordinal) :
 > **mathlib**: `Ordinal.omega0_opow_epsilon`、`Ordinal.epsilon_zero_le_of_omega0_opow_le`
 -/
 theorem epsilonZero_fixed_and_least :
-    Ordinal.omega0 ^ Ordinal.epsilon 0 = Ordinal.epsilon 0 ∧
-      ∀ α : Ordinal, Ordinal.omega0 ^ α ≤ α → Ordinal.epsilon 0 ≤ α := by
+    ordinalPow Ordinal.omega0 (Ordinal.epsilon 0) = Ordinal.epsilon 0 ∧
+      ∀ α : Ordinal, ordinalPow Ordinal.omega0 α ≤ α → Ordinal.epsilon 0 ≤ α := by
+  simp_rw [ordinalPow_eq_mathlib]
   exact ⟨Ordinal.omega0_opow_epsilon 0, fun _ h ↦
     Ordinal.epsilon_zero_le_of_omega0_opow_le h⟩
 
