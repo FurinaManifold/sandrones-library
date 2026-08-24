@@ -22,7 +22,7 @@ Main 负责人是当前唯一的共享状态写者和最终集成者。职责是
    - `git worktree list --porcelain`
    - `git log --oneline -10`
 3. 确认自己位于主 worktree 的 `main` 分支；不得把学科 worktree 直接改造成 main。
-4. 盘点 `docs/handoffs/`、`docs/reviews/`、各学科分支尖端和未跟踪文件。
+4. 盘点 `docs/handoffs/`、`docs/reviews/`、仓库父目录的 `review-inbox/`、各学科分支尖端和未跟踪文件。
 5. 若 main 不干净，先判断修改归属；不得覆盖、重置或擅自提交前任/用户的工作。
 6. 在 commentary 中用一句话声明本轮接管范围；无需创建或维护额外的人工租约表格。
 
@@ -37,8 +37,9 @@ Main 负责人是当前唯一的共享状态写者和最终集成者。职责是
 - 接收学科 staging，而不是直接拼接多个子 Agent 分支。
 - 审核 handoff 是否列全源码、文档、imports、Registry id、RADAR API、ROADMAP 状态、验证和边界。
 - 对学科交付做语义 diff；提交祖先关系或 `git cherry` 不能代替数学审核。
-- 学科未通过时，按 Playbook 在其空闲 worktree 写
-  `docs/reviews/<subject>-<batch>-main-review.md`，不得只在聊天中留返工意见。
+- 学科未通过时，按 Playbook 写入仓库外
+  `../review-inbox/<subject>/<subject>-<batch>-main-review.md`，无需等待目标 worktree 空闲；
+  返工提交再把原意见和处理记录收敛到学科分支的 `docs/reviews/`，不得只在聊天中留意见。
 - 维护迁移由 main 控制阶段门：先接收新定义与桥，再分批接收下游迁移，最后在旧 API 使用归零后
   单独接收退役提交；不得把三阶段压成一次不可回滚的合并。
 - 一次接收 1–3 个互不冲突的 handoff，统一更新共有文件并作独立集成提交。

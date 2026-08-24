@@ -127,22 +127,26 @@
 
 > **9. Main 负责人通知返工流程**
 >
-> 聊天窗口中的返工说明不是权威记录。main 判定一个学科批次暂不接收时，必须把通知写入该学科
-> worktree 的固定路径：
+> 聊天窗口中的返工说明不是权威记录。main 判定一个学科批次暂不接收时，必须把即时通知写入
+> **所有 Git worktree 之外**的共享 review inbox。默认位置是仓库父目录下：
 >
 > ```text
-> docs/reviews/<subject>-<batch>-main-review.md
+> ../review-inbox/<subject>/<subject>-<batch>-main-review.md
 > ```
 >
-> 例如 ST2/ST3 阶段验收写入
-> `docs/reviews/settheory-st2-st3-main-review.md`。文件名中的 `<subject>`、`<batch>` 必须与
-> `docs/handoffs/<subject>-<batch>.md` 使用同一命名；一次 review 只覆盖一个明确批次。若同一批次
-> 多次返工，继续在同一文件末尾增加 `Round 2`、`Round 3`，不得另建 `final-v2-new` 一类文件。
+> 例如主仓库位于 `/workspace/sandrones-library` 时，ST2/ST3 通知写入
+> `/workspace/review-inbox/settheory/settheory-st2-st3-main-review.md`。该目录不入库，Main 可在
+> 学科负责人仍工作的同时写入，不接触目标 worktree 的 index、未跟踪文件或构建缓存。一次 review
+> 只覆盖一个明确批次；同一批次继续在固定文件末尾追加 `Round 2`、`Round 3`。
 >
-> **写入前的并发门**：main 必须先检查 `git worktree list`、目标分支和目标 worktree 的
-> `git status --short`，并确认该学科负责人已经暂停或处于空闲状态。负责人仍在运行时，main 只能
-> 先通过用户/协作消息要求其暂停，不能直接进入同一物理目录写文件。确认空闲后，main 只新增或
-> 更新上述 review 文件，不顺手修改学科源码、条目文档或 handoff。
+> **通知与入库闭环分离**：外部 inbox 中的 review 是返工期间的权威通知，但不是最终仓库记录。
+> 学科负责人恢复或继续工作时必须先读取对应 inbox 文件；返工完成后，把 Main 原意见与处理记录
+> 一并写入本学科分支的 `docs/reviews/<subject>-<batch>-main-review.md` 并提交。Main 复验通过后，
+> 该 Git 内 review 才随集成进入 main。inbox 文件不加入任何 worktree，也不由生成器处理。
+>
+> **并发门的新边界**：Main 写外部 inbox 无需等待学科负责人暂停；但仍必须先检查目标分支、
+> `git status --short` 和提交尖端，以便把 `reviewed_commit` 与未提交范围写清。Main 不得因拥有
+> inbox 写权限而进入忙碌的学科 worktree 修改源码、handoff、Git 内 review、未跟踪文件或 index。
 >
 > 每轮 review 至少包含以下字段：
 >
@@ -171,18 +175,18 @@
 > main 写完后，通过聊天或协作消息只发送一句短通知：
 >
 > ```text
-> 请先阅读 <worktree绝对路径>/docs/reviews/<subject>-<batch>-main-review.md，
+> 请先阅读 <review-inbox绝对路径>/<subject>/<subject>-<batch>-main-review.md，
 > 按其中 verdict 和 checklist 返工；该文件内容是本轮验收的权威版本。
 > ```
 >
-> 学科负责人恢复工作后的第一步必须读取该文件；不得只依赖聊天摘要。完成返工后，在“学科负责人
-> 处理记录”中逐项填写 `resolved`、`declined with reason` 或 `still blocked`，列出修复提交和验证
-> 结果，并把 review 文件与返工一起提交到学科分支。原有 main 意见不得删除或改写，只能在处理
-> 记录中回应。
+> 学科负责人不得只依赖聊天摘要。完成返工后，在 Git 内 review 的“学科负责人处理记录”中逐项
+> 填写 `resolved`、`declined with reason` 或 `still blocked`，列出修复提交和验证结果，并把该文件
+> 与返工一起提交。复制 Main 意见时不得删除或改写，只能在处理记录中回应。
 >
 > main 复验时以 `reviewed_commit..返工提交` 做语义 diff，逐项核销。仍未通过就在同一文件追加
-> 下一轮；通过后追加 `verdict: accepted`、复验提交和命令结果，再随集成提交进入 main。只有聊天
-> 回复、没有 review 文件；review 文件仍为未跟踪状态；或处理记录未提交，均不算完成返工闭环。
+> 下一轮；通过后在 Git 内 review 追加 `verdict: accepted`、复验提交和命令结果，再随集成提交进入
+> main。只有聊天回复、只有外部 inbox 通知、Git 内 review 仍未跟踪，或处理记录未提交，均不算
+> 完成返工闭环。
 
 > **10. 可切换角色的固定 ROLE 文件**
 >
