@@ -11,6 +11,7 @@
 - 有限幂借位、父内兄弟与部分可计算性提交：`3d138d3`
 - 遗传指数借位、任意深最右脊柱与条件式对角论证提交：`9f562d4`
 - 具体配对编码与认证 Hydra 轨迹终止提交：`ba895df`
+- 遗传自然数编码、认证步骤良基与时间型 Busy Beaver 提交：见本批学科提交
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -41,6 +42,9 @@
 - `SandronesLibrary/SetTheory/ComputabilityDiagonal.lean`
 - `SandronesLibrary/SetTheory/ConcretePairingCode.lean`
 - `SandronesLibrary/SetTheory/HydraCertifiedPlayTermination.lean`
+- `SandronesLibrary/SetTheory/HereditaryNatEncoding.lean`
+- `SandronesLibrary/SetTheory/HydraCertifiedStepWellFounded.lean`
+- `SandronesLibrary/SetTheory/BusyBeaverTime.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
 
@@ -74,6 +78,9 @@ import SandronesLibrary.SetTheory.HydraRightmostSpineDescent
 import SandronesLibrary.SetTheory.ComputabilityDiagonal
 import SandronesLibrary.SetTheory.ConcretePairingCode
 import SandronesLibrary.SetTheory.HydraCertifiedPlayTermination
+import SandronesLibrary.SetTheory.HereditaryNatEncoding
+import SandronesLibrary.SetTheory.HydraCertifiedStepWellFounded
+import SandronesLibrary.SetTheory.BusyBeaverTime
 ```
 
 ## Registry
@@ -127,6 +134,9 @@ import SandronesLibrary.SetTheory.HydraCertifiedPlayTermination
 45. `settheory.computability.conditional-diagonal`（`theorem`）
 46. `settheory.computability.concrete-pairing-code`（`definition`）
 47. `settheory.googology.hydra-certified-play-termination`（`theorem`）
+48. `settheory.googology.hereditary-natural-encoding`（`theorem`）
+49. `settheory.googology.hydra-certified-step-well-founded`（`theorem`）
+50. `settheory.googology.busy-beaver-time`（`theorem`）
 
 ## 定义边界
 
@@ -206,6 +216,14 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 实现配对，更没有构造通用 runner 或翻转编译器。Hydra 线把每一步均携带最右脊柱证书的轨迹定义为
 `CertifiedInfinitePlay`，由每步序数下降和序数良基性证明该类型为空；结论只排除认证子关系上的
 无限轨迹，不保证任意 Hydra 状态可继续、不提供步数界，也不是所有 `Hydra.Step` 的终止定理。
+
+第九小批补上任意自然数的遗传基表示层：`hereditaryNatEncode` 以商余 Horner 递归把商继续编码、
+余数保留为合法数字，证明对任意 `base≥2` 与 `n` 均合法且求值恰为 `n`。当前只另给
+`succ omegaValue` 这一机械严格 ceiling，尚未证明编码序数值随自然数单调或通用借位所需的精确
+比较。Hydra 线把认证后继倒置成 `CertifiedPredecessor`，通过结构序数秩函数拉回良基关系，公开
+`WellFounded`、`Acc` 与量化所有认证后继的归纳原理；范围仍不含普通 `Hydra.Step`。可计算性线
+复用唯一 `EventuallyHalts` 关系定义首次停机时间，并在有限机器全集上构造经典最大首次停机时间，
+证明上界、取得、存在和唯一；这是 `noncomputable` 存在性基础，不是算法或不可计算性定理。
 
 ## RADAR
 
@@ -289,6 +307,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_goodstein`（第七批探索）：未形成正式文件。负责人接受其结构性阻塞报告：对 `k>1`，
   `B^(B^k)` 升底后的有限幂展开会出现不小于新底数的指数数字，现有合法性接口无法闭合；在建立
   任意自然数的遗传正规编码器前不伪造推广定理。
+- `st3_goodstein`（第八批）：`HereditaryNatEncoding.lean` 与一篇文档。负责人源码审查发现正式文件
+  缺少统一版权头，并退回要求将机械 `succ omegaValue` ceiling 与通用借位所需精确比较明确区分；
+  返工后确认任意自然数的合法编码和精确求值闭合，但序数单调性仍未证明。
+- `st3_hydra`（第八批）：`HydraCertifiedStepWellFounded.lean` 与一篇文档。负责人核对关系方向为
+  `CertifiedPredecessor after before := CertifiedStep before after`，归纳假设确实覆盖当前树的所有
+  认证后继，而不是普通 `Hydra.Step` 后继。
+- `st3_busy_beaver`（第八批）：`BusyBeaverTime.lean` 与一篇文档。负责人核对最终停机语义直接复用
+  `EventuallyHalts`，首次时间由 `Nat.find` 取得，有限最大值用立即停机机器排除补零假冠军；结论
+  仅为经典存在唯一性，不是计算算法或不可计算性证明。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -316,6 +343,10 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 第八批新增的稳定接口包括：具体 `PairingCode` 实例及其恢复、单射规格；每一步都属于认证最右脊柱
 子关系时，不存在自然数长度的无限 Hydra 轨迹。不可据此依赖 `NatProgram` 配对实现、通用解释器
 实例、一般 Hydra 终止或可计算步数上界。
+第九批新增的稳定接口包括：任意自然数的遗传基合法编码与精确求值；认证 Hydra 步骤关系的
+`WellFounded`、`Acc` 和良基归纳接口；时间型 Busy Beaver 的首次停机时间以及固定状态数经典最大
+时间的存在、取得、上界和唯一性。仍不可依赖编码序数值的输入单调性、一般 Goodstein 借位、所有
+Hydra 步骤的良基性、时间最大值算法或任何 Busy Beaver 不可计算性结论。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -340,6 +371,16 @@ Busy Beaver 不可计算性。因此当前仍不得将完整 ST3 标记为完成
 构建通过，共 1084 个任务；聚合文件同时导入并 `#check` 七个 Entry 的关键 API。七篇文档的精确
 八段、Entry 对照、禁用占位扫描与 `git diff --check` 均通过。Goodstein 的 `B^(B^k)` 探索因缺少
 任意自然数的遗传正规编码器而停止，没有产生或登记正式文件。
+
+第九批完成后，同一外部通知范围扩展为八个新增模块、十个 Entry 与十篇文档。集合论 32 个模块及
+依赖闭包联合构建通过，共 1087 个任务；聚合文件同步导入三个新模块并检查遗传编码、认证关系良基
+与归纳、时间型最大值规格和唯一性。十篇文档的 Entry 对照与精确八段为 10/10；禁用证明占位和
+`TODO`/`FIXME`/`TBD` 零命中；`git diff --check` 通过。
+
+第九批公开教材定义是 `hereditaryNatEncode`、`CertifiedPredecessor`、`HaltedAt`、
+`IsFirstHaltingTime` 与 `IsBusyBeaverTimeValue`。`Nat.strongRec`/商余引理、`WellFounded.onFun`、
+`Nat.find` 和 `Finset.sup` 仅承担终止、关系拉回或经典有限极值的证明后端；没有取代本库遗传语法、
+Hydra 认证步骤或机器停机关系。
 
 ## 合并后验收
 
