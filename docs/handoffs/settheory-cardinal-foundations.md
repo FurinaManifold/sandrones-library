@@ -1,10 +1,23 @@
 # ST2 基数理论（基础与算术批次）：集成交接清单
 
-本文件供集成 Codex 使用。学科分支 `codex/settheory-ordinal` 在本批次只新增：
+本文件供集成 Codex 使用。学科分支 `codex/settheory-ordinal` 在本批次新增：
 
 - `SandronesLibrary/SetTheory/CardinalTheory.lean`
-- `docs/entries/settheory/cardinal/{equinumerous,comparison,cantor-bernstein,cantor-theorem}.md`
-- `docs/entries/settheory/cardinal/{addition,multiplication,exponentiation}.md`
+- `docs/entries/settheory/cardinal/equinumerous.md`
+- `docs/entries/settheory/cardinal/comparison.md`
+- `docs/entries/settheory/cardinal/cantor-bernstein.md`
+- `docs/entries/settheory/cardinal/cantor-theorem.md`
+- `docs/entries/settheory/cardinal/addition.md`
+- `docs/entries/settheory/cardinal/multiplication.md`
+- `docs/entries/settheory/cardinal/exponentiation.md`
+- `docs/entries/settheory/cardinal/finite-set.md`
+- `docs/entries/settheory/cardinal/aleph-hierarchy.md`
+- `docs/entries/settheory/cardinal/beth-hierarchy.md`
+- `docs/entries/settheory/cardinal/cardinal-cofinality.md`
+- `docs/entries/settheory/cardinal/regular-singular.md`
+- `docs/entries/settheory/cardinal/konig-theorem.md`
+- `docs/entries/settheory/cardinal/classical-choice-wellordering.md`
+- `docs/entries/settheory/cardinal/continuum-hypothesis.md`
 
 ## 顶层导入
 
@@ -31,15 +44,25 @@ import SandronesLibrary.SetTheory.CardinalTheory
 11. `settheory.cardinal.cardinal-cofinality`（`definition`）
 12. `settheory.cardinal.regular-singular`（`definition`）
 13. `settheory.cardinal.konig-theorem`（`theorem`）
-14. `settheory.cardinal.choice-equivalences`（`theorem`）
+14. `settheory.cardinal.classical-choice-wellordering`（`theorem`）
 15. `settheory.cardinal.continuum-hypothesis`（`definition`）
 
 ROADMAP 中“有限／可数／不可数集”的其余部分已有
 `SetTheory/Cardinal.lean` 中的 `countable-def`、`countable-rat`、`uncountable-real` 与
 `countable-union` 承担。本分支新增 `finite-set` 补齐有限集接口，不重复复制既有四条。完成合并后，
-ST2 已覆盖 ROADMAP 所列的等势、比较、三种算术、有限／可数／不可数、aleph、beth、共尾性、
-正则／奇异基数、König 定理、选择原则／良序化／Zorn 的等价地位，以及 CH 的准确陈述与独立性
-边界，可由集成 Codex 将 P11/ST2 标记完成。
+本批已完成等势、比较关系闭环、Cantor 严格比较、三种算术、有限集入口、aleph、beth、共尾性、
+无限基数的正则／奇异分类、König 定理，以及 CH 的准确陈述。既有 `Cardinal.lean` 承担可数性
+四条。当前 `classical-choice-wellordering` 只证明 Lean 经典基础中选择函数与良序化可用；尚未在
+无选择公理的共同弱基础上形式化它们与 Zorn 引理的双向等价。因此本批不得建议 main 将 ROADMAP
+中的该等价关系标为完成，P11/ST2 仍保留这一明确边界。
+
+## 下游依赖门
+
+可以稳定依赖：`Equinumerous`、`CardinalLE`、`CardinalLT` 及比较关系闭环；Cantor 幂集严格
+比较；三种教材定义的基数运算；aleph、beth、共尾性、无限基数分类；König 定理与 CH 命题接口。
+
+尚不可依赖：选择公理、良序定理与 Zorn 引理在无选择共同基础中的双向等价；CH/`¬CH` 的证明
+或 Gödel/Cohen 独立性的模型论形式化；更细的选择公理弱形式分类。
 
 标题、premises、mathlib 与 provenance 以对应叙述文件的 front matter 为准。合并后运行
 `python3 scripts/check_axioms.py --all --fix` 重算派生字段。

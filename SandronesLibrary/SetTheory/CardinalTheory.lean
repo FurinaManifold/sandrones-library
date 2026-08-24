@@ -25,7 +25,7 @@ import Mathlib.SetTheory.Cardinal.SchroederBernstein
 * **settheory.cardinal.cardinal-cofinality**：用基数的初始序数定义其共尾性。
 * **settheory.cardinal.regular-singular**：按共尾性是否等于自身区分正则与奇异基数。
 * **settheory.cardinal.konig-theorem**：逐坐标严格较小推出基数和严格小于基数积。
-* **settheory.cardinal.choice-equivalences**：准确陈述选择函数与良序化原则的经典地位。
+* **settheory.cardinal.classical-choice-wellordering**：经典环境中选择函数与良序化原则可用。
 * **settheory.cardinal.continuum-hypothesis**：连续统假设的基数等式陈述及独立性边界。
 -/
 
@@ -64,6 +64,15 @@ theorem equinumerous_implies_both_le {α β : Type*} (h : Equinumerous α β) :
   rcases h with ⟨e⟩
   exact ⟨⟨e, e.injective⟩, ⟨e.symm, e.symm.injective⟩⟩
 
+theorem cardinalLE_refl (α : Type*) : CardinalLE α α :=
+  ⟨id, fun _ _ h => h⟩
+
+theorem cardinalLE_trans {α β γ : Type*} (hαβ : CardinalLE α β)
+    (hβγ : CardinalLE β γ) : CardinalLE α γ := by
+  rcases hαβ with ⟨f, hf⟩
+  rcases hβγ with ⟨g, hg⟩
+  exact ⟨g ∘ f, hg.comp hf⟩
+
 /--
 > **Entry**: settheory.cardinal.cantor-bernstein
 > **一句话**: 若 `α` 可单射进 `β`，且 `β` 可单射进 `α`，则二者等势。
@@ -76,6 +85,14 @@ theorem cantor_bernstein {α β : Type*} (hαβ : CardinalLE α β) (hβα : Car
   rcases hβα with ⟨g, hg⟩
   obtain ⟨h, hh⟩ := Embedding.schroeder_bernstein hf hg
   exact ⟨Equiv.ofBijective h hh⟩
+
+theorem cardinalLE_antisymm {α β : Type*} (hαβ : CardinalLE α β)
+    (hβα : CardinalLE β α) : Equinumerous α β :=
+  cantor_bernstein hαβ hβα
+
+/-- 严格基数比较：可单射进入对方，但对方不能单射回来。 -/
+def CardinalLT (α β : Type*) : Prop :=
+  CardinalLE α β ∧ ¬ CardinalLE β α
 
 /-- 对函数 `f : α → Set α`，对角集合在每个 `x` 处故意与 `f x` 的成员资格相反。 -/
 def diagonalSet {α : Type*} (f : α → Set α) : Set α :=
@@ -103,6 +120,16 @@ theorem cantor_no_surjection {α : Type*} (f : α → Set α) : ¬ Surjective f 
 theorem cantor_not_equinumerous (α : Type*) : ¬ Equinumerous α (Set α) := by
   rintro ⟨e⟩
   exact cantor_no_surjection e e.surjective
+
+theorem cardinalLE_powerSet (α : Type*) : CardinalLE α (Set α) := by
+  exact ⟨fun x => {x}, Set.singleton_injective⟩
+
+theorem not_cardinalLE_powerSet_reverse (α : Type*) : ¬ CardinalLE (Set α) α := by
+  intro h
+  exact cantor_not_equinumerous α (cantor_bernstein (cardinalLE_powerSet α) h)
+
+theorem cantor_strictly_smaller_powerSet (α : Type*) : CardinalLT α (Set α) :=
+  ⟨cardinalLE_powerSet α, not_cardinalLE_powerSet_reverse α⟩
 
 universe u v w
 
@@ -231,6 +258,12 @@ theorem regular_not_singular {c : Cardinal} (h : RegularCardinal c) :
   rintro ⟨_, hs⟩
   exact hs.ne (h.2)
 
+theorem infinite_regular_or_singular {c : Cardinal} (hc : Cardinal.aleph0 ≤ c) :
+    RegularCardinal c ∨ SingularCardinal c := by
+  rcases (cardinalCofinality_le c).lt_or_eq with hlt | heq
+  · exact Or.inr ⟨hc, hlt⟩
+  · exact Or.inl ⟨hc, heq⟩
+
 /--
 > **Entry**: settheory.cardinal.konig-theorem
 > **一句话**: 若每个 `κᵢ` 都严格小于相应的 `λᵢ`，则所有 `κᵢ` 的和严格小于所有 `λᵢ` 的积。
@@ -255,10 +288,10 @@ def WellOrderable (α : Type u) : Prop :=
   ∃ r : α → α → Prop, IsWellOrder α r
 
 /--
-> **Entry**: settheory.cardinal.choice-equivalences
+> **Entry**: settheory.cardinal.classical-choice-wellordering
 > **一句话**: 在 Lean 的经典基础中，任意非空集合族有选择函数，任意类型均可良序化。
-> **依赖**: `settheory.zorn.zorn`、`settheory.ordinal.order-type`
-> **mathlib**: `Classical.choice`、`Cardinal.WellOrderingRel`
+> **依赖**: 无（Lean 经典基础直接提供选择与良序关系）
+> **mathlib**: `Classical.choice`、`WellOrderingRel`
 -/
 theorem choice_and_wellOrder_available {ι : Type u} (A : ι → Type v) (α : Type w) :
     ChoiceFor A ∧ WellOrderable α := by
