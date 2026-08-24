@@ -294,6 +294,150 @@ theorem ringHomomorphism_exists_ringHom {R S : Type*} [Ring R] [Ring S] (f : R �
     map_zero' := hf.1
     map_add' := hf.2.2.1 }, rfl⟩
 
+/-! ### 理想的本库定义与运算 -/
+
+/-- **左理想**：加法子群 `I` 对环中任意元素的左乘封闭。这里把零元、加法、负元和
+左吸收逐项写出，不以 Mathlib 的打包结构代替教材定义。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def LeftIdealSet {R : Type*} [Zero R] [Add R] [Neg R] [Mul R] (I : Set R) : Prop :=
+  0 ∈ I ∧ (∀ ⦃x y : R⦄, x ∈ I → y ∈ I → x + y ∈ I) ∧
+    (∀ ⦃x : R⦄, x ∈ I → -x ∈ I) ∧ (∀ (r : R) ⦃x : R⦄, x ∈ I → r * x ∈ I)
+
+/-- **右理想**：加法子群 `I` 对环中任意元素的右乘封闭。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def RightIdealSet {R : Type*} [Zero R] [Add R] [Neg R] [Mul R] (I : Set R) : Prop :=
+  0 ∈ I ∧ (∀ ⦃x y : R⦄, x ∈ I → y ∈ I → x + y ∈ I) ∧
+    (∀ ⦃x : R⦄, x ∈ I → -x ∈ I) ∧ (∀ (r : R) ⦃x : R⦄, x ∈ I → x * r ∈ I)
+
+/-- **双边理想**：同时是左理想和右理想。交换环中两侧吸收等价；非交换环中必须区分。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def TwoSidedIdealSet {R : Type*} [Zero R] [Add R] [Neg R] [Mul R] (I : Set R) : Prop :=
+  LeftIdealSet I ∧ RightIdealSet I
+
+/-- 集合 `S` 生成的双边理想：所有包含 `S` 的双边理想之交。这一定义直接表达“包含
+`S` 的最小双边理想”，不预先依赖有限和的具体表示。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def generatedTwoSidedIdeal {R : Type*} [Zero R] [Add R] [Neg R] [Mul R]
+    (S : Set R) : Set R :=
+  {x | ∀ I : Set R, TwoSidedIdealSet I → S ⊆ I → x ∈ I}
+
+/-- 两个理想集合的和：由一个 `I` 中元素与一个 `J` 中元素之和组成。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def idealSetSum {R : Type*} [Add R] (I J : Set R) : Set R :=
+  {z | ∃ x ∈ I, ∃ y ∈ J, x + y = z}
+
+/-- 两个双边理想集合的积：由所有 `x*y`（`x∈I, y∈J`）生成的双边理想。
+生成闭包自动包含有限和及双侧环乘，因此该定义在非交换环中也正确。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+def idealSetProduct {R : Type*} [Zero R] [Add R] [Neg R] [Mul R]
+    (I J : Set R) : Set R :=
+  generatedTwoSidedIdeal {z | ∃ x ∈ I, ∃ y ∈ J, x * y = z}
+
+theorem generatedTwoSidedIdeal_is_ideal {R : Type*} [Ring R] (S : Set R) :
+    TwoSidedIdealSet (generatedTwoSidedIdeal S) := by
+  constructor
+  · refine ⟨?_, ?_, ?_, ?_⟩
+    · intro I hI hSI; exact hI.1.1
+    · intro x y hx hy I hI hSI; exact hI.1.2.1 (hx I hI hSI) (hy I hI hSI)
+    · intro x hx I hI hSI; exact hI.1.2.2.1 (hx I hI hSI)
+    · intro r x hx I hI hSI; exact hI.1.2.2.2 r (hx I hI hSI)
+  · refine ⟨?_, ?_, ?_, ?_⟩
+    · intro I hI hSI; exact hI.2.1
+    · intro x y hx hy I hI hSI; exact hI.2.2.1 (hx I hI hSI) (hy I hI hSI)
+    · intro x hx I hI hSI; exact hI.2.2.2.1 (hx I hI hSI)
+    · intro r x hx I hI hSI; exact hI.2.2.2.2 r (hx I hI hSI)
+
+theorem subset_generatedTwoSidedIdeal {R : Type*} [Ring R] (S : Set R) :
+    S ⊆ generatedTwoSidedIdeal S := by
+  intro x hx I hI hSI
+  exact hSI hx
+
+theorem generatedTwoSidedIdeal_least {R : Type*} [Ring R] {S I : Set R}
+    (hI : TwoSidedIdealSet I) (hSI : S ⊆ I) : generatedTwoSidedIdeal S ⊆ I := by
+  intro x hx
+  exact hx I hI hSI
+
+theorem idealSetSum_is_ideal {R : Type*} [Ring R] {I J : Set R}
+    (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J) :
+    TwoSidedIdealSet (idealSetSum I J) := by
+  constructor
+  · refine ⟨⟨0, hI.1.1, 0, hJ.1.1, add_zero 0⟩, ?_, ?_, ?_⟩
+    · rintro a b ⟨x, hx, y, hy, rfl⟩ ⟨u, hu, v, hv, rfl⟩
+      exact ⟨x + u, hI.1.2.1 hx hu, y + v, hJ.1.2.1 hy hv, by abel⟩
+    · rintro a ⟨x, hx, y, hy, rfl⟩
+      exact ⟨-x, hI.1.2.2.1 hx, -y, hJ.1.2.2.1 hy, by abel⟩
+    · rintro r a ⟨x, hx, y, hy, rfl⟩
+      exact ⟨r * x, hI.1.2.2.2 r hx, r * y, hJ.1.2.2.2 r hy, by noncomm_ring⟩
+  · refine ⟨⟨0, hI.2.1, 0, hJ.2.1, add_zero 0⟩, ?_, ?_, ?_⟩
+    · rintro a b ⟨x, hx, y, hy, rfl⟩ ⟨u, hu, v, hv, rfl⟩
+      exact ⟨x + u, hI.2.2.1 hx hu, y + v, hJ.2.2.1 hy hv, by abel⟩
+    · rintro a ⟨x, hx, y, hy, rfl⟩
+      exact ⟨-x, hI.2.2.2.1 hx, -y, hJ.2.2.2.1 hy, by abel⟩
+    · rintro r a ⟨x, hx, y, hy, rfl⟩
+      exact ⟨x * r, hI.2.2.2.2 r hx, y * r, hJ.2.2.2.2 r hy, by noncomm_ring⟩
+
+/-- 在交换环中，本库双边理想定义与 Mathlib `Ideal` 承载结构完全等价。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+theorem twoSidedIdealSet_iff_exists_ideal {R : Type*} [CommRing R] (I : Set R) :
+    TwoSidedIdealSet I ↔ ∃ J : Ideal R, (J : Set R) = I := by
+  constructor
+  · intro hI
+    let asg : AddSubsemigroup R := ⟨I, fun hx hy => hI.1.2.1 hx hy⟩
+    let asm : AddSubmonoid R := ⟨asg, hI.1.1⟩
+    let J : Ideal R := ⟨asm, fun r x hx => hI.1.2.2.2 r hx⟩
+    exact ⟨J, rfl⟩
+  · rintro ⟨J, rfl⟩
+    constructor
+    · exact ⟨J.zero_mem, (fun {_ _} hx hy => J.add_mem hx hy),
+        (fun {_} hx => J.neg_mem hx), fun r {_} hx => J.mul_mem_left r hx⟩
+    · refine ⟨J.zero_mem, (fun {_ _} hx hy => J.add_mem hx hy),
+        (fun {_} hx => J.neg_mem hx), ?_⟩
+      intro r x hx
+      rw [mul_comm]
+      exact J.mul_mem_left r hx
+
+/-- 本库理想和与 Mathlib 格结构中的上确界具有相同底层集合。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+theorem idealSetSum_eq_mathlib_sup {R : Type*} [CommRing R] (I J : Ideal R) :
+    idealSetSum (I : Set R) (J : Set R) = ((I ⊔ J : Ideal R) : Set R) := by
+  ext z
+  exact Submodule.mem_sup.symm
+
+/-- 本库“由两两乘积生成”的定义与 Mathlib 理想乘积具有相同底层集合。
+> **Entry**: abstract-algebra.ring.ideal
+-/
+theorem idealSetProduct_eq_mathlib_mul {R : Type*} [CommRing R] (I J : Ideal R) :
+    idealSetProduct (I : Set R) (J : Set R) = ((I * J : Ideal R) : Set R) := by
+  ext z
+  constructor
+  · intro hz
+    apply hz (I * J : Ideal R)
+    · exact (twoSidedIdealSet_iff_exists_ideal ((I * J : Ideal R) : Set R)).2 ⟨I * J, rfl⟩
+    · rintro w ⟨x, hx, y, hy, rfl⟩
+      exact Ideal.mul_mem_mul hx hy
+  · intro hz
+    obtain ⟨K, hK⟩ :=
+      (twoSidedIdealSet_iff_exists_ideal (generatedTwoSidedIdeal
+        {w | ∃ x ∈ (I : Set R), ∃ y ∈ (J : Set R), x * y = w})).1
+        (generatedTwoSidedIdeal_is_ideal _)
+    have hmul : I * J ≤ K := Ideal.mul_le.mpr (by
+      intro x hx y hy
+      change x * y ∈ (K : Set R)
+      rw [hK]
+      exact subset_generatedTwoSidedIdeal _ ⟨x, hx, y, hy, rfl⟩)
+    change z ∈ generatedTwoSidedIdeal
+      {w | ∃ x ∈ (I : Set R), ∃ y ∈ (J : Set R), x * y = w}
+    rw [← hK]
+    exact hmul hz
+
 /-- **理想判定定理**（教材核心判据）：子集 I 含 0、对加法封闭、且被 R 乘法吸收（y ∈ I ⟹ x·y ∈ I）⟹ I 是理想。 
 > **Entry**: abstract-algebra.ring.ideal
 -/
