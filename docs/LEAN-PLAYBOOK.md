@@ -125,6 +125,65 @@
 > - handoff 必须声明本批哪些对象是本库公开定义、哪些 Mathlib 名称仅是私有桥或证明后端。
 >   main 在 Registry/RADAR 中也必须保留这种角色区别，不能把实现承载重新描述成教材定义。
 
+> **9. Main 负责人通知返工流程**
+>
+> 聊天窗口中的返工说明不是权威记录。main 判定一个学科批次暂不接收时，必须把通知写入该学科
+> worktree 的固定路径：
+>
+> ```text
+> docs/reviews/<subject>-<batch>-main-review.md
+> ```
+>
+> 例如 ST2/ST3 阶段验收写入
+> `docs/reviews/settheory-st2-st3-main-review.md`。文件名中的 `<subject>`、`<batch>` 必须与
+> `docs/handoffs/<subject>-<batch>.md` 使用同一命名；一次 review 只覆盖一个明确批次。若同一批次
+> 多次返工，继续在同一文件末尾增加 `Round 2`、`Round 3`，不得另建 `final-v2-new` 一类文件。
+>
+> **写入前的并发门**：main 必须先检查 `git worktree list`、目标分支和目标 worktree 的
+> `git status --short`，并确认该学科负责人已经暂停或处于空闲状态。负责人仍在运行时，main 只能
+> 先通过用户/协作消息要求其暂停，不能直接进入同一物理目录写文件。确认空闲后，main 只新增或
+> 更新上述 review 文件，不顺手修改学科源码、条目文档或 handoff。
+>
+> 每轮 review 至少包含以下字段：
+>
+> ```markdown
+> # Main review: <subject>-<batch>
+>
+> - branch: <学科分支>
+> - reviewed_commit: <被审核提交；含未提交成果时写 commit 加 git status 摘要>
+> - reviewer: main
+> - verdict: needs_changes | blocked | accepted
+> - reviewed_at: YYYY-MM-DD
+>
+> ## 已通过
+> ## 必须返工
+> ## 可选择降级的接口
+> ## 不得越过的边界
+> ## 要求重跑的验证
+> ## 学科负责人处理记录
+> ```
+>
+> “必须返工”必须逐项给出证据位置（文件、声明名或文档 id）、期望结果和验收方法，不能只写
+> “证明太薄”“文档不好”。若允许降级，必须明确需要同步修改的 Lean docstring、标题、summary、
+> Registry 建议和 ROADMAP 完成度。若共有文件由 main 管理，通知中必须再次列明学科负责人不得
+> 修改的共有文件。
+>
+> main 写完后，通过聊天或协作消息只发送一句短通知：
+>
+> ```text
+> 请先阅读 <worktree绝对路径>/docs/reviews/<subject>-<batch>-main-review.md，
+> 按其中 verdict 和 checklist 返工；该文件内容是本轮验收的权威版本。
+> ```
+>
+> 学科负责人恢复工作后的第一步必须读取该文件；不得只依赖聊天摘要。完成返工后，在“学科负责人
+> 处理记录”中逐项填写 `resolved`、`declined with reason` 或 `still blocked`，列出修复提交和验证
+> 结果，并把 review 文件与返工一起提交到学科分支。原有 main 意见不得删除或改写，只能在处理
+> 记录中回应。
+>
+> main 复验时以 `reviewed_commit..返工提交` 做语义 diff，逐项核销。仍未通过就在同一文件追加
+> 下一轮；通过后追加 `verdict: accepted`、复验提交和命令结果，再随集成提交进入 main。只有聊天
+> 回复、没有 review 文件；review 文件仍为未跟踪状态；或处理记录未提交，均不算完成返工闭环。
+
 > **5 次试错法**：同一证明试错 ≥ 5 次 ⟹ 停止盲试，拆成子 todo（带 sorry 框架），逐个解决。
 
 > **用途**：把"用 Lean 表达数学推理"的实战经验沉淀为可检索知识。
