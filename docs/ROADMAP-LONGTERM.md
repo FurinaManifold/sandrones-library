@@ -207,8 +207,8 @@
 | 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | ✅ |
 | 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | ✅ |
 | 18 | `linear-algebra.decomposition.svd` | 奇异值分解及奇异值基本性质 | ✅ |
-| 19 | `linear-algebra.decomposition.polar` | 极分解与正半定平方根 | 🔲 |
-| 20 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆与最小二乘 | 🔲 |
+| 19 | `linear-algebra.decomposition.polar` | 极分解与正半定平方根 | ✅ |
+| 20 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆与最小二乘 | ✅ |
 
 ---
 

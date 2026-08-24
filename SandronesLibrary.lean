@@ -36,6 +36,8 @@ import SandronesLibrary.LinearAlgebra.MatrixQR
 import SandronesLibrary.LinearAlgebra.MatrixCholesky
 import SandronesLibrary.LinearAlgebra.MatrixSchur
 import SandronesLibrary.LinearAlgebra.MatrixSVD
+import SandronesLibrary.LinearAlgebra.MatrixPolar
+import SandronesLibrary.LinearAlgebra.MatrixPseudoinverse
 import SandronesLibrary.LinearAlgebra.TensorExterior
 import SandronesLibrary.Analysis.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
