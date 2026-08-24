@@ -4,8 +4,10 @@
 > 的章节蓝图；这份文档管**全库学科前后顺序**，并把每一门课拆成**批次**，每批拆到
 > **具体定理条目**（粒度 = 现在"第四章第一批：函数极限基础 13 条"那么细致）。
 >
-> 每批都沿着 `INGESTION_PROTOCOL.md` 走：`.lean` 文件头列条目清单 → 逐条（Entry/docstring）→
-> `lake build` → `check_axioms --fix` → `audit.py` → RADAR → `git commit`（`"<阶段><批>: <主题>（N 条）+ 注册/RADAR"`）。
+> 每批都沿着 `INGESTION_PROTOCOL.md` 和 `LEAN-PLAYBOOK.md` 走：`.lean` 文件头列条目清单 →
+> 逐条（Entry/docstring）→ 子 Agent 模块编译 → 学科负责人依赖闭包与联合导入验收 → 学科提交。
+> main 合并各学科交付后统一执行 Registry/RADAR/ROADMAP、`check_axioms --fix`、`audit.py` 和
+> 一次全库 `lake build`，再作独立集成提交。
 >
 > 一个"条目"是一个可验证的结论（一个 lemma/theorem/def + 一个叙述层 `.md` + 一条 registry 记录），
 > 不是一堆结论的打包。下表把每批列到条目级，写计划的人与实现的人都应能指着条目名说"这条是否已 verified"。
@@ -24,26 +26,115 @@
 
 | 阶段 | 课程（家族前缀） | 批次 | 前驱 |
 |---|---|---|---|
-| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3 M4 M5 | — |
-| **Phase 2 线性代数** | `linear-algebra.*` | L1 L2 L3 L4 L5 | 集合论预备 |
-| **Phase 3 抽象代数** | `abstract-algebra.*` | A1 A2 A3 | 等价关系/商集 |
-| **Phase 4 拓扑学基础** | `topology.*` | T1 T2 T3 T4 | 集合论 + 分析线直观 |
-| **Phase 5 实分析** | `real-analysis.*` | R1 R2 R3 R4 R5 | T3 + M 系列 |
+| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ | — |
+| **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
+| **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
+| **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🔲 | 集合论 + 分析线直观 |
+| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C1 C2 C3 | R2 T3 M4 |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | L5 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1 Pr2 Pr3 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1 S2 | Pr |
-| **Phase 10 数论分支** | `number-theory.*` | N1 N2 N3 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `set-theory.*` | ST1 ST2 ST3 | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
+| **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🔲 ST3🔒 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X* | 各自分支前置达标 |
 
 **为什么实分析在拓扑之后、且用测度积分**：测度论需要 σ-代数/可测空间（拓扑的抽象层）；
 而 mathlib 内置积分是**一般测度的 Lebesgue 积分**，不是黎曼积分——所以一元微积分只做到导数/中值，
 积分本体放到 R 用测度积分承载（覆盖黎曼的微积分基本定理/换元/收敛定理，且是概率/泛函的地基）。
 
+### 1.1 多学科并行生产路线（main 调度基线）
+
+本节是后续开工的权威调度表。章节清单回答“最终要学什么”，本节回答“下一轮谁先做什么、
+可以怎样拆给子 Agent、何时允许进入 main”。状态含义：✅ 已完成，🚧 可立即开工，
+🔒 等待依赖门，🔲 尚未排入当前两个波次。
+
+#### 角色与容量
+
+- **main 负责人**：维护本表、分配文件所有权、检查 worktree 和提交边界、接收 handoff、更新共有
+  imports/Registry/RADAR/ROADMAP，并对一组已接收学科提交只运行一次全库验收。main 原则上不与
+  学科负责人同时开发同一学科源码。
+- **学科负责人**：每人维护一个学科 staging 分支；可派 2–3 个子 Agent，每个子 Agent 只拥有一组
+  `.lean` 文件及对应 `docs/entries/<family>/`。负责人亲自审核定义层、数学陈述、公开签名、证明、
+  文档和依赖闭包，并收敛成一个 handoff。
+- **子 Agent**：优先领取 4–10 个强相关条目，避免一个 Agent 横跨两个家族或修改共有文件。
+  若一个批次有公共定义，先由“定义层 Agent”交付并经负责人组装验收，再并行启动上层证明。
+- **默认并发上限**：一个学科负责人加至多三个子 Agent；main 可同时接收多个学科 staging，
+  但同一轮只指定一个共有文件写者。机器资源不足时优先保留 Lean 编译，文档审核可串行。
+
+#### 当前依赖门
+
+| 门 | 开门条件 | 解锁工作 | 当前状态 |
+|---|---|---|---|
+| G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | 🚧 |
+| G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
+| G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧 |
+| G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
+| G-ST | ST2 基数算术与选择公理等价入口完成，并另建可计算性定义层 | ST3 增长层级 | 🔲 |
+| G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
+
+依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
+必须已有本库教材定义、显式实现桥、课程文档和 verified Registry 条目。
+
+#### Wave A：现在立即并行（五名学科负责人）
+
+| 优先级 | 学科 staging | 负责人总目标 | 建议子 Agent 切分 | 出口条件 |
+|---|---|---|---|---|
+| P0 | A2 环论 | 补齐 A2.2–A2.9，打开 G-A2 | A2-I 理想和同构定理；A2-D 整除/Euclidean/PID/UFD；A2-C CRT/局部化 | 8 个课程入口完整；A3/N2 可只依赖本库 A2 API |
+| P0 | C1 复微分 | 全纯、复可微、Cauchy–Riemann 与幂级数入口 | C1-D 定义/代数；C1-CR Cauchy–Riemann；C1-P 局部幂级数 | 为 C2 复积分提供稳定公开签名 |
+| P1 | F1 泛函基础 | 赋范空间、连续线性映射、Banach 基础 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | 不提前引用开映射/闭图定理 |
+| P1 | Pr1 概率基础 | 概率空间、随机变量、分布、期望、独立性 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | 打开 G-Pr，且所有概率概念先有本库定义层 |
+| P1 | ST2.1 基数基础 | 等势、比较、Cantor–Bernstein、Cantor 定理、可数性 | ST2-E 等势/比较；ST2-C Cantor 系；ST2-N 有限/可数/不可数 | 不提前声称 CH 或独立性证明 |
+
+Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和文件分片；main 确认没有跨学科签名冲突后，
+子 Agent 才进入证明阶段。A2 和 C1 是关键路径，main 优先审核它们的 handoff。
+
+#### Wave B：依赖满足即可启动，不必等待 Wave A 全部结束
+
+| 启动条件 | 学科 staging | 批次与子 Agent 包 | 关键出口 |
+|---|---|---|---|
+| A2-I 完成 | A3 多项式 | A3-P1 多项式定义/除法；A3-P2 不可约判据；A3-P3 分解/重根 | A3.1–A3.4 全部转正 |
+| C1 完成 | C2 复积分 | C2-I 路径积分；C2-C Cauchy 定理/公式；C2-A 解析性与唯一性 | 打开 Laurent/残数路线 |
+| F1 完成 | F2 Banach 定理 | 一致有界；开映像；闭图与逆算子 | 三大定理分别独立文件，公共 Baire 接口先行 |
+| Pr1 完成 | Pr2 概率极限定理 | 条件期望；大数律；中心极限定理前置 | S1 只在期望/方差/分布接口稳定后启动 |
+| ST2.1 完成 | ST2.2 基数算术 | 加乘幂；aleph/beth；共尾性与 König | 选择公理等价和 CH 边界另包处理 |
+| main 有空闲审核槽 | T4 代数拓扑入口 | 道路/同伦；同伦等价；基本群；教材例子 | 圆周基本群若 Mathlib 缺桥则明确降级，不伪造闭环 |
+
+#### Wave C：受门控的纵深工作
+
+| 门 | 后续学科路线 | 第一批可执行目标 | 禁止越界 |
+|---|---|---|---|
+| G-A2 + G-A3 | N2 代数数论 | N2.1 数域/代数整数；N2.2 范数迹判别式；N2.3 整数环与整基 | 未有 Dedekind/分式理想定义前，不登记类群和唯一分解 |
+| G-C | N3 解析数论 | N3.1 算术函数可提前独立做；开门后做 Dirichlet 级数、ζ、Euler 乘积 | 素数定理必须有复分析依赖链，不以单条 Mathlib 定理包装代替课程证明 |
+| G-Pr | S1 统计推断 | 分布族、估计量、偏差/方差、矩估计与 MLE 定义 | 不在测度/可测性前提不清时使用非正式“密度最大化” |
+| G-ST | ST3 递归与增长 | 原始递归、Ackermann、序数记号、基本列 | Goodstein 状态编码完成前，不把 ST1 的下降接口宣称为 Goodstein 定理 |
+| G-N1+ | N1 扩展 | 最佳逼近必要方向、周期连分数、`√d`—Pell、全体正解分类 | 负 Pell 与可解性必须单列，不由正 Pell 结果暗示 |
+
+#### 每个学科 handoff 必须回答的路线问题
+
+除 Playbook 规定字段外，`docs/handoffs/<subject>-<batch>.md` 必须增加以下六项：
+
+1. 本批打开或依赖哪个门；若不开门，说明它推进了门的哪一部分。
+2. 公共定义由哪个文件拥有，哪些 Mathlib 名称只是私有桥或证明后端。
+3. 子 Agent 的精确文件所有权、提交号，以及负责人实际退回修改过的问题。
+4. 本批联合导入测试包含哪些模块和关键 `#check`。
+5. 下一批可以稳定依赖的公开 API，以及明确不能依赖的未完成接口。
+6. 建议 main 更新的 imports、Registry、RADAR、ROADMAP 状态和诚实边界。
+
+#### main 的滚动集成节奏
+
+- **接收窗口**：按“已通过学科审核”而非按 Agent 完成时间接收；关键路径 A2/C1 优先。
+- **小批集成**：一次接收 1–3 个互不冲突的学科 handoff；先语义 diff，再更新共有文件。
+- **验收复用**：每个学科已通过局部闭包和联合导入，main 不重复这些证明探索；main 负责生成器、
+  全量公理审计、全库 audit 和一次全库 build。
+- **状态推进**：只有集成提交落在 main 且完整验收通过，表中的 🚧/🔲 才能改成 ✅；仅存在于
+  子分支或 staging 的内容继续记为进行中。
+- **失败回退**：数学或定义层问题退回对应学科负责人；共有文件冲突由 main 语义合并；其他学科
+  的无关 linter 警告记录但不混入当前修复提交。
+
 ---
 
-## 2. Phase 1 — 分析线（M1✅ M2✅ M3-M5 待写）
+## 2. Phase 1 — 分析线（M1-M5 ✅）
 
 > 家族前缀 `analysis.`；命名示例：`analysis.continuity.definition`、`analysis.derivative.chain-rule`。
 
@@ -58,7 +149,7 @@
 `analysis.func-limit.definition`、`.const`、`.identity`、`.unique`、`.congr`、`.add`、`.sub`、`.mul`、
 `.div`、`.const-mul`、`.le`、`.heine`、`.at-top`。
 
-### M3 连续函数（下一批）
+### M3 连续函数 ✅
 
 | # | 条目 id | 内容 | mathlib |
 |---|---|---|---|
@@ -77,7 +168,7 @@
 
 > 里程碑（M3 结束）：库能表达"连续函数论"，第一次"能干活"，M4 全部就绪。
 
-### M4 导数（下一批之后）
+### M4 导数 ✅
 
 | # | 条目 id | 内容 | mathlib |
 |---|---|---|---|
@@ -91,7 +182,7 @@
 | 8 | `analysis.derivative.chain-rule` | **链式法则** | `HasDerivAt.comp` |
 | 9 | `analysis.derivative.inverse-function` | **反函数求导** | `HasDerivAt.inverse` |
 
-### M5 微分中值定理与泰勒
+### M5 微分中值定理与泰勒 ✅
 
 | # | 条目 id | 内容 | mathlib |
 |---|---|---|---|
@@ -106,12 +197,12 @@
 
 ---
 
-## 3. Phase 2 — 线性代数（L1-L5）
+## 3. Phase 2 — 线性代数（L1-L7 ✅）
 
 > 家族前缀 `linear-algebra.`。mathlib 线性代数是模语言（`Module`/`Submodule`/`Basis`），
 > 向量空间 = 系数为域（`Field`）的模。叙述层先做"域上模 = 向量空间"翻译。
 
-### L1 向量空间（基质/子空间/基/维数）
+### L1 向量空间（基质/子空间/基/维数）✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -122,7 +213,7 @@
 | 5 | `linear-algebra.vector-space.basis` | 基：存在性与张成 | `Basis`、`exists_basis` |
 | 6 | `linear-algebra.vector-space.dimension` | 维数 | `Module.finrank`、`Module.finrank_eq_card_basis` |
 
-### L2 线性映射/矩阵/秩
+### L2 线性映射/矩阵/秩 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -132,7 +223,7 @@
 | 4 | `linear-algebra.maps.rank` | 秩、秩-零度定理 | `rank`、`rank_comp_le`、`rank_add_le` |
 | 5 | `linear-algebra.matrix.symmetric` | 对称矩阵、反对称矩阵及标准分解 | `Matrix.IsSymm`、`Matrix.transpose` |
 
-### L3 行列式
+### L3 行列式 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -141,7 +232,7 @@
 | 3 | `linear-algebra.det.invertible` | 可逆 ⟺ det≠0 | `det_ne_zero_iff`、`isUnit_iff` |
 | 4 | `linear-algebra.det.likeness` | 转置/行列展开 | `det_transpose`、`Matrix.det_apply` |
 
-### L4 特征值/相似/对角化
+### L4 特征值/相似/对角化 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -150,7 +241,7 @@
 | 3 | `linear-algebra.eigen.similar` | 相似变换、对角化判据 | `Matrix.Similar`、`IsDiagonalizable` |
 | 4 | `linear-algebra.eigen.jordan` | 代数闭域上的 Jordan 标准形与矩阵相似形式 | 本库自建 Jordan 链、块对角矩阵与换基接口 |
 
-### L5 内积空间/正交/谱/二次型
+### L5 内积空间/正交/谱/二次型 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -160,7 +251,7 @@
 | 4 | `linear-algebra.inner.spectral` | **谱定理**（实对称） | `isDiagonalizable`、`spectrum` 系 |
 | 5 | `linear-algebra.inner.quadratic` | 二次型、双线性型 | `QuadraticForm`、`QuadraticForm.associated` |
 
-### L6 保结构矩阵与经典矩阵群
+### L6 保结构矩阵与经典矩阵群 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -169,7 +260,7 @@
 | 3 | `linear-algebra.matrix.symplectic` | 标准辛形式、辛矩阵 `AᵀJA=J`、乘法与逆封闭、行列式为一 | `Matrix.symplecticGroup`、`Matrix.mem_iff'`、`Matrix.det_eq_one` |
 | 4 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | `AlternatingMap`、`BilinForm`、辛空间接口 |
 
-### L7 矩阵分解与数值线性代数基础
+### L7 矩阵分解与数值线性代数基础 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
