@@ -1087,6 +1087,17 @@
 - **签名**：`Subgroup.Normal.conj_mem (self : H.Normal) (n : G) : n∈H → ∀ g, g·n·g⁻¹∈H`；`QuotientGroup.mk_mul N [N.Normal] a b`
 - **出处**：`Mathlib/GroupTheory/Subgroup/Basic.lean`、`Mathlib/GroupTheory/QuotientGroup/Basic.lean`
 - **谁在用**：`abstract-algebra.group.normal`。
+
+### `normal_iff_eq_cosets` / `Subgroup.Normal.comap` / `Subgroup.Normal.map`
+- **人话**：正规子群等价于所有左右陪集相等；正规子群的逆像仍正规，沿满同态的像仍正规。
+- **谁在用**：`abstract-algebra.group.normal` 的等价刻画和稳定构造。
+- **坑**：`Normal.map` 需要同态满射；`Normal.comap` 不需要。
+
+### `QuotientGroup.ker_mk'` / `QuotientGroup.lift` / `QuotientGroup.lift_mk'` / `QuotientGroup.mk'_surjective`
+- **人话**：商投影的核恰为原正规子群；若 `H ≤ ker f`，则 f 唯一下降到 `G/H`，
+  且在代表元上满足 `f̄(gH)=f(g)`。商投影本身是满射。
+- **谁在用**：`abstract-algebra.group.normal` 的商映射泛性质。
+- **坑**：`QuotientGroup.lift` 需要 `[H.Normal]` 和明确的核包含证明。
 - **坑**：商群引理需要 `[nN : N.Normal]` typeclass 参数；`G ⧸ H` 是商群类型记号。
 
 ### `Subgroup.normal_of_index_eq_two`
@@ -1102,6 +1113,15 @@
 - **出处**：`Mathlib/Algebra/Hom/Group.lean`、`Mathlib/GroupTheory/QuotientGroup/Basic.lean`
 - **谁在用**：`abstract-algebra.group.hom`。
 - **坑**：同态基本定理在 mathlib 是现成定义（非需自证）；`f.ker = ⊥` 中 `⊥` 是平凡子群。
+
+### `MonoidHom.comp` / `Subgroup.map` / `Subgroup.comap` / `MonoidHom.range_comp`
+- **人话**：群同态的复合、子群沿同态的像与逆像，以及复合同态的像公式。
+- **谁在用**：`abstract-algebra.group.hom` 的函子性和子群接口。
+- **坑**：`map` 与同态同向，`comap` 与同态反向。
+
+### `MulEquiv.ofBijective` / `MulEquiv.orderOf_eq` / `Nat.card_congr`
+- **人话**：双射群同态升级为群同构；群同构保持元素阶，并由底层等价保持群的基数。
+- **谁在用**：`abstract-algebra.group.hom` 的同构构造与不变量。
 
 ### `Ring` / `Subring` / `Subring.ext` / `Subring.one_mem` / `Subring.zero_mem` / `Subring.mem_bot` / `Subring.mem_top` / `RingHom`
 - **人话**：`Ring R` 环 typeclass；`Subring R` 子环结构（含 1）；外延性；子环含 1/0；

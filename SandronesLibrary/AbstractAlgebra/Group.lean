@@ -12,9 +12,9 @@ import Mathlib
 
 * **abstract-algebra.group.def**（单位元与逆元唯一/消去与方程/整数幂/生成子群/子群格）✅。
 * **abstract-algebra.group.coset**（左右陪集/陪集分割/Lagrange/子群阶与元素阶的整除推论）✅。
-* **abstract-algebra.group.normal**（共轭封闭/交换性/平凡与全正规/商群保运算）✅。
+* **abstract-algebra.group.normal**（等价刻画/核与稳定构造/商群运算/商映射泛性质）✅。
 * **abstract-algebra.group.index-two**（指数 2 子群必正规）✅。
-* **abstract-algebra.group.hom**（核值域刻画/保单位元乘法逆/单射⟺核平凡/满射⟺值域全/同态基本定理）✅。
+* **abstract-algebra.group.hom**（复合与子群像/单满射判据/显式第一同构定理/同构不变量）✅。
 
 > **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Group`/`Subgroup`/
 > `MonoidHom`/`QuotientGroup` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
@@ -411,6 +411,49 @@ theorem normal_conj_mem {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal)
     (n : G) (hn : n ∈ H) (g : G) : g * n * g⁻¹ ∈ H := by
   exact nH.conj_mem n hn g
 
+/-- **正规性的陪集刻画**：H 正规当且仅当每个元素对应的左陪集与右陪集相等，
+即 `gH = Hg`。这是从陪集进入商群的关键判据。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem normal_iff_left_coset_eq_right_coset {G : Type*} [Group G]
+    (H : Subgroup G) :
+    H.Normal ↔ ∀ g : G, g • (H : Set G) = MulOpposite.op g • (H : Set G) := by
+  exact _root_.normal_iff_eq_cosets (s := H)
+
+/-- 群同态的核总是正规子群。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem kernel_is_normal {G N : Type*} [Group G] [Group N] (f : G →* N) :
+    f.ker.Normal := by
+  infer_instance
+
+/-- 正规子群沿任意群同态的逆像仍正规。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem normal_comap {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (H : Subgroup N) (hH : H.Normal) :
+    (Subgroup.comap f H).Normal := by
+  exact hH.comap f
+
+/-- 正规子群沿满群同态的像仍正规。满射条件确保目标群中的任意共轭元都能提升。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem normal_map_of_surjective {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (hf : Function.Surjective f)
+    (H : Subgroup G) (hH : H.Normal) :
+    (Subgroup.map f H).Normal := by
+  exact hH.map f hf
+
+/-- 两个正规子群的交仍是正规子群。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem normal_inf {G : Type*} [Group G] (H K : Subgroup G)
+    (hH : H.Normal) (hK : K.Normal) : (H ⊓ K).Normal := by
+  refine Subgroup.Normal.mk ?_
+  intro n hn g
+  rw [Subgroup.mem_inf] at hn ⊢
+  exact ⟨hH.conj_mem n hn.1 g, hK.conj_mem n hn.2 g⟩
+
 /-- **正规子群的交换性**：H 正规 ⟹ a·b ∈ H ⟹ b·a ∈ H。 
 > **Entry**: abstract-algebra.group.normal
 -/
@@ -462,6 +505,56 @@ theorem quotient_mk_inv {G : Type*} [Group G] (H : Subgroup G) (nH : H.Normal) (
     QuotientGroup.mk (s := H) (a⁻¹) = (QuotientGroup.mk (s := H) a)⁻¹ := by
   exact QuotientGroup.mk_inv H a
 
+/-! ### 商映射的泛性质 -/
+
+/-- 商投影 `G → G/H` 的核恰好是 H。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem quotient_projection_kernel {G : Type*} [Group G]
+    (H : Subgroup G) [H.Normal] :
+    (QuotientGroup.mk' H).ker = H := by
+  exact QuotientGroup.ker_mk' H
+
+/-- **商群泛性质的存在部分**：若 `H ≤ ker f`，则 f 唯一地下降为从 `G/H` 出发的同态。
+这里先构造下降后的同态；唯一性在 `quotientLift_unique` 中给出。
+> **Entry**: abstract-algebra.group.normal
+-/
+def quotientLift {G N : Type*} [Group G] [Group N]
+    (H : Subgroup G) [H.Normal] (f : G →* N) (hker : H ≤ f.ker) :
+    G ⧸ H →* N :=
+  QuotientGroup.lift H f hker
+
+/-- 下降同态在陪集代表元上的计算公式：`f̄(gH)=f(g)`。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem quotientLift_mk {G N : Type*} [Group G] [Group N]
+    (H : Subgroup G) [H.Normal] (f : G →* N) (hker : H ≤ f.ker) (g : G) :
+    quotientLift H f hker (QuotientGroup.mk' H g) = f g := by
+  exact QuotientGroup.lift_mk' H hker g
+
+/-- 下降同态与商投影复合后恢复原同态。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem quotientLift_comp_projection {G N : Type*} [Group G] [Group N]
+    (H : Subgroup G) [H.Normal] (f : G →* N) (hker : H ≤ f.ker) :
+    (quotientLift H f hker).comp (QuotientGroup.mk' H) = f := by
+  exact QuotientGroup.lift_comp_mk' H f hker
+
+/-- **商群泛性质的唯一性部分**：任何与商投影复合后等于 f 的同态，都等于规范下降
+`quotientLift H f hker`。证明利用商投影满射，把商群元素取成某个代表元的像。
+> **Entry**: abstract-algebra.group.normal
+-/
+theorem quotientLift_unique {G N : Type*} [Group G] [Group N]
+    (H : Subgroup G) [H.Normal] (f : G →* N) (hker : H ≤ f.ker)
+    (q : G ⧸ H →* N) (hq : q.comp (QuotientGroup.mk' H) = f) :
+    q = quotientLift H f hker := by
+  apply MonoidHom.ext
+  intro x
+  obtain ⟨g, rfl⟩ := QuotientGroup.mk'_surjective H x
+  have hqg := DFunLike.congr_fun hq g
+  change q (QuotientGroup.mk' H g) = f g at hqg
+  rw [hqg, quotientLift_mk]
+
 /-- **指数 2 子群必正规**：若 H 在 G 中的指数 [G:H] = 2（恰有两个陪集），则 H 是正规子群。
   教材经典定理：指数最小的非平凡子群必正规。 
 > **Entry**: abstract-algebra.group.index-two
@@ -476,6 +569,50 @@ theorem normal_of_index_two {G : Type*} [Group G] (H : Subgroup G) (hH : H.index
 theorem hom_mem_ker {G M : Type*} [Group G] [MulOneClass M] (f : G →* M) (x : G) :
     x ∈ f.ker ↔ f x = 1 := by
   exact MonoidHom.mem_ker (f := f)
+
+/-- 恒等同态在每个元素上的值就是该元素本身。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_id_apply {G : Type*} [Group G] (x : G) :
+    MonoidHom.id G x = x := by rfl
+
+/-- 复合同态逐点满足 `(g ∘ f)(x)=g(f(x))`。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_comp_apply {G N P : Type*} [Group G] [Group N] [Group P]
+    (g : N →* P) (f : G →* N) (x : G) :
+    g.comp f x = g (f x) := by rfl
+
+/-- 子群逆像的元素刻画：`x ∈ f⁻¹(H)` 当且仅当 `f(x) ∈ H`。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_mem_comap {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (H : Subgroup N) (x : G) :
+    x ∈ Subgroup.comap f H ↔ f x ∈ H := by rfl
+
+/-- 子群像的元素刻画：`y ∈ f(H)` 当且仅当存在 `x ∈ H` 使 `f(x)=y`。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_mem_map {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (H : Subgroup G) (y : N) :
+    y ∈ Subgroup.map f H ↔ ∃ x, x ∈ H ∧ f x = y := by
+  rfl
+
+/-- 复合同态的核是后一同态之核沿前一同态的逆像。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_ker_comp {G N P : Type*} [Group G] [Group N] [Group P]
+    (g : N →* P) (f : G →* N) :
+    (g.comp f).ker = Subgroup.comap f g.ker := by
+  rfl
+
+/-- 复合同态的像是前一同态像在后一同态下的像。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem hom_range_comp {G N P : Type*} [Group G] [Group N] [Group P]
+    (g : N →* P) (f : G →* N) :
+    (g.comp f).range = Subgroup.map g f.range := by
+  exact MonoidHom.range_comp g f
 
 /-- **同态值域元素刻画**：y 在值域中 ⟺ 存在 x 使 f(x) = y。 
 > **Entry**: abstract-algebra.group.hom
@@ -523,13 +660,52 @@ theorem hom_surjective_iff_range_top {G N : Type*} [Group G] [Group N] (f : G �
     f.range = ⊤ ↔ Function.Surjective f := by
   exact MonoidHom.range_eq_top (f := f)
 
+/-- 双射群同态可规范升级为群同构。
+> **Entry**: abstract-algebra.group.hom
+-/
+noncomputable def homEquivOfBijective {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (hf : Function.Bijective f) : G ≃* N :=
+  MulEquiv.ofBijective f hf
+
+/-- **第一同构定理的显式形式**：群同态 f 诱导规范同构 `G/ker(f) ≃ im(f)`。
+与只陈述“存在某个同构”相比，这个定义可以直接用于后续计算。
+> **Entry**: abstract-algebra.group.hom
+-/
+noncomputable def firstIsomorphism {G N : Type*} [Group G] [Group N]
+    (f : G →* N) : G ⧸ f.ker ≃* f.range :=
+  QuotientGroup.quotientKerEquivRange f
+
+/-- 第一同构定理的规范同构把 `x ker(f)` 送到值域中的 `f(x)`。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem firstIsomorphism_apply_mk {G N : Type*} [Group G] [Group N]
+    (f : G →* N) (x : G) :
+    firstIsomorphism f (QuotientGroup.mk' f.ker x) =
+      ⟨f x, ⟨x, rfl⟩⟩ := by
+  rfl
+
 /-- **同态基本定理（第一同构定理）**：G/ker(f) ≅ im(f)。
   商群 G/ker f 与 f 的值域同构。 
 > **Entry**: abstract-algebra.group.hom
 -/
 theorem first_isomorphism_theorem {G N : Type*} [Group G] [Group N] (f : G →* N) :
     Nonempty (G ⧸ f.ker ≃* f.range) := by
-  exact ⟨QuotientGroup.quotientKerEquivRange f⟩
+  exact ⟨firstIsomorphism f⟩
+
+/-- 群同构保持元素阶。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem mulEquiv_preserves_order {G N : Type*} [Group G] [Group N]
+    (e : G ≃* N) (x : G) :
+    orderOf (e x) = orderOf x := by
+  exact e.orderOf_eq x
+
+/-- 群同构保持群的基数。
+> **Entry**: abstract-algebra.group.hom
+-/
+theorem mulEquiv_preserves_card {G N : Type*} [Group G] [Group N]
+    (e : G ≃* N) : Nat.card G = Nat.card N := by
+  exact Nat.card_congr e.toEquiv
 
 end AbstractAlgebra.Group
 

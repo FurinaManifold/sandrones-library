@@ -3402,7 +3402,7 @@
     "id": "abstract-algebra.group.normal",
     "kind": "theorem",
     "title": "正规子群与商群",
-    "summary": "正规⟹共轭封闭与交换性；平凡/全子群正规；商群投影保乘法/单位元/逆",
+    "summary": "正规性的共轭与左右陪集刻画；核、逆像、满射像与交；商群运算及商映射泛性质",
     "family": "abstract-algebra.group",
     "variant": "rotman",
     "premises": [
@@ -3410,11 +3410,13 @@
     ],
     "mathlib": [
       "Subgroup.Normal.conj_mem",
-      "Subgroup.normal_bot",
-      "Subgroup.normal_top",
-      "QuotientGroup.mk_mul",
-      "QuotientGroup.mk_one",
-      "QuotientGroup.mk_inv"
+      "normal_iff_eq_cosets",
+      "Subgroup.Normal.comap",
+      "Subgroup.Normal.map",
+      "QuotientGroup.ker_mk'",
+      "QuotientGroup.lift",
+      "QuotientGroup.lift_mk'",
+      "QuotientGroup.mk'_surjective"
     ],
     "lean_file": "AbstractAlgebra/Group.lean",
     "nl_file": "docs/entries/abstract-algebra/group/normal.md",
@@ -3431,24 +3433,29 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "732a28d8cb69d462"
+    "proof_sha": "61ddf1887580755c"
   },
   {
     "id": "abstract-algebra.group.hom",
     "kind": "theorem",
     "title": "同态与同态基本定理",
-    "summary": "核/值域元素刻画；同态保单位元/乘法/逆；单射⟺核平凡；满射⟺值域全；同态基本定理 G/ker≅im",
+    "summary": "同态的恒等与复合、子群像和逆像、核像判据、双射升级、显式第一同构定理及同构不变量",
     "family": "abstract-algebra.group",
     "variant": "rotman",
     "premises": [
       "abstract-algebra.group.normal"
     ],
     "mathlib": [
-      "MonoidHom.mem_ker",
-      "MonoidHom.mem_range",
+      "MonoidHom.comp",
+      "Subgroup.map",
+      "Subgroup.comap",
+      "MonoidHom.range_comp",
       "MonoidHom.ker_eq_bot_iff",
       "MonoidHom.range_eq_top",
-      "QuotientGroup.quotientKerEquivRange"
+      "MulEquiv.ofBijective",
+      "QuotientGroup.quotientKerEquivRange",
+      "MulEquiv.orderOf_eq",
+      "Nat.card_congr"
     ],
     "lean_file": "AbstractAlgebra/Group.lean",
     "nl_file": "docs/entries/abstract-algebra/group/hom.md",
@@ -3465,7 +3472,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [],
-    "proof_sha": "8fabdcba353eceb3"
+    "proof_sha": "a7b1ac366d962096"
   },
   {
     "id": "abstract-algebra.group.index-two",
