@@ -6,19 +6,19 @@ Authors: Sandrone's Library contributors
 import Mathlib.Analysis.Normed.Module.Alternating.Basic
 
 /-!
-# 连续交替映射空间的规范范数模型
+# Analysis / NormedAlternating —— 连续交替映射空间的规范范数模型
 
 mathlib 的连续交替映射同时带有半范数群实例和由值域分离性得到的范数群实例。
-在高阶连续线性映射与 Fréchet 微分组合时，自动实例推断可能选中不同但数学上
-等价的结构。本模块提供一个定义上独立的规范模型，只暴露一套明确的
-`NormedAddCommGroup` 与 `NormedSpace` 实例，并提供与原类型之间的恒等连续线性桥。
+在高阶连续线性映射与 Fréchet 微分组合时，自动实例推断可能选中不同但数学上等价的
+结构。本模块提供一个定义上独立的规范模型，并提供与原类型之间的恒等连续线性桥。
 
-这里没有流形、切丛或纤维丛结构；它只是连续交替映射空间的线性代数基础设施。
+该构造专门服务于微分形式的连续性与求导，因此属于分析基础设施，而不是普通线性
+代数教材接口。
 -/
 
 noncomputable section
 
-namespace SandronesLibrary.LinearAlgebra.NormedAlternating
+namespace SandronesLibrary.Analysis.NormedAlternating
 
 universe u
 
@@ -49,4 +49,4 @@ def fromNormalizedAlternatingSpace {E : Type u}
     NormalizedAlternatingSpace E k →L[ℝ] (E [⋀^Fin k]→L[ℝ] ℝ) :=
   ContinuousLinearMap.id ℝ _
 
-end SandronesLibrary.LinearAlgebra.NormedAlternating
+end SandronesLibrary.Analysis.NormedAlternating

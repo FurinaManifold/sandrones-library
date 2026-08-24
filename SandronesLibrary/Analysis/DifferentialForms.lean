@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.LinearAlgebra.TensorExterior
-import SandronesLibrary.LinearAlgebra.NormedAlternating
+import SandronesLibrary.Analysis.NormedAlternating
 import SandronesLibrary.Topology.Orientation
 import Mathlib.Analysis.Calculus.DifferentialForm.Basic
 import Mathlib.Analysis.Normed.Operator.Bilinear
@@ -32,7 +32,7 @@ noncomputable section
 namespace SandronesLibrary.Analysis.DifferentialForms
 
 open Set ContinuousAlternatingMap
-open SandronesLibrary.LinearAlgebra.NormedAlternating
+open SandronesLibrary.Analysis.NormedAlternating
 open scoped _root_.Topology
 
 universe u v

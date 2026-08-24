@@ -35,8 +35,9 @@ import SandronesLibrary.LinearAlgebra.MatrixDecomposition
 import SandronesLibrary.LinearAlgebra.MatrixQR
 import SandronesLibrary.LinearAlgebra.MatrixCholesky
 import SandronesLibrary.LinearAlgebra.MatrixSchur
+import SandronesLibrary.LinearAlgebra.MatrixSVD
 import SandronesLibrary.LinearAlgebra.TensorExterior
-import SandronesLibrary.LinearAlgebra.NormedAlternating
+import SandronesLibrary.Analysis.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.Poly
