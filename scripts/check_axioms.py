@@ -40,6 +40,29 @@ AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]")
 AXIOMS_NONE = re.compile(r"does not depend on any axioms")
 
 
+def probe_block(decl: str) -> list[str]:
+    """用唯一哨兵包围一次查询，避免声明名互为前缀时错误切分输出。"""
+    return [
+        f'#eval IO.println "AXIOM_BEGIN::{decl}"',
+        f"#print axioms {decl}",
+        f'#eval IO.println "AXIOM_END::{decl}"',
+    ]
+
+
+def parse_probe_segment(output: str, decl: str) -> list[str]:
+    begin = f"AXIOM_BEGIN::{decl}"
+    end = f"AXIOM_END::{decl}"
+    try:
+        segment = output.split(begin, 1)[1].split(end, 1)[0]
+    except IndexError:
+        return ["<解析失败>"]
+    if AXIOMS_NONE.search(segment):
+        return []
+    if m := AXIOMS_DEP.search(segment):
+        return [x.strip() for x in m.group(1).split(",") if x.strip()]
+    return ["<解析失败>"]
+
+
 def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
     """把每个 `**Entry**: <id>` 关联到紧跟其 docstring 之后的所有定理/定义全名。"""
     # 收集 (字符偏移, entry_id) 与 (字符偏移, full_decl_name)
@@ -91,7 +114,8 @@ def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[s
     body: list[str] = []
     for mod, decls in modules:
         body.append(f"import {mod}")
-        body.extend(f"#print axioms {d}" for d in decls)
+        for decl in decls:
+            body.extend(probe_block(decl))
     probe.write_text("\n".join(body))
     env = dict(__import__("os").environ)
     env["PATH"] = str(Path.home() / ".elan/bin") + ":" + env.get("PATH", "")
@@ -100,33 +124,17 @@ def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[s
         capture_output=True, text=True, cwd=ROOT, env=env)
     out = r.stdout + r.stderr
     result: dict[str, dict[str, list[str]]] = {}
-    # 所有声明的扁平列表
-    all_decls = [d for _, ds in modules for d in ds]
-    # 每个模块的 (start_idx, end_idx)
-    acc: dict[str, list[int]] = {}
-    i = 0
-    for mod, ds in modules:
-        acc[mod] = list(range(i, i + len(ds)))
-        i += len(ds)
-    for mod, idxs in acc.items():
-        result[mod] = {}
-        for k in idxs:
-            d = all_decls[k]
-            rest = out[out.index(d) + len(d):]
-            seg = rest.split(all_decls[k + 1])[0] if k + 1 < len(all_decls) else rest
-            if AXIOMS_NONE.search(seg):
-                result[mod][d] = []
-            elif m := AXIOMS_DEP.search(seg):
-                result[mod][d] = [x.strip() for x in m.group(1).split(",") if x.strip()]
-            else:
-                result[mod][d] = ["<解析失败>"]
+    for mod, decls in modules:
+        result[mod] = {decl: parse_probe_segment(out, decl) for decl in decls}
     return result
 
 
 def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
     probe = Path("/tmp/opencode/check_axioms_probe.lean")
     probe.parent.mkdir(parents=True, exist_ok=True)
-    body = [f"import {module}"] + [f"#print axioms {d}" for d in decls]
+    body = [f"import {module}"]
+    for decl in decls:
+        body.extend(probe_block(decl))
     probe.write_text("\n".join(body))
     env = dict(__import__("os").environ)
     env["PATH"] = str(Path.home() / ".elan/bin") + ":" + env.get("PATH", "")
@@ -135,15 +143,8 @@ def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
         capture_output=True, text=True, cwd=ROOT, env=env)
     out = r.stdout + r.stderr
     result: dict[str, list[str]] = {}
-    for i, d in enumerate(decls):
-        rest = out[out.index(d) + len(d):]
-        seg = rest.split(decls[i + 1])[0] if i + 1 < len(decls) else rest
-        if AXIOMS_NONE.search(seg):
-            result[d] = []
-        elif m := AXIOMS_DEP.search(seg):
-            result[d] = [x.strip() for x in m.group(1).split(",") if x.strip()]
-        else:
-            result[d] = ["<解析失败>"]
+    for decl in decls:
+        result[decl] = parse_probe_segment(out, decl)
     return result
 
 

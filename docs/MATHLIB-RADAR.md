@@ -2669,6 +2669,18 @@
 - **人话**：自然数通常严格序的序型是最小无限序数 `ω`。
 - **谁在用**：`settheory.ordinal.order-type`。
 
+### `Ordinal.type`
+- **人话**：把一个良序关系取为其序型；本库由具体良序构造序数运算时使用。
+- **谁在用**：`settheory.ordinal.addition`、`settheory.ordinal.multiplication` 的私有正确性桥。
+
+### `Ordinal.type_sum_lex`
+- **人话**：不交并上的字典序序型等于原生序数加法。
+- **谁在用**：验证本库以 `Sum.Lex` 定义的 `ordinalAdd`；原生 `+` 不是公开定义。
+
+### `Ordinal.type_prod_lex`
+- **人话**：直积上的字典序序型等于原生序数乘法。
+- **谁在用**：验证本库以 `Prod.Lex` 定义的 `ordinalMul`；原生 `*` 不是公开定义。
+
 ### `WellFoundedLT.induction`
 - **人话**：在线性严格序的良基实例上执行良基归纳；对序数即超限归纳。
 - **谁在用**：`settheory.ordinal.transfinite-induction`。
@@ -2693,9 +2705,17 @@
 - **人话**：序数右乘二等于它与自身的序数和。
 - **谁在用**：`settheory.ordinal.multiplication`。
 
+### `Ordinal.mul_succ`
+- **人话**：原生序数乘法在右侧后继处按加法递推。
+- **谁在用**：验证本库 `ordinalMul_succ`，其公开右端调用本库 `ordinalAdd`。
+
 ### `Ordinal.opow_succ`
 - **人话**：序数幂在后继指数处满足 `a^(b+1)=a^b·a`。
 - **谁在用**：`settheory.ordinal.exponentiation`。
+
+### `Ordinal.opow_limit`
+- **人话**：非零底数的原生序数幂在极限指数处等于此前各值的上确界。
+- **谁在用**：验证本库由 `Ordinal.limitRecOn` 定义的 `ordinalPow`。
 
 ### `Order.lt_succ_iff`
 - **人话**：在线性后继序中，`a < succ b` 当且仅当 `a ≤ b`。
@@ -2708,6 +2728,14 @@
 ### `Ordinal.lt_iSup_iff`
 - **人话**：序数严格小于一个小指标族的上确界，当且仅当严格小于其中某项。
 - **谁在用**：`settheory.ordinal.supremum`。
+
+### `Order.cof`
+- **人话**：一个良序类型的最小共尾子集基数。
+- **谁在用**：本库 `ordinalCofinality` 的公开定义。
+
+### `Ordinal.cof_toType`
+- **人话**：序数规范良序载体的共尾数等于 Mathlib 原生 `Ordinal.cof`。
+- **谁在用**：本库共尾数定义到实现层的私有桥。
 
 ### `Ordinal.cof_zero`
 - **人话**：零序数的共尾数是零。

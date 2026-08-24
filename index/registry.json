@@ -3541,7 +3541,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "e3b6e946d7284778"
+    "proof_sha": "3cc4ea24381c87fa"
   },
   {
     "id": "abstract-algebra.ring.ideal",
@@ -3577,7 +3577,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "e3b6e946d7284778"
+    "proof_sha": "3cc4ea24381c87fa"
   },
   {
     "id": "abstract-algebra.ring.domain",
@@ -3612,7 +3612,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "e3b6e946d7284778"
+    "proof_sha": "3cc4ea24381c87fa"
   },
   {
     "id": "abstract-algebra.ring.iso",
@@ -3642,7 +3642,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "e3b6e946d7284778"
+    "proof_sha": "3cc4ea24381c87fa"
   },
   {
     "id": "abstract-algebra.poly.def",
@@ -7961,7 +7961,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.transfinite-induction",
@@ -7994,7 +7994,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.transfinite-recursion",
@@ -8026,16 +8026,20 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.addition",
-    "kind": "theorem",
+    "kind": "definition",
     "state": "verified",
     "title": "序数加法不交换",
-    "summary": "1+ω=ω 但 ω+1≠ω",
-    "premises": [],
+    "summary": "以良序拼接的序型定义序数加法，并证明递推式与非交换性",
+    "premises": [
+      "settheory.ordinal.order-type"
+    ],
     "mathlib": [
+      "Ordinal.type",
+      "Ordinal.type_sum_lex",
       "Ordinal.add_omega0",
       "Order.lt_succ"
     ],
@@ -8057,18 +8061,21 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.multiplication",
-    "kind": "theorem",
+    "kind": "definition",
     "state": "verified",
     "title": "序数乘法不交换",
-    "summary": "2·ω=ω 但 ω·2≠ω",
+    "summary": "以字典序积的序型定义序数乘法，后继递推显式调用本库加法",
     "premises": [
       "settheory.ordinal.addition"
     ],
     "mathlib": [
+      "Ordinal.type",
+      "Ordinal.type_prod_lex",
+      "Ordinal.mul_succ",
       "Ordinal.natCast_mul_omega0",
       "Ordinal.mul_two"
     ],
@@ -8090,19 +8097,22 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.exponentiation",
-    "kind": "theorem",
+    "kind": "definition",
     "state": "verified",
     "title": "序数幂的后继递推",
-    "summary": "序数幂满足 a^(b+1)=a^b·a",
+    "summary": "按零、后继和极限三分支超限递归定义序数幂",
     "premises": [
+      "settheory.ordinal.transfinite-recursion",
       "settheory.ordinal.multiplication"
     ],
     "mathlib": [
-      "Ordinal.opow_succ"
+      "Ordinal.limitRecOn",
+      "Ordinal.opow_succ",
+      "Ordinal.opow_limit"
     ],
     "provenance": {
       "source_type": "book",
@@ -8123,7 +8133,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.successor-limit",
@@ -8155,7 +8165,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.supremum",
@@ -8187,11 +8197,11 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.cofinality",
-    "kind": "theorem",
+    "kind": "definition",
     "state": "verified",
     "title": "序数的共尾数",
     "summary": "零、后继序数与 ω 的共尾数分别为零、一与 ℵ₀",
@@ -8200,6 +8210,8 @@
       "settheory.ordinal.supremum"
     ],
     "mathlib": [
+      "Order.cof",
+      "Ordinal.cof_toType",
       "Ordinal.cof_zero",
       "Ordinal.cof_add_one",
       "Ordinal.cof_omega0"
@@ -8220,7 +8232,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.normal-function",
@@ -8253,7 +8265,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.cantor-normal-form",
@@ -8285,7 +8297,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.epsilon-zero",
@@ -8317,7 +8329,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "settheory.ordinal.no-infinite-descent",
@@ -8347,7 +8359,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "afeeedb5b005f0af"
+    "proof_sha": "246254c7136dfdaa"
   },
   {
     "id": "number-theory.elementary.congruence",
