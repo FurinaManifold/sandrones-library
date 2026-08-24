@@ -3507,25 +3507,30 @@
   {
     "id": "abstract-algebra.ring.def",
     "kind": "theorem",
-    "title": "子环判定与基本性质",
-    "summary": "子环判定定理（含0/1+加减乘封闭⟹子环）；子环含1与0；外延性；平凡子环；全子环；环同态保运算",
+    "title": "环、单位、子环与环同态",
+    "summary": "自建环公理、交换环、单位、子环集合与环同态定义，并桥接生成子环和基本运算",
     "family": "abstract-algebra.ring",
     "variant": "rotman",
     "premises": [],
     "mathlib": [
+      "Ring",
+      "CommRing",
       "Subring",
+      "Subring.closure",
+      "Subring.closure_le",
       "Subring.ext",
       "Subring.one_mem",
       "Subring.zero_mem",
       "Subring.mem_bot",
       "Subring.mem_top",
+      "IsUnit",
       "RingHom"
     ],
     "lean_file": "AbstractAlgebra/Ring.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "Rotman, Advanced Modern Algebra, Ch 1（子环）"
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（环与子环）"
     },
     "state": "verified",
     "axioms": [
@@ -3536,7 +3541,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "e3b6e946d7284778"
   },
   {
     "id": "abstract-algebra.ring.ideal",
@@ -3572,7 +3577,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "e3b6e946d7284778"
   },
   {
     "id": "abstract-algebra.ring.domain",
@@ -3607,7 +3612,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [],
-    "proof_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "e3b6e946d7284778"
   },
   {
     "id": "abstract-algebra.ring.iso",
@@ -3637,7 +3642,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "fa56aa592f7a8dfc"
+    "proof_sha": "e3b6e946d7284778"
   },
   {
     "id": "abstract-algebra.poly.def",

@@ -253,7 +253,7 @@
 
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `abstract-algebra.ring.def` | 环、交换环、单位、子环与环同态的基本性质 | 🟡（基础接口已有） |
+| 1 | `abstract-algebra.ring.def` | 环、交换环、单位、子环与环同态的基本性质 | ✅（本库定义层与实现桥已完成） |
 | 2 | `abstract-algebra.ring.ideal` | 左/右/双边理想、生成理想、理想和积、商环 | 🟡（判定与商环判等已有） |
 | 3 | `abstract-algebra.ring.iso` | 环同态第一、第二、第三同构定理与对应定理 | 🟡（第一同构定理已有） |
 | 4 | `abstract-algebra.ring.domain` | 零因子、整环、域、素理想与极大理想、商环判据 | ✅（基础版） |

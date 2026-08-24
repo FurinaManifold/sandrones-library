@@ -1128,7 +1128,9 @@
   `⊥` 平凡子环（n·1 形式，n:ℤ）、`⊤` 全子环；`RingHom` 环同态（`R →+* S`，保加乘单位元）。
 - **签名**：`Subring.ext : (∀x, x∈S ↔ x∈T) → S = T`；`Subring.mem_bot : x∈⊥ ↔ ∃ n:ℤ, ↑n = x`
 - **出处**：`Mathlib/RingTheory/Subring/Basic.lean`、`Mathlib/Algebra/Ring/`
-- **谁在用**：`abstract-algebra.ring.def`。
+- **谁在用**：`abstract-algebra.ring.def`。`Ring`、`Subring`、`RingHom` 只作为可靠的数据
+  承载和实现桥；公开教材定义分别是 `RingAxioms` / `CommutativeRingAxioms`、
+  `SubringSet`、`RingHomomorphism`。
 - **坑**：`Subring.mem_bot` 的 n 是 ℤ 不是 ℕ。
 
 ### `Ideal` / `Ideal.mul_mem_left` / `Ideal.mul_mem_right` / `Ideal.eq_top_of_isUnit_mem` / `Ideal.Quotient.eq` / `Ideal.Quotient.mk` / `RingHom.ker` / `RingHom.range`

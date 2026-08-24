@@ -32,7 +32,7 @@
 
 ## `abstract-algebra.ring`
 
-- ✅ [`def.md`](def.md) — 子环判定与基本性质
+- ✅ [`def.md`](def.md) — 环、单位、子环与环同态
 - ✅ [`domain.md`](domain.md) — 整环、域与素/极大理想
 - ✅ [`ideal.md`](ideal.md) — 理想与商环
 - ✅ [`iso.md`](iso.md) — 环同态基本定理
