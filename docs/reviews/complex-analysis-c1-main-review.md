@@ -91,3 +91,11 @@ git status --short
 - R3：`resolved`。本 review 原意见完整保留；本文件、两篇文档与 handoff 修订由同一个返工提交
   交付。修复提交为包含本处理记录的当前提交（见 `codex/complex-analysis` 分支 `git log`）。
 - 数学接口：无降级、无扩张；C2 文件未纳入或修改。
+
+## Main 复验结论
+
+- rechecked_commit: `cce0c385b31651eb4f6994496c3526228bfcb0cd`
+- verdict: `accepted`
+- rechecked_at: 2026-08-24
+- 复验结果：四个 C1 模块联合构建通过；六个 Entry 的源码、文档与定义层一致；两篇返工文档均已恢复为精确八段模板；正式源码无禁用占位证明，`git diff --check` 通过。
+- 接收边界：本结论只接受 C1 提交 `2b554a9` 与 C1 闭环提交 `cce0c38` 中属于 C1 的文件；不包含提交 `530a862` 的 C2 内容。

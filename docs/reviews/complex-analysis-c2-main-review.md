@@ -72,7 +72,6 @@ git status --short
 
 修复提交为包含本处理记录的当前提交（见 `codex/complex-analysis` 分支 `git log`）。C1 复验接受
 记录原样保留，未修改 C1 数学或 C2 以外源码。
-
 ## Round 2 — Main 复验
 
 - reviewed_commit: `7190ff0b4a80d92af8e06e9d2cedf1fb8ebda195`
