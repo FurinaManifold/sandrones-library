@@ -2,8 +2,9 @@
 id: number-theory.elementary.totient
 kind: theorem
 state: verified
-title: "Euler φ 函数与既约剩余类"
-premises: ["number-theory.elementary.congruence"]
+title: "Euler φ 函数"
+summary: Euler φ 函数等于模 n 剩余环中的可逆剩余类数
+premises: ["number-theory.elementary.chinese-remainder"]
 mathlib: ["ZMod.card_units_eq_totient"]
 provenance:
   source_type: book

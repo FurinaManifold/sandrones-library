@@ -2,7 +2,8 @@
 id: number-theory.elementary.congruence
 kind: theorem
 state: verified
-title: "同余运算与剩余环"
+title: "同余与剩余环"
+summary: 建立自然数同余与 ZMod 相等的桥，并证明同余对加法、乘法和乘方封闭
 premises: ["number-theory.elementary.divisibility"]
 mathlib: ["ZMod.natCast_eq_natCast_iff", "Nat.ModEq.add", "Nat.ModEq.mul", "Nat.ModEq.pow"]
 provenance:

@@ -6,6 +6,10 @@ import SandronesLibrary.AbstractAlgebra.GroupAction
 import SandronesLibrary.AbstractAlgebra.GroupPermutation
 import SandronesLibrary.AbstractAlgebra.GroupSylow
 import SandronesLibrary.AbstractAlgebra.GroupAbelianStructure
+import SandronesLibrary.NumberTheory.Elementary.Divisibility
+import SandronesLibrary.NumberTheory.Elementary.PrimeFactorization
+import SandronesLibrary.NumberTheory.Elementary.Congruence
+import SandronesLibrary.NumberTheory.Elementary.FermatEuler
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Complex
 import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
@@ -96,6 +100,7 @@ import SandronesLibrary.SetTheory.Function
 import SandronesLibrary.SetTheory.Relations
 import SandronesLibrary.SetTheory.Cardinal
 import SandronesLibrary.SetTheory.Zorn
+import SandronesLibrary.SetTheory.Ordinal
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

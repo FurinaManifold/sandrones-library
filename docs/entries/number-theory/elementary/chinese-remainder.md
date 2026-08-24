@@ -3,6 +3,7 @@ id: number-theory.elementary.chinese-remainder
 kind: theorem
 state: verified
 title: "中国剩余定理"
+summary: 互素模数下联立同余方程有解，并给出 ZMod(mn) 与 ZMod(m)×ZMod(n) 的环同构
 premises: ["number-theory.elementary.congruence"]
 mathlib: ["Nat.chineseRemainder", "ZMod.chineseRemainder"]
 provenance:

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **251** 个条目（verified 251，pending 0）。
+共 **270** 个条目（verified 270，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -32,7 +32,7 @@
 
 ## `abstract-algebra.ring`
 
-- ✅ [`def.md`](def.md) — 子环判定与基本性质
+- ✅ [`def.md`](def.md) — 环、单位、子环与环同态
 - ✅ [`domain.md`](domain.md) — 整环、域与素/极大理想
 - ✅ [`ideal.md`](ideal.md) — 理想与商环
 - ✅ [`iso.md`](iso.md) — 环同态基本定理
@@ -276,6 +276,15 @@
 - ✅ [`span.md`](span.md) — 生成子空间
 - ✅ [`subspace.md`](subspace.md) — 子空间
 
+## `number-theory.elementary`
+
+- ✅ [`chinese-remainder.md`](chinese-remainder.md) — 中国剩余定理
+- ✅ [`congruence.md`](congruence.md) — 同余与剩余环
+- ✅ [`divisibility.md`](divisibility.md) — 带余除法、最大公因数与 Bézout 等式
+- ✅ [`fermat-euler.md`](fermat-euler.md) — Euler 定理与 Fermat 小定理
+- ✅ [`prime-factorization.md`](prime-factorization.md) — 算术基本定理：素因子分解的存在性与唯一性
+- ✅ [`totient.md`](totient.md) — Euler φ 函数
+
 ## `real-analysis`
 
 - ✅ [`lebesgue-measure.md`](lebesgue-measure.md) — Lebesgue 测度
@@ -340,6 +349,22 @@
 ## `settheory.function.inject-surject`
 
 - ✅ [`bijective-iff-inverse.md`](bijective-iff-inverse.md) — 双射 ⟺ 有逆映射
+
+## `settheory.ordinal`
+
+- ✅ [`addition.md`](addition.md) — 序数加法不交换
+- ✅ [`cantor-normal-form.md`](cantor-normal-form.md) — Cantor 正规形
+- ✅ [`cofinality.md`](cofinality.md) — 序数的共尾数
+- ✅ [`epsilon-zero.md`](epsilon-zero.md) — ε₀：首个 epsilon 数
+- ✅ [`exponentiation.md`](exponentiation.md) — 序数幂的后继递推
+- ✅ [`multiplication.md`](multiplication.md) — 序数乘法不交换
+- ✅ [`no-infinite-descent.md`](no-infinite-descent.md) — 序数无穷下降不可能
+- ✅ [`normal-function.md`](normal-function.md) — 正规序数函数
+- ✅ [`order-type.md`](order-type.md) — 良序与序型
+- ✅ [`successor-limit.md`](successor-limit.md) — 后继序数与极限序数
+- ✅ [`supremum.md`](supremum.md) — 序数族的上确界
+- ✅ [`transfinite-induction.md`](transfinite-induction.md) — 超限归纳
+- ✅ [`transfinite-recursion.md`](transfinite-recursion.md) — 超限递归
 
 ## `settheory.set`
 
