@@ -11,12 +11,6 @@ provenance:
   ref: "Conway, Functions of One Complex Variable I（幂级数与解析函数）"
 ---
 
-# 定义
-
-`complexPowerSeries a c z` 是教材中的 `∑ aₙ(z-c)ⁿ`。`powerSeriesRadius a` 是其扩展
-非负实数值收敛半径，允许取 `∞`。`termwiseDerivativePowerSeries a c z` 是形式导级数的和；
-在收敛圆内，它展开为 `∑ (n+1)aₙ₊₁(z-c)ⁿ`。
-
 # 动机
 
 幂级数是复分析中构造全纯函数的基本工具。核心事实不仅是圆内逐点收敛，而是圆内任意较小闭圆盘上
@@ -29,12 +23,15 @@ provenance:
 
 # 陈述（自然语言）
 
+- `complexPowerSeries a c z` 定义教材级数 `∑ aₙ(z-c)ⁿ`；`powerSeriesRadius a` 是允许取
+  `∞` 的扩展非负实数值收敛半径；`termwiseDerivativePowerSeries a c z` 定义形式导级数的和。
 - 底层标量形式幂级数的和就是显式级数 `∑ aₙ(z-c)ⁿ`。
 - 正收敛半径时，该和函数在以 `c` 为中心、收敛半径为半径的开圆内全纯。
 - 圆内每一点均可逐项求导，导数为 `∑ (n+1)aₙ₊₁(z-c)ⁿ`。
 
 # 陈述（Lean 对照）
 
+`complexPowerSeries`、`powerSeriesRadius`、`termwiseDerivativePowerSeries`、
 `complexPowerSeries_eq_tsum`、`termwiseDerivativePowerSeries_eq_tsum`、
 `powerSeries_holomorphicOn_convergenceDisc`、`powerSeries_hasDerivAt_termwise`。
 

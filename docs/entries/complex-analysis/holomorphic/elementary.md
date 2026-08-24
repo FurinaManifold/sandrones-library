@@ -11,12 +11,6 @@ provenance:
   ref: "Conway, Functions of One Complex Variable I（初等全纯函数与对数分支）"
 ---
 
-# 定义
-
-`localLogDomain a = {z | z / a ∈ Complex.slitPlane}`，其中 `slitPlane` 是去掉非正实轴的开集。
-`localLogAt a z = log (z/a) + log a`，它把 Mathlib 的标准对数分支旋转并缩放到基点 `a`
-附近。
-
 # 动机
 
 复指数和复三角函数是全纯函数的基本例子。复对数不能在 `ℂ \ {0}` 上选取全局单值分支，
@@ -29,13 +23,16 @@ slit plane；再加上 `log a` 使指数还原为 `(z/a)·a=z`。
 
 # 陈述（自然语言）
 
+- 局部对数域定义为 `localLogDomain a = {z | z/a ∈ Complex.slitPlane}`；局部分支定义为
+  `localLogAt a z = log (z/a) + log a`，即把标准 slit-plane 分支旋转并缩放到基点 `a` 附近。
 - `exp`、`sin`、`cos` 在整个复平面上全纯，导数分别为 `exp z`、`cos z`、`-sin z`。
 - `localLogDomain a` 是开集；当 `a ≠ 0` 时它包含 `a`。
 - `localLogAt a` 在该域上全纯，且当 `a ≠ 0` 时满足 `exp (localLogAt a z)=z`。
 
 # 陈述（Lean 对照）
 
-`exp_holomorphic`、`exp_hasDerivAt`、`sin_holomorphic`、`sin_hasDerivAt`、
+`localLogDomain`、`localLogAt`、`exp_holomorphic`、`exp_hasDerivAt`、
+`sin_holomorphic`、`sin_hasDerivAt`、
 `cos_holomorphic`、`cos_hasDerivAt`、`isOpen_localLogDomain`、
 `mem_localLogDomain_center`、`localLog_holomorphicOn`、`exp_localLogAt`。
 

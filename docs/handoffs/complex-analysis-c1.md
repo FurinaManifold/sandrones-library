@@ -51,8 +51,17 @@
   `lake build SandronesLibrary.ComplexAnalysis.Holomorphic SandronesLibrary.ComplexAnalysis.CauchyRiemann SandronesLibrary.ComplexAnalysis.PowerSeries SandronesLibrary.ComplexAnalysis.Elementary`
 - 临时聚合文件同时导入四模块，并 `#check` 八个关键公开 API，通过。
 - 正式源码无 `sorry`、`admit`、`sorryAx`、`native_decide`。
-- 六篇文档均实质包含精确八段模板；`git diff --check` 通过。
+- Main review 指出 `elementary.md` 与 `power-series.md` 曾各多出一个 `# 定义`。本次返工已把
+  定义解释完整并入“陈述（自然语言）”和“陈述（Lean 对照）”；自动检查确认六篇文档现在均且
+  仅按顺序包含精确八段模板，段落非空。`git diff --check` 通过。
 - 学科负责人未运行全库 `lake build`。
+
+## Main review 处理状态
+
+- R1 `resolved`：两篇九段文档已改成精确八段，定义语义未丢失。
+- R2 `resolved`：handoff 的验证记录已改为真实的返工后检查结果。
+- R3 `resolved`：保留 Main review 原文，并在其处理记录中填写状态；修复提交为包含本记录的
+  当前提交（见本分支 `git log`）。
 
 ## Main 共有文件更新建议
 
