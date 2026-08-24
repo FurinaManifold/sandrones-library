@@ -13,7 +13,8 @@ import Mathlib
 * **abstract-algebra.ring.def**（交换环/单位/零环判据、子环与生成子环、环同态保运算）✅。
 * **abstract-algebra.ring.ideal**（理想判定/吸收乘法/含单位元理想全环/核值域）✅；
   商环的显式构造、投影与泛性质已移至 `RingQuotient` 模块。
-* **abstract-algebra.ring.domain**（无零因子/域非零元可逆/素理想判据/极大⟹素/素⟹商整环/域⟺零理想极大/商环域⟹极大）✅。
+* **abstract-algebra.ring.domain**（零因子、整环与域的本库公理层及 Mathlib 桥；
+  素/极大理想与商环判据暂保留兼容接口）✅。
 * **abstract-algebra.ring.iso**（环同态基本定理 R/ker≅im）✅。
 
 > **语言说明**：Mathlib 的 `Ring`/`Subring`/`Ideal`/`RingHom` 可以作为实现承载，但不能
@@ -505,14 +506,183 @@ theorem ring_hom_injective_iff_ker_bot {R S : Type*} [Ring R] [Ring S] (f : R �
     Function.Injective f ↔ RingHom.ker f = ⊥ := by
   exact RingHom.injective_iff_ker_eq_bot f
 
-/-- **整环无零因子**：a·b = 0 ⟹ a = 0 或 b = 0（整环没有非零零因子）。 
+/-- **零因子元素**：非零元素 `a` 若能在右侧乘以某个非零元素得到零，则称 `a` 为零因子。
+> **Entry**: abstract-algebra.ring.domain
+-/
+def ZeroDivisorElement {R : Type*} [Zero R] [Mul R] (a : R) : Prop :=
+  a ≠ 0 ∧ ∃ b : R, b ≠ 0 ∧ a * b = 0
+
+/-- **无零因子公理**：乘积为零时，至少有一个因子为零。
+> **Entry**: abstract-algebra.ring.domain
+-/
+def NoZeroDivisorsAxiom (R : Type*) [Zero R] [Mul R] : Prop :=
+  ∀ a b : R, a * b = 0 → a = 0 ∨ b = 0
+
+/-- **整环公理**：交换环、零不等于一，并且没有非零零因子。
+> **Entry**: abstract-algebra.ring.domain
+-/
+structure IntegralDomainAxioms (R : Type*) [Zero R] [One R] [Add R] [Mul R] [Neg R] : Prop where
+  commutativeRing : CommutativeRingAxioms R
+  zero_ne_one : (0 : R) ≠ 1
+  noZeroDivisors : NoZeroDivisorsAxiom R
+
+/-- **域公理**：交换环、零不等于一，并且每个非零元素都是单位元素。
+> **Entry**: abstract-algebra.ring.domain
+-/
+structure FieldAxioms (R : Type*) [Zero R] [One R] [Add R] [Mul R] [Neg R] : Prop where
+  commutativeRing : CommutativeRingAxioms R
+  zero_ne_one : (0 : R) ≠ 1
+  nonzero_unit : ∀ a : R, a ≠ 0 → UnitElement a
+
+/-- **无零因子等价刻画**：无零因子公理成立，当且仅当不存在零因子元素。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem noZeroDivisorsAxiom_iff_no_zero_divisor {R : Type*} [Zero R] [Mul R] :
+    NoZeroDivisorsAxiom R ↔ ∀ a : R, ¬ ZeroDivisorElement a := by
+  constructor
+  · intro h a ha
+    obtain ⟨ha0, b, hb0, hab⟩ := ha
+    exact (h a b hab).elim ha0 hb0
+  · intro h a b hab
+    by_cases ha : a = 0
+    · exact Or.inl ha
+    · exact Or.inr (by
+        by_contra hb
+        exact h a ⟨ha, b, hb, hab⟩)
+
+/-- **整环乘积为零判据**：满足整环公理时，乘积为零蕴含至少一个因子为零。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem integralDomain_mul_eq_zero {R : Type*} [Zero R] [One R] [Add R] [Mul R] [Neg R]
+    (hR : IntegralDomainAxioms R) {a b : R} (hab : a * b = 0) :
+    a = 0 ∨ b = 0 := by
+  exact hR.noZeroDivisors a b hab
+
+/-- **整环中非零乘积非零**：满足整环公理时，两个非零元素的乘积仍非零。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem integralDomain_nonzero_mul_nonzero {R : Type*}
+    [Zero R] [One R] [Add R] [Mul R] [Neg R]
+    (hR : IntegralDomainAxioms R) {a b : R} (ha : a ≠ 0) (hb : b ≠ 0) :
+    a * b ≠ 0 := by
+  intro hab
+  exact (integralDomain_mul_eq_zero hR hab).elim ha hb
+
+/-- **域中非零元素为单位**：满足域公理时，每个非零元素都有双侧乘法逆元。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem field_nonzero_unit {R : Type*} [Zero R] [One R] [Add R] [Mul R] [Neg R]
+    (hR : FieldAxioms R) {a : R} (ha : a ≠ 0) : UnitElement a := by
+  exact hR.nonzero_unit a ha
+
+/-- **域公理蕴含整环公理**：满足教材域公理的结构必满足教材整环公理。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem fieldAxioms_implies_integralDomainAxioms {R : Type*}
+    [Zero R] [One R] [Add R] [Mul R] [Neg R]
+    (hR : FieldAxioms R) : IntegralDomainAxioms R := by
+  refine ⟨hR.commutativeRing, hR.zero_ne_one, ?_⟩
+  intro a b hab
+  by_cases ha : a = 0
+  · exact Or.inl ha
+  · right
+    obtain ⟨c, hac, hca⟩ := hR.nonzero_unit a ha
+    let A := hR.commutativeRing.1
+    have add_left_cancel : ∀ x y z : R, x + y = x + z → y = z := by
+      intro x y z hxyz
+      calc
+        y = 0 + y := (A.zero_add y).symm
+        _ = (-x + x) + y := by rw [A.add_left_neg x]
+        _ = -x + (x + y) := A.add_assoc (-x) x y
+        _ = -x + (x + z) := by rw [hxyz]
+        _ = (-x + x) + z := (A.add_assoc (-x) x z).symm
+        _ = 0 + z := by rw [A.add_left_neg x]
+        _ = z := A.zero_add z
+    have zero_mul (x : R) : 0 * x = 0 := by
+      have h : 0 * x = 0 * x + 0 * x := by
+        calc
+          0 * x = (0 + 0) * x := by rw [A.zero_add 0]
+          _ = 0 * x + 0 * x := A.right_distrib 0 0 x
+      exact (add_left_cancel (0 * x) 0 (0 * x) (by
+        rw [A.add_zero]
+        exact h)).symm
+    have mul_zero (x : R) : x * 0 = 0 := by
+      have h : x * 0 = x * 0 + x * 0 := by
+        calc
+          x * 0 = x * (0 + 0) := by rw [A.zero_add 0]
+          _ = x * 0 + x * 0 := A.left_distrib x 0 0
+      exact (add_left_cancel (x * 0) 0 (x * 0) (by
+        rw [A.add_zero]
+        exact h)).symm
+    have hcb : c * (a * b) = 0 := by rw [hab, mul_zero]
+    calc
+      b = 1 * b := (A.one_mul b).symm
+      _ = (c * a) * b := by rw [hca]
+      _ = c * (a * b) := A.mul_assoc c a b
+      _ = 0 := hcb
+
+/-- **无零因子公理与 Mathlib 的桥接**：教材公理等价于 Mathlib 的 `NoZeroDivisors`。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem noZeroDivisorsAxiom_iff_mathlib {R : Type*} [Zero R] [Mul R] :
+    NoZeroDivisorsAxiom R ↔ NoZeroDivisors R := by
+  exact (noZeroDivisors_iff R).symm
+
+set_option linter.style.haveILetI false in
+/-- **整环公理与 Mathlib 的桥接**：在交换环上，教材整环公理等价于 `IsDomain`。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem integralDomainAxioms_iff_isDomain {R : Type*} [CommRing R] :
+    IntegralDomainAxioms R ↔ IsDomain R := by
+  constructor
+  · intro h
+    letI : Nontrivial R := ⟨⟨0, 1, h.zero_ne_one⟩⟩
+    letI : NoZeroDivisors R :=
+      noZeroDivisorsAxiom_iff_mathlib.mp h.noZeroDivisors
+    letI : IsCancelMulZero R := NoZeroDivisors.to_isCancelMulZero R
+    exact ⟨⟩
+  · intro h
+    letI := h
+    exact ⟨commRing_has_commutativeRingAxioms R, zero_ne_one,
+      noZeroDivisorsAxiom_iff_mathlib.mpr (inferInstance : NoZeroDivisors R)⟩
+
+/-- **域公理与 Mathlib 的桥接**：在交换环上，教材域公理等价于 `IsField`。
+> **Entry**: abstract-algebra.ring.domain
+-/
+theorem fieldAxioms_iff_isField {R : Type*} [CommRing R] :
+    FieldAxioms R ↔ IsField R := by
+  constructor
+  · intro h
+    refine ⟨⟨0, 1, h.zero_ne_one⟩, mul_comm, ?_⟩
+    intro a ha
+    obtain ⟨b, hab, hba⟩ := h.nonzero_unit a ha
+    exact ⟨b, hab⟩
+  · intro h
+    refine ⟨commRing_has_commutativeRingAxioms R, ?_, ?_⟩
+    · rintro h01
+      obtain ⟨x, y, hxy⟩ := h.exists_pair_ne
+      exact hxy (by
+        calc
+          x = x * 1 := (mul_one x).symm
+          _ = x * 0 := by rw [← h01]
+          _ = 0 := mul_zero x
+          _ = 0 * y := (zero_mul y).symm
+          _ = 1 * y := by rw [h01]
+          _ = y := one_mul y)
+    · intro a ha
+      obtain ⟨b, hab⟩ := h.mul_inv_cancel ha
+      exact ⟨b, hab, by simpa [mul_comm] using hab⟩
+
+/-- **Mathlib 整环兼容接口**：由 `[IsDomain R]` 得到乘积为零判据。教材主接口应使用
+`integralDomain_mul_eq_zero` 与本库 `IntegralDomainAxioms`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem is_domain_mul_eq_zero {R : Type*} [Ring R] [IsDomain R] {a b : R}
     (h : a * b = 0) : a = 0 ∨ b = 0 := by
   exact mul_eq_zero.mp h
 
-/-- **域中非零元可逆**：a ≠ 0 ⟹ 存在 b 使 a·b = 1（域中每个非零元有乘法逆元）。 
+/-- **Mathlib 域兼容接口**：由 `IsField R` 得到非零元的一个乘法逆元。教材主接口应使用
+`field_nonzero_unit` 与本库 `FieldAxioms`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem is_field_inv_exists {R : Type*} [Ring R] (hF : IsField R) {a : R} (ha : a ≠ 0) :

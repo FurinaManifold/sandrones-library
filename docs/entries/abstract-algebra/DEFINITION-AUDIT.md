@@ -24,7 +24,9 @@
   `quotientRingSet` 与自然投影已经建立；商集上的具名运算、
   `RingAxioms`、投影的核以及下降映射的存在唯一泛性质均已证明。Mathlib
   `Ideal.Quotient` 仅保留为兼容接口。
-- [ ] 零因子、整环与域：自建谓词，Mathlib 的 `IsDomain`、`IsField` 退到桥接层。
+- [x] 零因子、整环与域：`ZeroDivisorElement`、`NoZeroDivisorsAxiom`、
+  `IntegralDomainAxioms`、`FieldAxioms` 已建立；域推出整环直接由本库单位元素与环公理证明，
+  Mathlib 的 `NoZeroDivisors`、`IsDomain`、`IsField` 只出现在具名桥接接口中。
 - [ ] 素理想与极大理想：自建谓词并重写商整环/商域判据。
 - [ ] 环同构定理：公开陈述使用本库核、像和商映射接口。
 - [ ] 整除、相伴、不可约、素元、gcd、Euclidean 环、PID、UFD、局部化。
