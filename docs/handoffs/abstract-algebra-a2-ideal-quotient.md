@@ -14,6 +14,7 @@
 本批文档文件：
 
 - `docs/entries/abstract-algebra/ring/ideal.md`；
+- `docs/entries/abstract-algebra/ring/quotient.md`；
 - `docs/entries/abstract-algebra/DEFINITION-AUDIT.md`。
 
 ## 顶层 import
@@ -28,7 +29,9 @@ import SandronesLibrary.AbstractAlgebra.RingQuotient
 
 ## Main 后续共有文件更新事项
 
-- Registry：重新登记 `abstract-algebra.ring.ideal`，由脚本重算源码、axioms 与 proof hash。
+- Registry：保留 `abstract-algebra.ring.ideal` 对 `Ring.lean` 的现有归属，只新增
+  `abstract-algebra.ring.quotient` 并指向 `RingQuotient.lean`；两个 id 分别由脚本重算
+  axioms 与 proof hash，不允许一条记录跨两个 Lean 文件。
 - ROADMAP：将 A2.2 理想与商环定义层标记完成；下一项仍是零因子、整环与域的自建谓词。
 - RADAR：登记通用 `Quotient` 的 `lift`/`map`/归纳接口，以及兼容层使用的 `Ideal` API。
 - 不要把后续素理想、极大理想、环同构定理误计入本批。
