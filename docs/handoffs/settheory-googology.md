@@ -19,6 +19,9 @@ import SandronesLibrary.SetTheory.Googology
 import SandronesLibrary.SetTheory.GoogologyNotation
 import SandronesLibrary.SetTheory.GoogologyComputability
 import SandronesLibrary.SetTheory.GrowthHierarchy
+import SandronesLibrary.SetTheory.ConwayRecursion
+import SandronesLibrary.SetTheory.Goodstein
+import SandronesLibrary.SetTheory.Hydra
 ```
 
 ## Registry
@@ -41,6 +44,12 @@ import SandronesLibrary.SetTheory.GrowthHierarchy
 14. `settheory.googology.machine-execution`（`definition`）
 15. `settheory.googology.bounded-halting`（`definition`）
 16. `settheory.googology.busy-beaver-candidate`（`definition`）
+17. `settheory.googology.conway-recursion`（`definition`）
+18. `settheory.googology.goodstein-certified-state`（`definition`）
+19. `settheory.googology.goodstein-reencoding`（`definition`）
+20. `settheory.googology.goodstein-sequence`（`definition`）
+21. `settheory.googology.goodstein-ordinal-measure`（`definition`）
+22. `settheory.googology.hydra-game-step`（`definition`）
 
 ## 定义边界
 
@@ -61,6 +70,12 @@ Goodstein 序列或终止性定理。
 Busy Beaver 子包自行定义二符号有限状态机、有限步执行和 `HaltsWithin`。公开
 `busyBeaverCandidate n fuel` 只穷举 `n+1` 状态机器的有限燃料结果，不是经典无时间界 Busy
 Beaver 函数。
+
+`ConwayArrowTerm.eval` 已用“链长、末项、倒数第二项”的字典序实现一般有限链递归，并公开标准
+基础、消去与递推方程。带证书 Goodstein 状态将数值、合法遗传表达式和求值等式绑定；重编码
+单步、序列谓词与 `ω` 替换序数度量已经建立，但由于表达式尚非唯一正规形，还没有借位下降桥。
+Hydra 子包固定一种有限有序树、零编号阶段且复制 `stage+1` 份砍头后父树的明确变体，只建立
+可执行单步及例子。
 
 本批只建立递归与增长的起点，尚未宣称形式化 Ackermann 非原始递归、Goodstein 终止、PA
 不可证性或 Busy Beaver 不可计算性。这些结论需要后续编码与支配定理。
@@ -83,6 +98,14 @@ Beaver 函数。
   不允许将其描述成 `ε₀` 上经典全域层级。
 - `st3_busy_beaver`：`GoogologyComputability.lean`、机器/执行/限定停机/候选最大值四篇文档。
   负责人确认状态数采用 `n+1` 约定，并要求始终称为限定步数候选值。
+- `st3_conway_full`：`ConwayRecursion.lean` 与一般递归文档。负责人复编译发现终止性证明一度仍有
+  未解目标并退回；修复后确认标准规则 `X→1→Y=X`、一般递推与 `2→2→2=4` 回归测试。文档
+  初交付又违反八段模板，已再次退回重构。
+- `st3_goodstein`：`Goodstein.lean` 与四篇证书/重编码/序列/度量文档。负责人接受证书式接口，
+  不允许将尚缺正规化与下降桥的序列称为已经终止。
+- `st3_hydra`：`Hydra.lean` 与单步文档。负责人接受明确变体的单步定义，补齐了子 Agent 遗漏的
+  库版权头；联合 Lake 构建又发现 `chop_single_head` 依赖宽松自动隐式，已补成显式
+  `(stage : Nat)` 并同步文档。保留无终止证明的边界。
 
 三个子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -90,7 +113,8 @@ Beaver 函数。
 ## 下游依赖门
 
 可以稳定依赖：本库超运算与 Ackermann 计算方程、Knuth/Graham、遗传表达式与 Goodstein 单步、
-短 Conway 链求值、TREE 有限对象及最大值关系、带燃料增长层级、限定步数机器执行与候选最大值。
+一般有限 Conway 链求值、TREE 有限对象及最大值关系、带燃料增长层级、限定步数机器执行与候选
+最大值、带证书 Goodstein 状态／重编码／序列／序数度量，以及当前明确版本的 Hydra 单步。
 
 不可依赖：Ackermann 非原始递归、一般 Conway 长链求值、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性、经典 Busy
