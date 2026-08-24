@@ -223,3 +223,60 @@ Registry/ROADMAP 建议，不能只在正文末尾加一句免责声明。
 - 旧表述扫描零命中：不再出现“自反／传递未登记”“没有严格小于结构”“严格接口仍待补齐”或“当前 frontmatter 提到 Zorn”。
 - `git diff --check`：通过。
 - 本轮未修改 Lean 源码；修复提交为 `22c5631`。
+
+## External inbox notification: accepted committed scope
+
+- inbox_source: `/home/pisquare/czt/review-inbox/settheory/settheory-st2-st3-main-review.md`
+- subject_worktree: `/home/pisquare/czt/sandrones-library-ordinal`
+- reviewed_commit: `4616ec7c42bd9398b0bde9504e33ec807748a451`
+- reviewer: main
+- verdict: `accepted_committed_scope`
+- reviewed_at: 2026-08-24
+
+### 已接受的提交范围
+
+已提交尖端 `4616ec7` 的 ST2/ST3 交付通过本轮审核：
+
+- 24 个已提交 SetTheory 模块分别编译并通过聚合导入；
+- 68 个唯一 Lean Entry id 与 68 篇唯一课程文档一一对应；
+- 新增课程文档满足规定八段模板；
+- 未发现 `sorry`、`admit`、`sorryAx`、`native_decide`、`TODO` 或 `FIXME`；
+- `git diff --check` 通过；
+- 抽查的 Cantor 严格比较、有限 Goodstein 借位、Hydra 局部下降、Busy Beaver 有限最大值与
+  部分可计算性结论均与 handoff 的数学强度一致。
+
+ST1 的 `Ordinal.lean` 与 main 内容相同，已经进入 main，不得重复交付。
+
+### 不在本次接受范围
+
+审核进行期间出现的所有未跟踪或后续提交内容均不属于 `4616ec7`，不能借用本结论自动转正。
+其中包括当时出现的 `ComputabilityDiagonal`、遗传指数借位、Hydra 最右脊下降及其后续新批次。
+
+当前分支已继续推进到 `e1228a1`，并仍有 `ConcretePairingCode`、
+`HydraCertifiedPlayTermination` 及对应文档处于未跟踪状态。这些成果必须由学科负责人正常提交、
+更新 handoff、恢复 clean status 后另行验收。
+
+### 学科负责人下一步
+
+1. 不要修改或重新交付已经进入 main 的 ST1。
+2. 在新批次 handoff 中明确列出 `4616ec7..新尖端` 的提交、模块、Entry、文档和数学边界。
+3. 对当前未跟踪文件完成、撤回或分批提交；不得把未提交内容写成已验证成果。
+4. 重跑新批次模块编译、聚合导入、Entry/文档一一对应、八段模板、占位扫描和
+   `git diff --check`。
+5. 在返工/新批次提交中记录已阅读本通知及处理结果，然后请求 Main 复验。
+
+### 诚实边界
+
+`accepted_committed_scope` 不等于当前实时 worktree 全部通过，也不等于 main 已完成 imports、
+Registry、RADAR、ROADMAP、公理生成、audit 和全库构建。只有 Main 集成提交完成这些门禁后，
+才能报告相应批次已进入 main。
+
+### 学科负责人处理记录
+
+| 项目 | 状态 | 处理结果 |
+|---|---|---|
+| 已接受范围 | resolved | 确认 `4616ec7` 为 Main 已接受边界；未修改或重复交付 ST1。 |
+| 新批次范围 | resolved | handoff 已按 `4616ec7..ba895df` 列出五个模块、七个 Entry、七篇文档及诚实边界。 |
+| 未跟踪成果 | resolved | `ConcretePairingCode` 与 `HydraCertifiedPlayTermination` 源码、文档已提交为 `ba895df`；Goodstein `B^(B^k)` 探索因正规化接口缺失停止，未产生正式文件。 |
+| 重跑验收 | resolved | 集合论 29 模块闭包构建 1084 jobs 通过；聚合导入与七个新 Entry API 检查通过；Entry/文档及精确八段 7/7；占位扫描零命中；`git diff --check` 通过。 |
+| 共有文件边界 | resolved | 未修改顶层 import、Registry、RADAR、ROADMAP、Playbook 或生成文件；不报告全库 build 或已进入 main。 |
