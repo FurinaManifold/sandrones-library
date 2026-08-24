@@ -31,11 +31,16 @@ Main 负责人是当前唯一的共享状态写者和最终集成者。职责是
 - 维护共有文件：`SandronesLibrary.lean`、`index/registry.json`、`docs/entries/README.md`、
   `docs/MATHLIB-RADAR.md`、`docs/ROADMAP-LONGTERM.md`、`docs/LEAN-PLAYBOOK.md`。
 - 根据 ROADMAP 的依赖门和波次安排后续学科；避免多个负责人领取相同文件。
+- 对已完成学科的定义转正或公开接口调整，先指定窗口按
+  `docs/roles/SUBJECT-MAINTENANCE-ROLE.md` 完成影响审计和兼容迁移；没有 RFC 与影响图时，
+  main 不接受高扇出定义修改。
 - 接收学科 staging，而不是直接拼接多个子 Agent 分支。
 - 审核 handoff 是否列全源码、文档、imports、Registry id、RADAR API、ROADMAP 状态、验证和边界。
 - 对学科交付做语义 diff；提交祖先关系或 `git cherry` 不能代替数学审核。
 - 学科未通过时，按 Playbook 在其空闲 worktree 写
   `docs/reviews/<subject>-<batch>-main-review.md`，不得只在聊天中留返工意见。
+- 维护迁移由 main 控制阶段门：先接收新定义与桥，再分批接收下游迁移，最后在旧 API 使用归零后
+  单独接收退役提交；不得把三阶段压成一次不可回滚的合并。
 - 一次接收 1–3 个互不冲突的 handoff，统一更新共有文件并作独立集成提交。
 
 ## 验收顺序

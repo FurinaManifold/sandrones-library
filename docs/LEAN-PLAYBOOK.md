@@ -188,6 +188,9 @@
 >
 > - Main 负责人执行 `docs/roles/MAIN-ROLE.md`。
 > - 学科负责人执行 `docs/roles/SUBJECT-MAINTAINER-ROLE.md`。
+> - 已完成学科的定义转正、公开接口调整与下游迁移执行
+>   `docs/roles/SUBJECT-MAINTENANCE-ROLE.md`；这类工作必须先做影响审计，再按兼容桥、下游迁移、
+>   旧接口退役三阶段推进。
 > - 用户只需指定角色；除无法从仓库判定的歧义外，不得要求用户填写租约、提交、文件清单、验证
 >   命令或 handoff 表格。角色窗口应从 git、worktree、ROADMAP、handoff 和 review 自动发现状态。
 > - 学科负责人被临时提拔为 main 时，先暂停学科开发、保存当前成果，再进入主 worktree 按 Main

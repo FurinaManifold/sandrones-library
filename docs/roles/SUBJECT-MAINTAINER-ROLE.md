@@ -72,6 +72,8 @@
 - 不因子 Agent 报告成功就宣布学科完成。
 - 不修改 `SandronesLibrary.lean`、Registry、自动生成索引、RADAR、ROADMAP 或 Playbook，除非用户明确
   把当前窗口提拔为 main；被提拔后先暂停学科开发并改按 `MAIN-ROLE.md` 工作。
+- 已完成学科需要定义转正、公开接口调整或下游迁移时，不按普通新批次直接改写；切换到
+  `SUBJECT-MAINTENANCE-ROLE.md`，先完成影响审计和兼容方案。
 - 不把未跟踪文件当成交付，不把局部构建描述为全库构建。
 - 不为了满足标题而写强于 Lean 定理的自然语言，不把未来目标写成已证明结果。
 
