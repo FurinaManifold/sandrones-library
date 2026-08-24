@@ -2571,6 +2571,174 @@
 - **人话**：有限交换群同构于有限多个非平凡有限循环群的直积。
 - **谁在用**：`finite_abelian_cyclic_structure` 及双向分类的正向。
 
+## 初等数论：整除与素因子分解
+
+### `Nat.mod_add_div`
+- **人话**：自然数先取余数，再加上除数乘商，可以恢复原数。
+- **出处**：Mathlib 的自然数 Euclidean 除法接口。
+- **谁在用**：`number-theory.elementary.divisibility` 的带余除法。
+
+### `Nat.mod_lt`
+- **人话**：除数为正时，余数严格小于除数。
+- **出处**：Mathlib 的自然数 Euclidean 除法接口。
+- **谁在用**：`number-theory.elementary.divisibility` 的余数范围。
+
+### `Nat.dvd_gcd_iff`
+- **人话**：`d` 整除两个自然数，当且仅当 `d` 整除它们的最大公因数。
+- **出处**：`Mathlib/Data/Nat/GCD/Basic.lean`。
+- **谁在用**：`number-theory.elementary.divisibility` 的最大公因数刻画。
+
+### `Nat.gcd_eq_gcd_ab`
+- **人话**：扩展 Euclidean 算法算出的两个整数系数给出 Bézout 等式。
+- **出处**：`Mathlib/Data/Int/GCD.lean`。
+- **谁在用**：`number-theory.elementary.divisibility` 的 Bézout 等式。
+
+### `Int.gcd_dvd_iff`
+- **人话**：两个整数的最大公因数整除自然数 `d`，当且仅当 `d` 可写成这两个整数的线性组合。
+- **出处**：`Mathlib/Data/Int/GCD.lean`。
+- **谁在用**：互素线性组合判别的反向证明。
+
+### `Nat.Prime.dvd_mul`
+- **人话**：素数整除两个自然数的乘积，当且仅当它整除其中至少一个因子。
+- **出处**：Mathlib 的自然数素数与最大公因数接口。
+- **谁在用**：`number-theory.elementary.divisibility` 的 Euclid 引理。
+
+### `Nat.exists_prime_and_dvd`
+- **人话**：不等于 `1` 的自然数存在一个素因子；用于大于 `1` 的教材式版本。
+- **出处**：`Mathlib/Data/Nat/Prime/Basic.lean`。
+- **谁在用**：`number-theory.elementary.divisibility` 的素因子存在性。
+
+### `Nat.factorization`
+- **人话**：把自然数编码为有限支撑的“素数到指数”函数。
+- **出处**：`Mathlib/Data/Nat/Factorization/Defs.lean`。
+- **谁在用**：`number-theory.elementary.prime-factorization`。
+
+### `Nat.prod_factorization_pow_eq_self`
+- **人话**：非零自然数的全部素因子幂相乘会重构原数。
+- **出处**：`Mathlib/Data/Nat/Factorization/Defs.lean`。
+- **谁在用**：算术基本定理的存在性（重构形式）。
+
+### `Nat.eq_of_factorization_eq`
+- **人话**：两个非零自然数的素因子指数逐点相等，则两数相等。
+- **出处**：`Mathlib/Data/Nat/Factorization/Defs.lean`。
+- **谁在用**：算术基本定理的唯一性。
+
+## 初等数论：同余、中国剩余与 Fermat–Euler
+
+### `ZMod.natCast_eq_natCast_iff`
+- **人话**：两个自然数映入 `ZMod n` 后相等，当且仅当它们模 `n` 同余。
+- **谁在用**：`number-theory.elementary.congruence` 的同余—剩余环桥。
+
+### `Nat.ModEq.add` / `Nat.ModEq.mul` / `Nat.ModEq.pow`
+- **人话**：自然数同余对加法、乘法和自然数次幂保持相容。
+- **谁在用**：`number-theory.elementary.congruence` 的运算封闭性。
+
+### `Nat.chineseRemainder`
+- **人话**：互素模数下构造满足两个指定余数条件的共同自然数解。
+- **谁在用**：中国剩余定理的存在形式。
+
+### `ZMod.chineseRemainder`
+- **人话**：互素 `m,n` 下建立 `ZMod (m*n) ≃+* ZMod m × ZMod n`。
+- **谁在用**：中国剩余定理的结构形式。
+
+### `ZMod.card_units_eq_totient`
+- **人话**：`ZMod n` 的单位群基数等于 Euler φ 函数值。
+- **谁在用**：`number-theory.elementary.totient`。
+
+### `Nat.ModEq.pow_totient`
+- **人话**：与模数互素的自然数，其 `φ(n)` 次幂模 `n` 余一。
+- **谁在用**：Euler 定理。
+
+### `Nat.totient_prime`
+- **人话**：素数 `p` 满足 `φ(p)=p-1`。
+- **谁在用**：由 Euler 定理推出 Fermat 小定理的既约形式。
+
+### `Nat.modEq_zero_iff_dvd`
+- **人话**：`a ≡ 0 (mod p)` 当且仅当 `p ∣ a`。
+- **谁在用**：Fermat 小定理无条件形式的整除分支。
+
+## 序数理论
+
+### `Ordinal.type_eq`
+- **人话**：两个良序的序型相等，当且仅当两个关系之间存在序同构。
+- **谁在用**：`settheory.ordinal.order-type`。
+
+### `Ordinal.type_nat_lt`
+- **人话**：自然数通常严格序的序型是最小无限序数 `ω`。
+- **谁在用**：`settheory.ordinal.order-type`。
+
+### `WellFoundedLT.induction`
+- **人话**：在线性严格序的良基实例上执行良基归纳；对序数即超限归纳。
+- **谁在用**：`settheory.ordinal.transfinite-induction`。
+
+### `Ordinal.limitRecOn`
+- **人话**：按零、后继和非零极限三个分支定义序数上的递归对象。
+- **谁在用**：`settheory.ordinal.transfinite-recursion`。
+
+### `Ordinal.add_omega0`
+- **人话**：任何小于 `ω` 的序数加在 `ω` 左边都会被吸收。
+- **谁在用**：`settheory.ordinal.addition`。
+
+### `Order.lt_succ`
+- **人话**：任意无最大元后继序中的元素都严格小于自己的后继。
+- **谁在用**：`settheory.ordinal.addition`、`settheory.ordinal.successor-limit`。
+
+### `Ordinal.natCast_mul_omega0`
+- **人话**：任意正自然数对应的有限序数左乘 `ω` 仍等于 `ω`。
+- **谁在用**：`settheory.ordinal.multiplication`。
+
+### `Ordinal.mul_two`
+- **人话**：序数右乘二等于它与自身的序数和。
+- **谁在用**：`settheory.ordinal.multiplication`。
+
+### `Ordinal.opow_succ`
+- **人话**：序数幂在后继指数处满足 `a^(b+1)=a^b·a`。
+- **谁在用**：`settheory.ordinal.exponentiation`。
+
+### `Order.lt_succ_iff`
+- **人话**：在线性后继序中，`a < succ b` 当且仅当 `a ≤ b`。
+- **谁在用**：`settheory.ordinal.successor-limit`。
+
+### `Ordinal.isSuccLimit_omega0`
+- **人话**：`ω` 是非零极限序数。
+- **谁在用**：`settheory.ordinal.successor-limit`。
+
+### `Ordinal.lt_iSup_iff`
+- **人话**：序数严格小于一个小指标族的上确界，当且仅当严格小于其中某项。
+- **谁在用**：`settheory.ordinal.supremum`。
+
+### `Ordinal.cof_zero`
+- **人话**：零序数的共尾数是零。
+- **谁在用**：`settheory.ordinal.cofinality`。
+
+### `Ordinal.cof_add_one`
+- **人话**：任意后继序数的共尾数是一。
+- **谁在用**：`settheory.ordinal.cofinality`。
+
+### `Ordinal.cof_omega0`
+- **人话**：首个无限序数 `ω` 的共尾数是可数无限基数 `ℵ₀`。
+- **谁在用**：`settheory.ordinal.cofinality`。
+
+### `Ordinal.isNormal_opow`
+- **人话**：底数大于一时，序数幂关于指数是严格递增且保持极限的正规函数。
+- **谁在用**：`settheory.ordinal.normal-function`。
+
+### `Ordinal.CNF.foldr`
+- **人话**：按幂、系数和余项求值 Cantor 正规形会还原原序数。
+- **谁在用**：`settheory.ordinal.cantor-normal-form`。
+
+### `Ordinal.omega0_opow_epsilon`
+- **人话**：每个 epsilon 数都是函数 `α ↦ ω^α` 的不动点。
+- **谁在用**：`settheory.ordinal.epsilon-zero`。
+
+### `Ordinal.epsilon_zero_le_of_omega0_opow_le`
+- **人话**：若 `ω^α ≤ α`，则首个 epsilon 数 `ε₀` 不大于 `α`。
+- **谁在用**：`settheory.ordinal.epsilon-zero`。
+
+### `Ordinal.lt_wf`
+- **人话**：序数的严格小于关系是良基关系，不存在无限严格下降。
+- **谁在用**：`settheory.ordinal.no-infinite-descent`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

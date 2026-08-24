@@ -29,6 +29,66 @@
 > `sorry` 改为调用这些下层接口并运行 Lean；只有组装类型检查通过，才允许开始证明
 > 下层接口。这样可以避免错误的下层命题在未验证的情况下继续扩散。
 
+> ## ⚠️ 多 Codex 协作模式（开始修改前必须确认）
+>
+> 本库可能同时由多个 Codex 维护。每个 Codex 通常负责不同学科，但顶层导入、Registry、
+> ROADMAP、RADAR、Playbook 和自动生成目录是共有状态。**看到一个干净或陌生的工作区，
+> 不代表没有其他 Codex 正在另一个 worktree/分支工作。**开始任务前必须检查当前分支、
+> worktree 和工作区状态，不得覆盖、回退或改写其他维护者的成果。
+>
+> **1. 一个 Codex = 一个独立 worktree + 一个独立分支**
+>
+> - 禁止多个 Codex 同时在同一个物理目录中工作；Lean 构建缓存和未提交文件都会互相污染。
+> - 分支按学科或任务命名，例如 `codex/analysis`、`codex/algebra`、`codex/topology`。
+> - 开始修改前运行 `git branch --show-current`、`git status --short`、`git worktree list`；
+>   未经用户授权，不得切换、删除或重置其他 Codex 的分支/worktree。
+>
+> **2. 学科文件分区所有权**
+>
+> - 各 Codex 原则上只直接维护自己学科的 `SandronesLibrary/<Subject>/` 和
+>   `docs/entries/<subject>/`。
+> - 发现其他学科的问题可以记录，但不能顺手大范围修改；确有编译依赖时只做最小兼容改动，
+>   并在交付中明确列出跨学科修改。
+> - 工作区中的既有修改默认属于用户或其他 Codex。禁止用 `git checkout --`、
+>   `git reset --hard`、覆盖写文件等方式清除它们。
+>
+> **3. 共有文件实行单写者/集成者制度**
+>
+> 以下文件容易产生文本无冲突但语义丢失的问题，最终应由一个指定的集成 Codex 统一修改：
+>
+> - `SandronesLibrary.lean`
+> - `index/registry.json`
+> - `docs/entries/README.md`
+> - `docs/MATHLIB-RADAR.md`
+> - `docs/ROADMAP-LONGTERM.md`
+> - `docs/LEAN-PLAYBOOK.md`
+>
+> 学科 Codex若不是本轮集成者，应提交学科源码和条目文档，并把所需的顶层 import、Registry
+> 条目、ROADMAP 状态、RADAR API、Playbook 教训列成交接清单；不要让多个分支各自长期维护
+> 一份共有文件。若用户明确要求当前 Codex完成登记并提交，则当前 Codex暂时承担该批次的
+> 集成职责，但提交前仍必须先同步并核对其他分支的共有文件变化。
+>
+> **4. 自动生成文件只能在合并后重生成**
+>
+> - `docs/entries/README.md` 不手工解决冲突；合并全部条目后运行生成脚本重建。
+> - Registry 中的 `proof_sha`、`axioms` 不从冲突两边任选一个；源码合并后重新运行
+>   `check_axioms.py --all --fix`。
+> - 即使 Git 没报告冲突，也要检查重复 id、丢失 import、ROADMAP 状态回退和 RADAR 条目覆盖。
+>
+> **5. 学科提交与集成提交分离**
+>
+> 推荐顺序：学科 Codex提交源码与本学科叙述层 → 集成者合并各学科分支 → 统一更新共有文件
+> → `gen_entries_index.py` → `check_axioms.py --all --fix` → `audit.py` → 全库 `lake build`
+> → 集成提交。禁止多个 Codex直接向 `main` 并发提交共有文件。
+>
+> **6. 冲突处理原则**
+>
+> - 遇到自己学科文件的真实逻辑冲突，由该学科负责人解决。
+> - 遇到共有文件冲突，不采用 `ours`/`theirs` 整体覆盖；先保留双方语义，再由生成器和审计器
+>   重建派生字段。
+> - 无法确认某段修改归属时停止写入，报告当前分支、文件、冲突双方意图，等待集成者裁决。
+> - 每次最终交付必须说明：当前分支、提交号、修改范围、共有文件是否已更新、全库审计结果。
+
 > **5 次试错法**：同一证明试错 ≥ 5 次 ⟹ 停止盲试，拆成子 todo（带 sorry 框架），逐个解决。
 
 > **用途**：把"用 Lean 表达数学推理"的实战经验沉淀为可检索知识。
@@ -591,6 +651,20 @@
   Mathlib 的打包结构暴露到签名中。
 - **出处**：`abstract-algebra.group.sylow`：先定义 `IsPrimePowerGroup`、
   `IsSylowSubgroup` 与 `SylowSubgroup`，Mathlib 的 `IsPGroup`、`Sylow` 只保留在证明桥中。
+
+### 5.13 序数 API 先分清根命名空间、开放记号与附加模块
+
+- **症状**：序数最小实验中，凭源码附近的写法猜出 `Ordinal.typeLT`、
+  `Ordinal.lt_succ` 或只导入 `Veblen` 后调用 `Ordinal.natCast_mul_omega0`，会分别遇到
+  unknown identifier；看似属于同一序数主题的定理也未必由同一模块导出。
+- **诊断**：`typeLT` 是开放后的根记号而非 `Ordinal` 字段，通用后继接口位于 `Order`；
+  有限序数乘 `ω` 的吸收律则定义在额外的 `Ordinal.Principal` 模块。源码中的短名依赖
+  当前 namespace、`open` 和 import 闭包，不能直接反推全限定名。
+- **解法**：先用最小文件分别 `#check` 候选全名；公开代码优先写稳定的全限定形式，
+  如 `Ordinal.type (α := ℕ) (· < ·)`、`Order.lt_succ`，并按定理实际出处显式 import
+  `Mathlib.SetTheory.Ordinal.Principal`。若定理已 deprecated，立即改用提示给出的新接口，
+  如 `WellFoundedLT.induction`。
+- **出处**：`settheory.ordinal.order-type`、`transfinite-induction`、`multiplication`。
 
 ## 6. 怎么从 mathlib 现成证明学到 tactic 用法
 

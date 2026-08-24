@@ -428,6 +428,8 @@
   - 素数无穷、素数判定与典型 Diophantine 方程；
   - 二次剩余、Legendre/Jacobi 符号、Gauss 引理与二次互反律；
   - 连分数、最佳有理逼近与 Pell 方程。
+  - **当前进度**：前两项已完成基础版；素数无穷、素数判定、Diophantine 方程、
+    二次互反律与连分数主线仍待后续批次，因此 N1 只标部分完成。
 - **N2 代数数论**：
   - 数域、代数整数、整数环、范数、迹、判别式与整基；
   - Dedekind 整环中的分式理想、理想唯一分解、理想类群与类数；
@@ -447,11 +449,16 @@
 > 区分“序数/基数的集合论大小”与“googology 的可表示有限大数”；后者必须同时发展
 > 递归论、证明论序数和增长层级，不能只靠基数理论。
 
-- **ST1 序数理论**（`set-theory.ordinal.*`）：
+- **ST1 序数理论**（`settheory.ordinal.*`）✅（13 条核心入口）：
   - 良序、序型、序数比较与超限归纳/递归；
   - 序数加法、乘法、幂及其非交换性；
   - 极限序数、后继序数、上确界、共尾性与正规函数；
   - Cantor 正规形、ε 数、`ε₀`，并连接 Goodstein 定理所需的序数下降论证。
+  - 已完成条目：`order-type`、`transfinite-induction`、`transfinite-recursion`、
+    `addition`、`multiplication`、`exponentiation`、`successor-limit`、`supremum`、`cofinality`、
+    `normal-function`、`cantor-normal-form`、`epsilon-zero`、`no-infinite-descent`。
+  - 边界：已建立 Goodstein 证明所需的 `ε₀` 与序数良基下降接口；具体 Goodstein
+    状态编码、遗传基表示和单步下降桥按规划归入 ST3，不在 ST1 中虚报完成。
 - **ST2 基数理论**（`set-theory.cardinal.*`）：
   - 等势、基数比较、Cantor–Bernstein 与 Cantor 定理；
   - 基数加法、乘法、幂，有限/可数/不可数集；
@@ -546,10 +553,10 @@
 | P7 | F1-F4 泛函分析 | 🔲 |
 | P8 | Pr1-Pr3 概率论 | 🔲 |
 | P9 | S1-S2 统计推断 | 🔲 |
-| P10 | N1 初等数论 | 🔲 |
+| P10 | N1 初等数论 | 🟡（整除、唯一分解、同余、CRT、Fermat–Euler 已完成） |
 | P10 | N2 代数数论 | 🔲 |
 | P10 | N3 解析数论 | 🔲（等待复分析） |
-| P11 | ST1 序数理论 | 🔲 |
+| P11 | ST1 序数理论 | ✅ |
 | P11 | ST2 基数理论 | 🔲 |
 | P11 | ST3 Googology、递归与增长层级 | 🔲 |
 | P12 | X* 前沿 | 🔲 |

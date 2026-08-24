@@ -7861,5 +7861,613 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "number-theory.elementary.divisibility",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "带余除法、最大公因数与 Bézout 等式",
+    "summary": "带余除法、最大公因数整除刻画、Bézout 等式、互素判别、Euclid 引理与素因子存在性",
+    "premises": [],
+    "mathlib": [
+      "Nat.mod_add_div",
+      "Nat.mod_lt",
+      "Nat.dvd_gcd_iff",
+      "Nat.gcd_eq_gcd_ab",
+      "Int.gcd_dvd_iff",
+      "Nat.Prime.dvd_mul",
+      "Nat.exists_prime_and_dvd"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（整除与素数）"
+    },
+    "lean_file": "NumberTheory/Elementary/Divisibility.lean",
+    "nl_file": "docs/entries/number-theory/elementary/divisibility.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.prime-factorization"
+    ],
+    "proof_sha": "c5f90fdbec1f96b8",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.prime-factorization",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "算术基本定理：素因子分解的存在性与唯一性",
+    "summary": "非零自然数由素因子幂乘积重构，并由全部素因子指数唯一决定",
+    "premises": [
+      "number-theory.elementary.divisibility"
+    ],
+    "mathlib": [
+      "Nat.factorization",
+      "Nat.prod_factorization_pow_eq_self",
+      "Nat.eq_of_factorization_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（算术基本定理）"
+    },
+    "lean_file": "NumberTheory/Elementary/PrimeFactorization.lean",
+    "nl_file": "docs/entries/number-theory/elementary/prime-factorization.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "ed94e7ac948bfaa3",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.ordinal.order-type",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "良序与序型",
+    "summary": "良序同构当且仅当序型相同，且自然数通常序的序型为 ω",
+    "premises": [],
+    "mathlib": [
+      "Ordinal.type_eq",
+      "Ordinal.type_nat_lt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Ordinal Numbers"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/order-type.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.transfinite-induction",
+      "settheory.ordinal.successor-limit"
+    ],
+    "family": "settheory.ordinal.order-type",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.transfinite-induction",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "超限归纳",
+    "summary": "若性质由所有更小序数处成立推出当前处成立，则性质对全部序数成立",
+    "premises": [
+      "settheory.ordinal.order-type"
+    ],
+    "mathlib": [
+      "WellFoundedLT.induction"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Transfinite Induction"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/transfinite-induction.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.transfinite-recursion",
+      "settheory.ordinal.no-infinite-descent"
+    ],
+    "family": "settheory.ordinal.transfinite-induction",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.transfinite-recursion",
+    "kind": "definition",
+    "state": "verified",
+    "title": "超限递归",
+    "summary": "按零、后继和极限三个分支在全部序数上递归定义对象",
+    "premises": [
+      "settheory.ordinal.transfinite-induction"
+    ],
+    "mathlib": [
+      "Ordinal.limitRecOn"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Transfinite Recursion"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/transfinite-recursion.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.supremum"
+    ],
+    "family": "settheory.ordinal.transfinite-recursion",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.addition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数加法不交换",
+    "summary": "1+ω=ω 但 ω+1≠ω",
+    "premises": [],
+    "mathlib": [
+      "Ordinal.add_omega0",
+      "Order.lt_succ"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Ordinal Arithmetic"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/addition.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.multiplication"
+    ],
+    "family": "settheory.ordinal.addition",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.multiplication",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数乘法不交换",
+    "summary": "2·ω=ω 但 ω·2≠ω",
+    "premises": [
+      "settheory.ordinal.addition"
+    ],
+    "mathlib": [
+      "Ordinal.natCast_mul_omega0",
+      "Ordinal.mul_two"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Ordinal Arithmetic"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/multiplication.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.exponentiation"
+    ],
+    "family": "settheory.ordinal.multiplication",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.exponentiation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数幂的后继递推",
+    "summary": "序数幂满足 a^(b+1)=a^b·a",
+    "premises": [
+      "settheory.ordinal.multiplication"
+    ],
+    "mathlib": [
+      "Ordinal.opow_succ"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Ordinal Arithmetic"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/exponentiation.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.normal-function",
+      "settheory.ordinal.cantor-normal-form"
+    ],
+    "family": "settheory.ordinal.exponentiation",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.successor-limit",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "后继序数与极限序数",
+    "summary": "后继序数紧邻原序数，ω 是非零极限序数",
+    "premises": [
+      "settheory.ordinal.order-type"
+    ],
+    "mathlib": [
+      "Order.lt_succ",
+      "Order.lt_succ_iff",
+      "Ordinal.isSuccLimit_omega0"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Successor and Limit Ordinals"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/successor-limit.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.ordinal.successor-limit",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.supremum",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数族的上确界",
+    "summary": "严格小于小指标序数族上确界等价于严格小于其中某项",
+    "premises": [
+      "settheory.ordinal.transfinite-recursion"
+    ],
+    "mathlib": [
+      "Ordinal.lt_iSup_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Suprema of Ordinals"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/supremum.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.normal-function"
+    ],
+    "family": "settheory.ordinal.supremum",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.cofinality",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数的共尾数",
+    "summary": "零、后继序数与 ω 的共尾数分别为零、一与 ℵ₀",
+    "premises": [
+      "settheory.ordinal.successor-limit",
+      "settheory.ordinal.supremum"
+    ],
+    "mathlib": [
+      "Ordinal.cof_zero",
+      "Ordinal.cof_add_one",
+      "Ordinal.cof_omega0"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 3: Cofinality"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/cofinality.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.ordinal.cofinality",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.normal-function",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正规序数函数",
+    "summary": "底数大于一的序数幂函数严格递增且在极限处连续",
+    "premises": [
+      "settheory.ordinal.exponentiation",
+      "settheory.ordinal.supremum"
+    ],
+    "mathlib": [
+      "Ordinal.isNormal_opow"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Normal Functions"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/normal-function.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.epsilon-zero"
+    ],
+    "family": "settheory.ordinal.normal-function",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.cantor-normal-form",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cantor 正规形",
+    "summary": "求值序数的 Cantor 正规形会精确还原原序数",
+    "premises": [
+      "settheory.ordinal.exponentiation"
+    ],
+    "mathlib": [
+      "Ordinal.CNF.foldr"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Cantor Normal Form"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/cantor-normal-form.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "settheory.ordinal.epsilon-zero"
+    ],
+    "family": "settheory.ordinal.cantor-normal-form",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.epsilon-zero",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "ε₀：首个 epsilon 数",
+    "summary": "ε₀ 是 α↦ω^α 的最小前不动点",
+    "premises": [
+      "settheory.ordinal.normal-function",
+      "settheory.ordinal.cantor-normal-form"
+    ],
+    "mathlib": [
+      "Ordinal.omega0_opow_epsilon",
+      "Ordinal.epsilon_zero_le_of_omega0_opow_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Wolfram Pohlers, Proof Theory, Section 1.2: Epsilon Numbers"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/epsilon-zero.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.ordinal.epsilon-zero",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "settheory.ordinal.no-infinite-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "序数无穷下降不可能",
+    "summary": "序数严格小于关系良基，为 Goodstein 型下降论证提供终止接口",
+    "premises": [
+      "settheory.ordinal.transfinite-induction"
+    ],
+    "mathlib": [
+      "Ordinal.lt_wf"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Thomas Jech, Set Theory, Chapter 2: Well-foundedness of Ordinals"
+    },
+    "lean_file": "SetTheory/Ordinal.lean",
+    "nl_file": "docs/entries/settheory/ordinal/no-infinite-descent.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.ordinal.no-infinite-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "afeeedb5b005f0af"
+  },
+  {
+    "id": "number-theory.elementary.congruence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "同余与剩余环",
+    "summary": "建立自然数同余与 ZMod 相等的桥，并证明同余对加法、乘法和乘方封闭",
+    "premises": [
+      "number-theory.elementary.divisibility"
+    ],
+    "mathlib": [
+      "ZMod.natCast_eq_natCast_iff",
+      "Nat.ModEq.add",
+      "Nat.ModEq.mul",
+      "Nat.ModEq.pow"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（同余）"
+    },
+    "lean_file": "NumberTheory/Elementary/Congruence.lean",
+    "nl_file": "docs/entries/number-theory/elementary/congruence.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.chinese-remainder",
+      "number-theory.elementary.fermat-euler"
+    ],
+    "proof_sha": "b127bfdea64e34c9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.chinese-remainder",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "中国剩余定理",
+    "summary": "互素模数下联立同余方程有解，并给出对应剩余环的直积同构",
+    "premises": [
+      "number-theory.elementary.congruence"
+    ],
+    "mathlib": [
+      "Nat.chineseRemainder",
+      "ZMod.chineseRemainder"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（中国剩余定理）"
+    },
+    "lean_file": "NumberTheory/Elementary/Congruence.lean",
+    "nl_file": "docs/entries/number-theory/elementary/chinese-remainder.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.totient"
+    ],
+    "proof_sha": "b127bfdea64e34c9",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.totient",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Euler φ 函数",
+    "summary": "Euler φ 函数等于模 n 剩余环中的可逆剩余类数",
+    "premises": [
+      "number-theory.elementary.chinese-remainder"
+    ],
+    "mathlib": [
+      "ZMod.card_units_eq_totient"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（Euler φ 函数）"
+    },
+    "lean_file": "NumberTheory/Elementary/FermatEuler.lean",
+    "nl_file": "docs/entries/number-theory/elementary/totient.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [
+      "number-theory.elementary.fermat-euler"
+    ],
+    "proof_sha": "b66ab3833319df28",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.elementary.fermat-euler",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Euler 定理与 Fermat 小定理",
+    "summary": "由互素剩余类的单位群阶推出 Euler 定理及 Fermat 小定理的两种形式",
+    "premises": [
+      "number-theory.elementary.totient",
+      "number-theory.elementary.congruence"
+    ],
+    "mathlib": [
+      "Nat.ModEq.pow_totient",
+      "Nat.totient_prime",
+      "Nat.modEq_zero_iff_dvd"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hardy and Wright, An Introduction to the Theory of Numbers（Euler 与 Fermat 定理）"
+    },
+    "lean_file": "NumberTheory/Elementary/FermatEuler.lean",
+    "nl_file": "docs/entries/number-theory/elementary/fermat-euler.md",
+    "added_by": "ingestor-codex",
+    "added_at": "2026-08-24T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "b66ab3833319df28",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
