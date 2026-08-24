@@ -72,3 +72,32 @@ git status --short
 
 修复提交为包含本处理记录的当前提交（见 `codex/complex-analysis` 分支 `git log`）。C1 复验接受
 记录原样保留，未修改 C1 数学或 C2 以外源码。
+
+## Round 2 — Main 复验
+
+- reviewed_commit: `7190ff0b4a80d92af8e06e9d2cedf1fb8ebda195`
+- reviewer: main
+- verdict: `accepted`
+- reviewed_at: 2026-08-24
+
+### 复验通过
+
+- R1：路径积分两篇已补 front matter；七篇 C2 文档均且仅有规定八段，各段非空。
+- R2：原函数条件下路径无关已改为独立 foundation id
+  `complex-analysis.cauchy.path-independence-primitive`；一般 `cauchy.homotopy` 未冒充完成。
+- R3：球内三角形边界积分为零已改为独立 foundation id
+  `complex-analysis.cauchy.triangle-ball`；一般 `cauchy.triangle` 未冒充完成。
+- `PathIntegral`、`CauchyTheorem`、`CauchyFormula`、`Liouville` 四模块联合构建通过
+  （2750 jobs）。
+- 提交范围的 `git diff --check` 通过；已提交复分析源码无 `sorry`、`admit`、`sorryAx` 或
+  `native_decide`。
+
+### 接收边界
+
+本结论只接受 C2 修复尖端 `7190ff0` 及其 handoff/review 闭环。C3 的 `Taylor`、`Laurent`、
+`Singularity`、`Residue`、`ArgumentPrinciple`、对应文档和 C3 handoff 不在本轮审核范围，须按
+独立提交另行验收。
+
+进入 main 时仍由 Main 更新顶层 imports、Registry、RADAR 与 ROADMAP，重生成文档索引和公理
+字段，运行 audit、条目 id 一致性检查与一次完整 `lake build`。一般 Goursat、一般全纯同伦不变
+和一般 `Path.reparam` 继续保留为未完成项。
