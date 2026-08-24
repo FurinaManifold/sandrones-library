@@ -17,8 +17,9 @@
 ## 0. 铁律（决定顺序）
 
 1. **依赖优先**：每批的每个条目的 `premises` 必须已在库中 verified。批次顺序 = 数学依赖图 + mathlib 表达需求的线性化。
-2. **mathlib 语言优先**：先用 mathlib 原生抽象语言写（能表达什么就按什么写），人话叙述层随后。没有的 API 就停在"定义 + 一手性质"。
-3. **先完整再前沿**：规划内阶段全部达到 §6 的"学完"标准后，才允许把科研论文作为新批次下沉（见 §6.2）。
+2. **教材定义优先、Mathlib 桥显式**：新概念先给本库教材定义和一手性质，再说明 Mathlib 结构是
+   公开承载、实现桥还是证明后端。没有合适 API 时停在“定义 + 一手性质”，不能直接暴露更强结构冒充课程定义。
+3. **先完整再前沿**：规划内阶段达到 §15 的“学完”标准后，才允许把科研论文作为新批次下沉。
 
 ---
 
@@ -31,13 +32,18 @@
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🔲 | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
-| **Phase 6 复分析** | `complex-analysis.*` | C1 C2 C3 | R2 T3 M4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1 F2 F3 F4 | L5 T3 R4 |
-| **Phase 8 概率论** | `probability.*` | Pr1 Pr2 Pr3 | R4 |
-| **Phase 9 统计推断** | `statistics.*` | S1 S2 | Pr |
+| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5✅ C1🚧 C2-C3🔒 | R2 T3 M4 |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1🚧 F2-F4🔒 | L5 T3 R4 |
+| **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
+| **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🔲 ST3🔒 | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X* | 各自分支前置达标 |
+| **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🚧review ST3🚧staging | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 12+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X1-X6🔒 | 各自分支前置达标 |
+
+**状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
+阶段进度表。✅ 只表示已进入 main、Registry 为 verified 且 main 全库验收通过；`staging`、
+`review` 和未跟踪成果一律记 🚧，不能提前算完成。状态变化由 main 在集成提交中同时更新本表和
+对应章节，不允许只改其中一处。
 
 **为什么实分析在拓扑之后、且用测度积分**：测度论需要 σ-代数/可测空间（拓扑的抽象层）；
 而 mathlib 内置积分是**一般测度的 Lebesgue 积分**，不是黎曼积分——所以一元微积分只做到导数/中值，
@@ -70,7 +76,7 @@
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
 | G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧 |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
-| G-ST | ST2 基数算术与选择公理等价入口完成，并另建可计算性定义层 | ST3 增长层级 | 🔲 |
+| G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | 🚧（ST2 Round 2） |
 | G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
 
 依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
@@ -84,7 +90,7 @@
 | P0 | C1 复微分 | 全纯、复可微、Cauchy–Riemann 与幂级数入口 | C1-D 定义/代数；C1-CR Cauchy–Riemann；C1-P 局部幂级数 | 为 C2 复积分提供稳定公开签名 |
 | P1 | F1 泛函基础 | 赋范空间、连续线性映射、Banach 基础 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | 不提前引用开映射/闭图定理 |
 | P1 | Pr1 概率基础 | 概率空间、随机变量、分布、期望、独立性 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | 打开 G-Pr，且所有概率概念先有本库定义层 |
-| P1 | ST2.1 基数基础 | 等势、比较、Cantor–Bernstein、Cantor 定理、可数性 | ST2-E 等势/比较；ST2-C Cantor 系；ST2-N 有限/可数/不可数 | 不提前声称 CH 或独立性证明 |
+| P1 | ST2/ST3 返工 | 完成 Round 2 文档同步并收敛 staging | ST2 三篇文档；ST3 首批边界复核 | main 接收后才推进 G-ST |
 
 Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和文件分片；main 确认没有跨学科签名冲突后，
 子 Agent 才进入证明阶段。A2 和 C1 是关键路径，main 优先审核它们的 handoff。
@@ -97,7 +103,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | C1 完成 | C2 复积分 | C2-I 路径积分；C2-C Cauchy 定理/公式；C2-A 解析性与唯一性 | 打开 Laurent/残数路线 |
 | F1 完成 | F2 Banach 定理 | 一致有界；开映像；闭图与逆算子 | 三大定理分别独立文件，公共 Baire 接口先行 |
 | Pr1 完成 | Pr2 概率极限定理 | 条件期望；大数律；中心极限定理前置 | S1 只在期望/方差/分布接口稳定后启动 |
-| ST2.1 完成 | ST2.2 基数算术 | 加乘幂；aleph/beth；共尾性与 König | 选择公理等价和 CH 边界另包处理 |
+| ST2/ST3 首批进入 main | ST3 深层 | 原始递归函数类；Goodstein 完整状态；可计算性定义 | 支配、终止、不可计算性仍受定义门控制 |
 | main 有空闲审核槽 | T4 代数拓扑入口 | 道路/同伦；同伦等价；基本群；教材例子 | 圆周基本群若 Mathlib 缺桥则明确降级，不伪造闭环 |
 
 #### Wave C：受门控的纵深工作
@@ -273,10 +279,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 7 | `linear-algebra.decomposition.polar` | 方阵及线性算子的极分解，正半定因子与部分等距因子 | `Isometry`、正平方根、伴随 |
 | 8 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆、最小二乘正规方程与最小范数解 | SVD、正交投影 |
 
-### 线性代数补遗批次（2026-08 审计）
-
-此前“L1–L4 完成”只表示首批骨架已建立，并不等于标准本科线性代数内容齐全。
-后续按下列顺序补齐：
+### 线性代数已完成补遗（不重复 L4/L6/L7 条目）
 
 | 顺序 | 条目 | 缺失内容 | 状态 |
 |---|---|---|---|
@@ -284,22 +287,9 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 2 | `linear-algebra.coordinates.change-basis` | 坐标映射、过渡矩阵、换基公式、相似矩阵表示同一算子 | ✅ |
 | 3 | `linear-algebra.vector-space.sum-quotient` | 子空间和、直和、商空间及维数公式 | ✅ |
 | 4 | `linear-algebra.eigen.diagonalization` | 特征基判据、几何/代数重数、Cayley–Hamilton、最小多项式 | ✅ |
-| 5 | `linear-algebra.eigen.jordan` | Jordan 链、标准形存在性、矩阵相似形式及由广义核维数确定块大小的唯一性 | ✅ |
-| 6 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | ✅ |
-| 7 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | ✅ |
-| 8 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | ✅ |
-| 9 | `linear-algebra.matrix.orthogonal-unitary` | 正交/酉矩阵、共轭转置、群运算与行列式性质 | ✅ |
-| 10 | `linear-algebra.matrix.normal` | 正规、Hermitian、斜 Hermitian 矩阵与复谱定理 | ✅ |
-| 11 | `linear-algebra.matrix.symplectic` | 标准辛矩阵、辛群基本性质与行列式为一 | ✅ |
-| 12 | `linear-algebra.symplectic.basis` | 辛正交补、辛基与有限维线性 Darboux 定理 | ✅ |
-| 13 | `linear-algebra.decomposition.elimination` | 高斯消元、阶梯形与初等矩阵 | ✅ |
-| 14 | `linear-algebra.decomposition.lu` | LU/LDU 的条件与唯一性、PLU 的一般存在性 | ✅ |
-| 15 | `linear-algebra.decomposition.qr` | 薄/方 QR 分解及规范化唯一性 | ✅ |
-| 16 | `linear-algebra.decomposition.cholesky` | 正定矩阵的 Cholesky 分解 | ✅ |
-| 17 | `linear-algebra.decomposition.schur` | 复 Schur 与实 Schur 分解 | ✅ |
-| 18 | `linear-algebra.decomposition.svd` | 奇异值分解及奇异值基本性质 | ✅ |
-| 19 | `linear-algebra.decomposition.polar` | 极分解与正半定平方根 | ✅ |
-| 20 | `linear-algebra.decomposition.pseudoinverse` | Moore–Penrose 伪逆与最小二乘 | ✅ |
+| 5 | `linear-algebra.inner-product` | 内积、正交补、Gram–Schmidt、伴随与自伴 | ✅ |
+| 6 | `linear-algebra.spectral-quadratic` | 实对称谱定理、正交对角化、二次型与惯性定律 | ✅ |
+| 7 | `linear-algebra.tensor-exterior` | 对偶基、张量基、外幂分次与维数公式 | ✅ |
 
 ---
 
@@ -317,10 +307,10 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 > `Ideal`/`Polynomial` 等**教材结构直接可出现在签名**（学到什么用什么）；但 **`Module` 仍不允许**。
 > 模论不属于本阶段，统一留到未来交换代数批次；线性代数继续用 `LinearSpace` 承载。
 
-### A1 群
+### A1 群 ✅
 
-> 现有 `AbstractAlgebra/Group.lean` 已完成子群、陪集、正规子群和第一同构定理的基础
-> 接口，但尚不是完整群论课程。后续必须补齐循环群、群作用、Sylow 理论和有限生成交换群。
+> A1 的十二个课程入口均已进入 main，覆盖子群、陪集、循环群、商群、同构定理、群作用、
+> 置换群、Sylow 理论和有限生成交换群；更深有限群分类不属于 A1 完成范围。
 
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
@@ -337,7 +327,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 11 | `abstract-algebra.group.sylow` | Cauchy 定理、Sylow 三定理及低阶群应用 | ✅ |
 | 12 | `abstract-algebra.group.abelian-structure` | 有限生成交换群结构定理及有限交换群分类 | ✅ |
 
-### A2 环
+### A2 环 🚧
 
 > 现有 `AbstractAlgebra/Ring.lean` 覆盖子环、理想、商环、素/极大理想和第一同构
 > 定理的基础接口。完整章节还需系统处理整除理论和典型构造。
@@ -354,7 +344,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | 🔲 |
 | 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | 🔲 |
 
-### A3 多项式与域扩张
+### A3 多项式与域扩张 🚧
 
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
@@ -374,7 +364,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 
 > 家族前缀 `topology.`。
 
-### T1 拓扑空间（开闭/邻域/连续/子商积）
+### T1 拓扑空间（开闭/邻域/连续/子商积）✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -386,7 +376,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 6 | `topology.space.subspace` | 子空间/积/商拓扑 | `Subspace`、`Product`、`Quotient` |
 | 7 | `topology.space.connected` | 连通/道路连通（导言） | `IsConnected`、`PathConnected` |
 
-### T2 紧致/分离
+### T2 紧致/分离 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -395,7 +385,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 3 | `topology.compact.finite` | 紧 Hausdorff 的闭/紧性、Tychonoff | `isCompact_iff_isClosed`、`Tychonoff` |
 | 4 | `topology.separations` | T1/T2/正则/正规 | `T1Space`、`T2Space`、`NormalSpace`、`T3Space` |
 
-### T3 度量与完备性
+### T3 度量与完备性 ✅
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -407,7 +397,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 6 | `topology.normed-space.inequalities` | 三角与反三角不等式、数乘范数 | `norm_add_le`、`abs_norm_sub_norm_le` |
 | 7 | `topology.normed-space.banach` | 范数收敛、Cauchy 与 Banach 完备性 | `Metric.tendsto_atTop`、`CompleteSpace` |
 
-### T4 同胚、同伦与基本群（点集拓扑后的代数拓扑入口）
+### T4 同胚、同伦与基本群（点集拓扑后的代数拓扑入口）🔲
 
 > 依赖顺序固定为“同胚及拓扑不变量 → 道路与同伦 → 同伦等价 → 基本群”。其中 T1
 > 已完成同胚的定义和基本接口；本批次继续发展同胚保持性质，并建立代数拓扑所需结构。
@@ -426,184 +416,331 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 
 ---
 
-## 6. Phase 5+ — 实分析与后续（批次级，条目在批处理时按同粒度落地）
+## 6. Phase 5 — 实分析（R1-R6）
 
-> 这些课程及后续分支先列到"批次 + 核心定理清单"，具体条目 id 在每批开工时按 §0 铁律4 在文件头展开成与上表相同的表格。为什么不提前全部展开：这些批次量极大（R 有 5 批、后续每门数批），
-> 现在列出可执行、可追踪、可逐条打勾的粒度；具体 theorem 名在批处理时结合 mathlib 现状定稿。
+状态只以 §1 总览和本节表格为准。R1-R4 与 Riemann 桥已进入 main；以下只展开仍缺的课程入口。
 
-### Phase 5 实分析 = 数学分析第二学期（R1-R6，测度积分 + 多元微积分）
+### R1-R4 与 R5.5 已完成主线 ✅
 
-> 定位：数学分析第二学期。一元函数积分学部分**换成测度/Lebesgue 积分**（mathlib 内置
-> 是一般测度的 Lebesgue 积分，非黎曼；覆盖微积分基本定理/换元/收敛定理，且是概率/泛函地基）；
-> 后续**多元微积分照常写**（重积分/曲线曲面积分/三大公式）。
+测度、可测函数、Lebesgue 积分、三大收敛定理、乘积测度、Fubini/Tonelli、Lᵖ，以及本库
+Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均已登记。
 
-- **R1 测度**：σ-代数/可测空间、测度、外测度、Carathéodory 可测、正则测度。
-- **R2 可测函数与积分**：可测函数、简单函数、非负可测函数积分（lintegral）、一般可积函数（integral）。
-- **R3 收敛定理**：单调收敛、Fatou、控制收敛。
-- **R4 乘积/Lᵖ**：乘积测度、Fubini/Tonelli、Lᵖ 空间与完备性。
-- **R5 微分定理桥**：Lebesgue 微分定理、测度积分的微积分基本定理、与黎曼的关系。
-- **R5.5 黎曼积分的测度理论定位**：
-  - ✅ `real-analysis.riemann.def`：黎曼积分的定义（达布分划/上下和/可积/均匀分划/积分值，全部自建）。
-  - ✅ `real-analysis.riemann.cont-integrable`：连续 ⟹ 黎曼可积（一致连续 + 均匀分划 + 振荡界，自证）。
-  - ✅ `real-analysis.riemann.eq-lebesgue`：连续函数的黎曼积分值 = Lebesgue 区间积分；
-  - ✅ `real-analysis.riemann.eq-lebesgue-general`：任意标准 Riemann 可积函数的黎曼积分值 = Lebesgue 区间积分；
-  - ✅ `real-analysis.riemann.ftc`：微积分基本定理的 Newton–Leibniz 与变上限 Riemann 积分版本；
-  - ✅ `real-analysis.riemann.parts-substitution`：分部积分与换元法，并完成指数函数例题；
-  - ✅ `analysis.integral.examples`：自然数幂、指数、正弦、余弦及线性换元的 Riemann 定积分公式；
-    达布和 = 阶梯函数积分并通过夹逼完成证明。
-  - ✅ `real-analysis.riemann.lebesgue-criterion`：**黎曼可积 ⟺ 几乎处处连续**（Lebesgue 判据）。
-  - ✅ `real-analysis.lebesgue-measure`：Lebesgue 测度（ℝ 上 `volume`：区间长度、区间可测）。
-- **R4 乘积/Lᵖ**：✅ 乘积测度、Tonelli/Fubini、Lᵖ 基础、Hölder、Chebyshev、Minkowski 与完备性，整批完成。
-- **R6 多元微积分**（进行中）：✅ Fréchet 全微分、方向导数、梯度、坐标偏导与 Jacobian；
-  ✅ Hessian/Taylor、反函数定理、隐函数定理、满秩秩定理与一般常秩 `r` 定理；
-  ✅ Lebesgue 闭矩形二重积分、Fubini 教材接口、Jordan 可测区域、闭盒多元 Riemann
-  定义、连续函数数值桥与 Jordan 区域零延拓桥；
-  ✅ `x`/`y`-型正常区域的变限累次积分公式；
-  ✅ 可测区域上的多重积分换元、可积性等价与 Jacobian 体积公式；
-  🚧 坐标积分已完成二维极坐标、三维柱坐标、球坐标 Jacobian、
-  标准参数域换元、全空间公式与三重累次形式，继续补球体体积、质量、
-  球体体积、常密度质量、重心与转动惯量例题；该坐标积分批次完成；
-  🚧 参数曲线的速度、速率、正则性与弧长，以及参数曲面的坐标切向量和
-  正则性已建立；仿射平面的显式微分、切向量与线性无关正则判据已完成；
-  仿射平面的像已证明只依赖方向张成的子空间，而与具体生成方向无关；
-  保向可微换参数下的速度、速率与弧长不变性已完成；
-  三维曲面面积元、面积定义、仿射平面正则判据、仿射矩形面积公式、点态 Jacobian
-  变换公式及一般可微单射换参数下的面积不变性已完成；第一型曲线/曲面积分、
-  常密度公式与换参数不变性也已完成；
-  🚧 对偶空间、张量积泛性质、自然缩并、外代数楔积的结合律、向量楔积与交替形式
-  的第一层接口已建立；
-  继续补对偶基、张量基、形式楔积与外幂维数；
-  🚧 赋范向量空间上的微分形式、零次形式、拉回、外微分、`d²=0`、拉回自然性、
-  闭形式、恰当形式、外微分交替和公式，以及形式楔积的代数层、shuffle 范数界和
-  连续性封装、双线性接口、次数重编号、连续双线性算子及楔积保持点可微性已建立；
-  线性定向、保向/反向自同构及行列式判据也已在拓扑层建立并由分析层调用；
-  第二型曲线/曲面积分的微分形式定义、线性、保向换参数和恰当 1-形式端点公式
-  已建立；协向量场接口、反向参数化变号和闭曲线上的恰当形式零积分也已完成；
-  继续补二维/三维显式坐标表达、Leibniz 公式和 Poincaré 引理，再推进
-  Green/Gauss/Stokes 公式。
-  矩形 Green 公式、三维盒 Gauss 散度公式以及矩形参数曲面上的拉回版经典 Stokes
-  `curl·(σᵤ×σᵥ)` 坐标展开、有限参数片/多图册拼接及闭曲面推论均已完成；
-  具体三角形、圆盘、单位立方体和水平单位正方形例题放在顶层 `Examples`。
-  **本阶段不定义 de Rham 上同调**：数学分析 II 只使用“闭形式在适当区域上恰当”
-  的具体结论，不把闭形式模恰当形式组成商空间。
+### R5 微分定理桥 🚧
 
-### Phase 6 复分析（C0-C3）
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `real-analysis.differentiation.maximal-function` | Hardy–Littlewood 极大函数与弱型估计 | 球平均/覆盖接口 |
+| 2 | `real-analysis.differentiation.lebesgue-points` | Lebesgue 点及几乎处处存在 | `ae_lebesguePoint` 系 |
+| 3 | `real-analysis.differentiation.theorem` | Lebesgue 微分定理 | integral average |
+| 4 | `real-analysis.ftc.absolute-continuity` | 绝对连续函数与积分表示 | `AbsolutelyContinuousOn` |
+| 5 | `real-analysis.ftc.ae-derivative` | a.e. 导数的 Newton–Leibniz 形式 | interval integral FTC |
+| 6 | `real-analysis.riemann.lebesgue-bridge-summary` | 两套积分接口的课程总桥 | 本库 R5.5 API |
 
-- **C0 复数基础**：✅ 复数的实部—虚部定义、坐标判等、加法/乘法、`i²=-1`、共轭与模平方公式。
-- **C0.5 代数学基本定理**：✅ 非常数复多项式存在复根、`ℂ` 代数闭、复多项式完全分裂；
-  由此得到任意复方阵的 Jordan 相似标准型。
-- **C1-C3**：全纯/柯西-黎曼 → 泰勒/洛朗/唯一性 → 复积分/残数定理。
+### R6 多元微积分收尾 🚧
 
-### Phase 7 泛函分析（F1-F4）
+| # | 条目 id | 内容 | 主要接口 |
+|---|---|---|---|
+| 1 | `analysis.forms.coordinate-expression` | 1/2/3-形式显式坐标表达 | 本库 `DifferentialForm` |
+| 2 | `analysis.forms.leibniz` | 外微分对楔积的分次 Leibniz 公式 | 外微分/楔积接口 |
+| 3 | `analysis.forms.poincare` | 星形域上的 Poincaré 引理 | 同伦算子与积分 |
+| 4 | `analysis.stokes.domain-gluing` | 参数片拼成一般分片光滑区域 | 已有三大公式片接口 |
+| 5 | `analysis.coordinate-integrals.mass-center` | 质量、重心、转动惯量例题 | 坐标换元 API |
+| 6 | `analysis.multivariable.course-boundary` | 分析 II 覆盖范围与 de Rham 边界 | 本库 R6 API |
 
-赋范空间 → Banach（开映像/闭图/一致有界）→ Hilbert（Riesz/谱）→ 算子代数。
+边界：R6 不定义 de Rham 上同调；闭形式模恰当形式的商空间归入 X5。
 
-### Phase 8 概率论（Pr1-Pr3）
+## 7. Phase 6 — 复分析（C0-C3）
 
-概率空间/随机变量/期望 → 独立性/条件期望/大数律 → 中心极限定理。
+C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main。
 
-### Phase 9 统计推断（S1-S2）
+### C1 复微分与全纯函数 🚧
 
-估计（MLE/矩/充分性）→ 检验（似然比/Neyman-Pearson）与回归。
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `complex-analysis.holomorphic.definition` | 复可微、区域上全纯 | `ComplexDifferentiableAt/On` |
+| 2 | `complex-analysis.holomorphic.algebra` | 和、积、商、复合的全纯性 | 复导数代数接口 |
+| 3 | `complex-analysis.holomorphic.cauchy-riemann` | CR 方程必要条件 | `Complex.hasFDerivAt_iff` |
+| 4 | `complex-analysis.holomorphic.cr-sufficient` | 实可微加 CR 推出复可微 | Fréchet 导数 |
+| 5 | `complex-analysis.holomorphic.power-series` | 幂级数圆内全纯与逐项求导 | `PowerSeries`、`HasSum` |
+| 6 | `complex-analysis.holomorphic.elementary` | exp、sin、cos、局部 log | `Complex.exp/sin/cos/log` |
 
-### Phase 10 数论分支（N1-N3）
+### C2 复积分与 Cauchy 理论 🔒（依赖 C1）
 
-> 数论不作为一条必须等全部分析课程结束后才启动的单线：N1 在整数、整除和初等代数
-> 齐备后即可进行；N2 依赖域扩张、理想与有限生成模；N3 则等待复分析的留数、解析延拓
-> 等工具。三个批次分别使用 `number-theory.elementary.*`、`number-theory.algebraic.*`、
-> `number-theory.analytic.*` 家族。
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `complex-analysis.integral.path` | 分段光滑路径与复路径积分 | `PathIntegral` |
+| 2 | `complex-analysis.integral.reparametrization` | 换参数、反向、拼接 | path integral invariance |
+| 3 | `complex-analysis.cauchy.triangle` | 三角形 Cauchy 定理 | Cauchy triangle API |
+| 4 | `complex-analysis.cauchy.homotopy` | 同伦不变与单连通域版本 | winding/homotopy |
+| 5 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | circle integral API |
+| 6 | `complex-analysis.cauchy.derivatives` | 高阶导数公式与 Cauchy 估计 | iterated derivative |
+| 7 | `complex-analysis.liouville` | Liouville 与 FTA 的分析证明 | Cauchy estimate |
 
-- **N1 初等数论**：
-  - 整除、带余除法、最大公因数、Bézout、Euclid 引理与算术基本定理；
-  - 同余、剩余类环、中国剩余定理、Euler φ 函数、Fermat/Euler 定理；
-  - 素数无穷、素数判定与典型 Diophantine 方程；
-  - 二次剩余、Legendre/Jacobi 符号、Gauss 引理与二次互反律；
-  - 连分数、最佳有理逼近与 Pell 方程。
-  - **当前进度**：✅ 已完成 21 条教材入口，覆盖上述五项主线。
-  - **诚实边界**：当前只登记最佳逼近定义、有限候选最优元与 Legendre 充分判据，尚未声称
-    每个简单连分数收敛子都是本库定义下的最佳逼近；Pell 部分已转正正方程、Brahmagupta
-    合成、正解与基本解存在，尚未建立 `√d` 连分数桥、负 Pell 方程以及全体解由基本解幂
-    生成的坐标接口分类。
-- **N2 代数数论**：
-  - 数域、代数整数、整数环、范数、迹、判别式与整基；
-  - Dedekind 整环中的分式理想、理想唯一分解、理想类群与类数；
-  - 素理想在数域扩张中的分解、分歧指数与惯性次数；
-  - Minkowski 嵌入与界、单位群的 Dirichlet 定理；
-  - 赋值、完备化、`p`-进数和局部域入口，最后建立局部—整体问题的接口。
-- **N3 解析数论**：
-  - 算术函数、Dirichlet 卷积、Möbius 反演与部分求和；
-  - Dirichlet 级数、Euler 乘积、Riemann ζ 函数的基本解析性质；
-  - 素数计数函数、Chebyshev 估计与素数定理；
-  - Dirichlet 特征、`L`-函数及算术级数中的素数定理；
-  - 后续专题：零点分布、显式公式、筛法和加性数论，按依赖另立扩展批次。
+### C3 Laurent、残数与亚纯函数 🔒（依赖 C2）
 
-### Phase 11 集合论深化（ST1-ST3）
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `complex-analysis.series.taylor` | Taylor 展开与唯一性 | analytic/power series |
+| 2 | `complex-analysis.series.laurent` | 环域 Laurent 展开 | `LaurentSeries` |
+| 3 | `complex-analysis.singularity.classification` | 可去、极点、本性奇点 | `MeromorphicAt` |
+| 4 | `complex-analysis.residue.definition` | 残数与 Laurent 系数 | `residue` |
+| 5 | `complex-analysis.residue.theorem` | 残数定理 | winding/cycle integral |
+| 6 | `complex-analysis.argument-principle` | 辐角原理与 Rouché | logarithmic derivative |
+| 7 | `complex-analysis.residue.real-integrals` | 实积分计算例题 | contour estimates |
 
-> 现有 `SetTheory` 中的集合、函数、关系、基数入口和 Zorn 引理是本分支前置。本阶段
-> 区分“序数/基数的集合论大小”与“googology 的可表示有限大数”；后者必须同时发展
-> 递归论、证明论序数和增长层级，不能只靠基数理论。
+## 8. Phase 7 — 泛函分析（F1-F4）
 
-- **ST1 序数理论**（`settheory.ordinal.*`）✅（13 条核心入口）：
-  - 良序、序型、序数比较与超限归纳/递归；
-  - 序数加法、乘法、幂及其非交换性；
-  - 极限序数、后继序数、上确界、共尾性与正规函数；
-  - Cantor 正规形、ε 数、`ε₀`，并连接 Goodstein 定理所需的序数下降论证。
-  - 已完成条目：`order-type`、`transfinite-induction`、`transfinite-recursion`、
-    `addition`、`multiplication`、`exponentiation`、`successor-limit`、`supremum`、`cofinality`、
-    `normal-function`、`cantor-normal-form`、`epsilon-zero`、`no-infinite-descent`。
-  - 边界：已建立 Goodstein 证明所需的 `ε₀` 与序数良基下降接口；具体 Goodstein
-    状态编码、遗传基表示和单步下降桥按规划归入 ST3，不在 ST1 中虚报完成。
-- **ST2 基数理论**（`set-theory.cardinal.*`）：
-  - 等势、基数比较、Cantor–Bernstein 与 Cantor 定理；
-  - 基数加法、乘法、幂，有限/可数/不可数集；
-  - `aleph`、`beth` 层级、共尾性、正则/奇异基数与 König 定理；
-  - 选择公理、良序定理、Zorn 引理的等价关系；
-  - 连续统假设只登记准确陈述和相对独立性边界，不伪造库内不可得的模型论证明。
-- **ST3 Googology、递归与增长层级**（`set-theory.googology.*`）：
-  - 原始递归、Ackermann 函数、超运算与 Knuth/Conway 大数记号；
-  - Hardy 层级、快速增长层级与由序数基本列控制的增长率比较；
-  - Goodstein 序列、Hydra 游戏及其与 `ε₀`、Peano 算术不可证性的边界；
-  - Graham 数、TREE 函数、Busy Beaver 等典型大数的严格定义与已知比较；
-  - 更强证明论序数和大基数相关记号仅在相应基础建立后加入，明确区分有限大数、
-    无限基数和证明论强度三种概念。
+### F1 赋范空间与连续线性算子 🚧
 
-### Phase 12 前沿分叉（X*）
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.normed.definition` | 赋范空间与 Banach 空间 | `NormedSpace`、`CompleteSpace` |
+| 2 | `functional-analysis.operator.continuous-linear-map` | 连续线性映射与算子范数 | `ContinuousLinearMap` |
+| 3 | `functional-analysis.operator.bounded-iff` | 连续、局部有界、全局有界等价 | `LinearMap.mkContinuous` |
+| 4 | `functional-analysis.operator.space` | 算子空间的赋范与完备性 | CLM complete instance |
+| 5 | `functional-analysis.series.summable` | Banach 中绝对可和推出可和 | `summable_of_summable_norm` |
+| 6 | `functional-analysis.subspace.quotient` | 闭子空间与商 Banach 空间 | `NormedSpace.Quotient` |
 
-交换代数、同调代数、代数拓扑、代数表示论、微分几何——各自前置达标后逐批细化。
+### F2 Banach 三大定理 🔒（依赖 F1）
 
-其中交换代数分支负责统一引入一般环上的模论，初步顺序固定为：
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.baire.theorem` | Baire 范畴定理 | dense open intersection |
+| 2 | `functional-analysis.banach-steinhaus` | 一致有界原理 | `banach_steinhaus` |
+| 3 | `functional-analysis.open-mapping` | 开映射定理 | continuous linear surjection |
+| 4 | `functional-analysis.closed-graph` | 闭图定理 | closed graph |
+| 5 | `functional-analysis.inverse-operator` | 有界逆定理 | open mapping 推论 |
 
-1. `commutative-algebra.module.def`：模、子模、生成子模、商模与直和；
-2. `commutative-algebra.module.hom`：模同态、核像与三个同构定理；
-3. `commutative-algebra.module.free`：自由模、基、有限生成模与秩；
-4. `commutative-algebra.module.exact`：正合列与分裂正合列；
-5. `commutative-algebra.module.projective`：投影模及自由模直和项刻画；
-6. `commutative-algebra.module.pid-structure`：PID 上有限生成模结构定理；
-7. 在此基础上再进入 Noether 环、整扩张、维数、局部环及交换代数的同调工具。
+### F3 Hilbert 空间 🔒（依赖 F1、L5）
 
-只有进入该分支后，教材层公开签名才允许出现 `Module`。
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.hilbert.projection` | 闭凸集/闭子空间投影 | `orthogonalProjection` |
+| 2 | `functional-analysis.hilbert.riesz` | Riesz 表示定理 | `InnerProductSpace.toDual` |
+| 3 | `functional-analysis.hilbert.adjoint` | 有界算子伴随 | CLM adjoint |
+| 4 | `functional-analysis.hilbert.orthonormal-basis` | 正交规范基与 Parseval | `OrthonormalBasis` |
+| 5 | `functional-analysis.hilbert.compact-spectral` | 紧自伴算子谱定理 | compact operator spectrum |
 
----
+### F4 算子代数入口 🔒（依赖 F2/F3）
 
-## 7. 批次纳入节奏（沿用 INGESTION_PROTOCOL）
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.spectrum.definition` | Banach 代数谱与预解集 | `spectrum`、`resolventSet` |
+| 2 | `functional-analysis.spectrum.nonempty` | 复 Banach 代数谱非空紧致 | spectrum API |
+| 3 | `functional-analysis.operator.normal` | 正规、自伴与正算子 | star operator API |
+| 4 | `functional-analysis.operator.functional-calculus` | 连续函数演算入口 | functional calculus |
+| 5 | `functional-analysis.operator.cstar-entry` | C*-恒等式与基本例子 | `CStarAlgebra` |
 
-1. 每批开工：`.lean` 文件头写"本文件当前条目"清单（§0 铁律4），每条目一个 Entry（docstring 带 `> **Entry**: <id>`）。
+## 9. Phase 8 — 概率论（Pr1-Pr3）
+
+### Pr1 概率空间、随机变量与期望 🚧
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `probability.space.definition` | 概率空间与事件 | `IsProbabilityMeasure` |
+| 2 | `probability.variable.definition` | 随机变量与可测性 | `Measurable` |
+| 3 | `probability.distribution.pushforward` | 分布作为推前测度 | `Measure.map` |
+| 4 | `probability.expectation.definition` | 期望、可积性与线性 | `integral` |
+| 5 | `probability.moments.variance` | 方差与协方差 | variance/covariance |
+| 6 | `probability.independence.events` | 事件与 σ-代数独立 | `IndepEvents`、`Indep` |
+| 7 | `probability.independence.variables` | 随机变量独立与分布乘积 | `IndepFun` |
+| 8 | `probability.inequalities.basic` | Markov、Chebyshev、Jensen | probability inequalities |
+
+### Pr2 条件期望与鞅 🔒（依赖 Pr1）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `probability.conditional-expectation.definition` | 条件期望定义与存在 | `condExp` |
+| 2 | `probability.conditional-expectation.tower` | 塔式性质 | `condExp_condExp` |
+| 3 | `probability.conditional-expectation.independence` | 独立时条件期望退化 | condExp independence |
+| 4 | `probability.filtration.definition` | 过滤与适应过程 | `Filtration`、`Adapted` |
+| 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 | `Martingale` |
+| 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 | stopping time |
+
+### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛 | convergence APIs |
+| 2 | `probability.law-large-numbers.weak` | 弱大数律 | iid variance bounds |
+| 3 | `probability.law-large-numbers.strong` | 强大数律 | SLLN |
+| 4 | `probability.characteristic-function` | 特征函数与分布唯一性 | charFun |
+| 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |
+
+## 10. Phase 9 — 统计推断（S1-S2）
+
+### S1 参数估计 🔒（依赖 Pr1）
+
+| # | 条目 id | 内容 | 主要实现接口 |
+|---|---|---|---|
+| 1 | `statistics.model.definition` | 统计模型、样本与参数族 | 测度族/概率核 |
+| 2 | `statistics.estimator.definition` | 统计量、估计量与风险 | 可测映射、期望 |
+| 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 | Pr1 方差 |
+| 4 | `statistics.estimator.consistency` | 相合性与收敛模式 | Pr3 |
+| 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口 | conditional law |
+| 6 | `statistics.method-of-moments` | 矩估计 | moments |
+| 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
+| 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |
+
+### S2 检验与回归 🔒（依赖 S1）
+
+| # | 条目 id | 内容 | 主要实现接口 |
+|---|---|---|---|
+| 1 | `statistics.testing.definition` | 检验、两类错误与功效 | measurable decision |
+| 2 | `statistics.testing.neyman-pearson` | Neyman–Pearson 引理 | likelihood ratio |
+| 3 | `statistics.testing.likelihood-ratio` | 广义似然比检验入口 | MLE/density |
+| 4 | `statistics.confidence-set` | 置信集合与覆盖概率 | probability model |
+| 5 | `statistics.regression.linear-model` | 线性模型与最小二乘 | 本库伪逆/投影 |
+| 6 | `statistics.regression.gauss-markov` | Gauss–Markov 定理 | covariance |
+| 7 | `statistics.regression.normal-equations` | 正规方程与可识别性 | pseudoinverse |
+| 8 | `statistics.regression.inference` | 正态误差下区间与检验 | Gaussian law |
+
+## 11. Phase 10 — 数论（N1-N3）
+
+### N1 初等数论 ✅
+
+21 个教材入口已进入 main。最佳逼近必要方向、√d 连分数桥、负 Pell 和全体正解分类归入 N1+。
+
+### N1+ 初等专题扩展 🔲
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `number-theory.elementary.convergent-best` | 收敛子是最佳逼近的必要方向 | N1 连分数 |
+| 2 | `number-theory.elementary.sqrt-periodic-cf` | 二次无理数连分数周期性 | N1 |
+| 3 | `number-theory.elementary.pell-cf-bridge` | √d 收敛子产生 Pell 解 | 前两条 |
+| 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | Pell bridge |
+| 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 周期奇偶性 |
+
+### N2 代数数论 🔒（依赖 G-A2/G-A3）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `number-theory.algebraic.number-field` | 数域与有限扩张 | `NumberField` |
+| 2 | `number-theory.algebraic.algebraic-integer` | 代数整数与整闭包 | `IsIntegral` |
+| 3 | `number-theory.algebraic.ring-of-integers` | 整数环 | `RingOfIntegers` |
+| 4 | `number-theory.algebraic.norm-trace` | 范数与迹 | `Algebra.norm/trace` |
+| 5 | `number-theory.algebraic.discriminant` | 判别式与整基 | `Algebra.discr` |
+| 6 | `number-theory.algebraic.dedekind` | 整数环的 Dedekind 性 | `IsDedekindDomain` |
+| 7 | `number-theory.algebraic.fractional-ideal` | 分式理想 | `FractionalIdeal` |
+| 8 | `number-theory.algebraic.ideal-factorization` | 非零理想唯一分解 | ideal factorization |
+| 9 | `number-theory.algebraic.class-group` | 理想类群与类数 | `ClassGroup` |
+| 10 | `number-theory.algebraic.prime-decomposition` | 分解、分歧、惯性 | ramification APIs |
+| 11 | `number-theory.algebraic.minkowski` | Minkowski 嵌入与界 | embeddings |
+| 12 | `number-theory.algebraic.unit-theorem` | Dirichlet 单位定理 | unit group |
+| 13 | `number-theory.algebraic.valuation` | 离散赋值与局部化 | `Valuation` |
+| 14 | `number-theory.algebraic.padic-completion` | p-进数与完备化 | `Padic`、`PadicInt` |
+| 15 | `number-theory.algebraic.local-field-entry` | 局部域与局部—整体入口 | local field APIs |
+
+### N3 解析数论 🔒（N3.1 可先行；其余依赖 G-C）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `number-theory.analytic.arithmetic-function` | 算术函数与乘法性 | `ArithmeticFunction` |
+| 2 | `number-theory.analytic.dirichlet-convolution` | Dirichlet 卷积 | convolution |
+| 3 | `number-theory.analytic.mobius-inversion` | Möbius 反演 | `moebius` |
+| 4 | `number-theory.analytic.partial-summation` | Abel 部分求和 | summation by parts |
+| 5 | `number-theory.analytic.dirichlet-series` | Dirichlet 级数 | `LSeries` |
+| 6 | `number-theory.analytic.euler-product` | Euler 乘积 | Euler product |
+| 7 | `number-theory.analytic.riemann-zeta` | ζ 函数、延拓、函数方程入口 | `riemannZeta` |
+| 8 | `number-theory.analytic.chebyshev` | Chebyshev 函数与估计 | prime sums |
+| 9 | `number-theory.analytic.prime-number-theorem` | 素数定理 | ζ 非零线 |
+| 10 | `number-theory.analytic.dirichlet-character` | Dirichlet 特征 | `DirichletCharacter` |
+| 11 | `number-theory.analytic.l-function` | Dirichlet L-函数 | `LFunction` |
+| 12 | `number-theory.analytic.primes-in-progression` | 算术级数中的素数 | character/L nonvanishing |
+
+## 12. Phase 11 — 集合论深化（ST1-ST3）
+
+### ST1 序数理论 ✅
+
+13 个序数入口已进入 main；Goodstein 状态编码不属于 ST1 完成范围。
+
+### ST2 基数理论 🚧（staging Round 2，尚未进入 main）
+
+| # | 条目 id | 内容 | 状态 |
+|---|---|---|---|
+| 1 | `settheory.cardinal.equinumerous` | 双射定义等势 | staging |
+| 2 | `settheory.cardinal.comparison` | 单射比较闭环 | staging-review |
+| 3 | `settheory.cardinal.cantor-bernstein` | 双向单射推出等势 | staging |
+| 4 | `settheory.cardinal.cantor-theorem` | 对角论证与幂集严格比较 | staging-review |
+| 5 | `settheory.cardinal.addition` | 不交并定义加法 | staging |
+| 6 | `settheory.cardinal.multiplication` | 笛卡尔积定义乘法 | staging |
+| 7 | `settheory.cardinal.exponentiation` | 函数空间定义幂 | staging |
+| 8 | `settheory.cardinal.finite-set` | 与 Fin n 等势定义有限 | staging |
+| 9 | `settheory.cardinal.aleph-hierarchy` | aleph 层级 | staging |
+| 10 | `settheory.cardinal.beth-hierarchy` | beth 层级 | staging |
+| 11 | `settheory.cardinal.cardinal-cofinality` | 基数共尾性 | staging |
+| 12 | `settheory.cardinal.regular-singular` | 无限基数分类 | staging |
+| 13 | `settheory.cardinal.konig-theorem` | König 定理 | staging |
+| 14 | `settheory.cardinal.classical-choice-wellordering` | 经典选择与良序可用 | staging-review |
+| 15 | `settheory.cardinal.continuum-hypothesis` | CH 准确陈述 | staging |
+
+边界：无选择基础中的 AC/良序/Zorn 双向等价和 CH 独立性证明均未完成。
+
+### ST3 递归与增长层级 🚧（首批 staging）
+
+| # | 条目 id | 内容 | 状态 |
+|---|---|---|---|
+| 1 | `settheory.googology.primitive-recursion` | 单层递归生成器 | staging |
+| 2 | `settheory.googology.hyperoperation` | 超运算 | staging |
+| 3 | `settheory.googology.ackermann` | Ackermann 定义与方程 | staging |
+| 4 | `settheory.googology.knuth-arrow` | Knuth 上箭头 | staging |
+| 5 | `settheory.googology.graham-number` | Graham 数 | staging |
+| 6 | `settheory.googology.hereditary-base` | 遗传基表达式 | staging |
+| 7 | `settheory.googology.goodstein-step` | 换底减一单步 | staging |
+| 8 | `settheory.googology.primitive-recursive-class` | 原始递归函数类 | 🔲 |
+| 9 | `settheory.googology.ackermann-domination` | 支配与非原始递归 | 🔒 |
+| 10 | `settheory.googology.goodstein-sequence` | 正规编码与完整序列 | 🔲 |
+| 11 | `settheory.googology.goodstein-ordinal-descent` | ε₀ 严格下降 | 🔒 |
+| 12 | `settheory.googology.goodstein-termination` | Goodstein 终止 | 🔒 |
+| 13 | `settheory.googology.fast-growing-hierarchy` | 快速增长层级 | 🔒 |
+| 14 | `settheory.googology.computability-entry` | 可计算/不可计算定义 | 🔲 |
+| 15 | `settheory.googology.busy-beaver` | Busy Beaver 不可计算性 | 🔒 |
+
+## 13. Phase 12 — 前沿分叉（X*）
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| X1.1 | `commutative-algebra.module.foundation` | 模、子模、商模、同构定理 | A2 |
+| X1.2 | `commutative-algebra.module.finiteness` | 有限生成、Noether/Artin 模 | X1.1 |
+| X1.3 | `commutative-algebra.module.projective-injective` | 自由、投射、内射模 | X1.1 |
+| X1.4 | `commutative-algebra.tensor-localization` | 张量积与局部化 | X1.1 |
+| X1.5 | `commutative-algebra.dimension` | 素理想链与 Krull 维数 | A2 |
+| X2.1 | `homological-algebra.complex` | 链复形、同调 | X1 |
+| X2.2 | `homological-algebra.exact-snake` | 正合列与蛇引理 | X2.1 |
+| X2.3 | `homological-algebra.derived-ext-tor` | 导出函子、Ext/Tor | X2.2 |
+| X3.1 | `algebraic-topology.covering` | 覆盖空间 | T4 |
+| X3.2 | `algebraic-topology.singular-homology` | 奇异同调 | X2.1 |
+| X3.3 | `algebraic-topology.cohomology-hurewicz` | 上同调与 Hurewicz | X3.2 |
+| X4.1 | `representation-theory.definition` | 群表示与子表示 | A1/L2 |
+| X4.2 | `representation-theory.maschke-character` | Maschke 与特征标 | X4.1 |
+| X4.3 | `representation-theory.lie-entry` | Lie 代数表示入口 | X4.1 |
+| X5.1 | `differential-geometry.manifold-bundles` | 流形、切丛、余切丛 | R6/T4 |
+| X5.2 | `differential-geometry.connection-curvature` | 联络、曲率、测地线 | X5.1 |
+| X5.3 | `differential-geometry.derham` | de Rham 复形、上同调、定理入口 | X5.1/X2 |
+| X6.1 | `logic.syntax-formal-system` | 形式语言、理论、证明系统 | ST1 |
+| X6.2 | `logic.computability` | 部分递归与可计算函数 | X6.1 |
+| X6.3 | `logic.goedel-coding` | Gödel 编码与可表示性 | X6.1 |
+| X6.4 | `logic.completeness-incompleteness` | 完备与不完备定理 | X6.3 |
+
+## 14. 批次纳入节奏（沿用 INGESTION_PROTOCOL）
+
+1. 每批开工：`.lean` 文件头写“本文件当前条目”清单，每条目一个 Entry（docstring 带 `> **Entry**: <id>`）。
 2. 批内先后：行序严格（定义 → 基本性质 → 定理 → 应用）。
-3. 每批验收：`lake build` 零错误；`check_axioms.py --all` 全过（缺 axioms 用 `--fix`）；`audit.py` 全过；RADAR 覆盖本次引用的每个 mathlib 名。
-4. 批次提交：`git commit`，`"<阶段><批>: <主题>（<N> 条）+ 注册/RADAR"`。
-5. 里程碑打勾：批次完成即更新本文件进度表。
+3. 学科验收：修改模块、依赖闭包和聚合导入通过；无占位符；文档与 Entry 一致。学科负责人不跑全库构建。
+4. main 集成：统一更新共有文件，运行生成器、公理审计、audit 和一次全库 `lake build`。
+5. 状态推进：main 集成提交通过后，同时更新 §1 总览和对应章节；不存在另一张进度表。
 
 ---
 
-## 8. 学完标准与科研论文下沉
+## 15. 学完标准与科研论文下沉
 
-### 8.1 阶段学完标准
+### 15.1 阶段学完标准
 
 1. 规划内该阶段所有批次条目 = `verified`，`audit.py` 全过，无 `sorry`。
 2. 阶段末能力节点被后续阶段实际引用（`dependedOnBy` 非零）——"能干活"才真读完。
 3. 该阶段 RADAR 组覆盖实际用到的每个 mathlib 名。
 
-### 8.2 瘦身维护（Slimming，持续进行）
+### 15.2 瘦身维护（Slimming，持续进行）
 
 - **任务**：按 Playbook §4.1 逐条检查 RADAR 记录，把"证明体直接 `exact mathlib`"的
   结构性条目改写为本库推导。判定：结构性可推导 → 改；定义性/依赖 mathlib 内部结构 → 保留。
@@ -611,7 +748,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
   从 RADAR 一条一条检查，到该条"谁在用"的索引全部被本库条目替换掉，即完全解明。
 - **意义**：学术论文的定理 mathlib 里没有，到时全得自己写。瘦身 = 培养论文定理自证能力。
 
-### 8.3 科研论文定理下沉（第一阶段（抽象代数/线代/分析/拓扑）学完后即可开始）
+### 15.3 科研论文定理下沉
 
 1. 选论文定理：能用规划内 premise 表述为前提。
 2. 走纳营协议五步；`premises` 必须指向库内 verified 条目。
@@ -621,42 +758,3 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 > 守则：**前沿不是空中楼阁**——每个论文定理都有规划内地基可追溯，扩展速度与根基缺口成反比。
 
 ---
-
-## 9. 进度表
-
-| 阶段 | 批次 | 状态 |
-|---|---|---|
-| P1 | M1 数列极限 | ✅ |
-| P1 | M2 函数极限 | ✅ |
-| P1 | M3 连续函数 | ✅ |
-| P1 | M4 导数 | ✅ |
-| P1 | M5 中值/泰勒 | ✅ |
-| P2 | L1-L4 线性代数（第一学期）| ✅ |
-| P2 | L5 内积/谱/二次型 | ✅ |
-| P2 | L6 保结构矩阵（正交/酉/正规/辛） | 🔲（第二学期）|
-| P2 | L7 矩阵分解与数值线性代数基础 | 🔲（第二学期）|
-| P3 | A1-A3 抽象代数第一学期（群+环+多项式环）| 🟡（基础框架已有，按详细清单扩展中） |
-| P3 | A3 域扩张/Galois | 🔲（第二学期）|
-| P12 | 交换代数：模论、Noether 理论与局部化 | 🔲（未来分支）|
-| P4 | T1-T3 点集拓扑 | ✅ |
-| P4.5 | T4 同胚深化、同伦、同伦等价与基本群 | 🔲 |
-| P5 | R1-R5 实分析（R1-R3、R5 及 R5.5 部分）| 🔶（进行中） |
-| P6 | C0 复数基础 | ✅ |
-| P6 | C0.5 代数学基本定理与复矩阵 Jordan 应用 | ✅ |
-| P6 | C1-C3 复分析 | 🔲 |
-| P7 | F1-F4 泛函分析 | 🔲 |
-| P8 | Pr1-Pr3 概率论 | 🔲 |
-| P9 | S1-S2 统计推断 | 🔲 |
-| P10 | N1 初等数论 | 🟡（整除、唯一分解、同余、CRT、Fermat–Euler 已完成） |
-| P10 | N2 代数数论 | 🔲 |
-| P10 | N3 解析数论 | 🔲（等待复分析） |
-| P11 | ST1 序数理论 | ✅ |
-| P11 | ST2 基数理论 | 🔲 |
-| P11 | ST3 Googology、递归与增长层级 | 🔲 |
-| P12 | X* 前沿 | 🔲 |
-
-### P12 后续分支：微分几何与代数拓扑
-
-de Rham 上同调从数学分析 II 主线移至此分支，依赖顺序为：光滑流形与切/余切丛 →
-流形上的微分形式、拉回与积分 → de Rham 复形及 `Hᵏ_dR` → 同伦不变性 →
-de Rham 定理。它不阻塞欧氏空间上的 Poincaré 引理和 Green–Gauss–Stokes 公式。
