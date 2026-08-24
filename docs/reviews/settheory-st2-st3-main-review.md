@@ -154,3 +154,72 @@ Registry/ROADMAP 建议，不能只在正文末尾加一句免责声明。
 仍未完成的数学边界：选择公理／良序定理／Zorn 在无选择共同基础中的形式化双向等价；CH 独立性的模型论证明；Ackermann 非原始递归；完整 Goodstein 序列、终止性与 PA 不可证性；Busy Beaver 不可计算性。以上均未在源码、课程文档或 handoff 中过报。
 
 最后附上验证命令、结果、分支名和返工提交号，并明确仍未完成的数学边界。
+
+## Round 2
+
+- reviewed_commit: `58f06ce81d8cd5f09998d2938eef835b8147fbad`
+- reviewer: main
+- verdict: needs_changes
+- reviewed_at: 2026-08-24
+
+### 复验已通过
+
+- R1 的降级方向正确：Entry 已改为 `settheory.cardinal.classical-choice-wellordering`，Lean 公开
+  类型和 handoff 不再声称三原则等价。
+- R2 的 Lean 源码补强正确：`cardinalLE_refl`、`cardinalLE_trans`、
+  `cardinalLE_antisymm`、`CardinalLT`、`cantor_strictly_smaller_powerSet` 与
+  `infinite_regular_or_singular` 均存在并通过联合 `#check`。
+- R4 的 Ackermann 标题、summary、源码 docstring 和正文均已降级为定义与计算方程。
+- R5 的 ST2 handoff 已列全 15 篇文档，并区分稳定接口与未完成边界。
+- R6 的 ST3 源码、七篇文档、handoff 和 Round 1 review 记录均已正常提交；worktree 清洁。
+- 22 篇新增文档均有八个精确一级标题，顺序正确且各段非空。
+- 单文件编译、三模块构建和聚合导入通过；无禁用占位符；`git diff --check` 通过。
+
+### R7. `comparison.md` 仍描述返工前的旧接口
+
+- 证据：`docs/entries/settheory/cardinal/comparison.md` 的 Lean 对照后写道“当前公开配套定理只
+  登记等势推出双向比较；自反、传递以及反对称闭环不在本条已登记接口中”。
+- 实际源码已经公开 `cardinalLE_refl`、`cardinalLE_trans` 和 `cardinalLE_antisymm`。
+- 这与 Round 1 的 R2 处理记录及 handoff 所称“比较关系闭环”直接矛盾。
+- 必须更新自然语言陈述、Lean 对照、thinking trace、映射、依赖和陷阱，使其准确覆盖三个新增
+  定理；可以继续说明尚未封装成 Lean `Preorder`/`PartialOrder` 实例。
+
+### R8. `cantor-theorem.md` 仍否认已经新增的严格比较接口
+
+- 证据：该文档三处声称尚未通过 `CardinalLE` 建立严格比较、源码没有严格小于结构、严格序接口
+  仍待补齐。
+- 实际源码已经定义 `CardinalLT`，证明 `cardinalLE_powerSet`、
+  `not_cardinalLE_powerSet_reverse` 和 `cantor_strictly_smaller_powerSet`。
+- 必须把自然语言陈述、Lean 对照、thinking trace、映射、依赖和陷阱更新到现有源码强度，同时
+  保留“`CardinalLT` 是本库 Prop 定义，尚未封装为 Mathlib 序实例”等真实边界。
+
+### R9. `classical-choice-wellordering.md` 有一处错误的 frontmatter 自述
+
+- “依赖（人话版）”写道“本条 frontmatter 提到 Zorn 与序数序型”，但当前 frontmatter 的
+  `premises` 已是空列表，正文陈述与实际文件不一致。
+- 请改成：历史条目曾把 Zorn/序数列作路线背景，本次降级后 frontmatter 已删除这些 premises；
+  真正等价仍是后续目标。不要描述当前文件中不存在的字段。
+
+### Round 2 要求重跑
+
+本轮只需修改上述三篇课程文档和本 review 的处理记录，不需要改 Lean 源码。完成后运行：
+
+1. 三篇文档的八段标题与非空内容检查；
+2. 搜索三篇文档中的旧表述，确认不再否认现有公开 API；
+3. `git diff --check`；
+4. `git status --short`，确认返工和 review 记录均已提交。
+
+### 学科负责人 Round 2 处理记录
+
+| 项目 | 状态 | 修复提交／说明 |
+|---|---|---|
+| R7 comparison 文档同步 | resolved | `comparison.md` 的自然语言、Lean 对照、thinking trace、映射、依赖和陷阱已覆盖 `cardinalLE_refl`、`cardinalLE_trans`、`cardinalLE_antisymm`；保留尚未封装 `Preorder`/`PartialOrder` 实例的边界。修复提交 `22c5631`。 |
+| R8 Cantor 文档同步 | resolved | `cantor-theorem.md` 已覆盖 `CardinalLT`、`cardinalLE_powerSet`、`not_cardinalLE_powerSet_reverse` 与 `cantor_strictly_smaller_powerSet`，不再否认严格比较接口；明确 `CardinalLT` 仍是本库 `Prop` 定义而非序实例。修复提交 `22c5631`。 |
+| R9 choice 文档 frontmatter 自述 | resolved | “依赖（人话版）”已改为历史版本说明，并准确指出当前 frontmatter 的 `premises: []`；三原则等价仍列为后续目标。修复提交 `22c5631`。 |
+
+### Round 2 验证记录
+
+- 三篇文档均恰有八个规定一级标题，顺序正确且各段非空。
+- 旧表述扫描零命中：不再出现“自反／传递未登记”“没有严格小于结构”“严格接口仍待补齐”或“当前 frontmatter 提到 Zorn”。
+- `git diff --check`：通过。
+- 本轮未修改 Lean 源码；修复提交为 `22c5631`。
