@@ -38,7 +38,7 @@
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🚧review ST3🚧staging | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 高阶学科群** | 交换代数、同调代数、代数拓扑、表示论、微分几何、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
+| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
 阶段进度表。✅ 只表示已进入 main、Registry 为 verified 且 main 全库验收通过；`staging`、
@@ -698,10 +698,10 @@ C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main
 
 ## 13. Phase 12+ — 高阶学科群（每门独立建设）
 
-> 本节不是一个名为“前沿”的杂项批次。以下六门都是独立学科，每门的体量、负责人、worktree、
+> 本节不是一个名为“前沿”的杂项批次。以下十四门都是独立学科，每门的体量、负责人、worktree、
 > family 前缀、handoff 和完成状态均独立；一门完成不代表其他门完成。表中一行是一个可验收
-> Entry，不是用一个标题包装整章理论。正式开工时，学科负责人还应把每个 8–15 条的课程批次
-> 进一步分成 2–3 个文件包交给子 Agent。
+> Entry，不是用一个标题包装整章理论。正式开工时，学科负责人应按依赖把每个课程批次拆成
+> 3–6 条的文件包交给子 Agent，并由负责人组装验收。
 
 ### 13.1 交换代数（CA1–CA6）🔒
 
@@ -844,45 +844,291 @@ C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main
 
 **完成能力节点**：有限群特征标和半单 Lie 代数表示形成两条完整主线；Lie 入口不能代替整门 Lie 表示论。
 
-### 13.5 微分几何（DG1–DG7）🔒
+### 13.5 微分流形（DM1–DM5）🔒
 
-> 家族前缀 `differential-geometry.*`。课程门：R6、T1–T4、L5；de Rham 部分另需 HA2/AT5。
+> 家族前缀 `differential-manifolds.*`。课程门：R6、T1–T4、L5；只负责光滑流形的语言、
+> 切丛、形式与积分，不把微分拓扑或黎曼度量混入“流形基础”。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| DG1 | `differential-geometry.manifold.definition` | 拓扑流形、图册与光滑结构 | R6/T4 |
-| DG1 | `differential-geometry.manifold.smooth-map` | 光滑映射、微分与链式法则 | DG1.definition |
-| DG1 | `differential-geometry.manifold.submersion-immersion` | 浸入、浸没、嵌入与秩定理 | DG1.smooth-map |
-| DG1 | `differential-geometry.manifold.partition-of-unity` | 单位分解 | DG1/T2 |
-| DG2 | `differential-geometry.tangent-space` | 切向量、切空间与切映射 | DG1 |
-| DG2 | `differential-geometry.tangent-bundle` | 切丛、余切丛与局部平凡化 | DG2.tangent-space |
-| DG2 | `differential-geometry.vector-field` | 向量场、Lie 括号与流 | DG2.tangent-bundle |
-| DG2 | `differential-geometry.flow.existence` | 常微分方程局部流与完整性 | DG2.vector-field/R6 |
-| DG3 | `differential-geometry.differential-form` | 微分形式、拉回、外积 | DG2.cotangent |
-| DG3 | `differential-geometry.exterior-derivative` | 外微分及 `d²=0` | DG3.form |
-| DG3 | `differential-geometry.integration.orientation` | 定向流形与形式积分 | DG3/R4 |
-| DG3 | `differential-geometry.stokes` | 流形上的 Stokes 定理 | DG3.integration |
-| DG3 | `differential-geometry.derham-cohomology` | de Rham 复形与上同调 | DG3.exterior/HA2 |
-| DG3 | `differential-geometry.derham-theorem` | de Rham 定理 | DG3/AT5 |
-| DG4 | `differential-geometry.riemannian.metric` | Riemann 度量、长度、能量与体积 | DG2/L5 |
-| DG4 | `differential-geometry.connection.definition` | 仿射联络与协变导数 | DG2 |
-| DG4 | `differential-geometry.levi-civita` | Levi–Civita 存在唯一性 | DG4.metric/connection |
-| DG4 | `differential-geometry.geodesic` | 测地线方程与指数映射 | DG4.levi-civita |
-| DG5 | `differential-geometry.curvature.riemann` | Riemann 曲率张量及对称性 | DG4 |
-| DG5 | `differential-geometry.curvature.ricci-scalar` | Ricci 与标量曲率 | DG5.riemann |
-| DG5 | `differential-geometry.jacobi-field` | Jacobi 场与共轭点 | DG4.geodesic/DG5 |
-| DG5 | `differential-geometry.hopf-rinow` | Hopf–Rinow 定理 | DG4/T3 |
-| DG6 | `differential-geometry.submanifold.second-fundamental-form` | 第二基本形式与形算子 | DG1/DG4 |
-| DG6 | `differential-geometry.gauss-codazzi` | Gauss–Codazzi 方程 | DG6.second-form/DG5 |
-| DG6 | `differential-geometry.gauss-bonnet` | 曲面的 Gauss–Bonnet 定理 | DG3/DG6 |
-| DG7 | `differential-geometry.principal-bundle` | 主丛、伴随丛与规范变换 | DG1/RT1 |
-| DG7 | `differential-geometry.bundle-connection` | 主丛联络、曲率形式与 Bianchi 恒等式 | DG7/DG4 |
-| DG7 | `differential-geometry.characteristic-classes` | Chern–Weil 与特征类入口 | DG7/DG3 |
+| DM1 | `differential-manifolds.manifold.definition` | 拓扑流形、图册与光滑结构 | R6/T4 |
+| DM1 | `differential-manifolds.smooth-map` | 光滑映射、微分与链式法则 | DM1 |
+| DM1 | `differential-manifolds.product-submanifold` | 乘积流形、子流形与边界 | DM1 |
+| DM1 | `differential-manifolds.partition-of-unity` | bump 函数与单位分解 | DM1/T2 |
+| DM2 | `differential-manifolds.tangent.derivation` | 曲线/导子两种切向量定义及等价 | DM1 |
+| DM2 | `differential-manifolds.tangent-map` | 切映射、秩与函子性 | DM2 |
+| DM2 | `differential-manifolds.tangent-bundle` | 切丛、余切丛及局部平凡化 | DM2 |
+| DM2 | `differential-manifolds.vector-field` | 向量场、Lie 括号与自然性 | DM2 |
+| DM3 | `differential-manifolds.flow.local` | 向量场局部流 | DM2/ODE2 |
+| DM3 | `differential-manifolds.flow.complete` | 完备向量场与一参数微分同胚群 | DM3 |
+| DM3 | `differential-manifolds.lie-group` | Lie 群、Lie 代数与指数映射入口 | DM2/A1 |
+| DM4 | `differential-manifolds.forms.exterior-algebra` | 微分形式、楔积与拉回 | DM2/L5 |
+| DM4 | `differential-manifolds.forms.exterior-derivative` | 外微分、Cartan 公式与 `d²=0` | DM4 |
+| DM4 | `differential-manifolds.orientation` | 定向、带边流形与形式积分 | DM4/R4 |
+| DM4 | `differential-manifolds.stokes` | 流形上的 Stokes 定理 | DM4 |
+| DM5 | `differential-manifolds.derham-complex` | de Rham 复形、Poincaré 引理 | DM4/HA2 |
+| DM5 | `differential-manifolds.derham-cohomology` | de Rham 上同调与同伦不变性 | DM5 |
+| DM5 | `differential-manifolds.derham-theorem` | de Rham 定理 | DM5/AT5 |
 
-**完成能力节点**：从流形和切丛一直推进到 Stokes、de Rham、测地线和曲率；“流形、丛、曲率”
-不得继续压缩为一个条目。
+**完成能力节点**：形成可被微分拓扑、黎曼几何和几何 PDE 共用的流形定义层。
 
-### 13.6 数理逻辑（ML1–ML7）🔒
+### 13.6 微分拓扑（DT1–DT5）🔒
+
+> 家族前缀 `differential-topology.*`。课程门：DM1–DM4、T4、AT1。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| DT1 | `differential-topology.rank-theorem` | 常秩、逆函数与隐函数定理 | DM2/R6 |
+| DT1 | `differential-topology.immersion-submersion` | 浸入、浸没、嵌入的局部标准形 | DT1 |
+| DT1 | `differential-topology.regular-value` | 正则值定理与水平集子流形 | DT1 |
+| DT1 | `differential-topology.sard` | Sard 定理 | DT1/R4 |
+| DT2 | `differential-topology.transversality.definition` | 横截性及稳定性 | DT1 |
+| DT2 | `differential-topology.transversality.preimage` | 横截逆像定理 | DT2 |
+| DT2 | `differential-topology.transversality.approximation` | 横截逼近与参数横截性 | DT2/Sard |
+| DT2 | `differential-topology.embeddings.whitney` | Whitney 嵌入与浸入定理 | DT2 |
+| DT3 | `differential-topology.degree.definition` | 映射度、局部度与定向计数 | DM4/DT1 |
+| DT3 | `differential-topology.degree.homotopy` | 度的同伦不变性与乘法性 | DT3 |
+| DT3 | `differential-topology.intersection-number` | 交数与横截交 | DT2/DT3 |
+| DT3 | `differential-topology.fixed-point.lefschetz-entry` | Lefschetz 数与不动点入口 | DT3/AT5 |
+| DT4 | `differential-topology.morse.function` | Morse 函数、临界点与 Morse 引理 | DT1 |
+| DT4 | `differential-topology.morse.handle` | 把手附着与子水平集变化 | DT4 |
+| DT4 | `differential-topology.morse-inequalities` | Morse 不等式 | DT4/AT3 |
+| DT5 | `differential-topology.cobordism.definition` | 配边、配边群与 Pontryagin–Thom 入口 | DT2/AT6 |
+| DT5 | `differential-topology.characteristic-classes` | Euler、Stiefel–Whitney、Chern 类 | DM2/AT5 |
+| DT5 | `differential-topology.gauss-bonnet-topological` | Euler 类与 Gauss–Bonnet | DT3/DM4 |
+
+**完成能力节点**：能以横截性、映射度和 Morse 理论研究流形的全局拓扑。
+
+### 13.7 黎曼几何（RG1–RG7）🔒
+
+> 家族前缀 `riemannian-geometry.*`。课程门：DM1–DM4、L5、ODE；比较几何另需实分析。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| RG1 | `riemannian-geometry.metric` | Riemann 度量、音乐同构与体积形式 | DM2/L5 |
+| RG1 | `riemannian-geometry.length-distance` | 曲线长度、能量与 Riemann 距离 | RG1/T3 |
+| RG1 | `riemannian-geometry.isometry` | 等距映射与局部等距 | RG1 |
+| RG2 | `riemannian-geometry.connection` | 仿射联络、协变导数与挠率 | DM2 |
+| RG2 | `riemannian-geometry.levi-civita` | Levi–Civita 存在唯一性与 Koszul 公式 | RG1/RG2 |
+| RG2 | `riemannian-geometry.parallel-transport` | 平行移动与 holonomy 入口 | RG2/ODE |
+| RG3 | `riemannian-geometry.geodesic` | 测地线方程与指数映射 | RG2/ODE |
+| RG3 | `riemannian-geometry.gauss-lemma` | Gauss 引理与法坐标 | RG3 |
+| RG3 | `riemannian-geometry.hopf-rinow` | Hopf–Rinow 完备性等价 | RG3/T3 |
+| RG3 | `riemannian-geometry.first-variation` | 第一变分与测地线极值性 | RG3/R6 |
+| RG4 | `riemannian-geometry.curvature.riemann` | 曲率张量、截面曲率与恒等式 | RG2 |
+| RG4 | `riemannian-geometry.curvature.ricci-scalar` | Ricci、标量曲率与曲率算子 | RG4 |
+| RG4 | `riemannian-geometry.jacobi-field` | Jacobi 场、共轭点与第二变分 | RG3/RG4 |
+| RG5 | `riemannian-geometry.submanifold.second-form` | 第二基本形式、形算子与平均曲率 | DM1/RG2 |
+| RG5 | `riemannian-geometry.gauss-codazzi` | Gauss、Codazzi、Ricci 方程 | RG5/RG4 |
+| RG5 | `riemannian-geometry.minimal-submanifold-entry` | 极小子流形与一阶变分 | RG5 |
+| RG6 | `riemannian-geometry.comparison.rauch` | Rauch 比较定理 | RG4/Jacobi |
+| RG6 | `riemannian-geometry.comparison.toponogov` | Toponogov 三角形比较 | RG6/RG3 |
+| RG6 | `riemannian-geometry.comparison.bishop-gromov` | Bishop–Gromov 体积比较 | RG4/R4 |
+| RG6 | `riemannian-geometry.bonnet-myers` | Bonnet–Myers 与直径界 | RG6 |
+| RG7 | `riemannian-geometry.laplacian` | Laplace–Beltrami 算子与 Bochner 公式 | RG2/PDE |
+| RG7 | `riemannian-geometry.hodge-theory` | Hodge 星、调和形式与 Hodge 定理 | RG7/DM5/AFA |
+| RG7 | `riemannian-geometry.gauss-bonnet` | Gauss–Bonnet–Chern | RG4/DM4/DT5 |
+
+**完成能力节点**：覆盖局部张量计算、完备性、变分、曲率、比较几何和 Hodge 理论，不再把
+黎曼几何压缩成“度量—曲率”数条。
+
+### 13.8 随机过程（SP1–SP6）🔒
+
+> 家族前缀 `stochastic-processes.*`。课程门：Pr1–Pr3、R4；随机分析另需高等泛函。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| SP1 | `stochastic-processes.definition` | 过程、有限维分布、修改与不可区分 | Pr1 |
+| SP1 | `stochastic-processes.filtration-stopping-time` | 过滤、适应性、停时与可选 σ-代数 | Pr2 |
+| SP1 | `stochastic-processes.kolmogorov-extension` | Kolmogorov 扩张定理 | Pr1/R4 |
+| SP1 | `stochastic-processes.continuity-criterion` | Kolmogorov 连续性准则 | Pr3 |
+| SP2 | `stochastic-processes.markov.kernel` | 转移核、Markov 性与半群 | SP1 |
+| SP2 | `stochastic-processes.markov.chapman-kolmogorov` | Chapman–Kolmogorov 方程 | SP2 |
+| SP2 | `stochastic-processes.markov.stationary` | 不变分布、遍历性与收敛 | SP2/Pr3 |
+| SP2 | `stochastic-processes.markov.generator` | 生成元与 Kolmogorov 方程 | SP2/AFA |
+| SP3 | `stochastic-processes.martingale.convergence` | 离散/连续时间鞅收敛 | Pr2 |
+| SP3 | `stochastic-processes.martingale.optional-stopping` | 可选停时与抽样定理 | SP1/Pr2 |
+| SP3 | `stochastic-processes.martingale.doob-meyer` | Doob–Meyer 分解 | SP3 |
+| SP4 | `stochastic-processes.brownian.construction` | Brownian 运动构造与路径性质 | SP1 |
+| SP4 | `stochastic-processes.brownian.markov` | 强 Markov 性与反射原理 | SP4 |
+| SP4 | `stochastic-processes.brownian.local-time` | 局部时与占用时间公式 | SP4 |
+| SP5 | `stochastic-processes.ito.integral` | Itô 积分、等距与局部鞅 | SP3/SP4 |
+| SP5 | `stochastic-processes.ito.formula` | Itô 公式与二次变差 | SP5 |
+| SP5 | `stochastic-processes.sde.existence-uniqueness` | SDE 强解存在唯一性 | SP5/ODE |
+| SP5 | `stochastic-processes.girsanov` | Girsanov 变换 | SP5 |
+| SP6 | `stochastic-processes.feynman-kac` | Feynman–Kac 公式 | SP5/PDE |
+| SP6 | `stochastic-processes.diffusion-generator` | 扩散、生成元与鞅问题 | SP2/SP5 |
+
+**完成能力节点**：从过程的可测性与路径版本推进到 Markov、鞅、Brownian、Itô、SDE 和扩散；
+仅完成离散 Markov 链不能标记本学科完成。
+
+### 13.9 常微分方程（ODE1–ODE6）🔒
+
+> 家族前缀 `ode.*`。课程门：M4–M5、R6、L2、T3。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| ODE1 | `ode.initial-value.problem` | 初值问题、经典解与最大解 | R6 |
+| ODE1 | `ode.picard-lindelof` | Picard–Lindelöf 存在唯一性 | R6/T3 |
+| ODE1 | `ode.peano-existence` | Peano 存在定理 | R6 |
+| ODE1 | `ode.continuous-dependence` | 对初值和参数连续依赖 | ODE1 |
+| ODE2 | `ode.flow.semigroup` | 流、逃逸时间与延拓准则 | ODE1 |
+| ODE2 | `ode.gronwall` | Grönwall 不等式及稳定性应用 | R4 |
+| ODE2 | `ode.variation-of-constants` | 常数变易公式 | L2/ODE1 |
+| ODE2 | `ode.linear.fundamental-matrix` | 基本矩阵、Wronskian 与 Liouville 公式 | L2 |
+| ODE3 | `ode.linear.constant-coefficients` | 常系数系统与矩阵指数 | L4 |
+| ODE3 | `ode.sturm-liouville` | Sturm 比较、振荡与边值问题 | R5/F3 |
+| ODE4 | `ode.phase-plane` | 平衡点、线性化与相图 | ODE2/L4 |
+| ODE4 | `ode.lyapunov.stability` | Lyapunov 稳定性与不变集原理 | ODE2 |
+| ODE4 | `ode.stable-manifold` | 稳定/不稳定流形定理 | ODE2/AFA |
+| ODE5 | `ode.poincare-bendixson` | Poincaré–Bendixson 定理 | ODE4/T4 |
+| ODE5 | `ode.bifurcation.local` | 鞍结、叉形与 Hopf 分岔 | ODE4 |
+| ODE5 | `ode.hamiltonian.system` | Hamilton 系统、辛结构与守恒量 | ODE2/DM |
+| ODE6 | `ode.dynamical-systems.invariant-set` | ω-极限集、吸引子与复现 | ODE2/T3 |
+| ODE6 | `ode.ergodic-entry` | 流的不变测度与遍历入口 | ODE6/Pr3 |
+
+**完成能力节点**：同时覆盖定性存在唯一性、线性系统、稳定性、分岔和动力系统，而非只收集解公式。
+
+### 13.10 偏微分方程（PDE1–PDE8）🔒
+
+> 家族前缀 `pde.*`。课程门：R4–R6、F1–F3、AFA1；各方程先区分经典、弱、分布解。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| PDE1 | `pde.distributions.definition` | 测试函数、分布与分布导数 | R4/F1 |
+| PDE1 | `pde.sobolev.definition` | 弱导数与 Sobolev 空间 | PDE1/AFA |
+| PDE1 | `pde.sobolev.embedding` | Sobolev 嵌入、紧嵌入与迹 | PDE1 |
+| PDE1 | `pde.mollifier-density` | 磨光、逼近与稠密性 | R4 |
+| PDE2 | `pde.first-order.characteristics` | 一阶方程特征线法 | ODE |
+| PDE2 | `pde.conservation-law.weak-solution` | 守恒律弱解、熵解与 Rankine–Hugoniot | PDE1 |
+| PDE2 | `pde.conservation-law.l1-contraction` | 熵解唯一性与 `L¹` 压缩 | PDE2 |
+| PDE3 | `pde.laplace.fundamental-solution` | Laplace 方程基本解与平均值性质 | R4 |
+| PDE3 | `pde.laplace.maximum-principle` | 强弱最大值原理与唯一性 | PDE3 |
+| PDE3 | `pde.poisson.green-function` | Green 函数与 Poisson 核 | PDE3/HAna1 |
+| PDE3 | `pde.elliptic.variational` | Lax–Milgram 与弱解存在性 | AFA/F3 |
+| PDE3 | `pde.elliptic.regularity` | 内部/边界正则性 | PDE1/PDE3 |
+| PDE4 | `pde.heat.kernel` | 热核、半群与平滑 | AFA/PDE3 |
+| PDE4 | `pde.heat.energy-maximum` | 能量法、最大值原理与唯一性 | PDE4 |
+| PDE4 | `pde.parabolic.regularity` | 抛物正则性入口 | PDE1/PDE4 |
+| PDE5 | `pde.wave.energy` | 波方程能量、有限传播速度 | AFA |
+| PDE5 | `pde.wave.duhamel` | Duhamel 原理与解公式 | PDE5 |
+| PDE6 | `pde.nonlinear.fixed-point` | 压缩映射与局部适定性 | AFA/ODE |
+| PDE6 | `pde.nonlinear.energy-method` | 先验估计、延拓与爆破解择 | PDE6 |
+| PDE6 | `pde.navier-stokes.weak-existence` | Leray–Hopf 弱解入口 | PDE1/AFA |
+| PDE7 | `pde.viscosity.definition` | 黏性解、比较原理与稳定性 | R6 |
+| PDE7 | `pde.hamilton-jacobi` | Hamilton–Jacobi 方程与 Hopf–Lax | PDE7/ODE |
+| PDE8 | `pde.microlocal.wavefront-entry` | Fourier 变换、奇性与波前集入口 | HA/PDE1 |
+
+**完成能力节点**：能区分并连接经典解、弱解、分布解和黏性解，具备椭圆、抛物、双曲及非线性
+方程的基本存在唯一性、正则性和先验估计链。
+
+### 13.11 高等泛函分析（AFA1–AFA6）🔒
+
+> 家族前缀 `advanced-functional-analysis.*`。课程门：F1–F4、R4、L5。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| AFA1 | `advanced-functional-analysis.locally-convex` | 局部凸空间、半范数族与对偶 | F2 |
+| AFA1 | `advanced-functional-analysis.hahn-banach.separation` | 几何分离与 Minkowski 泛函 | F2 |
+| AFA1 | `advanced-functional-analysis.weak-topologies` | 弱/弱星拓扑与极拓扑 | F2/T1 |
+| AFA1 | `advanced-functional-analysis.banach-alaoglu` | Banach–Alaoglu 与弱紧致性 | AFA1/T2 |
+| AFA2 | `advanced-functional-analysis.reflexivity` | 自反、可分与弱紧性判据 | AFA1 |
+| AFA2 | `advanced-functional-analysis.uniform-convexity` | 一致凸与 Milman–Pettis | AFA2 |
+| AFA2 | `advanced-functional-analysis.compact-operator` | 紧算子、逼近与 Fredholm 备择 | F3 |
+| AFA3 | `advanced-functional-analysis.unbounded-operator` | 闭算子、伴随与图范数 | F3 |
+| AFA3 | `advanced-functional-analysis.selfadjoint.spectral` | 无界自伴算子谱定理 | AFA3 |
+| AFA3 | `advanced-functional-analysis.functional-calculus` | 连续/Borel 函数演算 | F4/AFA3 |
+| AFA4 | `advanced-functional-analysis.semigroup.definition` | `C₀` 半群及生成元 | AFA3 |
+| AFA4 | `advanced-functional-analysis.hille-yosida` | Hille–Yosida 定理 | AFA4 |
+| AFA4 | `advanced-functional-analysis.stone-theorem` | 酉群与 Stone 定理 | AFA3 |
+| AFA5 | `advanced-functional-analysis.distributions` | Schwartz 空间、温和分布与对偶 | AFA1 |
+| AFA5 | `advanced-functional-analysis.nuclear-space-entry` | 核空间与 Schwartz 核定理 | AFA5 |
+| AFA6 | `advanced-functional-analysis.banach-algebra` | Banach 代数、谱与 Gelfand 变换 | F4 |
+| AFA6 | `advanced-functional-analysis.cstar-representation` | C*-代数、正泛函与 GNS | AFA6 |
+| AFA6 | `advanced-functional-analysis.von-neumann-entry` | von Neumann 代数与双交换子 | AFA6 |
+
+**完成能力节点**：在 Banach 三大定理之后建立弱拓扑、紧算子、无界算子、半群、分布和算子代数
+主线，为 PDE、随机过程与调和分析提供稳定接口。
+
+### 13.12 调和分析（HAna1–HAna7）🔒
+
+> 家族前缀 `harmonic-analysis.*`。课程门：R4、F1–F3、AFA；避免与同调代数 HA 缩写混淆。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| HAna1 | `harmonic-analysis.fourier.rn` | `ℝⁿ` Fourier 变换、反演与 Plancherel | R4/F3 |
+| HAna1 | `harmonic-analysis.fourier.schwartz` | Schwartz 空间与温和分布 | AFA5 |
+| HAna1 | `harmonic-analysis.convolution` | 卷积、近似恒等与 Young 不等式 | R4 |
+| HAna2 | `harmonic-analysis.fourier-series.convergence` | Fourier 级数的点态与 `L²` 收敛 | HAna1 |
+| HAna2 | `harmonic-analysis.poisson-summation` | Poisson 求和公式 | HAna1 |
+| HAna3 | `harmonic-analysis.maximal.hardy-littlewood` | Hardy–Littlewood 极大算子 | R4 |
+| HAna3 | `harmonic-analysis.differentiation-integrals` | Lebesgue 微分定理 | HAna3 |
+| HAna3 | `harmonic-analysis.interpolation` | Riesz–Thorin 与 Marcinkiewicz 插值 | F2/R4 |
+| HAna4 | `harmonic-analysis.singular-integral.hilbert` | Hilbert 变换与 `Lᵖ` 有界性 | HAna3 |
+| HAna4 | `harmonic-analysis.calderon-zygmund` | Calderón–Zygmund 分解与算子 | HAna3 |
+| HAna4 | `harmonic-analysis.littlewood-paley` | Littlewood–Paley 分解与平方函数 | HAna1 |
+| HAna5 | `harmonic-analysis.hardy-bmo` | Hardy 空间、BMO 与对偶 | HAna4 |
+| HAna5 | `harmonic-analysis.sobolev-besov` | Sobolev、Besov 与 Triebel–Lizorkin 入口 | HAna4/PDE1 |
+| HAna6 | `harmonic-analysis.locally-compact-group` | Haar 测度与群卷积 | A1/R4 |
+| HAna6 | `harmonic-analysis.pontryagin-duality` | 局部紧 Abel 群 Fourier 理论 | HAna6 |
+| HAna6 | `harmonic-analysis.peter-weyl` | 紧群 Peter–Weyl 定理 | HAna6/RT |
+| HAna7 | `harmonic-analysis.oscillatory-integral` | 振荡积分与驻相法 | C3/R6 |
+| HAna7 | `harmonic-analysis.restriction-entry` | Fourier 限制问题入口 | HAna7 |
+
+**完成能力节点**：从 Fourier/卷积推进到极大函数、奇异积分、函数空间和群上的调和分析；
+只证明 Fourier 反演或 Plancherel 不算完成。
+
+### 13.13 代数几何（AG1–AG10）🔒
+
+> 家族前缀 `algebraic-geometry.*`。课程门：CA1–CA6、A3、HA1–HA5。它是独立的大型路线，
+> 仿射簇课程只能算 AG1–AG2，不能代表概形、层上同调或高维几何。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| AG1 | `algebraic-geometry.affine-variety.definition` | 仿射代数集、坐标环与正则函数 | A3/CA |
+| AG1 | `algebraic-geometry.nullstellensatz` | Hilbert 零点定理 | CA4/A3 |
+| AG1 | `algebraic-geometry.zariski-topology` | Zariski 拓扑与不可约分支 | AG1 |
+| AG1 | `algebraic-geometry.affine-variety.morphism` | 正则映射与坐标环反变对应 | AG1 |
+| AG2 | `algebraic-geometry.projective-space` | 射影空间、齐次理想与 Proj 前置 | AG1 |
+| AG2 | `algebraic-geometry.projective-variety` | 射影簇、射影闭包与 Segre/Veronese | AG2 |
+| AG2 | `algebraic-geometry.dimension.variety` | 簇的维数、超越次数与纤维维数 | CA6/AG1 |
+| AG2 | `algebraic-geometry.bezout-entry` | 平面曲线交数与 Bézout | AG2/CA |
+| AG3 | `algebraic-geometry.sheaf.presheaf` | 预层、层、茎与层化 | HA1/T1 |
+| AG3 | `algebraic-geometry.ringed-space` | 环空间、局部环空间与态射 | AG3/CA6 |
+| AG3 | `algebraic-geometry.affine-scheme.spec` | `Spec`、结构层与仿射概形 | CA3/AG3 |
+| AG3 | `algebraic-geometry.scheme.definition` | 概形、开子概形与粘合 | AG3 |
+| AG3 | `algebraic-geometry.affine-scheme.equivalence` | 仿射概形与交换环反等价 | AG3 |
+| AG4 | `algebraic-geometry.scheme.fiber-product` | 纤维积与基变换 | AG3/HA1 |
+| AG4 | `algebraic-geometry.scheme.separated` | 分离态射、对角态射与 proper 前置 | AG4 |
+| AG4 | `algebraic-geometry.scheme.finite-type` | 有限型、有限表示与拟紧拟分离 | AG4/CA2 |
+| AG4 | `algebraic-geometry.scheme.proper` | proper 态射与赋值判据 | AG4 |
+| AG4 | `algebraic-geometry.scheme.smooth-etale` | 光滑、非分歧与 étale 态射 | AG4/CA5 |
+| AG5 | `algebraic-geometry.quasicoherent-sheaf` | 拟凝聚层与模的层化 | AG3/CA1 |
+| AG5 | `algebraic-geometry.line-bundle` | 可逆层、除子与 Picard 群 | AG5 |
+| AG5 | `algebraic-geometry.differentials` | Kähler 微分、切空间与光滑判据 | CA1/AG4 |
+| AG5 | `algebraic-geometry.divisor.cartier-weil` | Cartier/Weil 除子及正规概形对应 | AG5/CA5 |
+| AG6 | `algebraic-geometry.sheaf-cohomology.definition` | 导出函子层上同调 | AG3/HA4 |
+| AG6 | `algebraic-geometry.cech-cohomology` | Čech 上同调及比较 | AG6 |
+| AG6 | `algebraic-geometry.affine-vanishing` | 仿射概形拟凝聚层高次上同调消失 | AG5/AG6 |
+| AG6 | `algebraic-geometry.serre-finiteness` | 射影概形上同调有限性 | AG2/AG6 |
+| AG6 | `algebraic-geometry.serre-duality` | Serre 对偶 | AG6/HA5 |
+| AG7 | `algebraic-geometry.curves.function-field` | 光滑射影曲线与函数域 | AG2/AG4 |
+| AG7 | `algebraic-geometry.curves.riemann-roch` | 曲线 Riemann–Roch | AG5/AG6 |
+| AG7 | `algebraic-geometry.curves.genus-jacobian` | genus、Jacobian 与 Abel–Jacobi | AG7 |
+| AG7 | `algebraic-geometry.curves.riemann-hurwitz` | Riemann–Hurwitz | AG7/AG5 |
+| AG8 | `algebraic-geometry.intersection.chow-group` | 代数循环、合理等价与 Chow 群 | AG5 |
+| AG8 | `algebraic-geometry.intersection-product` | 光滑簇交叉积 | AG8/HA5 |
+| AG8 | `algebraic-geometry.grothendieck-riemann-roch-entry` | GRR 入口 | AG8/AG6 |
+| AG9 | `algebraic-geometry.surfaces.blowup` | 爆破、例外除子与消解入口 | AG4/AG5 |
+| AG9 | `algebraic-geometry.surfaces.classification-entry` | 曲面最小模型与分类入口 | AG9 |
+| AG10 | `algebraic-geometry.etale.site` | étale site 与 étale 上同调入口 | AG4/AG6 |
+| AG10 | `algebraic-geometry.moduli.functor` | 模空间函子与可表示性问题 | AG4/HA1 |
+| AG10 | `algebraic-geometry.deformation-entry` | 形变、切障碍空间与 cotangent complex 入口 | AG5/HA5 |
+
+**完成能力节点**：仿射/射影簇、概形与态射、拟凝聚层、上同调、曲线、交叉理论形成连续依赖链；
+AG3–AG10 未完成时，不得把“代数几何”标为完成。
+
+### 13.14 数理逻辑（ML1–ML7）🔒
 
 > 家族前缀 `mathematical-logic.*`。课程门：ST1–ST2；可计算性路线与 ST3 共享底层编码，必须指定
 > 单一文件所有者，避免集合论和逻辑分支各自定义一套机器模型。
