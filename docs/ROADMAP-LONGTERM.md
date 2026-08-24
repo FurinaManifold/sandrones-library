@@ -38,7 +38,7 @@
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `set-theory.*` | ST1✅ ST2🚧review ST3🚧staging | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 前沿分叉** | 交换代数/同调/代数拓扑/表示论/微分几何… | X1-X6🔒 | 各自分支前置达标 |
+| **Phase 12+ 高阶学科群** | 交换代数、同调代数、代数拓扑、表示论、微分几何、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
 阶段进度表。✅ 只表示已进入 main、Registry 为 verified 且 main 全库验收通过；`staging`、
@@ -696,31 +696,230 @@ C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main
 | 14 | `settheory.googology.computability-entry` | 可计算/不可计算定义 | 🔲 |
 | 15 | `settheory.googology.busy-beaver` | Busy Beaver 不可计算性 | 🔒 |
 
-## 13. Phase 12 — 前沿分叉（X*）
+## 13. Phase 12+ — 高阶学科群（每门独立建设）
+
+> 本节不是一个名为“前沿”的杂项批次。以下六门都是独立学科，每门的体量、负责人、worktree、
+> family 前缀、handoff 和完成状态均独立；一门完成不代表其他门完成。表中一行是一个可验收
+> Entry，不是用一个标题包装整章理论。正式开工时，学科负责人还应把每个 8–15 条的课程批次
+> 进一步分成 2–3 个文件包交给子 Agent。
+
+### 13.1 交换代数（CA1–CA6）🔒
+
+> 家族前缀 `commutative-algebra.*`。课程门：A2 的理想、商环、整除、局部化完成；CA5 另需 A3。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| X1.1 | `commutative-algebra.module.foundation` | 模、子模、商模、同构定理 | A2 |
-| X1.2 | `commutative-algebra.module.finiteness` | 有限生成、Noether/Artin 模 | X1.1 |
-| X1.3 | `commutative-algebra.module.projective-injective` | 自由、投射、内射模 | X1.1 |
-| X1.4 | `commutative-algebra.tensor-localization` | 张量积与局部化 | X1.1 |
-| X1.5 | `commutative-algebra.dimension` | 素理想链与 Krull 维数 | A2 |
-| X2.1 | `homological-algebra.complex` | 链复形、同调 | X1 |
-| X2.2 | `homological-algebra.exact-snake` | 正合列与蛇引理 | X2.1 |
-| X2.3 | `homological-algebra.derived-ext-tor` | 导出函子、Ext/Tor | X2.2 |
-| X3.1 | `algebraic-topology.covering` | 覆盖空间 | T4 |
-| X3.2 | `algebraic-topology.singular-homology` | 奇异同调 | X2.1 |
-| X3.3 | `algebraic-topology.cohomology-hurewicz` | 上同调与 Hurewicz | X3.2 |
-| X4.1 | `representation-theory.definition` | 群表示与子表示 | A1/L2 |
-| X4.2 | `representation-theory.maschke-character` | Maschke 与特征标 | X4.1 |
-| X4.3 | `representation-theory.lie-entry` | Lie 代数表示入口 | X4.1 |
-| X5.1 | `differential-geometry.manifold-bundles` | 流形、切丛、余切丛 | R6/T4 |
-| X5.2 | `differential-geometry.connection-curvature` | 联络、曲率、测地线 | X5.1 |
-| X5.3 | `differential-geometry.derham` | de Rham 复形、上同调、定理入口 | X5.1/X2 |
-| X6.1 | `logic.syntax-formal-system` | 形式语言、理论、证明系统 | ST1 |
-| X6.2 | `logic.computability` | 部分递归与可计算函数 | X6.1 |
-| X6.3 | `logic.goedel-coding` | Gödel 编码与可表示性 | X6.1 |
-| X6.4 | `logic.completeness-incompleteness` | 完备与不完备定理 | X6.3 |
+| CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥 | A2/L1 |
+| CA1 | `commutative-algebra.module.generated` | 子集生成子模及最小性 | CA1.definition |
+| CA1 | `commutative-algebra.module.quotient` | 商模、自然投影与商映射泛性质 | CA1.definition |
+| CA1 | `commutative-algebra.module.isomorphism-theorems` | 模的三大同构定理 | CA1.quotient |
+| CA1 | `commutative-algebra.module.direct-sum` | 内外直和及分解判据 | CA1.definition |
+| CA2 | `commutative-algebra.module.finite-generation` | 有限生成模及生成元变换 | CA1 |
+| CA2 | `commutative-algebra.module.free` | 自由模、基与秩 | CA1/L1 |
+| CA2 | `commutative-algebra.module.exact-sequence` | 模同态序列、正合性、分裂正合 | CA1 |
+| CA2 | `commutative-algebra.module.projective` | 投射模及提升性质 | CA2.free/exact-sequence |
+| CA2 | `commutative-algebra.module.injective` | 内射模及延拓性质 | CA2.exact-sequence |
+| CA2 | `commutative-algebra.module.flat` | 平坦模与张量保持单射 | CA3.tensor-product |
+| CA3 | `commutative-algebra.tensor-product.definition` | 张量积的平衡映射泛性质 | CA1 |
+| CA3 | `commutative-algebra.tensor-product.functoriality` | 张量映射、结合/交换/单位同构 | CA3.definition |
+| CA3 | `commutative-algebra.tensor-product.base-change` | 标量扩张与基变换 | CA3.functoriality |
+| CA3 | `commutative-algebra.localization.ring` | 乘法集局部化及泛性质 | A2.localization |
+| CA3 | `commutative-algebra.localization.module` | 模局部化与分式判等 | CA1/CA3.localization.ring |
+| CA3 | `commutative-algebra.localization.prime-correspondence` | 局部化后的素理想对应 | CA3.localization.ring |
+| CA4 | `commutative-algebra.chain-conditions.noetherian` | Noether 环/模与升链条件 | CA2.finite-generation |
+| CA4 | `commutative-algebra.chain-conditions.artinian` | Artin 环/模与降链条件 | CA2.finite-generation |
+| CA4 | `commutative-algebra.noetherian.hilbert-basis` | Hilbert 基定理 | CA4.noetherian/A3.poly |
+| CA4 | `commutative-algebra.noetherian.primary-decomposition` | 主分解的存在与关联素理想 | CA4.noetherian |
+| CA5 | `commutative-algebra.integral-extension.definition` | 整元素、整扩张与整闭 | A3.field-extension |
+| CA5 | `commutative-algebra.integral-extension.finiteness` | 有限生成整代数的有限模性质 | CA5.definition/CA2 |
+| CA5 | `commutative-algebra.integral-extension.going-up` | lying-over 与 going-up | CA5.definition |
+| CA5 | `commutative-algebra.normalization` | 分式域中的整闭包与正规化 | CA5.definition |
+| CA6 | `commutative-algebra.dimension.krull` | 素理想链与 Krull 维数 | A2.prime-ideal |
+| CA6 | `commutative-algebra.dimension.height` | 素理想高度与余维 | CA6.krull |
+| CA6 | `commutative-algebra.local-ring.definition` | 局部环、极大理想与局部判据 | CA3.localization |
+| CA6 | `commutative-algebra.nakayama` | Nakayama 引理及有限生成推论 | CA2/CA6.local-ring |
+| CA6 | `commutative-algebra.dimension.principal-ideal-theorem` | Krull 主理想定理 | CA4/CA6.height |
+
+**完成能力节点**：能用本库接口陈述局部环、有限生成模、张量积、整扩张和 Krull 维数，并为
+同调代数、代数几何与代数数论提供稳定定义层，而不是只暴露 `Module`/`Ideal` 的 Mathlib 名称。
+
+### 13.2 同调代数（HA1–HA6）🔒
+
+> 家族前缀 `homological-algebra.*`。课程门：CA1–CA3；抽象范畴接口必须先有教材定义与桥。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| HA1 | `homological-algebra.category.foundation` | 范畴、函子、自然变换与自然同构 | CA1 |
+| HA1 | `homological-algebra.category.universal-properties` | 初终对象、积/余积、核/余核 | HA1.foundation |
+| HA1 | `homological-algebra.abelian-category.entry` | 加性范畴与 Abel 范畴入口 | HA1/CA1 |
+| HA2 | `homological-algebra.complex.chain` | 链复形、上链复形与微分平方为零 | HA1 |
+| HA2 | `homological-algebra.complex.morphism` | 复形态射、同伦与同伦等价 | HA2.chain |
+| HA2 | `homological-algebra.complex.homology` | cycles、boundaries 与同调对象 | HA2.chain/CA1.quotient |
+| HA2 | `homological-algebra.complex.shift` | 平移、符号约定与锥 | HA2.morphism |
+| HA3 | `homological-algebra.exactness.definition` | 正合、短正合与分裂正合 | HA2/CA2.exact-sequence |
+| HA3 | `homological-algebra.exactness.long-homology` | 短正合复形诱导长正合列 | HA2/HA3.definition |
+| HA3 | `homological-algebra.lemma.five` | 五引理、四引理与九引理 | HA3.definition |
+| HA3 | `homological-algebra.lemma.snake` | 蛇引理与连接同态 | HA3.definition |
+| HA4 | `homological-algebra.resolution.projective` | 投射分解及比较定理 | CA2.projective/HA3 |
+| HA4 | `homological-algebra.resolution.injective` | 内射分解及比较定理 | CA2.injective/HA3 |
+| HA4 | `homological-algebra.derived-functor.definition` | 左/右导出函子 | HA4.resolution |
+| HA4 | `homological-algebra.derived-functor.independence` | 分解选择无关性与函子性 | HA4.definition |
+| HA5 | `homological-algebra.ext.definition` | Ext 的分解定义与低次解释 | HA4 |
+| HA5 | `homological-algebra.tor.definition` | Tor 的分解定义与低次解释 | HA4/CA3.tensor |
+| HA5 | `homological-algebra.ext.long-exact` | Ext 长正合列与连接态射 | HA5.ext/HA3 |
+| HA5 | `homological-algebra.tor.long-exact` | Tor 长正合列与平坦性判据 | HA5.tor/CA2.flat |
+| HA5 | `homological-algebra.ext-yoneda` | Yoneda 扩张及与 Ext 的对应 | HA5.ext |
+| HA6 | `homological-algebra.double-complex` | 双复形、总复形与过滤 | HA2 |
+| HA6 | `homological-algebra.spectral-sequence.definition` | 谱序列页、微分与收敛 | HA6.double-complex |
+| HA6 | `homological-algebra.spectral-sequence.filtered-complex` | 过滤复形谱序列 | HA6.definition |
+| HA6 | `homological-algebra.spectral-sequence.grothendieck` | 复合导出函子的 Grothendieck 谱序列 | HA4/HA6 |
+
+**完成能力节点**：可独立构造同调、连接同态、Ext/Tor 和基本谱序列；“导出函子”不得继续作为
+一个无法验收的单行目标。
+
+### 13.3 代数拓扑（AT1–AT6）🔒
+
+> 家族前缀 `algebraic-topology.*`。课程门：T4；同调部分另需 HA2–HA3。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| AT1 | `algebraic-topology.homotopy.paths` | 道路、道路同伦与基本群胚 | T4 |
+| AT1 | `algebraic-topology.fundamental-group.definition` | 基本群、基点变换与函子性 | AT1.paths |
+| AT1 | `algebraic-topology.fundamental-group.circle` | 圆周基本群 | AT1.definition |
+| AT1 | `algebraic-topology.fundamental-group.van-kampen` | Seifert–van Kampen 定理 | AT1.definition |
+| AT2 | `algebraic-topology.covering.definition` | 覆盖映射、均匀覆盖邻域 | T4 |
+| AT2 | `algebraic-topology.covering.path-lifting` | 道路提升与唯一性 | AT2.definition |
+| AT2 | `algebraic-topology.covering.homotopy-lifting` | 同伦提升 | AT2.path-lifting |
+| AT2 | `algebraic-topology.covering.classification` | 覆盖空间分类与子群对应 | AT1/AT2 |
+| AT3 | `algebraic-topology.singular.simplex` | 奇异单形、面算子与边界 | T4/HA2 |
+| AT3 | `algebraic-topology.singular.chain-complex` | 奇异链复形与边界平方为零 | AT3.simplex |
+| AT3 | `algebraic-topology.singular.homology` | 奇异同调及连续映射诱导 | AT3.chain |
+| AT3 | `algebraic-topology.singular.homotopy-invariance` | 同伦不变性 | AT3.homology |
+| AT3 | `algebraic-topology.singular.excision` | 切除定理 | AT3.homology |
+| AT3 | `algebraic-topology.singular.mayer-vietoris` | Mayer–Vietoris 长正合列 | AT3.excision/HA3 |
+| AT4 | `algebraic-topology.cellular.cw-complex` | CW 复形与胞腔附着 | T4 |
+| AT4 | `algebraic-topology.cellular.homology` | 胞腔链复形与胞腔同调 | AT3/AT4.cw |
+| AT4 | `algebraic-topology.degree.sphere-map` | 球面映射次数 | AT3 |
+| AT4 | `algebraic-topology.fixed-point.brouwer` | Brouwer 不动点定理的同调证明 | AT4.degree |
+| AT5 | `algebraic-topology.cohomology.definition` | 奇异上同调与上积 | AT3/HA2 |
+| AT5 | `algebraic-topology.cohomology.cup-product` | cup product 与分次交换 | AT5.definition |
+| AT5 | `algebraic-topology.cohomology.universal-coefficient` | 上同调普遍系数定理 | AT5/HA5.ext |
+| AT5 | `algebraic-topology.homology.kuenneth` | Künneth 定理 | AT3/HA5.tor |
+| AT6 | `algebraic-topology.homotopy.higher-groups` | 高阶同伦群与长正合列 | AT1 |
+| AT6 | `algebraic-topology.hurewicz` | Hurewicz 同态与定理 | AT3/AT6 |
+| AT6 | `algebraic-topology.whitehead` | Whitehead 定理 | AT4/AT6 |
+
+**完成能力节点**：能计算基本群、覆盖空间、奇异/胞腔同调和上同调环，并以长正合列连接这些计算。
+
+### 13.4 表示论（RT1–RT6）🔒
+
+> 家族前缀 `representation-theory.*`。课程门：A1、A2、L1–L5；模表示路线另需 CA1。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| RT1 | `representation-theory.group-representation.definition` | 群表示、等价表示与交织算子 | A1/L2 |
+| RT1 | `representation-theory.subrepresentation` | 子表示、商表示与直和 | RT1.definition |
+| RT1 | `representation-theory.invariant-subspace` | 不变子空间、不可约与完全可约 | RT1.definition |
+| RT1 | `representation-theory.group-algebra` | 群代数与表示—模对应 | A2/CA1 |
+| RT2 | `representation-theory.schur-lemma` | Schur 引理及代数闭域推论 | RT1 |
+| RT2 | `representation-theory.maschke` | Maschke 定理 | RT1/A2 |
+| RT2 | `representation-theory.isotypic-decomposition` | 等型分量与半单分解 | RT2.maschke |
+| RT2 | `representation-theory.regular-representation` | 正则表示与不可约重数 | RT2 |
+| RT3 | `representation-theory.character.definition` | 特征标、类函数与内积 | RT1/L5 |
+| RT3 | `representation-theory.character.orthogonality` | 行、列正交关系 | RT3.definition |
+| RT3 | `representation-theory.character.decomposition` | 特征标分解与不可约判据 | RT3.orthogonality |
+| RT3 | `representation-theory.character.table` | 特征标表及有限群例子 | RT3.decomposition |
+| RT3 | `representation-theory.induction-restriction` | 诱导、限制与 Frobenius 互反 | RT1/CA3.tensor |
+| RT4 | `representation-theory.symmetric-group.partitions` | 分拆、Young 图与 tableaux | A1 |
+| RT4 | `representation-theory.symmetric-group.specht` | Specht 模构造 | RT4.partitions |
+| RT4 | `representation-theory.symmetric-group.classification` | 对称群不可约表示分类 | RT4.specht/RT3 |
+| RT5 | `representation-theory.lie-algebra.definition` | Lie 代数、子代数、理想与同态 | A2/L2 |
+| RT5 | `representation-theory.lie-algebra.representation` | Lie 代数表示与包络代数 | RT5.definition/CA1 |
+| RT5 | `representation-theory.lie-algebra.sl2` | `sl₂` 表示分类 | RT5.representation |
+| RT5 | `representation-theory.lie-algebra.engel-lie` | Engel 与 Lie 定理 | RT5.definition |
+| RT6 | `representation-theory.semisimple.root-system` | Cartan 子代数、根与权 | RT5/L5 |
+| RT6 | `representation-theory.semisimple.weyl-group` | Weyl 群与根系 | `representation-theory.semisimple.root-system` |
+| RT6 | `representation-theory.semisimple.highest-weight` | 最高权分类入口 | `representation-theory.semisimple.root-system` |
+| RT6 | `representation-theory.semisimple.weyl-character` | Weyl 特征标公式 | `representation-theory.semisimple.highest-weight` |
+
+**完成能力节点**：有限群特征标和半单 Lie 代数表示形成两条完整主线；Lie 入口不能代替整门 Lie 表示论。
+
+### 13.5 微分几何（DG1–DG7）🔒
+
+> 家族前缀 `differential-geometry.*`。课程门：R6、T1–T4、L5；de Rham 部分另需 HA2/AT5。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| DG1 | `differential-geometry.manifold.definition` | 拓扑流形、图册与光滑结构 | R6/T4 |
+| DG1 | `differential-geometry.manifold.smooth-map` | 光滑映射、微分与链式法则 | DG1.definition |
+| DG1 | `differential-geometry.manifold.submersion-immersion` | 浸入、浸没、嵌入与秩定理 | DG1.smooth-map |
+| DG1 | `differential-geometry.manifold.partition-of-unity` | 单位分解 | DG1/T2 |
+| DG2 | `differential-geometry.tangent-space` | 切向量、切空间与切映射 | DG1 |
+| DG2 | `differential-geometry.tangent-bundle` | 切丛、余切丛与局部平凡化 | DG2.tangent-space |
+| DG2 | `differential-geometry.vector-field` | 向量场、Lie 括号与流 | DG2.tangent-bundle |
+| DG2 | `differential-geometry.flow.existence` | 常微分方程局部流与完整性 | DG2.vector-field/R6 |
+| DG3 | `differential-geometry.differential-form` | 微分形式、拉回、外积 | DG2.cotangent |
+| DG3 | `differential-geometry.exterior-derivative` | 外微分及 `d²=0` | DG3.form |
+| DG3 | `differential-geometry.integration.orientation` | 定向流形与形式积分 | DG3/R4 |
+| DG3 | `differential-geometry.stokes` | 流形上的 Stokes 定理 | DG3.integration |
+| DG3 | `differential-geometry.derham-cohomology` | de Rham 复形与上同调 | DG3.exterior/HA2 |
+| DG3 | `differential-geometry.derham-theorem` | de Rham 定理 | DG3/AT5 |
+| DG4 | `differential-geometry.riemannian.metric` | Riemann 度量、长度、能量与体积 | DG2/L5 |
+| DG4 | `differential-geometry.connection.definition` | 仿射联络与协变导数 | DG2 |
+| DG4 | `differential-geometry.levi-civita` | Levi–Civita 存在唯一性 | DG4.metric/connection |
+| DG4 | `differential-geometry.geodesic` | 测地线方程与指数映射 | DG4.levi-civita |
+| DG5 | `differential-geometry.curvature.riemann` | Riemann 曲率张量及对称性 | DG4 |
+| DG5 | `differential-geometry.curvature.ricci-scalar` | Ricci 与标量曲率 | DG5.riemann |
+| DG5 | `differential-geometry.jacobi-field` | Jacobi 场与共轭点 | DG4.geodesic/DG5 |
+| DG5 | `differential-geometry.hopf-rinow` | Hopf–Rinow 定理 | DG4/T3 |
+| DG6 | `differential-geometry.submanifold.second-fundamental-form` | 第二基本形式与形算子 | DG1/DG4 |
+| DG6 | `differential-geometry.gauss-codazzi` | Gauss–Codazzi 方程 | DG6.second-form/DG5 |
+| DG6 | `differential-geometry.gauss-bonnet` | 曲面的 Gauss–Bonnet 定理 | DG3/DG6 |
+| DG7 | `differential-geometry.principal-bundle` | 主丛、伴随丛与规范变换 | DG1/RT1 |
+| DG7 | `differential-geometry.bundle-connection` | 主丛联络、曲率形式与 Bianchi 恒等式 | DG7/DG4 |
+| DG7 | `differential-geometry.characteristic-classes` | Chern–Weil 与特征类入口 | DG7/DG3 |
+
+**完成能力节点**：从流形和切丛一直推进到 Stokes、de Rham、测地线和曲率；“流形、丛、曲率”
+不得继续压缩为一个条目。
+
+### 13.6 数理逻辑（ML1–ML7）🔒
+
+> 家族前缀 `mathematical-logic.*`。课程门：ST1–ST2；可计算性路线与 ST3 共享底层编码，必须指定
+> 单一文件所有者，避免集合论和逻辑分支各自定义一套机器模型。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| ML1 | `mathematical-logic.syntax.first-order-language` | 一阶语言、项与公式 | ST1 |
+| ML1 | `mathematical-logic.syntax.substitution` | 代入、自由变量与变量捕获规避 | ML1.language |
+| ML1 | `mathematical-logic.semantics.structure` | 结构、赋值与满足关系 | ML1.syntax |
+| ML1 | `mathematical-logic.semantics.elementary-equivalence` | 理论、模型与初等等价 | ML1.structure |
+| ML2 | `mathematical-logic.proof-system.deduction` | 形式证明、演绎定理与可靠性 | ML1 |
+| ML2 | `mathematical-logic.model-theory.compactness` | 一阶紧致性定理 | ML2/ST2.choice |
+| ML2 | `mathematical-logic.model-theory.completeness` | Gödel 完备性定理 | ML2.deduction |
+| ML2 | `mathematical-logic.model-theory.lowenheim-skolem` | 向上/向下 Löwenheim–Skolem | ML2.compactness |
+| ML3 | `mathematical-logic.model-theory.types` | 类型、实现与饱和模型 | ML2 |
+| ML3 | `mathematical-logic.model-theory.quantifier-elimination` | 量词消去与典型理论 | ML2 |
+| ML3 | `mathematical-logic.model-theory.back-and-forth` | back-and-forth 与可数范畴性 | ML3.types |
+| ML4 | `mathematical-logic.computability.machine` | 寄存器机/Turing 机的统一计算模型 | ST3 |
+| ML4 | `mathematical-logic.computability.partial-recursive` | 部分递归函数与机器等价 | ML4.machine |
+| ML4 | `mathematical-logic.computability.enumerability` | 可判定、可枚举及闭包性质 | ML4.partial-recursive |
+| ML4 | `mathematical-logic.computability.halting` | 停机问题不可判定 | ML4.enumerability |
+| ML4 | `mathematical-logic.computability.rice` | Rice 定理 | ML4.halting |
+| ML5 | `mathematical-logic.arithmetic.goedel-numbering` | 语法 Gödel 编码与基本操作可表示性 | ML1/ML4 |
+| ML5 | `mathematical-logic.arithmetic.representability` | 递归关系的算术可表示性 | ML5.encoding |
+| ML5 | `mathematical-logic.arithmetic.diagonal-lemma` | 对角引理 | ML5.representability |
+| ML5 | `mathematical-logic.arithmetic.first-incompleteness` | 第一不完备定理 | ML5.diagonal |
+| ML5 | `mathematical-logic.arithmetic.second-incompleteness` | 第二不完备定理 | ML5.first |
+| ML6 | `mathematical-logic.set-theory.zf-models` | ZF 模型与相对一致性语言 | ST2/ML2 |
+| ML6 | `mathematical-logic.set-theory.constructible-universe` | 可构造宇宙 L | ST1/ML6.models |
+| ML6 | `mathematical-logic.set-theory.choice-independence-entry` | 选择公理独立性方法入口 | ML6 |
+| ML6 | `mathematical-logic.set-theory.forcing-entry` | forcing 偏序、名字与真值关系入口 | ML6.models |
+| ML7 | `mathematical-logic.proof-theory.ordinals` | 证明论序数与序数分析入口 | ST3/ML5 |
+| ML7 | `mathematical-logic.proof-theory.cut-elimination` | 相继式演算与切消 | ML2 |
+| ML7 | `mathematical-logic.proof-theory.consistency` | Gentzen 一致性证明入口 | ML7/ST3 |
+
+**完成能力节点**：模型论、可计算性、不完备性和证明论分别形成可追踪主线；“数理逻辑完成”只有
+在各路线独立达到 §15 标准后才能声明，不能用一条完备/不完备定理代表整门学科。
 
 ## 14. 批次纳入节奏（沿用 INGESTION_PROTOCOL）
 
