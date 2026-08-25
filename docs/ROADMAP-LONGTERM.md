@@ -1756,4 +1756,64 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 
 > 守则：**前沿不是空中楼阁**——每个论文定理都有规划内地基可追溯，扩展速度与根基缺口成反比。
 
+#### 15.3.1 论文候选的状态与验收规则
+
+以下清单不是把论文标题当作已完成 Entry，也不是要求逐页翻译历史证明。状态统一解释为：
+
+- `paper_ready`：表中“必要设施”已经进入 Main，可以为首批核心结果建立 RFC；正式开发仍须由
+  Main 分配文件所有权。
+- `paper_research_open`：可以调查原文、现代证明链与 Mathlib 接口，但尚不能提交声称覆盖论文核心
+  定理的正式 Entry。
+- `future_paper`：课程设施尚未完成，只登记依赖门和目标，禁止提前包装最终 Mathlib 定理。
+
+每篇论文开工前必须形成 `docs/handoffs/<subject>-paper-<slug>.md`，逐条回答：原论文的哪一个定理／
+引理是本批目标；采用原证明还是现代等价证明；哪些定义由本库承载；哪些 Mathlib 结果只是后端；
+首批没有覆盖论文的哪些部分。一个论文可以拆成多批，但每批仍须是 3–6 个相互支撑、可以被下游
+实际使用的公开声明。历史论文中的数值实验、物理解释或非严格断言不得改写成 Lean 定理。
+
+#### 15.3.2 主干学科论文形式化候选
+
+| 领域 | 论文（`reference.bib` key） | 必要设施 | 首批可形式化核心 | 状态与边界 |
+|---|---|---|---|---|
+| 线性代数／数值线性代数 | Eckart–Young, 1936（`eckart-young-low-rank-1936`） | L4–L7；奇异值、Frobenius 范数、秩约束集合 | 截断 SVD 的秩界、误差公式与最佳秩 `k` 逼近 | `paper_ready`；先做有限维实／复矩阵，不宣称任意酉不变范数的 Mirsky 推广 |
+| 抽象代数 | Wedderburn, 1905（`wedderburn-finite-algebras-1905`） | A1、A2 域／除环桥、A3 有限域 | 有限除环中心、极大子域与“有限除环必交换” | `paper_research_open`；当前本库公开域默认交换，须先建立非交换除环课程承载 |
+| 点集拓扑／流形入口 | Whitney, 1936（`whitney-differentiable-manifolds-1936`） | T1–T4、AN-MV、DM1–DM4 | 局部嵌入、分割单位、紧流形到欧氏空间的嵌入施工 | `future_paper`；不能把 Mathlib 已有嵌入存在性单句包装为整篇论文 |
+| 实分析／测度论 | Nikodym, 1930（`nikodym-radon-generalization-1930`） | R4、RA-F1–RA-F2；有限符号测度与绝对连续 | Radon–Nikodym 导数的存在、a.e. 唯一性与积分重建 | `paper_research_open`；先冻结 σ-有限／有限测度版本及符号约定 |
+| 复分析 | de Branges, 1985（`de-branges-bieberbach-1985`） | 完整 C2–C3；单叶函数、正规族、Loewner 链与系数泛函 | 归一化单叶类、Loewner 系数微分式、低阶系数界 | `future_paper`；低阶验证不等于 Bieberbach 全系数定理完成 |
+| 泛函分析 | Banach–Steinhaus, 1927（`banach-steinhaus-condensation-1927`） | F1–F2、Baire 与一致有界原理 | 双指标泛函族的奇点凝聚原理及其一致有界推论 | `paper_ready`；不得只把现有 Banach–Steinhaus 条目换标题 |
+| 概率论 | Donsker, 1951（`donsker-invariance-principle-1951`） | Pr1–Pr3、SP1–SP3；路径空间、弱收敛与 Brownian 运动 | 随机游走插值、有限维分布收敛、紧性与 Wiener 极限 | `future_paper`；CLT 不能代替路径空间中的函数型极限定理 |
+| 统计推断 | Neyman–Pearson, 1933（`neyman-pearson-tests-1933`） | Pr1、S1–S2；似然比、检验大小与功效 | 简单对简单假设的 Neyman–Pearson 引理及随机化边界 | `future_paper`；先做支配概率模型，不把复合假设一并声称完成 |
+| 数论 | Green–Tao, 2008（`green-tao-prime-progressions-2008`） | N3、HAna1–HAna4；Szemerédi 定理、伪随机测度与筛法 | 稠密模型／传递原理、线性形式条件和素数等差数列结论 | `future_paper`；不得用现成最终 theorem 跳过相对 Szemerédi 证明链 |
+| 集合论 | Cohen, 1963（`cohen-continuum-hypothesis-1963`） | ST1–ST2、ML1–ML4；可数传递模型、偏序与 forcing 语义 | 名称／估值递归、forcing theorem、保持 ZF(C) 的扩张及 `¬CH` 模型 | `future_paper`；最终独立性陈述不能脱离元理论一致性前提 |
+
+#### 15.3.3 高阶学科论文形式化候选
+
+| 领域 | 论文（`reference.bib` key） | 必要设施 | 首批可形式化核心 | 状态与边界 |
+|---|---|---|---|---|
+| 交换代数 | Quillen, 1976（`quillen-projective-modules-1976`） | CA1–CA6、HA1–HA5；有限表示投射模、局部化与拼接 | Quillen 局部—整体拼接引理，继而证明多项式环上的有限生成投射模自由 | `future_paper`；须说明与 Suslin 独立证明的范围，不把 Serre 问题名称当证明 |
+| 同调代数 | Grothendieck, 1957（`grothendieck-tohoku-1957`） | HA1–HA5、CA1–CA3；Abel 范畴、分解、导出函子 | AB 公理、足够内射对象条件、导出函子长正合列与 Grothendieck 谱序列入口 | `future_paper`；一篇论文拆多批，不能用一个“有足够内射”包装覆盖全文 |
+| 代数拓扑 | Serre, 1951（`serre-fiber-spaces-1951`） | AT1–AT4、HA2–HA6；纤维化、过滤复形与谱序列 | Serre 谱序列构造、边缘同态和首批纤维束同调计算 | `future_paper`；先固定同调系数与收敛型，不笼统声称全部应用 |
+| 表示论 | Deligne–Lusztig, 1976（`deligne-lusztig-finite-groups-1976`） | RT1–RT6、AG3–AG6；有限 Lie 型群、étale 上同调 | Deligne–Lusztig 簇的群作用、虚特征标定义和最小秩例子 | `future_paper`；几何构造与上同调迹公式未完成前不得发布表示分类 |
+| 微分流形 | Whitney, 1936（`whitney-differentiable-manifolds-1936`） | DM1–DM5、T2、AN-MV | Whitney 嵌入定理的局部图、一般位置和有限子覆盖证明链 | `future_paper`；与主干表共享同一来源，只登记一个 BibTeX 条目 |
+| 微分拓扑 | Smale, 1961（`smale-generalized-poincare-1961`） | DT1–DT5、AT1–AT5；手术、handle 与 h-cobordism | handle 消去、h-cobordism 主步骤及高维广义 Poincaré 推论 | `future_paper`；维数与单连通前提必须逐条保留，不涉及四维情形 |
+| 黎曼几何 | Cheeger, 1970（`cheeger-finiteness-1970`） | RG1–RG7、DT1–DT3；曲率、测地坐标与紧性 | 曲率／直径／体积界下的坐标控制、有限微分同胚型结论 | `future_paper`；先冻结论文使用的归一化与注入半径桥 |
+| 随机过程 | Itô, 1944（`ito-stochastic-integral-1944`） | SP1–SP4、Pr1–Pr3；适应过程、二次变差与 `L²` 极限 | 简单过程积分、Itô 等距、完备化及 Itô 公式入口 | `future_paper`；不把确定性 Bochner 积分冒充随机积分 |
+| 常微分方程／动力系统 | Lorenz, 1963（`lorenz-nonperiodic-flow-1963`） | ODE1–ODE5、L4、数值误差接口 | Lorenz 多项式向量场、对称性、平衡点、局部稳定性与吸收椭球估计 | `future_paper`；论文数值轨道不自动成为严格“混沌存在”定理 |
+| 偏微分方程 | Nash, 1958（`nash-pde-continuity-1958`） | PDE1–PDE6、RA-F3–RA-F5、F1–F3 | 一致椭圆／抛物方程弱解的能量估计、迭代不等式与 Hölder 连续性 | `future_paper`；先做标量方程，不能泛化到任意非线性系统 |
+| 局部凸空间／广义泛函分析 | Grothendieck, 1955（`grothendieck-topological-tensor-1955`） | AFA1–AFA6、F1–F4、HA1；完备化与张量泛性质 | 投射／内射拓扑张量积、核型映射定义与首批等价刻画 | `future_paper`；Memoirs 专著按章节拆批，不以一个 nuclearity 谓词代替理论 |
+| 调和分析 | Carleson, 1966（`carleson-fourier-convergence-1966`） | HAna1–HAna5、RA-F3–RA-F6；极大算子与时频分解 | Carleson 算子模型、弱型／`L²` 估计分解及 Fourier 部分和 a.e. 收敛 | `future_paper`；先冻结周期归一化和 maximal truncation，不用 Plancherel 冒充核心估计 |
+| 代数几何 | Deligne–Mumford, 1969（`deligne-mumford-curves-1969`） | AG1–AG10、HA1–HA5；稳定曲线、代数栈与形变 | 稳定曲线族、DM 栈对角线／光滑覆盖、紧化和不可约性证明链 | `future_paper`；只完成模函子或稳定约化均不等于全文完成 |
+| 数理逻辑 | Gödel, 1931（`godel-incompleteness-1931`） | ML1–ML7、ST3；语法编码、递归代入、可证明性谓词 | 对角引理、第一不完备定理、第二不完备定理所需 Hilbert–Bernays 条件 | `future_paper`；一致性、ω-一致性与可靠性假设必须按采用版本区分 |
+
+#### 15.3.4 跨领域复用与优先顺序
+
+1. **近期可启动**：Eckart–Young 与 Banach–Steinhaus 已有大部分课程设施；负责人先提交 theorem
+   inventory 和“现有 Entry 不足在哪里”的差分 RFC，避免重复证明已完成课程结论。
+2. **中期桥项目**：Nikodym、Neyman–Pearson、Wedderburn 分别暴露符号测度／统计决策／非交换
+   除环缺口；这些缺口先回填对应课程批次，再将论文状态提升为 `paper_ready`。
+3. **大型长期项目**：Cohen、Green–Tao、Carleson、Smale、Deligne–Lusztig、Deligne–Mumford 和
+   Gödel 必须按证明依赖图拆成多个课程级批次；“论文很重要”不构成跳过基础设施的理由。
+4. **同源跨学科**：Whitney 同时服务主干拓扑与微分流形，Grothendieck 的不同论文分别服务同调
+   代数与广义泛函分析。Registry 为每个实际 theorem 建独立 Entry，但文献键不得重复造别名。
+
 ---
