@@ -152,8 +152,30 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.3 闭子空间商 | `examples.functional-analysis.quotients` | 有限维子空间商、商范数距离计算 | 非闭子空间会出现非零陪集范数为零的边界 | F1 |
 | E11.4 Banach 三大定理 | `examples.functional-analysis.banach-theorems` | 具体算子族的一致有界、开映射与有界逆应用 | 逐点有界与一致有界不能在缺 Baire 条件时混同 | F2 |
 | E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、Parseval 的有限维计算 | 最佳逼近与正交投影需要闭凸／闭子空间条件 | F3 |
+| E11.6 Hahn–Banach 与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维分离泛函、坐标泛函族的弱／弱星收敛 | 范数收敛、弱收敛与弱星收敛不可混同；逆向通常失败 | F2+/F4 |
+| E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
+| E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |
+| E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |
+| E11.10 算子半群 | `examples.functional-analysis.semigroups` | 平移、乘法和热半群的轨道及生成元计算 | 每点连续不能代替强连续；生成元通常不是有界算子 | F8 |
+| E11.11 半范数与 Fréchet 空间 | `examples.advanced-functional-analysis.frechet` | `ℝⁿ` 坐标半范数、`C∞` 导数半范数及可数族生成度量 | 单个半范数可不分离点；Fréchet 不等于“具有某个完备范数” | AFA1-AFA2 |
+| E11.12 桶、Bornological 与 Montel | `examples.advanced-functional-analysis.space-properties` | 标准 Fréchet、LF 和 Montel 空间的性质核对 | 完备不自动 Montel；有界集概念不能静默换成范数有界 | AFA3-AFA4 |
+| E11.13 测试函数与分布 | `examples.advanced-functional-analysis.distributions` | Dirac、函数诱导分布、导数和 Fourier 变换 | 点值对一般 `L¹` 函数无意义；分布收敛不等于逐点收敛 | AFA5 |
 
-## E12 后续学科自动扩展
+## E12 偏微分方程
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E12.1 四类线性方程 | `examples.pde.linear-models` | 输运平移、Laplace/Poisson 核、Gaussian 热核和 d’Alembert 公式 | 热方程无限传播与波方程有限传播不可混同 | PDE1 |
+| E12.2 非线性一阶方程 | `examples.pde.characteristics` | Burgers 特征线、激波时间和 Rankine–Hugoniot 速度 | 特征线交叉后经典解失效；弱解不唯一 | PDE2 |
+| E12.3 表示方法 | `examples.pde.representation` | 区间分离变量、热方程相似解和 Fourier 变换解 | 形式级数／变换表达不自动满足收敛和边界条件 | PDE3 |
+| E12.4 Sobolev 空间 | `examples.pde.sobolev` | 分段函数弱导数、磨光、Poincaré 和一维迹计算 | 弱可微不等于经典可微；临界指数不能直接套非临界嵌入 | PDE4 |
+| E12.5 椭圆方程 | `examples.pde.elliptic` | 一维弱 Dirichlet 问题、能量极小化和特征值 | 弱解正则性需要系数与边界条件；最大值原理有符号门 | PDE5 |
+| E12.6 线性演化 | `examples.pde.evolution` | Galerkin 有限维逼近、热／波能量估计 | 能量界只给弱紧性时不能声称强收敛 | PDE6 |
+| E12.7 变分与非变分 | `examples.pde.nonlinear-methods` | Euler–Lagrange、障碍问题和上下解迭代 | 临界点不必是极小值；缺凸性时唯一性可失败 | PDE7-PDE8 |
+| E12.8 黏性解与守恒律 | `examples.pde.viscosity-entropy` | Eikonal/Hopf–Lax、Burgers 熵解和 Riemann 问题 | 黏性解与分布解是不同框架；Rankine–Hugoniot 不足以选熵解 | PDE9-PDE10 |
+| E12.9 非线性波 | `examples.pde.nonlinear-wave` | 半线性波能量、局部迭代和爆破型 ODE 比较 | 局部解不自动整体；守恒能量不自动排除所有爆破 | PDE10 |
+
+## E13 后续学科自动扩展
 
 概率、统计、泛函分析、微分几何、ODE/PDE、代数拓扑等学科首次进入 main 时，Main 按相同模板在
 本文件新增一个项目组。最低要求仍是“标准对象 + 计算／构造 + 必要反例”，不得只把理论文档中的

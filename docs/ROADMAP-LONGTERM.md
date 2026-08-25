@@ -33,7 +33,7 @@
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1✅ F2-F3🚧 F4🔒 | L5 T3 R4 |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1✅ F2-F3🚧 F4-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
@@ -537,7 +537,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 12 | `complex-analysis.residue.real-integral-example` | 一个广义实积分课程接口 ✅ | Mathlib 广义积分后端 |
 | 13 | `complex-analysis.argument-principle.linear-special-case` | 线性辐角/Rouché 特例 ✅ | logarithmic derivative |
 
-## 8. Phase 7 — 泛函分析（F1-F4）
+## 8. Phase 7 — 泛函分析（F1-F8，Bühler–Salamon 主线）
+
+> 默认教材固定为 Theo Bühler 与 Dietmar A. Salamon, *Functional Analysis*, AMS GSM 191
+>（2018；ETH 讲义更新版可作勘误参考）。课程顺序对应第 1–7 章：基础、三大原理与凸分离、
+> 弱／弱星拓扑、Fredholm 理论、有界谱理论、无界算子、算子半群。现有条目保留，不为贴合章节
+> 编号重造等价接口；新增批次负责补齐教材缺口并冻结真实依赖门。
 
 ### F1 赋范空间与连续线性算子 ✅
 
@@ -550,7 +555,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 5 | `functional-analysis.series.summable` | Banach 中绝对可和推出可和 ✅ | `Summable.of_norm` |
 | 6 | `functional-analysis.subspace.quotient` | 闭子空间与商 Banach 空间 ✅ | `NormedSpace.Quotient` |
 
-### F2 Banach 三大定理 🚧（已由 F1 解锁）
+### F2 泛函分析基本原理与凸性 🚧（Salamon Chapter 2；已由 F1 解锁）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -559,6 +564,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.open-mapping` | 开映射定理 | continuous linear surjection |
 | 4 | `functional-analysis.closed-graph` | 闭图定理 | closed graph |
 | 5 | `functional-analysis.inverse-operator` | 有界逆定理 | open mapping 推论 |
+| 6 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理、支配次线性泛函版本与范数保持延拓 | `exists_extension_norm_eq`、`Sublinear` |
+| 7 | `functional-analysis.hahn-banach.norming-functional` | 给定非零向量的范数化泛函与对偶范数刻画 | `exists_dual_vector`、dual norm API |
+| 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 | geometric Hahn–Banach、`Convex` |
+| 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、零化子与双零化子刻画 | `annihilator`、dual pairing |
+| 10 | `functional-analysis.bidual.reflexive` | 典范嵌入到双对偶、自反性与闭单位球边界 | `NormedSpace.inclusionInDoubleDual`、`IsReflexive` |
+| 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 | separability/reflexivity API |
 
 ### F3 Hilbert 空间 🚧（F1、L5 均已完成）
 
@@ -568,17 +579,81 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 2 | `functional-analysis.hilbert.riesz` | Riesz 表示定理 | `InnerProductSpace.toDual` |
 | 3 | `functional-analysis.hilbert.adjoint` | 有界算子伴随 | CLM adjoint |
 | 4 | `functional-analysis.hilbert.orthonormal-basis` | 正交规范基与 Parseval | `OrthonormalBasis` |
-| 5 | `functional-analysis.hilbert.compact-spectral` | 紧自伴算子谱定理 | compact operator spectrum |
+| 5 | `functional-analysis.hilbert.unitary` | 等距、酉算子及正交分解的基本接口 | `LinearIsometryEquiv`、unitary API |
 
-### F4 算子代数入口 🔒（依赖 F2/F3）
+> 紧自伴算子谱定理属于 Salamon Chapter 5，移至 F6；F3 只建立后续谱理论真正需要的 Hilbert
+> 空间语言，不提前声称已完成紧算子理论。
+
+### F4 弱拓扑、弱星拓扑与弱紧性 🔒（Salamon Chapter 3；依赖 F2/T1/T2）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.spectrum.definition` | Banach 代数谱与预解集 | `spectrum`、`resolventSet` |
-| 2 | `functional-analysis.spectrum.nonempty` | 复 Banach 代数谱非空紧致 | spectrum API |
-| 3 | `functional-analysis.operator.normal` | 正规、自伴与正算子 | star operator API |
-| 4 | `functional-analysis.operator.functional-calculus` | 连续函数演算入口 | functional calculus |
-| 5 | `functional-analysis.operator.cstar-entry` | C*-恒等式与基本例子 | `CStarAlgebra` |
+| 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、局部基与连续线性泛函 | `TopologicalAddGroup`、`ContinuousSMul` |
+| 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 | `WeakTopology`、initial topology API |
+| 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 | weak-star topology API |
+| 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 | Banach–Alaoglu/Tychonoff API |
+| 5 | `functional-analysis.weak.metrizable-separable` | 可分情形单位球弱星可度量化与序列抽取 | metrizability/separability API |
+| 6 | `functional-analysis.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 | dual topology API |
+| 7 | `functional-analysis.eberlein-smulian` | 弱紧致与弱序列紧致的等价 | weak compactness API |
+| 8 | `functional-analysis.krein-milman` | 紧凸集、极点与闭凸包 | `extremePoints`、Krein–Milman API |
+| 9 | `functional-analysis.ergodic.mean` | 均值遍历定理的泛函分析入口 | power-bounded operator/ergodic averages |
+
+### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 | `ContinuousLinearMap.dualMap` |
+| 2 | `functional-analysis.closed-range` | 闭值域定理及算子与对偶算子的像／核关系 | closed range API |
+| 3 | `functional-analysis.compact-operator.definition` | 紧算子的序列／相对紧像刻画、有限秩算子与闭包性质 | compact operator API |
+| 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质与复合稳定性 | compact composition API |
+| 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择 | compact perturbation API |
+| 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
+
+### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.banach-algebra.foundation` | 复 Banach 代数、单位化与几何级数求逆 | `NormedRing`、`BanachAlgebra` |
+| 2 | `functional-analysis.spectrum.definition` | 谱、预解集、预解算子与谱半径 | `spectrum`、`resolventSet`、`spectralRadius` |
+| 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 | spectrum API、Liouville |
+| 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 | compact operator spectrum |
+| 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 | compact self-adjoint spectral theorem |
+| 6 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分与全纯函数演算、谱映射定理 | holomorphic functional calculus |
+| 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
+| 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
+| 9 | `functional-analysis.spectral-measure.bounded` | 投影值测度、循环向量与有界正规算子谱定理 | spectral measure/integral API |
+| 10 | `functional-analysis.gelfand-spectrum.entry` | 交换 Banach 代数极大理想空间与 Gelfand 变换入口 | character/Gelfand spectrum API |
+
+### F7 无界算子与无界谱定理 🔒（Salamon Chapter 6；依赖 F4-F6/R4）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.unbounded-operator.definition` | 稠密定义域线性算子、图、闭算子与可闭算子 | submodule domain/closed graph API |
+| 2 | `functional-analysis.unbounded-operator.graph-norm` | 图范数、闭性与定义域完备性的等价 | graph norm/completion API |
+| 3 | `functional-analysis.unbounded-operator.dual` | Banach 空间无界算子的对偶、稠密定义域与闭值域关系 | unbounded dual operator API |
+| 4 | `functional-analysis.unbounded-operator.adjoint` | Hilbert 空间稠密定义算子的伴随、对称与自伴 | unbounded adjoint API |
+| 5 | `functional-analysis.unbounded-operator.resolvent` | 无界闭算子的预解集、谱与 Cayley 变换入口 | resolvent/Cayley API |
+| 6 | `functional-analysis.spectral-measure.unbounded` | 无界自伴算子的谱测度与可测函数演算 | projection-valued measure API |
+| 7 | `functional-analysis.unbounded-selfadjoint.spectral` | 无界自伴算子谱定理与定义域刻画 | unbounded spectral theorem |
+
+### F8 强连续半群与抽象演化方程 🔒（Salamon Chapter 7；依赖 F7/R4）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `functional-analysis.semigroup.strongly-continuous` | `C₀` 半群、轨道连续性与指数增长界 | operator semigroup API |
+| 2 | `functional-analysis.semigroup.generator` | 无穷小生成元、稠密定义域、闭性与预解公式 | infinitesimal generator API |
+| 3 | `functional-analysis.semigroup.hille-yosida-phillips` | Hille–Yosida–Phillips 生成定理 | resolvent power estimates |
+| 4 | `functional-analysis.semigroup.dual` | 对偶半群、强连续性边界与自反空间情形 | dual semigroup API |
+| 5 | `functional-analysis.semigroup.selfadjoint-unitary` | 自伴半群、酉群与 Stone 定理入口 | unitary group/generator API |
+| 6 | `functional-analysis.semigroup.analytic` | 解析半群、扇形生成元与正则化 | analytic semigroup API |
+| 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
+| 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
+
+**阶段门与诚实边界**：F2 可继续补 Hahn–Banach 与自反性，F3 可并行完成 Hilbert 基础；F4 必须
+等待凸分离与拓扑基础，F5 等待 F4 的弱紧致工具，F6 等待紧算子与复分析 C1，F7/F8 严格顺序
+解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
+用若干已有强定理包装成整章“完成”。
 
 ## 9. Phase 8 — 概率论（Pr1-Pr3）
 
@@ -1043,66 +1118,218 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 **完成能力节点**：同时覆盖定性存在唯一性、线性系统、稳定性、分岔和动力系统，而非只收集解公式。
 
-### 13.10 偏微分方程（PDE1–PDE8）🔒
+### 13.10 偏微分方程（PDE1–PDE10，Evans 第二版主线）🔒
 
-> 家族前缀 `pde.*`。课程门：R4–R6、F1–F3、AFA1；各方程先区分经典、弱、分布解。
+> 家族前缀 `pde.*`。默认教材固定为 Lawrence C. Evans, *Partial Differential Equations*,
+> Second Edition, AMS GSM 19（2010）。课程顺序保持教材的三部结构：表示公式（Chapters 2–4）、
+> 线性 PDE 理论（Chapters 5–7）、非线性 PDE 理论（Chapters 8–12）。课程门：多元分析、R4–R6、
+> ODE1–ODE2；Sobolev 以后另需 F1–F3。AFA5 分布和 F8 半群可作为后续桥，但不是跳过 Evans
+> 经典表示公式、能量估计与弱解施工的捷径。
 
-| 批次 | 条目 id | 内容 | 前置 |
+#### PDE1 四类重要线性方程与表示公式（Evans Chapter 2）
+
+| # | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| PDE1 | `pde.distributions.definition` | 测试函数、分布与分布导数 | R4/F1 |
-| PDE1 | `pde.sobolev.definition` | 弱导数与 Sobolev 空间 | PDE1/AFA |
-| PDE1 | `pde.sobolev.embedding` | Sobolev 嵌入、紧嵌入与迹 | PDE1 |
-| PDE1 | `pde.mollifier-density` | 磨光、逼近与稠密性 | R4 |
-| PDE2 | `pde.first-order.characteristics` | 一阶方程特征线法 | ODE |
-| PDE2 | `pde.conservation-law.weak-solution` | 守恒律弱解、熵解与 Rankine–Hugoniot | PDE1 |
-| PDE2 | `pde.conservation-law.l1-contraction` | 熵解唯一性与 `L¹` 压缩 | PDE2 |
-| PDE3 | `pde.laplace.fundamental-solution` | Laplace 方程基本解与平均值性质 | R4 |
-| PDE3 | `pde.laplace.maximum-principle` | 强弱最大值原理与唯一性 | PDE3 |
-| PDE3 | `pde.poisson.green-function` | Green 函数与 Poisson 核 | PDE3/HAna1 |
-| PDE3 | `pde.elliptic.variational` | Lax–Milgram 与弱解存在性 | AFA/F3 |
-| PDE3 | `pde.elliptic.regularity` | 内部/边界正则性 | PDE1/PDE3 |
-| PDE4 | `pde.heat.kernel` | 热核、半群与平滑 | AFA/PDE3 |
-| PDE4 | `pde.heat.energy-maximum` | 能量法、最大值原理与唯一性 | PDE4 |
-| PDE4 | `pde.parabolic.regularity` | 抛物正则性入口 | PDE1/PDE4 |
-| PDE5 | `pde.wave.energy` | 波方程能量、有限传播速度 | AFA |
-| PDE5 | `pde.wave.duhamel` | Duhamel 原理与解公式 | PDE5 |
-| PDE6 | `pde.nonlinear.fixed-point` | 压缩映射与局部适定性 | AFA/ODE |
-| PDE6 | `pde.nonlinear.energy-method` | 先验估计、延拓与爆破解择 | PDE6 |
-| PDE6 | `pde.navier-stokes.weak-existence` | Leray–Hopf 弱解入口 | PDE1/AFA |
-| PDE7 | `pde.viscosity.definition` | 黏性解、比较原理与稳定性 | R6 |
-| PDE7 | `pde.hamilton-jacobi` | Hamilton–Jacobi 方程与 Hopf–Lax | PDE7/ODE |
-| PDE8 | `pde.microlocal.wavefront-entry` | Fourier 变换、奇性与波前集入口 | HA/PDE1 |
+| 1 | `pde.transport.characteristics` | 常系数输运方程、特征线与初值传播 | ODE1 |
+| 2 | `pde.laplace.fundamental-solution` | Laplace 方程基本解与 Poisson 方程表示 | R4 |
+| 3 | `pde.laplace.mean-value` | 调和函数平均值性质及其逆命题 | PDE1.2 |
+| 4 | `pde.laplace.maximum-principle` | 弱／强最大值原理、唯一性与 Harnack 入口 | PDE1.3 |
+| 5 | `pde.poisson.green-function` | Green 函数、Poisson 核与球／半空间表示 | PDE1.2 |
+| 6 | `pde.heat.fundamental-solution` | 热核、卷积表示、平滑与质量守恒 | R4 |
+| 7 | `pde.heat.maximum-energy` | 热方程最大值原理、能量法与唯一性 | PDE1.6 |
+| 8 | `pde.wave.dalembert-spherical-means` | 一维 d’Alembert、高维球面均值公式与 Huygens 辨析 | 多元分析 |
+| 9 | `pde.wave.energy-domain-dependence` | 波方程能量守恒、有限传播速度与依赖域 | PDE1.8 |
+| 10 | `pde.linear.duhamel` | 热／波非齐次问题的 Duhamel 原理 | PDE1.6/PDE1.8 |
 
-**完成能力节点**：能区分并连接经典解、弱解、分布解和黏性解，具备椭圆、抛物、双曲及非线性
-方程的基本存在唯一性、正则性和先验估计链。
+#### PDE2 非线性一阶方程（Evans Chapter 3）
 
-### 13.11 高等泛函分析（AFA1–AFA6）🔒
-
-> 家族前缀 `advanced-functional-analysis.*`。课程门：F1–F4、R4、L5。
-
-| 批次 | 条目 id | 内容 | 前置 |
+| # | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| AFA1 | `advanced-functional-analysis.locally-convex` | 局部凸空间、半范数族与对偶 | F2 |
-| AFA1 | `advanced-functional-analysis.hahn-banach.separation` | 几何分离与 Minkowski 泛函 | F2 |
-| AFA1 | `advanced-functional-analysis.weak-topologies` | 弱/弱星拓扑与极拓扑 | F2/T1 |
-| AFA1 | `advanced-functional-analysis.banach-alaoglu` | Banach–Alaoglu 与弱紧致性 | AFA1/T2 |
-| AFA2 | `advanced-functional-analysis.reflexivity` | 自反、可分与弱紧性判据 | AFA1 |
-| AFA2 | `advanced-functional-analysis.uniform-convexity` | 一致凸与 Milman–Pettis | AFA2 |
-| AFA2 | `advanced-functional-analysis.compact-operator` | 紧算子、逼近与 Fredholm 备择 | F3 |
-| AFA3 | `advanced-functional-analysis.unbounded-operator` | 闭算子、伴随与图范数 | F3 |
-| AFA3 | `advanced-functional-analysis.selfadjoint.spectral` | 无界自伴算子谱定理 | AFA3 |
-| AFA3 | `advanced-functional-analysis.functional-calculus` | 连续/Borel 函数演算 | F4/AFA3 |
-| AFA4 | `advanced-functional-analysis.semigroup.definition` | `C₀` 半群及生成元 | AFA3 |
-| AFA4 | `advanced-functional-analysis.hille-yosida` | Hille–Yosida 定理 | AFA4 |
-| AFA4 | `advanced-functional-analysis.stone-theorem` | 酉群与 Stone 定理 | AFA3 |
-| AFA5 | `advanced-functional-analysis.distributions` | Schwartz 空间、温和分布与对偶 | AFA1 |
-| AFA5 | `advanced-functional-analysis.nuclear-space-entry` | 核空间与 Schwartz 核定理 | AFA5 |
-| AFA6 | `advanced-functional-analysis.banach-algebra` | Banach 代数、谱与 Gelfand 变换 | F4 |
-| AFA6 | `advanced-functional-analysis.cstar-representation` | C*-代数、正泛函与 GNS | AFA6 |
-| AFA6 | `advanced-functional-analysis.von-neumann-entry` | von Neumann 代数与双交换子 | AFA6 |
+| 1 | `pde.first-order.complete-integrals` | 完全积分、包络与奇异解 | ODE1 |
+| 2 | `pde.first-order.characteristics` | 一般一阶 PDE 的特征方程组与局部解 | ODE2 |
+| 3 | `pde.first-order.characteristic-breakdown` | 特征线交叉、梯度爆破与经典解失效 | PDE2.2 |
+| 4 | `pde.hamilton-jacobi.introduction` | Hamilton–Jacobi 方程、作用量与完整积分入口 | PDE2.2/ODE |
+| 5 | `pde.conservation-law.scalar-introduction` | 标量守恒律、Rankine–Hugoniot 与激波／稀疏波 | PDE2.2 |
+| 6 | `pde.conservation-law.entropy-introduction` | 弱解不唯一、熵条件与 `L¹` 压缩入口 | PDE2.5 |
 
-**完成能力节点**：在 Banach 三大定理之后建立弱拓扑、紧算子、无界算子、半群、分布和算子代数
-主线，为 PDE、随机过程与调和分析提供稳定接口。
+#### PDE3 其他解表示方法（Evans Chapter 4）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.representation.separation-variables` | 分离变量、特征函数展开与边界条件 | L5/PDE1 |
+| 2 | `pde.representation.similarity` | 相似变量、尺度不变性与自相似解 | PDE1/PDE2 |
+| 3 | `pde.representation.transform` | Fourier／Laplace 变换求解线性 PDE | AN3 |
+| 4 | `pde.representation.nonlinear-transform` | Hopf–Cole 等非线性到线性的变换 | PDE1/PDE2 |
+| 5 | `pde.representation.asymptotics` | Laplace 方法、驻相／最速下降的 PDE 渐近入口 | AN3/C1 |
+| 6 | `pde.representation.power-series` | 解析系数、幂级数形式解与适用边界 | AN3 |
+
+#### PDE4 Sobolev 空间（Evans Chapter 5）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.weak-derivative.definition` | 弱导数、分部积分定义与唯一性 | R4/F1 |
+| 2 | `pde.sobolev.definition` | `W^{k,p}`、`H^k`、范数与完备性 | PDE4.1 |
+| 3 | `pde.mollifier-density` | 磨光、局部逼近及光滑函数稠密性 | R4/PDE4.2 |
+| 4 | `pde.sobolev.extension-trace` | 延拓算子、迹与零边界空间 `W₀^{1,p}` | PDE4.2 |
+| 5 | `pde.sobolev.inequalities` | Gagliardo–Nirenberg–Sobolev、Morrey 与 Poincaré 不等式 | PDE4.2 |
+| 6 | `pde.sobolev.compactness` | Rellich–Kondrachov 紧嵌入 | PDE4.5/F5 |
+| 7 | `pde.sobolev.dual-negative` | 对偶空间与 `H⁻¹` 表示 | F2/PDE4.2 |
+| 8 | `pde.sobolev.time-dependent` | Bochner–Sobolev 空间和时间弱导数入口 | R4/F1/PDE4.2 |
+
+#### PDE5 二阶椭圆方程（Evans Chapter 6）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.elliptic.weak-formulation` | 散度型椭圆方程、弱解与双线性型 | PDE4 |
+| 2 | `pde.elliptic.lax-milgram` | Lax–Milgram、弱解存在唯一性与能量界 | F3/PDE5.1 |
+| 3 | `pde.elliptic.galerkin` | Galerkin 逼近、先验界与弱极限 | F4/PDE5.1 |
+| 4 | `pde.elliptic.energy-estimates` | Caccioppoli 型估计、差商与内部 `H²` 正则性 | PDE4/PDE5.1 |
+| 5 | `pde.elliptic.boundary-regularity` | 边界展平、全局正则性与边界条件 | PDE5.4 |
+| 6 | `pde.elliptic.maximum-principle-general` | 一般二阶算子的弱／强最大值原理 | PDE1.4/PDE5.1 |
+| 7 | `pde.elliptic.eigenvalues` | 椭圆特征值、主特征值与 Rayleigh 商刻画 | PDE5.2/F3/F5 |
+
+#### PDE6 线性演化方程（Evans Chapter 7）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.parabolic.weak-formulation` | 二阶抛物方程弱解与时空能量空间 | PDE4/PDE5 |
+| 2 | `pde.parabolic.galerkin` | Galerkin 构造、能量估计及存在唯一性 | PDE6.1 |
+| 3 | `pde.parabolic.regularity` | 时间／空间正则性与初值迹 | PDE6.2 |
+| 4 | `pde.parabolic.maximum-principle-general` | 一般抛物算子的最大值原理 | PDE1.7/PDE6.1 |
+| 5 | `pde.hyperbolic.weak-formulation` | 二阶双曲方程弱解和能量空间 | PDE4/PDE1.9 |
+| 6 | `pde.hyperbolic.galerkin-energy` | 双曲 Galerkin 法、能量估计与有限传播 | PDE6.5 |
+
+#### PDE7 变分法（Evans Chapter 8）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.variational.direct-method` | 强制性、弱下半连续与直接法 | F4/PDE4 |
+| 2 | `pde.variational.euler-lagrange` | 第一变分、Euler–Lagrange 方程与弱形式 | 多元分析/PDE4 |
+| 3 | `pde.variational.convexity` | 凸性、严格凸性、存在唯一性与下半连续 | F2/PDE7.1 |
+| 4 | `pde.variational.regularity` | 极小值的正则性入口与部分正则边界 | PDE5/PDE7.2 |
+| 5 | `pde.variational.constraints` | 约束极值、Lagrange 乘子与障碍问题入口 | PDE7.1 |
+
+#### PDE8 非变分技术（Evans Chapter 9）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.nonlinear.monotonicity` | 单调算子、弱收敛与 Minty 技巧 | AFA6/PDE4 |
+| 2 | `pde.nonlinear.fixed-point` | Schauder／压缩映射的 PDE 存在性框架 | F2/PDE4 |
+| 3 | `pde.nonlinear.sub-super-solutions` | 上下解、单调迭代与比较 | PDE5 |
+| 4 | `pde.nonlinear.regularity-bootstrap` | 先验估计、bootstrap 与延拓选择 | PDE5/PDE6 |
+| 5 | `pde.nonlinear.degree-method` | Leray–Schauder 度与同伦延拓入口 | T4/F2 |
+
+#### PDE9 Hamilton–Jacobi 方程（Evans Chapter 10）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.hamilton-jacobi.hopf-lax` | Hopf–Lax 公式、半群性质与经典解失效 | PDE2/R6 |
+| 2 | `pde.viscosity.definition` | 上／下测试函数、黏性次解／上解 | PDE2/PDE9.1 |
+| 3 | `pde.viscosity.stability` | 局部一致极限下稳定性 | PDE9.2 |
+| 4 | `pde.viscosity.comparison` | doubling variables、比较原理与唯一性 | PDE9.2 |
+| 5 | `pde.hamilton-jacobi.control` | 动态规划、最优控制与 Hamilton–Jacobi–Bellman 入口 | PDE9.1/Pr1 |
+
+#### PDE10 守恒律系统与非线性波（Evans Chapters 11–12）
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `pde.conservation-law.weak-solution` | 标量／系统弱解与 Rankine–Hugoniot | PDE2/PDE4 |
+| 2 | `pde.conservation-law.entropy` | 熵–熵通量对、熵不等式与可容许性 | PDE10.1 |
+| 3 | `pde.conservation-law.l1-contraction` | 标量熵解唯一性与 `L¹` 压缩 | PDE10.2 |
+| 4 | `pde.conservation-system.hyperbolicity` | 严格双曲系统、特征族与 Riemann 不变量 | PDE10.1/L5 |
+| 5 | `pde.nonlinear-wave.local-existence` | 拟线性／半线性波方程局部存在 | PDE6/PDE8 |
+| 6 | `pde.nonlinear-wave.energy-blowup` | 高阶能量、延拓判据与有限时爆破 | PDE10.5 |
+| 7 | `pde.nonlinear-wave.null-condition-entry` | 零条件与小数据整体存在入口 | PDE10.6 |
+
+#### PDE+ Evans 主线之外的后续专题
+
+| 条目 id | 内容 | 前置／归属 |
+|---|---|---|
+| `pde.navier-stokes.weak-existence` | Leray–Hopf 弱解、能量不等式与压力恢复 | PDE4/PDE6/AFA6 |
+| `pde.microlocal.wavefront-entry` | Fourier 变换、奇性传播与波前集入口 | HAna/AFA5/PDE6 |
+| `pde.evolution.semigroup-bridge` | Evans 弱解／能量解到 `C₀` 半群温和解的具名桥 | PDE6/F8 |
+| `pde.semigroup.maximal-regularity` | 解析半群和抛物方程最大正则性 | F8/AFA6/PDE6 |
+
+**完成能力节点**：先能由表示公式解释输运、Laplace、热和波方程，再以 Sobolev 空间建立弱解、
+存在唯一性和正则性；最后能区分变分、非变分、黏性、熵和能量方法。不得把分布、半群或现成
+Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
+
+### 13.11 局部凸空间与广义泛函分析（AFA1–AFA6）🔒
+
+> 家族前缀 `advanced-functional-analysis.*`。本课程研究不能由单个范数良好控制的拓扑向量空间，
+> 主线是“半范数族 → 局部凸空间 → Fréchet／LF／DFS 空间 → 桶性、Bornological 与 Montel 性质
+> → 核空间 → 测试函数与分布”。Salamon 主线中的弱拓扑、紧／Fredholm 算子、有界与无界谱理论
+> 及半群仍归 F2–F8，本节不重复登记。课程门：F2、F4、F7、R4–R6、T1–T2。
+
+#### AFA1 半范数与局部凸拓扑
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.seminorm.definition` | 半范数、核、商空间及与范数的差别 | F1 |
+| 2 | `advanced-functional-analysis.locally-convex.generated` | 半范数族生成局部凸拓扑、有限交邻域基 | AFA1.1/T1 |
+| 3 | `advanced-functional-analysis.locally-convex.continuous-linear` | 线性映射连续性的有限半范数控制判据 | AFA1.2 |
+| 4 | `advanced-functional-analysis.locally-convex.bounded-set` | 吸收、平衡、凸集与拓扑有界集 | AFA1.2 |
+| 5 | `advanced-functional-analysis.locally-convex.minkowski` | Minkowski 泛函与局部凸邻域重建 | F2/AFA1.4 |
+| 6 | `advanced-functional-analysis.locally-convex.hahn-banach` | 局部凸空间上的 Hahn–Banach 与几何分离 | F2/AFA1.5 |
+
+#### AFA2 可度量化、完备化与 Fréchet 空间
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.metrizable.countable-seminorms` | 可数半范数族与平移不变度量 | AFA1 |
+| 2 | `advanced-functional-analysis.frechet.definition` | Fréchet 空间、完备可度量局部凸性及标准例子 | AFA2.1 |
+| 3 | `advanced-functional-analysis.locally-convex.completion` | Hausdorff 化、完备化及稠密嵌入泛性质 | AFA1/AFA2.1 |
+| 4 | `advanced-functional-analysis.frechet.open-mapping` | Fréchet 空间开映射定理 | AFA2.2/F2 |
+| 5 | `advanced-functional-analysis.frechet.closed-graph` | Fréchet 空间闭图定理 | AFA2.4 |
+| 6 | `advanced-functional-analysis.frechet.inverse` | Fréchet 空间连续线性双射的逆连续性 | AFA2.4 |
+
+#### AFA3 桶空间、Bornological 空间与对偶性
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.barrelled.definition` | 桶、桶空间与 Fréchet 空间的桶性 | AFA1/AFA2 |
+| 2 | `advanced-functional-analysis.barrelled.banach-steinhaus` | 桶空间上的一致有界原理 | AFA3.1/F2 |
+| 3 | `advanced-functional-analysis.bornological.definition` | Bornology、Bornological 空间与有界线性映射连续性 | AFA1.4 |
+| 4 | `advanced-functional-analysis.equicontinuous.polar` | 等度连续族、极集与双极定理 | F4/AFA1 |
+| 5 | `advanced-functional-analysis.dual.strong-weak-star` | 强对偶、弱对偶、弱星对偶及相应拓扑 | F4/AFA3.4 |
+| 6 | `advanced-functional-analysis.mackey-topology` | 对偶配对、Mackey 拓扑与 Mackey–Arens 入口 | AFA3.5 |
+
+#### AFA4 Montel、LF／DFS 与核空间
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.montel.definition` | Montel 空间、闭有界集紧性与自反性 | AFA2/AFA3 |
+| 2 | `advanced-functional-analysis.inductive-limit.lf` | 局部凸归纳极限与 LF 空间 | AFA1/AFA2 |
+| 3 | `advanced-functional-analysis.strong-dual.dfs` | Fréchet–Schwartz 空间的强对偶与 DFS 空间 | AFA3/AFA4.2 |
+| 4 | `advanced-functional-analysis.nuclear.definition` | 核映射、核空间与半范数／Hilbert 空间刻画 | AFA2/AFA3 |
+| 5 | `advanced-functional-analysis.nuclear.stability` | 子空间、商、积、极限和完备化下的核性 | AFA4.4 |
+| 6 | `advanced-functional-analysis.nuclear.tensor` | 投射／内射张量积与核空间上的一致性 | AFA4.4 |
+
+#### AFA5 测试函数、分布与核定理
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.test-function.frechet` | `C∞` 空间的 Fréchet 拓扑与导数半范数 | AFA2/R6 |
+| 2 | `advanced-functional-analysis.test-function.lf` | 紧支撑光滑函数 `𝒟` 的 LF 拓扑 | AFA4.2/R6 |
+| 3 | `advanced-functional-analysis.distribution.definition` | 分布作为 `𝒟` 的连续线性泛函、阶与支撑 | AFA5.2 |
+| 4 | `advanced-functional-analysis.schwartz-space` | Schwartz 空间的 Fréchet／核拓扑 | AFA2/AFA4.4 |
+| 5 | `advanced-functional-analysis.tempered-distribution` | 温和分布、Fourier 变换与卷积边界 | AFA5.4/R6 |
+| 6 | `advanced-functional-analysis.schwartz-kernel` | Schwartz 核定理与双线性映射表示 | AFA4.6/AFA5.2 |
+
+#### AFA6 广义算子理论出口
+
+| # | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| 1 | `advanced-functional-analysis.operator-space.topologies` | 强、弱、一致收敛算子拓扑及等度连续集合 | AFA3/F4 |
+| 2 | `advanced-functional-analysis.operator-ideals` | 核、Hilbert–Schmidt、迹类与 Schatten 理想 | F5/F6/AFA4 |
+| 3 | `advanced-functional-analysis.trace-determinant` | 迹、Fredholm 行列式与谱乘积 | AFA6.2/F6 |
+| 4 | `advanced-functional-analysis.semigroup.maximal-regularity` | 解析半群的最大正则性与插值空间 | F8/AFA3 |
+| 5 | `advanced-functional-analysis.nonlinear.monotone` | 极大单调算子与非线性演化入口 | F7/AFA3 |
+| 6 | `advanced-functional-analysis.variational` | 变分不等式、次微分与凸优化接口 | F2/AFA3 |
+
+**完成能力节点**：能明确区分范数有界与拓扑有界、完备与序列完备、Fréchet／LF／DFS、桶性／
+Bornological／Montel／核性以及不同对偶拓扑；能在测试函数和分布空间中正确选择连续性、有界性与
+收敛概念，而不是把 Banach 空间定理无条件照搬到“性质较差”的空间。
 
 ### 13.12 调和分析（HAna1–HAna7）🔒
 
@@ -1122,7 +1349,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | HAna4 | `harmonic-analysis.calderon-zygmund` | Calderón–Zygmund 分解与算子 | HAna3 |
 | HAna4 | `harmonic-analysis.littlewood-paley` | Littlewood–Paley 分解与平方函数 | HAna1 |
 | HAna5 | `harmonic-analysis.hardy-bmo` | Hardy 空间、BMO 与对偶 | HAna4 |
-| HAna5 | `harmonic-analysis.sobolev-besov` | Sobolev、Besov 与 Triebel–Lizorkin 入口 | HAna4/PDE1 |
+| HAna5 | `harmonic-analysis.sobolev-besov` | Sobolev、Besov 与 Triebel–Lizorkin 入口 | HAna4/PDE4 |
 | HAna6 | `harmonic-analysis.locally-compact-group` | Haar 测度与群卷积 | A1/R4 |
 | HAna6 | `harmonic-analysis.pontryagin-duality` | 局部紧 Abel 群 Fourier 理论 | HAna6 |
 | HAna6 | `harmonic-analysis.peter-weyl` | 紧群 Peter–Weyl 定理 | HAna6/RT |
