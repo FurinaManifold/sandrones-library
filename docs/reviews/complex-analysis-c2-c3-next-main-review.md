@@ -33,6 +33,47 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
   `#check` 结果记录在 `docs/handoffs/complex-analysis-c2-goursat.md`。
 - 后续边界：单连通开集原函数、一般同伦不变及 Laurent 主线仍未在本提交中宣称完成。
 
+## Round 3: 原函数构造与 admissible 可达性
+
+- reviewed_commits: `770b7a8`, `1b9a009`
+- reviewer: `main`
+- verdict: `needs_changes`
+- reviewed_at: 2026-08-25
+
+### 已通过的提交内容
+
+- `770b7a8` 将“同端点 admissible 道路积分无关”明确作为输入，并由基点路径积分构造原函数；
+  没有把积分无关性藏成原函数存在。
+- `1b9a009` 用开闭可达集论证消除基点到各点的 admissible 可达假设，并诚实保留
+  `PathIntegralIndependentOn` 这一最终缺口。
+- 两个目标模块构建、公开 API `#check`、公理审计、八段文档、Entry 对应、禁用占位扫描及
+  `git diff --check a94884d..1b9a009` 均通过。
+
+### 必须返工
+
+- R1: 审核期间 worktree 出现未提交的公开接口修订：`AdmissiblePath` 新增正则性条件，并同步修改
+  线段、常值路径和拼接证明。这是实质定义变更，必须完成证明、文档与 handoff 并独立提交。
+- R2: 对 R1 最终状态重跑目标模块构建、核心 API `#check`、公理审计、占位扫描、Entry/八段检查、
+  `git diff --check`，并恢复 clean worktree。
+
+### 边界
+
+在 R1 提交前，Main 不集成上述两个提交。一般单连通域上的积分无关性依旧未完成，不得因路径
+正则性收紧而转正完整 C2 Entry。
+
+### 学科负责人处理记录
+
+- R1: `resolved` in `c1df76f`。`AdmissiblePath` 已改成有限拼接的归纳证书；每个叶节点同时携带
+  域内值域、`PathIntegrable` 与 `ContDiffOn ℝ 1`。线段、常值路径、拼接、原函数构造和可达性证明
+  已全部迁移，条目文档与两个 handoff 已同步。
+- R1 语义验收：新增 `pathIntegral_eq_sub_of_primitive_of_admissiblePath`，对证书逐段应用微积分
+  基本定理；并新增 `pathIntegralIndependentOn_of_primitive`。正则性条件由端点公式实际验收。
+- R2: `resolved`。两个目标模块联合构建通过（2883 jobs）；全部复分析模块联合构建通过
+  （2942 jobs）；八个关键公开 API 的临时聚合 `#check` 通过；两个核心定理的 `#print axioms` 均为
+  `propext`、`Classical.choice`、`Quot.sound`；两篇 Entry 均为精确八段；禁用占位扫描与
+  `git diff --check` 通过。
+- 边界保持：一般单连通域上的 `PathIntegralIndependentOn` 尚未证明，完整 C2 Entry 未转正。
+
 ## 优先级 2 阶段性处理
 
 - `resolved foundation`：新增 `HomotopyInvariance.lean`，不假设原函数，直接证明全纯路径积分在
