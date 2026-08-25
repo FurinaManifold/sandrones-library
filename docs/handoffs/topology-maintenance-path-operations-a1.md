@@ -2,8 +2,8 @@
 
 ## 范围与基线
 
-- 分支：`codex/topology-foundations`；已发布 Main 基线仍为 `bdc17a6`，当前分支此前通过
-  `287c5fe` 同步。
+- 分支：`codex/topology-foundations`；开工后按新通知以 `git merge main` 同步集成提交
+  `0418f7f`，合并提交为 `2bc2285`。
 - Main `topology-real-path-a1-main-review.md` 明确放行本小批。
 - 只迁移 `Path.symm` 与 `Path.trans`；A2/A3、同伦商、基本群、道路单位律和结合律全部冻结。
 
@@ -31,6 +31,7 @@
 - compatibility Entry 增至 23 条迁移声明。
 - 三篇相关 Entry 文档均精确八段；原 id 原地迁移。
 - 完整旧拓扑闭包至 `PathReparameterization` 加 `PathConnected`、compatibility 构建通过，1587 jobs。
+- 同步 `0418f7f` 后重跑同一 1587-job 闭包与聚合审计，结果不变。
 - 聚合 `#check` 覆盖 4 条正式接口、2 条操作桥及 Mathlib `Path.symm/trans/trans_symm`；六项
   `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`。
 - 三个 Entry audit、禁用占位与冲突标记扫描、`git diff --check` 均通过。
