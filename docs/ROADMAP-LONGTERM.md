@@ -549,9 +549,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | 4 | `topology.homotopy.equivalence` | 同伦等价、同伦逆及同伦等价关系 | `ContinuousMap.HomotopyEquiv`、`Homeomorph.toHomotopyEquiv` |
 | 5 | `topology.fundamental-group.def` | 基点环路按端点固定同伦取商，定义基本群 `π₁(X,x₀)` | `FundamentalGroupoid`、`FundamentalGroup`、`Path.Homotopic.Quotient` |
 | 6 | `topology.fundamental-group.group` | 环路拼接诱导群结构，恒定环路、逆环路及结合律 | `FundamentalGroup.toPath`、`FundamentalGroup.fromPath` |
-| 7 | `topology.fundamental-group.functorial` | 连续映射诱导基本群同态；同伦映射诱导自然同构 | `FundamentalGroupoidFunctor.map`、`FundamentalGroupoidFunctor.homotopicMapsNatIso` |
-| 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
-| 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
+| 7 | `topology.fundamental-group.functoriality-standard` | 连续映射诱导基本群同态；同伦映射诱导自然同构 ✅ | `FundamentalGroupoidFunctor.map`、`FundamentalGroupoidFunctor.homotopicMapsNatIso` |
+| 8 | `topology.fundamental-group.invariance-standard` | 基本群在同伦等价下不变，并处理基点变换 ✅ | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
+| 9 | `topology.fundamental-group.triviality-standard`、`topology.fundamental-group.circle-standard` | 单连通、凸集、可缩空间与圆周的基本群计算 ✅ | `SimplyConnectedSpace`、指数覆盖与道路提升 |
 
 **当前并行权限（2026-08-25）**：A1 已集成标准 `Path` 数据与逆向/拼接运算窗口；新课程不得
 借兼容桥绕回 `TextbookTopology` 或旧 `Path`。后续不再整体冻结为单一串行批次：
@@ -565,8 +565,11 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-F1b 基本群胚/基本群承载 | 已集成 | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | Main 全库验收完成 |
 | T4-F2a 群运算与群律 | 已集成 | `FundamentalGroupOperationsStandard.lean`；解释单位、逆、乘法反序和商上群律 | Main 全库验收完成 |
 | T4-F2b1 诱导映射函子律与同伦自然性 | 已集成 | 连续映射诱导、恒等／复合律、同伦自然同构及其自然性 | Main 全库验收完成 |
-| T4-F2b2 基点变换与同伦等价不变性 | `integration_open` | `mapOfEq`、沿道路换基点、同伦等价诱导基本群等价 | F2b1 已冻结；可提交正式验收 |
-| T4-F2c 基本群计算 | `development_open` | 单点、凸集、可缩空间；圆周计算先冻结证明链 | 不以 Mathlib 最终等价替代圆周计算课程链 |
+| T4-F2b2 基点变换与同伦等价不变性 | 已集成 | `mapOfEq`、沿道路换基点、同伦等价诱导基本群等价 | Main 全库验收完成 |
+| T4-F2c1 单连通／可缩／凸集计算 | 已集成 | 基本群元素与环路类的平凡性计算 | Main 全库验收完成 |
+| T4-F2c2 圆周基本群 | 已集成 | 指数覆盖、环路提升、绕数同态及 `π₁(S¹,1) ≃* Multiplicative ℤ` | Main 全库验收完成 |
+| T4-F2c3 积空间基本群 | `development_open` | 从群胚积同构提取指定基点的基本群乘法等价，并给出作用公式 | 集成等待独立 Entry 与公开使用者；不得只点名 `prodIso` |
+| AT1 van Kampen 接口调查 | `research_open` | 按 Hatcher §1.2 调查开覆盖、推送与自由积商的正式承载 | 属于 §13.3，不回塞 T4 收尾 |
 | T4-R 连续同伦正则化桥 | `research_open` | 调查连续道路同伦到分段光滑／可积同伦的相对端点逼近 | 为 G-T4/C 提供可审计桥；不得先宣称一般 C2 完成 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路

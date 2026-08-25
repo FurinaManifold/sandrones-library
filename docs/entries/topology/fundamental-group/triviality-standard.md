@@ -3,7 +3,7 @@ id: topology.fundamental-group.triviality-standard
 family: topology.fundamental-group
 variant: simply-connected-contractible-convex
 kind: theorem
-state: staging
+state: verified
 title: 单连通与可缩空间的平凡基本群
 summary: 由道路同伦类唯一推出单连通空间基本群平凡，并专门化到可缩空间与非空凸集
 premises: [topology.fundamental-group.operations-standard, topology.homotopy.equivalence-standard]

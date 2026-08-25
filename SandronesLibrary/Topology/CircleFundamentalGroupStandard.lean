@@ -34,8 +34,7 @@ private def circleExpBasepoint : Circle.exp ⁻¹' ({1} : Set Circle) :=
 private theorem circlePeriod_ne_zero : (2 * Real.pi : ℝ) ≠ 0 :=
   mul_ne_zero (by norm_num) Real.pi_ne_zero
 
-/-- The deck transformations of the exponential covering are the translations by unique
-integer multiples of `2π`.
+/-- 指数覆盖的覆盖变换恰好是平移唯一的 `2π` 整数倍。
 
 > **Entry**: topology.fundamental-group.circle-standard -/
 def circleDeckIntEquiv : AddSubgroup.zmultiples (2 * Real.pi) ≃+ ℤ where
@@ -63,7 +62,7 @@ def circleDeckIntEquiv : AddSubgroup.zmultiples (2 * Real.pi) ≃+ ℤ where
     rw [Classical.choose_spec (AddSubgroup.mem_zmultiples_iff.mp b.property)]
     rfl
 
-/-- Under `circleDeckIntEquiv`, the integer `n` corresponds exactly to translation by `n • 2π`. -/
+/-- 在 `circleDeckIntEquiv` 下，整数 `n` 精确对应平移量 `n • 2π`。 -/
 theorem circleDeckIntEquiv_symm_apply_coe (n : ℤ) :
     ((circleDeckIntEquiv.symm n : AddSubgroup.zmultiples (2 * Real.pi)) : ℝ) =
       n • (2 * Real.pi) :=
@@ -73,26 +72,25 @@ private def mulOppositeDeckEquivInt :
     (Multiplicative (AddSubgroup.zmultiples (2 * Real.pi)))ᵐᵒᵖ ≃* Multiplicative ℤ :=
   MulOpposite.opMulEquiv.symm.trans (AddEquiv.toMultiplicative circleDeckIntEquiv)
 
-/-- The lift through `Circle.exp` of a based circle loop, chosen to start at zero. -/
+/-- 以零为初值，把带基点圆周环路沿 `Circle.exp` 提升到实直线。 -/
 def circleLoopLift (g : Path (1 : Circle) 1) : C(unitInterval, ℝ) :=
   Circle.isCoveringMap_exp.liftPath g 0 (by simp)
 
-/-- The chosen circle-loop lift starts at zero. -/
+/-- 选定的圆周环路提升从零开始。 -/
 theorem circleLoopLift_zero (g : Path (1 : Circle) 1) : circleLoopLift g 0 = 0 := by
   exact Circle.isCoveringMap_exp.liftPath_zero g 0 (by simp)
 
-/-- Projecting the chosen lift by `Circle.exp` recovers the original loop pointwise. -/
+/-- 把选定提升逐点投影回 `Circle.exp`，得到原圆周环路。 -/
 theorem circleLoopLift_exp (g : Path (1 : Circle) 1) (t : unitInterval) :
     Circle.exp (circleLoopLift g t) = g t := by
   exact congr_fun (Circle.isCoveringMap_exp.liftPath_lifts g 0 (by simp)) t
 
-/-- The winding homomorphism records, as an integer, the deck transformation reached by lifting
-a based loop through the exponential covering. -/
+/-- 绕数同态把带基点环路沿指数覆盖提升后到达的覆盖变换记录为整数。 -/
 def circleWindingHom : FundamentalGroup Circle 1 →* Multiplicative ℤ :=
   mulOppositeDeckEquivInt.toMonoidHom.comp
     (Circle.isAddQuotientCoveringMap_exp.fundamentalGroupToMulOpposite circleExpBasepoint)
 
-/-- A loop has winding number `n` exactly when its zero-based lift ends at `n • 2π`. -/
+/-- 环路绕数为 `n`，当且仅当它从零出发的提升终点为 `n • 2π`。 -/
 theorem circleWindingHom_eq_iff_lift_endpoint (g : Path (1 : Circle) 1) (n : ℤ) :
     circleWindingHom (FundamentalGroup.fromPath (Path.Homotopic.Quotient.mk g)) =
         Multiplicative.ofAdd n ↔
@@ -124,20 +122,19 @@ theorem circleWindingHom_eq_iff_lift_endpoint (g : Path (1 : Circle) 1) (n : ℤ
       (Circle.isAddQuotientCoveringMap_exp.fundamentalGroupToMulOpposite_apply_eq_Iff).mpr hm
     simpa [core] using congr_arg mulOppositeDeckEquivInt hcore
 
-/-- Two based circle-loop classes with the same winding number are equal. -/
+/-- 具有相同绕数的两个带基点圆周环路类相等。 -/
 theorem circleWindingHom_injective : Function.Injective circleWindingHom := by
   exact mulOppositeDeckEquivInt.injective.comp
     (Circle.isAddQuotientCoveringMap_exp.fundamentalGroupToMulOpposite_injective
       circleExpBasepoint)
 
-/-- Every integer occurs as the winding number of a based circle loop. -/
+/-- 每个整数都能成为某个带基点圆周环路的绕数。 -/
 theorem circleWindingHom_surjective : Function.Surjective circleWindingHom := by
   exact mulOppositeDeckEquivInt.surjective.comp
     (Circle.isAddQuotientCoveringMap_exp.fundamentalGroupToMulOpposite_surjective
       circleExpBasepoint)
 
-/-- The fundamental group of the circle is infinite cyclic. The equivalence is induced by the
-public winding homomorphism and its separately proved bijectivity. -/
+/-- 圆周基本群是无限循环群。这个等价由公开绕数同态及分别证明的单射、满射性质构造。 -/
 def circleFundamentalGroupEquivInt : FundamentalGroup Circle 1 ≃* Multiplicative ℤ :=
   MulEquiv.ofBijective circleWindingHom
     ⟨circleWindingHom_injective, circleWindingHom_surjective⟩

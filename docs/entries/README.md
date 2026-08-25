@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **452** 个条目（verified 452，pending 0）。
+共 **455** 个条目（verified 455，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -668,8 +668,11 @@
 ## `topology.fundamental-group`
 
 - ✅ [`carrier-standard.md`](topology/fundamental-group/carrier-standard.md) — 基本群胚与基本群的标准承载
+- ✅ [`circle-standard.md`](topology/fundamental-group/circle-standard.md) — 圆周基本群与整数绕数
 - ✅ [`functoriality-standard.md`](topology/fundamental-group/functoriality-standard.md) — 基本群诱导映射的函子律与同伦自然性
+- ✅ [`invariance-standard.md`](topology/fundamental-group/invariance-standard.md) — 基本群的基点变换与同伦等价不变性
 - ✅ [`operations-standard.md`](topology/fundamental-group/operations-standard.md) — 基本群的运算、复合次序与群律
+- ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
 
 ## `topology.homotopy`
 

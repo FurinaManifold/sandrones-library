@@ -3,7 +3,7 @@ id: topology.fundamental-group.invariance-standard
 family: topology.fundamental-group
 variant: basepoint-change-homotopy-equivalence
 kind: theorem
-state: staging
+state: verified
 title: 基本群的基点变换与同伦等价不变性
 summary: 展开指定目标基点的 transport 与沿道路换基点的共轭，并从基本群胚等价提取对应基点基本群等价
 premises: [topology.fundamental-group.functoriality-standard, topology.homotopy.equivalence-standard]

@@ -14390,7 +14390,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "topology.fundamental-group.functoriality-standard"
+      "topology.fundamental-group.circle-standard",
+      "topology.fundamental-group.functoriality-standard",
+      "topology.fundamental-group.triviality-standard"
     ],
     "family": "topology.fundamental-group",
     "variant": "group-operations-and-laws",
@@ -14498,7 +14500,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "topology.fundamental-group.functoriality-standard"
+      "topology.fundamental-group.functoriality-standard",
+      "topology.fundamental-group.invariance-standard",
+      "topology.fundamental-group.triviality-standard"
     ],
     "family": "topology.homotopy",
     "variant": "mathlib-two-sided-inverse",
@@ -14631,7 +14635,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/functoriality-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.invariance-standard"
+    ],
     "family": "topology.fundamental-group",
     "variant": "induced-maps-homotopy-naturality",
     "axioms": [
@@ -14640,5 +14646,109 @@
       "propext"
     ],
     "proof_sha": "246ed6f59f533a48"
+  },
+  {
+    "id": "topology.fundamental-group.invariance-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "基本群的基点变换与同伦等价不变性",
+    "summary": "展开指定目标基点的 transport 与沿道路换基点的共轭，并从基本群胚等价提取对应基点基本群等价",
+    "premises": [
+      "topology.fundamental-group.functoriality-standard",
+      "topology.homotopy.equivalence-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroup.mapOfEq",
+      "FundamentalGroup.fundamentalGroupMulEquivOfPath",
+      "FundamentalGroupoidFunctor.equivOfHomotopyEquiv",
+      "CategoryTheory.Functor.FullyFaithful.mulEquivEnd"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupInvarianceStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/invariance-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "basepoint-change-homotopy-equivalence",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "feb4c1285cba5533"
+  },
+  {
+    "id": "topology.fundamental-group.triviality-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单连通与可缩空间的平凡基本群",
+    "summary": "由道路同伦类唯一推出单连通空间基本群平凡，并专门化到可缩空间与非空凸集",
+    "premises": [
+      "topology.fundamental-group.operations-standard",
+      "topology.homotopy.equivalence-standard"
+    ],
+    "mathlib": [
+      "SimplyConnectedSpace",
+      "simply_connected_iff_unique_homotopic",
+      "SimplyConnectedSpace.ofContractible",
+      "Convex.contractibleSpace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupTrivialityStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/triviality-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.circle-standard"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "simply-connected-contractible-convex",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "95628177932d70b6"
+  },
+  {
+    "id": "topology.fundamental-group.circle-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "圆周基本群与整数绕数",
+    "summary": "通过指数覆盖的道路提升终点定义绕数同态，证明其双射并得到圆周基本群同构于整数加法群",
+    "premises": [
+      "topology.fundamental-group.operations-standard",
+      "topology.fundamental-group.triviality-standard"
+    ],
+    "mathlib": [
+      "Circle.exp",
+      "Circle.isAddQuotientCoveringMap_exp",
+      "IsCoveringMap.liftPath",
+      "IsAddQuotientCoveringMap.fundamentalGroupToMulOpposite"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CircleFundamentalGroupStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/circle-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "exponential-lift-winding",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "14cece54019a6b06"
   }
 ]

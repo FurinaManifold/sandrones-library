@@ -3,7 +3,7 @@ id: topology.fundamental-group.circle-standard
 family: topology.fundamental-group
 variant: exponential-lift-winding
 kind: theorem
-state: staging
+state: verified
 title: 圆周基本群与整数绕数
 summary: 通过指数覆盖的道路提升终点定义绕数同态，证明其双射并得到圆周基本群同构于整数加法群
 premises: [topology.fundamental-group.operations-standard, topology.fundamental-group.triviality-standard]
