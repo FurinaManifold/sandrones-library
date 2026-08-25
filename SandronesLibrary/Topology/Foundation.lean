@@ -5,6 +5,7 @@ Authors: Sandrone's Library contributors
 -/
 import Mathlib.Topology.Continuous
 import Mathlib.Topology.Homeomorph.Defs
+import Mathlib.Topology.Neighborhoods
 
 /-!
 # The textbook meaning of Mathlib's topology foundation
@@ -22,6 +23,7 @@ Current entry:
 -/
 
 open Set Function
+open scoped Topology
 
 namespace SandronesLibrary.Topology
 
@@ -45,6 +47,34 @@ theorem continuous_iff_preimage_open [TopologicalSpace X] [TopologicalSpace Y]
     (f : X → Y) :
     _root_.Continuous f ↔ ∀ u : Set Y, _root_.IsOpen u → _root_.IsOpen (f ⁻¹' u) := by
   exact _root_.continuous_def
+
+/-- Equivalently, a function is continuous exactly when the preimage of every closed set is
+closed. This is derived from the open-set formulation using complements. -/
+theorem continuous_iff_preimage_closed [TopologicalSpace X] [TopologicalSpace Y]
+    (f : X → Y) :
+    _root_.Continuous f ↔
+      ∀ s : Set Y, _root_.IsClosed s → _root_.IsClosed (f ⁻¹' s) := by
+  constructor
+  · intro hf s hs
+    exact hs.preimage hf
+  · intro h
+    rw [continuous_iff_preimage_open]
+    intro u hu
+    have hclosed : _root_.IsClosed (uᶜ) := hu.isClosed_compl
+    have hpre := h (uᶜ) hclosed
+    have hopen := hpre.isOpen_compl
+    simpa only [preimage_compl, compl_compl] using hopen
+
+/-- A set is a neighborhood of `x` exactly when it contains an open set containing `x`. Thus
+membership in Mathlib's neighborhood filter is the standard textbook notion of neighborhood. -/
+theorem mem_nhds_iff_exists_open [TopologicalSpace X] (x : X) (s : Set X) :
+    s ∈ 𝓝 x ↔ ∃ u : Set X, _root_.IsOpen u ∧ x ∈ u ∧ u ⊆ s := by
+  rw [_root_.mem_nhds_iff]
+  constructor
+  · rintro ⟨u, hus, hu, hxu⟩
+    exact ⟨u, hu, hxu, hus⟩
+  · rintro ⟨u, hu, hxu, hus⟩
+    exact ⟨u, hus, hu, hxu⟩
 
 /-- A homeomorphism exists exactly when there is an equivalence whose forward and inverse maps
 are both continuous. Thus Mathlib's `Homeomorph` packages the usual textbook data without changing

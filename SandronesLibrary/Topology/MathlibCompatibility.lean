@@ -53,6 +53,24 @@ theorem fromMathlib_toMathlib (τ : TextbookTopology X) :
   cases τ
   rfl
 
+/-- The bridge also preserves closed sets: on both sides, closed means that the complement is
+open. -/
+@[simp]
+theorem isClosed_toMathlib (τ : TextbookTopology X) (s : Set X) :
+    @_root_.IsClosed X τ.toMathlib s ↔ τ.IsClosed s := by
+  constructor
+  · intro h
+    exact h.isOpen_compl
+  · intro h
+    exact @IsClosed.mk X τ.toMathlib s h
+
+/-- The legacy neighborhood predicate is membership in Mathlib's neighborhood filter after
+installing the same topology. -/
+theorem isNeighborhood_iff_mem_nhds (τ : TextbookTopology X) (x : X) (s : Set X) :
+    τ.IsNeighborhood x s ↔ s ∈ @nhds X τ.toMathlib x := by
+  rw [@SandronesLibrary.Topology.mem_nhds_iff_exists_open X τ.toMathlib x s]
+  rfl
+
 /-- The frozen legacy topology carrier and Mathlib's topology carrier are equivalent structures.
 
 This equivalence exists only to migrate old declarations. It is not an invitation to transport
@@ -63,5 +81,56 @@ def equivMathlib : TextbookTopology X ≃ TopologicalSpace X where
   left_inv := fromMathlib_toMathlib
   right_inv := toMathlib_fromMathlib
 
-end SandronesLibrary.Topology.TextbookTopology
+namespace Homeomorphism
 
+variable {Y : Type*}
+
+/-- Two legacy homeomorphisms with the same underlying equivalence are equal. -/
+theorem ext {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    {e e' : Homeomorphism τX τY} (h : e.toEquiv = e'.toEquiv) : e = e' := by
+  cases e
+  cases e'
+  cases h
+  rfl
+
+/-- Convert a legacy homeomorphism to Mathlib's official `Homeomorph` carrier. -/
+def toMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    (e : Homeomorphism τX τY) :
+    @Homeomorph X Y τX.toMathlib τY.toMathlib :=
+  @Homeomorph.mk X Y τX.toMathlib τY.toMathlib e.toEquiv
+    ((continuous_iff_mathlib τX τY _).mp e.continuous_toFun)
+    ((continuous_iff_mathlib τY τX _).mp e.continuous_invFun)
+
+/-- Convert a Mathlib homeomorphism between bridged topologies to the legacy carrier. -/
+def fromMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    (e : @Homeomorph X Y τX.toMathlib τY.toMathlib) :
+    Homeomorphism τX τY := by
+  let _ := τX.toMathlib
+  let _ := τY.toMathlib
+  exact {
+    toEquiv := e.toEquiv
+    continuous_toFun := (continuous_iff_mathlib τX τY _).mpr e.continuous
+    continuous_invFun := (continuous_iff_mathlib τY τX _).mpr e.symm.continuous }
+
+/-- Converting a legacy homeomorphism to Mathlib and back changes no data. -/
+@[simp]
+theorem fromMathlib_toMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    (e : Homeomorphism τX τY) : fromMathlib (toMathlib e) = e := by
+  apply ext
+  rfl
+
+/-- Converting a Mathlib homeomorphism to the legacy carrier and back changes no data. -/
+@[simp]
+theorem toMathlib_fromMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    (e : @Homeomorph X Y τX.toMathlib τY.toMathlib) :
+    toMathlib (fromMathlib e) = e := by
+  let _ := τX.toMathlib
+  let _ := τY.toMathlib
+  apply _root_.Homeomorph.ext
+  intro x
+  change e x = e x
+  rfl
+
+end Homeomorphism
+
+end SandronesLibrary.Topology.TextbookTopology

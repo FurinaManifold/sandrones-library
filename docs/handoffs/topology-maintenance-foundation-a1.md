@@ -15,9 +15,10 @@
 | 教材概念 | Mathlib 正式承载 | 展开／教材刻画 | legacy compatibility | 首个新使用者 | Entry |
 |---|---|---|---|---|---|
 | 拓扑空间与开集 | `TopologicalSpace`、`IsOpen` | `topologicalSpace_open_axioms` | `TextbookTopology`、`equivMathlib` | `continuous_iff_preimage_open` | `topology.foundation.structure` |
-| 闭集 | `IsClosed` | 补集开；Mathlib 基础定义 | `TextbookTopology.IsClosed` | 后续 A1 子空间链 | `topology.foundation.structure` |
-| 连续映射 | 根 `Continuous` | `continuous_iff_preimage_open` | 旧 `TextbookTopology.Continuous`、`continuous_iff_mathlib` | 后续 A1 构造链 | `topology.foundation.structure` |
-| 同胚 | `Homeomorph`／`X ≃ₜ Y` | `nonempty_homeomorph_iff_exists_equiv` | 旧 `Homeomorphism` | 后续拓扑不变量 | `topology.foundation.structure` |
+| 闭集 | `IsClosed` | `continuous_iff_preimage_closed` | `TextbookTopology.IsClosed`、`isClosed_toMathlib` | 连续映射的闭集原像刻画 | `topology.foundation.structure` |
+| 邻域 | `nhds`／`𝓝` | `mem_nhds_iff_exists_open` | `IsNeighborhood`、`isNeighborhood_iff_mem_nhds` | 后续局部拓扑接口 | `topology.foundation.structure` |
+| 连续映射 | 根 `Continuous` | 开集／闭集原像两种刻画 | 旧 `TextbookTopology.Continuous`、`continuous_iff_mathlib` | 同胚转换 | `topology.foundation.structure` |
+| 同胚 | `Homeomorph`／`X ≃ₜ Y` | `nonempty_homeomorph_iff_exists_equiv` | 旧 `Homeomorphism` 与双向无损转换 | 后续拓扑不变量 | `topology.foundation.structure` |
 
 所有新声明的公开签名直接使用 Mathlib 正式承载。旧结构只留在同一文件后半部以及显式兼容桥中；
 没有新增包装 `def`、notation、instance 或从 Mathlib 转回 legacy 的新课程使用者。
@@ -33,7 +34,7 @@
 
 当前 `SandronesLibrary/Topology` 中：
 
-- 含 `TextbookTopology` 的 Lean 文件：19；词法出现 222 次；
+- 含 `TextbookTopology` 的 Lean 文件：19；词法出现 234 次（增加均来自显式迁移桥）；
 - 旧链目标模块中的 `Continuous` 词法出现约 96 次；
 - 拓扑目录外直接使用 `TextbookTopology`、`PathHomotopic` 或 `LoopHomotopyClasses` 的 Lean 文件：0。
 
@@ -55,8 +56,11 @@
   通过，共 984 jobs。
 - 同步最新 Main 后再次构建 `Foundation` 与 `MathlibCompatibility`，通过，共 715 jobs；聚合检查
   和公理结果不变。
-- 聚合文件同时检查三条 Mathlib 正式接口、legacy 结构、连续性桥和结构等价桥；三条新结果的公理
-  分别为：无、无、`Quot.sound`。最后一项来自 `Homeomorph/Equiv` 的既有承载，不是新增数学假设。
-- Entry 映射得到 `topology.foundation.structure` 19 个声明，其中前三个是新正式接口，后 16 个是
-  冻结 legacy 声明；文档保持精确八段。
+- 聚合文件同时检查五条 Mathlib 正式接口、闭集／邻域／连续／同胚桥及两侧往返。新增结果的
+  `#print axioms` 为：闭集刻画含 `propext`、`Classical.choice`、`Quot.sound`；邻域刻画含
+  `propext`、`Quot.sound`；闭集桥无公理；邻域桥和两条同胚往返含 `propext`、`Quot.sound`。
+  这些来自 Mathlib 的滤子、闭集和结构外延承载，不是新增数学假设。
+- Entry 映射得到 `topology.foundation.structure` 21 个声明，其中前五个是正式接口，后 16 个是
+  冻结 legacy 声明；`topology.foundation.mathlib-compatibility` 映射 12 个迁移声明；两篇文档
+  均保持精确八段。
 - 暂不迁移子空间、积、道路连通、同伦或基本群；不删除旧 API。

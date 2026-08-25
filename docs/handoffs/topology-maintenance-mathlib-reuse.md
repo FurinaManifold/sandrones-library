@@ -6,7 +6,7 @@
 - Main 同步提交：`2ceb668`，包含 Main `8d5d823`。
 - RFC：`docs/maintenance/topology-mathlib-reuse-migration.md`。
 - 声明级 API 对照：`docs/maintenance/topology-mathlib-api-matrix.md`。
-- 等级／阶段：M2，调查与迁移设计阶段；尚未修改公开接口。
+- 等级／阶段：M2，已进入 A1 第一条基础概念链的无损迁移阶段。
 - Main 指示已执行：冻结 `TextbookTopology` 平行链，不再落入 `/tmp` 的基本群单位律。
 
 ## 正式承载与旧 API
@@ -16,14 +16,15 @@
 `ContinuousMap.HomotopyEquiv`、`ContractibleSpace`、`Joined`、`IsPathConnected`、
 `FundamentalGroupoid` 与 `FundamentalGroup`。
 
-旧 `TextbookTopology`、本库道路／同伦／商链完整保留但冻结。当前只存在
-`TextbookTopology.toMathlib` 和连续性桥；高层转换尚未建立，不能宣称迁移完成。
+旧 `TextbookTopology`、本库道路／同伦／商链完整保留但冻结。当前已有拓扑结构、开闭集、邻域、
+连续性与同胚的双向桥；道路、同伦、环路商等高层转换仍未建立，不能宣称整体迁移完成。
 
 ## 影响与剩余计数
 
 - 直接受影响的拓扑 Lean 模块：18 个；完整表和依赖图见 RFC。
 - 跨学科 Lean 直接使用者：扫描结果为 0。
-- 旧 API 在拓扑模块中的出现仍很多，本轮没有以文本计数冒充语义迁移完成。
+- 旧 API 在拓扑模块中的出现仍很多；19 个文件、234 次 `TextbookTopology` 词法出现中，新增出现
+  均是显式迁移桥。本轮没有以文本计数冒充语义迁移完成。
 - `/tmp/sandrones-library/PathUnitLaws.lean` 未进入 Git，也不得纳入后续批次。
 
 ## Main 共有文件建议

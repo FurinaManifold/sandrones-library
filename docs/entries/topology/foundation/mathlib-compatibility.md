@@ -7,7 +7,7 @@ state: staging
 title: 旧教材拓扑与 Mathlib 拓扑的兼容等价
 summary: 证明冻结的 TextbookTopology 与 Mathlib TopologicalSpace 具有完全相同的开集数据，并建立双向结构等价以支持分层迁移
 premises: [topology.foundation.structure]
-mathlib: [TopologicalSpace, IsOpen]
+mathlib: [TopologicalSpace, IsOpen, IsClosed, nhds, Homeomorph]
 provenance:
   source_type: migration
   ref: "Topology Mathlib reuse migration RFC"
@@ -23,7 +23,7 @@ provenance:
 
 # 陈述（自然语言）
 
-任意 Mathlib 拓扑都能转成旧教材拓扑，且开集逐一定义相同。从 Mathlib 转旧再转回，或从旧转 Mathlib 再转回，都得到原结构。因此二者作为拓扑结构的载体等价。
+任意 Mathlib 拓扑都能转成旧教材拓扑，且开集和闭集逐一定义相同；旧邻域谓词正是 Mathlib 邻域滤子的成员关系。从 Mathlib 转旧再转回，或从旧转 Mathlib 再转回，都得到原结构。因此二者作为拓扑结构的载体等价；旧同胚也能无损转成正式 `Homeomorph`。
 
 # 陈述（Lean 对照）
 
@@ -36,21 +36,29 @@ theorem TextbookTopology.toMathlib_fromMathlib (τ : TopologicalSpace X) :
 theorem TextbookTopology.fromMathlib_toMathlib (τ : TextbookTopology X) :
   fromMathlib τ.toMathlib = τ
 def TextbookTopology.equivMathlib : TextbookTopology X ≃ TopologicalSpace X
+theorem TextbookTopology.isClosed_toMathlib (τ : TextbookTopology X) (s : Set X) :
+  IsClosed[τ.toMathlib] s ↔ τ.IsClosed s
+theorem TextbookTopology.isNeighborhood_iff_mem_nhds
+    (τ : TextbookTopology X) (x : X) (s : Set X) :
+  τ.IsNeighborhood x s ↔ s ∈ @nhds X τ.toMathlib x
+def TextbookTopology.Homeomorphism.toMathlib
+    (e : Homeomorphism τX τY) : @Homeomorph X Y τX.toMathlib τY.toMathlib
+def TextbookTopology.Homeomorphism.fromMathlib
+    (e : @Homeomorph X Y τX.toMathlib τY.toMathlib) : Homeomorphism τX τY
 ```
 
 # 思维脉络（thinking trace）
 
-`fromMathlib` 逐字段读取 `TopologicalSpace` 的开集谓词和公理。Mathlib 一侧的往返等式使用 `TopologicalSpace.ext`，只需核对开集谓词；旧结构一侧析构结构后即可由定义归约完成。最后把两个转换和两条往返定理组装成 `Equiv`。
+`fromMathlib` 逐字段读取 `TopologicalSpace` 的开集谓词和公理。闭集桥使用“补集开”，邻域桥使用正式条目已经证明的 `mem_nhds_iff_exists_open`。Mathlib 一侧的拓扑往返等式使用 `TopologicalSpace.ext`，只需核对开集谓词；旧结构一侧析构结构后即可由定义归约完成。最后把两个转换和两条往返定理组装成 `Equiv`。同胚桥保留同一个底层 `Equiv`，并通过 `continuous_iff_mathlib` 转换正逆连续性证明；两侧往返由外延性和证明无关性成立。
 
 # 自然语言 ↔ Lean 映射
 
-“同一批开集”对应 `isOpen_fromMathlib`；“Mathlib 一侧来回不变”对应 `toMathlib_fromMathlib`；“旧结构一侧来回不变”对应 `fromMathlib_toMathlib`；“结构等价”对应 `equivMathlib`。这里的 `Equiv` 比只给一个单向函数更强，明确排除了转换丢失拓扑信息的可能。
+“同一批开集、闭集”对应 `isOpen_fromMathlib` 和 `isClosed_toMathlib`；“教材邻域就是滤子邻域”对应 `isNeighborhood_iff_mem_nhds`；“Mathlib 一侧来回不变”对应 `toMathlib_fromMathlib`；“旧结构一侧来回不变”对应 `fromMathlib_toMathlib`；“结构等价”对应 `equivMathlib`；同胚的无损转换对应 `Homeomorphism.toMathlib`、`fromMathlib` 及其两条往返定理。
 
 # 依赖（人话版）
 
-只依赖旧结构已有的显式 `toMathlib` 桥和 Mathlib 的 `TopologicalSpace.ext`。没有建立新的拓扑概念，也没有调用道路、同伦或基本群理论。
+只依赖旧结构已有的显式 `toMathlib` 桥、正式基础条目的邻域刻画，以及 Mathlib 的 `TopologicalSpace.ext` 和 `Homeomorph`。没有建立新的拓扑概念，也没有调用道路、同伦或基本群理论。
 
 # 应用与陷阱
 
 该等价只用于迁移已经存在的旧声明。新课程应直接量化 `[TopologicalSpace X]` 并使用 Mathlib 的 `Continuous`、`Path` 等接口；先用 `fromMathlib` 转回旧结构再继续开发，会重新制造已经冻结的平行层级，因此不属于允许的应用。
-
