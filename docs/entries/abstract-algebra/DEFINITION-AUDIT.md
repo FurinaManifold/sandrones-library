@@ -31,8 +31,16 @@
   `PrimeIdealSet`、`MaximalIdealSet` 已自建；极大推出素、商整环与商域的双向判据均使用
   本库 `quotientRingSet`、`IntegralDomainAxioms`、`FieldAxioms`。Mathlib 理想属性只保留在
   两个具名承载桥和旧兼容接口中。
-- [ ] 环同构定理：公开陈述使用本库核、像和商映射接口。
-- [ ] 整除、相伴、不可约、素元、gcd、Euclidean 环、PID、UFD、局部化。
+- [x] 环同构定理：新课程条目 `abstract-algebra.ring.iso-theorems` 已用本库
+  `RingHomomorphism`、核、像、子环与双边理想承载和显式商映射证明第一、第二、第三同构定理
+  及理想对应，并给出三个同构的规范代表元公式。历史条目 `abstract-algebra.ring.iso` 仅记录
+  `RingHom.quotientKerEquivRange` 的 Mathlib 兼容接口，不等同于新课程条目的定义层迁移成果。
+  Registry 不应令二者互为虚构前提：旧条目保留其兼容性质，新条目只列实际使用的环定义、
+  理想与显式商环前提；`dependedOnBy` 仅由真实 premises 关系生成。
+- [x] 整除、相伴、不可约、素元与 gcd：`DividesElement`、`AssociateElements`、
+  `IrreducibleElement`、`PrimeElement`、`GreatestCommonDivisor` 已建立；素元推出不可约及 gcd
+  相伴唯一已经证明，并提供与 Mathlib 对应谓词的具名桥。
+- [ ] Euclidean 环、PID、UFD、局部化。
 
 ## A1 群论回修
 

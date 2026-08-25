@@ -749,7 +749,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -777,7 +777,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -808,7 +808,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -836,7 +836,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -867,7 +867,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -901,7 +901,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -935,7 +935,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -970,7 +970,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1003,7 +1003,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1335,7 +1335,7 @@
     ],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1363,7 +1363,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1391,7 +1391,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1419,7 +1419,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1447,7 +1447,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1475,7 +1475,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1503,7 +1503,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1531,7 +1531,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1559,7 +1559,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1587,7 +1587,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1615,7 +1615,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1647,7 +1647,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1677,7 +1677,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1712,7 +1712,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1740,7 +1740,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1768,7 +1768,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1796,7 +1796,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1824,7 +1824,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1852,7 +1852,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1881,7 +1881,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1911,7 +1911,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1944,7 +1944,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1976,7 +1976,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "f6413ab9da932696",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2006,7 +2006,7 @@
     ],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2040,7 +2040,7 @@
     ],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2068,7 +2068,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2096,7 +2096,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2124,7 +2124,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2152,7 +2152,7 @@
     "dependedOnBy": [],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2187,7 +2187,7 @@
     ],
     "family": "analysis.derivative",
     "variant": "ecnu",
-    "proof_sha": "41540eefbdffabff",
+    "proof_sha": "876da68ff556530b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3123,7 +3123,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3153,7 +3153,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3183,7 +3183,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3213,7 +3213,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3243,7 +3243,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3273,7 +3273,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "4c7a650e6c87f286",
+    "proof_sha": "e5903bd460c5cd38",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3304,7 +3304,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "ade3f4bb1c8151a5",
+    "proof_sha": "54787294953c0373",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3368,7 +3368,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "rudin",
-    "proof_sha": "3a45f1eca989b821",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4912,7 +4912,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "3a45f1eca989b821"
+    "proof_sha": "af571584d8557d9a"
   },
   {
     "id": "real-analysis.riemann.cont-integrable",
@@ -5188,7 +5188,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "41540eefbdffabff"
+    "proof_sha": "876da68ff556530b"
   },
   {
     "id": "analysis.mvt.taylor-examples",
@@ -5750,7 +5750,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "93193367be2f8a29"
+    "proof_sha": "2b582de420270786"
   },
   {
     "id": "analysis.series.tests",
@@ -5781,7 +5781,7 @@
       "analysis.series.conditional",
       "analysis.series.root-test"
     ],
-    "proof_sha": "93193367be2f8a29",
+    "proof_sha": "2b582de420270786",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5814,7 +5814,7 @@
       "analysis.series.cauchy-product-absolute",
       "analysis.series.rearrangement"
     ],
-    "proof_sha": "93193367be2f8a29",
+    "proof_sha": "2b582de420270786",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5851,7 +5851,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "93193367be2f8a29"
+    "proof_sha": "2b582de420270786"
   },
   {
     "id": "analysis.series.rearrangement",
@@ -5875,7 +5875,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:08:05Z",
     "dependedOnBy": [],
-    "proof_sha": "93193367be2f8a29",
+    "proof_sha": "2b582de420270786",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -6200,7 +6200,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "93193367be2f8a29",
+    "proof_sha": "2b582de420270786",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -7135,7 +7135,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "1fdabc596e99095d",
+    "proof_sha": "f91c8d0a182008d0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7167,7 +7167,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "1fdabc596e99095d",
+    "proof_sha": "f91c8d0a182008d0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7203,7 +7203,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "1fdabc596e99095d",
+    "proof_sha": "f91c8d0a182008d0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7238,7 +7238,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "1fdabc596e99095d",
+    "proof_sha": "f91c8d0a182008d0",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12351,7 +12351,7 @@
     "dependedOnBy": [
       "topology.foundation.constructions"
     ],
-    "proof_sha": "289f9ca248f38593",
+    "proof_sha": "28eb2f0345f6094d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12407,6 +12407,181 @@
     "added_at": "2026-08-25T03:51:40Z",
     "dependedOnBy": [],
     "proof_sha": "15c844aaa412d67e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.iso-theorems",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "环的同构定理",
+    "summary": "用本库显式商环证明第一、第二、第三同构定理及商环理想对应定理",
+    "premises": [
+      "abstract-algebra.ring.def",
+      "abstract-algebra.ring.ideal",
+      "abstract-algebra.ring.quotient"
+    ],
+    "mathlib": [
+      "Quotient"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（同构定理）"
+    },
+    "lean_file": "AbstractAlgebra/RingIsomorphismTheorems.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/iso-theorems.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "4a89d53c29f83e62",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.divisibility",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "整除、相伴、不可约元、素元与最大公因子",
+    "summary": "在交换整环中自建整除理论，并证明素元必不可约及最大公因子相伴唯一",
+    "premises": [
+      "abstract-algebra.ring.def",
+      "abstract-algebra.ring.domain"
+    ],
+    "mathlib": [
+      "Associated",
+      "Irreducible",
+      "Prime"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2（整除与分解）"
+    },
+    "lean_file": "AbstractAlgebra/RingDivisibility.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/divisibility.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "87d732b464a7ff52",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.foundation.real-line",
+    "kind": "definition",
+    "state": "verified",
+    "title": "实直线与单位区间的教材拓扑",
+    "summary": "以 epsilon 邻域定义实直线拓扑，并由子空间构造单位区间拓扑与反射",
+    "premises": [
+      "topology.foundation.structure",
+      "topology.foundation.constructions"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Sections 13 and 18"
+    },
+    "lean_file": "Topology/RealLine.lean",
+    "nl_file": "docs/entries/topology/foundation/real-line.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "topology.homotopy.path-definition-foundation",
+      "topology.homotopy.path-reversal-foundation",
+      "topology.homotopy.path-concatenation-foundation"
+    ],
+    "proof_sha": "86012bb76d5deedf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.path-definition-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路与环路的教材定义",
+    "summary": "由本库单位区间连续映射定义道路、常值道路、映射复合与环路",
+    "premises": [
+      "topology.foundation.real-line"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hatcher, Algebraic Topology, Section 1.1"
+    },
+    "lean_file": "Topology/Path.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-definition-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "topology.homotopy.path-reversal-foundation",
+      "topology.homotopy.path-concatenation-foundation"
+    ],
+    "proof_sha": "6f143ed9e2f4f665",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.path-reversal-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "逆道路",
+    "summary": "用单位区间反射构造逆道路并证明双重反向还原",
+    "premises": [
+      "topology.foundation.real-line",
+      "topology.homotopy.path-definition-foundation"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hatcher, Algebraic Topology, Section 1.1"
+    },
+    "lean_file": "Topology/Path.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-reversal-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "6f143ed9e2f4f665",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.path-concatenation-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路拼接",
+    "summary": "用单位区间左右半段的线性缩放拼接具有公共端点的两条道路",
+    "premises": [
+      "topology.foundation.real-line",
+      "topology.homotopy.path-definition-foundation"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hatcher, Algebraic Topology, Section 1.1"
+    },
+    "lean_file": "Topology/Path.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-concatenation-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "6f143ed9e2f4f665",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

@@ -24,6 +24,7 @@ import SandronesLibrary.Analysis.Completeness
 import SandronesLibrary.Analysis.FuncLimit
 import SandronesLibrary.Analysis.Continuity
 import SandronesLibrary.Analysis.Derivative
+import SandronesLibrary.Analysis.Series
 import SandronesLibrary.Analysis.MVT
 import SandronesLibrary.Analysis.Sequence
 import SandronesLibrary.LinearAlgebra.Subspace
@@ -63,9 +64,13 @@ import SandronesLibrary.AbstractAlgebra.GroupCyclic
 import SandronesLibrary.AbstractAlgebra.Ring
 import SandronesLibrary.AbstractAlgebra.RingQuotient
 import SandronesLibrary.AbstractAlgebra.RingPrimeIdeal
+import SandronesLibrary.AbstractAlgebra.RingIsomorphismTheorems
+import SandronesLibrary.AbstractAlgebra.RingDivisibility
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.Constructions
+import SandronesLibrary.Topology.RealLine
+import SandronesLibrary.Topology.Path
 import SandronesLibrary.Topology.Space
 import SandronesLibrary.Topology.Closure
 import SandronesLibrary.Topology.Separation

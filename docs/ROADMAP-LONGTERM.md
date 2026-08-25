@@ -337,10 +337,10 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 1 | `abstract-algebra.ring.def` | 环、交换环、单位、子环与环同态的基本性质 | ✅（本库定义层与实现桥已完成） |
 | 2 | `abstract-algebra.ring.ideal` | 左/右/双边理想、生成理想与理想和积 | ✅（本库定义层与运算桥已完成） |
 | 2.5 | `abstract-algebra.ring.quotient` | 模双边理想同余、商环、投影、核与泛性质 | ✅（本库商集构造已完成） |
-| 3 | `abstract-algebra.ring.iso` | 环同态第一、第二、第三同构定理与对应定理 | 🟡（第一同构定理已有） |
+| 3 | `abstract-algebra.ring.iso-theorems` | 本库第一、第二、第三同构定理与理想对应；旧 `ring.iso` 保留为 Mathlib 兼容入口 | ✅ |
 | 4 | `abstract-algebra.ring.domain` | 零因子、整环与域的本库公理定义 | ✅（定义层与 Mathlib 桥已完成） |
 | 4.5 | `abstract-algebra.ring.prime-ideal` | 素理想、极大理想及商整环／商域双向判据 | ✅ |
-| 5 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约与素元、最大公因子 | 🔲 |
+| 5 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约与素元、最大公因子 | ✅ |
 | 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | 🔲 |
 | 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | 🔲 |
 | 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | 🔲 |
@@ -414,7 +414,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
 | 1 | `topology.homeomorph.invariants` | 同胚的复合、逆及对连通性、紧致性等拓扑性质的保持 | `Homeomorph.trans`、`Homeomorph.toHomotopyEquiv` |
-| 2 | `topology.homotopy.path-loop` | 道路、道路复合、逆道路与以基点为端点的环路 | `Path`、`Path.trans`、`Path.symm`、`Path.Homotopic` |
+| 2 | `topology.homotopy.path-loop` | 道路、逆道路、环路与道路拼接基础 ✅；道路同伦仍待后续 | `Path.Homotopic` |
 | 3 | `topology.homotopy.maps` | 映射之间的同伦、相对端点同伦及同伦的复合运算 | `ContinuousMap.Homotopy`、`ContinuousMap.HomotopyRel` |
 | 4 | `topology.homotopy.equivalence` | 同伦等价、同伦逆及同伦等价关系 | `ContinuousMap.HomotopyEquiv`、`Homeomorph.toHomotopyEquiv` |
 | 5 | `topology.fundamental-group.def` | 基点环路按端点固定同伦取商，定义基本群 `π₁(X,x₀)` | `FundamentalGroupoid`、`FundamentalGroup`、`Path.Homotopic.Quotient` |

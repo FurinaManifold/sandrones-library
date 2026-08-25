@@ -1,46 +1,79 @@
 ---
 id: analysis.multivariable.frechet
-kind: theorem
+family: analysis.multivariable
+variant: textbook
+kind: definition
 state: verified
-title: "Fréchet全微分与方向导数"
-premises: ["topology.normed-space.def", "topology.normed-space.inequalities"]
-mathlib: ["HasFDerivAt", "DifferentiableAt", "HasFDerivAt.comp", "HasFDerivAt.fderiv"]
+title: Fréchet 全微分与方向导数
+summary: 以线性主部的余项比值趋零定义 Fréchet 导数，并桥接 HasFDerivAt
+premises: [topology.normed-space.def, topology.normed-space.inequalities]
+mathlib: [ContinuousLinearMap, HasFDerivAt, hasFDerivAt_iff_tendsto, fderiv]
 provenance:
   source_type: book
-  ref: "多元微积分：Fréchet导数与全微分"
+  ref: 多元微积分：Fréchet 导数与全微分
 ---
 
 # 动机
 
-多元导数必须同时描述所有方向的一阶变化；连续线性映射正是全微分的无坐标形式。
+多元函数在一点的一阶变化不能只由一个数描述，而需要一个同时处理所有方向的线性映射。仅把
+`TotalDerivative` 写成连续线性映射类型还没有说明该映射为何是导数；关键条件是扣除线性主部后，
+余项相对于增量范数小到一阶以下。
 
 # 直觉
 
-在 `x` 附近把函数写成 `f(x+h)=f(x)+A(h)+o(‖h‖)`，其中唯一的 `A` 就是全微分。
+在 `x` 附近，希望用 `f x + A(y-x)` 近似 `f y`。若误差
+`f y-f x-A(y-x)` 除以 `‖y-x‖` 后趋于零，那么 `A` 就捕捉了所有方向共同的一阶变化。
+把 `A` 作用于方向 `v`，得到该方向的一阶变化率。
 
 # 陈述（自然语言）
 
-全微分唯一，可微函数连续；恒等映射的全微分是恒等映射；复合函数全微分满足
-`D(g∘f)(x)=Dg(f(x))∘Df(x)`，方向导数为 `Df(x)v`。
+- `TotalDerivative` 的数据是从定义域到值域的连续实线性映射。
+- `HasFrechetDerivativeAtTextbook f A x` 表示线性近似余项与增量范数之比趋于零。
+- 该教材定义与 Mathlib 的 `HasFDerivAt f A x` 完全等价。
+- 可微时方向导数等于 `A v`；全微分满足唯一性、连续性和链式法则。
 
 # 陈述（Lean 对照）
 
-`TotalDerivative` 对应 `E →L[ℝ] F`，存在性由 `HasFDerivAt` 表达；
-`DirectionalDerivative` 是 `fderiv ℝ f x v`。
+```lean
+abbrev TotalDerivative := E →L[ℝ] F
+
+def HasFrechetDerivativeAtTextbook (f : E → F) (A : E →L[ℝ] F) (x : E) : Prop :=
+  Filter.Tendsto (fun y => ‖y - x‖⁻¹ * ‖f y - f x - A (y - x)‖)
+    (nhds x) (nhds 0)
+
+theorem hasFrechetDerivativeAtTextbook_iff_hasFDerivAt :
+    HasFrechetDerivativeAtTextbook f A x ↔ HasFDerivAt f A x
+```
 
 # 思维脉络（thinking trace）
 
-以 Fréchet 导数为唯一基础定义，链式法则和方向导数均由连续线性映射运算推出，
-不先依赖坐标偏导。
+1. `A : E →L[ℝ] F` 同时记录线性性与连续性，是全微分的数据载体。
+2. `f y-f x-A(y-x)` 是从实际增量中扣除线性主部后的余项。
+3. 乘以 `‖y-x‖⁻¹` 等价于除以增量范数；目标极限为零就是 `o(‖y-x‖)`。
+4. `hasFDerivAt_iff_tendsto` 正好给出同一余项比值极限，因此桥是直接的双向等价。
+5. Mathlib 中零的逆为零，中心点处比值取零，不影响邻域极限。
 
 # 自然语言 ↔ Lean 映射
 
-- 全微分 ↔ `ContinuousLinearMap`；可微 ↔ `DifferentiableAt ℝ`；链式法则 ↔ `.comp`。
+| 自然语言 | Lean |
+|---|---|
+| 连续线性主部 | `A : E →L[ℝ] F` |
+| 全微分数据类型 | `TotalDerivative` |
+| 余项 | `f y - f x - A (y - x)` |
+| 余项小于一阶 | `‖y-x‖⁻¹ * ‖...‖ → 0` |
+| 教材 Fréchet 导数条件 | `HasFrechetDerivativeAtTextbook f A x` |
+| Mathlib Fréchet 导数条件 | `HasFDerivAt f A x` |
+| Mathlib 选出的导数 | `fderiv ℝ f x` |
 
 # 依赖（人话版）
 
-依赖实赋范线性空间及范数诱导拓扑。
+- 赋范加法交换群和实赋范空间：提供增量、范数、标量乘法和连续线性映射。
+- `hasFDerivAt_iff_tendsto`：Mathlib Fréchet 导数与余项比值趋零之间的精确桥。
+- `ContinuousLinearMap`：保证线性主部不仅代数线性，而且与拓扑结构相容。
 
 # 应用与陷阱
 
-`fderiv` 在不可微点按约定取零，实际计算方向导数时应同时携带 `HasFDerivAt`。
+- 应用：链式法则、方向导数、梯度和 Jacobian 可以继续通过 `HasFDerivAt` 桥复用 Mathlib。
+- 陷阱：只存在各方向导数一般不足以推出 Fréchet 可微；定义要求一个统一线性映射控制所有方向。
+- 陷阱：`fderiv` 在不可微点按约定取零，实际使用必须携带可微或 `HasFDerivAt` 假设。
+- 边界：本条是一阶实 Fréchet 导数；高阶导数与一般标量域仍使用 Mathlib 的相应接口。

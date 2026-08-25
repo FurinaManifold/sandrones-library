@@ -18,6 +18,52 @@ namespace Analysis.Series
 open Filter Asymptotics
 open scoped Topology
 
+/-- 实数项级数 `f` 按自然顺序的部分和趋于 `s`。
+> **Entry**: analysis.series.basic
+-/
+def SeriesHasSum (f : ℕ → ℝ) (s : ℝ) : Prop :=
+  Tendsto (fun N : ℕ => ∑ n ∈ Finset.range N, f n) atTop (𝓝 s)
+
+/-- 实数项级数按自然顺序收敛，即存在一个部分和极限。 -/
+def SeriesConvergent (f : ℕ → ℝ) : Prop :=
+  ∃ s : ℝ, SeriesHasSum f s
+
+/-- 实数项级数绝对收敛，即绝对值级数按自然顺序收敛。 -/
+def SeriesAbsolutelyConvergent (f : ℕ → ℝ) : Prop :=
+  SeriesConvergent (fun n => |f n|)
+
+/-- Mathlib 的有限集滤子求和总能推出自然顺序部分和收敛。 -/
+theorem hasSum_seriesHasSum {f : ℕ → ℝ} {s : ℝ} (h : HasSum f s) :
+    SeriesHasSum f s := by
+  exact h.tendsto_sum_nat
+
+/-- 在绝对可和前提下，自然顺序部分和与 Mathlib `HasSum` 完全等价。 -/
+theorem seriesHasSum_iff_hasSum_of_summable_abs {f : ℕ → ℝ} {s : ℝ}
+    (habs : Summable (fun n => |f n|)) :
+    SeriesHasSum f s ↔ HasSum f s := by
+  simpa [SeriesHasSum, Real.norm_eq_abs] using
+    (hasSum_iff_tendsto_nat_of_summable_norm (f := f) (a := s) (by
+      simpa [Real.norm_eq_abs] using habs)).symm
+
+/-- 教材绝对收敛定义与绝对值项的 Mathlib `Summable` 完全等价。 -/
+theorem seriesAbsolutelyConvergent_iff_summable_abs {f : ℕ → ℝ} :
+    SeriesAbsolutelyConvergent f ↔ Summable (fun n => |f n|) := by
+  rw [SeriesAbsolutelyConvergent, SeriesConvergent]
+  constructor
+  · rintro ⟨s, hs⟩
+    exact ⟨s, (hasSum_iff_tendsto_nat_of_nonneg (fun n => abs_nonneg (f n)) s).2 hs⟩
+  · rintro ⟨s, hs⟩
+    exact ⟨s, hs.tendsto_sum_nat⟩
+
+/-- 教材自然顺序级数和唯一。 -/
+theorem seriesHasSum_unique {f : ℕ → ℝ} {a b : ℝ}
+    (ha : SeriesHasSum f a) (hb : SeriesHasSum f b) : a = b := by
+  exact tendsto_nhds_unique ha hb
+
+/-- 已知教材意义下的级数和即可得到教材收敛性。 -/
+theorem seriesConvergent_of_seriesHasSum {f : ℕ → ℝ} {s : ℝ}
+    (h : SeriesHasSum f s) : SeriesConvergent f := ⟨s, h⟩
+
 /-- 公比绝对值小于 `1` 时的几何级数。 -/
 theorem geometric_series {r : ℝ} (hr : |r| < 1) :
     HasSum (fun n : ℕ => r ^ n) (1 / (1 - r)) := by
@@ -35,6 +81,14 @@ theorem summable_of_absolute {f : ℕ → ℝ}
     (h : Summable (fun n => |f n|)) : Summable f := by
   apply Summable.of_norm
   simpa only [Real.norm_eq_abs] using h
+
+/-- 教材绝对收敛蕴含教材自然顺序收敛。 -/
+theorem seriesConvergent_of_seriesAbsolutelyConvergent {f : ℕ → ℝ}
+    (h : SeriesAbsolutelyConvergent f) : SeriesConvergent f := by
+  have habs : Summable (fun n => |f n|) :=
+    seriesAbsolutelyConvergent_iff_summable_abs.mp h
+  rcases (summable_of_absolute habs) with ⟨s, hs⟩
+  exact ⟨s, hs.tendsto_sum_nat⟩
 
 /-- 以有限集部分和表述的 Cauchy 收敛准则。 -/
 theorem summable_iff_cauchy {f : ℕ → ℝ} :

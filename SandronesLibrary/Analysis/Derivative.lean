@@ -28,9 +28,28 @@ namespace SandronesLibrary
 
 namespace Analysis.Derivative
 
-/-- 导数定义：`HasDerivAt f f' x` 说明 f 在 x 处可导且导数为 f'；
-  `deriv f x` 是导数算子（数学分析教材的差商极限定义，mathlib 已内建）。
-  导数唯一：同一函数同一点的两个导数必相等。 
+/-- 实函数 `f` 在 `x` 处以 `f'` 为导数的教材去心差商极限定义。
+> **Entry**: analysis.derivative.definition
+-/
+def HasDerivativeAtTextbook (f : ℝ → ℝ) (f' x : ℝ) : Prop :=
+  Tendsto (fun y => (f y - f x) / (y - x)) (𝓝[≠] x) (𝓝 f')
+
+/-- 本库差商极限定义与 Mathlib 的 `HasDerivAt` 完全等价。 -/
+theorem hasDerivativeAtTextbook_iff_hasDerivAt {f : ℝ → ℝ} {f' x : ℝ} :
+    HasDerivativeAtTextbook f f' x ↔ HasDerivAt f f' x := by
+  have hslope : (fun y => (f y - f x) / (y - x)) = slope f x := by
+    funext y
+    exact (slope_def_field f x y).symm
+  rw [HasDerivativeAtTextbook, hslope]
+  exact (hasDerivAt_iff_tendsto_slope (f := f) (f' := f') (x := x)).symm
+
+/-- 教材差商接口下的导数唯一性。 -/
+theorem hasDerivativeAtTextbook_unique {f : ℝ → ℝ} {x a b : ℝ}
+    (ha : HasDerivativeAtTextbook f a x) (hb : HasDerivativeAtTextbook f b x) : a = b := by
+  exact (hasDerivativeAtTextbook_iff_hasDerivAt.mp ha).unique
+    (hasDerivativeAtTextbook_iff_hasDerivAt.mp hb)
+
+/-- 导数唯一：同一函数同一点的两个导数必相等。
 > **Entry**: analysis.derivative.unique
 -/
 lemma deriv_unique_real {f : ℝ → ℝ} {x : ℝ} {a b : ℝ}

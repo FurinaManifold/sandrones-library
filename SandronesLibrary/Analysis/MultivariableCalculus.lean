@@ -38,6 +38,25 @@ variable {E F G : Type*}
 -/
 abbrev TotalDerivative := E →L[ℝ] F
 
+/-- `A` 是 `f` 在 `x` 处 Fréchet 导数的教材余项比值定义。 -/
+def HasFrechetDerivativeAtTextbook (f : E → F) (A : E →L[ℝ] F) (x : E) : Prop :=
+  Filter.Tendsto (fun y => ‖y - x‖⁻¹ * ‖f y - f x - A (y - x)‖)
+    (nhds x) (nhds 0)
+
+/-- 本库余项比值定义与 Mathlib 的 `HasFDerivAt` 完全等价。 -/
+theorem hasFrechetDerivativeAtTextbook_iff_hasFDerivAt
+    {f : E → F} {A : E →L[ℝ] F} {x : E} :
+    HasFrechetDerivativeAtTextbook f A x ↔ HasFDerivAt f A x := by
+  exact (hasFDerivAt_iff_tendsto (f := f) (f' := A) (x := x)).symm
+
+/-- 教材余项接口下 Fréchet 导数唯一。 -/
+theorem hasFrechetDerivativeAtTextbook_unique
+    {f : E → F} {A B : E →L[ℝ] F} {x : E}
+    (hA : HasFrechetDerivativeAtTextbook f A x)
+    (hB : HasFrechetDerivativeAtTextbook f B x) : A = B := by
+  exact (hasFrechetDerivativeAtTextbook_iff_hasFDerivAt.mp hA).unique
+    (hasFrechetDerivativeAtTextbook_iff_hasFDerivAt.mp hB)
+
 /-- 方向导数取 Fréchet 导数在线性方向 `v` 上的值。不可微时 Mathlib 的 `fderiv`
 按约定取零，因此需要实际计算时通常同时携带 `HasFDerivAt` 假设。 -/
 noncomputable def DirectionalDerivative (f : E → F) (x v : E) : F :=

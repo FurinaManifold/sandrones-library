@@ -33,6 +33,18 @@ namespace SandronesLibrary
 
 namespace Analysis.FuncLimit
 
+/-- 实函数 `f` 在点 `a` 的去心邻域趋于 `L` 的教材 ε-δ 定义。
+> **Entry**: analysis.func-limit.definition
+-/
+def FunctionConvergesToAt (f : ℝ → ℝ) (a L : ℝ) : Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → |f x - L| < ε
+
+/-- 展开本库函数有限点极限定义。 -/
+theorem functionConvergesToAt_iff_epsilon_delta {f : ℝ → ℝ} {a L : ℝ} :
+    FunctionConvergesToAt f a L ↔
+      ∀ ε > 0, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → |f x - L| < ε :=
+  Iff.rfl
+
 /-- 去心邻域上的“最终成立”换成 ε-δ 判据：`∀ᶠ x in 𝓝[≠] a, p x` ⟺
   存在 δ>0 使 a 的 δ 去心邻域内p 都成立。 
 > **Entry**: analysis.func-limit.definition
@@ -63,6 +75,18 @@ lemma tendsto_nhds_iff_eps_delta {f : ℝ → ℝ} {a L : ℝ} :
     exact (eventually_nhds_within_iff_delta a (fun x => |f x - L| < ε)).mp (h ε hε)
   · intro h ε hε
     exact (eventually_nhds_within_iff_delta a (fun x => |f x - L| < ε)).mpr (h ε hε)
+
+/-- 本库 ε-δ 函数极限定义与 Mathlib 去心邻域 `Tendsto` 接口完全等价。 -/
+theorem functionConvergesToAt_iff_tendsto {f : ℝ → ℝ} {a L : ℝ} :
+    FunctionConvergesToAt f a L ↔ Tendsto f (𝓝[≠] a) (𝓝 L) := by
+  simpa [FunctionConvergesToAt] using
+    (tendsto_nhds_iff_eps_delta (f := f) (a := a) (L := L)).symm
+
+/-- 教材 ε-δ 接口下的函数极限唯一性。 -/
+theorem functionConvergesToAt_unique {f : ℝ → ℝ} {a L M : ℝ}
+    (hL : FunctionConvergesToAt f a L) (hM : FunctionConvergesToAt f a M) : L = M := by
+  exact tendsto_nhds_unique (functionConvergesToAt_iff_tendsto.mp hL)
+    (functionConvergesToAt_iff_tendsto.mp hM)
 
 /-- 常数函数在任意滤子下趋近该常数。 
 > **Entry**: analysis.func-limit.const

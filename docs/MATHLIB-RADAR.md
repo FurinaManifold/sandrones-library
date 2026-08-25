@@ -12,6 +12,18 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## 环同构与整除的实现桥
+
+### `Quotient` / `Quot.sound`
+- **人话**：把本库显式理想同余真正实现成商集，并证明同余代表元给出同一商类。
+- **出处**：Lean/Mathlib 的商类型基础设施。
+- **谁在用**：`abstract-algebra.ring.iso-theorems`；只作实现后端，不代替教材商环定义。
+
+### `Associated` / `Irreducible` / `Prime`
+- **人话**：Mathlib 对相伴、不可约元和素元的标准谓词。
+- **出处**：Mathlib 交换幺半群与分解理论。
+- **谁在用**：`abstract-algebra.ring.divisibility` 的具名兼容桥；教材主定理使用本库谓词。
+
 ## 数项级数与幂级数
 
 ### `Finset.Nat.sum_antidiagonal_eq_sum_range_succ`

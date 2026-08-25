@@ -66,6 +66,18 @@ theorem continuous_id (τ : TextbookTopology X) : Continuous τ τ id := by
   intro v hv
   simpa using hv
 
+/-- Every constant map is continuous. -/
+theorem continuous_const (τX : TextbookTopology X) (τY : TextbookTopology Y) (y : Y) :
+    Continuous τX τY (fun _ : X ↦ y) := by
+  intro v hv
+  by_cases hy : y ∈ v
+  · have hpre : (fun _ : X ↦ y) ⁻¹' v = univ := by ext; simp [hy]
+    rw [hpre]
+    exact τX.isOpen_univ
+  · have hpre : (fun _ : X ↦ y) ⁻¹' v = ∅ := by ext; simp [hy]
+    rw [hpre]
+    exact τX.isOpen_empty
+
 /-- A composite of continuous maps is continuous. -/
 theorem Continuous.comp {τX : TextbookTopology X} {τY : TextbookTopology Y}
     {τZ : TextbookTopology Z} {f : X → Y} {g : Y → Z}

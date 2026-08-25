@@ -2,75 +2,78 @@
 id: analysis.sequence.definition
 family: analysis.sequence
 variant: ecnu
-kind: theorem
+kind: definition
 state: verified
-title: 数列收敛的 ε-N 判据
-summary: Tendsto u atTop (𝓝 l) ⟺ 对每个 ε>0，存在 N，∀n≥N 有 |u n − l| < ε
+title: 数列收敛的 ε-N 定义
+summary: SequenceConvergesTo u l 以 ε-N 量词定义，并与 Tendsto u atTop (𝓝 l) 等价
 premises: []
-mathlib: [Metric.tendsto_atTop]
+mathlib: [Metric.tendsto_atTop, Real.dist_eq]
 provenance:
   source_type: book
   ref: 华东师大《数学分析》第五版 第一卷 第二章 §1 数列极限概念
 ---
 
-# analysis.sequence.definition
+# 动机
 
-- **家族**: `analysis.sequence`
-- **变体**: ecnu（华东师大《数学分析》第五版）
-- **状态**: verified
-- **一句话**: "aₙ → l" = 无论你要求多近（ε），从某一项起所有项都落在 l 的 ε-邻域里。
+极限不能用不存在的“第无穷项”定义，而必须把“最终趋势”翻译成有限下标之后可检查的承诺。
+若直接把 Mathlib 的滤子谓词 `Tendsto` 当作本库定义，教材最核心的 ε-N 量词结构会被隐藏。
+因此本条先建立本库谓词，再把滤子语言放到等价桥中。
 
-## 动机（为什么要这条）
+# 直觉
 
-极限是全书第一个"无限"概念。它的困难在于：不能说"第∞项等于 l"，
-而要把"最终趋势"翻译成只用有限步检查的命题——这正是 ε-N 语言。
-这条定义是后面所有极限定理的语法起点。
+`u` 收敛到 `l` 的意思是：无论考核尺度 `ε` 多小，只要 `ε>0`，总能找到一个起点 `N`，
+使所有 `n≥N` 的项都落在 `l` 的 ε-邻域内。`N` 可以依赖于 `ε`，但不能依赖于随后选取的 `n`。
 
-## 直觉
+# 陈述（自然语言）
 
-- "aₙ 越来越靠近 l"不是预言，是承诺：**每个 ε 都能兑现**。
-- ε 扮演"考核标准"，N 扮演"信赖的起点"：从第 N 项起全部过关。
-- 等价形式：`Tendsto u atTop (𝓝 l)`（mathlib 的滤子语言）⟺
-  `∀ ε > 0, ∃ N, ∀ n ≥ N, |u n − l| < ε`（教材语言）。
+- `SequenceConvergesTo u l` 定义为：对每个正数 ε，存在自然数 N，使所有 n≥N 都满足
+  `|u n-l|<ε`。
+- 该教材定义与 Mathlib 的 `Tendsto u atTop (𝓝 l)` 完全等价。
+- 原接口 `tendsto_iff_epsilon_N` 继续保留，直接表达滤子收敛与 ε-N 公式的等价。
 
-## 自然语言 ↔ Lean 映射
-
-| 中文 | Lean |
-|---|---|
-| 数列趋于 l | `Tendsto u atTop (𝓝 l)` |
-| ε-N 判据 | `∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε` |
-| 距离 | `|u n - l|`（实轴上 `dist (u n) l`） |
-
-## 思维脉络
-
-1. `Metric.tendsto_atTop` 说"趋于 l = 距离最终 < ε"——这正是度量空间的语言。
-2. 实轴上距离就是绝对值 `|x − y|`（`Real.dist_eq`）。
-3. 把两句话拼起来，就是教材一字不差的 ε-N 判据。
-
-## 应用与陷阱
-
-- ε 要任意正——你不能说"ε = 0.001 就够"；但**通用引理只需证明一个**，
-  使用时给具体 ε 是对的（如证明有界时取 ε=1）。
-- N 依赖 ε：N=N(ε)，不能反过来。
-- 两个方向都会用：已知收敛 → 取任意 ε 拿到 N；要证收敛 → 对任意 ε 造出 N。
-
-## 形式化层
+# 陈述（Lean 对照）
 
 ```lean
-theorem tendsto_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
-    Tendsto u atTop (𝓝 l) ↔ ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε := by
-  simpa [Real.dist_eq] using Metric.tendsto_atTop (u := u) (a := l)
+def SequenceConvergesTo (u : ℕ → ℝ) (l : ℝ) : Prop :=
+  ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε
+
+theorem sequenceConvergesTo_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
+    SequenceConvergesTo u l ↔ ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε
+
+theorem sequenceConvergesTo_iff_tendsto {u : ℕ → ℝ} {l : ℝ} :
+    SequenceConvergesTo u l ↔ Tendsto u atTop (𝓝 l)
 ```
 
-**公理依赖（#print axioms）**
+# 思维脉络（thinking trace）
 
-```
-tendsto_iff_epsilon_N 依赖: [propext, Classical.choice, Quot.sound]
-```
+1. `SequenceConvergesTo` 直接保存教材的量词次序，因此展开定理是 `Iff.rfl`。
+2. `Metric.tendsto_atTop` 把从自然数滤子 `atTop` 趋于 `l` 化为“最终距离小于每个正 ε”。
+3. `Real.dist_eq` 把实轴距离 `dist (u n) l` 改写为绝对值 `|u n-l|`。
+4. 将 `tendsto_iff_epsilon_N` 反向并展开本库定义，得到
+   `sequenceConvergesTo_iff_tendsto`，两个方向都没有额外前提。
 
-**结构必需（无法削减）**：类型含 `ℝ` 的拓扑（`𝓝`）与序结构，
-mathlib 的 ℝ 实例（拓扑、度量、有序域）定义体经典构造（Playbook §3.3）。
+# 自然语言 ↔ Lean 映射
 
-## mathlib 参考
+| 自然语言 | Lean |
+|---|---|
+| 实数列 `u` 收敛到 `l` | `SequenceConvergesTo u l` |
+| 任意正 ε | `∀ ε > 0` |
+| 存在信赖起点 N | `∃ N : ℕ` |
+| 从 N 项起全部满足 | `∀ n ≥ N` |
+| 距离极限小于 ε | `|u n - l| < ε` |
+| Mathlib 滤子表达 | `Tendsto u atTop (𝓝 l)` |
 
-- `Metric.tendsto_atTop`, `Real.dist_eq`, `Tendsto`, `atTop`, `𝓝`
+# 依赖（人话版）
+
+- 本库定义本身只需要自然数下标、实数绝对值与次序。
+- `Metric.tendsto_atTop` 提供自然数序列在度量空间中的 ε-N 收敛刻画。
+- `Real.dist_eq` 说明实数距离就是差的绝对值。
+- `#print axioms sequenceConvergesTo_iff_tendsto` 的经典依赖来自 Mathlib 的实数、拓扑和滤子实现，
+  不表示教材定义额外假设了选择公理。
+
+# 应用与陷阱
+
+- 应用：学习极限唯一、有界、夹逼、子列和极限运算时，可经等价桥在教材量词与 `Tendsto` 间切换。
+- 陷阱：`N` 依赖 `ε`；把量词误写成先固定一个 `N` 再处理全部 `ε` 会得到远强于收敛的性质。
+- 陷阱：必须要求 `ε>0`；`ε=0` 时严格不等式通常不可能成立。
+- 接口边界：现有主定理继续接受和返回 `Tendsto`；本条的目的只是讲清定义，不要求替换这些接口。

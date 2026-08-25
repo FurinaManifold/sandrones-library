@@ -12,8 +12,9 @@ open Filter Topology
 
 本文件当前条目：
 
-* **analysis.sequence.definition**（收敛的定义/ε-N 判据）：`Tendsto u atTop (𝓝 l)`
-  ⟺ 对每个 ε>0 存在 N，使得从第 N 项起 |u n − l| < ε。
+* **analysis.sequence.definition**（收敛的定义/ε-N 判据）：本库谓词
+  `SequenceConvergesTo u l` 定义为：对每个 ε>0 存在 N，使得从第 N 项起
+  |u n − l| < ε；并证明它等价于 `Tendsto u atTop (𝓝 l)`。
 * **analysis.sequence.unique**（极限唯一）：同一个序列若有极限则极限唯一。
 * **analysis.sequence.bounded**（收敛必有界）：收敛序列的值域既有上界也有下界。
 * **analysis.sequence.squeeze**（夹逼定理）：两边夹住且同趋于 l，中间也趋于 l。
@@ -21,7 +22,8 @@ open Filter Topology
   的序列收敛，且极限恰为其值域的上确界。
 * **analysis.sequence.subsequence**（子序列）：收敛序列的任何子列收敛到同一极限。
 * **analysis.sequence.bolzano-weierstrass**（波尔查诺-魏尔斯特拉斯）：有界实数列必有收敛子列。
-* **analysis.sequence.cauchy**（Cauchy 收敛准则/完备性）：实数列收敛 ⟺ 是 Cauchy 列。
+* **analysis.sequence.cauchy**（Cauchy 收敛准则/完备性）：本库以双指标 ε-N 条件定义
+  `SequenceIsCauchy`，桥接 Mathlib 的 `CauchySeq`，并证明实数列收敛 ⟺ 是 Cauchy 列。
 * **analysis.sequence.liminf-limsup**（上/下极限）：liminf ≤ limsup，且相等 ⟺ 收敛。
 * **analysis.sequence.add/sub/mul/div/const-mul**（极限四则运算）。
 * **analysis.sequence.le**（极限保序）。
@@ -30,6 +32,17 @@ open Filter Topology
 namespace SandronesLibrary
 
 namespace Analysis.Sequence
+
+/-- 实数列 `u` 收敛到 `l` 的教材 ε-N 定义。
+> **Entry**: analysis.sequence.definition
+-/
+def SequenceConvergesTo (u : ℕ → ℝ) (l : ℝ) : Prop :=
+  ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε
+
+/-- 展开本库数列收敛定义。 -/
+theorem sequenceConvergesTo_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
+    SequenceConvergesTo u l ↔ ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε :=
+  Iff.rfl
 
 /--
 > **Entry**: analysis.sequence.definition
@@ -43,6 +56,44 @@ theorem tendsto_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
     Tendsto u atTop (𝓝 l) ↔ ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε := by
   -- 思路：度量空间里"趋于 l"就是"距离趋于 0"；距离在实轴上就是绝对值。
   simpa [Real.dist_eq] using Metric.tendsto_atTop (u := u) (a := l)
+
+/-- 本库 ε-N 数列收敛定义与 Mathlib 滤子收敛接口完全等价。 -/
+theorem sequenceConvergesTo_iff_tendsto {u : ℕ → ℝ} {l : ℝ} :
+    SequenceConvergesTo u l ↔ Tendsto u atTop (𝓝 l) := by
+  simpa [SequenceConvergesTo] using (tendsto_iff_epsilon_N (u := u) (l := l)).symm
+
+/-- 实数列 `u` 是 Cauchy 列的教材双指标 ε-N 定义。
+> **Entry**: analysis.sequence.cauchy
+-/
+def SequenceIsCauchy (u : ℕ → ℝ) : Prop :=
+  ∀ ε > 0, ∃ N : ℕ, ∀ m ≥ N, ∀ n ≥ N, |u m - u n| < ε
+
+/-- 展开本库 Cauchy 列定义。 -/
+theorem sequenceIsCauchy_iff_epsilon_N {u : ℕ → ℝ} :
+    SequenceIsCauchy u ↔
+      ∀ ε > 0, ∃ N : ℕ, ∀ m ≥ N, ∀ n ≥ N, |u m - u n| < ε :=
+  Iff.rfl
+
+/-- 本库双指标 ε-N 定义与 Mathlib 的 `CauchySeq` 完全等价。 -/
+theorem sequenceIsCauchy_iff_cauchySeq {u : ℕ → ℝ} :
+    SequenceIsCauchy u ↔ CauchySeq u := by
+  simpa [SequenceIsCauchy, Real.dist_eq] using (Metric.cauchySeq_iff (u := u)).symm
+
+/-- 教材接口下的极限唯一性。
+> **Entry**: analysis.sequence.definition
+-/
+theorem sequenceConvergesTo_unique {u : ℕ → ℝ} {a b : ℝ}
+    (ha : SequenceConvergesTo u a) (hb : SequenceConvergesTo u b) : a = b := by
+  exact tendsto_nhds_unique (sequenceConvergesTo_iff_tendsto.mp ha)
+    (sequenceConvergesTo_iff_tendsto.mp hb)
+
+/-- 教材接口下，收敛列必为 Cauchy 列。
+> **Entry**: analysis.sequence.cauchy
+-/
+theorem sequenceConvergesTo_sequenceIsCauchy {u : ℕ → ℝ} {l : ℝ}
+    (h : SequenceConvergesTo u l) : SequenceIsCauchy u := by
+  exact sequenceIsCauchy_iff_cauchySeq.mpr
+    (Filter.Tendsto.cauchy_map (sequenceConvergesTo_iff_tendsto.mp h))
 
 /--
 > **Entry**: analysis.sequence.unique

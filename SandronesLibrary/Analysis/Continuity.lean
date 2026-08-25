@@ -31,6 +31,56 @@ namespace SandronesLibrary
 
 namespace Analysis.Continuity
 
+/-- 实函数 `f` 在点 `a` 连续的教材 ε-δ 定义。
+> **Entry**: analysis.continuity.definition
+-/
+def ContinuousAtTextbook (f : ℝ → ℝ) (a : ℝ) : Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ x, |x - a| < δ → |f x - f a| < ε
+
+/-- 实函数 `f` 在集合 `s` 上逐点连续的教材定义；允许 `δ` 依赖于基点。 -/
+def ContinuousOnTextbook (f : ℝ → ℝ) (s : Set ℝ) : Prop :=
+  ∀ a ∈ s, ∀ ε > 0, ∃ δ > 0, ∀ x ∈ s, |x - a| < δ → |f x - f a| < ε
+
+/-- 实函数 `f` 在集合 `s` 上一致连续的教材定义；同一个 `δ` 控制 `s` 中所有点对。 -/
+def UniformContinuousOnTextbook (f : ℝ → ℝ) (s : Set ℝ) : Prop :=
+  ∀ ε > 0, ∃ δ > 0, ∀ x ∈ s, ∀ y ∈ s, |x - y| < δ → |f x - f y| < ε
+
+/-- 本库点连续定义与 Mathlib 的 `ContinuousAt` 完全等价。 -/
+theorem continuousAtTextbook_iff_continuousAt {f : ℝ → ℝ} {a : ℝ} :
+    ContinuousAtTextbook f a ↔ ContinuousAt f a := by
+  simpa [ContinuousAtTextbook, Real.dist_eq] using
+    (Metric.continuousAt_iff (f := f) (a := a)).symm
+
+/-- 本库集合上逐点连续定义与 Mathlib 的 `ContinuousOn` 完全等价。 -/
+theorem continuousOnTextbook_iff_continuousOn {f : ℝ → ℝ} {s : Set ℝ} :
+    ContinuousOnTextbook f s ↔ ContinuousOn f s := by
+  simpa [ContinuousOnTextbook, Real.dist_eq] using
+    (Metric.continuousOn_iff (f := f) (s := s)).symm
+
+/-- 本库集合上一致连续定义与 Mathlib 的 `UniformContinuousOn` 完全等价。 -/
+theorem uniformContinuousOnTextbook_iff_uniformContinuousOn {f : ℝ → ℝ} {s : Set ℝ} :
+    UniformContinuousOnTextbook f s ↔ UniformContinuousOn f s := by
+  simpa [UniformContinuousOnTextbook, Real.dist_eq] using
+    (Metric.uniformContinuousOn_iff (f := f) (s := s)).symm
+
+/-- 常函数在每一点满足教材连续定义。 -/
+theorem continuousAtTextbook_const (c a : ℝ) :
+    ContinuousAtTextbook (fun _ : ℝ => c) a := by
+  exact continuousAtTextbook_iff_continuousAt.mpr continuousAt_const
+
+/-- 每点全邻域教材连续推出集合上的教材连续。 -/
+theorem continuousOnTextbook_of_forall_continuousAtTextbook {f : ℝ → ℝ} {s : Set ℝ}
+    (h : ∀ x ∈ s, ContinuousAtTextbook f x) : ContinuousOnTextbook f s := by
+  apply continuousOnTextbook_iff_continuousOn.mpr
+  intro x hx
+  exact (continuousAtTextbook_iff_continuousAt.mp (h x hx)).continuousWithinAt
+
+/-- 教材一致连续定义推出集合上的教材逐点连续。 -/
+theorem continuousOnTextbook_of_uniformContinuousOnTextbook {f : ℝ → ℝ} {s : Set ℝ}
+    (h : UniformContinuousOnTextbook f s) : ContinuousOnTextbook f s := by
+  exact continuousOnTextbook_iff_continuousOn.mpr
+    (uniformContinuousOnTextbook_iff_uniformContinuousOn.mp h).continuousOn
+
 /-- 常函数连续。 
 > **Entry**: analysis.continuity.const
 -/
@@ -80,7 +130,7 @@ lemma continuousAt_comp {f : ℝ → ℝ} {g : ℝ → ℝ} {x : ℝ}
   hg.comp hf
 
 /-- 连续函数在某区间上的限制连续。 
-> **Entry**: analysis.continuity.definition
+> **Entry**: analysis.continuity.intermediate-value
 -/
 lemma continuousOn_Icc {f : ℝ → ℝ} (hf : Continuous f) {a b : ℝ} :
     ContinuousOn f (Set.Icc a b) :=
@@ -260,17 +310,17 @@ theorem inverse_continuous {f : ℝ → ℝ} (hf : StrictMono f) : Continuous (m
   simpa [Real.dist_eq]
 
 
-/-- **紧集上连续 ⟹ 一致连续**（Lebesgue 数引理法）：紧集 s 上连续的函数在 s 上一致连续。
-  教材定理：紧性把"逐点连续"提升为"一致连续"。 
+/-- 对紧集上逐点连续性的展开：给定误差，每一点都有自己的局部控制半径。
 > **Entry**: analysis.continuity.uniform-compact
 -/
-private theorem hpt_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ}
+theorem hpt_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ}
     (hf : ContinuousOn f s) {ε : ℝ} (hε : 0 < ε) :
     ∀ x ∈ s, ∃ δx > 0, ∀ y ∈ s, dist y x < δx → |f y - f x| < ε / 2 := by
   intro x hx
   exact Metric.continuousOn_iff.mp hf x hx (ε / 2) (by positivity)
 
-private theorem cover_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ} {ε : ℝ}
+/-- 各点的局部控制球覆盖整个集合，这是随后用紧性抽取有限子覆盖的入口。 -/
+theorem cover_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ} {ε : ℝ}
     (hpt : ∀ x ∈ s, ∃ δx > 0, ∀ y ∈ s, dist y x < δx → |f y - f x| < ε / 2) :
     s ⊆ ⋃ x : s, Metric.ball x.1 ((hpt x.1 x.2).choose / 2) := by
   intro x hx
@@ -280,6 +330,8 @@ private theorem cover_theorem {X : Type} [MetricSpace X] {s : Set X} {f : X → 
   rw [dist_self]
   exact div_pos hδ (by norm_num)
 
+/-- **紧集上连续 ⟹ 一致连续**（Lebesgue 数引理法）：紧集 s 上连续的函数在 s 上一致连续。
+  教材定理：紧性把"逐点连续"提升为"一致连续"。 -/
 theorem continuousOn_compact_uniformContinuousOn {X : Type} [MetricSpace X] {s : Set X} {f : X → ℝ}
     (hs : IsCompact s) (hsne : s.Nonempty) (hf : ContinuousOn f s) :
     UniformContinuousOn f s := by
