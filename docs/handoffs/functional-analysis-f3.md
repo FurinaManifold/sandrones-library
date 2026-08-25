@@ -3,7 +3,17 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`000abbb`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f3-design.md`
-- 当前阶段：正交投影窗完成验证；Riesz 表示待开发
+- 当前阶段：正交投影已提交；Riesz 表示完成验证，伴随待开发
+
+## Riesz 表示窗
+
+- 正式承载为 `StrongDual ℝ E`／`E →L[ℝ] ℝ` 与 `InnerProductSpace.toDual`；没有本地对偶或
+  Riesz 映射。
+- `lake build SandronesLibrary.FunctionalAnalysis.RieszRepresentation`：8712 jobs 通过；只重放
+  既有 Topology 与 LinearAlgebra 警告。
+- 聚合 `#check` 覆盖连续对偶、`toDual` 等距等价和三个公开声明；Entry 精确映射为三个声明。
+- 三个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
 
 ## 正交投影窗
 
