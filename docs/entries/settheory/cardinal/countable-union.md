@@ -10,7 +10,7 @@ premises: [settheory.cardinal.countable-def]
 mathlib: [Set.countable_iUnion]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第一卷 一章（预备知识）"
+  ref: "jech-set-theory-2003"
 ---
 
 # 动机

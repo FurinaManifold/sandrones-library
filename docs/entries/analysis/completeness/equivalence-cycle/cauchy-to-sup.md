@@ -10,7 +10,7 @@ premises: ["analysis.sequence.cauchy"]
 mathlib: ["ge_of_tendsto", "tendsto_nhds_unique", "tendsto_pow_atTop_nhds_zero_of_norm_lt_one", "mem_upperBounds", "Set.Finite.biUnion"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.cauchy-to-sup

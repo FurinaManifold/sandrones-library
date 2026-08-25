@@ -10,7 +10,7 @@ premises: []
 mathlib: [BddBelow]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第二章（数列极限·预备）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.real.bounded-sets.bdd-below

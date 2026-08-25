@@ -5,7 +5,7 @@ state: verified
 title: "本库序数幂的通用运算桥"
 premises: ["settheory.ordinal.exponentiation"]
 mathlib: ["Ordinal.limitRecOn", "Ordinal.opow_succ", "Ordinal.opow_limit", "Ordinal.opow_lt_opow_iff_right"]
-provenance: {source_type: derived, ref: "Transfinite recursion characterization of ordinal exponentiation"}
+provenance: {source_type: derived, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

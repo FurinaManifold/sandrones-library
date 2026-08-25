@@ -10,7 +10,7 @@ premises: [linear-algebra.eigen.charpoly, linear-algebra.eigen.value]
 mathlib: [Module.End.hasEigenvalue_iff_isRoot_charpoly, Matrix.charpoly_toLin']
 provenance:
   source_type: book
-  ref: 线性代数教材：特征多项式
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.charpoly-root

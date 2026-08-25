@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Matrix.rank_eq_finrank_span_cols"]
 provenance:
   source_type: book
-  ref: "线性代数教材：线性映射、秩与秩-零度定理"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.maps.matrix-rank

@@ -7,7 +7,7 @@ state: verified
 title: "Fubini 定理"
 premises: ["real-analysis.measure.tonelli", "real-analysis.measure.dominated-convergence"]
 mathlib: ["MeasureTheory.integral_prod", "MeasureTheory.integral_integral_swap"]
-provenance: {source_type: book, ref: "实分析：Fubini 定理"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 陈述

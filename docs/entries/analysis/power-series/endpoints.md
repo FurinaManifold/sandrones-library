@@ -7,7 +7,7 @@ premises: ["analysis.power-series.radius", "analysis.series.conditional"]
 mathlib: ["ENNReal.ofReal_toReal", "ENNReal.ofReal_le_ofReal_iff", "ENNReal.ofReal_lt_ofReal_iff", "abs_eq"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：幂级数收敛区间与端点判定"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

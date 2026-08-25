@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.special-functions.log]
 mathlib: ["Real.exp_pos", "Real.exp_one_gt_two", "Real.exp_one_lt_three", "Real.log_exp"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：指数函数与自然常数 e"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

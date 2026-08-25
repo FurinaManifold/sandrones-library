@@ -10,7 +10,7 @@ premises: [settheory.set.ext]
 mathlib: [Set.inter_union_distrib_left]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第一卷 第一章（预备知识）"
+  ref: "jech-set-theory-2003"
 ---
 
 # 动机

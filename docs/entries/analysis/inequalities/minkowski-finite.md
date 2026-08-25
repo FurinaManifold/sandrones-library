@@ -9,7 +9,7 @@ premises: ["analysis.inequalities.holder-finite"]
 mathlib: ["Real.Lp_add_le"]
 provenance:
   source_type: book
-  ref: "数学分析：有限和Minkowski不等式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

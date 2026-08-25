@@ -5,7 +5,7 @@ state: verified
 title: "序数无穷下降不可能"
 premises: ["settheory.ordinal.transfinite-induction"]
 mathlib: ["Ordinal.lt_wf"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Well-foundedness of Ordinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

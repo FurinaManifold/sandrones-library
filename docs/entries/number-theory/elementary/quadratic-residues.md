@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.congruence", "number-theory.elementary.ferm
 mathlib: ["isSquare_iff_exists_sq", "legendreSym.eq_one_iff", "legendreSym.eq_neg_one_iff", "ZMod.euler_criterion", "ZMod.gauss_lemma", "neg_one_pow_eq_one_iff_even", "neg_one_pow_eq_neg_one_iff_odd", "jacobiSym.legendreSym.to_jacobiSym", "jacobiSym.mul_left", "jacobiSym.eq_one_or_neg_one", "jacobiSym.at_two", "χ₈"]
 provenance:
   source_type: book
-  ref: "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapters 5-6"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 **定义。**

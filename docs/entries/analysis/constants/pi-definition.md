@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.special-functions.tan-pow]
 mathlib: ["Real.pi_pos", "Real.pi_ne_zero", "Real.sin_pi", "Real.cos_pi", "Real.two_pi_pos"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：三角函数与圆周率"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -10,7 +10,7 @@ premises: [number-theory.elementary.continued-fraction-convergent]
 mathlib: [Real.exists_rat_eq_convergent]
 provenance:
   source_type: book
-  ref: "Hardy--Wright, An Introduction to the Theory of Numbers, Legendre theorem"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

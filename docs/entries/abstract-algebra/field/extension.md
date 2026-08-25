@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def, abstract-algebra.poly.factorization]
 mathlib: [RingHom, Polynomial.eval₂, minpoly]
 provenance:
   source_type: book
-  ref: 本科抽象代数中的域扩张、代数元和最小多项式
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

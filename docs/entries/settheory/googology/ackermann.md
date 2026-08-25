@@ -5,7 +5,7 @@ state: verified
 title: "Ackermann 函数：定义与计算方程"
 premises: ["settheory.googology.primitive-recursion"]
 mathlib: ["Nat.ack"]
-provenance: {source_type: book, ref: "Herbert Enderton, A Mathematical Introduction to Logic, Section 3.4"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

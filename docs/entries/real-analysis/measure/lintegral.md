@@ -10,7 +10,7 @@ premises: [real-analysis.measure.def, real-analysis.measure.measurable-function]
 mathlib: [lintegral_const, lintegral_mono, lintegral_eq_zero_iff]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（积分）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.lintegral

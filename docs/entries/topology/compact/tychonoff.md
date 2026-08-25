@@ -10,7 +10,7 @@ premises: [topology.compact.def]
 mathlib: [isCompact_pi_infinite, isCompact_univ_pi, Pi.compactSpace]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 5（Tychonoff 定理）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.compact.tychonoff

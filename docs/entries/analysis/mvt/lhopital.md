@@ -10,7 +10,7 @@ premises: [analysis.mvt.cauchy]
 mathlib: [HasDerivAt.lhopital_zero_nhdsNE]
 provenance:
   source_type: book
-  ref: Rudin, Principles of Mathematical Analysis, Thm 5.13（L'Hôpital 规则）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.mvt.lhopital

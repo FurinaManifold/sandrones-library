@@ -5,7 +5,7 @@ state: verified
 title: Hilbert 基、Fourier 展开与 Parseval 恒等式
 premises: [functional-analysis.hilbert.projection, functional-analysis.hilbert.riesz]
 mathlib: [HilbertBasis, HilbertBasis.orthonormal, HilbertBasis.hasSum_repr]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.3.6"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

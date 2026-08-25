@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 有限指数借位：递归展开底数幂减一"
 premises: ["settheory.googology.goodstein-base-power-two-borrow", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Ordinal.opow_mul_add_lt_opow", "Ordinal.natCast_lt_omega0"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

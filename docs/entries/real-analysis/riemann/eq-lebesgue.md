@@ -10,7 +10,7 @@ premises: [real-analysis.riemann.def, real-analysis.riemann.cont-integrable, rea
 mathlib: [integral_indicator, integral_mono, integrableOn_const, lintegral]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 3（黎曼与 Lebesgue）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.riemann.eq-lebesgue

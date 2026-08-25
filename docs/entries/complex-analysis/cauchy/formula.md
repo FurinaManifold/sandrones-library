@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.definition"]
 mathlib: ["DifferentiableOn.circleIntegral_sub_inv_smul", "circleIntegral"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（Cauchy 积分公式）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

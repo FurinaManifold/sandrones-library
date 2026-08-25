@@ -5,7 +5,7 @@ state: verified
 title: "序数的共尾数"
 premises: ["settheory.ordinal.successor-limit", "settheory.ordinal.supremum"]
 mathlib: ["Order.cof", "Ordinal.cof_toType", "Ordinal.cof_zero", "Ordinal.cof_add_one", "Ordinal.cof_omega0"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cofinality"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

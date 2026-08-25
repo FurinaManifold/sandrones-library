@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.hom"]
 mathlib: ["QuotientGroup.quotientInfEquivProdNormalQuotient", "QuotientGroup.quotientQuotientEquivQuotient", "QuotientGroup.comapMk'OrderIso"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups, Ch 2（同构定理）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

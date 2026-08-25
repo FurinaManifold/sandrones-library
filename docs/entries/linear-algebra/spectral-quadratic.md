@@ -7,7 +7,7 @@ premises: ["linear-algebra.inner-product", "linear-algebra.matrix.symmetric"]
 mathlib: ["LinearMap.IsSymmetric.eigenvectorBasis", "LinearMap.IsSymmetric.apply_eigenvectorBasis", "QuadraticForm.equivalent_one_zero_neg_one_weighted_sum_squared", "QuadraticForm.sigPos_of_equiv_weightedSumSquares"]
 provenance:
   source_type: book
-  ref: "本科线性代数：实对称谱定理、二次型与Sylvester惯性定律"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # 动机

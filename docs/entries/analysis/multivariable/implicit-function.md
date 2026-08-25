@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.inverse-function"]
 mathlib: ["ContDiffAt.implicitFunction", "ContDiffAt.hasStrictFDerivAt_implicitFunction"]
 provenance:
   source_type: book
-  ref: "多元微积分：隐函数定理"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

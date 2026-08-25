@@ -10,7 +10,7 @@ premises: [topology.metric.cauchy-complete]
 mathlib: [UniformSpace.Completion, UniformSpace.Completion.uniformContinuous_coe, UniformSpace.Completion.coe_injective]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（完备化）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.metric.completion

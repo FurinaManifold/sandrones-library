@@ -5,7 +5,7 @@ state: verified
 title: "有限状态机的单步与多步执行"
 premises: ["settheory.googology.binary-machine"]
 mathlib: []
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

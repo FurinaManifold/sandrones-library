@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.frechet"]
 mathlib: ["HasGradientAt", "HasGradientAt.hasFDerivAt", "HasGradientAt.fderiv_apply"]
 provenance:
   source_type: book
-  ref: "多元微积分：梯度"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

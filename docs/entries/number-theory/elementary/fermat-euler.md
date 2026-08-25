@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.totient", "number-theory.elementary.congrue
 mathlib: ["Nat.ModEq.pow_totient", "Nat.totient_prime", "Nat.Prime.coprime_iff_not_dvd", "Nat.modEq_zero_iff_dvd"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（Euler 与 Fermat 定理）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

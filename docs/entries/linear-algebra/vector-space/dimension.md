@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Module.finrank_eq_rank", "Module.finrank_zero_iff"]
 provenance:
   source_type: book
-  ref: "线性代数教材：向量空间、基与维数"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.vector-space.dimension

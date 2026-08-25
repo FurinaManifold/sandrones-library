@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.cauchy-riemann"]
 mathlib: ["differentiableAt_complex_iff_differentiableAt_real", "complexOfReal_hasDerivAt"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I, Ch 2"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

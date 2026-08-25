@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 带证书序列：把重编码单步串起来"
 premises: ["settheory.googology.goodstein-reencoding"]
 mathlib: []
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

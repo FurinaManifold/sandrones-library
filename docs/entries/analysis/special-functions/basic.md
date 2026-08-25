@@ -7,7 +7,7 @@ premises: [analysis.continuity.definition, analysis.derivative.const]
 mathlib: ["Real.exp_pos", "Real.exp_add", "Real.continuous_exp", "Real.hasDerivAt_exp", "Real.continuous_sin", "Real.continuous_cos", "Real.hasDerivAt_sin", "Real.hasDerivAt_cos"]
 provenance:
   source_type: textbook
-  ref: "数学分析中的指数函数与三角函数基础性质"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

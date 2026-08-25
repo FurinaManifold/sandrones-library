@@ -10,7 +10,7 @@ premises: []
 mathlib: [Metric.tendsto_nhds, Metric.mem_nhdsWithin_iff]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第三章 §1 函数极限
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

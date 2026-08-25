@@ -5,7 +5,7 @@ state: verified
 title: "限定步数停机"
 premises: ["settheory.googology.machine-execution"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Computability theory: bounded simulation"}
+provenance: {source_type: textbook, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

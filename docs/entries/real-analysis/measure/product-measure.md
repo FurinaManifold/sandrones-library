@@ -7,7 +7,7 @@ state: verified
 title: "乘积测度与矩形测度"
 premises: ["real-analysis.measure.def"]
 mathlib: ["MeasureTheory.Measure.prod_prod"]
-provenance: {source_type: book, ref: "实分析：乘积测度"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 陈述与动机

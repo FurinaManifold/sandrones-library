@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.prime-tests"]
 mathlib: ["Nat.minFac_prime", "Nat.minFac_dvd", "Nat.Prime.dvd_factorial", "Set.infinite_of_not_bddAbove"]
 provenance:
   source_type: book
-  ref: "Euclid, Elements, Book IX, Proposition 20"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

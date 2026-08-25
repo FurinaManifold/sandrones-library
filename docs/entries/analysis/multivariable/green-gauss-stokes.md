@@ -12,7 +12,7 @@ mathlib: ["MeasureTheory.integral2_divergence_prod_of_hasFDerivAt",
   "MeasureTheory.integral_biUnion_finset", "Matrix.crossProduct"]
 provenance:
   source_type: book
-  ref: "数学分析 II：Green、Gauss与Stokes公式"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

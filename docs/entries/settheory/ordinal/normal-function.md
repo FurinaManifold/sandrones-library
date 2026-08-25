@@ -5,7 +5,7 @@ state: verified
 title: "正规序数函数"
 premises: ["settheory.ordinal.exponentiation", "settheory.ordinal.supremum"]
 mathlib: ["Ordinal.isNormal_opow"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Normal Functions"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

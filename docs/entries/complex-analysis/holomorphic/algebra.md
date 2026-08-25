@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition]
 mathlib: [DifferentiableAt.add, DifferentiableAt.mul, DifferentiableAt.div, DifferentiableAt.comp]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Chapter 2"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

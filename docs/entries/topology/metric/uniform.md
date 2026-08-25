@@ -10,7 +10,7 @@ premises: [topology.space.continuous]
 mathlib: [Metric.uniformContinuous_iff, UniformContinuous.continuous, uniformContinuous_id]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（一致连续）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.metric.uniform

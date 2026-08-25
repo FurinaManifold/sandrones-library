@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.add-sub]
 mathlib: ["Real.sin_two_mul", "Real.cos_two_mul", "Real.sin_sq_eq_half_sub", "Real.cos_sq", "Real.sin_sq_add_cos_sq"]
 provenance:
   source_type: textbook
-  ref: "高中数学：三角函数倍角、半角与降幂公式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -10,7 +10,7 @@ premises: [linear-algebra.eigen.similar-diagonal]
 mathlib: [Matrix.det_mul, Matrix.det_nonsing_inv, Matrix.nonsing_inv_mul, Matrix.mul_smul, Matrix.smul_mul]
 provenance:
   source_type: book
-  ref: 线性代数教材：相似矩阵与特征多项式
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.similar-charpoly

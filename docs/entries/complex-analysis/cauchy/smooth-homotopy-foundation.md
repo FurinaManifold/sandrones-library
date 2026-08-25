@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.pa
 mathlib: [ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt, Path.Homotopy, ContDiffOn, ContinuousLinearMap.smulRightL]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, homotopy form of Cauchy's theorem; C2-regular foundation"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.frechet", "analysis.multivariable.coordinates
 mathlib: ["ContDiffAt.toOpenPartialHomeomorph", "HasStrictFDerivAt.to_localInverse"]
 provenance:
   source_type: book
-  ref: "多元微积分：反函数定理"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

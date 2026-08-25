@@ -5,7 +5,7 @@ state: verified
 title: 连续零化子、双零化子与子空间闭包
 premises: [functional-analysis.convex.separation, functional-analysis.hahn-banach.norming-functional]
 mathlib: [StrongDual.polarSubmodule, StrongDual.mem_polarSubmodule, Submodule.topologicalClosure]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.3.4"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

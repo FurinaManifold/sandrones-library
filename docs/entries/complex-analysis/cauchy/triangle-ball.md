@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.pa
 mathlib: [DifferentiableOn.isExactOn_ball, intervalIntegral.integral_eq_sub_of_hasDerivAt, curveIntegral_segment, convex_ball]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Cauchy's theorem for a triangle; formalized here in the currently supported ball-with-primitive form"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Submodule.span_le", "Submodule.span_mono"]
 provenance:
   source_type: book
-  ref: "线性代数教材：子空间与生成"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.vector-space.span

@@ -5,7 +5,7 @@ state: staging
 title: Banach 开映射定理
 premises: [functional-analysis.baire.theorem, functional-analysis.operator.continuous-linear-map]
 mathlib: [IsOpenMap, Topology.IsQuotientMap, ContinuousLinearMap.isOpenMap, ContinuousLinearMap.isQuotientMap]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

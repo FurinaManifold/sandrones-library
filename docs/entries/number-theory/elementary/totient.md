@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.chinese-remainder"]
 mathlib: ["ZMod.card_units_eq_totient"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（Euler φ 函数）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

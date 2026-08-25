@@ -5,7 +5,7 @@ state: verified
 title: "Lᵖ空间的完备性"
 premises: ["real-analysis.lp.basic", "real-analysis.lp.minkowski"]
 mathlib: ["MeasureTheory.Lp.instCompleteSpace", "CompleteSpace.complete"]
-provenance: {source_type: book, ref: "实分析：Riesz–Fischer定理"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 动机

@@ -9,7 +9,7 @@ premises: ["analysis.inequalities.holder-finite"]
 mathlib: ["Finset.sum_mul_sq_le_sq_mul_sq"]
 provenance:
   source_type: book
-  ref: "数学分析：Cauchy–Schwarz不等式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

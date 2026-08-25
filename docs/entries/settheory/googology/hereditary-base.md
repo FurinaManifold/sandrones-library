@@ -5,7 +5,7 @@ state: verified
 title: "遗传基表示：连指数也用同一底数展开"
 premises: ["settheory.googology.primitive-recursion"]
 mathlib: []
-provenance: {source_type: book, ref: "Laurence Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

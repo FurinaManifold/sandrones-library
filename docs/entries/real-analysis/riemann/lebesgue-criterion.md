@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.def", "real-analysis.riemann.cont-integrable",
 mathlib: ["MeasureTheory.measure_mono", "MeasureTheory.measure_biUnion_finset", "MeasureTheory.measure_iUnion_null", "MeasureTheory.measure_toMeasurable", "Set.exists_isOpen_lt_of_lt", "Metric.ediam", "Metric.uniformContinuousOn_iff", "OscillationWithin.eq_zero_iff_continuousWithinAt", "Real.volume_Ioc", "ENNReal.le_of_forall_pos_le_add"]
 provenance:
   source_type: book
-  ref: "Lebesgue criterion for Riemann integrability"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 动机

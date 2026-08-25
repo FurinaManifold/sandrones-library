@@ -7,7 +7,7 @@ premises: []
 mathlib: ["intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg", "MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul"]
 provenance:
   source_type: book
-  ref: "数学分析 II：第一型曲线积分与第一型曲面积分"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 当前结果

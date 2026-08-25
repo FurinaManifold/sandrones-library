@@ -10,7 +10,7 @@ premises: [abstract-algebra.poly.def]
 mathlib: [Polynomial.mem_roots, Polynomial.root_mul, Polynomial.card_roots]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 2（根与次数）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.poly.roots-card

@@ -7,7 +7,7 @@ premises: ["number-theory.elementary.divisibility"]
 mathlib: ["Nat.factorization", "Nat.prod_factorization_pow_eq_self", "Nat.eq_of_factorization_eq"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（算术基本定理）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

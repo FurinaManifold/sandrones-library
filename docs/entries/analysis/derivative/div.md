@@ -10,7 +10,7 @@ premises: []
 mathlib: ["deriv_div"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第三章 导数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.derivative.div

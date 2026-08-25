@@ -5,7 +5,7 @@ state: verified
 title: "有限集：能够完整编号到某个 Fin n"
 premises: ["settheory.cardinal.equinumerous"]
 mathlib: ["Fin"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Finite Cardinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: []
 mathlib: ["Nat.mod_add_div", "Nat.mod_lt", "Nat.dvd_gcd_iff", "Nat.gcd_eq_gcd_ab", "Int.gcd_dvd_iff", "Nat.Prime.dvd_mul", "Nat.exists_prime_and_dvd"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（整除与素数）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

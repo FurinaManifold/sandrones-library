@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Matrix.det_mul"]
 provenance:
   source_type: book
-  ref: "线性代数教材：行列式"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.det.mul

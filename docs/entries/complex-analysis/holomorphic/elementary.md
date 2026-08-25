@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.definition"]
 mathlib: ["Complex.differentiable_exp", "Complex.hasDerivAt_exp", "Complex.differentiable_sin", "Complex.hasDerivAt_sin", "Complex.differentiable_cos", "Complex.hasDerivAt_cos", "Complex.slitPlane", "Complex.isOpen_slitPlane", "Complex.differentiableAt_log", "Complex.exp_log", "Complex.exp_add"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（初等全纯函数与对数分支）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

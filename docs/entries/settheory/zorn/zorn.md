@@ -10,7 +10,7 @@ premises: []
 mathlib: [zorn_le, zorn_subset, zorn_superset, IsMax, IsChain, BddAbove]
 provenance:
   source_type: book
-  ref: Halmos, Naive Set Theory, Ch 16（Zorn 引理）
+  ref: "jech-set-theory-2003"
 ---
 
 # settheory.zorn.zorn

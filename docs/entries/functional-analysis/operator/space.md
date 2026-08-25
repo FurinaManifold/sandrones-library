@@ -5,7 +5,7 @@ state: verified
 title: 算子范数与连续线性算子空间
 premises: [functional-analysis.operator.continuous-linear-map, topology.normed-space.banach]
 mathlib: [ContinuousLinearMap.le_opNorm, ContinuousLinearMap.opNorm_le_bound, ContinuousLinearMap.instCompleteSpace]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

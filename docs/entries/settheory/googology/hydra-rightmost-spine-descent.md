@@ -5,7 +5,7 @@ state: verified
 title: "任意有限最右祖先链上的 Hydra 复制下降"
 premises: ["settheory.googology.hydra-parent-sibling-descent"]
 mathlib: []
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明带最右脊柱证书的子类"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

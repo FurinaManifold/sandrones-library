@@ -10,7 +10,7 @@ premises: [analysis.mvt.lagrange, analysis.derivative.chain-rule]
 mathlib: [taylor_mean_remainder_lagrange, taylorWithinEval, iteratedDerivWithin]
 provenance:
   source_type: book
-  ref: Rudin, Principles of Mathematical Analysis, Thm 5.15（Taylor 定理，Lagrange 余项）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.mvt.taylor

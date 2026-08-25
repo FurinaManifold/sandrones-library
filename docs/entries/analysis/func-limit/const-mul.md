@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Filter.Tendsto.const_mul"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第一章 函数极限"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.func-limit.const-mul

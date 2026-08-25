@@ -10,7 +10,7 @@ premises: []
 mathlib: [Metric.tendsto_atTop, Real.dist_eq]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第二章 §1 数列极限概念
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

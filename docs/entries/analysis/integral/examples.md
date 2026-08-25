@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.ftc", "real-analysis.riemann.parts-substitutio
 mathlib: ["hasDerivAt_pow", "Real.hasDerivAt_exp", "Real.hasDerivAt_sin", "Real.hasDerivAt_cos"]
 provenance:
   source_type: book
-  ref: "数学分析 II：Newton–Leibniz 公式的基本计算例"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def, abstract-algebra.ring.domain, abstract-alg
 mathlib: [Polynomial]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Chapter 2
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

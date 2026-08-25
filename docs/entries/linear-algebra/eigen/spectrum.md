@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Module.End.HasEigenvalue.mem_spectrum", "spectrum"]
 provenance:
   source_type: book
-  ref: "线性代数教材：特征值与特征向量"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.spectrum

@@ -10,7 +10,7 @@ premises: []
 mathlib: [MeasurableSpace, MeasurableSet.empty, MeasurableSet.compl, MeasurableSet.iUnion, MeasurableSet.inter]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（σ-代数）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.sigma-algebra

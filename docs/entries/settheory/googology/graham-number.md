@@ -5,7 +5,7 @@ state: verified
 title: "Graham 数：让前一项决定下一步的箭头数量"
 premises: ["settheory.googology.knuth-arrow"]
 mathlib: []
-provenance: {source_type: book, ref: "Ronald Graham, Bruce Rothschild, Joel Spencer, Ramsey Theory"}
+provenance: {source_type: book, ref: "graham-rothschild-spencer-ramsey-1990"}
 ---
 
 # 动机

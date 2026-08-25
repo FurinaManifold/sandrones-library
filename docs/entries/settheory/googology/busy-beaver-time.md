@@ -5,7 +5,7 @@ state: verified
 title: "时间型 Busy Beaver：最大首次停机时间"
 premises: ["settheory.googology.unbounded-halting-relation", "settheory.googology.busy-beaver-existence"]
 mathlib: ["Nat.find", "Finset.sup"]
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962; maximum-shift variant"}
+provenance: {source_type: book, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "含阶段复制的一层 Hydra 砍头严格下降"
 premises: ["settheory.googology.hydra-ordinal-assignment"]
 mathlib: ["Ordinal.opow_mul_lt_opow", "Ordinal.natCast_lt_omega0"]
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明固定一层子类"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

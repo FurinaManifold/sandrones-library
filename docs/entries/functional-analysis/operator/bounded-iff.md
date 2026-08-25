@@ -5,7 +5,7 @@ state: verified
 title: 线性算子有界与连续等价
 premises: [functional-analysis.operator.continuous-linear-map]
 mathlib: [LinearMap.mkContinuous, ContinuousLinearMap.le_opNorm]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

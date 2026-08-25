@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.frechet", "analysis.multivariable.coordinates
 mathlib: ["iteratedFDeriv", "ContDiffAt.isSymmSndFDerivAt", "map_add_eq_sum_add_integral_iteratedFDeriv"]
 provenance:
   source_type: book
-  ref: "多元微积分：Hessian、混合偏导与Taylor公式"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

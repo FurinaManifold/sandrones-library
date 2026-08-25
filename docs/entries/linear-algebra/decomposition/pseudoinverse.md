@@ -6,7 +6,7 @@ title: Moore–Penrose 伪逆
 summary: 有限维线性映射存在满足四条 Penrose 方程的规范伪逆
 premises: [linear-algebra.decomposition.polar]
 mathlib: [LinearMap.singularValues, InnerProductSpace.rankOne]
-provenance: {source_type: textbook, ref: "Moore-Penrose pseudoinverse"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

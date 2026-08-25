@@ -10,7 +10,7 @@ premises: [analysis.sequence.definition, analysis.sequence.cauchy]
 mathlib: [HasSum, Summable, HasSum.tendsto_sum_nat, hasSum_iff_tendsto_nat_of_summable_norm]
 provenance:
   source_type: textbook
-  ref: 数学分析 II：数项级数基础
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

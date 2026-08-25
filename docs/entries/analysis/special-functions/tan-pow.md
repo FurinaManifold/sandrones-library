@@ -6,7 +6,7 @@ title: 反余弦连续性与反三角导数
 summary: 反余弦在实轴连续，并给出反正弦和反余弦避开端点时的导数公式
 premises: [analysis.special-functions.log-tan-pow]
 mathlib: [Real.continuous_arccos, Real.hasDerivAt_arcsin, Real.hasDerivAt_arccos]
-provenance: {source_type: textbook, ref: "数学分析初等函数求导公式"}
+provenance: {source_type: textbook, ref: "ecnu-mathematical-analysis-5"}
 ---
 
 # 动机

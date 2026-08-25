@@ -10,7 +10,7 @@ premises: [linear-algebra.eigen.charpoly]
 mathlib: [Matrix.nonsing_inv_mul, Matrix.mul_nonsing_inv, Matrix.diagonal]
 provenance:
   source_type: book
-  ref: 线性代数教材：相似与对角化
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.similar-diagonal

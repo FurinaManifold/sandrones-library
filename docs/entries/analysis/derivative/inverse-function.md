@@ -7,7 +7,7 @@ premises: [analysis.derivative.chain-rule, analysis.continuity.inverse]
 mathlib: ["HasDerivAt.comp", "HasDerivAt.congr_of_eventuallyEq", "HasDerivAt.unique"]
 provenance:
   source_type: textbook
-  ref: "数学分析中的反函数求导定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

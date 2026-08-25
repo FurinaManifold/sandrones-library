@@ -10,7 +10,7 @@ premises: [topology.foundation.structure]
 mathlib: [TopologicalSpace, IsOpen, IsClosed, nhds, Homeomorph, unitInterval, Path]
 provenance:
   source_type: migration
-  ref: "Topology Mathlib reuse migration RFC"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

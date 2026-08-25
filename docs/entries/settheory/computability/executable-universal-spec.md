@@ -5,7 +5,7 @@ state: verified
 title: "可由程序实现的通用解释器规格"
 premises: ["settheory.computability.pairing-code"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Universal machine and acceptable programming system"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

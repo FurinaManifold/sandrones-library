@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.congruence"]
 mathlib: ["Nat.chineseRemainder", "ZMod.chineseRemainder"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（中国剩余定理）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "正则与奇异基数：能否由较短序列逼近"
 premises: ["settheory.cardinal.cardinal-cofinality"]
 mathlib: ["Cardinal.isRegular_aleph0"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 5: Regular and Singular Cardinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

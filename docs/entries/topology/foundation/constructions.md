@@ -10,7 +10,7 @@ premises: [topology.foundation.structure]
 mathlib: [TopologicalSpace.induced, isOpen_induced_iff, continuous_subtype_val, Continuous.subtype_mk, isOpen_prod_iff, continuous_fst, continuous_snd, Continuous.prodMk]
 provenance:
   source_type: book
-  ref: "Munkres, Topology, Sections 16 and 19"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

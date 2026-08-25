@@ -10,7 +10,7 @@ premises: [real-analysis.measure.lintegral]
 mathlib: [lintegral_liminf_le]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（Fatou）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.fatou

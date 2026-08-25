@@ -5,7 +5,7 @@ state: verified
 title: "序数幂的后继递推"
 premises: ["settheory.ordinal.transfinite-recursion", "settheory.ordinal.multiplication"]
 mathlib: ["Ordinal.limitRecOn", "Ordinal.opow_succ", "Ordinal.opow_limit"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Ordinal Arithmetic"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

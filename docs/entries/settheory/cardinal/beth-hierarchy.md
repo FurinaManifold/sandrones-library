@@ -5,7 +5,7 @@ state: verified
 title: "Beth 层级：反复取幂集产生的无穷"
 premises: ["settheory.cardinal.exponentiation", "settheory.cardinal.aleph-hierarchy"]
 mathlib: ["Cardinal.beth", "Cardinal.beth_zero", "Cardinal.beth_succ"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 5: Beth Numbers"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

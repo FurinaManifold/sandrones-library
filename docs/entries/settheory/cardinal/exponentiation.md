@@ -5,7 +5,7 @@ state: verified
 title: "基数幂：计算所有函数的数量"
 premises: ["settheory.cardinal.equinumerous"]
 mathlib: ["Equiv.arrowCongr"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

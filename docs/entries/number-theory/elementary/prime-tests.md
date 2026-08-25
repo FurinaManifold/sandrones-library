@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.prime-factorization"]
 mathlib: ["Nat.prime_def_le_sqrt", "Nat.not_prime_iff_exists_dvd_lt"]
 provenance:
   source_type: book
-  ref: "Hardy–Wright, An Introduction to the Theory of Numbers, Ch 1"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

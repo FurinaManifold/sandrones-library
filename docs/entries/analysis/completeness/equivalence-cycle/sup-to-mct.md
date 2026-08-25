@@ -10,7 +10,7 @@ premises: ["analysis.real.sup"]
 mathlib: ["tendsto_atTop_ciSup", "IsLUB.ciSup_eq"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.sup-to-mct

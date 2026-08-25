@@ -11,7 +11,7 @@ mathlib: ["Subspace.dual_finrank_eq", "Module.Dual.eval", "Module.bijective_dual
   "AlternatingMap.map_eq_zero_of_eq"]
 provenance:
   source_type: book
-  ref: "线性代数与经典微分几何：对偶空间、张量积和外代数"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # 动机

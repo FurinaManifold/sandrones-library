@@ -10,7 +10,7 @@ premises: [topology.space.continuous]
 mathlib: [continuous_subtype_val, ContinuousOn.restrict, continuous_fst, continuous_snd, isOpen_induced_iff]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（子空间/积拓扑）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.subspace

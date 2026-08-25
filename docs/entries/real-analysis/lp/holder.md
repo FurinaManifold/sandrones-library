@@ -7,7 +7,7 @@ state: verified
 title: "Hölder 不等式"
 premises: ["real-analysis.lp.basic", "real-analysis.measure.lintegral"]
 mathlib: ["MeasureTheory.integral_mul_norm_le_Lp_mul_Lq", "MeasureTheory.integral_mul_le_Lp_mul_Lq_of_nonneg", "MeasureTheory.MemLp.integrable_mul"]
-provenance: {source_type: book, ref: "实分析：Hölder 不等式"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 陈述

@@ -5,7 +5,7 @@ state: verified
 title: "ε₀：首个 epsilon 数"
 premises: ["settheory.ordinal.normal-function", "settheory.ordinal.cantor-normal-form"]
 mathlib: ["Ordinal.omega0_opow_epsilon", "Ordinal.epsilon_zero_le_of_omega0_opow_le"]
-provenance: {source_type: book, ref: "Wolfram Pohlers, Proof Theory, Section 1.2: Epsilon Numbers"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

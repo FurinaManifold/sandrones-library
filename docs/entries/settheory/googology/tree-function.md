@@ -5,7 +5,7 @@ state: verified
 title: "TREE 函数：有限标号树与坏序列的严格定义入口"
 premises: []
 mathlib: []
-provenance: {source_type: paper, ref: "Harvey Friedman, finite forms of Kruskal's tree theorem"}
+provenance: {source_type: paper, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "带最右脊柱证书的 Hydra 轨迹不可能无限"
 premises: ["settheory.googology.hydra-rightmost-spine-descent", "settheory.ordinal.no-infinite-descent"]
 mathlib: ["wellFounded_iff_isEmpty_descending_chain"]
-provenance: {source_type: book, ref: "序数下降终止法；本条只应用于本库最右脊柱证书步骤"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

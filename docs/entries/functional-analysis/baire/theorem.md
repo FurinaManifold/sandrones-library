@@ -5,7 +5,7 @@ state: staging
 title: Banach 空间的 Baire 范畴定理
 premises: [topology.normed-space.banach]
 mathlib: [BaireSpace, dense_iInter_of_isOpen_nat, nonempty_interior_of_iUnion_of_closed]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

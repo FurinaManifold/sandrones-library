@@ -10,7 +10,7 @@ premises: [analysis.real.sup, analysis.sequence.definition]
 mathlib: [tendsto_atTop_ciSup, Real.isLUB_sSup]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第二章 §3 数列极限存在的条件（定理 2.9）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.sequence.monotone-convergence

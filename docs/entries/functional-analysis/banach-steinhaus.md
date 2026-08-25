@@ -5,7 +5,7 @@ state: staging
 title: Banach–Steinhaus 一致有界原理
 premises: [functional-analysis.baire.theorem, functional-analysis.operator.space]
 mathlib: [banach_steinhaus, ContinuousLinearMap.le_opNorm]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

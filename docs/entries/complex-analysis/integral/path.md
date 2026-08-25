@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition]
 mathlib: [Path, curveIntegral, CurveIntegrable, curveIntegral_segment, ContinuousLinearMap.smulRight]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（复路径积分）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

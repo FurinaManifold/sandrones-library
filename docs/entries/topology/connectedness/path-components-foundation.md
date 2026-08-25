@@ -10,7 +10,7 @@ premises: [topology.foundation.constructions]
 mathlib: [Path, Joined, JoinedIn, pathComponent, IsPathConnected, IsPathConnected.image]
 provenance:
   source_type: book
-  ref: "Munkres, Topology, Section 24"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

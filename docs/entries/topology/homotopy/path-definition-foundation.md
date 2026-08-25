@@ -10,7 +10,7 @@ premises: [topology.foundation.real-line, topology.foundation.structure]
 mathlib: [Path, Path.refl, Path.map, unitInterval]
 provenance:
   source_type: book
-  ref: "Hatcher, Algebraic Topology, Section 1.1"
+  ref: "hatcher-algebraic-topology-2002"
 ---
 
 # 动机

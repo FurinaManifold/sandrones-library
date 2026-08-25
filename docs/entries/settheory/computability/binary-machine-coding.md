@@ -5,7 +5,7 @@ state: verified
 title: "固定状态数二符号机器的有限编码"
 premises: ["settheory.googology.binary-machine"]
 mathlib: ["Fintype.equivFin", "Fintype.card"]
-provenance: {source_type: library_bridge, ref: "Mathlib finite-type canonical enumeration"}
+provenance: {source_type: library_bridge, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

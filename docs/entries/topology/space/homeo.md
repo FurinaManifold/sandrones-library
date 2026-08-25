@@ -10,7 +10,7 @@ premises: [topology.space.continuous]
 mathlib: [Homeomorph, Homeomorph.continuous, Homeomorph.bijective, Homeomorph.isOpen_image]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（同胚）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.homeo

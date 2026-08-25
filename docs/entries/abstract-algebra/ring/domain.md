@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def]
 mathlib: [NoZeroDivisors, IsDomain, IsField]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（整环与域）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

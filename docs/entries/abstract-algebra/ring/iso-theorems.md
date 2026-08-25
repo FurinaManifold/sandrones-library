@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def, abstract-algebra.ring.ideal, abstract-alge
 mathlib: [Quotient]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（同构定理）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

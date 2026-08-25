@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 序数度量：把有限底数换成 ω"
 premises: ["settheory.googology.goodstein-certified-state", "settheory.ordinal.exponentiation"]
 mathlib: ["Ordinal.omega0"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

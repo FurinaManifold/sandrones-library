@@ -5,7 +5,7 @@ state: verified
 title: "Knuth 上箭头：用符号数量提升运算等级"
 premises: ["settheory.googology.hyperoperation"]
 mathlib: ["Nat.hyperoperation"]
-provenance: {source_type: paper, ref: "Donald Knuth, Mathematics and Computer Science: Coping with Finiteness, 1976"}
+provenance: {source_type: paper, ref: "knuth-coping-finiteness-1976"}
 ---
 
 # 动机

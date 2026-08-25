@@ -10,7 +10,7 @@ premises: [abstract-algebra.group.def]
 mathlib: [Subgroup.Normal.conj_mem, normal_iff_eq_cosets, Subgroup.Normal.comap, Subgroup.Normal.map, QuotientGroup.ker_mk', QuotientGroup.lift, QuotientGroup.lift_mk', QuotientGroup.mk'_surjective]
 provenance:
   source_type: book
-  ref: Rotman, An Introduction to the Theory of Groups, Ch 2（正规子群/商群）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.group.normal

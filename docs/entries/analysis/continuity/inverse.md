@@ -10,7 +10,7 @@ premises: []
 mathlib: [StrictMono.orderIso, OrderIso.lt_iff_lt, OrderIso.apply_symm_apply, Subtype.dist_eq]
 provenance:
   source_type: book
-  ref: Rudin, Principles of Mathematical Analysis, Thm 4.17（反函数连续）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.continuity.inverse

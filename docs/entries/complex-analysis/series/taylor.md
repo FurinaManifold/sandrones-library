@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.definition", "complex-analysis.holomorp
 mathlib: ["Complex.hasSum_taylorSeries_on_ball", "HasFPowerSeriesAt.eq_formalMultilinearSeries", "FormalMultilinearSeries.ofScalars"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（Taylor 展开与唯一性）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

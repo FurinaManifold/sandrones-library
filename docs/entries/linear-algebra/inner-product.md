@@ -7,7 +7,7 @@ premises: ["linear-algebra.vector-space.def"]
 mathlib: ["abs_real_inner_le_norm", "InnerProductSpace.gramSchmidtNormed_orthonormal", "Submodule.starProjection", "LinearMap.adjoint_inner_right"]
 provenance:
   source_type: book
-  ref: "本科线性代数：内积空间、正交化与伴随算子"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: 典范双对偶嵌入与自反性
 premises: [functional-analysis.hahn-banach.norming-functional, functional-analysis.subspace.annihilator-closure]
 mathlib: [NormedSpace.inclusionInDoubleDual, NormedSpace.inclusionInDoubleDualLi, NormedSpace.dual_def]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.4"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

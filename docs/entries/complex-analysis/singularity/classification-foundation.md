@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition]
 mathlib: [MeromorphicAt, meromorphicOrderAt, tendsto_nhds_iff_meromorphicOrderAt_nonneg, tendsto_cobounded_iff_meromorphicOrderAt_neg]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, isolated singularities"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

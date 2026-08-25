@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Matrix.nonsing_inv_mul", "Matrix.mul_nonsing_inv", "IsUnit"]
 provenance:
   source_type: book
-  ref: "线性代数教材：行列式"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.det.invertible

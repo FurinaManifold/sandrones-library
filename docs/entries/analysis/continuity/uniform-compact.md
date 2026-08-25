@@ -10,7 +10,7 @@ premises: [analysis.continuity.uniform, analysis.continuity.definition]
 mathlib: [Metric.uniformContinuousOn_iff, Metric.continuousOn_iff, IsCompact.elim_finite_subcover, Finset.min']
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版（一致连续）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.continuity.uniform-compact

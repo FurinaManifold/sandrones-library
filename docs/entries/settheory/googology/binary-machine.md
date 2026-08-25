@@ -5,7 +5,7 @@ state: verified
 title: "二符号有限状态图灵机"
 premises: []
 mathlib: ["Fin", "Finset"]
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962"}
+provenance: {source_type: book, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

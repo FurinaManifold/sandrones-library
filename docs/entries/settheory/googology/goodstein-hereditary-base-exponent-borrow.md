@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 遗传指数借位：底数自身进入指数"
 premises: ["settheory.googology.goodstein-finite-power-borrow", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Order.IsNormal.strictMono", "Ordinal.natCast_lt_omega0"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

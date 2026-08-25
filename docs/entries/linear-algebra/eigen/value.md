@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Module.End.hasEigenvalue_iff", "Module.End.eigenspace"]
 provenance:
   source_type: book
-  ref: "线性代数教材：特征值与特征向量"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.value

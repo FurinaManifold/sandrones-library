@@ -7,7 +7,7 @@ premises: ["analysis.series.mertens"]
 mathlib: ["Real.tendsto_tsum_powerSeries_nhdsWithin_lt", "summable_powerSeries_of_norm_lt_one", "tendsto_nhds_unique"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：Abel 的级数乘积定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -5,7 +5,7 @@ state: staging
 title: Hilbert 空间的闭子空间正交投影
 premises: [linear-algebra.inner-product, topology.normed-space.banach, functional-analysis.subspace.quotient]
 mathlib: [Submodule.HasOrthogonalProjection, Submodule.starProjection, Submodule.starProjection_minimal]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

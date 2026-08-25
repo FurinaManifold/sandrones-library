@@ -10,7 +10,7 @@ premises: ["analysis.derivative.chain-rule"]
 mathlib: ["exists_deriv_eq_zero"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第四章 微分中值定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.mvt.rolle

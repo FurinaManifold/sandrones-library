@@ -6,7 +6,7 @@ title: 奇异值分解
 summary: 有限维实或复线性映射具有正交奇异向量分解
 premises: [linear-algebra.decomposition.schur]
 mathlib: [LinearMap.singularValues, InnerProductSpace.rankOne]
-provenance: {source_type: textbook, ref: "Singular value decomposition"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

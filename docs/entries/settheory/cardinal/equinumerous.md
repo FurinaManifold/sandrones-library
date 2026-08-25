@@ -5,7 +5,7 @@ state: verified
 title: "等势：用双射比较集合大小"
 premises: []
 mathlib: ["Equiv"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cardinal Numbers"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

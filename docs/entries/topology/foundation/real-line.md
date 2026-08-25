@@ -10,7 +10,7 @@ premises: [topology.foundation.constructions, real.order.absolute-value]
 mathlib: [Real.instTopologicalSpace, Metric.isOpen_iff, unitInterval, Set.Icc]
 provenance:
   source_type: book
-  ref: "Munkres, Topology, Sections 13 and 20"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

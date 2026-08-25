@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.domain, abstract-algebra.ring.divisibility]
 mathlib: []
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 2（Euclidean 环）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

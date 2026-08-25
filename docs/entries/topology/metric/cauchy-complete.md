@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [Metric.cauchySeq_iff, cauchySeq_tendsto_of_complete, CompleteSpace]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（完备性）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.metric.cauchy-complete

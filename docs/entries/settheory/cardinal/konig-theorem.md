@@ -5,7 +5,7 @@ state: verified
 title: "König 定理：逐坐标的严格不等式不能在和与积之间消失"
 premises: ["settheory.cardinal.addition", "settheory.cardinal.multiplication"]
 mathlib: ["Cardinal.sum_lt_prod", "Cardinal.lt_power_cof_ord"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 5: König's Theorem"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "自应用停机判定的条件式对角矛盾"
 premises: ["settheory.computability.executable-universal-spec", "settheory.computability.machine-decidable"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Turing's diagonal argument for the halting problem"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Module.finrank_eq_card_basis"]
 provenance:
   source_type: book
-  ref: "华东师大/线性代数教材：向量空间与维数"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.vector-space.basis

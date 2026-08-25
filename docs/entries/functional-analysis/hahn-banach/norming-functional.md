@@ -5,7 +5,7 @@ state: verified
 title: 范数化泛函与对偶范数刻画
 premises: [functional-analysis.hahn-banach.extension]
 mathlib: [exists_dual_vector, exists_dual_vector'', ContinuousLinearMap.le_opNorm]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.3.1"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

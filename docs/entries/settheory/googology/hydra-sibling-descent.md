@@ -5,7 +5,7 @@ state: verified
 title: "保留左兄弟森林的一层 Hydra 复制下降"
 premises: ["settheory.googology.hydra-one-level-descent"]
 mathlib: ["add_lt_add_right"]
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明最右复制分支子类"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: Banach 空间中绝对可和蕴含可和
 premises: [topology.normed-space.banach]
 mathlib: [Summable, HasSum, Summable.of_norm, norm_tsum_le_tsum_norm]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

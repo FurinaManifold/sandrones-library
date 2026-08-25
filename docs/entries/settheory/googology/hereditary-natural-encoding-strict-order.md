@@ -5,7 +5,7 @@ state: verified
 title: "遗传自然数编码的全局严格保序"
 premises: ["settheory.googology.hereditary-natural-encoding-same-block-order"]
 mathlib: ["Ordinal.mul_succ", "Ordinal.natCast_lt_omega0"]
-provenance: {source_type: derived, ref: "Ordinal order of corrected Horner encoding"}
+provenance: {source_type: derived, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

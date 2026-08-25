@@ -10,7 +10,7 @@ premises: [topology.homotopy.path-definition-foundation]
 mathlib: [Path.trans, Path.trans_apply]
 provenance:
   source_type: book
-  ref: "Hatcher, Algebraic Topology, Section 1.1"
+  ref: "hatcher-algebraic-topology-2002"
 ---
 
 # 动机

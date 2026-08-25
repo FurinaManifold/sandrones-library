@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.pa
 mathlib: [Convex.exists_forall_hasDerivWithinAt, intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le, convex_convexHull, lineMap_mem_segment]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Cauchy theorem for a triangle"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

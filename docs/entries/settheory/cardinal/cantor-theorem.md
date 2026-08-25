@@ -5,7 +5,7 @@ state: verified
 title: "Cantor 定理：幂集严格更大"
 premises: ["settheory.cardinal.comparison"]
 mathlib: []
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cantor's Theorem"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

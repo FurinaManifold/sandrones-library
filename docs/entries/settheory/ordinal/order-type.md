@@ -5,7 +5,7 @@ state: verified
 title: "良序与序型"
 premises: []
 mathlib: ["Ordinal.type_eq", "Ordinal.type_nat_lt"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Ordinal Numbers"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

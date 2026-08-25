@@ -7,7 +7,7 @@ premises: ["abstract-algebra.group.def", "abstract-algebra.group.coset"]
 mathlib: ["Subgroup.zpowers", "Subgroup.mem_zpowers_iff", "Nat.card_zpowers", "isCyclic_iff_exists_zpowers_eq_top", "Subgroup.le_zpowers_iff", "zpowers_eq_top_of_prime_card", "zmodMulEquivOfGenerator", "zmodCyclicMulEquiv", "mulEquivOfCyclicCardEq"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups, Ch 2（循环群）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

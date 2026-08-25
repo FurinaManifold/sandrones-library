@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Matrix.det_one", "Matrix.det_zero"]
 provenance:
   source_type: book
-  ref: "线性代数教材：行列式"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.det.one-zero

@@ -10,7 +10,7 @@ premises: []
 mathlib: ["IsCompact.image_of_continuousOn", "IsCompact.exists_isGreatest", "IsCompact.exists_isLeast", "CompactIccSpace.isCompact_Icc"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.continuity.max-min

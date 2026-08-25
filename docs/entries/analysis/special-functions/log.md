@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.continuity.definition, ana
 mathlib: ["Real.continuousOn_log", "Real.strictMonoOn_log", "Real.log_mul", "Real.exp_log", "Real.log_exp", "Real.hasDerivAt_log"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：对数函数的基本性质"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -10,7 +10,7 @@ premises: [abstract-algebra.group.normal]
 mathlib: [MonoidHom.comp, Subgroup.map, Subgroup.comap, MonoidHom.range_comp, MonoidHom.ker_eq_bot_iff, MonoidHom.range_eq_top, MulEquiv.ofBijective, QuotientGroup.quotientKerEquivRange, MulEquiv.orderOf_eq, Nat.card_congr]
 provenance:
   source_type: book
-  ref: Rotman, An Introduction to the Theory of Groups, Ch 2（同态定理）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.group.hom

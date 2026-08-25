@@ -10,7 +10,7 @@ premises: [number-theory.elementary.continued-fraction-convergent]
 mathlib: [Real.convergent_succ, Int.fract]
 provenance:
   source_type: book
-  ref: "Ireland--Rosen, A Classical Introduction to Modern Number Theory, continued fractions"
+  ref: "ireland-rosen-number-theory-1990"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["analysis.series.tests"]
 mathlib: ["Real.rpow_le_rpow", "Real.rpow_inv_natCast_pow", "Summable.of_norm_bounded_eventually_nat", "tendsto_order"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：Cauchy 根值判别法"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

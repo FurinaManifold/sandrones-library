@@ -5,7 +5,7 @@ state: verified
 title: "Cantor 正规形"
 premises: ["settheory.ordinal.exponentiation"]
 mathlib: ["Ordinal.CNF.foldr"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Cantor Normal Form"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "超运算：把重复运算本身逐级迭代"
 premises: ["settheory.googology.primitive-recursion"]
 mathlib: ["Nat.hyperoperation"]
-provenance: {source_type: book, ref: "R. L. Goodstein, Transfinite Ordinals in Recursive Number Theory"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

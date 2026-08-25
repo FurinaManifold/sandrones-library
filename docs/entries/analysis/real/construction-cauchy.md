@@ -10,7 +10,7 @@ premises: [settheory.set.relations.equivalence-class-eq, settheory.set.relations
 mathlib: [CauSeq, CauSeq.equiv, CauSeq.Completion.mk, Real.ofCauchy]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第一章 实数（补：Cantor 构造）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.real.construction-cauchy

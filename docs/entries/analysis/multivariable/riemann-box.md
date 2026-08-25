@@ -7,7 +7,7 @@ premises: []
 mathlib: ["BoxIntegral.IntegrationParams.Riemann", "ContinuousOn.hasBoxIntegral"]
 provenance:
   source_type: book
-  ref: "数学分析：闭长方体上的多元 Riemann 积分"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 定义

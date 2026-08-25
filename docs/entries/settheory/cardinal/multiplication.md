@@ -5,7 +5,7 @@ state: verified
 title: "基数乘法：用笛卡尔积记录成对选择"
 premises: ["settheory.cardinal.equinumerous"]
 mathlib: ["Equiv.prodCongr"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

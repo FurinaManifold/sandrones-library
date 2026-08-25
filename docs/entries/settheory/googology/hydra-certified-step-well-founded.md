@@ -5,7 +5,7 @@ state: verified
 title: "认证 Hydra 步骤的良基关系与归纳原理"
 premises: ["settheory.googology.hydra-certified-play-termination"]
 mathlib: ["WellFounded.onFun", "WellFounded.mono", "WellFounded.induction"]
-provenance: {source_type: book, ref: "良基秩函数法；本条仅应用于本库认证 Hydra 步骤"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

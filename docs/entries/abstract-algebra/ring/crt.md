@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.ideal, abstract-algebra.ring.quotient, abstract
 mathlib: [Ideal.exists_forall_sub_mem_ideal]
 provenance:
   source_type: book
-  ref: Atiyah--Macdonald, Introduction to Commutative Algebra, Proposition 1.10
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

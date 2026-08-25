@@ -7,7 +7,7 @@ premises: []
 mathlib: ["Matrix.IsSymm", "Matrix.IsSymm.ext_iff", "Matrix.transpose_add"]
 provenance:
   source_type: book
-  ref: "线性代数教材：对称矩阵"
+  ref: "horn-johnson-matrix-analysis-2013"
 ---
 
 # 动机

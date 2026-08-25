@@ -5,7 +5,7 @@ state: verified
 title: "认证 Hydra 有限多步的严格下降与良基闭包"
 premises: ["settheory.googology.hydra-certified-step-well-founded"]
 mathlib: ["Relation.TransGen", "WellFounded.transGen"]
-provenance: {source_type: book, ref: "良基关系的有限传递闭包；本条只处理本库认证 Hydra 步骤"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

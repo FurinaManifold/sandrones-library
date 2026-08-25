@@ -10,7 +10,7 @@ premises: ["analysis.sequence.monotone-convergence", "analysis.sequence.definiti
 mathlib: ["Real.isLUB_sSup", "IsLUB"]
 provenance:
   source_type: generated
-  ref: "Rudin, Principles of Mathematical Analysis, Thm 2.38"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.nested-intervals

@@ -10,7 +10,7 @@ premises: [topology.foundation.constructions, topology.foundation.real-line, top
 mathlib: []
 provenance:
   source_type: book
-  ref: "Hatcher, Algebraic Topology, Section 0"
+  ref: "hatcher-algebraic-topology-2002"
 ---
 
 # 动机

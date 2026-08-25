@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 的非零数字正规形下降"
 premises: ["settheory.googology.goodstein-step", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Nat.sub_one_lt"]
-provenance: {source_type: textbook, ref: "Goodstein 证明中的序数下降思路（数字情形）"}
+provenance: {source_type: textbook, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

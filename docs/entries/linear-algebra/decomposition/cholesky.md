@@ -6,7 +6,7 @@ title: Cholesky 分解
 summary: 实对称正定矩阵具有正对角下三角平方根分解
 premises: [linear-algebra.decomposition.qr]
 mathlib: [LDL.lower, LDL.diagEntries]
-provenance: {source_type: textbook, ref: "Cholesky and LDL decomposition"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

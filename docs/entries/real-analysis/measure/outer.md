@@ -10,7 +10,7 @@ premises: [real-analysis.measure.def]
 mathlib: [OuterMeasure, measure_iUnion_le]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（外测度）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.outer

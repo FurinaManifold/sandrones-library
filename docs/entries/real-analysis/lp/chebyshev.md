@@ -5,7 +5,7 @@ state: verified
 title: "Chebyshev 不等式"
 premises: ["real-analysis.lp.basic"]
 mathlib: ["MeasureTheory.mul_meas_ge_le_pow_eLpNorm'"]
-provenance: {source_type: book, ref: "实分析：Chebyshev–Markov 不等式"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 动机

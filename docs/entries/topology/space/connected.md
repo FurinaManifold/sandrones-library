@@ -10,7 +10,7 @@ premises: [topology.space.continuous]
 mathlib: [IsConnected.image, isConnected_Icc, isPreconnected_Ioo, Homeomorph.isConnected_image]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 3（连通性）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.connected

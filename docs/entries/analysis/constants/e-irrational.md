@@ -7,7 +7,7 @@ premises: ["analysis.constants.e-definition", "analysis.series.taylor"]
 mathlib: ["Real.exp_bound", "Real.sum_le_exp_of_nonneg", "Nat.factorial_dvd_factorial", "Nat.dvd_factorial", "Rat.cast_def"]
 provenance:
   source_type: book
-  ref: "数学分析 I：e 的无理性经典阶乘级数证明"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

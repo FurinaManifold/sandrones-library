@@ -5,7 +5,7 @@ state: verified
 title: "经典 Busy Beaver 的最大值关系与有限候选桥"
 premises: ["settheory.googology.unbounded-halting-relation", "settheory.googology.busy-beaver-candidate"]
 mathlib: ["Finset.sup"]
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962"}
+provenance: {source_type: book, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: [analysis.mvt.taylor, analysis.special-functions.basic]
 mathlib: ["taylor_mean_remainder_lagrange_iteratedDeriv", "taylor_within_apply", "iteratedDerivWithin_zero"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：Taylor–Lagrange 有限阶展开"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

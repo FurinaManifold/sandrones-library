@@ -5,7 +5,7 @@ state: verified
 title: "连续统假设：可数与连续统之间没有中间基数"
 premises: ["settheory.cardinal.aleph-hierarchy", "settheory.cardinal.beth-hierarchy"]
 mathlib: ["Cardinal.beth_one", "Cardinal.two_power_aleph0"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 15: The Continuum Problem"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

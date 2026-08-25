@@ -7,7 +7,7 @@ premises: ["linear-algebra.matrix.orthogonal-unitary"]
 mathlib: ["Matrix.J", "Matrix.symplecticGroup", "SymplecticGroup.det_eq_one"]
 provenance:
   source_type: book
-  ref: "本科线性代数与辛几何前置：辛矩阵及辛群"
+  ref: "mcd-salamon-symplectic-topology-2017"
 ---
 
 # 动机

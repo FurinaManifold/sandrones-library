@@ -7,7 +7,7 @@ premises: ["linear-algebra.matrix.orthogonal-unitary", "linear-algebra.spectral-
 mathlib: ["Matrix.IsHermitian.spectral_theorem", "Matrix.IsHermitian.eigenvectorUnitary", "Matrix.conjTranspose_add", "Matrix.conjTranspose_sub"]
 provenance:
   source_type: book
-  ref: "本科线性代数：正规矩阵、Hermitian矩阵与酉谱定理"
+  ref: "horn-johnson-matrix-analysis-2013"
 ---
 
 # 动机

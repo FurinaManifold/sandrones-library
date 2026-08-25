@@ -10,7 +10,7 @@ premises: ["analysis.mvt.lagrange"]
 mathlib: ["exists_deriv_eq_slope", "div_eq_zero_iff"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版：中值定理推论"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.mvt.constant

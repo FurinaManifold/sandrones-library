@@ -5,7 +5,7 @@ state: verified
 title: "序数族的上确界"
 premises: ["settheory.ordinal.transfinite-recursion"]
 mathlib: ["Ordinal.lt_iSup_iff"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Suprema of Ordinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

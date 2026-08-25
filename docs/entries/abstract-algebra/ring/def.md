@@ -10,7 +10,7 @@ premises: []
 mathlib: [Ring, CommRing, Subring, Subring.closure, Subring.closure_le, IsUnit, RingHom]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（环与子环）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

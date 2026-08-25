@@ -10,7 +10,7 @@ premises: []
 mathlib: [Group, Subgroup, Subgroup.closure, Subgroup.closure_le, mul_left_cancel, mul_inv_rev, zpow_add]
 provenance:
   source_type: book
-  ref: Rotman, An Introduction to the Theory of Groups, Ch 2（子群判定）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.group.def

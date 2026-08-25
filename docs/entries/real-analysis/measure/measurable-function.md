@@ -10,7 +10,7 @@ premises: [real-analysis.measure.sigma-algebra]
 mathlib: [Measurable, measurable_id, measurable_const, Measurable.comp]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（可测函数）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.measurable-function

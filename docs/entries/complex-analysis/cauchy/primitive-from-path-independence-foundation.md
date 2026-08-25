@@ -10,7 +10,7 @@ premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.pa
 mathlib: [HasFDerivWithinAt.curveIntegral_segment_source, Path.trans_range, curveIntegrable_segment, Metric.isOpen_iff]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, construction of a primitive by path integration"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

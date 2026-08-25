@@ -5,7 +5,7 @@ state: verified
 title: "原始递归：从初值逐步生成自然数函数"
 premises: []
 mathlib: ["Nat.rec"]
-provenance: {source_type: book, ref: "Piergiorgio Odifreddi, Classical Recursion Theory, Section I.2"}
+provenance: {source_type: book, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

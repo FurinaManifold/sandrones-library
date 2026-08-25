@@ -10,7 +10,7 @@ premises: ["analysis.completeness.nested-intervals"]
 mathlib: ["monotone_nat_of_le_succ", "antitone_nat_of_succ_le", "Metric.isOpen_iff", "tendsto_pow_atTop_nhds_zero_of_norm_lt_one"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.nested-intervals-to-finite-cover

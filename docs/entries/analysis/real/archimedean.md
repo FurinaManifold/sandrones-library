@@ -7,7 +7,7 @@ premises: []
 mathlib: [exists_nat_gt, div_lt_iff₀]
 provenance:
   source_type: book
-  ref: "Rudin, Principles of Mathematical Analysis, Def 1.17 / Ch1"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

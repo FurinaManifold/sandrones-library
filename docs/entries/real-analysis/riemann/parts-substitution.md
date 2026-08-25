@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.eq-lebesgue", "real-analysis.riemann.ftc", "an
 mathlib: ["intervalIntegral.integral_mul_deriv_eq_deriv_mul", "intervalIntegral.integral_comp_mul_deriv"]
 provenance:
   source_type: book
-  ref: "数学分析 II：分部积分、换元积分与指数函数例题"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 内容

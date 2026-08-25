@@ -5,7 +5,7 @@ state: verified
 title: Hilbert 空间上有界算子的伴随
 premises: [functional-analysis.hilbert.riesz, functional-analysis.operator.space]
 mathlib: [ContinuousLinearMap.adjoint, ContinuousLinearMap.eq_adjoint_iff]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Definition 5.3.7"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

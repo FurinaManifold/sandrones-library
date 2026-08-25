@@ -10,7 +10,7 @@ premises: [real-analysis.measure.lintegral]
 mathlib: [lintegral_iSup]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（单调收敛）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.monotone-convergence

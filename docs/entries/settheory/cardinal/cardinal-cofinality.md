@@ -5,7 +5,7 @@ state: verified
 title: "基数共尾性：逼近一个基数至少需要多长"
 premises: ["settheory.ordinal.cofinality"]
 mathlib: ["Cardinal.ord", "Ordinal.cof_ord_le"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 5: Cofinality"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

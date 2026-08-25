@@ -10,7 +10,7 @@ mathlib: ["AlternatingMap.map_smul_univ", "intervalIntegral.integral_comp_mul_de
   "MeasureTheory.integral_add", "HasDerivAt.const_sub"]
 provenance:
   source_type: book
-  ref: "数学分析 II：第二型曲线积分与曲面积分"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

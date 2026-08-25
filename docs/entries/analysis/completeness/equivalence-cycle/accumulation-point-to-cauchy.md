@@ -10,7 +10,7 @@ premises: ["analysis.completeness.accumulation-point"]
 mathlib: ["cauchySeq_bdd", "Nat.exists_strictMono_subsequence", "tendsto_nhds_of_cauchySeq_of_subseq", "Set.Finite.biUnion", "accPt_principal_iff_clusterPt", "Set.Infinite.exists_gt"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.accumulation-point-to-cauchy

@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.action"]
 mathlib: ["Equiv.Perm.subgroupOfMulAction", "Equiv.Perm.cycleFactorsFinset", "Equiv.Perm.truncSwapFactors", "Equiv.Perm.sign", "alternatingGroup"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups（置换群）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

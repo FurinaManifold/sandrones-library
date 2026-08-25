@@ -5,7 +5,7 @@ state: verified
 title: "有限燃料 Busy Beaver 候选的最终稳定"
 premises: ["settheory.googology.busy-beaver-candidate", "settheory.googology.busy-beaver-existence"]
 mathlib: []
-provenance: {source_type: derivation, ref: "Finite-machine maximum and deterministic bounded simulation"}
+provenance: {source_type: derivation, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

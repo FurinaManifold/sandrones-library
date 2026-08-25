@@ -71,6 +71,10 @@
 >
 > **参考文献单一来源规则**：`index/registry.json` 的 `provenance.ref` 只写
 > `reference.bib` 中的 citation key，不在 Registry 重复书名、论文名或资料说明。
+> `reference.bib` 只收录已出版书籍、已发表论文，或带 arXiv 编号的论文预印本；课程讲义、网页、
+> Mathlib 文件、本库 RFC/自建证明、例题描述和无出版信息的主题名不得登记为来源。同一出版物
+> 只保留一个 citation key，章节与定理编号留在 Entry 教材正文。`extract_registry_references.py`
+> 只验证已有 key，不再把自由文本自动生成为 `@misc`。
 > 学科负责人在 handoff 中提交建议引用及精确章节；Main 负责分配 key、去重、
 > 补全 BibTeX 字段并运行 `audit.py` 验证所有 key 均有定义。
 >

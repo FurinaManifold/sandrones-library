@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.product"]
 mathlib: ["MulAction.orbit", "MulAction.stabilizer", "MulAction.orbitEquivQuotientStabilizer", "MulAction.orbitProdStabilizerEquivGroup", "MulAction.stabilizerEquivStabilizerOfOrbitRel", "Group.nat_card_center_add_sum_card_noncenter_eq_card"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups（群作用与类方程）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

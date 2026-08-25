@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.permutation"]
 mathlib: ["IsPGroup", "Sylow", "exists_prime_orderOf_dvd_card'", "IsPGroup.exists_le_sylow", "Sylow.card_eq_multiplicity", "Sylow.isPretransitive_of_finite", "card_sylow_modEq_one", "Sylow.card_dvd_index"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups（Sylow 理论）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 定义

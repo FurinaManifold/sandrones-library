@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.ideal, abstract-algebra.ring.quotient, abstract
 mathlib: [Ideal.IsPrime, Ideal.IsMaximal]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（素理想与极大理想）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

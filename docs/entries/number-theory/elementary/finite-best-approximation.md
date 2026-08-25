@@ -10,7 +10,7 @@ premises: []
 mathlib: [Finset.exists_min_image]
 provenance:
   source_type: derivation
-  ref: "有限线性序集取最小值"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

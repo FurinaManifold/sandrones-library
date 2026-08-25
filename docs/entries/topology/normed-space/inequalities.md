@@ -5,7 +5,7 @@ state: verified
 title: "范数基本不等式"
 premises: ["topology.normed-space.def"]
 mathlib: ["norm_nonneg", "norm_eq_zero", "norm_add_le", "abs_norm_sub_norm_le", "norm_smul"]
-provenance: {source_type: book, ref: "赋范空间：范数基本性质"}
+provenance: {source_type: book, ref: "munkres-topology-2000"}
 ---
 
 # 陈述

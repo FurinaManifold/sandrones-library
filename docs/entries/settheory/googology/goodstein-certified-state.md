@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 带证书状态：数值与表示不可分离"
 premises: ["settheory.googology.hereditary-base"]
 mathlib: []
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

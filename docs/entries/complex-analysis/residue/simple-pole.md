@@ -6,7 +6,7 @@ title: "单极点的圆周残数"
 summary: 证明 g(z)/(z-a) 在以 a 为中心的圆周上的正规化积分等于 g(a)
 premises: ["complex-analysis.residue.circle-foundation", "complex-analysis.cauchy.formula"]
 mathlib: ["circleIntegral.integral_sub_center_inv"]
-provenance: {source_type: book, ref: "Conway，简单极点的残数"}
+provenance: {source_type: book, ref: "ahlfors-complex-analysis-1979"}
 ---
 
 # 动机

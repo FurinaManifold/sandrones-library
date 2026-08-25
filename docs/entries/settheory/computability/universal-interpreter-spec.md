@@ -5,7 +5,7 @@ state: verified
 title: "通用自然数解释器的抽象规格"
 premises: ["settheory.computability.partial-nat-computable"]
 mathlib: ["Function.Injective"]
-provenance: {source_type: textbook, ref: "Gödel numbering and universal machine specification"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

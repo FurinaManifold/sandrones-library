@@ -5,7 +5,7 @@ state: verified
 title: "Hydra 的结构性序数赋值与两个已验证接口"
 premises: ["settheory.googology.hydra-game-step", "settheory.ordinal.addition", "settheory.ordinal.exponentiation"]
 mathlib: ["Order.lt_succ"]
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条仅形式化后续下降证明所需的结构性入口"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

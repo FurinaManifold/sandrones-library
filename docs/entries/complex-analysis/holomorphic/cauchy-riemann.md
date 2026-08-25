@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.definition"]
 mathlib: ["differentiableAt_complex_iff_differentiableAt_real"]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Ch 2（Cauchy–Riemann equations）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

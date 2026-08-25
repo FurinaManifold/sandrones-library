@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.special-functions.log, ana
 mathlib: ["Real.tendsto_log_atTop", "Real.isLittleO_log_id_atTop", "Real.tendsto_exp_div_pow_atTop", "Real.isLittleO_pow_exp_atTop"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：无穷小与无穷大的阶"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

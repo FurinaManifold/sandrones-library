@@ -5,7 +5,7 @@ state: verified
 title: "Hydra 根旁砍头：一个诚实的局部序数下降"
 premises: ["settheory.googology.hydra-game-step", "settheory.ordinal.no-infinite-descent"]
 mathlib: ["Ordinal", "Nat.cast_lt"]
-provenance: {source_type: internal, ref: "本库有限有序 Hydra 规则的直接分析"}
+provenance: {source_type: internal, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

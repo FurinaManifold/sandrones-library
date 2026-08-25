@@ -10,7 +10,7 @@ premises: [real-analysis.measure.outer]
 mathlib: [OuterMeasure.caratheodory, isCaratheodory_iff]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（Carathéodory）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.caratheodory

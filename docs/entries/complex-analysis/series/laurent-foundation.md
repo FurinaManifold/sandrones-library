@@ -10,7 +10,7 @@ premises: []
 mathlib: [HasSum, hasSum_ite_eq, zpow]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Laurent series"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

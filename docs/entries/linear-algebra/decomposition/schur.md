@@ -6,7 +6,7 @@ title: Schur 分解
 summary: 复方阵酉相似于上三角矩阵并给出实 Schur 块形式
 premises: [linear-algebra.decomposition.qr]
 mathlib: [InnerProductSpace.gramSchmidtOrthonormalBasis, Module.Basis.toMatrix_mul_toMatrix]
-provenance: {source_type: textbook, ref: "Schur triangularization theorem"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

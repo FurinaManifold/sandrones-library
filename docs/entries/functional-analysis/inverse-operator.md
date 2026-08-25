@@ -5,7 +5,7 @@ state: staging
 title: Banach 有界逆定理
 premises: [functional-analysis.open-mapping, functional-analysis.operator.space]
 mathlib: [LinearEquiv.continuous_symm, LinearEquiv.toContinuousLinearEquivOfContinuous, ContinuousLinearEquiv]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

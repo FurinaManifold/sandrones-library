@@ -7,7 +7,7 @@ premises: ["analysis.mvt.taylor", "analysis.power-series.operations"]
 mathlib: ["taylor_mean_remainder_lagrange_iteratedDeriv", "iteratedFDerivWithin_eq_iteratedFDeriv", "NormedSpace.expSeries_div_hasSum_exp", "Real.hasSum_sin", "Real.hasSum_cos", "Real.abs_iteratedDeriv_sin_le_one", "Real.abs_iteratedDeriv_cos_le_one"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：Taylor 公式、Lagrange 余项与初等函数幂级数展开"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

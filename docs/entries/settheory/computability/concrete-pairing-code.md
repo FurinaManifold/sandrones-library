@@ -5,7 +5,7 @@ state: verified
 title: "可计算的自然数配对实例"
 premises: ["settheory.computability.pairing-code"]
 mathlib: ["Nat.pair", "Nat.unpair", "Nat.unpair_pair"]
-provenance: {source_type: library_bridge, ref: "Mathlib.Data.Nat.Pairing"}
+provenance: {source_type: library_bridge, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

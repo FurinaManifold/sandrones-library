@@ -6,7 +6,7 @@ title: "圆周正规化残数基础"
 summary: 将指定正向圆周上的积分除以 2πi，作为局部残数理论的 foundation 接口
 premises: ["complex-analysis.cauchy.formula"]
 mathlib: ["circleIntegral"]
-provenance: {source_type: book, ref: "Conway，残数的圆周积分表示"}
+provenance: {source_type: book, ref: "ahlfors-complex-analysis-1979"}
 ---
 
 # 动机

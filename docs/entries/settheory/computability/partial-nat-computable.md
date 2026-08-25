@@ -5,7 +5,7 @@ state: verified
 title: "部分自然数函数的可计算性"
 premises: ["settheory.computability.nat-computable"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Partial recursive functions as single-valued computably enumerable graphs"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

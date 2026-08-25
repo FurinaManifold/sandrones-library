@@ -10,7 +10,7 @@ premises: [abstract-algebra.poly.def, abstract-algebra.poly.division, abstract-a
 mathlib: [Irreducible, Polynomial.IsPrimitive, Polynomial.content, Polynomial.IsEisensteinAt]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Chapter 2；本科抽象代数多项式不可约判别
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

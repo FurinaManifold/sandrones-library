@@ -10,7 +10,7 @@ premises: [real-analysis.measure.sigma-algebra]
 mathlib: [measure_empty, measure_sUnion, measure_mono, measure_union]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（测度）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.def

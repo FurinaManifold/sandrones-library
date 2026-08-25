@@ -5,7 +5,7 @@ state: verified
 title: "赋范线性空间与Banach空间"
 premises: ["topology.metric.def", "linear-algebra.vector-space.def"]
 mathlib: ["NormedAddCommGroup", "NormedSpace", "CompleteSpace", "dist_eq_norm"]
-provenance: {source_type: book, ref: "点集拓扑与泛函分析预备：赋范空间"}
+provenance: {source_type: book, ref: "munkres-topology-2000"}
 ---
 
 # 陈述与动机

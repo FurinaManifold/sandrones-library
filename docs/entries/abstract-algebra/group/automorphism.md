@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.iso-theorems"]
 mathlib: ["MulAut", "MulAut.conj", "Subgroup.center", "QuotientGroup.quotientMulEquivOfEq"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups（自同构与内自同构）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

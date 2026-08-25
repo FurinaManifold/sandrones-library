@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.quadratic-residues"]
 mathlib: ["legendreSym.quadratic_reciprocity", "legendreSym.sq_one", "prime_ne_zero", "neg_one_pow_div_two_of_one_mod_four", "neg_one_pow_div_two_of_three_mod_four", "legendreSym.eq_zero_iff", "jacobiSym.quadratic_reciprocity"]
 provenance:
   source_type: book
-  ref: "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapter 6"
+  ref: "ireland-rosen-number-theory-1990"
 ---
 
 **定义。**

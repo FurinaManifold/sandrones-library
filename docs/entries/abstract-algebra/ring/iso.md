@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.ideal]
 mathlib: [RingHom.quotientKerEquivRange]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（同态定理）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.ring.iso

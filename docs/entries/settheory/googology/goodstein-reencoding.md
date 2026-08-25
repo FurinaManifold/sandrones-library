@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 重编码单步：换底减一后补齐新证书"
 premises: ["settheory.googology.goodstein-certified-state", "settheory.googology.goodstein-step"]
 mathlib: []
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

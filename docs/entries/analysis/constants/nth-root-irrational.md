@@ -7,7 +7,7 @@ premises: [analysis.real.archimedean, analysis.real.construction-cauchy]
 mathlib: ["irrational_nrt_of_notint_nrt"]
 provenance:
   source_type: textbook
-  ref: "高中数学：非完全 n 次方数的 n 次方根无理性"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

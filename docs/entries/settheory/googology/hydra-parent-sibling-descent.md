@@ -5,7 +5,7 @@ state: verified
 title: "父节点内部保留左兄弟的 Hydra 复制下降"
 premises: ["settheory.googology.hydra-sibling-descent"]
 mathlib: []
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条证明双层最右子类"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

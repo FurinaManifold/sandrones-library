@@ -10,7 +10,7 @@ premises: []
 mathlib: []
 provenance:
   source_type: book
-  ref: "线性代数教材：子空间与生成"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.vector-space.subspace

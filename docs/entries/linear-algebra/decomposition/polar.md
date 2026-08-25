@@ -6,7 +6,7 @@ title: 极分解
 summary: 有限维线性映射分解为部分等距与正半定模的乘积
 premises: [linear-algebra.decomposition.svd]
 mathlib: [InnerProductSpace.rankOne, ContinuousLinearMap.IsPositive]
-provenance: {source_type: textbook, ref: "Polar decomposition from SVD"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

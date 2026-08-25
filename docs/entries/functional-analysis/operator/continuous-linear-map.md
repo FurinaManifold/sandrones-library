@@ -5,7 +5,7 @@ state: verified
 title: 连续线性算子
 premises: [topology.normed-space.def]
 mathlib: [ContinuousLinearMap, ContinuousLinearMap.le_opNorm, ContinuousLinearMap.continuous]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

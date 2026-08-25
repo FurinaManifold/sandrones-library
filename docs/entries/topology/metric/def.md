@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [dist_comm, dist_triangle, dist_self, dist_eq_zero, Metric.mem_ball, Metric.isOpen_ball]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（度量空间）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.metric.def

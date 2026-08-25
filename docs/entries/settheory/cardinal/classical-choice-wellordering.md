@@ -5,7 +5,7 @@ state: verified
 title: "经典基础中的选择原则与良序原则可用性"
 premises: []
 mathlib: ["Classical.choice", "WellOrderingRel"]
-provenance: {source_type: book, ref: "Thomas Jech, The Axiom of Choice, Chapters 1-2"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

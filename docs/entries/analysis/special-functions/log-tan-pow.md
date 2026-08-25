@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.continuity.definition, ana
 mathlib: ["Real.log_mul", "Real.continuousOn_log", "Real.hasDerivAt_log", "Real.hasDerivAt_tan", "Continuous.pow", "HasDerivAt.pow", "Real.continuous_arctan", "Real.hasDerivAt_arctan", "Real.tan_arctan", "Real.continuous_arcsin", "Real.continuous_arccos", "Real.hasDerivAt_arcsin", "Real.hasDerivAt_arccos"]
 provenance:
   source_type: textbook
-  ref: "数学分析中的基本初等函数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

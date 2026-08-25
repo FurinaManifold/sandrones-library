@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.add-sub, analysis.trigonometric.product-sum]
 mathlib: ["Real.sin_add", "Real.sin_sub", "Real.cos_add", "Real.cos_sub"]
 provenance:
   source_type: textbook
-  ref: "高中数学：三角函数和差化积"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

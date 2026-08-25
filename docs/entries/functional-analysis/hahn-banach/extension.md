@@ -5,7 +5,7 @@ state: verified
 title: Hahn–Banach 延拓定理
 premises: [functional-analysis.operator.space]
 mathlib: [exists_extension_of_le_sublinear, exists_extension_norm_eq]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.3.1"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

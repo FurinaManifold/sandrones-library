@@ -10,7 +10,7 @@ premises: ["analysis.sequence.monotone-convergence"]
 mathlib: ["Metric.tendsto_atTop", "abs_lt", "Filter.Tendsto.neg"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.mct-to-nested-intervals

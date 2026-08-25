@@ -9,7 +9,7 @@ premises: ["analysis.continuity.definition", "analysis.derivative.definition",
 mathlib: ["intervalIntegral.integral_of_le", "eventually_gt_nhds", "HasDerivAt.congr_of_eventuallyEq"]
 provenance:
   source_type: book
-  ref: "数学分析 II：微积分基本定理与 Newton–Leibniz 公式"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 内容

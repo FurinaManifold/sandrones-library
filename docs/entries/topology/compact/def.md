@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [IsCompact.elim_finite_subcover, IsCompact.image, IsCompact.union, isCompact_singleton]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 3（紧致性）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.compact.def

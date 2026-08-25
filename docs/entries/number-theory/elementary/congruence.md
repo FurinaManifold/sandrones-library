@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.divisibility"]
 mathlib: ["ZMod.natCast_eq_natCast_iff", "Nat.ModEq.add", "Nat.ModEq.mul", "Nat.ModEq.pow"]
 provenance:
   source_type: book
-  ref: "Hardy and Wright, An Introduction to the Theory of Numbers（同余）"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

@@ -9,7 +9,7 @@ premises: ["analysis.inequalities.young"]
 mathlib: ["Real.inner_le_Lp_mul_Lq"]
 provenance:
   source_type: book
-  ref: "数学分析：有限和Hölder不等式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

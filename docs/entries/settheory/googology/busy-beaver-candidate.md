@@ -5,7 +5,7 @@ state: verified
 title: "限定步数的 Busy Beaver 候选最大值"
 premises: ["settheory.googology.bounded-halting"]
 mathlib: ["Finset.sup"]
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962"}
+provenance: {source_type: book, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

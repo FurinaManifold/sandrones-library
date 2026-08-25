@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.divisibility"]
 mathlib: ["Int.gcd_eq_gcd_ab", "Int.gcd_dvd_left", "Int.gcd_dvd_right"]
 provenance:
   source_type: book
-  ref: "Niven–Zuckerman–Montgomery, An Introduction to the Theory of Numbers, Ch 1"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

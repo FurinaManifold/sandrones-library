@@ -5,7 +5,7 @@ state: verified
 title: "自然数有序对编码"
 premises: ["settheory.computability.universal-interpreter-spec"]
 mathlib: ["Function.Injective"]
-provenance: {source_type: textbook, ref: "Gödel coding of finite tuples"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

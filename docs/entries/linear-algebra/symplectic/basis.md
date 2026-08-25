@@ -7,7 +7,7 @@ premises: ["linear-algebra.matrix.symplectic", "linear-algebra.vector-space.basi
 mathlib: ["LinearMap.BilinForm.orthogonal", "LinearMap.BilinForm.isCompl_orthogonal_of_restrict_nondegenerate", "LinearMap.BilinForm.finrank_orthogonal"]
 provenance:
   source_type: book
-  ref: "本科线性代数与经典辛几何：有限维线性 Darboux 定理"
+  ref: "mcd-salamon-symplectic-topology-2017"
 ---
 
 # 动机

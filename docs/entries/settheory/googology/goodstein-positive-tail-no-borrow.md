@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 正末位无借位下降：复合前缀与正数字末项"
 premises: ["settheory.googology.goodstein-positive-digit-descent", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Nat.add_sub_assoc", "Order.lt_succ"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

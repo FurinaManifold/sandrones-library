@@ -8,7 +8,7 @@ premises: ["number-theory.elementary.linear-diophantine"]
 mathlib: ["PythagoreanTriple.coprime_classification'", "PythagoreanTriple.classification"]
 provenance:
   source_type: book
-  ref: "Hardy–Wright, An Introduction to the Theory of Numbers, Ch 13"
+  ref: "hardy-wright-number-theory-2008"
 ---
 
 # 动机

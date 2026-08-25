@@ -10,7 +10,7 @@ premises: [linear-algebra.eigen.vector]
 mathlib: [Module.End.eigenvectors_linearIndependent, Module.End.mem_eigenspace_iff]
 provenance:
   source_type: book
-  ref: 线性代数教材：特征向量与特征值
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.eigen.independent

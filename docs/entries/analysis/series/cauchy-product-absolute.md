@@ -7,7 +7,7 @@ premises: ["analysis.series.absolute", "analysis.series.cauchy-product-definitio
 mathlib: ["summable_norm_sum_mul_range_of_summable_norm", "hasSum_sum_range_mul_of_summable_norm"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：绝对收敛级数的 Cauchy 乘积定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

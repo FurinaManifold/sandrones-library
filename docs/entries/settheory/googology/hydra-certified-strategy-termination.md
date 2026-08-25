@@ -5,7 +5,7 @@ state: verified
 title: "认证 Hydra 策略规格必到达终止状态"
 premises: ["settheory.googology.hydra-certified-transitive-descent"]
 mathlib: []
-provenance: {source_type: book, ref: "良基递归的策略终止原理；本条只处理本库认证步骤"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "谓词的机器判定与特征函数"
 premises: ["settheory.computability.nat-computable"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Decidable sets and characteristic functions"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

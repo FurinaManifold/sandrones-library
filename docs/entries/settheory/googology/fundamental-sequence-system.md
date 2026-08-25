@@ -5,7 +5,7 @@ state: verified
 title: "基本列接口：先说明极限处怎样向下逼近"
 premises: []
 mathlib: []
-provenance: {source_type: book, ref: "S. S. Wainer, A Classification of the Ordinal Recursive Functions"}
+provenance: {source_type: book, ref: "wainer-ordinal-recursive-1970"}
 ---
 
 # 动机

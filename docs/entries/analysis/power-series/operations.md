@@ -7,7 +7,7 @@ premises: ["analysis.power-series.radius", "analysis.series.cauchy-product-absol
 mathlib: ["Summable.tsum_add", "hasDerivAt_tsum_of_isPreconnected", "Summable.of_norm_bounded", "Summable.sum_add_tsum_nat_add"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：幂级数的逐项运算"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

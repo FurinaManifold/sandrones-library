@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.divisibility, abstract-algebra.ring.euclidean]
 mathlib: [IsPrincipalIdealRing, UniqueFactorizationMonoid]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 2（PID 与 UFD）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

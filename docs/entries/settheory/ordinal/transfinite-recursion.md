@@ -5,7 +5,7 @@ state: verified
 title: "超限递归"
 premises: ["settheory.ordinal.transfinite-induction"]
 mathlib: ["Ordinal.limitRecOn"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Transfinite Recursion"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

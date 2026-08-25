@@ -5,7 +5,7 @@ state: verified
 title: "最大首次停机时间给出的统一停机界"
 premises: ["settheory.googology.busy-beaver-time"]
 mathlib: []
-provenance: {source_type: derivation, ref: "Maximum first-halting time over a finite machine class"}
+provenance: {source_type: derivation, ref: "rado-non-computable-functions-1962"}
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: verified
 title: "Cantor–Bernstein 定理"
 premises: ["settheory.cardinal.equinumerous", "settheory.cardinal.comparison"]
 mathlib: ["Embedding.schroeder_bernstein", "Equiv.ofBijective"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cantor-Bernstein Theorem"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

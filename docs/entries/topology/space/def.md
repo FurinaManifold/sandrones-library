@@ -10,7 +10,7 @@ premises: []
 mathlib: [IsOpen, IsClosed, isOpen_iUnion, isClosed_iInter, isOpen_compl_iff]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（拓扑空间）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.def

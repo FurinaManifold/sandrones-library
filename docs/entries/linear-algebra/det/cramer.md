@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Matrix.cramer", "Matrix.cramer_apply", "Matrix.mulVec_cramer"]
 provenance:
   source_type: book
-  ref: "线性代数教材：行列式与秩"
+  ref: "axler-linear-algebra-2015"
 ---
 
 # linear-algebra.det.cramer

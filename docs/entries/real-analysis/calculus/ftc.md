@@ -10,7 +10,7 @@ premises: [analysis.derivative.unique, real-analysis.measure.lintegral]
 mathlib: [intervalIntegral.integral_eq_sub_of_hasDerivAt]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 3（微积分基本定理）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.calculus.ftc

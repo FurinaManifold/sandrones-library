@@ -10,7 +10,7 @@ premises: [number-theory.elementary.pell-equation, number-theory.elementary.pell
 mathlib: [Pell.IsFundamental, Pell.IsFundamental.exists_of_not_isSquare, Pell.Solution₁.mk, Pell.Solution₁.prop, Pell.Solution₁.x_mk]
 provenance:
   source_type: book
-  ref: "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+  ref: "ireland-rosen-number-theory-1990"
 ---
 
 # 动机

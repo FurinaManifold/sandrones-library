@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.algebra", "analysis.continuity.max-min", "anal
 mathlib: ["intermediate_value_uIcc", "Function.Periodic.intervalIntegral_add_eq"]
 provenance:
   source_type: book
-  ref: "数学分析 II：积分中值定理与周期函数积分"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 内容

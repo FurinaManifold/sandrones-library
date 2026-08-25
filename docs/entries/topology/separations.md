@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [T1Space, T2Space, RegularSpace, tendsto_nhds_unique, t2Space_iff_disjoint_nhds, regularSpace_iff]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 3（分离公理）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.separations

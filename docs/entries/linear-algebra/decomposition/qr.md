@@ -6,7 +6,7 @@ title: QR 分解
 summary: 任意实方阵分解为正交矩阵与上三角矩阵的乘积
 premises: [linear-algebra.inner-product, linear-algebra.matrix.orthogonal-unitary]
 mathlib: [InnerProductSpace.gramSchmidtOrthonormalBasis, Module.Basis.toMatrix_mul_toMatrix]
-provenance: {source_type: textbook, ref: "QR decomposition via Gram-Schmidt"}
+provenance: {source_type: textbook, ref: "horn-johnson-matrix-analysis-2013"}
 ---
 
 # 动机

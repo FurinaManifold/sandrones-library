@@ -10,7 +10,7 @@ premises: ["analysis.sequence.definition"]
 mathlib: ["Filter.Tendsto.sub"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第一卷 第二章 §1-§3 数列极限"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.sequence.sub

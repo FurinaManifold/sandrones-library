@@ -5,7 +5,7 @@ state: verified
 title: "基数比较：用单射定义不大于"
 premises: ["settheory.cardinal.equinumerous"]
 mathlib: ["Function.Injective"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Comparing Cardinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

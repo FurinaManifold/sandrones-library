@@ -10,7 +10,7 @@ premises: []
 mathlib: [exists_rat_btwn]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第一卷 第一章（实数）"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [IsOpen.mem_nhds, nhds]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（邻域）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.neighborhood

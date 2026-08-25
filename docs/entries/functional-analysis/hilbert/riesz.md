@@ -5,7 +5,7 @@ state: staging
 title: Fréchet–Riesz 表示定理
 premises: [functional-analysis.hilbert.projection, functional-analysis.operator.space]
 mathlib: [StrongDual, InnerProductSpace.toDual, InnerProductSpace.toDual_symm_apply]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

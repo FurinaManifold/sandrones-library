@@ -5,7 +5,7 @@ state: verified
 title: "任意自然数的遗传基编码"
 premises: ["settheory.googology.hereditary-base"]
 mathlib: ["Nat.strongRec", "Nat.div_add_mod"]
-provenance: {source_type: textbook, ref: "Goodstein sequences, hereditary base notation"}
+provenance: {source_type: textbook, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

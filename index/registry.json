@@ -12,7 +12,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-46c1740fa6ae1718"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/archimedean.md",
@@ -43,7 +43,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/ext.md",
@@ -78,7 +78,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/operations/inter-distrib.md",
@@ -105,7 +105,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Function.lean",
     "nl_file": "docs/entries/settheory/function/inj-comp.md",
@@ -129,7 +129,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Function.lean",
     "nl_file": "docs/entries/settheory/function/surj-comp.md",
@@ -151,7 +151,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/subset/trans.md",
@@ -175,7 +175,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/subset/antisymm.md",
@@ -200,7 +200,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/empty-subset.md",
@@ -224,7 +224,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Function.lean",
     "nl_file": "docs/entries/settheory/function/image-preimage/preimage-union.md",
@@ -251,7 +251,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Function.lean",
     "nl_file": "docs/entries/settheory/function/image-preimage/preimage-inter.md",
@@ -276,7 +276,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Relations.lean",
     "nl_file": "docs/entries/settheory/set/relations/equivalence-class-eq.md",
@@ -303,7 +303,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Relations.lean",
     "nl_file": "docs/entries/settheory/set/relations/quotient-surj.md",
@@ -327,7 +327,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Cardinal.lean",
     "nl_file": "docs/entries/settheory/cardinal/countable-def.md",
@@ -349,7 +349,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Cardinal.lean",
     "nl_file": "docs/entries/settheory/cardinal/countable-rat.md",
@@ -375,7 +375,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Cardinal.lean",
     "nl_file": "docs/entries/settheory/cardinal/uncountable-real.md",
@@ -401,7 +401,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Cardinal.lean",
     "nl_file": "docs/entries/settheory/cardinal/countable-union.md",
@@ -427,7 +427,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/operations/complement-union.md",
@@ -452,7 +452,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/operations/complement-inter.md",
@@ -480,7 +480,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/operations/diff-inter-complement.md",
@@ -502,7 +502,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Function.lean",
     "nl_file": "docs/entries/settheory/function/inject-surject/bijective-iff-inverse.md",
@@ -526,7 +526,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-above.md",
@@ -558,7 +558,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/bounded-sets/subset.md",
@@ -584,7 +584,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/density.md",
@@ -612,7 +612,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/sup.md",
@@ -642,7 +642,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/bounded-sets/bdd-below.md",
@@ -673,7 +673,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-040689e85ed62761"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/inf.md",
@@ -702,7 +702,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2d166ccc7221f568"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Real.lean",
     "nl_file": "docs/entries/analysis/real/construction-cauchy.md",
@@ -730,7 +730,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/definition.md",
@@ -769,7 +769,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/unique.md",
@@ -797,7 +797,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/bounded.md",
@@ -828,7 +828,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/squeeze.md",
@@ -856,7 +856,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/monotone-convergence.md",
@@ -890,7 +890,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/subsequence.md",
@@ -925,7 +925,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/bolzano-weierstrass.md",
@@ -959,7 +959,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/cauchy.md",
@@ -993,7 +993,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/liminf-limsup.md",
@@ -1027,7 +1027,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-3384085d6d44f658"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/nested-intervals.md",
@@ -1058,7 +1058,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-c6954dbb54b31206"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/finite-cover.md",
@@ -1093,7 +1093,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-3224e3b6ddb932fe"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/accumulation-point.md",
@@ -1126,7 +1126,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/sup-to-mct.md",
@@ -1158,7 +1158,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/mct-to-nested-intervals.md",
@@ -1191,7 +1191,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/nested-intervals-to-finite-cover.md",
@@ -1225,7 +1225,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/finite-cover-to-accumulation-point.md",
@@ -1260,7 +1260,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/accumulation-point-to-cauchy.md",
@@ -1294,7 +1294,7 @@
     ],
     "provenance": {
       "source_type": "generated",
-      "ref": "sandrones-ref-a68b1bbea0fbb7ff"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Completeness.lean",
     "nl_file": "docs/entries/analysis/completeness/equivalence-cycle/cauchy-to-sup.md",
@@ -1323,7 +1323,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/definition.md",
@@ -1355,7 +1355,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/const.md",
@@ -1383,7 +1383,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/identity.md",
@@ -1411,7 +1411,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/unique.md",
@@ -1439,7 +1439,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/congr.md",
@@ -1467,7 +1467,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/add.md",
@@ -1495,7 +1495,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/sub.md",
@@ -1523,7 +1523,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/mul.md",
@@ -1551,7 +1551,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/div.md",
@@ -1579,7 +1579,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/const-mul.md",
@@ -1607,7 +1607,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/le.md",
@@ -1639,7 +1639,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7a72cb5867e8e43e"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/heine.md",
@@ -1669,7 +1669,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad3fd3ca776cc352"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/at-top.md",
@@ -1699,7 +1699,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/definition.md",
@@ -1732,7 +1732,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/const.md",
@@ -1760,7 +1760,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/identity.md",
@@ -1788,7 +1788,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/add.md",
@@ -1816,7 +1816,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/mul.md",
@@ -1844,7 +1844,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/div.md",
@@ -1873,7 +1873,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/comp.md",
@@ -1901,7 +1901,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/intermediate-value.md",
@@ -1934,7 +1934,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/max-min.md",
@@ -1965,7 +1965,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8a823ebf8feac90f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/uniform.md",
@@ -1996,7 +1996,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/unique.md",
@@ -2028,7 +2028,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/const.md",
@@ -2060,7 +2060,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/add.md",
@@ -2088,7 +2088,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/mul.md",
@@ -2116,7 +2116,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/div.md",
@@ -2144,7 +2144,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/const-mul.md",
@@ -2172,7 +2172,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-286d1ece082db297"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/chain-rule.md",
@@ -2209,7 +2209,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9ba323118cb867b6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/rolle.md",
@@ -2239,7 +2239,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9ba323118cb867b6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/lagrange.md",
@@ -2273,7 +2273,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9ba323118cb867b6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/lagrange-deriv.md",
@@ -2304,7 +2304,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9ba323118cb867b6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/monotone-deriv.md",
@@ -2334,7 +2334,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9ba323118cb867b6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/cauchy.md",
@@ -2369,7 +2369,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-95c2a9604515a13e"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/taylor.md",
@@ -2402,7 +2402,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-64aa855f3bbe0b64"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/lhopital.md",
@@ -2431,7 +2431,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6151474bc94fa935"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/VectorSpace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/def.md",
@@ -2463,7 +2463,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6151474bc94fa935"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/VectorSpace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/independent.md",
@@ -2491,7 +2491,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6151474bc94fa935"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/VectorSpace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/basis.md",
@@ -2522,7 +2522,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9f58aefb348798df"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/VectorSpace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/dimension.md",
@@ -2554,7 +2554,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ac3d47ee4b81faee"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/LinearMap.lean",
     "nl_file": "docs/entries/linear-algebra/maps/rank-nullity.md",
@@ -2582,7 +2582,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ac3d47ee4b81faee"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/LinearMap.lean",
     "nl_file": "docs/entries/linear-algebra/maps/matrix-rank.md",
@@ -2610,7 +2610,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ac3d47ee4b81faee"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/LinearMap.lean",
     "nl_file": "docs/entries/linear-algebra/maps/rank-mul.md",
@@ -2638,7 +2638,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-291d1effd1b54251"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/mul.md",
@@ -2669,7 +2669,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-291d1effd1b54251"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/transpose.md",
@@ -2699,7 +2699,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-291d1effd1b54251"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/invertible.md",
@@ -2728,7 +2728,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-291d1effd1b54251"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/one-zero.md",
@@ -2756,7 +2756,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-53e1eed099539be6"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/vector.md",
@@ -2785,7 +2785,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-53e1eed099539be6"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/value.md",
@@ -2814,7 +2814,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-53e1eed099539be6"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/spectrum.md",
@@ -2842,7 +2842,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-53e1eed099539be6"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/charpoly.md",
@@ -2871,7 +2871,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f7db926ced6015bd"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Subspace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/subspace.md",
@@ -2899,7 +2899,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f7db926ced6015bd"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Subspace.lean",
     "nl_file": "docs/entries/linear-algebra/vector-space/span.md",
@@ -2929,7 +2929,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7c646fcfd6024872"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/independent.md",
@@ -2961,7 +2961,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-719ed751b2ede2bb"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/similar-diagonal.md",
@@ -2997,7 +2997,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3e798b95612b62b9"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/similar-charpoly.md",
@@ -3028,7 +3028,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7128dda312439ca5"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/adjugate.md",
@@ -3058,7 +3058,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7128dda312439ca5"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Determinant.lean",
     "nl_file": "docs/entries/linear-algebra/det/cramer.md",
@@ -3086,7 +3086,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7128dda312439ca5"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/LinearMap.lean",
     "nl_file": "docs/entries/linear-algebra/maps/row-rank.md",
@@ -3116,7 +3116,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/add.md",
@@ -3146,7 +3146,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/sub.md",
@@ -3176,7 +3176,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/mul.md",
@@ -3206,7 +3206,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/div.md",
@@ -3236,7 +3236,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/const-mul.md",
@@ -3266,7 +3266,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3b7a2abb0c3b58be"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Sequence.lean",
     "nl_file": "docs/entries/analysis/sequence/le.md",
@@ -3297,7 +3297,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-52c0a4069d4eea07"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FuncLimit.lean",
     "nl_file": "docs/entries/analysis/func-limit/comp.md",
@@ -3328,7 +3328,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-de816ae578fbf18d"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/constant.md",
@@ -3359,7 +3359,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2e6d7ef50b3adcad"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/inverse.md",
@@ -3393,7 +3393,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f9036f5d5b78963f"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/Eigenvalue.lean",
     "nl_file": "docs/entries/linear-algebra/eigen/charpoly-root.md",
@@ -3434,7 +3434,7 @@
     "nl_file": "docs/entries/abstract-algebra/group/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f101122be1b3d99e"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3475,7 +3475,7 @@
     "nl_file": "docs/entries/abstract-algebra/group/coset.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cc464d538c5f5c94"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3515,7 +3515,7 @@
     "nl_file": "docs/entries/abstract-algebra/group/normal.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-44e23ee0b61feb47"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3556,7 +3556,7 @@
     "nl_file": "docs/entries/abstract-algebra/group/hom.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9592abb907344a0b"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3587,7 +3587,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3a25fa59860425ba"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/Group.lean",
     "nl_file": "docs/entries/abstract-algebra/group/index-two.md",
@@ -3627,7 +3627,7 @@
     "nl_file": "docs/entries/abstract-algebra/ring/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-66406f7ba78ebae7"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3669,7 +3669,7 @@
     "nl_file": "docs/entries/abstract-algebra/ring/ideal.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0307c4c8a418a752"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3711,7 +3711,7 @@
     "nl_file": "docs/entries/abstract-algebra/ring/domain.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-56ace4770c2a058c"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3745,7 +3745,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-798eb90784bd3dec"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/Ring.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/iso.md",
@@ -3778,7 +3778,7 @@
     "nl_file": "docs/entries/abstract-algebra/poly/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-be36526e977880d7"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3819,7 +3819,7 @@
     "nl_file": "docs/entries/abstract-algebra/poly/irreducible.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3bb64ca2a088f5cb"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "state": "verified",
     "axioms": [
@@ -3853,7 +3853,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-eab3ad2a9da4320a"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/Poly.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/roots-card.md",
@@ -3886,7 +3886,7 @@
     "nl_file": "docs/entries/topology/space/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-670c68cbdeb240cd"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -3925,7 +3925,7 @@
     "nl_file": "docs/entries/topology/space/neighborhood.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-16f1aa2f711165fc"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -3957,7 +3957,7 @@
     "nl_file": "docs/entries/topology/space/continuous.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-829dff7fb0ab41b3"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -3995,7 +3995,7 @@
     "nl_file": "docs/entries/topology/space/homeo.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6ae12fa35598e4f4"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4029,7 +4029,7 @@
     "nl_file": "docs/entries/topology/space/subspace.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-231b701ac5820860"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4062,7 +4062,7 @@
     "nl_file": "docs/entries/topology/space/connected.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-461f4fcac2fcd769"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4095,7 +4095,7 @@
     "nl_file": "docs/entries/topology/compact/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cdd95c1563551187"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4128,7 +4128,7 @@
     "nl_file": "docs/entries/topology/compact/closed-bdd.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cdd95c1563551187"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4160,7 +4160,7 @@
     "nl_file": "docs/entries/topology/compact/finite.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-52b245b275bbd813"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4195,7 +4195,7 @@
     "nl_file": "docs/entries/topology/separations.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-07a1b880f9d8661f"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4233,7 +4233,7 @@
     "nl_file": "docs/entries/topology/metric/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-79f5aa3b5c77d3f6"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4267,7 +4267,7 @@
     "nl_file": "docs/entries/topology/metric/uniform.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cfb1278a22b3fc3e"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4299,7 +4299,7 @@
     "nl_file": "docs/entries/topology/metric/cauchy-complete.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e29d94779d7ff4bd"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4334,7 +4334,7 @@
     "nl_file": "docs/entries/topology/metric/completion.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-5e48503a8e97bc8e"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4363,7 +4363,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8d4e35547f3bb2fb"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/Separation.lean",
     "nl_file": "docs/entries/topology/separations/urysohn.md",
@@ -4397,7 +4397,7 @@
     "nl_file": "docs/entries/settheory/zorn/zorn.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-70e0dbaaa6dc76e6"
+      "ref": "jech-set-theory-2003"
     },
     "state": "verified",
     "axioms": [
@@ -4429,7 +4429,7 @@
     "nl_file": "docs/entries/topology/compact/tychonoff.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-81ed45fc6face69f"
+      "ref": "munkres-topology-2000"
     },
     "state": "verified",
     "axioms": [
@@ -4461,7 +4461,7 @@
     "nl_file": "docs/entries/real-analysis/measure/sigma-algebra.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-095e1a9ed5fc1388"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4498,7 +4498,7 @@
     "nl_file": "docs/entries/real-analysis/measure/def.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-97d83a53118ed977"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4533,7 +4533,7 @@
     "nl_file": "docs/entries/real-analysis/measure/outer.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e449546af5b6d6d0"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4566,7 +4566,7 @@
     "nl_file": "docs/entries/real-analysis/measure/caratheodory.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-145c89703fc705cd"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4601,7 +4601,7 @@
     "nl_file": "docs/entries/real-analysis/measure/measurable-function.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-483c096641dd2242"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4636,7 +4636,7 @@
     "nl_file": "docs/entries/real-analysis/measure/lintegral.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-fda1139bf629dee9"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4677,7 +4677,7 @@
     "nl_file": "docs/entries/real-analysis/measure/monotone-convergence.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-dc5cfaca707ccd82"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4707,7 +4707,7 @@
     "nl_file": "docs/entries/real-analysis/measure/fatou.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2e777f9a2ad2728f"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4737,7 +4737,7 @@
     "nl_file": "docs/entries/real-analysis/measure/dominated-convergence.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-be02bc3b454471aa"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4770,7 +4770,7 @@
     "nl_file": "docs/entries/real-analysis/calculus/ftc.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f512562b1ccb7ad8"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4802,7 +4802,7 @@
     "nl_file": "docs/entries/real-analysis/calculus/ftc-differentiate.md",
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f512562b1ccb7ad8"
+      "ref": "folland-real-analysis-1999"
     },
     "state": "verified",
     "axioms": [
@@ -4837,7 +4837,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8abf7d7936321502"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Measure.lean",
     "nl_file": "docs/entries/real-analysis/lebesgue-measure.md",
@@ -4873,7 +4873,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-939ede89976a9b42"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Riemann.lean",
     "nl_file": "docs/entries/real-analysis/riemann/def.md",
@@ -4912,7 +4912,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-98ce8b414a413485"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Continuity.lean",
     "nl_file": "docs/entries/analysis/continuity/uniform-compact.md",
@@ -4949,7 +4949,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-5363ffc0d3b98f8b"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Riemann.lean",
     "nl_file": "docs/entries/real-analysis/riemann/cont-integrable.md",
@@ -4988,7 +4988,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8d92542f1128b055"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Riemann.lean",
     "nl_file": "docs/entries/real-analysis/riemann/eq-lebesgue.md",
@@ -5032,7 +5032,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2fd3b1512ee297c8"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannCriterion.lean",
     "nl_file": "docs/entries/real-analysis/riemann/lebesgue-criterion.md",
@@ -5070,7 +5070,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-59eea066ff3422f6"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/SpecialFunctions.lean",
     "nl_file": "docs/entries/analysis/special-functions/basic.md",
@@ -5122,7 +5122,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-91115d5504c86b3c"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/SpecialFunctions.lean",
     "nl_file": "docs/entries/analysis/special-functions/log-tan-pow.md",
@@ -5159,7 +5159,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-17c416b831e62e02"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/ClassicalLimits.lean",
     "nl_file": "docs/entries/analysis/limits/classical.md",
@@ -5192,7 +5192,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-7186fa16ab8d23dd"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Derivative.lean",
     "nl_file": "docs/entries/analysis/derivative/inverse-function.md",
@@ -5223,7 +5223,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-9e1c813bf9a19ffe"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/MVT.lean",
     "nl_file": "docs/entries/analysis/mvt/taylor-examples.md",
@@ -5258,7 +5258,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-76a9f970266dcbae"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/SpecialFunctions.lean",
     "nl_file": "docs/entries/analysis/special-functions/log.md",
@@ -5294,7 +5294,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-b50a8b1e098dfdb2"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Asymptotic.lean",
     "nl_file": "docs/entries/analysis/limits/asymptotic.md",
@@ -5328,7 +5328,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-3fe3314166611361"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/e-definition.md",
@@ -5366,7 +5366,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-fbfbf836e4bc6ee1"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/pi-definition.md",
@@ -5408,7 +5408,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-126941887c47eb63"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/special-values.md",
@@ -5446,7 +5446,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-5c78696aa005d6a0"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/basic-identities.md",
@@ -5479,7 +5479,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-4eaa329c327011fa"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/add-sub.md",
@@ -5516,7 +5516,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-eab960ab5a218c43"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/double-half.md",
@@ -5553,7 +5553,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-fac204115c634467"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/product-sum.md",
@@ -5587,7 +5587,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-6e660e057c074206"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/sum-product.md",
@@ -5624,7 +5624,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-cee49229c0594e8a"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/special-angles.md",
@@ -5655,7 +5655,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-9e345dbfe3d1417f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/tan-identities.md",
@@ -5687,7 +5687,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-19c1ecd93030f18f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Trigonometric.lean",
     "nl_file": "docs/entries/analysis/trigonometric/half-root.md",
@@ -5716,7 +5716,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-d691e6346fc2fbe5"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/nth-root-irrational.md",
@@ -5750,7 +5750,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-26e8fd6b76136e7a"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/basic.md",
@@ -5786,7 +5786,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2aff778359c69ba3"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/tests.md",
@@ -5821,7 +5821,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c69265287ded7055"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/absolute.md",
@@ -5852,7 +5852,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1db9026d52cf8a83"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/conditional.md",
@@ -5885,7 +5885,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-bdcbb28ff3efa983"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/rearrangement.md",
@@ -5919,7 +5919,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0068fba5c1f26235"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series/RiemannRearrangement.lean",
     "nl_file": "docs/entries/analysis/series/riemann-rearrangement.md",
@@ -5949,7 +5949,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-adc9357d7d832725"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series/CauchyProduct.lean",
     "nl_file": "docs/entries/analysis/series/cauchy-product-definition.md",
@@ -5981,7 +5981,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-8bb5afc7fe18e32d"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series/CauchyProduct.lean",
     "nl_file": "docs/entries/analysis/series/cauchy-product-absolute.md",
@@ -6015,7 +6015,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-217353e3ad86f541"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series/CauchyProduct.lean",
     "nl_file": "docs/entries/analysis/series/mertens.md",
@@ -6047,7 +6047,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-8b7fb97431c47801"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series/CauchyProduct.lean",
     "nl_file": "docs/entries/analysis/series/abel-cauchy-product.md",
@@ -6077,7 +6077,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-8a88db3afbc5f1f2"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/PowerSeries.lean",
     "nl_file": "docs/entries/analysis/power-series/definition.md",
@@ -6111,7 +6111,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-c5a2e71a2416e939"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/PowerSeries.lean",
     "nl_file": "docs/entries/analysis/power-series/radius.md",
@@ -6146,7 +6146,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-029801d1112fb2a5"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/PowerSeries.lean",
     "nl_file": "docs/entries/analysis/power-series/endpoints.md",
@@ -6178,7 +6178,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-210064951b41eb13"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/PowerSeries.lean",
     "nl_file": "docs/entries/analysis/power-series/operations.md",
@@ -6211,7 +6211,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-b0b39ea9342612e1"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Series.lean",
     "nl_file": "docs/entries/analysis/series/root-test.md",
@@ -6246,7 +6246,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-6b90fa1c5094400e"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/TaylorSeries.lean",
     "nl_file": "docs/entries/analysis/series/taylor.md",
@@ -6282,7 +6282,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-70c0983d0db8bf12"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/e-irrational.md",
@@ -6310,7 +6310,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4ea20364ec727b00"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Constants.lean",
     "nl_file": "docs/entries/analysis/constants/pi-irrational.md",
@@ -6346,7 +6346,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a7a507bfa8b0bf59"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannAlgebra.lean",
     "nl_file": "docs/entries/real-analysis/riemann/algebra.md",
@@ -6379,7 +6379,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a137a36f8374c07d"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannAlgebra.lean",
     "nl_file": "docs/entries/real-analysis/riemann/mean-value.md",
@@ -6412,7 +6412,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c439528aed1763e1"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/real-analysis/riemann/eq-lebesgue-general.md",
@@ -6444,7 +6444,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b234f3c177de5002"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/real-analysis/riemann/ftc.md",
@@ -6478,7 +6478,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0e16af0671718ec1"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/real-analysis/riemann/parts-substitution.md",
@@ -6513,7 +6513,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ee574bec79670c6f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "RealAnalysis/RiemannIntegralBridge.lean",
     "nl_file": "docs/entries/analysis/integral/examples.md",
@@ -6544,7 +6544,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e23d4c6243639d8e"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/TaylorIntegralRemainder.lean",
     "nl_file": "docs/entries/analysis/mvt/taylor-integral-remainder.md",
@@ -6579,7 +6579,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e4cd5e5178884917"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/Stirling.lean",
     "nl_file": "docs/entries/analysis/asymptotic/stirling.md",
@@ -6603,7 +6603,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3d53091e21d9731"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Set.lean",
     "nl_file": "docs/entries/settheory/set/subset/definition.md",
@@ -6629,7 +6629,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ad0b666c8c49ceb4"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/ProductMeasure.lean",
     "nl_file": "docs/entries/real-analysis/measure/product-measure.md",
@@ -6663,7 +6663,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-eb413294bdc783ff"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/ProductMeasure.lean",
     "nl_file": "docs/entries/real-analysis/measure/tonelli.md",
@@ -6697,7 +6697,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-07e30ed787114f8a"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/ProductMeasure.lean",
     "nl_file": "docs/entries/real-analysis/measure/fubini.md",
@@ -6737,7 +6737,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c370e906db53dbdd"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Lp.lean",
     "nl_file": "docs/entries/real-analysis/lp/basic.md",
@@ -6774,7 +6774,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-02a69b1bdeff1913"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/LpInequalities.lean",
     "nl_file": "docs/entries/real-analysis/lp/holder.md",
@@ -6804,7 +6804,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e584d18423acf97e"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FiniteInequalities.lean",
     "nl_file": "docs/entries/analysis/inequalities/young.md",
@@ -6836,7 +6836,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1448dbd1be387b5f"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FiniteInequalities.lean",
     "nl_file": "docs/entries/analysis/inequalities/holder-finite.md",
@@ -6869,7 +6869,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-53407b3be88af5f7"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FiniteInequalities.lean",
     "nl_file": "docs/entries/analysis/inequalities/cauchy-schwarz.md",
@@ -6899,7 +6899,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ed8300047155cebd"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/FiniteInequalities.lean",
     "nl_file": "docs/entries/analysis/inequalities/minkowski-finite.md",
@@ -6931,7 +6931,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-61927ef0772d1742"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/LpInequalities.lean",
     "nl_file": "docs/entries/real-analysis/lp/chebyshev.md",
@@ -6963,7 +6963,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-10b8257afa04e35f"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/LpInequalities.lean",
     "nl_file": "docs/entries/real-analysis/lp/minkowski.md",
@@ -6997,7 +6997,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-91144db8550fff1d"
+      "ref": "folland-real-analysis-1999"
     },
     "lean_file": "RealAnalysis/Lp.lean",
     "nl_file": "docs/entries/real-analysis/lp/complete.md",
@@ -7031,7 +7031,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6ce84d3209c9170b"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/NormedSpace.lean",
     "nl_file": "docs/entries/topology/normed-space/def.md",
@@ -7072,7 +7072,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-82a14a2a2498739f"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/NormedSpace.lean",
     "nl_file": "docs/entries/topology/normed-space/inequalities.md",
@@ -7107,7 +7107,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f632371992c54923"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/NormedSpace.lean",
     "nl_file": "docs/entries/topology/normed-space/banach.md",
@@ -7145,7 +7145,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-212ee6ff892e7e0c"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/MultivariableCalculus.lean",
     "nl_file": "docs/entries/analysis/multivariable/frechet.md",
@@ -7183,7 +7183,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ae817a39d42c362e"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/MultivariableCalculus.lean",
     "nl_file": "docs/entries/analysis/multivariable/gradient.md",
@@ -7216,7 +7216,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-5240717d3e0dafa3"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/MultivariableCalculus.lean",
     "nl_file": "docs/entries/analysis/multivariable/coordinates.md",
@@ -7254,7 +7254,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-178eb2807d107715"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/MultivariableCalculus.lean",
     "nl_file": "docs/entries/analysis/multivariable/hessian-taylor.md",
@@ -7284,7 +7284,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a079c85954843583"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/Matrix.lean",
     "nl_file": "docs/entries/linear-algebra/matrix/symmetric.md",
@@ -7318,7 +7318,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-bd83f1b4677618f3"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/Matrix.lean",
     "nl_file": "docs/entries/linear-algebra/matrix/skew-symmetric.md",
@@ -7350,7 +7350,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9be19507266541af"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/InverseImplicit.lean",
     "nl_file": "docs/entries/analysis/multivariable/inverse-function.md",
@@ -7383,7 +7383,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e628ca34f5a5fa36"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/InverseImplicit.lean",
     "nl_file": "docs/entries/analysis/multivariable/implicit-function.md",
@@ -7415,7 +7415,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-92aa0952c2e162bd"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/InverseImplicit.lean",
     "nl_file": "docs/entries/analysis/multivariable/full-rank-theorem.md",
@@ -7456,7 +7456,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9c03cbe62c53d2ff"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/TensorExterior.lean",
     "nl_file": "docs/entries/linear-algebra/tensor-exterior.md",
@@ -7500,7 +7500,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2c5f86f38a6121d3"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/DifferentialForms.lean",
     "nl_file": "docs/entries/analysis/multivariable/differential-forms.md",
@@ -7535,7 +7535,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-51ef3a81d759b8b7"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/Orientation.lean",
     "nl_file": "docs/entries/topology/orientation/vector-space.md",
@@ -7571,7 +7571,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-62c86c8b5ebaaa74"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/SecondKindIntegrals.lean",
     "nl_file": "docs/entries/analysis/multivariable/second-kind-integrals.md",
@@ -7608,7 +7608,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1afaaacbf8f39b7c"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/GreenGaussStokes.lean",
     "nl_file": "docs/entries/analysis/multivariable/green-gauss-stokes.md",
@@ -7635,7 +7635,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3599b977e1a67925"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/FirstKindIntegrals.lean",
     "nl_file": "docs/entries/analysis/multivariable/first-kind-integrals.md",
@@ -7666,7 +7666,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d2e152ab431295d0"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/InnerProduct.lean",
     "nl_file": "docs/entries/linear-algebra/inner-product.md",
@@ -7703,7 +7703,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-be50fe1d383f96f7"
+      "ref": "axler-linear-algebra-2015"
     },
     "lean_file": "LinearAlgebra/SpectralQuadratic.lean",
     "nl_file": "docs/entries/linear-algebra/spectral-quadratic.md",
@@ -7737,7 +7737,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c07bbb0bf13d0e2b"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/OrthogonalUnitary.lean",
     "nl_file": "docs/entries/linear-algebra/matrix/orthogonal-unitary.md",
@@ -7773,7 +7773,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b5b21c05e0093db6"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/NormalSpectral.lean",
     "nl_file": "docs/entries/linear-algebra/matrix/normal.md",
@@ -7804,7 +7804,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-151bac516521d692"
+      "ref": "mcd-salamon-symplectic-topology-2017"
     },
     "lean_file": "LinearAlgebra/SymplecticMatrix.lean",
     "nl_file": "docs/entries/linear-algebra/matrix/symplectic.md",
@@ -7837,7 +7837,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c0a1b57e9906b9d9"
+      "ref": "mcd-salamon-symplectic-topology-2017"
     },
     "lean_file": "LinearAlgebra/SymplecticBasis.lean",
     "nl_file": "docs/entries/linear-algebra/symplectic/basis.md",
@@ -7875,7 +7875,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4ebbbf829b8156ea"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupCyclic.lean",
     "nl_file": "docs/entries/abstract-algebra/group/cyclic.md",
@@ -7905,7 +7905,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-52f4803e3dfc7c86"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupIsomorphismTheorems.lean",
     "nl_file": "docs/entries/abstract-algebra/group/iso-theorems.md",
@@ -7939,7 +7939,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-370a0231c5a2c623"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupProduct.lean",
     "nl_file": "docs/entries/abstract-algebra/group/product.md",
@@ -7972,7 +7972,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-140f49da17dc0de6"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupAutomorphism.lean",
     "nl_file": "docs/entries/abstract-algebra/group/automorphism.md",
@@ -8007,7 +8007,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c9ae4c06c19aa2b0"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupAction.lean",
     "nl_file": "docs/entries/abstract-algebra/group/action.md",
@@ -8041,7 +8041,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-243333f61bd8ec0f"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupPermutation.lean",
     "nl_file": "docs/entries/abstract-algebra/group/permutation.md",
@@ -8078,7 +8078,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-82e9103b057a357f"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupSylow.lean",
     "nl_file": "docs/entries/abstract-algebra/group/sylow.md",
@@ -8112,7 +8112,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f4a612208d97d65f"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/GroupAbelianStructure.lean",
     "nl_file": "docs/entries/abstract-algebra/group/abelian-structure.md",
@@ -8144,7 +8144,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-be599676f460f4f0"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/Divisibility.lean",
     "nl_file": "docs/entries/number-theory/elementary/divisibility.md",
@@ -8178,7 +8178,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b3e7761f5204ab8d"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/PrimeFactorization.lean",
     "nl_file": "docs/entries/number-theory/elementary/prime-factorization.md",
@@ -8207,7 +8207,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2df3c1daaa1e681b"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/order-type.md",
@@ -8241,7 +8241,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f0047bc9125ed15e"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/transfinite-induction.md",
@@ -8274,7 +8274,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e1e58b23a8a12186"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/transfinite-recursion.md",
@@ -8310,7 +8310,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-08beddb8e15b345c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/addition.md",
@@ -8348,7 +8348,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-08beddb8e15b345c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/multiplication.md",
@@ -8384,7 +8384,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-08beddb8e15b345c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/exponentiation.md",
@@ -8423,7 +8423,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-bf1e44944d8f19f1"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/successor-limit.md",
@@ -8455,7 +8455,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d58982775f2e4748"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/supremum.md",
@@ -8493,7 +8493,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0c6bf258bd5a5e9f"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/cofinality.md",
@@ -8527,7 +8527,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cdfc770c126f47fc"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/normal-function.md",
@@ -8559,7 +8559,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2a2100c583dc9ce5"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/cantor-normal-form.md",
@@ -8593,7 +8593,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7d65559cafa775ee"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/epsilon-zero.md",
@@ -8623,7 +8623,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e3abeb6b72b23611"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/Ordinal.lean",
     "nl_file": "docs/entries/settheory/ordinal/no-infinite-descent.md",
@@ -8659,7 +8659,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a4e4656869faa4d8"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/Congruence.lean",
     "nl_file": "docs/entries/number-theory/elementary/congruence.md",
@@ -8692,7 +8692,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2a111f88cdfdd280"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/Congruence.lean",
     "nl_file": "docs/entries/number-theory/elementary/chinese-remainder.md",
@@ -8722,7 +8722,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e7788d9b94b99211"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/FermatEuler.lean",
     "nl_file": "docs/entries/number-theory/elementary/totient.md",
@@ -8755,7 +8755,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-06aa010fe44dbf8f"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/FermatEuler.lean",
     "nl_file": "docs/entries/number-theory/elementary/fermat-euler.md",
@@ -8786,7 +8786,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6b609b7df6c3dbce"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/Primes.lean",
     "nl_file": "docs/entries/number-theory/elementary/prime-tests.md",
@@ -8819,7 +8819,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c39cf6d8d1786cd0"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/Primes.lean",
     "nl_file": "docs/entries/number-theory/elementary/infinite-primes.md",
@@ -8849,7 +8849,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4bd4bd5c893aed2f"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/LinearDiophantine.lean",
     "nl_file": "docs/entries/number-theory/elementary/linear-diophantine.md",
@@ -8879,7 +8879,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a73510bae724378f"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/PythagoreanTriples.lean",
     "nl_file": "docs/entries/number-theory/elementary/pythagorean-triples.md",
@@ -8919,7 +8919,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8924f74cba8b0dbb"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/QuadraticResidues.lean",
     "nl_file": "docs/entries/number-theory/elementary/quadratic-residues.md",
@@ -8955,7 +8955,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4e7a4bb3f54ed8bd"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/QuadraticReciprocity.lean",
     "nl_file": "docs/entries/number-theory/elementary/quadratic-reciprocity.md",
@@ -8982,7 +8982,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ffd7ee1442c145d0"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
     "nl_file": "docs/entries/number-theory/elementary/continued-fraction-convergent.md",
@@ -9014,7 +9014,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ffd7ee1442c145d0"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
     "nl_file": "docs/entries/number-theory/elementary/continued-fraction-recursion.md",
@@ -9038,7 +9038,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e02c6eb8b88b4a7b"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
     "nl_file": "docs/entries/number-theory/elementary/best-rational-approximation.md",
@@ -9064,7 +9064,7 @@
     ],
     "provenance": {
       "source_type": "derivation",
-      "ref": "sandrones-ref-bd3033d1a76aa611"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
     "nl_file": "docs/entries/number-theory/elementary/finite-best-approximation.md",
@@ -9092,7 +9092,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b48f85f4cafcee6d"
+      "ref": "hardy-wright-number-theory-2008"
     },
     "lean_file": "NumberTheory/Elementary/ContinuedFractions.lean",
     "nl_file": "docs/entries/number-theory/elementary/legendre-criterion.md",
@@ -9116,7 +9116,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d709ac470bf16ebe"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/Pell.lean",
     "nl_file": "docs/entries/number-theory/elementary/pell-equation.md",
@@ -9144,7 +9144,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d709ac470bf16ebe"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/Pell.lean",
     "nl_file": "docs/entries/number-theory/elementary/pell-composition.md",
@@ -9172,7 +9172,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d709ac470bf16ebe"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/Pell.lean",
     "nl_file": "docs/entries/number-theory/elementary/pell-positive-existence.md",
@@ -9207,7 +9207,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d709ac470bf16ebe"
+      "ref": "ireland-rosen-number-theory-1990"
     },
     "lean_file": "NumberTheory/Elementary/Pell.lean",
     "nl_file": "docs/entries/number-theory/elementary/pell-fundamental-solution.md",
@@ -9235,7 +9235,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-07969c05a25cc7e7"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/addition.md",
@@ -9268,7 +9268,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f77ebedc8b72aed9"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/aleph-hierarchy.md",
@@ -9304,7 +9304,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-668ee1dc9d5d6f4a"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/beth-hierarchy.md",
@@ -9338,7 +9338,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2485852fe2b1b6c6"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/cantor-bernstein.md",
@@ -9366,7 +9366,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a93fd6555c1c5ab0"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/cantor-theorem.md",
@@ -9397,7 +9397,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-69178353dac72ba2"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/cardinal-cofinality.md",
@@ -9428,7 +9428,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0cfdd04ac2d3846a"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/classical-choice-wellordering.md",
@@ -9458,7 +9458,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-61ec58d0a9780b7e"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/comparison.md",
@@ -9491,7 +9491,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7f3ac0677346e18c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/continuum-hypothesis.md",
@@ -9519,7 +9519,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a98f754c1ddfe86c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/equinumerous.md",
@@ -9555,7 +9555,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-07969c05a25cc7e7"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/exponentiation.md",
@@ -9587,7 +9587,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-2c554c951c729f85"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/finite-set.md",
@@ -9621,7 +9621,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e57c06bcdfcd346f"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/konig-theorem.md",
@@ -9651,7 +9651,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-07969c05a25cc7e7"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/multiplication.md",
@@ -9682,7 +9682,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ce05aebb70f7c2be"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/CardinalTheory.lean",
     "nl_file": "docs/entries/settheory/cardinal/regular-singular.md",
@@ -9714,7 +9714,7 @@
     ],
     "provenance": {
       "source_type": "library_bridge",
-      "ref": "sandrones-ref-131978cd2ae51eeb"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ConcretePairingCode.lean",
     "nl_file": "docs/entries/settheory/computability/concrete-pairing-code.md",
@@ -9743,7 +9743,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-deb4b1d8b17d585c"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ComputabilityDiagonal.lean",
     "nl_file": "docs/entries/settheory/computability/conditional-diagonal.md",
@@ -9771,7 +9771,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-dca4a2eaeed99cae"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ComputabilityDiagonal.lean",
     "nl_file": "docs/entries/settheory/computability/executable-universal-spec.md",
@@ -9801,7 +9801,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-80bf46c13c5556c9"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ComputabilityFoundations.lean",
     "nl_file": "docs/entries/settheory/computability/machine-decidable.md",
@@ -9834,7 +9834,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-8d7faa032d6cdbcc"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ComputabilityFoundations.lean",
     "nl_file": "docs/entries/settheory/computability/nat-computable.md",
@@ -9868,7 +9868,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-2737a2a513ecf5a2"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/ComputabilityDiagonal.lean",
     "nl_file": "docs/entries/settheory/computability/pairing-code.md",
@@ -9899,7 +9899,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-ac6dbef450cea290"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/PartialComputability.lean",
     "nl_file": "docs/entries/settheory/computability/partial-nat-computable.md",
@@ -9931,7 +9931,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-f37df4fa38a802bb"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/PartialComputability.lean",
     "nl_file": "docs/entries/settheory/computability/universal-interpreter-spec.md",
@@ -9963,7 +9963,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a12b49910aa74f6f"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/ackermann.md",
@@ -9991,7 +9991,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/GoogologyComputability.lean",
     "nl_file": "docs/entries/settheory/googology/binary-machine.md",
@@ -10022,7 +10022,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-bb738c500bf126c8"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/GoogologyComputability.lean",
     "nl_file": "docs/entries/settheory/googology/bounded-halting.md",
@@ -10055,7 +10055,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/GoogologyComputability.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-candidate.md",
@@ -10087,7 +10087,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "derivation",
-      "ref": "sandrones-ref-a89cf20e9f727969"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/BusyBeaverConvergence.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-convergence.md",
@@ -10119,7 +10119,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/BusyBeaverExistence.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-existence.md",
@@ -10153,7 +10153,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/BusyBeaver.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-value-relation.md",
@@ -10181,7 +10181,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0f857137f8d96a6d"
+      "ref": "conway-guy-book-of-numbers-1996"
     },
     "lean_file": "SetTheory/GoogologyNotation.lean",
     "nl_file": "docs/entries/settheory/googology/conway-chain.md",
@@ -10209,7 +10209,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-100769216646e7ef"
+      "ref": "conway-guy-book-of-numbers-1996"
     },
     "lean_file": "SetTheory/ConwayRecursion.lean",
     "nl_file": "docs/entries/settheory/googology/conway-recursion.md",
@@ -10236,7 +10236,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-39e3ec1a593d4c5e"
+      "ref": "wainer-ordinal-recursive-1970"
     },
     "lean_file": "SetTheory/GrowthHierarchy.lean",
     "nl_file": "docs/entries/settheory/googology/fast-growing-hierarchy.md",
@@ -10260,7 +10260,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-39e3ec1a593d4c5e"
+      "ref": "wainer-ordinal-recursive-1970"
     },
     "lean_file": "SetTheory/GrowthHierarchy.lean",
     "nl_file": "docs/entries/settheory/googology/fundamental-sequence-system.md",
@@ -10291,7 +10291,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinBorrow.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-base-power-one-borrow.md",
@@ -10326,7 +10326,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinHigherBorrow.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-base-power-two-borrow.md",
@@ -10356,7 +10356,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/Goodstein.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-certified-state.md",
@@ -10389,7 +10389,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinFinitePowerBorrow.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-finite-power-borrow.md",
@@ -10423,7 +10423,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-hereditary-base-exponent-borrow.md",
@@ -10454,7 +10454,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/Goodstein.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-ordinal-measure.md",
@@ -10492,7 +10492,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-c125308cf448fe3b"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinDescent.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-positive-digit-descent.md",
@@ -10526,7 +10526,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/GoodsteinNoBorrow.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-positive-tail-no-borrow.md",
@@ -10557,7 +10557,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/Goodstein.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-reencoding.md",
@@ -10585,7 +10585,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/Goodstein.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-sequence.md",
@@ -10613,7 +10613,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-962b243a9182c9e5"
+      "ref": "goodstein-restricted-ordinal-1944"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/goodstein-step.md",
@@ -10642,7 +10642,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-fcc8a484b8a413e4"
+      "ref": "graham-rothschild-spencer-ramsey-1990"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/graham-number.md",
@@ -10669,7 +10669,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-39e3ec1a593d4c5e"
+      "ref": "wainer-ordinal-recursive-1970"
     },
     "lean_file": "SetTheory/GrowthHierarchy.lean",
     "nl_file": "docs/entries/settheory/googology/hardy-hierarchy.md",
@@ -10695,7 +10695,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7b1b25ffc010d3df"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/hereditary-base.md",
@@ -10728,7 +10728,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-dc0af05583526e49"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraCertifiedPlayTermination.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-certified-play-termination.md",
@@ -10756,7 +10756,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-fa5ef8ba9a5ed325"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/Hydra.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-game-step.md",
@@ -10788,7 +10788,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-dd91dc4d8fbce469"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraOneLevelDescent.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-one-level-descent.md",
@@ -10822,7 +10822,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-5cbd086598972d25"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraOrdinalAssignment.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-ordinal-assignment.md",
@@ -10852,7 +10852,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b5e6b987198a1ef5"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraParentSiblingDescent.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-parent-sibling-descent.md",
@@ -10882,7 +10882,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-202ede9d8eec6ecc"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraRightmostSpineDescent.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-rightmost-spine-descent.md",
@@ -10916,7 +10916,7 @@
     ],
     "provenance": {
       "source_type": "internal",
-      "ref": "sandrones-ref-131112b59b557d1d"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraMeasure.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-root-cut-measure.md",
@@ -10946,7 +10946,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-46804ef4a099e410"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraSiblingDescent.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-sibling-descent.md",
@@ -10978,7 +10978,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d0730bfbc971941c"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/hyperoperation.md",
@@ -11010,7 +11010,7 @@
     ],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-b463f1f8f9557fa8"
+      "ref": "knuth-coping-finiteness-1976"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/knuth-arrow.md",
@@ -11039,7 +11039,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/GoogologyComputability.lean",
     "nl_file": "docs/entries/settheory/googology/machine-execution.md",
@@ -11070,7 +11070,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8efd7b39fa802711"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/Googology.lean",
     "nl_file": "docs/entries/settheory/googology/primitive-recursion.md",
@@ -11098,7 +11098,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "paper",
-      "ref": "sandrones-ref-41905695e2dea986"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/GoogologyNotation.lean",
     "nl_file": "docs/entries/settheory/googology/tree-function.md",
@@ -11122,7 +11122,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6d0dc88c0767d982"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/BusyBeaver.lean",
     "nl_file": "docs/entries/settheory/googology/unbounded-halting-relation.md",
@@ -11159,7 +11159,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-32180ca5623cfccf"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/BusyBeaverTime.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-time.md",
@@ -11192,7 +11192,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-d8ff48db28be8aa2"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/HereditaryNatEncoding.lean",
     "nl_file": "docs/entries/settheory/googology/hereditary-natural-encoding.md",
@@ -11226,7 +11226,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-371ce731690e5fdc"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraCertifiedStepWellFounded.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-certified-step-well-founded.md",
@@ -11259,7 +11259,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-9f5f4e47b6d4bcd4"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Liouville.lean",
     "nl_file": "docs/entries/complex-analysis/liouville.md",
@@ -11290,7 +11290,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-171292946e87b6f2"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/ArgumentPrinciple.lean",
     "nl_file": "docs/entries/complex-analysis/argument-principle/linear-special-case.md",
@@ -11321,7 +11321,7 @@
     ],
     "provenance": {
       "source_type": "derived",
-      "ref": "sandrones-ref-76c7922a95908800"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/HereditaryNatEncodingOrder.lean",
     "nl_file": "docs/entries/settheory/googology/hereditary-natural-encoding-same-block-order.md",
@@ -11355,7 +11355,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-717792674fe159b4"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraCertifiedTransitiveDescent.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-certified-transitive-descent.md",
@@ -11388,7 +11388,7 @@
     ],
     "provenance": {
       "source_type": "derived",
-      "ref": "sandrones-ref-76c7922a95908800"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/HereditaryNatEncodingOrder.lean",
     "nl_file": "docs/entries/settheory/googology/hereditary-natural-encoding-strict-order.md",
@@ -11418,7 +11418,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "derivation",
-      "ref": "sandrones-ref-fa2c0c808acd0fd3"
+      "ref": "rado-non-computable-functions-1962"
     },
     "lean_file": "SetTheory/BusyBeaverTimeHaltingBound.lean",
     "nl_file": "docs/entries/settheory/googology/busy-beaver-time-halting-bound.md",
@@ -11452,7 +11452,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-04c46794573928e9"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/PathIntegral.lean",
     "nl_file": "docs/entries/complex-analysis/integral/path.md",
@@ -11492,7 +11492,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c0e4bde944eceb2d"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/PathIntegral.lean",
     "nl_file": "docs/entries/complex-analysis/integral/reparametrization.md",
@@ -11524,7 +11524,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-457a0421186462cc"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyFormula.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/derivatives.md",
@@ -11561,7 +11561,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f88ba929dad80611"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Goursat.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/triangle.md",
@@ -11598,7 +11598,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ab742654e013f46c"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/HomotopyInvariance.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/smooth-homotopy-foundation.md",
@@ -11636,7 +11636,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-88951260a04caa87"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/PrimitiveFromPathIntegral.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/primitive-from-path-independence-foundation.md",
@@ -11672,7 +11672,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-ff1d58d30d83811b"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/AdmissiblePathConnectivity.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/admissible-path-connectivity-foundation.md",
@@ -11706,7 +11706,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c49fbc15ccaeedd6"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyTheorem.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/triangle-ball.md",
@@ -11739,7 +11739,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-fbf5ce573ae3410d"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyTheorem.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/path-independence-primitive.md",
@@ -11770,7 +11770,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7dd2a14c886b07df"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyFormula.lean",
     "nl_file": "docs/entries/complex-analysis/cauchy/formula.md",
@@ -11802,7 +11802,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-09a3ac21bbb57eec"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Residue.lean",
     "nl_file": "docs/entries/complex-analysis/residue/real-integral-example.md",
@@ -11833,7 +11833,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-75b3cde652b8a781"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Residue.lean",
     "nl_file": "docs/entries/complex-analysis/residue/simple-pole.md",
@@ -11863,7 +11863,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-852deeb670825372"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Residue.lean",
     "nl_file": "docs/entries/complex-analysis/residue/circle-foundation.md",
@@ -11900,7 +11900,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b6c4d3cbfcbb8264"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Taylor.lean",
     "nl_file": "docs/entries/complex-analysis/series/taylor.md",
@@ -11930,7 +11930,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ceb73548d5a3872e"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Laurent.lean",
     "nl_file": "docs/entries/complex-analysis/series/laurent-foundation.md",
@@ -11961,7 +11961,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e170290a963db94e"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyRiemann.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/cr-sufficient.md",
@@ -11991,7 +11991,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-cb34a5eb2f294a37"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/CauchyRiemann.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/cauchy-riemann.md",
@@ -12031,7 +12031,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7e45f6a68d3b9d52"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/PowerSeries.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/power-series.md",
@@ -12073,7 +12073,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-786ee8584b196368"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Elementary.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/elementary.md",
@@ -12106,7 +12106,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f92b05b3cd8e5e25"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Holomorphic.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/algebra.md",
@@ -12138,7 +12138,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f92b05b3cd8e5e25"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Holomorphic.lean",
     "nl_file": "docs/entries/complex-analysis/holomorphic/definition.md",
@@ -12184,7 +12184,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-677493d093f6965d"
+      "ref": "ahlfors-complex-analysis-1979"
     },
     "lean_file": "ComplexAnalysis/Singularity.lean",
     "nl_file": "docs/entries/complex-analysis/singularity/classification-foundation.md",
@@ -12214,7 +12214,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-bf65b53dcb84c6a4"
+      "ref": "ecnu-mathematical-analysis-5"
     },
     "lean_file": "Analysis/SpecialFunctions.lean",
     "nl_file": "docs/entries/analysis/special-functions/tan-pow.md",
@@ -12245,7 +12245,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-4fc128d5e97234fe"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixCholesky.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/cholesky.md",
@@ -12276,7 +12276,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-940b0256fdfcdc6f"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixPolar.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/polar.md",
@@ -12310,7 +12310,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-231a3951002e5627"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixPseudoinverse.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/pseudoinverse.md",
@@ -12342,7 +12342,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-aba5c9a01061eadc"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixQR.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/qr.md",
@@ -12376,7 +12376,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-443eae9cd47f1af6"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixSchur.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/schur.md",
@@ -12410,7 +12410,7 @@
     ],
     "provenance": {
       "source_type": "textbook",
-      "ref": "sandrones-ref-4003e7daf0924eef"
+      "ref": "horn-johnson-matrix-analysis-2013"
     },
     "lean_file": "LinearAlgebra/MatrixSVD.lean",
     "nl_file": "docs/entries/linear-algebra/decomposition/svd.md",
@@ -12443,7 +12443,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-671297df2096a488"
+      "ref": "odifreddi-classical-recursion-1989"
     },
     "lean_file": "SetTheory/BinaryMachineCoding.lean",
     "nl_file": "docs/entries/settheory/computability/binary-machine-coding.md",
@@ -12471,7 +12471,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-7493cb1d75361d6d"
+      "ref": "kirby-paris-independence-1982"
     },
     "lean_file": "SetTheory/HydraCertifiedStrategyTermination.lean",
     "nl_file": "docs/entries/settheory/googology/hydra-certified-strategy-termination.md",
@@ -12502,7 +12502,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0c15a68b3740018c"
+      "ref": "jech-set-theory-2003"
     },
     "lean_file": "SetTheory/OrdinalPowerBridge.lean",
     "nl_file": "docs/entries/settheory/ordinal/power-bridge.md",
@@ -12530,7 +12530,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d2f23781f8b2f110"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingQuotient.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/quotient.md",
@@ -12564,7 +12564,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-bcadd213b27bf404"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingPrimeIdeal.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/prime-ideal.md",
@@ -12597,7 +12597,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3d2a1fe326652f7a"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/Foundation.lean",
     "nl_file": "docs/entries/topology/foundation/structure.md",
@@ -12636,7 +12636,7 @@
     ],
     "provenance": {
       "source_type": "migration",
-      "ref": "sandrones-ref-440e6b40e8e6c628"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/MathlibCompatibility.lean",
     "nl_file": "docs/entries/topology/foundation/mathlib-compatibility.md",
@@ -12662,7 +12662,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-47e8049143806c46"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/Constructions.lean",
     "nl_file": "docs/entries/topology/foundation/constructions.md",
@@ -12696,7 +12696,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c32b91a59d728f59"
+      "ref": "pohlers-proof-theory-1989"
     },
     "lean_file": "SetTheory/HereditaryNatPowerRank.lean",
     "nl_file": "docs/entries/settheory/googology/hereditary-natural-power-rank.md",
@@ -12726,7 +12726,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d8051f8569d5f20a"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingIsomorphismTheorems.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/iso-theorems.md",
@@ -12759,7 +12759,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4da5d344ef7f8d80"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingDivisibility.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/divisibility.md",
@@ -12795,7 +12795,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a7834a6f0ad0ede9"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/RealLine.lean",
     "nl_file": "docs/entries/topology/foundation/real-line.md",
@@ -12830,7 +12830,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1ef337313be1381d"
+      "ref": "hatcher-algebraic-topology-2002"
     },
     "lean_file": "Topology/Path.lean",
     "nl_file": "docs/entries/topology/homotopy/path-definition-foundation.md",
@@ -12866,7 +12866,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1ef337313be1381d"
+      "ref": "hatcher-algebraic-topology-2002"
     },
     "lean_file": "Topology/Path.lean",
     "nl_file": "docs/entries/topology/homotopy/path-reversal-foundation.md",
@@ -12897,7 +12897,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-1ef337313be1381d"
+      "ref": "hatcher-algebraic-topology-2002"
     },
     "lean_file": "Topology/Path.lean",
     "nl_file": "docs/entries/topology/homotopy/path-concatenation-foundation.md",
@@ -12926,7 +12926,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0c687b0b8e9d7830"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingEuclidean.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/euclidean.md",
@@ -12959,7 +12959,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-0c687b0b8e9d7830"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingPIDUFD.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/pid-ufd.md",
@@ -12989,7 +12989,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-4c9a4489a54bc791"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/RingCRT.lean",
     "nl_file": "docs/entries/abstract-algebra/ring/crt.md",
@@ -13018,7 +13018,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6f96dcb0d3bfeac1"
+      "ref": "munkres-topology-2000"
     },
     "lean_file": "Topology/PathConnected.lean",
     "nl_file": "docs/entries/topology/connectedness/path-components-foundation.md",
@@ -13047,7 +13047,7 @@
     "mathlib": [],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-8fdd5809cb9b0853"
+      "ref": "hatcher-algebraic-topology-2002"
     },
     "lean_file": "Topology/Homotopy.lean",
     "nl_file": "docs/entries/topology/homotopy/definition-foundation.md",
@@ -13073,7 +13073,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-045ef995eca6d338"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/MultivariableRiemann.lean",
     "nl_file": "docs/entries/analysis/multivariable/riemann-box.md",
@@ -13100,7 +13100,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e3b407d796d427e3"
+      "ref": "spivak-calculus-manifolds-1965"
     },
     "lean_file": "Analysis/ParametrizedGeometry.lean",
     "nl_file": "docs/entries/analysis/multivariable/parametrized-curves-surfaces.md",
@@ -13130,7 +13130,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-412f57b0f9e42699"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/Operator.lean",
     "nl_file": "docs/entries/functional-analysis/operator/continuous-linear-map.md",
@@ -13164,7 +13164,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-412f57b0f9e42699"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/Operator.lean",
     "nl_file": "docs/entries/functional-analysis/operator/bounded-iff.md",
@@ -13197,7 +13197,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-412f57b0f9e42699"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/OperatorSpace.lean",
     "nl_file": "docs/entries/functional-analysis/operator/space.md",
@@ -13233,7 +13233,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-412f57b0f9e42699"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/BanachSeries.lean",
     "nl_file": "docs/entries/functional-analysis/series/summable.md",
@@ -13267,7 +13267,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-412f57b0f9e42699"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/QuotientSpace.lean",
     "nl_file": "docs/entries/functional-analysis/subspace/quotient.md",
@@ -13301,7 +13301,7 @@
     ],
     "provenance": {
       "source_type": "library",
-      "ref": "sandrones-ref-d636f3327c75f6aa"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/Poly.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/mathlib-compat.md",
@@ -13336,7 +13336,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-72a192d1ea6fad63"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/PolynomialDivision.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/division.md",
@@ -13369,7 +13369,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-10d95a93472c7f64"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/PolynomialFactorization.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/factorization.md",
@@ -13401,7 +13401,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f1c1ad5150e507bb"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/Baire.lean",
     "nl_file": "docs/entries/functional-analysis/baire/theorem.md",
@@ -13434,7 +13434,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-c976f576eeb86586"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/BanachSteinhaus.lean",
     "nl_file": "docs/entries/functional-analysis/banach-steinhaus.md",
@@ -13464,7 +13464,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-3a4ebdf2701a2fef"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/OpenMapping.lean",
     "nl_file": "docs/entries/functional-analysis/open-mapping.md",
@@ -13497,7 +13497,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f0b18ad269fb8a47"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/ClosedGraph.lean",
     "nl_file": "docs/entries/functional-analysis/closed-graph.md",
@@ -13527,7 +13527,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-6b475bdaad430c98"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/InverseOperator.lean",
     "nl_file": "docs/entries/functional-analysis/inverse-operator.md",
@@ -13557,7 +13557,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f94cebfb8b52b62c"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/HilbertProjection.lean",
     "nl_file": "docs/entries/functional-analysis/hilbert/projection.md",
@@ -13590,7 +13590,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-e84727463ac5f064"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/RieszRepresentation.lean",
     "nl_file": "docs/entries/functional-analysis/hilbert/riesz.md",
@@ -13625,7 +13625,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f609311131c7cc3a"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/AdjointOperator.lean",
     "nl_file": "docs/entries/functional-analysis/hilbert/adjoint.md",
@@ -13660,7 +13660,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-06da25a0df9f1991"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/OrthonormalBasis.lean",
     "nl_file": "docs/entries/functional-analysis/hilbert/orthonormal-basis.md",
@@ -13694,7 +13694,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-baae256c34a2d11e"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/UnitaryOperator.lean",
     "nl_file": "docs/entries/functional-analysis/hilbert/unitary.md",
@@ -13725,7 +13725,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a1d5a4aa8caf6b17"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/HahnBanach.lean",
     "nl_file": "docs/entries/functional-analysis/hahn-banach/extension.md",
@@ -13760,7 +13760,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-a1d5a4aa8caf6b17"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/NormingFunctional.lean",
     "nl_file": "docs/entries/functional-analysis/hahn-banach/norming-functional.md",
@@ -13798,7 +13798,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-ab58447751670a5f"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/ConvexSeparation.lean",
     "nl_file": "docs/entries/functional-analysis/convex/separation.md",
@@ -13833,7 +13833,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-b7ac83c12eeb4232"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/AnnihilatorClosure.lean",
     "nl_file": "docs/entries/functional-analysis/subspace/annihilator-closure.md",
@@ -13868,7 +13868,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-d53b48c245387b22"
+      "ref": "dummit-foote-abstract-algebra-2004"
     },
     "lean_file": "AbstractAlgebra/FieldExtension.lean",
     "nl_file": "docs/entries/abstract-algebra/field/extension.md",
@@ -13901,7 +13901,7 @@
     ],
     "provenance": {
       "source_type": "book",
-      "ref": "sandrones-ref-f7895b7bf30e4a61"
+      "ref": "buehler-salamon-functional-analysis-2018"
     },
     "lean_file": "FunctionalAnalysis/BidualReflexive.lean",
     "nl_file": "docs/entries/functional-analysis/bidual/reflexive.md",

@@ -10,7 +10,7 @@ premises: []
 mathlib: [slope_def_field, hasDerivAt_iff_tendsto_slope, DifferentiableAt.hasDerivAt, HasDerivAt.tendsto_slope, IsOpen.mem_nhds]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, Chapter 2"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.add-sub, analysis.trigonometric.double-half]
 mathlib: ["Real.tan_add", "Real.tan_sub", "Real.tan_two_mul"]
 provenance:
   source_type: textbook
-  ref: "高中数学：正切和差与倍角公式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

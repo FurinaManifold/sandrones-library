@@ -10,7 +10,7 @@ premises: [abstract-algebra.poly.def]
 mathlib: [Polynomial.ext, Polynomial.dvd_iff_isRoot, Polynomial.isUnit_iff]
 provenance:
   source_type: library
-  ref: Sandrone's Library legacy polynomial API
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["analysis.series.cauchy-product-absolute", "analysis.series.condition
 mathlib: ["cauchy_product", "Metric.tendsto_atTop", "Finset.Nat.sum_antidiagonal_swap"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：Mertens 级数乘积定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

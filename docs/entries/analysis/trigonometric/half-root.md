@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.double-half]
 mathlib: ["Real.abs_sin_half", "Real.cos_sq", "Real.sqrt_sq_eq_abs", "Real.sin_nonneg_of_nonneg_of_le_pi", "Real.cos_nonneg_of_mem_Icc"]
 provenance:
   source_type: textbook
-  ref: "高中数学：三角函数半角公式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.implicit-function"]
 mathlib: ["ContDiffAt.eventually_apply_eq_iff_implicitFunction"]
 provenance:
   source_type: book
-  ref: "多元微积分：秩定理的满秩形式"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

@@ -11,7 +11,7 @@ mathlib: [ContinuousLinearMap, HasFDerivAt, HasLineDerivAt, hasFDerivAt_iff_tend
   hasLineDerivAt_iff_tendsto_slope_zero, fderiv]
 provenance:
   source_type: book
-  ref: 多元微积分：Fréchet 导数与全微分
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

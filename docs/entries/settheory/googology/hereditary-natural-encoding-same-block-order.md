@@ -5,7 +5,7 @@ state: verified
 title: "修正遗传编码的同商块严格保序"
 premises: ["settheory.googology.hereditary-natural-encoding"]
 mathlib: ["add_lt_add_iff_left", "Nat.div_add_mod"]
-provenance: {source_type: derived, ref: "Ordinal order of corrected Horner encoding"}
+provenance: {source_type: derived, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

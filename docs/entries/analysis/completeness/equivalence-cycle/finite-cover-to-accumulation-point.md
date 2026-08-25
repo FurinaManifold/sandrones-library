@@ -10,7 +10,7 @@ premises: ["analysis.completeness.finite-cover"]
 mathlib: ["accPt_iff_nhds", "Metric.mem_nhds_iff", "Metric.mem_ball_self", "Finset.finite_toSet", "Set.Infinite.not_finite"]
 provenance:
   source_type: generated
-  ref: "本库自建：实数完备性六大等价环"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.equivalence-cycle.finite-cover-to-accumulation-point

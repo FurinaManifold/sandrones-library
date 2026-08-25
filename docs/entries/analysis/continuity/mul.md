@@ -10,7 +10,7 @@ premises: []
 mathlib: ["Continuous.mul"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第二章 连续函数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.continuity.mul

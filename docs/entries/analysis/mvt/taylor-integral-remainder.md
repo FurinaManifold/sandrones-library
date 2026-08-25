@@ -7,7 +7,7 @@ premises: ["analysis.series.taylor", "real-analysis.riemann.eq-lebesgue"]
 mathlib: ["taylor_integral_remainder", "iteratedDerivWithin_eq_iteratedDeriv", "intervalIntegral.integral_congr_uIoo"]
 provenance:
   source_type: book
-  ref: "数学分析 II：Taylor 公式的积分型余项"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 陈述

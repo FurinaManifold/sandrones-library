@@ -5,7 +5,7 @@ state: verified
 title: "自然数函数的机器可计算性"
 premises: ["settheory.googology.unbounded-halting-relation"]
 mathlib: ["Finset.range", "Finset.map"]
-provenance: {source_type: textbook, ref: "Turing-machine computability with unary input encoding"}
+provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["topology.normed-space.def", "linear-algebra.det.mul"]
 mathlib: ["Orientation", "Orientation.map", "Orientation.map_eq_iff_det_pos", "Orientation.map_eq_neg_iff_det_neg", "Basis.orientation"]
 provenance:
   source_type: book
-  ref: "有限维实向量空间的定向与保向坐标变换"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

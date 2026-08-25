@@ -7,7 +7,7 @@ premises: ["analysis.series.basic", "analysis.series.tests"]
 mathlib: ["Summable.abs", "Summable.tendsto_sum_tsum_nat"]
 provenance:
   source_type: book
-  ref: "数学分析 II：绝对收敛级数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

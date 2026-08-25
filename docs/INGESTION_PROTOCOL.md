@@ -29,7 +29,7 @@
 | 叙述层 | `docs/entries/<family>/<entry>.md` | 由纳客写 |
 | 形式化层 | `SandronesLibrary/<域>/<文件>.lean` | 由纳客写，Lean 校验 |
 | 元数据 | `index/registry.json`（该条目的记录） | 由脚本/审计者更新 |
-| 参考文献 | `reference.bib`（Registry 仅引用 citation key） | Main 统一去重与维护 |
+| 参考文献 | `reference.bib`（Registry 仅引用 citation key） | Main 只接收出版书、发表论文或带编号的 arXiv 论文，并按出版物去重 |
 
 ---
 
@@ -129,7 +129,7 @@
 | 机器校验 | `lake build` | 零错误零警告（lint 也过） |
 | 陈述一致性 | `scripts/audit.py` | 陈述文本与 `entry.md` 的「陈述」节一致（占位符、记号同步） |
 | 依赖完整性 | `scripts/audit.py` | 形式化层实际使用的 mathlib 定理 ⊆ 声明依赖 ∪ mathlib |
-| 来源引用 | `scripts/audit.py` | `provenance.ref` 必须指向 `reference.bib` 中已登记的 citation key |
+| 来源引用 | `scripts/audit.py` | citation key 必须存在，且来源是出版书、发表论文或带 arXiv 编号的论文预印本 |
 | 无隐藏假设 | 人工抽查 | 证明未在 `premises` 之外使用未声明的非 mathlib 事实 |
 | RADAR 覆盖 | 脚本/人工 | front matter `mathlib:` 每个名字都可在 MATHLIB-RADAR.md 找到锚点 |
 

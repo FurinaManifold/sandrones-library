@@ -5,7 +5,7 @@ state: verified
 title: "序数加法不交换"
 premises: ["settheory.ordinal.order-type"]
 mathlib: ["Ordinal.type", "Ordinal.type_sum_lex", "Ordinal.add_omega0", "Order.lt_succ"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Ordinal Arithmetic"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

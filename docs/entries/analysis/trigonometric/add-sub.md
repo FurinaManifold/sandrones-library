@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.basic-identities]
 mathlib: ["Real.sin_add", "Real.sin_sub", "Real.cos_add", "Real.cos_sub"]
 provenance:
   source_type: textbook
-  ref: "高中数学：三角函数和差公式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

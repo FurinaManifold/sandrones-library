@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 高幂借位：底数平方的显式展开"
 premises: ["settheory.googology.goodstein-base-power-one-borrow", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Ordinal.mul_succ", "Ordinal.natCast_lt_omega0", "mul_lt_mul_of_pos_left"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

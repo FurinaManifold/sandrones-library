@@ -10,7 +10,7 @@ premises: [complex-analysis.integral.path]
 mathlib: [curveIntegral_eq_intervalIntegral_deriv, intervalIntegral.integral_eq_sub_of_hasDerivAt, HasDerivAt.comp_hasFDerivAt, ContinuousMap.Homotopy]
 provenance:
   source_type: book
-  ref: "Ahlfors, Complex Analysis, path independence from primitives; no unsupported simply-connected converse is asserted"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

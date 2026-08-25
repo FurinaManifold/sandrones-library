@@ -7,7 +7,7 @@ premises: ["linear-algebra.matrix.symmetric"]
 mathlib: ["Matrix.transpose_neg", "Matrix.transpose_sub"]
 provenance:
   source_type: book
-  ref: "线性代数教材：反对称矩阵与标准分解"
+  ref: "horn-johnson-matrix-analysis-2013"
 ---
 
 # 动机

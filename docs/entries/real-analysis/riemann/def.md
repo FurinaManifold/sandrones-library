@@ -10,7 +10,7 @@ premises: [real-analysis.measure.lintegral, real-analysis.lebesgue-measure]
 mathlib: [sSup, sInf, Finset.sum_range]
 provenance:
   source_type: book
-  ref: Tao, Analysis I, Ch 11（黎曼积分）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.riemann.def

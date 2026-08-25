@@ -10,7 +10,7 @@ premises: [real-analysis.measure.lintegral]
 mathlib: [tendsto_lintegral_of_dominated_convergence]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（控制收敛）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.measure.dominated-convergence

@@ -5,7 +5,7 @@ state: verified
 title: "Minkowski 不等式"
 premises: ["real-analysis.lp.holder", "analysis.inequalities.minkowski-finite"]
 mathlib: ["MeasureTheory.eLpNorm_add_le", "ENNReal.lintegral_Lp_add_le"]
-provenance: {source_type: book, ref: "实分析：Minkowski 不等式"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 动机

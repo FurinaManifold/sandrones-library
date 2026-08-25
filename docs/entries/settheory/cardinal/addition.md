@@ -5,7 +5,7 @@ state: verified
 title: "基数加法：用不交并合并两批对象"
 premises: ["settheory.cardinal.equinumerous"]
 mathlib: ["Equiv.sumCongr"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 3: Cardinal Arithmetic"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

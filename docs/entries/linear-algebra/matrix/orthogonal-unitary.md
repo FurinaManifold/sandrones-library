@@ -7,7 +7,7 @@ premises: ["linear-algebra.inner-product", "linear-algebra.det.mul"]
 mathlib: ["Matrix.mem_unitaryGroup_iff", "Matrix.mem_orthogonalGroup_iff", "Matrix.det_of_mem_unitary", "Unitary.star_mem"]
 provenance:
   source_type: book
-  ref: "本科线性代数：正交矩阵、酉矩阵与经典矩阵群"
+  ref: "horn-johnson-matrix-analysis-2013"
 ---
 
 # 动机

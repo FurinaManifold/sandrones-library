@@ -10,7 +10,7 @@ premises: [abstract-algebra.group.coset]
 mathlib: [Subgroup.normal_of_index_eq_two]
 provenance:
   source_type: book
-  ref: Rotman, An Introduction to the Theory of Groups, Ch 2（正规子群）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.group.index-two

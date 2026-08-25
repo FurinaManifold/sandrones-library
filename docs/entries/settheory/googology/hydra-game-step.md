@@ -5,7 +5,7 @@ state: verified
 title: "有限 Hydra 游戏的定义与阶段相关单步"
 premises: []
 mathlib: []
-provenance: {source_type: book, ref: "Laurie Kirby and Jeff Paris, Accessible Independence Results for Peano Arithmetic, 1982; 本条固定一种有限有序树变体"}
+provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
 ---
 
 # 动机

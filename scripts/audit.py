@@ -36,6 +36,38 @@ errors: list[str] = []
 BIB_KEYS: set[str] = set()
 
 
+def audit_bibliography(text: str) -> None:
+    """只允许出版书、发表论文和带 arXiv 编号的论文预印本。"""
+    blocks = re.findall(r"(?ms)^@(\w+)\s*\{\s*([^,\s]+)\s*,(.*?)(?=^@|\Z)", text)
+    allowed_published = {"book", "article", "inproceedings"}
+    seen: set[str] = set()
+    for raw_kind, key, body in blocks:
+        kind = raw_kind.lower()
+        if key in seen:
+            err(f"reference.bib citation key 重复: {key}")
+        seen.add(key)
+        if kind in allowed_published:
+            required = {"author", "title", "year"}
+            if kind == "book":
+                required.add("publisher")
+            elif kind == "article":
+                required.add("journal")
+            else:
+                required.add("booktitle")
+            for field in required:
+                if not re.search(rf"(?m)^\s*{field}\s*=", body, re.IGNORECASE):
+                    err(f"reference.bib {key}: @{kind} 缺必填字段 {field}")
+        elif kind == "misc":
+            has_arxiv_type = re.search(
+                r"(?mi)^\s*eprinttype\s*=\s*[\{\"]arXiv[\}\"]", body
+            )
+            has_arxiv_id = re.search(r"(?mi)^\s*eprint\s*=\s*[\{\"][^\}\"]+[\}\"]", body)
+            if not (has_arxiv_type and has_arxiv_id):
+                err(f"reference.bib {key}: @misc 只允许带 eprinttype=arXiv 和 eprint 编号的论文")
+        else:
+            err(f"reference.bib {key}: 不允许 @{kind}；只接受出版书、发表论文或 arXiv 论文")
+
+
 def err(msg: str) -> None:
     errors.append(msg)
     print(f"  [ERR] {msg}")
@@ -110,6 +142,7 @@ def main() -> None:
     if not BIBLIOGRAPHY.exists():
         sys.exit("缺少 reference.bib")
     bib_text = BIBLIOGRAPHY.read_text(encoding="utf-8")
+    audit_bibliography(bib_text)
     BIB_KEYS = set(re.findall(r"@\w+\s*\{\s*([^,\s]+)\s*,", bib_text))
 
     # premises 是唯一事实来源；dependedOnBy 必须与其反向图完全一致。

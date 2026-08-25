@@ -5,7 +5,7 @@ state: verified
 title: "底数幂的遗传编码具有精确序数秩"
 premises: ["settheory.googology.hereditary-natural-encoding-strict-order"]
 mathlib: ["Nat.mul_div_left", "Nat.mul_mod_left"]
-provenance: {source_type: derived, ref: "Finite omega-power rank of corrected hereditary encoding"}
+provenance: {source_type: derived, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

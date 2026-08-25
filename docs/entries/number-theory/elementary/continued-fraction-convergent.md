@@ -10,7 +10,7 @@ premises: []
 mathlib: [Real.convergent, Real.convergent_zero]
 provenance:
   source_type: book
-  ref: "Ireland--Rosen, A Classical Introduction to Modern Number Theory, continued fractions"
+  ref: "ireland-rosen-number-theory-1990"
 ---
 
 # 动机

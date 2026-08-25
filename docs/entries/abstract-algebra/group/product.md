@@ -7,7 +7,7 @@ premises: ["abstract-algebra.group.automorphism"]
 mathlib: ["MulEquiv.prodComm", "MulEquiv.prodAssoc", "MonoidHom.noncommCoprod", "SemidirectProduct.mulEquivProd", "SemidirectProduct.mulEquivSubgroup"]
 provenance:
   source_type: book
-  ref: "Rotman, An Introduction to the Theory of Groups（直积与半直积）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

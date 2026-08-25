@@ -10,7 +10,7 @@ premises: [analysis.sequence.definition]
 mathlib: [Metric.tendsto_atTop, IsBoundedUnder, BddAbove, BddBelow]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第二章 §2 收敛数列的性质（定理 2.2）
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.sequence.bounded

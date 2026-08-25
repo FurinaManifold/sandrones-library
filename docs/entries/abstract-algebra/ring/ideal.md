@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def]
 mathlib: [Ideal, Ideal.span, Ideal.sup, Ideal.mul]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 1（理想）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

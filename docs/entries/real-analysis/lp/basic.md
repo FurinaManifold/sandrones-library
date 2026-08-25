@@ -9,7 +9,7 @@ premises: ["real-analysis.measure.lintegral", "real-analysis.measure.fubini"]
 mathlib: ["MeasureTheory.Lp", "MeasureTheory.MemLp", "MeasureTheory.MemLp.toLp", "MeasureTheory.MemLp.coeFn_toLp", "MeasureTheory.MemLp.toLp_eq_toLp_iff", "MeasureTheory.Lp.norm_toLp", "MeasureTheory.Lp.coeFn_add", "MeasureTheory.Lp.eq_zero_iff_ae_eq_zero"]
 provenance:
   source_type: book
-  ref: "实分析：Lᵖ空间的定义与基本结构"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 动机

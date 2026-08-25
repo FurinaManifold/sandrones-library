@@ -5,7 +5,7 @@ state: verified
 title: "快速增长层级：后继处迭代前一级函数"
 premises: ["settheory.googology.fundamental-sequence-system"]
 mathlib: []
-provenance: {source_type: book, ref: "S. S. Wainer, A Classification of the Ordinal Recursive Functions"}
+provenance: {source_type: book, ref: "wainer-ordinal-recursive-1970"}
 ---
 
 # 动机

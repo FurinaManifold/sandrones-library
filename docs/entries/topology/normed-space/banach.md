@@ -5,7 +5,7 @@ state: verified
 title: "范数收敛与Banach完备性"
 premises: ["topology.normed-space.def", "topology.metric.cauchy-complete"]
 mathlib: ["Metric.tendsto_atTop", "Metric.cauchySeq_iff", "cauchySeq_tendsto_of_complete"]
-provenance: {source_type: book, ref: "赋范空间：收敛、Cauchy与完备性"}
+provenance: {source_type: book, ref: "munkres-topology-2000"}
 ---
 
 # 陈述

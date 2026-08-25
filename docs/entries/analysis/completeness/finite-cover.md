@@ -10,7 +10,7 @@ premises: []
 mathlib: ["CompactIccSpace.isCompact_Icc", "IsCompact.elim_finite_subcover"]
 provenance:
   source_type: generated
-  ref: "Rudin, Principles of Mathematical Analysis, Thm 2.40"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.finite-cover

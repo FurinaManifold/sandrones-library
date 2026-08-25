@@ -10,7 +10,7 @@ premises: [topology.compact.def, topology.separations]
 mathlib: [IsCompact.isClosed, IsCompact.inter]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 3（紧致性与 Hausdorff）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.compact.finite

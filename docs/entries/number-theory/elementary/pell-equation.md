@@ -10,7 +10,7 @@ premises: []
 mathlib: []
 provenance:
   source_type: book
-  ref: "Ireland--Rosen, A Classical Introduction to Modern Number Theory, Section 17.5"
+  ref: "ireland-rosen-number-theory-1990"
 ---
 
 # 动机

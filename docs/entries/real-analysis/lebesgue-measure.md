@@ -10,7 +10,7 @@ premises: [real-analysis.measure.sigma-algebra, real-analysis.measure.caratheodo
 mathlib: [Real.volume_Icc, Real.volume_Ioo, measurableSet_Icc, measurableSet_Ioo]
 provenance:
   source_type: book
-  ref: Tao, An Introduction to Measure Theory, Ch 1（Lebesgue 测度）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.lebesgue-measure

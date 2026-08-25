@@ -8,7 +8,7 @@ premises: ["complex-analysis.cauchy.formula"]
 mathlib: ["DifferentiableOn.circleIntegral_one_div_sub_center_pow_smul", "Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le", "iteratedDeriv"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（Cauchy 导数公式与估计）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

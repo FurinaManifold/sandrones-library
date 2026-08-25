@@ -10,7 +10,7 @@ premises: [abstract-algebra.poly.def, abstract-algebra.ring.euclidean]
 mathlib: [Polynomial.divByMonic, Polynomial.modByMonic, Polynomial.instEuclideanDomain]
 provenance:
   source_type: textbook
-  ref: 本科抽象代数的多项式带余除法与 Euclidean 算法
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.poly.division

@@ -7,7 +7,7 @@ premises: ["analysis.limits.asymptotic", "analysis.constants.pi-definition", "an
 mathlib: ["Real.tendsto_prod_pi_div_two", "Stirling.factorial_isEquivalent_stirling", "Stirling.le_factorial_stirling", "Stirling.le_log_factorial_stirling"]
 provenance:
   source_type: book
-  ref: "数学分析 II：Wallis 公式与 Stirling 公式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

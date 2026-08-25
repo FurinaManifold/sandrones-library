@@ -10,7 +10,7 @@ premises: [analysis.func-limit.definition]
 mathlib: [Metric.continuousAt_iff, Metric.continuousOn_iff, Metric.uniformContinuousOn_iff]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第三章 §2 连续函数
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: [analysis.trigonometric.double-half, analysis.constants.pi-definition]
 mathlib: ["Real.sin_pi_div_six", "Real.cos_pi_div_six", "Real.tan_pi_div_six", "Real.sin_pi_div_four", "Real.cos_pi_div_four", "Real.tan_pi_div_four", "Real.sin_pi_div_three", "Real.cos_pi_div_three", "Real.tan_pi_div_three"]
 provenance:
   source_type: textbook
-  ref: "高中数学：π/6、π/4、π/3 特殊角"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

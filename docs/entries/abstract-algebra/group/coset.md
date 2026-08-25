@@ -10,7 +10,7 @@ premises: [abstract-algebra.group.def]
 mathlib: [mem_leftCoset_iff, leftCoset_eq_iff, mem_rightCoset_iff, rightCoset_eq_iff, Subgroup.leftCosetEquivSubgroup, Subgroup.card_mul_index, orderOf_dvd_card, pow_card_eq_one]
 provenance:
   source_type: book
-  ref: Rotman, An Introduction to the Theory of Groups, Ch 2（Lagrange）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # abstract-algebra.group.coset

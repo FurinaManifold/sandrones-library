@@ -8,7 +8,7 @@ premises: ["complex-analysis.holomorphic.definition"]
 mathlib: ["FormalMultilinearSeries.ofScalars", "FormalMultilinearSeries.radius", "FormalMultilinearSeries.hasFPowerSeriesOnBall", "HasFPowerSeriesOnBall.comp_sub", "HasFPowerSeriesOnBall.differentiableOn", "HasFPowerSeriesOnBall.fderiv", "FormalMultilinearSeries.hasFDerivAt_sum", "FormalMultilinearSeries.derivSeries_coeff_one", "ContinuousLinearMap.map_tsum"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（幂级数与解析函数）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["analysis.series.conditional", "analysis.sequence.liminf-limsup"]
 mathlib: ["Nat.find", "Finset.sum_Ico_eq_sub", "Equiv.ofBijective", "Filter.liminf_le_iff", "Filter.le_limsup_iff", "tendsto_of_tendsto_of_tendsto_of_le_of_le'"]
 provenance:
   source_type: book
-  ref: "Walter Rudin, Principles of Mathematical Analysis, Chapter 3, Theorem 3.54"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

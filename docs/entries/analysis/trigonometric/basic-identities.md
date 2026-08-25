@@ -7,7 +7,7 @@ premises: [analysis.constants.pi-definition, analysis.constants.special-values]
 mathlib: ["Real.sin_neg", "Real.cos_neg", "Real.sin_add_two_pi", "Real.cos_add_two_pi", "Real.neg_one_le_sin", "Real.sin_le_one", "Real.neg_one_le_cos", "Real.cos_le_one"]
 provenance:
   source_type: textbook
-  ref: "高中数学：三角函数基本性质"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

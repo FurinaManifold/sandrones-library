@@ -6,7 +6,7 @@ title: "辐角积分与 Rouché 比较的线性特例"
 summary: 计算 z-c 的正规化对数导数圆周积分，并验证常数扰动的边界不等式与唯一零点
 premises: ["complex-analysis.residue.circle-foundation"]
 mathlib: ["logDeriv", "circleIntegral.integral_sub_center_inv"]
-provenance: {source_type: book, ref: "辐角原理与 Rouché 定理的线性模型"}
+provenance: {source_type: book, ref: "ahlfors-complex-analysis-1979"}
 ---
 
 # 动机

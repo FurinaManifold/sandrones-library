@@ -8,7 +8,7 @@ premises: ["abstract-algebra.group.sylow"]
 mathlib: ["Group.fg_iff", "CommGroup.equiv_free_prod_prod_multiplicative_zmod", "AddCommGroup.equiv_directSum_zmod_of_finite", "CommGroup.equiv_prod_multiplicative_zmod_of_finite"]
 provenance:
   source_type: book
-  ref: "Dummit and Foote, Abstract Algebra（有限生成交换群结构定理）"
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

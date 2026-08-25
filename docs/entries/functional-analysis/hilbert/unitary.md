@@ -5,7 +5,7 @@ state: verified
 title: Hilbert 空间之间的酉算子
 premises: [functional-analysis.hilbert.adjoint, functional-analysis.hilbert.orthonormal-basis]
 mathlib: [LinearIsometryEquiv, LinearIsometryEquiv.adjoint_eq_symm]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Definition 5.3.10"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

@@ -10,7 +10,7 @@ premises: ["analysis.func-limit.definition"]
 mathlib: ["Filter.Tendsto.comp", "Metric.tendsto_atTop", "tendsto_one_div_atTop_nhds_zero_nat"]
 provenance:
   source_type: book
-  ref: "华东师大《数学分析》第五版 第三卷 第一章 函数极限（含 Heine 归结原理）"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.func-limit.heine

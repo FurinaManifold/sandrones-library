@@ -7,7 +7,7 @@ premises: ["analysis.series.basic"]
 mathlib: ["summable_of_isBigO_nat", "summable_of_ratio_test_tendsto_lt_one", "not_summable_of_ratio_test_tendsto_gt_one", "Antitone.cauchySeq_alternating_series_of_tendsto_zero"]
 provenance:
   source_type: book
-  ref: "数学分析 II：数项级数判别法"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

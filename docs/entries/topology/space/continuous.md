@@ -10,7 +10,7 @@ premises: [topology.space.def]
 mathlib: [continuous_def, continuous_iff_continuousAt, Continuous.tendsto, Continuous.comp]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 2（连续函数）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.space.continuous

@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.frechet"]
 mathlib: ["LinearMap.pi_apply_eq_sum_univ", "Matrix.mulVec", "Matrix.mul_apply", "Pi.single"]
 provenance:
   source_type: book
-  ref: "多元微积分：偏导数与Jacobian矩阵"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

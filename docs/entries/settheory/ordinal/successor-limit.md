@@ -5,7 +5,7 @@ state: verified
 title: "后继序数与极限序数"
 premises: ["settheory.ordinal.order-type"]
 mathlib: ["Order.lt_succ", "Order.lt_succ_iff", "Ordinal.isSuccLimit_omega0"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Successor and Limit Ordinals"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

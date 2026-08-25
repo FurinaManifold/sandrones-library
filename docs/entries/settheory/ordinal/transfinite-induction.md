@@ -5,7 +5,7 @@ state: verified
 title: "超限归纳"
 premises: ["settheory.ordinal.order-type"]
 mathlib: ["WellFoundedLT.induction"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 2: Transfinite Induction"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

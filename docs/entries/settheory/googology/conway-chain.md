@@ -5,7 +5,7 @@ state: verified
 title: "Conway 链式箭头：有限语法与诚实的受限求值"
 premises: []
 mathlib: []
-provenance: {source_type: book, ref: "John H. Conway and Richard K. Guy, The Book of Numbers, Chapter 2"}
+provenance: {source_type: book, ref: "conway-guy-book-of-numbers-1996"}
 ---
 
 # 动机

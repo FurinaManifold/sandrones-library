@@ -10,7 +10,7 @@ premises: ["analysis.sequence.bolzano-weierstrass", "analysis.real.bounded-sets.
 mathlib: ["Set.Infinite.exists_accPt_of_subset_isCompact", "AccPt"]
 provenance:
   source_type: generated
-  ref: "Rudin, Principles of Mathematical Analysis, Thm 2.37"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # analysis.completeness.accumulation-point

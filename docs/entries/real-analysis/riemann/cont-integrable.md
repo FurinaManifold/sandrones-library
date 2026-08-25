@@ -10,7 +10,7 @@ premises: [real-analysis.riemann.def, analysis.continuity.uniform-compact, analy
 mathlib: [continuousOn_compact_uniformContinuousOn, Metric.uniformContinuousOn_iff, Finset.sum_le_sum]
 provenance:
   source_type: book
-  ref: Tao, Analysis I, Ch 11（黎曼可积性）
+  ref: "folland-real-analysis-1999"
 ---
 
 # real-analysis.riemann.cont-integrable

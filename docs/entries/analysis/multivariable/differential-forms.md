@@ -11,7 +11,7 @@ mathlib: ["ContinuousAlternatingMap.compContinuousLinearMap", "extDeriv", "extDe
   "AlternatingMap.mkContinuous", "LinearMap.mk₂", "LinearMap.mkContinuous₂"]
 provenance:
   source_type: book
-  ref: "经典微分几何：微分形式与外微分"
+  ref: "spivak-calculus-manifolds-1965"
 ---
 
 # 动机

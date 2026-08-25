@@ -10,7 +10,7 @@ premises: [settheory.set.ext]
 mathlib: [TopologicalSpace, IsOpen, IsClosed, Continuous, Homeomorph, TextbookTopology.equivMathlib]
 provenance:
   source_type: book
-  ref: "Munkres, Topology, Section 12"
+  ref: "munkres-topology-2000"
 ---
 
 # 动机

@@ -5,7 +5,7 @@ state: staging
 title: Banach 闭图定理
 premises: [functional-analysis.open-mapping]
 mathlib: [LinearMap.graph, LinearMap.continuous_of_isClosed_graph, ContinuousLinearMap.ofIsClosedGraph]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter II"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

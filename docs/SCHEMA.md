@@ -47,6 +47,10 @@
 - `state` 只能取三值之一；`unresolved` 条目不得有 `lean_file`。
 - `provenance.ref` 只存放根目录 `reference.bib` 中的 citation key，不再重复书名、
   论文名或课程资料描述。书目信息的补全、去重和更正统一在 `reference.bib` 完成。
+- `reference.bib` 只允许三类来源：已出版书籍（`@book`）、已发表论文
+  （`@article`/`@inproceedings`），以及带 `eprinttype = {arXiv}` 和 `eprint` 编号的论文预印本。
+  不允许课程讲义、网页、Mathlib 模块、本库 RFC/自建证明、标准例题或无出版信息的主题描述。
+  多个 Entry 引用同一出版物时共享 citation key；章节和定理编号写入 Entry 正文。
 - `id` 一经注册不得更改；作废条目用 `state: unresolved` + 说明，而非删除。
 - **多版本**：同一 family 可以有任意多个变体条目。
   - 无变体的条目：`variant` 取 `generated`（库内自创/无教材出处）。
@@ -160,5 +164,5 @@ theorem banach_fixed_point {α : Type*} [MetricSpace α] [CompleteSpace α]
 3. .lean 中实际 `#check` 使用的库内依赖 ⊆ registry 的 `premises`。
 4. `state: verified` ⇒ `lake build` 通过 且 .lean 无 `sorry`。
 5. `state: pending` ⇒ 证明可含 `sorry`，但必须在 `#exit` 后集中登记。
-6. `provenance.ref` 必须是 `reference.bib` 中存在的 citation key；来源的完整书目与
-   章节/编号定位信息在对应 BibTeX 条目中维护。
+6. `provenance.ref` 必须是 `reference.bib` 中存在的 citation key；BibTeX 只维护出版物级
+   元数据，章节/编号定位信息写在对应 Entry 正文。`audit.py` 同时强制检查出版物类型与必填字段。

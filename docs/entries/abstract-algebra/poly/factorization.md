@@ -10,7 +10,7 @@ premises: [abstract-algebra.poly.def, abstract-algebra.poly.division, abstract-a
 mathlib: [Polynomial.normalizedFactors, Polynomial.rootMultiplicity, Polynomial.derivative]
 provenance:
   source_type: book
-  ref: 本科抽象代数与数学分析中的多项式因式分解、重根和导数判据
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

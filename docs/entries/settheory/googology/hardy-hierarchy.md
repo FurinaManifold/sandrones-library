@@ -5,7 +5,7 @@ state: verified
 title: "Hardy 层级：沿记号下降，把后继变成输入递增"
 premises: ["settheory.googology.fundamental-sequence-system"]
 mathlib: []
-provenance: {source_type: book, ref: "S. S. Wainer, A Classification of the Ordinal Recursive Functions"}
+provenance: {source_type: book, ref: "wainer-ordinal-recursive-1970"}
 ---
 
 # 动机

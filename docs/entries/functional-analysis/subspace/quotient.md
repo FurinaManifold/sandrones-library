@@ -5,7 +5,7 @@ state: verified
 title: 闭线性子空间与商 Banach 空间
 premises: [topology.normed-space.banach]
 mathlib: [Submodule, IsClosed, Submodule.Quotient, QuotientAddGroup.norm_mk, Submodule.Quotient.completeSpace]
-provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

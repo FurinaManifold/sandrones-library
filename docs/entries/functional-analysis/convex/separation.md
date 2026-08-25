@@ -5,7 +5,7 @@ state: verified
 title: 凸集的 Hahn–Banach 分离定理
 premises: [functional-analysis.hahn-banach.extension, functional-analysis.hahn-banach.norming-functional]
 mathlib: [Convex, gauge, separate_convex_open_set, geometric_hahn_banach_closed_point]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.3.3"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

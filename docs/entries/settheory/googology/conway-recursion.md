@@ -5,7 +5,7 @@ state: verified
 title: "一般有限 Conway 链的递归求值"
 premises: ["settheory.googology.conway-chain"]
 mathlib: ["Prod.Lex"]
-provenance: {source_type: book, ref: "John H. Conway and Richard K. Guy, The Book of Numbers, chained-arrow notation"}
+provenance: {source_type: book, ref: "conway-guy-book-of-numbers-1996"}
 ---
 
 # 动机

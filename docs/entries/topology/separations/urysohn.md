@@ -10,7 +10,7 @@ premises: [topology.separations]
 mathlib: [exists_continuous_zero_one_of_isClosed]
 provenance:
   source_type: book
-  ref: Munkres, Topology, Ch 4（Urysohn 引理）
+  ref: "munkres-topology-2000"
 ---
 
 # topology.separations.urysohn

@@ -7,7 +7,7 @@ premises: ["analysis.series.basic"]
 mathlib: ["Summable.of_norm", "Summable.tendsto_sum_tsum_nat", "summable_of_ne_finset_zero"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：幂级数的定义与收敛点集"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

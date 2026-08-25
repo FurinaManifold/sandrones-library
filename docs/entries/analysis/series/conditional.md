@@ -7,7 +7,7 @@ premises: ["analysis.series.tests"]
 mathlib: ["Antitone.tendsto_alternating_series_of_tendsto_zero"]
 provenance:
   source_type: book
-  ref: "数学分析 II：条件收敛级数"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

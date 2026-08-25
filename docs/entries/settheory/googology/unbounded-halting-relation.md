@@ -5,7 +5,7 @@ state: verified
 title: "无时间界停机关系与最终输出"
 premises: ["settheory.googology.bounded-halting"]
 mathlib: []
-provenance: {source_type: book, ref: "Tibor Rado, On Non-Computable Functions, 1962"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机

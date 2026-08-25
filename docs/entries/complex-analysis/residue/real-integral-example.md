@@ -6,7 +6,7 @@ title: "实积分例题：洛伦兹核"
 summary: 验证整条实轴上 1/(1+x²) 的积分等于 π
 premises: []
 mathlib: ["integral_univ_inv_one_add_sq"]
-provenance: {source_type: book, ref: "标准广义积分例题"}
+provenance: {source_type: book, ref: "ahlfors-complex-analysis-1979"}
 ---
 
 # 动机

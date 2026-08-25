@@ -8,7 +8,7 @@ premises: ["complex-analysis.cauchy.derivatives"]
 mathlib: ["Differentiable.exists_const_forall_eq_of_bounded", "isBounded_iff_forall_norm_le"]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（Liouville 定理）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

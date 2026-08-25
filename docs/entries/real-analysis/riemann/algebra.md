@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.cont-integrable", "real-analysis.riemann.eq-le
 mathlib: ["intervalIntegral.integral_add", "intervalIntegral.integral_sub", "intervalIntegral.integral_const_mul", "intervalIntegral.integral_nonneg", "intervalIntegral.integral_mono_on", "intervalIntegral.abs_integral_le_integral_abs", "intervalIntegral.integral_add_adjacent_intervals"]
 provenance:
   source_type: book
-  ref: "数学分析 II：Riemann 积分的基本性质"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 内容

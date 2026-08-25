@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def, abstract-algebra.ring.domain]
 mathlib: [Associated, Irreducible, Prime]
 provenance:
   source_type: book
-  ref: Rotman, Advanced Modern Algebra, Ch 2（整除与分解）
+  ref: "dummit-foote-abstract-algebra-2004"
 ---
 
 # 动机

@@ -7,7 +7,7 @@ premises: ["analysis.power-series.definition", "analysis.series.tests"]
 mathlib: ["summable_powerSeries_of_norm_lt", "lt_sSup_iff", "le_sSup", "ENNReal.ofReal_lt_ofReal_iff"]
 provenance:
   source_type: textbook
-  ref: "数学分析 II：幂级数收敛半径定理"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

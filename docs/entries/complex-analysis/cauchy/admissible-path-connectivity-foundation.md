@@ -10,7 +10,7 @@ premises: [complex-analysis.integral.path, complex-analysis.cauchy.primitive-fro
 mathlib: [IsPreconnected.subset_left_of_subset_union, Metric.isOpen_iff, Path.trans_range, curveIntegrable_segment]
 provenance:
   source_type: textbook
-  ref: "Open connected subsets of a normed vector space are polygonally connected; clopen reachable-set proof"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

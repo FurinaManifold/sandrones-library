@@ -6,7 +6,7 @@
 ## 1. 仓库快照与事实源
 
 当前 Main 快照（2026-08-25）：431 个 verified Entry、483 条直接依赖边、
-309 条 BibTeX 资料、429 个正式参排条目，最近 Main 全库构建 8916 jobs 通过。
+23 条合规 BibTeX 出版来源、429 个正式参排条目，最近 Main 全库构建 8916 jobs 通过。
 
 这些数字是快照，不是开工依据。每次接手必须现场检查：
 
@@ -97,6 +97,9 @@ Mathlib 列表、真实验证、以及不强于 Lean 陈述的 summary。
 - 一个 Entry id 只对应一个 Lean 文件；源码、Markdown 和 Registry id 一致。
 - `premises` 只列库内 Entry；Mathlib 名称只进 `mathlib`。
 - `provenance.ref` 只存 `reference.bib` 中已定义的 citation key。
+- `reference.bib` 只接受已出版书籍、已发表论文，或带 `eprinttype = {arXiv}` 与 arXiv 编号的
+  论文预印本。课程讲义、网页、Mathlib 文件、证明思路、本库自建说明和无出版信息的主题描述
+  都不是合规参考文献；章节定位写在 Entry 正文，不为同一本书的每一章复制 BibTeX 条目。
 - `axioms` 和 `proof_sha` 由 `check_axioms.py` 根据当前 Lean 文件生成，不从冲突两边任选。
 - `dependedOnBy` 是 `premises` 的反向缓存，禁止手工修改。
 - `docs/entries/README.md`、`index/rankings.json` 和 `docs/entries/RANKINGS.md` 是派生文件，禁止手工解决冲突。

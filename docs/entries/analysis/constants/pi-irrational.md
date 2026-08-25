@@ -7,7 +7,7 @@ premises: ["analysis.constants.pi-definition"]
 mathlib: ["irrational_pi"]
 provenance:
   source_type: book
-  ref: "Cartwright 积分法；Mathlib Analysis.Real.Pi.Irrational"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

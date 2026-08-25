@@ -7,7 +7,7 @@ premises: [analysis.special-functions.basic, analysis.special-functions.log-tan-
 mathlib: ["HasDerivAt.tendsto_slope_zero", "Real.cos_two_mul_eq_one_sub", "Filter.Tendsto.comp", "Filter.Tendsto.pow"]
 provenance:
   source_type: textbook
-  ref: "数学分析 I：经典重要极限"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

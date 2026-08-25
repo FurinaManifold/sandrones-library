@@ -9,7 +9,7 @@ premises: []
 mathlib: ["Real.young_inequality"]
 provenance:
   source_type: book
-  ref: "数学分析：Young不等式"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 动机

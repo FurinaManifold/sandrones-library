@@ -7,7 +7,7 @@ premises: ["analysis.series.absolute"]
 mathlib: ["Equiv.tsum_eq", "Equiv.summable_iff"]
 provenance:
   source_type: book
-  ref: "数学分析 II：级数重排"
+  ref: "ecnu-mathematical-analysis-5"
 ---
 
 # 内容

@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 首个借位形：将底数一次幂展开为有限末项"
 premises: ["settheory.googology.goodstein-positive-tail-no-borrow", "settheory.googology.goodstein-ordinal-measure"]
 mathlib: ["Ordinal.natCast_lt_omega0", "add_lt_add_iff_left"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

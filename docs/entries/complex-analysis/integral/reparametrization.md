@@ -10,7 +10,7 @@ premises: [complex-analysis.integral.path]
 mathlib: [curveIntegral_symm, curveIntegral_trans, intervalIntegral.integral_deriv_smul_comp]
 provenance:
   source_type: book
-  ref: "Conway, Functions of One Complex Variable I（路径积分的基本运算）"
+  ref: "ahlfors-complex-analysis-1979"
 ---
 
 # 动机

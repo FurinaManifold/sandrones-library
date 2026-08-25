@@ -5,7 +5,7 @@ state: verified
 title: "Aleph 层级：依次编号所有无限基数"
 premises: ["settheory.cardinal.finite-set"]
 mathlib: ["Cardinal.aleph", "Cardinal.aleph_zero", "Cardinal.succ_aleph"]
-provenance: {source_type: book, ref: "Thomas Jech, Set Theory, Chapter 5: Alephs"}
+provenance: {source_type: book, ref: "jech-set-theory-2003"}
 ---
 
 # 动机

@@ -7,7 +7,7 @@ state: verified
 title: "Tonelli 定理"
 premises: ["real-analysis.measure.product-measure", "real-analysis.measure.lintegral"]
 mathlib: ["MeasureTheory.lintegral_prod", "MeasureTheory.lintegral_prod_symm"]
-provenance: {source_type: book, ref: "实分析：Tonelli 定理"}
+provenance: {source_type: book, ref: "folland-real-analysis-1999"}
 ---
 
 # 陈述

@@ -7,7 +7,7 @@ premises: ["real-analysis.riemann.def", "real-analysis.riemann.lebesgue-criterio
 mathlib: ["Measure.integrableOn_of_bounded", "integral_indicator", "integral_mono", "csInf_le", "le_csSup"]
 provenance:
   source_type: book
-  ref: "Lebesgue criterion and the equivalence of Riemann and Lebesgue integrals"
+  ref: "folland-real-analysis-1999"
 ---
 
 # 内容
