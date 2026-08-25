@@ -60,3 +60,20 @@
 
 - Main 集成时新增顶层 `WeakTopology` import，登记 Entry、RADAR 与 ROADMAP 状态。
 - 引用建议挂靠 Bühler–Salamon 第 3.1 节；学科分支不直接修改 `reference.bib`。
+
+## F4.5 Banach--Dieudonné 窗口
+
+- Main 基线：`e81ce2e`（`git rebase main`）；权限为 `integration_open`。
+- 概念链：对偶子空间仍用 `Submodule ℝ (StrongDual ℝ X)`，弱星承载用
+  `WeakDual ℝ X`；闭单位球截面用 `dualUnitSlice`，没有建立平行对偶、弱星或 `c₀` 类型。
+- 正式证明包含教材全链：范数闭性和正间隙；Banach--Alaoglu 下的有限检测块递归；
+  单位球中趋零的检测序列；对 `C₀(ℕ,ℝ)` 像商应用 Hahn--Banach；在 Banach 原空间中
+  对绝对可和级数求和；最终得到弱星分离向量和闭性充要判据。
+- 公开上层 API：`exists_weakStar_separator_of_dualUnitSlice_closed`、
+  `weakStarImage_submodule_isClosed_of_dualUnitSlice_closed`、
+  `weakStarImage_submodule_isClosed_iff_dualUnitSlice_closed`。有限检测引理保留公开，
+  `C₀` 坐标和自然数配对枚举均为私有证明后端。
+- 完整性边界：`[CompleteSpace X]` 只在将绝对可和向量级数求和为 `x₀ : X` 时使用；
+  未声称任意凸集版本，未使用 Eberlein--Šmulian、闭值域或 Fredholm 结论。
+- Main 集成建议：新增顶层 `BanachDieudonne` import，登记
+  `functional-analysis.weak-star.banach-dieudonne`，并将 F4.5 标记为已集成。
