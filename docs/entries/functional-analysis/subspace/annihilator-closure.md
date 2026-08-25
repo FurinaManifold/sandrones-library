@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.subspace.annihilator-closure
 kind: theorem
-state: staging
+state: verified
 title: 连续零化子、双零化子与子空间闭包
 premises: [functional-analysis.convex.separation, functional-analysis.hahn-banach.norming-functional]
 mathlib: [StrongDual.polarSubmodule, StrongDual.mem_polarSubmodule, Submodule.topologicalClosure]

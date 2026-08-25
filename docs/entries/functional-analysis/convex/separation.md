@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.convex.separation
 kind: theorem
-state: staging
+state: verified
 title: 凸集的 Hahn–Banach 分离定理
 premises: [functional-analysis.hahn-banach.extension, functional-analysis.hahn-banach.norming-functional]
 mathlib: [Convex, gauge, separate_convex_open_set, geometric_hahn_banach_closed_point]

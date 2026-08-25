@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **425** 个条目（verified 425，pending 0）。
+共 **429** 个条目（verified 429，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -294,6 +294,15 @@
 
 - ✅ [`theorem.md`](theorem.md) — Banach 空间上的 Baire 范畴定理
 
+## `functional-analysis.convex`
+
+- ✅ [`separation.md`](separation.md) — 凸集的 Hahn–Banach 分离定理
+
+## `functional-analysis.hahn-banach`
+
+- ✅ [`extension.md`](extension.md) — Hahn–Banach 延拓定理
+- ✅ [`norming-functional.md`](norming-functional.md) — 范数化泛函与对偶范数刻画
+
 ## `functional-analysis.hilbert`
 
 - ✅ [`adjoint.md`](adjoint.md) — Hilbert 空间上有界算子的伴随
@@ -314,6 +323,7 @@
 
 ## `functional-analysis.subspace`
 
+- ✅ [`annihilator-closure.md`](annihilator-closure.md) — 连续零化子、双零化子与子空间闭包
 - ✅ [`quotient.md`](quotient.md) — 闭线性子空间与商 Banach 空间
 
 ## `linear-algebra`

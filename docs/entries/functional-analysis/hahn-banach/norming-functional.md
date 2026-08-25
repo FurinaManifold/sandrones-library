@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.hahn-banach.norming-functional
 kind: theorem
-state: staging
+state: verified
 title: 范数化泛函与对偶范数刻画
 premises: [functional-analysis.hahn-banach.extension]
 mathlib: [exists_dual_vector, exists_dual_vector'', ContinuousLinearMap.le_opNorm]

@@ -152,7 +152,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.3 闭子空间商 | `examples.functional-analysis.quotients` | 有限维子空间商、商范数距离计算 | 非闭子空间会出现非零陪集范数为零的边界 | F1 |
 | E11.4 Banach 三大定理 | `examples.functional-analysis.banach-theorems` | 具体算子族的一致有界、开映射与有界逆应用 | 逐点有界与一致有界不能在缺 Baire 条件时混同 | F2 |
 | E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、矩阵伴随、有限正交基 Parseval 与正交/酉变换计算 | 投影需要闭性；正交规范族不稠密时只有 Bessel 不等式；等距线性映射不满时不是酉算子 | F3 |
-| E11.6 Hahn–Banach 与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维分离泛函、坐标泛函族的弱／弱星收敛 | 范数收敛、弱收敛与弱星收敛不可混同；逆向通常失败 | F2+/F4 |
+| E11.6 Hahn–Banach、零化子与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维范数化泛函和凸集分离、坐标子空间零化子、坐标泛函族的弱／弱星收敛 | 代数零化子不等于连续零化子；共同零点一般恢复闭包而非原子空间；范数、弱与弱星收敛不可混同 | F2+/F4 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
 | E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |
 | E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |

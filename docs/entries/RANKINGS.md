@@ -10,36 +10,36 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.22 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.97 |
+| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.23 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.89 |
 | 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.73 |
 | 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.00 |
-| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.19 |
-| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.99 |
-| 7 | `analysis.series.basic` | 数项级数基础 | 93.66 |
-| 8 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 92.99 |
-| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.23 |
-| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.66 |
-| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.42 |
-| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.14 |
-| 13 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.02 |
-| 14 | `settheory.googology.bounded-halting` | 限定步数停机 | 90.00 |
-| 15 | `linear-algebra.det.mul` | 积的行列式 | 89.49 |
-| 16 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.29 |
-| 17 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.29 |
-| 18 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.15 |
-| 19 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.80 |
-| 20 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.30 |
-| 21 | `settheory.set.ext` | 外延性原理 | 87.06 |
-| 22 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.01 |
-| 23 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.23 |
-| 24 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.95 |
-| 25 | `settheory.ordinal.addition` | 序数加法不交换 | 85.58 |
+| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.20 |
+| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.98 |
+| 7 | `analysis.series.basic` | 数项级数基础 | 93.60 |
+| 8 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.00 |
+| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.16 |
+| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.58 |
+| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.38 |
+| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.12 |
+| 13 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.91 |
+| 14 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 89.86 |
+| 15 | `linear-algebra.det.mul` | 积的行列式 | 89.34 |
+| 16 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.29 |
+| 17 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.17 |
+| 18 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.15 |
+| 19 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.65 |
+| 20 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.25 |
+| 21 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.11 |
+| 22 | `settheory.set.ext` | 外延性原理 | 87.02 |
+| 23 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.29 |
+| 24 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.94 |
+| 25 | `settheory.ordinal.addition` | 序数加法不交换 | 85.39 |
 | 26 | `analysis.derivative.chain-rule` | 链式法则 | 85.13 |
-| 27 | `analysis.continuity.definition` | 连续性定义 | 84.55 |
+| 27 | `analysis.continuity.definition` | 连续性定义 | 84.46 |
 | 28 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.21 |
-| 29 | `real-analysis.measure.def` | 测度公理 | 83.67 |
-| 30 | `number-theory.elementary.divisibility` | 带余除法、最大公因数与 Bézout 等式 | 83.28 |
+| 29 | `real-analysis.measure.def` | 测度公理 | 83.69 |
+| 30 | `number-theory.elementary.divisibility` | 带余除法、最大公因数与 Bézout 等式 | 83.30 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -81,12 +81,12 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 16.250 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 16.000 |
-| 3 | `topology.space.def` | 拓扑空间与开闭集公理 | 15.750 |
-| 4 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 13.625 |
+| 2 | `topology.space.def` | 拓扑空间与开闭集公理 | 16.031 |
+| 3 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 16.000 |
+| 4 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 14.188 |
 | 5 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 13.531 |
-| 6 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 13.312 |
-| 7 | `linear-algebra.vector-space.def` | 向量空间定义 | 13.094 |
+| 6 | `linear-algebra.vector-space.def` | 向量空间定义 | 13.375 |
+| 7 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 13.312 |
 | 8 | `analysis.continuity.definition` | 连续性定义 | 12.281 |
 | 9 | `real-analysis.measure.def` | 测度公理 | 11.875 |
 | 10 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 9.750 |
@@ -98,10 +98,10 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 16 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
 | 17 | `settheory.ordinal.order-type` | 良序与序型 | 8.500 |
 | 18 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
-| 19 | `settheory.set.ext` | 外延性原理 | 8.000 |
-| 20 | `analysis.series.basic` | 数项级数基础 | 7.906 |
-| 21 | `analysis.series.tests` | 数项级数判别法 | 7.812 |
-| 22 | `topology.metric.def` | 度量空间与开球 | 7.812 |
+| 19 | `topology.metric.def` | 度量空间与开球 | 8.094 |
+| 20 | `settheory.set.ext` | 外延性原理 | 8.000 |
+| 21 | `analysis.series.basic` | 数项级数基础 | 7.906 |
+| 22 | `analysis.series.tests` | 数项级数判别法 | 7.812 |
 | 23 | `settheory.ordinal.transfinite-recursion` | 超限递归 | 7.594 |
 | 24 | `settheory.ordinal.transfinite-induction` | 超限归纳 | 7.219 |
 | 25 | `settheory.googology.primitive-recursion` | 原始递归：从初值逐步生成自然数函数 | 7.188 |

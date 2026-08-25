@@ -568,10 +568,10 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.open-mapping` | 开映射定理 ✅ | continuous linear surjection |
 | 4 | `functional-analysis.closed-graph` | 闭图定理 ✅ | closed graph |
 | 5 | `functional-analysis.inverse-operator` | 有界逆定理 ✅ | open mapping 推论 |
-| 6 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理、支配次线性泛函版本与范数保持延拓 | `exists_extension_norm_eq`、`Sublinear` |
-| 7 | `functional-analysis.hahn-banach.norming-functional` | 给定非零向量的范数化泛函与对偶范数刻画 | `exists_dual_vector`、dual norm API |
-| 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 | geometric Hahn–Banach、`Convex` |
-| 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、零化子与双零化子刻画 | `annihilator`、dual pairing |
+| 6 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理、支配次线性泛函版本与范数保持延拓 ✅ | `exists_extension_norm_eq`、`Sublinear` |
+| 7 | `functional-analysis.hahn-banach.norming-functional` | 给定非零向量的范数化泛函与对偶范数刻画 ✅ | `exists_dual_vector`、dual norm API |
+| 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 ✅ | geometric Hahn–Banach、`Convex` |
+| 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、连续零化子与双零化子刻画 ✅ | `StrongDual.polarSubmodule`、dual pairing |
 | 10 | `functional-analysis.bidual.reflexive` | 典范嵌入到双对偶、自反性与闭单位球边界 | `NormedSpace.inclusionInDoubleDual`、`IsReflexive` |
 | 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 | separability/reflexivity API |
 

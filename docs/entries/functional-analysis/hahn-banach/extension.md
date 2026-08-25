@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.hahn-banach.extension
 kind: theorem
-state: staging
+state: verified
 title: Hahn–Banach 延拓定理
 premises: [functional-analysis.operator.space]
 mathlib: [exists_extension_of_le_sublinear, exists_extension_norm_eq]

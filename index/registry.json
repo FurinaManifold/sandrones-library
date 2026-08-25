@@ -13203,6 +13203,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.hahn-banach.extension",
       "functional-analysis.hilbert.adjoint"
     ],
     "family": "functional-analysis.operator",
@@ -13705,5 +13706,143 @@
       "propext"
     ],
     "proof_sha": "bfb78a0cb2e9b4e2"
+  },
+  {
+    "id": "functional-analysis.hahn-banach.extension",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hahn–Banach 延拓定理",
+    "summary": "建立受次线性函数支配的实线性延拓以及子空间连续泛函的等范数延拓",
+    "premises": [
+      "functional-analysis.operator.space"
+    ],
+    "mathlib": [
+      "exists_extension_of_le_sublinear",
+      "exists_extension_norm_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-a1d5a4aa8caf6b17"
+    },
+    "lean_file": "FunctionalAnalysis/HahnBanach.lean",
+    "nl_file": "docs/entries/functional-analysis/hahn-banach/extension.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.convex.separation",
+      "functional-analysis.hahn-banach.norming-functional"
+    ],
+    "family": "functional-analysis.hahn-banach",
+    "variant": "salamon",
+    "proof_sha": "9fdf2187f1adb46b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.hahn-banach.norming-functional",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "范数化泛函与对偶范数刻画",
+    "summary": "构造取到向量范数的连续对偶泛函并证明对偶单位球控制与分离点性质",
+    "premises": [
+      "functional-analysis.hahn-banach.extension"
+    ],
+    "mathlib": [
+      "exists_dual_vector",
+      "exists_dual_vector''",
+      "ContinuousLinearMap.le_opNorm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-a1d5a4aa8caf6b17"
+    },
+    "lean_file": "FunctionalAnalysis/NormingFunctional.lean",
+    "nl_file": "docs/entries/functional-analysis/hahn-banach/norming-functional.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.convex.separation",
+      "functional-analysis.subspace.annihilator-closure"
+    ],
+    "family": "functional-analysis.hahn-banach",
+    "variant": "salamon",
+    "proof_sha": "985ffb3a0f2693cf",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.convex.separation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "凸集的 Hahn–Banach 分离定理",
+    "summary": "建立开凸集、闭凸集与外点的连续线性泛函分离及闭凸集半空间交刻画",
+    "premises": [
+      "functional-analysis.hahn-banach.extension",
+      "functional-analysis.hahn-banach.norming-functional"
+    ],
+    "mathlib": [
+      "Convex",
+      "gauge",
+      "separate_convex_open_set",
+      "geometric_hahn_banach_closed_point"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-ab58447751670a5f"
+    },
+    "lean_file": "FunctionalAnalysis/ConvexSeparation.lean",
+    "nl_file": "docs/entries/functional-analysis/convex/separation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.subspace.annihilator-closure"
+    ],
+    "family": "functional-analysis.convex",
+    "variant": "salamon",
+    "proof_sha": "5d79d8153512523d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.subspace.annihilator-closure",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "连续零化子、双零化子与子空间闭包",
+    "summary": "用连续对偶零化子刻画子空间的拓扑闭包，并给出闭子空间的共同零点恢复定理",
+    "premises": [
+      "functional-analysis.convex.separation",
+      "functional-analysis.hahn-banach.norming-functional"
+    ],
+    "mathlib": [
+      "StrongDual.polarSubmodule",
+      "StrongDual.mem_polarSubmodule",
+      "Submodule.topologicalClosure"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-b7ac83c12eeb4232"
+    },
+    "lean_file": "FunctionalAnalysis/AnnihilatorClosure.lean",
+    "nl_file": "docs/entries/functional-analysis/subspace/annihilator-closure.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.subspace",
+    "variant": "salamon",
+    "proof_sha": "20e5cfa3245bef06",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

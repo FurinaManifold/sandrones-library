@@ -12,6 +12,28 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## Hahn–Banach、凸分离与连续零化子
+
+### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
+- **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。
+- **出处**：Mathlib 的 Hahn–Banach 模块。
+- **谁在用**：`functional-analysis.hahn-banach.extension`；`LinearPMap` 仅是前者的证明后端。
+
+### `exists_dual_vector` / `exists_dual_vector''` / `ContinuousLinearMap.le_opNorm`
+- **人话**：为向量找到取到其范数的连续对偶泛函，并用算子范数控制任意泛函值。
+- **出处**：Mathlib 的 Hahn–Banach 对偶推论与连续线性映射范数接口。
+- **谁在用**：`functional-analysis.hahn-banach.norming-functional`。
+
+### `separate_convex_open_set` / `geometric_hahn_banach_closed_point`
+- **人话**：用连续实线性泛函严格分开含零开凸邻域与外点，或闭凸集与外点。
+- **出处**：Mathlib 的局部凸空间分离定理。
+- **谁在用**：`functional-analysis.convex.separation`，并作为零化子闭包刻画的核心分离步骤。
+
+### `StrongDual.polarSubmodule` / `StrongDual.mem_polarSubmodule`
+- **人话**：连续对偶中在给定子空间上恒为零的泛函组成一个子模；成员定理把它展开为逐点为零的量词。
+- **出处**：Mathlib 的连续对偶极集接口。
+- **谁在用**：`functional-analysis.subspace.annihilator-closure`；这里刻意区别于纯代数对偶零化子。
+
 ## 标准道路的逆向与拼接
 
 ### `Path.symm` / `Path.symm_apply` / `Path.symm_symm`
