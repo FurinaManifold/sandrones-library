@@ -1,9 +1,9 @@
 # F3 Hilbert 空间 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`a1d019e`（`git rebase main`）
+- Main 基线：`bdc17a6`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f3-design.md`
-- 当前阶段：正交投影与 Riesz 表示均已提交并在新基线上复验；伴随待开发
+- 当前阶段：正交投影与 Riesz 表示已由 Main 集成；伴随窗口完成验证
 
 ## Main 基线同步
 
@@ -32,8 +32,18 @@
 - 四个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
+## 伴随窗口
+
+- 正式承载为 `ContinuousLinearMap.adjoint` 与记号 `A†`；没有本地伴随定义或包装结构。
+- 教材定义由全称量化的内积转移公式展开，首个上层使用者同时覆盖对合、等距和复合反序。
+- 本条固定实 Hilbert 空间；复数域共轭线性、Banach 对偶算子和无界算子伴随均明确留在范围外。
+- `lake build SandronesLibrary.FunctionalAnalysis.AdjointOperator`：8713 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖正式承载、定义性刻画及五个公开声明；Entry 精确映射为五个声明。
+- 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
 ## 范围与边界
 
-- 依次覆盖正交投影、Riesz 表示、伴随、正交规范基／Parseval、紧自伴谱定理。
+- 依次覆盖正交投影、Riesz 表示、伴随、正交规范基／Parseval 与酉算子。
 - 直接复用语义一致的 Mathlib Hilbert 接口，不重定义内积、投影、对偶或基。
 - 本分支保持 F3 连续依赖链；F4 继续锁定，共有文件仍由 Main 集成。

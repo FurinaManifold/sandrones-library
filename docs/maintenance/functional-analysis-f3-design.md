@@ -1,9 +1,9 @@
 # F3 Hilbert 空间接口冻结
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`000abbb`
+- Main 基线：`bdc17a6`
 - 依赖门：F1 与 L5 已完成，Main 已明确解锁 F3
-- 范围：正交投影、Riesz 表示、伴随、正交规范基／Parseval、紧自伴谱定理
+- 范围：正交投影、Riesz 表示、伴随、正交规范基／Parseval、酉算子
 
 ## 概念清单
 
@@ -14,7 +14,7 @@
 | 连续对偶 | 连续线性泛函 | `E →L[𝕜] 𝕜` | 算子范数 | F1 承载的标量值特例 | Riesz 表示 | `functional-analysis.hilbert.riesz` |
 | 伴随 | 内积转移算子 | `ContinuousLinearMap.adjoint` | 伴随内积恒等式 | 直接复用 | 自伴与谱 | `functional-analysis.hilbert.adjoint` |
 | 正交规范基 | 完备正交规范族 | `HilbertBasis`／`OrthonormalBasis` | 展开与 Parseval | 按无限维语义选承载 | Fourier 展开 | `functional-analysis.hilbert.orthonormal-basis` |
-| 紧自伴算子 | 紧且等于伴随 | Mathlib compact/self-adjoint API | 特征向量谱分解 | 不建立平行算子类 | 紧谱定理 | `functional-analysis.hilbert.compact-spectral` |
+| 酉算子 | 保持内积的可逆 Hilbert 算子 | `LinearIsometryEquiv` 与伴随 API | 等距、逆与伴随 | 不建立平行酉结构 | 正交分解 | `functional-analysis.hilbert.unitary` |
 
 ## 边界
 
@@ -22,4 +22,4 @@
   `RCLike`，不得让半线性细节遮蔽教材陈述。
 - 线性代数已有有限维 `adjointOperator` 只作为前置教材概念，不替代无限维连续线性伴随。
 - 不重定义内积、正交补、投影、连续对偶或正交规范基。
-- F4 仍保持锁定。
+- 紧自伴谱定理已按新 ROADMAP 移至 F6；F4 仍保持锁定。
