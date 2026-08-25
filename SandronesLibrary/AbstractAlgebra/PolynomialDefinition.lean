@@ -6,16 +6,17 @@ Authors: Sandrone's Library contributors
 import SandronesLibrary.AbstractAlgebra.RingDivisibility
 
 /-!
-# 抽象代数 / 多项式的本库定义
+# 抽象代数 / 有限支撑系数序列兼容承载
 
-本模块从教材定义出发，把多项式定义为自然数指标、非零项有限的系数序列。公开对象
-`PolynomialSequence R` 是 Sandrone's Library 自己的多项式概念，而不是 Mathlib
-`Polynomial R` 的别名、包装定理或记号替换。系数、环运算、常数多项式、不定元、次数、
-求值、根与整除性都以该本库类型公开。
+本模块从教材定义出发，把多项式实现为自然数指标、非零项有限的系数序列，并完整证明它与
+Mathlib `Polynomial R` 双向互逆。按照课程承载维护方案，后续多项式课程正式采用语义一致且成熟的
+`Polynomial R`；公开对象 `PolynomialSequence R` 作为已有代码的兼容承载继续保留，不做破坏式
+删除。系数、环运算、常数多项式、不定元、次数、求值、根与整除性的旧接口仍可稳定使用。
 
-Mathlib 的 `Polynomial` 与 `Finsupp` 只承担两类职责：具名转换桥及其逆定理，以及
-`transported...` 私有定义和私有证明引理中的运算实现。上层教材定理因而只需依赖本库
-`PolynomialSequence`、`RingHomomorphism`、`IntegralDomainAxioms` 和 `DividesElement`。
+`toMathlibPolynomial` 与 `fromMathlibPolynomial` 是旧兼容承载到正式承载的迁移路径；其互逆、
+系数和运算保持定理说明两种表示没有数学语义差异。`Finsupp` 仍只属于实现细节。新章节应直接
+量化 `Polynomial R`，旧下游则可继续依赖 `PolynomialSequence`、`RingHomomorphism`、
+`IntegralDomainAxioms` 和 `DividesElement`。
 
 > **Entry**: abstract-algebra.poly.def
 -/

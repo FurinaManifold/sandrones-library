@@ -4,8 +4,8 @@ family: abstract-algebra.poly
 variant: compatibility
 kind: theorem
 state: verified
-title: Mathlib 多项式历史兼容接口
-summary: 保留旧代码直接使用 Mathlib Polynomial 时所需的外延、根、单位和整环包装定理
+title: Mathlib 多项式正式承载的历史课程接口
+summary: 以正式 Polynomial 承载提供外延、根、单位、整环与根数结论
 premises: [abstract-algebra.poly.def]
 mathlib: [Polynomial.ext, Polynomial.dvd_iff_isRoot, Polynomial.isUnit_iff]
 provenance:
@@ -15,13 +15,13 @@ provenance:
 
 # 动机
 
-早期模块直接以 Mathlib `Polynomial` 为课程多项式。A3.1 定义转正后，既有调用仍需要稳定入口，
-但这些包装定理不能继续冒充本库多项式定义。
+早期模块直接以 Mathlib `Polynomial` 为课程多项式；语义复核确认它正是有限支撑系数多项式，
+因此重新确认为后续课程正式承载。本文件保存其既有课程定理入口。
 
 # 直觉
 
-本条目是兼容层：它让旧代码继续使用 `R[X]`、`coeff`、`eval` 和 `roots`，新课程定理则应迁移到
-`PolynomialSequence`。
+本条目直接使用正式承载 `R[X]`、`coeff`、`eval` 和 `roots`。`PolynomialSequence` 反而作为
+旧平行承载保留，并通过双向桥迁回这里。
 
 # 陈述（自然语言）
 
@@ -43,15 +43,15 @@ provenance:
 
 | 角色 | 接口 |
 |---|---|
-| 新教材类型 | `PolynomialSequence` |
-| 历史 Mathlib 类型 | `Polynomial R` / `R[X]` |
+| 正式教材承载 | `Polynomial R` / `R[X]` |
+| 旧兼容表示 | `PolynomialSequence` |
 | 双向迁移桥 | `toMathlibPolynomial`、`fromMathlibPolynomial` |
 
 # 依赖（人话版）
 
-本条目依赖新的 `poly.def` 作为概念来源；Mathlib API 只是旧调用的承载。
+本条目依赖 `poly.def` 中对有限支撑系数语义的教材解释；Mathlib API 是语义一致的正式承载。
 
 # 应用与陷阱
 
-- 新增上层教材定理不得继续以本条目替代 `PolynomialSequence` 定义层。
-- 本条目的直接 Mathlib 签名是有意保留的兼容边界，不代表 A3 后续允许跳过定义迁移。
+- 新增上层教材定理应直接使用 `Polynomial`，同时给首次出现的课程概念补足教材解释。
+- 直接复用不等于静默挂靠：类型类假设、记号和关键展开仍必须在课程文档披露。

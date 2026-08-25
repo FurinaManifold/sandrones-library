@@ -4,8 +4,8 @@ family: abstract-algebra.poly
 variant: textbook
 kind: theorem
 state: verified
-title: 多项式的有限支撑系数定义
-summary: 自建多项式类型、环运算、系数、次数、求值、根、因式定理与整环性
+title: 多项式的有限支撑系数语义与 Lean 承载
+summary: 解释 Polynomial 的有限支撑系数语义、系数、支撑、次数、求值和旧兼容表示
 premises: [abstract-algebra.ring.def, abstract-algebra.ring.domain, abstract-algebra.ring.divisibility]
 mathlib: [Polynomial]
 provenance:
@@ -15,8 +15,9 @@ provenance:
 
 # 动机
 
-多项式首先是只有有限个非零项的形式表达式，而不是一个未经解释的 Mathlib 类型。本条目把这一
-教材定义直接写入 Lean，使后续首一性、除法、不可约性和重数都能依赖本库自己的概念链。
+多项式首先是只有有限个非零项的形式表达式。Mathlib `Polynomial R` 正好承载这一教材语义，
+并提供稳定的系数、支撑、次数和求值接口，因此后续课程直接以它作为正式 Lean 类型；已有
+`PolynomialSequence R` 保留为经双向互逆桥验证的兼容表示。
 
 # 直觉
 
@@ -26,13 +27,17 @@ Cauchy 卷积。次数是最高非零项的位置，零多项式的次数记为 
 
 # 陈述（自然语言）
 
-本条目定义有限支撑系数多项式及其系数，建立与 Mathlib 多项式的具名双向桥，并通过桥传输环
-运算。随后证明零、一、加法、负法、乘法、常数和不定元的系数公式，定义次数、求值和根，证明
-求值是环同态、`X-a` 整除当且仅当 `a` 是根，并证明整环上的本库多项式环仍为整环。
+正式承载 `Polynomial R` 以 `coeff` 读取系数，以有限集 `support` 记录非零项，以
+`degree : WithBot ℕ` 表示次数，并以 `eval` 求值。兼容模块另给出 `PolynomialSequence R`，证明
+它与正式承载双向互逆，并保留旧代码所用的系数公式、因式定理和整环性。
 
 # 陈述（Lean 对照）
 
-- `PolynomialSequence R`：本库有限支撑系数多项式。
+- `Polynomial R` / `R[X]`：后续课程的正式多项式承载。
+- `Polynomial.coeff`、`support`：系数函数与有限非零支撑。
+- `Polynomial.degree`：零多项式取 `⊥` 的次数。
+- `Polynomial.eval`：同系数环中的有限幂和求值。
+- `PolynomialSequence R`：旧有限支撑系数兼容表示。
 - `coefficient`、`ext`：系数与外延性。
 - `toMathlibPolynomial`、`fromMathlibPolynomial`：具名双向实现桥。
 - `constant`、`X`、`degree`、`evaluate`、`IsRoot`：教材基本运算与性质。
@@ -46,35 +51,34 @@ Cauchy 卷积。次数是最高非零项的位置，零多项式的次数记为 
 
 # 思维脉络（thinking trace）
 
-定义层使用函数及有限支撑证明，确保多项式概念不等同于 Mathlib 名称。次数通过“最高项非零且
-更高项全零”唯一刻画，求值公开展开为系数支撑上的有限和。为了复用成熟的卷积和
-次数实现，构造到 Mathlib `Polynomial` 的双向桥并证明互逆；环运算通过这对桥私下传输，再用
-系数公式把其教材含义公开。因式定理显式经过本库根谓词与具名根桥，再把整除见证搬回本库类型。
-整环性同样把乘积为零送过单射桥，使用底层整环消去后返回。
+教材定义与 `Polynomial` 的语义核对逐项进行：`coeff` 是系数序列，`support` 的有限性保证只有
+有限个非零项，乘法系数是 Cauchy 卷积，`degree` 用 `WithBot` 诚实处理零多项式，`eval` 是有限
+幂和。兼容类型把同一语义显式再现，并由双向逆桥证明并非另一种数学对象。
 
 # 自然语言 ↔ Lean 映射
 
 | 数学语言 | Lean 接口 |
 |---|---|
-| 有限支撑多项式 | `PolynomialSequence R` |
-| `Xⁿ` 的系数 | `coefficient p n` |
-| 常数多项式 | `constant a` |
-| 不定元 | `X` |
-| 次数 | `degree p` |
-| 在 `a` 处求值 | `evaluate a p` |
-| `a` 是根 | `IsRoot p a` |
+| 有限支撑多项式 | `Polynomial R` / `R[X]` |
+| `Xⁿ` 的系数 | `p.coeff n` |
+| 非零系数位置 | `p.support` |
+| 常数多项式 | `Polynomial.C a` |
+| 不定元 | `Polynomial.X` |
+| 次数 | `p.degree` |
+| 在 `a` 处求值 | `p.eval a` |
+| `a` 是根 | `p.IsRoot a` |
 | 因式定理 | `divides_X_sub_constant_iff_root` |
 
 # 依赖（人话版）
 
-公开课程结论使用本库 `PolynomialSequence`、`RingHomomorphism`、`DividesElement` 和
-`IntegralDomainAxioms`。Mathlib `Polynomial` 与 `Finsupp` 只出现在具名桥、私有传输定义和证明
-实现中；它们不是本库多项式的公开教材定义。
+后续公开课程结论直接使用 Mathlib `Polynomial`，因为其语义与教材定义一致且已在本条目解释。
+`PolynomialSequence` 是旧接口兼容层；`Finsupp` 属于 Mathlib 内部实现，不是课程公开前提。
 
 # 应用与陷阱
 
 - 零多项式的次数是 `⊥`，不能把它写成自然数零。
-- `PolynomialSequence` 的有限支撑字段是定义的一部分，但外延性只需比较系数函数。
+- `Polynomial.ext` 表明比较所有系数即可证明两个正式多项式相等。
+- `PolynomialSequence` 的有限支撑字段是兼容表示的一部分，但外延性同样只需比较系数函数。
 - 运算虽然通过成熟实现传输，公开系数公式仍明确给出逐项加法和有限卷积的数学内容。
 - 因式定理使用本库 `DividesElement`，其乘子方向与本库 A2 整除定义一致。
-- 旧 `Poly.lean` 中直接量化 Mathlib `Polynomial` 的接口保留在独立兼容 Entry，不再代表本定义层。
+- `toMathlibPolynomial` 与 `fromMathlibPolynomial` 是兼容迁移路径；新章节不应再扩张平行类型依赖。
