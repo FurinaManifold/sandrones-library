@@ -3,7 +3,8 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`0418f7f`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函与凸分离完成验证；零化子闭包开发中
+- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函、凸分离与零化子闭包完成验证；
+  双对偶／自反性开发中
 
 ## Hahn–Banach 延拓窗
 
@@ -50,6 +51,19 @@
 - 聚合 `#check` 覆盖连续零化子承载、量词展开、子空间闭包与四个公开声明；Entry 精确映射为
   四个声明。
 - 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 双对偶与自反性窗
+
+- 典范嵌入和其等距打包直接采用 `NormedSpace.inclusionInDoubleDual` 与
+  `NormedSpace.inclusionInDoubleDualLi`，不建立本地映射。
+- Banach 空间自反性直接表达为典范嵌入的 `Function.Surjective`；明确不误用全部代数对偶上的
+  `Module.IsReflexive`。
+- 弱紧闭单位球刻画依赖 F4，本窗只记录边界，不借 Mathlib 强定理提前完成。
+- `lake build SandronesLibrary.FunctionalAnalysis.BidualReflexive`：8719 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖典范嵌入、求值展开、等距打包与五个公开声明；Entry 精确映射为五个
+  声明。
+- 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
 ## 有界逆窗
