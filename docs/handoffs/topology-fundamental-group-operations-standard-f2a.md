@@ -3,9 +3,10 @@
 ## 范围与基线
 
 - 分支：`codex/topology-foundations`。
-- 同步 Main `a20ea2c` 的提交为 `c1cc3f0`。
-- 权限：T4-F2a 为 `development_open`；本批独占 `FundamentalGroupOperationsStandard.lean`。
-- `integration_waits_for`: T4-F1b `FundamentalGroupCarrierStandard.lean` 进入 Main。
+- 最新同步 Main `685fac9` 的提交为 `ef3d517`；该 Main 已提交 T4-F1b carrier 源码，但权威
+  ROADMAP 尚未把 F1b 标为已集成。
+- 权限：T4-F2a 保持 `development_open`，可以申请数学审核，但不得自行提升集成权限。
+- `integration_waits_for`: Main 完成 F1b 的正式集成闭环并在权威状态中解除本门。
 - F2b 函子性、同伦不变性与计算保持 `research_open`，未写入正式源码。
 
 ## 概念链
@@ -30,7 +31,7 @@
 
 ## Main 集成建议
 
-- F1b 集成后加入顶层 import `SandronesLibrary.Topology.FundamentalGroupOperationsStandard`。
+- 加入顶层 import `SandronesLibrary.Topology.FundamentalGroupOperationsStandard`。
 - Registry 新增 `topology.fundamental-group.operations-standard`。
 - ROADMAP 将 F2a 标为已集成后，再依据研究审计决定 F2b 的开发门。
 - 引用复用 `hatcher-algebraic-topology-2002`，定位 Section 1.1。
