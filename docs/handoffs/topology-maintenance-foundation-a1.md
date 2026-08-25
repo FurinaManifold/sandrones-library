@@ -4,6 +4,7 @@
 
 - 分支：`codex/topology-foundations`。
 - 成果提交：`aa6079d`。
+- 叙述／handoff 提交：`1fcb1cd`；最新 Main 同步提交：`e33b2ca`（含 Main `9c665df`）。
 - Main 决定：`topology-mathlib-compatibility-main-review.md`，A1 原 Entry 原地迁移。
 - Entry：`topology.foundation.structure`，仍由 `SandronesLibrary/Topology/Foundation.lean` 承载。
 - 文档：`docs/entries/topology/foundation/structure.md`。
@@ -52,6 +53,8 @@
 - `/tmp` 中三条新接口单独组装通过后才进入正式文件。
 - `Foundation`、完整旧拓扑依赖闭包至 `PathReparameterization` 以及 `MathlibCompatibility` 联合构建
   通过，共 984 jobs。
+- 同步最新 Main 后再次构建 `Foundation` 与 `MathlibCompatibility`，通过，共 715 jobs；聚合检查
+  和公理结果不变。
 - 聚合文件同时检查三条 Mathlib 正式接口、legacy 结构、连续性桥和结构等价桥；三条新结果的公理
   分别为：无、无、`Quot.sound`。最后一项来自 `Homeomorph/Equiv` 的既有承载，不是新增数学假设。
 - Entry 映射得到 `topology.foundation.structure` 19 个声明，其中前三个是新正式接口，后 16 个是
