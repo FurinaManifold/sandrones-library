@@ -20,6 +20,9 @@
 2. **教材定义优先、Mathlib 桥显式**：新概念先给本库教材定义和一手性质，再说明 Mathlib 结构是
    公开承载、实现桥还是证明后端。没有合适 API 时停在“定义 + 一手性质”，不能直接暴露更强结构冒充课程定义。
 3. **先完整再前沿**：规划内阶段达到 §15 的“学完”标准后，才允许把科研论文作为新批次下沉。
+4. **教材映射先于批次设计**：每门已有主教材的课程必须先登记“教材主题 → 本库批次 → 偏离理由”。
+   教材未覆盖的内容只能标为补充专题、跨学科桥或“教材待指定”，不得仅凭 Mathlib API 列表扩成
+   新章节；已完成条目不因章节编号变化重造接口，但其课程归属必须按教材重新校准。
 
 ---
 
@@ -155,6 +158,14 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 > 含参积分、Fourier 级数与 Fourier 变换初步；两条线不得互相占用编号。对应文献键分别为
 > `ecnu-mathematical-analysis-5` 与 `zorich-mathematical-analysis-ii-2016`。
 
+| 教材段落 | 本库批次 | 路线决定 |
+|---|---|---|
+| 极限、连续与一元微分 | M1–M5 | 保持“定义—运算—核心定理—应用”的基础顺序 |
+| 多元微分、重积分、曲线曲面积分 | AN-MV | 独立于现代测度论，不再误编号为实分析 |
+| 一致收敛与函数族 | AN3-1–AN3-4 | 先冻结一致控制，再交换极限、导数与积分 |
+| 含参积分 | AN3-5–AN3-9 | 位于 Fourier 理论之前，卷积作为含参积分应用引入 |
+| Fourier 级数与 Fourier 变换初步 | AN3-10–AN3-15 | 以卓里奇终章为出口；Plancherel/分布留给后续学科 |
+
 ### M1 数列极限 ✅（已完，9 条）
 
 `analysis.sequence.definition`、`.unique`、`.bounded`、`.squeeze`、`.monotone-convergence`、
@@ -271,6 +282,16 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 > Horn–Johnson 也不替代 L1–L4 的向量空间定义链。文献键为 `axler-linear-algebra-2015`、
 > `horn-johnson-matrix-analysis-2013`。
 
+| 教材主题 | 本库批次 | 路线调整 |
+|---|---|---|
+| Axler：向量空间、线性映射、特征理论、内积空间 | L1、L2、L4、L5 | 作为主干；L3 行列式是配合矩阵表示的插入批次 |
+| Horn–Johnson Chs. 1–4：相似、酉等价、规范形、Hermitian | L4–L6 非辛部分 | 承担矩阵谱与正规矩阵专题 |
+| Horn–Johnson Chs. 3、5、7：三角分解、范数、正定矩阵 | L7 | 依次组织 Schur/QR、范数/SVD、Cholesky/极分解；消元作前置 |
+| McDuff–Salamon：线性辛空间 | L6 的辛矩阵与辛基 | 改列补充教材线，不再声称来自 Horn–Johnson |
+
+L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前章节的证明范围，只能作为 SVD
+下游补充；不得把“数值线性代数基础”扩成没有另一本数值教材支撑的算法课程。
+
 ### L1 向量空间（基质/子空间/基/维数）✅
 
 | # | 条目 | 内容 | mathlib |
@@ -366,6 +387,11 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 > A3 后半。该书的模论和更深交换代数内容不提前塞入 A2/A3，而归 §13.1；本库批次可以因 Lean
 > 依赖调整证明次序，但不得改变这条概念依赖。文献键为 `dummit-foote-abstract-algebra-2004`。
 >
+> 教材批次映射固定为：Dummit–Foote 的群与群作用对应 A1；环、理想、商环、整除和多项式对应
+> A2 与 A3.1–A3.2；域扩张、代数闭包、分裂域、可分／正规扩张和 Galois 对应 A3.3–A3.9。
+> 因此 Galois 基本定理不得早于有限扩张、分裂域、可分与正规四个出口；模、张量积和 Noether
+> 理论继续归 CA，不再用“抽象代数后续”绕过课程门。
+>
 > **学期分界**：第一学期 = A1 群 + A2 环 + A3 的多项式环部分（A3.1-A3.2，域扩张前置）；
 > 第二学期 = A3 域扩张/Galois。分界依据：经典近世代数一学期内容
 > 即群论+环论（含多项式环），域扩张/Galois 与模需要更多抽象背景，与 L 线"第一学期基础结构、
@@ -454,6 +480,16 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 > Hatcher, *Algebraic Topology* 的第 0–1 章为主线；Munkres 只提供点集拓扑和基本群入口，不能
 > 代替 Hatcher 的函子性、同伦不变性与计算路线。文献键为 `munkres-topology-2000`、
 > `hatcher-algebraic-topology-2002`。
+
+| 教材段落 | 本库批次 | 路线决定 |
+|---|---|---|
+| Munkres：拓扑空间、连续与构造 | T1 | 子空间、积与商在这里冻结正式承载 |
+| Munkres：连通、紧致、分离公理 | T1 后半、T2 | 先连通，再紧致与分离；滤子刻画只是 Lean 对照 |
+| Munkres：度量化与完备性 | T3 前四项 | 度量、一致性、Cauchy 与完备化形成一条线 |
+| 泛函分析前置 | T3 后三项 | 赋范空间改标为跨学科桥，不算 Munkres 点集拓扑章节 |
+| Hatcher Ch. 0 | T4-H/T4-E | 道路、同伦、同伦等价和基本几何构造 |
+| Hatcher Ch. 1.1 | T4-F1/F2 | 基本群承载、运算、诱导映射、圆周计算 |
+| Hatcher Chs. 1.2–1.3 | AT 后续 | van Kampen 与覆盖空间不挤入 T4 收尾，转入 §13.3 |
 
 ### T1 拓扑空间（开闭/邻域/连续/子商积）✅
 
@@ -580,6 +616,16 @@ a.e. 结论写成逐点结论。
 > 与辐角原理对应 C3。ROADMAP 中新增 foundation 条目只是在 Lean 依赖尚未闭合时保留教材链，
 > 不改变 Ahlfors 主线，也不得把 foundation 状态写成对应章节已经完成。文献键为
 > `ahlfors-complex-analysis-1979`。
+
+| Ahlfors 教材主题 | 本库批次 | 依赖门 |
+|---|---|---|
+| 复数、初等函数、解析函数 | C0–C1 | 实微分与幂级数前置 |
+| 复积分与 Cauchy 理论 | C2 | 路径积分后按 Goursat → Cauchy 公式 → 高阶导数与估计推进 |
+| 同伦形式与单连通域原函数 | C2 收口 | 必须等待 T4 连续同伦桥，不以现成强 API 越过 |
+| Laurent、奇点、残数、辐角原理 | C3 | 完整 C2；先展开与分类，再残数和应用 |
+
+实积分计算例归 Examples；它是残数定理的使用者，不作为 C3 理论完成门。已有 foundation 条目按
+上述顺序吸收，不再平行生长一条“Mathlib 可用什么就做什么”的路线。
 
 C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基础条目进入 main。当前研发暂停：
 一般同伦不变、单连通域原函数及其后续 Laurent／残数路线依赖 T4 中尚未完成的本库同伦、同伦等价、
@@ -836,6 +882,17 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 > 不得把现有书目挂名为整条 N2/N3 已有出处。文献键为 `hardy-wright-number-theory-2008`、
 > `ireland-rosen-number-theory-1990`。
 
+| 教材覆盖 | 本库批次 | 开发权限 |
+|---|---|---|
+| Hardy–Wright：整除、同余、素数、算术函数 | N1 | 已完成主干；按教材缺口做维护，不横向扩题 |
+| Hardy–Wright：连分数与 Pell | N1+ | 最佳逼近 → 二次无理数周期性 → Pell 桥 → 解分类 |
+| Ireland–Rosen：代数数论入口 | N2.1–N2.12 | 数域、整数环、理想分解、类群、Minkowski、单位依次推进 |
+| Ireland–Rosen：特征、算术函数与解析入口 | N3.1–N3.6、N3.10 | 可先研究；Dirichlet 级数前先完成卷积、反演和部分求和 |
+| 局部域及完整解析数论 | N2.13–N2.15、N3.7–N3.12 | `research_open`；补指定专题教材前不得正式开发 |
+
+据此，原来笼统的 N2/N3 冻结拆为“教材覆盖段可研究、超出覆盖段继续冻结”。尤其不能从 Mathlib
+已有 `Padic`、`riemannZeta` 或 `LFunction` 直接倒推一门局部域／解析数论课程。
+
 ### N1 初等数论 ✅
 
 21 个教材入口已进入 main。最佳逼近必要方向、√d 连分数桥、负 Pell 和全体正解分类归入 N1+。
@@ -850,7 +907,7 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | Pell bridge |
 | 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 周期奇偶性 |
 
-### N2 代数数论 🔒（依赖 G-A2/G-A3）
+### N2 代数数论 🔒（N2.1–N2.12 `research_open`；正式开发依赖 G-A2/G-A3）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -870,7 +927,7 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | 14 | `number-theory.algebraic.padic-completion` | p-进数与完备化 | `Padic`、`PadicInt` |
 | 15 | `number-theory.algebraic.local-field-entry` | 局部域与局部—整体入口 | local field APIs |
 
-### N3 解析数论 🔒（N3.1 可先行；其余依赖 G-C）
+### N3 解析数论 🔒（教材入口段 `research_open`；正式开发仍依赖 G-C）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -895,6 +952,17 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 > Kirby–Paris、Wainer、Rado 与 Knuth 的已发表论文只作为相应定理的原始 provenance。原始论文
 > 不能代替教材定义层。文献键为 `jech-set-theory-2003`、`conway-guy-book-of-numbers-1996`、
 > `odifreddi-classical-recursion-1989` 及各专题论文键。
+
+| 来源 | 本库路线 | 调整后的边界 |
+|---|---|---|
+| Jech：Axioms、Ordinals、Cardinals | ST1–ST2 基础 | 序数先于基数；基数算术之后才进入共尾性与正则性 |
+| Jech：Choice、Models、Constructible Sets、Forcing | ST2 后续与 ML6 | AC/良序/Zorn 等价先于独立性；forcing 移交数理逻辑模型线 |
+| Odifreddi：经典递归论 | ST3 可计算性段与 ML4 | 先机器/部分函数承载，再可枚举、停机与不可计算性 |
+| Goodstein/Kirby–Paris/Wainer/Rado/Knuth | ST3 专题段 | 只支撑各自定理链，不作为集合论总教材 |
+
+因此 ST3 改视为“集合论基础之后的递归、增长与独立性专题群”，不再用 ST1–ST2 的完成度为其
+全部内容背书。Goodstein 路线固定为遗传表示 → 序数赋值 → 单步下降 → 终止 → PA 边界；Hydra
+和 Busy Beaver 分别保持独立依赖链，不再与 Goodstein 共享一个模糊的“增长函数前置”。
 
 ### ST1 序数理论 ✅
 
@@ -924,8 +992,6 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 
 ### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 58 项 ✅，纵深 🚧
 
-| # | 条目 id | 内容 | 状态 |
-|---|---|---|---|
 当前进入 main 的 58 项包括：递归定义、大数记号与序数幂桥 8 项，Conway/TREE 与带燃料增长层级
 10 项，Goodstein 状态、自然数遗传编码、幂秩、局部借位和序数下降 14 项，Hydra 步骤、局部下降、
 赋值、认证轨迹、策略终止与良基归纳 12 项，Busy Beaver 有限候选、经典输出/时间最大值与收敛
@@ -1541,12 +1607,17 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 > 家族前缀 `mathematical-logic.*`。课程门：ST1–ST2；可计算性路线与 ST3 共享底层编码，必须指定
 > 单一文件所有者，避免集合论和逻辑分支各自定义一套机器模型。
 >
-> **现有教材框架**：ML4 可计算性以 Odifreddi, *Classical Recursion Theory* 为主教材，ML7
-> 证明论以 Pohlers, *Proof Theory: An Introduction* 为主教材；二者分别固定机器／递归函数等价、
-> 可枚举性、不可判定性，以及相继式、切消和序数分析的术语边界。它们不覆盖 ML1–ML3 的一阶逻辑
-> 与模型论、ML5 的不完备性全课程和 ML6 的模型集合论；这些批次仍标为“教材待指定”，在 Main
+> **现有教材框架**：ML4 可计算性以 Odifreddi, *Classical Recursion Theory* 为主教材，ML6
+> 的模型、可构造宇宙与 forcing 以 Jech 的 Models/Constructible Sets/Forcing 章节为主教材，ML7
+> 证明论以 Pohlers, *Proof Theory: An Introduction* 为主教材。三书固定可计算性、模型集合论、
+> 相继式、切消和序数分析的术语边界；但不覆盖 ML1–ML3 的一阶逻辑／模型论课程和 ML5 的
+> 不完备性全课程。这些批次仍标为“教材待指定”，在 Main
 > 补入正式出版教材前只能做接口研究，不能宣称已具有完整课程框架。现有文献键为
-> `odifreddi-classical-recursion-1989`、`pohlers-proof-theory-1989`。
+> `jech-set-theory-2003`、`odifreddi-classical-recursion-1989`、`pohlers-proof-theory-1989`。
+
+路线顺序据教材调整为 ML1 语法／语义 → ML2 证明系统与完备性 → ML3 模型论；ML4 可在共享机器
+承载冻结后并行；ML5 必须同时等待 ML1 的语法编码和 ML4 的可表示性工具；ML6 等待 ML2 的模型
+语言与 ST2 的集合论基础；ML7 的切消可在 ML2 后研究，序数分析与一致性必须等待 ML5/ST3。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
