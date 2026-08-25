@@ -11,7 +11,7 @@ provenance:
   ref: "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapter 6"
 ---
 
-# 定义
+**定义。**
 
 本条目沿用前条的 `IsQuadraticResidue`、`IsQuadraticNonresidue`、`legendreSym` 和 `jacobiSym`。
 “二次互反律”指交换 Legendre 或 Jacobi 符号的分子与分母时，两边只相差一个由

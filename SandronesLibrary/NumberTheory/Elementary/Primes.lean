@@ -5,7 +5,8 @@ Authors: Sandrone's Library contributors
 -/
 import Mathlib.Data.Nat.Prime.Factorial
 import Mathlib.Data.Set.Finite.Lattice
-import Mathlib.Tactic
+import Mathlib.Tactic.NormNum
+import Mathlib.Tactic.NormNum.Prime
 
 /-!
 # 素数判定与 Euclid 素数无穷定理

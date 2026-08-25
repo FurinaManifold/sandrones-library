@@ -48,7 +48,7 @@ theorem pell_comp_y (a b : PellSolution d) :
 - 新的第一坐标为 `x₁x₂ + d y₁y₂`；
 - 新的第二坐标为 `x₁y₂ + y₁x₂`。
 
-# 为什么仍是解
+## 为什么仍是解
 
 直接展开可得
 

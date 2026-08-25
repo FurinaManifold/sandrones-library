@@ -1,13 +1,12 @@
 # N1 初等数论：集成交接清单
 
-本文件供 main 分支管理者使用。数论 staging 分支 `codex/number-theory-core` 已同步 main，
-并由主协调 Codex 对全部子 Agent 交付执行源码、叙述层、所有权和联合构建复核。
-
-main 已集成 N1.1–N1.2 的四个模块和六个 Registry 条目；本轮待集成的是 N1.3–N1.5。
+本文件记录 N1 初等数论的最终集成和维护证据。N1.1–N1.5 已全部进入 `main`；当前共有
+11 个 Lean 模块、21 个 Registry 条目和 21 篇课程文档。原 staging 分支只保留历史来源，
+不再是验收依据。
 
 ## 顶层导入
 
-在 `SandronesLibrary.lean` 的数论区加入：
+`SandronesLibrary.lean` 的数论区已经包含：
 
 ```lean
 import SandronesLibrary.NumberTheory.Elementary.Primes
@@ -21,8 +20,8 @@ import SandronesLibrary.NumberTheory.Elementary.Pell
 
 ## Registry
 
-为以下 15 个条目登记对应 Lean 模块和叙述文件；`kind`、标题、summary、premises、mathlib
-和 provenance 以各 `.md` 的 front matter 为准：
+除 N1.1–N1.2 的六条基础记录外，以下 15 个条目也已登记对应 Lean 模块和叙述文件；`kind`、
+标题、summary、premises、mathlib 和 provenance 与各 `.md` front matter 一致：
 
 1. `number-theory.elementary.prime-tests` → `NumberTheory/Elementary/Primes.lean`
 2. `number-theory.elementary.infinite-primes` → `NumberTheory/Elementary/Primes.lean`
@@ -40,8 +39,8 @@ import SandronesLibrary.NumberTheory.Elementary.Pell
 14. `number-theory.elementary.pell-positive-existence` → `NumberTheory/Elementary/Pell.lean`
 15. `number-theory.elementary.pell-fundamental-solution` → `NumberTheory/Elementary/Pell.lean`
 
-合并后由 `check_axioms.py --all --fix` 重算 `axioms` 与 `proof_sha`，不要复制学科分支的
-探针输出。更新 `dependedOnBy` 时至少保留 front matter 的课程依赖链。
+Main 使用 `check_axioms.py --full` 逐条复验，并用 `--fix` 回写实际 `axioms` 与 `proof_sha`；
+`dependedOnBy` 保留 front matter 的课程依赖链。
 
 ## ROADMAP
 
@@ -121,7 +120,7 @@ Lean 块注释中的连续文本 `0/1/-1` 含有字符序列 `/-`，会被解析
 - 所有 11 个 Lean 模块有统一许可头；学科提交未越过数论文件所有权边界。
 - staging 上 11 模块联合导入通过；N1.3、N1.4、N1.5 的独立 targeted build 均通过。
 
-## 合并后统一验收
+## Main 最终统一验收
 
 ```bash
 python3 scripts/gen_entries_index.py
@@ -130,5 +129,8 @@ python3 scripts/audit.py
 lake build
 ```
 
-另需人工检查重复 id、七个顶层 import、ROADMAP 状态、RADAR 锚点和 Registry 中
-N1.1–N1.2 既有六条记录未被覆盖。
+2026-08-25 的维护复验确认：21 个 id 在 Registry、Lean Entry 映射和课程文档之间一一对应，
+每个 id 只映射一个 Lean 文件；11 个模块联合构建通过。公理全量复验发现
+`number-theory.elementary.pell-equation` 的 Registry 漏记 `propext`，已由 Main 回写。
+RADAR 同步补齐 `Int.fract`、Gauss 奇偶桥和二次互反律模四辅助引理。三处宽泛
+`Mathlib.Tactic` import 已收窄为实际需要的 tactic／代数模块。

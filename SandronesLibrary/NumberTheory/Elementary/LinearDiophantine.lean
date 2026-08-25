@@ -4,7 +4,8 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import Mathlib.Data.Int.GCD
-import Mathlib.Tactic
+import Mathlib.Algebra.Ring.Divisibility.Basic
+import Mathlib.Tactic.Ring
 
 /-!
 # 二元一次不定方程

@@ -2721,13 +2721,29 @@
 - **人话**：分别以幂同余和上半区代表元计数的奇偶性计算 Legendre 符号。
 - **谁在用**：Euler 判别法和 Gauss 引理的教材接口。
 
+### `neg_one_pow_eq_one_iff_even` / `neg_one_pow_eq_neg_one_iff_odd`
+- **人话**：`(-1)^n` 的正负号分别精确刻画指数 `n` 的偶性与奇性。
+- **谁在用**：把 Gauss 上半区计数的符号等式改写成本库二次剩余／非剩余奇偶判据。
+
 ### `jacobiSym.legendreSym.to_jacobiSym` / `jacobiSym.mul_left` / `jacobiSym.at_two` / `χ₈`
 - **人话**：把素模 Legendre 符号送入 Jacobi 符号，给出分子乘法性及分子为二的补充律。
 - **谁在用**：Jacobi 符号接口及“Jacobi 等于一未必是平方”的合数模反例。
 
+### `jacobiSym.eq_one_or_neg_one`
+- **人话**：分子与奇分母互素时，Jacobi 符号只能取 `1` 或 `-1`。
+- **谁在用**：本库 Jacobi 平方律与合数模反例的符号分类。
+
 ### `legendreSym.quadratic_reciprocity` / `legendreSym.sq_one`
 - **人话**：给出 Legendre 二次互反律和非零符号平方为一。
 - **谁在用**：`number-theory.elementary.quadratic-reciprocity` 的乘积式、等式式和模四特化。
+
+### `prime_ne_zero` / `legendreSym.eq_zero_iff`
+- **人话**：素数非零；Legendre 符号为零当且仅当分母素数整除分子。
+- **谁在用**：排除互异素数交换时的零符号分支，使互反律能从乘积式转成等式式。
+
+### `neg_one_pow_div_two_of_one_mod_four` / `neg_one_pow_div_two_of_three_mod_four`
+- **人话**：奇数模 `4` 余 `1` 或 `3` 时，`(-1)^((n-1)/2)` 分别化简为 `1` 或 `-1`。
+- **谁在用**：Legendre 与 Jacobi 互反律的两个模四特化。
 
 ### `jacobiSym.quadratic_reciprocity`
 - **人话**：奇正合数参数下的 Jacobi 二次互反律。
@@ -2738,6 +2754,10 @@
 ### `Real.convergent` / `Real.convergent_zero` / `Real.convergent_succ`
 - **人话**：实数简单连分数收敛子的定义、零阶值和递归公式。
 - **谁在用**：连分数收敛子定义及递归条目；Mathlib 对象只作为实现承载。
+
+### `Int.fract`
+- **人话**：实数减去其整数部分所得的小数部分，是简单连分数递归尾项的输入。
+- **谁在用**：`number-theory.elementary.continued-fraction-recursion` 的误差量与递归解释。
 
 ### `Finset.exists_min_image`
 - **人话**：非空有限候选集上，取值函数可以达到最小值。

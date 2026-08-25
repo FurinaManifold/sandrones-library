@@ -8759,7 +8759,7 @@
     "dependedOnBy": [
       "number-theory.elementary.infinite-primes"
     ],
-    "proof_sha": "71d9fbd063c5c3a9",
+    "proof_sha": "553db48f2f7137b2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8790,7 +8790,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "71d9fbd063c5c3a9",
+    "proof_sha": "553db48f2f7137b2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8822,7 +8822,7 @@
     "dependedOnBy": [
       "number-theory.elementary.pythagorean-triples"
     ],
-    "proof_sha": "d08d55f2914459c8",
+    "proof_sha": "bcdda599f25cad21",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -8850,7 +8850,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "4f28258e3f4c36b6",
+    "proof_sha": "676407ff9f3db52f",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9092,7 +9092,9 @@
       "number-theory.elementary.pell-positive-existence"
     ],
     "proof_sha": "675a807110aa2a48",
-    "axioms": []
+    "axioms": [
+      "propext"
+    ]
   },
   {
     "id": "number-theory.elementary.pell-composition",

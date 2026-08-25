@@ -4,7 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import Mathlib.NumberTheory.PythagoreanTriples
-import Mathlib.Tactic
+import Mathlib.Tactic.Ring
 
 /-!
 # 勾股数及其参数化

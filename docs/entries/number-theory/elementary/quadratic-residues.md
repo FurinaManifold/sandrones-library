@@ -11,7 +11,7 @@ provenance:
   ref: "Ireland & Rosen, A Classical Introduction to Modern Number Theory, Chapters 5-6"
 ---
 
-# 定义
+**定义。**
 
 `IsQuadraticResidue n a` 表示存在 `x : ZMod n` 使 `x ^ 2 = a`。这一定义包含零；
 `IsQuadraticNonresidue n a` 则额外要求 `a` 的剩余类非零，从而与 Legendre 符号的
