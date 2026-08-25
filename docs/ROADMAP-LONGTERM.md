@@ -62,6 +62,8 @@
 一律登记到 `ROADMAP-examples.md`，由 Examples 负责人领取。理论负责人只需保证公开接口足够使用，
 并在 handoff 提交 Examples 需求清单；不得自行在理论目录扩建新的 example 批次。历史上已经进入
 main 的理论命名例子 Entry 暂不破坏性迁移，但其补例、扩展和维护改由 Examples 负责人承担。
+即使主教材把例题紧接在定理后面，Main 也必须在排期时拆成“理论接口”和“Examples 实例化”两个
+所有权不同的项目；不得因为例题是教材章节的一部分，就把它继续派给理论学科负责人。
 
 ### 1.1 多学科并行生产路线（main 调度基线）
 
@@ -118,7 +120,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | G-T4/C 完成 | C2 复积分恢复开发 | 一般同伦不变；单连通域积分无关与原函数；Cauchy 理论收口 | 打开 Laurent/残数路线 |
 | F1 完成 | F2 Banach 定理 | 一致有界；开映像；闭图与逆算子 | 三大定理分别独立文件，公共 Baire 接口先行 |
 | Pr1 完成 | Pr2 概率极限定理 | 条件期望；大数律；中心极限定理前置 | S1 只在期望/方差/分布接口稳定后启动 |
-| ✅ G-ST 已打开 | ST3 深层 | 原始递归函数类；一般 Goodstein 正规化；通用机与翻转编译器实例 | 支配、终止、不可计算性仍须逐项证明 |
+| ✅ G-ST 已打开 | ST3 深层 | 原始递归函数类；一般 Goodstein 正规化；通用机语义与翻转编译器正确性定理 | 支配、终止、不可计算性仍须逐项证明；具体机器程序与运行轨迹归 Examples E1.8 |
 
 #### Wave C：受门控的纵深工作
 
@@ -558,7 +560,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | 6 | `topology.fundamental-group.group` | 环路拼接诱导群结构，恒定环路、逆环路及结合律 | `FundamentalGroup.toPath`、`FundamentalGroup.fromPath` |
 | 7 | `topology.fundamental-group.functoriality-standard` | 连续映射诱导基本群同态；同伦映射诱导自然同构 ✅ | `FundamentalGroupoidFunctor.map`、`FundamentalGroupoidFunctor.homotopicMapsNatIso` |
 | 8 | `topology.fundamental-group.invariance-standard` | 基本群在同伦等价下不变，并处理基点变换 ✅ | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
-| 9 | `topology.fundamental-group.triviality-standard`、`topology.fundamental-group.circle-standard` | 单连通、凸集、可缩空间与圆周的基本群计算 ✅ | `SimplyConnectedSpace`、指数覆盖与道路提升 |
+| 9 | `topology.fundamental-group.triviality-standard`、`topology.fundamental-group.circle-standard` | 单连通／可缩空间平凡性的一般定理与圆周基本群分类定理 ✅；具体环路演算归 Examples E7.11 | `SimplyConnectedSpace`、指数覆盖与道路提升 |
 
 **当前并行权限（2026-08-25）**：A1 已集成标准 `Path` 数据与逆向/拼接运算窗口；新课程不得
 借兼容桥绕回 `TextbookTopology` 或旧 `Path`。后续不再整体冻结为单一串行批次：
@@ -573,9 +575,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-F2a 群运算与群律 | 已集成 | `FundamentalGroupOperationsStandard.lean`；解释单位、逆、乘法反序和商上群律 | Main 全库验收完成 |
 | T4-F2b1 诱导映射函子律与同伦自然性 | 已集成 | 连续映射诱导、恒等／复合律、同伦自然同构及其自然性 | Main 全库验收完成 |
 | T4-F2b2 基点变换与同伦等价不变性 | 已集成 | `mapOfEq`、沿道路换基点、同伦等价诱导基本群等价 | Main 全库验收完成 |
-| T4-F2c1 单连通／可缩／凸集计算 | 已集成 | 基本群元素与环路类的平凡性计算 | Main 全库验收完成 |
-| T4-F2c2 圆周基本群 | 已集成 | 指数覆盖、环路提升、绕数同态及 `π₁(S¹,1) ≃* Multiplicative ℤ` | Main 全库验收完成 |
-| T4-F2c3 积空间基本群 | 已集成 | 从群胚积同构提取指定基点的基本群乘法等价，并给出作用公式 | `prodIso` 已有定义体内真实使用者及正逆复合公式 |
+| T4-F2c1 单连通／可缩／凸集平凡性 | 已集成 | 基本群平凡性的一般判据；具体空间与环路类演算归 Examples E7.11 | Main 全库验收完成 |
+| T4-F2c2 圆周基本群分类 | 已集成 | 指数覆盖、环路提升、绕数同态及 `π₁(S¹,1) ≃* Multiplicative ℤ` 的一般分类定理；具体绕数计算归 Examples E7.11 | Main 全库验收完成 |
+| T4-F2c3 积空间基本群 | 已集成 | 从群胚积同构提取指定基点的基本群乘法等价及一般作用公式；具体空间积计算归 Examples E7.11 | `prodIso` 已有定义体内真实使用者及正逆复合公式 |
 | AT1-VK1 van Kampen 覆盖细分 | 已集成 | 二开集覆盖下，用 Mathlib `Path.subpath` 封装有限带标签子段及相邻切换点交集性质 | 已冻结有限网格、标签、逐段包含和拼接同伦接口 |
 | AT1-VK2 规范同态与满射 | `development_open` | 用 VK1 数据建立同标签 blocks、交集内基点修正环路词及规范同态满射 | 直接复用 `Monoid.PushoutI`；不得提前声称单射或同构 |
 | AT1-VK3 网格零同伦与单射 | `research_open` | 调查方格细分与 amalgamated free product 的 kernel 关系 | 等待 VK1 正式接口冻结后再确定公开签名 |
@@ -769,7 +771,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
 | 2 | `functional-analysis.closed-range` | 闭值域与“对偶值域等于核零化子”的双向刻画 ✅；对偶值域闭与四项等价留作后续增量 | `ContinuousLinearMap.exists_preimage_norm_le`、反 Lipschitz 闭像接口 |
 | 2b | `functional-analysis.closed-range.double-annihilator` | 值域闭包的双零化子刻画；闭值域推出对偶值域范数闭与弱星闭 ✅ | `Submodule.topologicalClosure`、`WeakDual.eval_continuous` |
-| 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维实例与恒等算子判据 ✅ | compact operator API |
+| 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
 | 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择 | compact perturbation API |
@@ -818,7 +820,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 **F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.5 已集成；F4.7 Eberlein--Šmulian 为
 `development_open`，F4.8
 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
-紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经集成。F5.2 第一批零化子刻画
+紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
+或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价继续为 `development_open`。F5.5 Fredholm 定义层
 提升为 `development_open`，但不得把尚未建立的闭值域加强或指数稳定性冒充为已完成。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
@@ -1801,8 +1804,8 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 |---|---|---|---|---|
 | 交换代数 | Quillen, 1976（`quillen-projective-modules-1976`） | CA1–CA6、HA1–HA5；有限表示投射模、局部化与拼接 | Quillen 局部—整体拼接引理，继而证明多项式环上的有限生成投射模自由 | `future_paper`；须说明与 Suslin 独立证明的范围，不把 Serre 问题名称当证明 |
 | 同调代数 | Grothendieck, 1957（`grothendieck-tohoku-1957`） | HA1–HA5、CA1–CA3；Abel 范畴、分解、导出函子 | AB 公理、足够内射对象条件、导出函子长正合列与 Grothendieck 谱序列入口 | `future_paper`；一篇论文拆多批，不能用一个“有足够内射”包装覆盖全文 |
-| 代数拓扑 | Serre, 1951（`serre-fiber-spaces-1951`） | AT1–AT4、HA2–HA6；纤维化、过滤复形与谱序列 | Serre 谱序列构造、边缘同态和首批纤维束同调计算 | `future_paper`；先固定同调系数与收敛型，不笼统声称全部应用 |
-| 表示论 | Deligne–Lusztig, 1976（`deligne-lusztig-finite-groups-1976`） | RT1–RT6、AG3–AG6；有限 Lie 型群、étale 上同调 | Deligne–Lusztig 簇的群作用、虚特征标定义和低秩计算接口；具体最小秩对象归 Examples | `future_paper`；几何构造与上同调迹公式未完成前不得发布表示分类 |
+| 代数拓扑 | Serre, 1951（`serre-fiber-spaces-1951`） | AT1–AT4、HA2–HA6；纤维化、过滤复形与谱序列 | Serre 谱序列构造、边缘同态及可供实例调用的同调比较接口 | `future_paper`；先固定同调系数与收敛型；具体纤维束同调计算另登记 Examples，不笼统声称全部应用 |
+| 表示论 | Deligne–Lusztig, 1976（`deligne-lusztig-finite-groups-1976`） | RT1–RT6、AG3–AG6；有限 Lie 型群、étale 上同调 | Deligne–Lusztig 簇的群作用、虚特征标定义及一般上同调迹接口 | `future_paper`；具体低秩对象归 Examples E13.2；几何构造与上同调迹公式未完成前不得发布表示分类 |
 | 微分流形 | Whitney, 1936（`whitney-differentiable-manifolds-1936`） | DM1–DM5、T2、AN-MV | Whitney 嵌入定理的局部图、一般位置和有限子覆盖证明链 | `future_paper`；与主干表共享同一来源，只登记一个 BibTeX 条目 |
 | 微分拓扑 | Smale, 1961（`smale-generalized-poincare-1961`） | DT1–DT5、AT1–AT5；手术、handle 与 h-cobordism | handle 消去、h-cobordism 主步骤及高维广义 Poincaré 推论 | `future_paper`；维数与单连通前提必须逐条保留，不涉及四维情形 |
 | 黎曼几何 | Cheeger, 1970（`cheeger-finiteness-1970`） | RG1–RG7、DT1–DT3；曲率、测地坐标与紧性 | 曲率／直径／体积界下的坐标控制、有限微分同胚型结论 | `future_paper`；先冻结论文使用的归一化与注入半径桥 |

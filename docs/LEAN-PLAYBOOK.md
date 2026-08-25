@@ -292,7 +292,9 @@
 > 例子源码统一放在 `SandronesLibrary/Examples/**`，Entry 使用 `examples.<subject>.<topic>`。
 > Examples 可以单向导入理论模块，任何理论模块不得反向导入 Examples。新理论提交缺少普通例子时，
 > Main 原则上接收数学成果并把缺口排入 Examples 巡视；若例子本身是该课程出口或用于证明接口真实
-> 可用，则应作为同批验收门。Examples 不能自建一套重复理论，也不能用 Mathlib 现成对象绕过原学科
+> 可用，则理论与 Examples 作为两个独立提交共享同一课程门：理论负责人仍只交一般接口，Examples
+> 负责人负责实例化；Examples 尚未完成只会阻止课程门关闭，不得据此要求理论负责人补写例子，也
+> 不得打回已经数学验收合格的理论提交。Examples 不能自建一套重复理论，也不能用 Mathlib 现成对象绕过原学科
 > 尚未完成的教材解释层或已经声明的语义边界；原学科若已把 Mathlib 接口解释并验收为正式承载，
 > Examples 应直接复用。
 
