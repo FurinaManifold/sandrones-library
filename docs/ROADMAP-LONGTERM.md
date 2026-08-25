@@ -569,10 +569,12 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-F2b2 基点变换与同伦等价不变性 | 已集成 | `mapOfEq`、沿道路换基点、同伦等价诱导基本群等价 | Main 全库验收完成 |
 | T4-F2c1 单连通／可缩／凸集计算 | 已集成 | 基本群元素与环路类的平凡性计算 | Main 全库验收完成 |
 | T4-F2c2 圆周基本群 | 已集成 | 指数覆盖、环路提升、绕数同态及 `π₁(S¹,1) ≃* Multiplicative ℤ` | Main 全库验收完成 |
-| T4-F2c3 积空间基本群 | `development_open` | 从群胚积同构提取指定基点的基本群乘法等价，并给出作用公式 | 集成等待独立 Entry 与公开使用者；不得只点名 `prodIso` |
-| AT1 van Kampen 接口调查 | `research_open` | 按 Hatcher §1.2 调查开覆盖、推送与自由积商的正式承载 | 属于 §13.3，不回塞 T4 收尾 |
+| T4-F2c3 积空间基本群 | 已集成 | 从群胚积同构提取指定基点的基本群乘法等价，并给出作用公式 | `prodIso` 已有定义体内真实使用者及正逆复合公式 |
+| AT1-VK1 van Kampen 覆盖细分 | `development_open` | 二开集覆盖下，用 Mathlib `Path.subpath` 封装有限带标签子段及相邻切换点交集性质 | 正式源码不得迁入 RFC 中已废弃的自建仿射子段 |
+| AT1-VK2 规范同态与满射 | `research_open` | 调查同标签 blocks、交集内基点修正道路及词分解 | 可继续无占位原型，不得登记 verified Entry |
+| AT1-VK3 网格零同伦与单射 | `research_open` | 调查方格细分与 amalgamated free product 的 kernel 关系 | 等待 VK1 正式接口冻结后再确定公开签名 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
-| T4-R2 边界 collar 相对平滑化 | `development_open` | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 必须保留延拓、collar、开域像和双重 `IccExtend` 正则性前提 |
+| T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3 一般连续／分段 `C¹` 边界正则化 | `research_open` | 一维相对平滑或有限细分积分不变性路线 | R2 不推出 R3；完成前不得解冻复分析一般连续同伦门 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路

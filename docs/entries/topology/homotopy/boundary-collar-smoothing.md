@@ -3,7 +3,7 @@ id: topology.homotopy.boundary-collar-smoothing
 family: topology.homotopy
 variant: path-homotopy-relative-boundary-collar
 kind: theorem
-state: staging
+state: verified
 title: 边界 collar 条件下的道路同伦相对平滑化
 summary: 在全局连续延拓于闭方形四边某邻域已 C2 且原像位于开集的条件下，相对四边逼近道路同伦，并使其标准双重 IccExtend 在闭方形上 C2
 premises: [topology.homotopy.standard]

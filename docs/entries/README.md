@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **456** 个条目（verified 456，pending 0）。
+共 **458** 个条目（verified 458，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -673,10 +673,12 @@
 - ✅ [`functoriality-standard.md`](topology/fundamental-group/functoriality-standard.md) — 基本群诱导映射的函子律与同伦自然性
 - ✅ [`invariance-standard.md`](topology/fundamental-group/invariance-standard.md) — 基本群的基点变换与同伦等价不变性
 - ✅ [`operations-standard.md`](topology/fundamental-group/operations-standard.md) — 基本群的运算、复合次序与群律
+- ✅ [`product-standard.md`](topology/fundamental-group/product-standard.md) — 积空间的基本群
 - ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
 
 ## `topology.homotopy`
 
+- ✅ [`boundary-collar-smoothing.md`](topology/homotopy/boundary-collar-smoothing.md) — 边界 collar 条件下的道路同伦相对平滑化
 - ✅ [`definition-foundation.md`](topology/homotopy/definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`equivalence-standard.md`](topology/homotopy/equivalence-standard.md) — 标准同伦等价与双侧同伦逆
 - ✅ [`path-concatenation-foundation.md`](topology/homotopy/path-concatenation-foundation.md) — 道路拼接的正式承载

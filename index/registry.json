@@ -14284,11 +14284,45 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.homotopy.boundary-collar-smoothing",
       "topology.homotopy.equivalence-standard"
     ],
     "family": "topology.homotopy",
     "variant": "continuous-map-relative-set",
     "proof_sha": "fb2330a5c8c3ba7b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.boundary-collar-smoothing",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "边界 collar 条件下的道路同伦相对平滑化",
+    "summary": "在全局连续延拓于闭方形四边某邻域已 C2 且原像位于开集的条件下，相对四边逼近道路同伦，并使标准双重延拓在闭方形上 C2",
+    "premises": [
+      "topology.homotopy.standard"
+    ],
+    "mathlib": [
+      "Continuous.exists_contDiff_approx_and_eqOn",
+      "IsCompact.exists_cthickening_subset_open",
+      "Path.Homotopy",
+      "Set.IccExtend"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "lee-smooth-manifolds-2012"
+    },
+    "lean_file": "Topology/BoundaryCollarHomotopySmoothing.lean",
+    "nl_file": "docs/entries/topology/homotopy/boundary-collar-smoothing.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "path-homotopy-relative-boundary-collar",
+    "proof_sha": "2cffe08359173f1e",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -14394,6 +14428,7 @@
     "dependedOnBy": [
       "topology.fundamental-group.circle-standard",
       "topology.fundamental-group.functoriality-standard",
+      "topology.fundamental-group.product-standard",
       "topology.fundamental-group.triviality-standard"
     ],
     "family": "topology.fundamental-group",
@@ -14754,6 +14789,39 @@
       "propext"
     ],
     "proof_sha": "14cece54019a6b06"
+  },
+  {
+    "id": "topology.fundamental-group.product-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "积空间的基本群",
+    "summary": "在指定积基点处由积道路和两个坐标投影构造基本群乘法等价，并给出正反方向的道路商公式",
+    "premises": [
+      "topology.fundamental-group.operations-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroupoidFunctor.prodIso",
+      "Path.Homotopic.prod",
+      "Path.Homotopic.projLeft",
+      "Path.Homotopic.projRight"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupProductStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/product-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "based-binary-product",
+    "proof_sha": "842e55eb8c0f9547",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   },
   {
     "id": "abstract-algebra.field.galois-definitions",

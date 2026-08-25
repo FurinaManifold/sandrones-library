@@ -98,6 +98,17 @@
 - **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。
 - **谁在用**：`topology.homotopy.standard`；相对条件量化全部时间与固定集合中的全部点。
 
+### `Continuous.exists_contDiff_approx_and_eqOn`
+- **人话**：连续函数若在一个闭集的某个邻域已经具有指定阶光滑性，就能作全局光滑逼近，同时在
+  该闭集上逐点保持原值；“邻域已光滑”是不可删除的相对逼近前提。
+- **谁在用**：`topology.homotopy.boundary-collar-smoothing`，用于固定参数方形的四条边，而不是
+  声称任意连续边界都可相对平滑。
+
+### `IsCompact.exists_cthickening_subset_open`
+- **人话**：紧集包含于开集时，可以选取统一的正厚度，使紧集的该厚化仍留在开集内。
+- **谁在用**：`topology.homotopy.boundary-collar-smoothing` 的证明后端，用来保证光滑逼近后的
+  整个闭方形像仍在指定开集；不单独包装成课程 Entry。
+
 ### `ContinuousMap.HomotopyEquiv` / `Homeomorph.toHomotopyEquiv`
 - **人话**：打包两张连续映射及其两个复合同伦于恒等的证明；同胚可沿严格逆自然给出这种结构。
 - **谁在用**：`topology.homotopy.equivalence-standard`，并直接取得反身、对称与传递操作。

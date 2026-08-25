@@ -95,6 +95,8 @@ import SandronesLibrary.Topology.FundamentalGroupFunctorialityStandard
 import SandronesLibrary.Topology.FundamentalGroupInvarianceStandard
 import SandronesLibrary.Topology.FundamentalGroupTrivialityStandard
 import SandronesLibrary.Topology.CircleFundamentalGroupStandard
+import SandronesLibrary.Topology.FundamentalGroupProductStandard
+import SandronesLibrary.Topology.BoundaryCollarHomotopySmoothing
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

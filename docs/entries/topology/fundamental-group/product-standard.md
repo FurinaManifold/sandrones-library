@@ -3,7 +3,7 @@ id: topology.fundamental-group.product-standard
 family: topology.fundamental-group
 variant: based-binary-product
 kind: theorem
-state: staging
+state: verified
 title: 积空间的基本群
 summary: 在指定积基点处由积道路和两个坐标投影构造基本群乘法等价，并给出正反方向的道路商公式
 premises: [topology.fundamental-group.operations-standard]
