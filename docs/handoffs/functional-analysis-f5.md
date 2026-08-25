@@ -1,10 +1,10 @@
 # F5 对偶算子、紧算子与 Fredholm 理论 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`aacbd3d`（已同步本地 Main）
-- 权限：F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性
-  `development_open`；闭值域 `research_open`；Fredholm 冻结
-- 当前阶段：紧算子 F5.3--F5.4 窗口待审
+- Main 基线：`b7c7de8`（以 `git rebase main` 同步）
+- 权限：F5.2 四项闭值域加强与 F5.5 Fredholm 定义层 `development_open`；Fredholm 备择和
+  指数稳定性仍冻结；具体有限维空间与算子计算归 Examples E11
+- 当前阶段：F5.2 第三批闭值域对称定理待审
 
 ## 对偶算子基础
 
@@ -64,3 +64,28 @@
 - 诚实边界：仍未证明对偶范数闭性的逆向，因此不声称原/对偶四项闭值域等价已完成。
 - Main 集成建议：新增 `ClosedRangeConsequences` 顶层 import，登记
   `functional-analysis.closed-range.double-annihilator`。
+
+## F5.2 闭值域对称定理（第三批）
+
+- 基线同步到 `main@b7c7de8`；遵守 Main 新增的 Examples 所有权边界，本批仅含一般算子定理。
+- 在实 Banach 空间上证明 `range T` 范数闭当且仅当 `range T'` 范数闭，并给出共同零点形式和
+  四项联合形式，完成 Main 开放的 F5.2 加强窗口。
+- 逆向证明先由开映射定理取得对偶值域单位截面的统一有界原像，再以弱星紧球连续像证明截面
+  弱星闭，最后通过 Banach--Dieudonné 与弱星分离恢复 `range T' = (ker T)⊥`。
+- 公共 API 只有三个最终刻画；弱对偶算子、紧性表示和分离论证均保持私有，不制造 Mathlib
+  平行接口。
+- 边界：没有声称复标量版本，也没有提前开发 Fredholm 备择或指数稳定性。
+- Main 集成建议：新增 `ClosedRangeDuality` 顶层 import，登记
+  `functional-analysis.closed-range.duality`。
+
+### 第三批概念与公开签名审计
+
+| 概念 | 教材语义 | Lean 承载与展开 | Mathlib 角色 | 上层使用者 |
+|---|---|---|---|---|
+| 原／对偶值域 | 算子所有输出组成的线性子空间 | `T.range`、`(dualOperator T).range`；成员是存在原像 | 语义一致的正式承载 | `closedRange_four_way` |
+| 范数闭值域 | 值域在载体范数拓扑中为闭集 | `IsClosed (Set.range T)` 或子模强制转换后的 `IsClosed` | 语义一致的正式承载 | `isClosed_range_iff_dualOperator_range_isClosed` |
+| 共同零点 | 所有属于对偶核的函数在向量上取零 | 显式量词 `∀ f ∈ (dualOperator T).ker, f y = 0` | 不另建 preannihilator 包装 | `isClosed_range_iff_forall_mem_range_iff_dualOperator_ker` |
+| 弱星单位截面 | 对偶子空间与闭单位球的交在弱星拓扑中的像 | 既有 `dualUnitSlice`、`weakStarImage` | 已解释桥；仅出现在私有证明链 | 闭值域对称定理 |
+
+公开签名只暴露语义一致的 `ContinuousLinearMap`、`LinearMap.range/ker`、`IsClosed`、
+`StrongDual.polarSubmodule` 和显式共同零点量词；`WeakDual`、紧像与开映射受控原像均为私有后端。
