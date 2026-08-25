@@ -93,6 +93,13 @@ theorem euclid_prime_above (n : ℕ) :
     exact hp.not_dvd_one hp_one
   exact ⟨p, hnp, hp, hpdiv⟩
 
+/-- Euclid's factorial construction, with primality stated by the textbook trial-division
+criterion. -/
+theorem euclid_trialDivision_above (n : ℕ) :
+    ∃ p : ℕ, n < p ∧ PassesTrialDivision p ∧ p ∣ n.factorial + 1 := by
+  obtain ⟨p, hnp, hp, hpdiv⟩ := euclid_prime_above n
+  exact ⟨p, hnp, (prime_iff_passesTrialDivision p).1 hp, hpdiv⟩
+
 /-- **素数有无穷多个**。若素数集合有上界 `n`，`euclid_prime_above n` 会产生一个
 严格超过该上界的新素数。
 > **Entry**: number-theory.elementary.infinite-primes
@@ -101,6 +108,14 @@ theorem infinitely_many_primes : Set.Infinite {p : ℕ | p.Prime} := by
   apply Set.infinite_of_not_bddAbove
   rintro ⟨n, hn⟩
   obtain ⟨p, hnp, hp, -⟩ := euclid_prime_above n
+  exact (not_le_of_gt hnp) (hn hp)
+
+/-- Infinitely many natural numbers pass the textbook trial-division criterion. -/
+theorem infinitely_many_trialDivision_primes :
+    Set.Infinite {p : ℕ | PassesTrialDivision p} := by
+  apply Set.infinite_of_not_bddAbove
+  rintro ⟨n, hn⟩
+  obtain ⟨p, hnp, hp, -⟩ := euclid_trialDivision_above n
   exact (not_le_of_gt hnp) (hn hp)
 
 end SandronesLibrary.NumberTheory.Elementary

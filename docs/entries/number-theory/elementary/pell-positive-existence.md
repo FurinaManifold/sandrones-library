@@ -31,12 +31,24 @@ provenance:
 # 陈述（Lean 对照）
 
 ```lean
+def IsIntegerSquare (d : ℤ) : Prop := ∃ z : ℤ, z ^ 2 = d
+
+theorem isIntegerSquare_iff_isSquare (d : ℤ) :
+    IsIntegerSquare d ↔ IsSquare d
+
+theorem exists_positive_pellSolution_of_not_integerSquare {d : ℤ} (hd : 0 < d)
+    (hns : ¬IsIntegerSquare d) :
+    ∃ a : PellSolution d, 1 < a.x ∧ 0 < a.y
+
 theorem exists_positive_pellSolution {d : ℤ} (hd : 0 < d) (hns : ¬IsSquare d) :
     ∃ a : PellSolution d, 1 < a.x ∧ 0 < a.y
 ```
 
+前三项是教材定义、精确桥和课程主签名；最后一项保留为 Mathlib 兼容签名。
+
 # 思维脉络（thinking trace）
 
+先用整数坐标明确给出“平方”的定义，再由 `isIntegerSquare_iff_isSquare` 进入 Mathlib。
 Mathlib 在 `Pell.Solution₁` 中以二次整数环的范数一元素证明存在性。本条只在证明内部取出其
 `x`、`y` 坐标和方程证书，再包装成本库的 `PellSolution`；高层代数表示没有泄漏到教材签名。
 
@@ -49,7 +61,7 @@ Mathlib 在 `Pell.Solution₁` 中以二次整数环的范数一元素证明存�
 | 自然语言 | Lean |
 |---|---|
 | `d` 严格为正 | `hd : 0 < d` |
-| `d` 不是整数平方 | `hns : ¬ IsSquare d` |
+| `d` 不是整数平方 | `hns : ¬ IsIntegerSquare d` |
 | 取出存在的解 | `obtain ⟨a, hax, hay⟩ := ...` |
 | Mathlib 解的方程 | `a.prop` |
 | 重新包装坐标 | `⟨a.x, a.y, a.prop⟩ : PellSolution d` |
@@ -65,5 +77,5 @@ Mathlib 在 `Pell.Solution₁` 中以二次整数环的范数一元素证明存�
 该存在性证明没有建立解与 `√d` 连分数周期的对应。Mathlib 原文件明确把这个连接列为 TODO。
 
 - 应用：为基本解取最小正坐标提供非空性；给合成法提供非平凡起点。
-- 陷阱：`IsSquare d` 是整数中的平方性；条件不能只写“`d` 不是自然数平方”而忽略类型。
+- 陷阱：`IsIntegerSquare d` 的见证是整数；不能只检查自然数平方而忽略类型。
 - 陷阱：本定理不覆盖 `d≤0`、平方参数或负 Pell 方程。

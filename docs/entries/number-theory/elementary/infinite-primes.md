@@ -29,20 +29,23 @@ provenance:
 
 # 陈述（Lean 对照）
 
-`euclid_prime_above`、`infinitely_many_primes`。
+- `euclid_trialDivision_above`、`infinitely_many_trialDivision_primes`：课程主签名，使用
+  `PassesTrialDivision` 陈述素性。
+- `euclid_prime_above`、`infinitely_many_primes`：保留给既有调用者的 `Nat.Prime` 签名。
 
 # 思维脉络（thinking trace）
 
-先证明 `n!+1≠1`，因此其最小因子确实为素数。再假设该素因子不超过 `n`，借助
+底层证明先证明 `n!+1≠1`，因此其最小因子确实为 Mathlib 素数。再假设该素因子不超过 `n`，借助
 素数整除阶乘的判据得到它整除 `n!`，由整除加法推出它整除 `1`。严格超界结论完成后，
-若素数集合有上界，只需在这个上界处再次应用构造便立即矛盾。
+经 `prime_iff_passesTrialDivision` 把证书拉回教材试除判据。若试除素数集合有上界，只需在这个
+上界处再次应用教材构造便立即矛盾。
 
 # 自然语言 ↔ Lean 映射
 
 - `n!` ↔ `n.factorial`。
 - “最小素因子” ↔ `(n.factorial + 1).minFac`。
-- “集合没有上界” ↔ `¬ BddAbove {p : ℕ | p.Prime}`。
-- “素数集合无限” ↔ `Set.Infinite {p : ℕ | p.Prime}`。
+- “集合没有上界” ↔ `¬ BddAbove {p : ℕ | PassesTrialDivision p}`。
+- “试除素数集合无限” ↔ `Set.Infinite {p : ℕ | PassesTrialDivision p}`。
 
 # 依赖（人话版）
 

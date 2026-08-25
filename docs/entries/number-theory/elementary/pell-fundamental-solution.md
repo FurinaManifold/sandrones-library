@@ -40,13 +40,17 @@ def IsFundamentalPellSolution (a : PellSolution d) : Prop :=
   1 < a.x ∧ 0 < a.y ∧
     ∀ b : PellSolution d, 1 < b.x → a.x ≤ b.x
 
-theorem exists_fundamentalPellSolution {d : ℤ} (hd : 0 < d) (hns : ¬IsSquare d) :
+theorem exists_fundamentalPellSolution_of_not_integerSquare {d : ℤ} (hd : 0 < d)
+    (hns : ¬IsIntegerSquare d) :
     ∃ a : PellSolution d, IsFundamentalPellSolution a
 ```
 
+旧 `exists_fundamentalPellSolution` 继续接受 `¬IsSquare d`，作为兼容签名。
+
 # 思维脉络（thinking trace）
 
-Mathlib 的 `Pell.IsFundamental.exists_of_not_isSquare` 给出打包基本解。为验证它对本库所有
+教材签名先经 `isIntegerSquare_iff_isSquare` 转换非平方前提。Mathlib 的
+`Pell.IsFundamental.exists_of_not_isSquare` 给出打包基本解。为验证它对本库所有
 `PellSolution` 的最小性，证明把任意坐标解临时送入 `Pell.Solution₁.mk`，使用 Mathlib 的最小性，
 再把结论拉回整数坐标。
 

@@ -25,6 +25,17 @@ future work; this file does not claim either extension.
 
 namespace SandronesLibrary.NumberTheory.Elementary
 
+/-- An integer is a square when it is the square of an integer coordinate.
+
+> **Entry**: number-theory.elementary.pell-positive-existence -/
+def IsIntegerSquare (d : ℤ) : Prop :=
+  ∃ z : ℤ, z ^ 2 = d
+
+/-- The coordinate definition of an integer square agrees with Mathlib's multiplicative
+`IsSquare` predicate. -/
+theorem isIntegerSquare_iff_isSquare (d : ℤ) : IsIntegerSquare d ↔ IsSquare d := by
+  simpa [IsIntegerSquare, eq_comm] using (isSquare_iff_exists_sq d).symm
+
 /-- An integer solution of the positive Pell equation `x² - d y² = 1`.
 
 > **Entry**: number-theory.elementary.pell-equation -/
@@ -71,6 +82,14 @@ theorem exists_positive_pellSolution {d : ℤ} (hd : 0 < d) (hns : ¬IsSquare d)
   obtain ⟨a, hax, hay⟩ := Pell.Solution₁.exists_pos_of_not_isSquare hd hns
   exact ⟨⟨a.x, a.y, a.prop⟩, hax, hay⟩
 
+/-- A positive parameter which is not an integer-coordinate square has a nontrivial positive
+Pell solution. -/
+theorem exists_positive_pellSolution_of_not_integerSquare {d : ℤ} (hd : 0 < d)
+    (hns : ¬IsIntegerSquare d) :
+    ∃ a : PellSolution d, 1 < a.x ∧ 0 < a.y := by
+  apply exists_positive_pellSolution hd
+  rwa [← isIntegerSquare_iff_isSquare]
+
 /-- A fundamental Pell solution is positive and has the smallest first coordinate among all
 solutions with first coordinate greater than one. -/
 def IsFundamentalPellSolution (a : PellSolution d) : Prop :=
@@ -93,5 +112,13 @@ theorem exists_fundamentalPellSolution {d : ℤ} (hd : 0 < d) (hns : ¬IsSquare 
   let b' : Pell.Solution₁ d := Pell.Solution₁.mk b.x b.y b.equation
   have hb' : 1 < b'.x := by simpa [b'] using hb
   simpa [b'] using ha.2.2 hb'
+
+/-- A positive parameter which is not an integer-coordinate square admits a fundamental Pell
+solution. -/
+theorem exists_fundamentalPellSolution_of_not_integerSquare {d : ℤ} (hd : 0 < d)
+    (hns : ¬IsIntegerSquare d) :
+    ∃ a : PellSolution d, IsFundamentalPellSolution a := by
+  apply exists_fundamentalPellSolution hd
+  rwa [← isIntegerSquare_iff_isSquare]
 
 end SandronesLibrary.NumberTheory.Elementary
