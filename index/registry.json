@@ -14250,6 +14250,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-cover-subdivision",
       "topology.homotopy.path-homotopy-quotient-standard",
       "topology.homotopy.standard"
     ],
@@ -14853,6 +14854,40 @@
     "family": "topology.fundamental-group",
     "variant": "based-binary-product",
     "proof_sha": "842e55eb8c0f9547",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-cover-subdivision",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二开集覆盖下的有限带标签道路细分",
+    "summary": "道路逐点落在两个开集之一时，构造有限一致网格与逐段标签，使每条 Mathlib 子道路落在一个覆盖成员中，且标签切换顶点落在交集",
+    "premises": [
+      "topology.homotopy.path-homotopy-standard"
+    ],
+    "mathlib": [
+      "Path.subpath",
+      "Path.range_subpath_of_le",
+      "Path.concat",
+      "Path.Homotopic.concat_subpath",
+      "lebesgue_number_lemma_of_metric"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenCoverSubdivision.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-cover-subdivision.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-open-cover-labelled-subpaths",
+    "proof_sha": "01b5849d6e4d3450",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

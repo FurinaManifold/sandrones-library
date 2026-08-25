@@ -3,7 +3,7 @@ id: topology.fundamental-group.van-kampen-cover-subdivision
 family: topology.fundamental-group
 variant: binary-open-cover-labelled-subpaths
 kind: theorem
-state: staging
+state: verified
 title: 二开集覆盖下的有限带标签道路细分
 summary: 若道路逐点落在两个开集之一，则存在有限一致网格，使每条 Mathlib 子道路落在一个带标签的覆盖成员中，且标签切换顶点落在交集
 premises: [topology.homotopy.path-homotopy-standard]

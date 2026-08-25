@@ -100,6 +100,17 @@
 - **人话**：承载道路之间端点固定的正方形连续变形，以及反身、时间反向和分段传递操作。
 - **谁在用**：`topology.homotopy.path-homotopy-standard`；第一坐标为同伦时间，第二坐标为道路位置。
 
+### `Path.subpath` / `Path.range_subpath_of_le` / `Path.concat` / `Path.Homotopic.concat_subpath`
+- **人话**：把道路限制并线性重参数化到闭子区间，刻画子道路的精确值域，再把有限相邻子道路按序
+  拼接；全部网格子段的拼接与原道路全段在固定端点下同伦。
+- **谁在用**：`topology.fundamental-group.van-kampen-cover-subdivision`；本库只新增开覆盖标签、
+  一致网格和逐段包含证书，不重造 Mathlib 已有的子道路或有限拼接。
+
+### `lebesgue_number_lemma_of_metric`
+- **人话**：紧致度量空间的开覆盖存在统一局部半径，使每个足够小的球完整落在某个覆盖成员中。
+- **谁在用**：van Kampen VK1 只对参数空间 `unitInterval` 使用它，因而不把原拓扑空间 `X` 的
+  假设加强成度量空间。
+
 ### `ContinuousMap.Homotopy` / `ContinuousMap.HomotopyRel` / `ContinuousMap.Homotopy.comp`
 - **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。
 - **谁在用**：`topology.homotopy.standard`；相对条件量化全部时间与固定集合中的全部点。

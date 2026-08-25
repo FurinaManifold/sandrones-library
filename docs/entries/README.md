@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **459** 个条目（verified 459，pending 0）。
+共 **460** 个条目（verified 460，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -676,6 +676,7 @@
 - ✅ [`operations-standard.md`](topology/fundamental-group/operations-standard.md) — 基本群的运算、复合次序与群律
 - ✅ [`product-standard.md`](topology/fundamental-group/product-standard.md) — 积空间的基本群
 - ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
+- ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
 
 ## `topology.homotopy`
 

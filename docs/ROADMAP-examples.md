@@ -116,6 +116,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.9 基本群标准承载 | `examples.topology.fundamental-group-carrier` | 由具体基点环路构造商类并在 `toPath/fromPath` 间往返 | 群胚态射只在端点匹配时复合；群乘法次序不能按路径书写顺序猜测 | T4-F1b |
 | E7.10 基本群运算 | `examples.topology.fundamental-group-operations` | 恒等环路、逆环路和两个代表环路的乘法公式 | `p*q` 对应先走 `q` 再走 `p`；原始道路拼接不严格满足群律 | T4-F2a |
 | E7.11 基本群计算 | `examples.topology.fundamental-group-computations` | 单连通／凸集的平凡基本群、圆周绕数，以及两个具体空间积上的逐坐标环路 | 基本群依赖基点；二元积公式不能直接外推到任意无限积；圆周结果不能只靠最终同构黑箱展示 | T4-F2c1–F2c3 |
+| E7.12 van Kampen 道路细分 | `examples.topology.van-kampen-subdivision` | 取一条跨越两个重叠开集的具体道路，展示有限子道路标签及一次标签切换顶点属于交集 | 道路逐点落在覆盖并中不等于整条道路落在单个成员；有限细分本身不等于 van Kampen 同构 | AT1-VK1 |
 
 ## E8 现代实分析
 
