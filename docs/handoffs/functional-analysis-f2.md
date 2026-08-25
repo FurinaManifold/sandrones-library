@@ -5,6 +5,15 @@
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
 - 当前阶段：F2 前十项已由 Main 集成；可分性／对偶为最后开放窗口
 
+## 具体自反空间实例窗
+
+- 沿用 `Function.Surjective (NormedSpace.inclusionInDoubleDual ℝ E)`，不建立本地 `Reflexive` 类。
+- 有限维正例通过代数对偶与连续对偶的线性等价及 `Subspace.dual_finrank_eq` 证明。
+- 完备实内积空间正例直接通过 `InnerProductSpace.toDual` 的 Riesz 等价证明。
+- `c₀`、`ℓ¹`、`ℓ∞` 只记录为待 API 审计边界；本窗不建立替代序列空间，也不声称其非自反性已在库内形式化。
+- `lake build SandronesLibrary.FunctionalAnalysis.ReflexiveExamples`：8721 jobs 通过；两个公开定理的
+  公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`，Entry 精确映射为两个声明。
+
 ## Hahn–Banach 延拓窗
 
 - 代数支配形式直接采用 `exists_extension_of_le_sublinear`；公开输入展开正齐次、次可加和支配
