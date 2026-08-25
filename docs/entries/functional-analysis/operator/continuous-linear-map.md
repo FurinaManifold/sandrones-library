@@ -1,9 +1,9 @@
 ---
 id: functional-analysis.operator.continuous-linear-map
 kind: definition
-state: staging
+state: verified
 title: 连续线性算子
-premises: [topology.normed-space.def, linear-algebra.maps.basic]
+premises: [topology.normed-space.def]
 mathlib: [ContinuousLinearMap, ContinuousLinearMap.le_opNorm, ContinuousLinearMap.continuous]
 provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
 ---

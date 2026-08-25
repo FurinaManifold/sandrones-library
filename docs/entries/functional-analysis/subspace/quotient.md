@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.subspace.quotient
 kind: theorem
-state: staging
+state: verified
 title: 闭线性子空间与商 Banach 空间
 premises: [topology.normed-space.banach]
 mathlib: [Submodule, IsClosed, Submodule.Quotient, QuotientAddGroup.norm_mk, Submodule.Quotient.completeSpace]

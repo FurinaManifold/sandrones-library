@@ -3015,6 +3015,18 @@
 - **人话**：短线段积分随终点变化的导数等于被积函数，并保证连续函数沿线段可积。
 - **谁在用**：由路径积分无关构造原函数，以及开连通域的 admissible 道路可达性。
 
+### `ContinuousLinearMap` / `ContinuousLinearMap.le_opNorm` / `ContinuousLinearMap.opNorm_le_bound`
+- **人话**：连续线性算子的正式承载，以及算子范数作为最小全局放大界的两个方向。
+- **谁在用**：泛函分析 F1 的连续线性算子、有界等价和算子空间完备性。
+
+### `Summable.of_norm` / `norm_tsum_le_tsum_norm`
+- **人话**：Banach 空间中范数级数可和推出向量级数可和，并控制其总和范数。
+- **谁在用**：`functional-analysis.series.summable`。
+
+### `QuotientAddGroup.norm_mk` / `Submodule.Quotient.completeSpace`
+- **人话**：商范数等于到子空间的距离，闭子空间的 Banach 商保持完备。
+- **谁在用**：`functional-analysis.subspace.quotient`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

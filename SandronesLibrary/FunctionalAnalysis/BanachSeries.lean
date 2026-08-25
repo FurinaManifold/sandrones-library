@@ -7,11 +7,11 @@ import SandronesLibrary.Topology.NormedSpace
 import Mathlib.Analysis.Normed.Group.InfiniteSum
 
 /-!
-# Absolutely summable series in Banach spaces
+# Banach 空间中的绝对可和级数
 
-Mathlib's `Summable` and `HasSum` already express the textbook semantics of convergence of a
-series.  This file records the Banach-space theorem that summability of the norms implies
-summability of the vector series, together with its partial-sum and norm consequences.
+Mathlib 的 `Summable` 和 `HasSum` 已经准确表达教材中的级数收敛语义，因此本文件直接复用它们。
+核心结论是：在 Banach 空间中，若各项范数组成的非负实数级数收敛，则原向量级数也收敛；随后给出
+部分和趋于总和以及总和范数不超过各项范数之和两个常用推论。
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
@@ -22,10 +22,9 @@ open SandronesLibrary.Topology.NormedSpace
 variable {E : Type*}
 variable [NormedAddCommGroup E] [NormedLinearSpace ℝ E] [BanachSpace E]
 
-/-- In a Banach space, absolute summability implies summability.
+/-- 在 Banach 空间中，绝对可和蕴含向量级数可和。
 
-Here the textbook premise “the series of norms converges” is represented directly by
-`Summable (fun n ↦ ‖f n‖)`; no parallel predicate is introduced.
+教材中的“范数级数收敛”直接写成 `Summable (fun n ↦ ‖f n‖)`；这里不再建立同义包装谓词。
 
 > **Entry**: functional-analysis.series.summable
 -/
@@ -33,13 +32,13 @@ theorem summable_of_summable_norm {f : ℕ → E}
     (hf : Summable (fun n ↦ ‖f n‖)) : Summable f := by
   exact hf.of_norm
 
-/-- Under absolute summability, the ordinary partial sums converge to Mathlib's series sum. -/
+/-- 绝对可和时，前 `N` 项的普通部分和趋于 Mathlib 记号 `∑' n, f n` 表示的级数总和。 -/
 theorem tendsto_partialSums_tsum_of_summable_norm {f : ℕ → E}
     (hf : Summable (fun n ↦ ‖f n‖)) :
     Tendsto (fun N : ℕ ↦ ∑ n ∈ range N, f n) atTop (nhds (∑' n, f n)) := by
   exact (summable_of_summable_norm hf).hasSum.tendsto_sum_nat
 
-/-- The norm of an absolutely convergent vector series is bounded by the sum of term norms. -/
+/-- 绝对收敛向量级数的总和范数不超过各项范数之和，这是无穷级数版本的三角不等式。 -/
 theorem norm_tsum_le_tsum_norm_of_summable {f : ℕ → E}
     (hf : Summable (fun n ↦ ‖f n‖)) :
     ‖∑' n, f n‖ ≤ ∑' n, ‖f n‖ := by

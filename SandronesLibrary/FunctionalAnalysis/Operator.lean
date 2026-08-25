@@ -8,12 +8,11 @@ import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
 import Mathlib.Analysis.Normed.Group.Hom
 
 /-!
-# Continuous linear operators
+# 连续线性算子
 
-Mathlib's `ContinuousLinearMap` has exactly the textbook data: a linear map together with
-continuity.  It is therefore the public carrier rather than the target of a duplicate wrapper.
-This file explains that carrier through the global norm bound characterization used in functional
-analysis.
+Mathlib 的 `ContinuousLinearMap` 恰好携带教材所需的两部分数据：线性映射及其连续性证明，因此本
+课程直接用它作为正式承载，不再复制一层包装结构。本文件通过全局范数界刻画连续性，解释“连续
+线性算子”与教材中常说的“有界线性算子”为何是同一个概念。
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
@@ -24,27 +23,29 @@ variable {E F : Type*}
 variable [NormedAddCommGroup E] [NormedAddCommGroup F]
 variable [NormedLinearSpace ℝ E] [NormedLinearSpace ℝ F]
 
-/-- Every continuous linear operator admits a nonnegative global norm bound.
+/-- 每个连续线性算子都存在一个非负常数 `C`，使所有向量都满足 `‖T x‖ ≤ C ‖x‖`。
 
-This is the textbook boundedness property of the formal carrier `E →L[ℝ] F`.
+这正是正式承载 `E →L[ℝ] F` 所对应的教材“有界性”。
 
 > **Entry**: functional-analysis.operator.continuous-linear-map -/
 theorem continuousLinearMap_exists_bound (T : E →L[ℝ] F) :
     ∃ C : ℝ, 0 ≤ C ∧ ∀ x : E, ‖T x‖ ≤ C * ‖x‖ := by
   exact ⟨‖T‖, norm_nonneg T, T.le_opNorm⟩
 
-/-- The underlying function of a continuous linear operator is continuous. -/
+/-- 连续线性算子忘掉线性结构后，其底层函数仍然连续。 -/
 theorem continuousLinearMap_continuous (T : E →L[ℝ] F) : Continuous T := by
   exact T.continuous
 
-/-- The zero continuous linear operator has global bound zero, directly illustrating the carrier. -/
+/-- 零算子的输出范数恒为零，因此全局界可以取 `C = 0`；这是正式承载的最简单具体例子。 -/
 theorem continuousLinearMap_zero_bound :
     ∀ x : E, ‖(0 : E →L[ℝ] F) x‖ ≤ 0 * ‖x‖ := by
   intro x
   simp
 
-/-- A linear map between real normed spaces is continuous exactly when it admits a nonnegative
-global norm bound.
+/-- 实赋范空间之间的线性映射连续，当且仅当它存在非负的全局范数界。
+
+正向由连续线性映射的算子范数给出界；反向则用该界把普通线性映射升级成连续线性映射。这就是
+泛函分析中“线性算子连续”等价于“线性算子有界”的标准定理。
 
 > **Entry**: functional-analysis.operator.bounded-iff -/
 theorem linearMap_continuous_iff_exists_bound (T : E →ₗ[ℝ] F) :

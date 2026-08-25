@@ -177,6 +177,10 @@ import SandronesLibrary.ComplexAnalysis.Goursat
 import SandronesLibrary.ComplexAnalysis.HomotopyInvariance
 import SandronesLibrary.ComplexAnalysis.PrimitiveFromPathIntegral
 import SandronesLibrary.ComplexAnalysis.AdmissiblePathConnectivity
+import SandronesLibrary.FunctionalAnalysis.Operator
+import SandronesLibrary.FunctionalAnalysis.OperatorSpace
+import SandronesLibrary.FunctionalAnalysis.BanachSeries
+import SandronesLibrary.FunctionalAnalysis.QuotientSpace
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

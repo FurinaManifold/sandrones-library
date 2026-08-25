@@ -143,7 +143,17 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E10.6 连分数 | `examples.number-theory.continued-fractions` | 有理数展开、无理数前若干收敛子和误差 | 任意好近似不必是收敛子，需满足判据 | N1 |
 | E10.7 Pell 方程 | `examples.number-theory.pell` | `d=2,3,5` 的基本解、合成和正解序列 | 平方 `d` 不适用正 Pell 存在定理；负 Pell 不总可解 | N1 |
 
-## E11 后续学科自动扩展
+## E11 泛函分析
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E11.1 连续线性算子与算子范数 | `examples.functional-analysis.operators` | 恒等、零、坐标投影的算子范数与全局界 | 一般线性映射不自动连续；界常数不唯一而算子范数最小 | F1 |
+| E11.2 Banach 值级数 | `examples.functional-analysis.series` | 有限维向量几何级数及部分和收敛 | 条件可和不等于范数级数可和；完备性不可静默省略 | F1 |
+| E11.3 闭子空间商 | `examples.functional-analysis.quotients` | 有限维子空间商、商范数距离计算 | 非闭子空间会出现非零陪集范数为零的边界 | F1 |
+| E11.4 Banach 三大定理 | `examples.functional-analysis.banach-theorems` | 具体算子族的一致有界、开映射与有界逆应用 | 逐点有界与一致有界不能在缺 Baire 条件时混同 | F2 |
+| E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、Parseval 的有限维计算 | 最佳逼近与正交投影需要闭凸／闭子空间条件 | F3 |
+
+## E12 后续学科自动扩展
 
 概率、统计、泛函分析、微分几何、ODE/PDE、代数拓扑等学科首次进入 main 时，Main 按相同模板在
 本文件新增一个项目组。最低要求仍是“标准对象 + 计算／构造 + 必要反例”，不得只把理论文档中的

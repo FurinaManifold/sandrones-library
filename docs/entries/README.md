@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **406** 个条目（verified 406，pending 0）。
+共 **411** 个条目（verified 411，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -279,6 +279,20 @@
 ## `complex-analysis.singularity`
 
 - ✅ [`classification-foundation.md`](classification-foundation.md) — 孤立奇点分类的基础接口
+
+## `functional-analysis.operator`
+
+- ✅ [`bounded-iff.md`](bounded-iff.md) — 线性算子有界与连续等价
+- ✅ [`continuous-linear-map.md`](continuous-linear-map.md) — 连续线性算子
+- ✅ [`space.md`](space.md) — 算子范数与连续线性算子空间
+
+## `functional-analysis.series`
+
+- ✅ [`summable.md`](summable.md) — Banach 空间中绝对可和蕴含可和
+
+## `functional-analysis.subspace`
+
+- ✅ [`quotient.md`](quotient.md) — 闭线性子空间与商 Banach 空间
 
 ## `linear-algebra`
 

@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.operator.bounded-iff
 kind: theorem
-state: staging
+state: verified
 title: 线性算子有界与连续等价
 premises: [functional-analysis.operator.continuous-linear-map]
 mathlib: [LinearMap.mkContinuous, ContinuousLinearMap.le_opNorm]

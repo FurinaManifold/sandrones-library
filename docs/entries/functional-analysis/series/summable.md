@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.series.summable
 kind: theorem
-state: staging
+state: verified
 title: Banach 空间中绝对可和蕴含可和
 premises: [topology.normed-space.banach]
 mathlib: [Summable, HasSum, Summable.of_norm, norm_tsum_le_tsum_norm]

@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.operator.space
 kind: theorem
-state: staging
+state: verified
 title: 算子范数与连续线性算子空间
 premises: [functional-analysis.operator.continuous-linear-map, topology.normed-space.banach]
 mathlib: [ContinuousLinearMap.le_opNorm, ContinuousLinearMap.opNorm_le_bound, ContinuousLinearMap.instCompleteSpace]

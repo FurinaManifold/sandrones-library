@@ -33,7 +33,7 @@
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1🚧 F2-F4🔒 | L5 T3 R4 |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1✅ F2-F3🚧 F4🔒 | L5 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
@@ -538,18 +538,18 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 ## 8. Phase 7 — 泛函分析（F1-F4）
 
-### F1 赋范空间与连续线性算子 🚧
+### F1 赋范空间与连续线性算子 ✅
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.normed.definition` | 赋范空间与 Banach 空间 | `NormedSpace`、`CompleteSpace` |
-| 2 | `functional-analysis.operator.continuous-linear-map` | 连续线性映射与算子范数 | `ContinuousLinearMap` |
-| 3 | `functional-analysis.operator.bounded-iff` | 连续、局部有界、全局有界等价 | `LinearMap.mkContinuous` |
-| 4 | `functional-analysis.operator.space` | 算子空间的赋范与完备性 | CLM complete instance |
-| 5 | `functional-analysis.series.summable` | Banach 中绝对可和推出可和 | `summable_of_summable_norm` |
-| 6 | `functional-analysis.subspace.quotient` | 闭子空间与商 Banach 空间 | `NormedSpace.Quotient` |
+| 1 | `topology.normed-space.def` | 赋范空间与 Banach 空间 ✅（复用已验收拓扑条目） | `NormedSpace`、`CompleteSpace` |
+| 2 | `functional-analysis.operator.continuous-linear-map` | 连续线性映射与算子范数 ✅ | `ContinuousLinearMap` |
+| 3 | `functional-analysis.operator.bounded-iff` | 连续与全局有界等价 ✅ | `LinearMap.mkContinuous` |
+| 4 | `functional-analysis.operator.space` | 算子空间的赋范与完备性 ✅ | CLM complete instance |
+| 5 | `functional-analysis.series.summable` | Banach 中绝对可和推出可和 ✅ | `Summable.of_norm` |
+| 6 | `functional-analysis.subspace.quotient` | 闭子空间与商 Banach 空间 ✅ | `NormedSpace.Quotient` |
 
-### F2 Banach 三大定理 🔒（依赖 F1）
+### F2 Banach 三大定理 🚧（已由 F1 解锁）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -559,7 +559,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 4 | `functional-analysis.closed-graph` | 闭图定理 | closed graph |
 | 5 | `functional-analysis.inverse-operator` | 有界逆定理 | open mapping 推论 |
 
-### F3 Hilbert 空间 🔒（依赖 F1、L5）
+### F3 Hilbert 空间 🚧（F1、L5 均已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|

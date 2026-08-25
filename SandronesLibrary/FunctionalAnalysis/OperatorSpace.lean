@@ -7,11 +7,11 @@ import SandronesLibrary.FunctionalAnalysis.Operator
 import Mathlib.Analysis.Normed.Operator.Banach
 
 /-!
-# Operator norm and completeness
+# 算子范数与算子空间的完备性
 
-The norm already carried by `ContinuousLinearMap` is exactly the textbook operator norm.  This
-file records its global estimate, least-bound characterization, and the completeness of the
-operator space when the codomain is Banach.
+`ContinuousLinearMap` 自带的范数就是教材中的算子范数。本文件不重新用下确界定义同一个范数，而是
+用全局估计和最小上界性质解释其教材含义，并说明当值域是 Banach 空间时，连续线性算子空间也是
+Banach 空间。
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
@@ -22,31 +22,30 @@ variable {E F : Type*}
 variable [NormedAddCommGroup E] [NormedAddCommGroup F]
 variable [NormedLinearSpace ℝ E] [NormedLinearSpace ℝ F]
 
-/-- The operator norm is nonnegative.
+/-- 算子范数与所有范数一样非负。
 
 > **Entry**: functional-analysis.operator.space -/
 theorem operatorNorm_nonneg (T : E →L[ℝ] F) : 0 ≤ ‖T‖ := by
   exact norm_nonneg T
 
-/-- The operator norm globally controls the norm of every output. -/
+/-- 算子范数控制每个输出：`‖T x‖ ≤ ‖T‖ · ‖x‖`。 -/
 theorem norm_apply_le_operatorNorm (T : E →L[ℝ] F) (x : E) :
     ‖T x‖ ≤ ‖T‖ * ‖x‖ := by
   exact T.le_opNorm x
 
-/-- The operator norm is no larger than any nonnegative global bound. -/
+/-- 若非负常数 `C` 已经能全局控制 `T`，那么算子范数不会大于 `C`。 -/
 theorem operatorNorm_le_of_bound (T : E →L[ℝ] F) {C : ℝ} (hC : 0 ≤ C)
     (hbound : ∀ x : E, ‖T x‖ ≤ C * ‖x‖) : ‖T‖ ≤ C := by
   exact T.opNorm_le_bound hC hbound
 
-/-- Least-bound characterization of the operator norm: it is itself a global bound and is no
-larger than every other nonnegative global bound. -/
+/-- 算子范数的最小界刻画：它本身是一个全局放大界，并且不大于任何其他非负全局界。 -/
 theorem operatorNorm_is_least_bound (T : E →L[ℝ] F) :
     (∀ x : E, ‖T x‖ ≤ ‖T‖ * ‖x‖) ∧
       ∀ C : ℝ, 0 ≤ C → (∀ x : E, ‖T x‖ ≤ C * ‖x‖) → ‖T‖ ≤ C := by
   exact ⟨norm_apply_le_operatorNorm T, fun _ hC hbound ↦
     operatorNorm_le_of_bound T hC hbound⟩
 
-/-- If the codomain is Banach, the space of continuous linear operators is complete. -/
+/-- 若值域 `F` 是 Banach 空间，则从 `E` 到 `F` 的连续线性算子在算子范数下构成完备空间。 -/
 theorem continuousLinearMap_complete [BanachSpace F] : CompleteSpace (E →L[ℝ] F) := by
   infer_instance
 

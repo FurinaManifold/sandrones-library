@@ -12956,5 +12956,171 @@
       "propext"
     ],
     "proof_sha": "59c39814c4dabe55"
+  },
+  {
+    "id": "functional-analysis.operator.continuous-linear-map",
+    "kind": "definition",
+    "state": "verified",
+    "title": "连续线性算子",
+    "summary": "直接以 ContinuousLinearMap 承载线性且连续的算子，并用全局范数界解释其教材含义",
+    "premises": [
+      "topology.normed-space.def"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap",
+      "ContinuousLinearMap.le_opNorm",
+      "ContinuousLinearMap.continuous"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, A Course in Functional Analysis, Chapter I"
+    },
+    "lean_file": "FunctionalAnalysis/Operator.lean",
+    "nl_file": "docs/entries/functional-analysis/operator/continuous-linear-map.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.operator.bounded-iff",
+      "functional-analysis.operator.space"
+    ],
+    "family": "functional-analysis.operator",
+    "variant": "continuous-linear-map",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "5935c8c0d634bf11"
+  },
+  {
+    "id": "functional-analysis.operator.bounded-iff",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "线性算子有界与连续等价",
+    "summary": "实赋范空间之间的线性映射连续当且仅当存在非负全局范数界",
+    "premises": [
+      "functional-analysis.operator.continuous-linear-map"
+    ],
+    "mathlib": [
+      "LinearMap.mkContinuous",
+      "ContinuousLinearMap.le_opNorm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, A Course in Functional Analysis, Chapter I"
+    },
+    "lean_file": "FunctionalAnalysis/Operator.lean",
+    "nl_file": "docs/entries/functional-analysis/operator/bounded-iff.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "bounded-iff",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "5935c8c0d634bf11"
+  },
+  {
+    "id": "functional-analysis.operator.space",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "算子范数与连续线性算子空间",
+    "summary": "算子范数是最小全局放大界，且 Banach 值域上的连续线性算子空间完备",
+    "premises": [
+      "functional-analysis.operator.continuous-linear-map",
+      "topology.normed-space.banach"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.le_opNorm",
+      "ContinuousLinearMap.opNorm_le_bound",
+      "ContinuousLinearMap.instCompleteSpace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, A Course in Functional Analysis, Chapter I"
+    },
+    "lean_file": "FunctionalAnalysis/OperatorSpace.lean",
+    "nl_file": "docs/entries/functional-analysis/operator/space.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "space",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "63fc074cce87253d"
+  },
+  {
+    "id": "functional-analysis.series.summable",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach 空间中绝对可和蕴含可和",
+    "summary": "范数级数可和时向量级数可和，并给出部分和收敛与总和范数估计",
+    "premises": [
+      "topology.normed-space.banach"
+    ],
+    "mathlib": [
+      "Summable",
+      "HasSum",
+      "Summable.of_norm",
+      "norm_tsum_le_tsum_norm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, A Course in Functional Analysis, Chapter I"
+    },
+    "lean_file": "FunctionalAnalysis/BanachSeries.lean",
+    "nl_file": "docs/entries/functional-analysis/series/summable.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.series",
+    "variant": "summable",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8ab270cd0a0e6448"
+  },
+  {
+    "id": "functional-analysis.subspace.quotient",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "闭线性子空间与商 Banach 空间",
+    "summary": "商范数等于到子空间的距离，闭性保证零范数边界，闭子空间商保持完备",
+    "premises": [
+      "topology.normed-space.banach"
+    ],
+    "mathlib": [
+      "Submodule",
+      "IsClosed",
+      "Submodule.Quotient",
+      "QuotientAddGroup.norm_mk",
+      "Submodule.Quotient.completeSpace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, A Course in Functional Analysis, Chapter I"
+    },
+    "lean_file": "FunctionalAnalysis/QuotientSpace.lean",
+    "nl_file": "docs/entries/functional-analysis/subspace/quotient.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.subspace",
+    "variant": "quotient",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "96df14a5450747ab"
   }
 ]
