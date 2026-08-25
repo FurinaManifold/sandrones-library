@@ -7,7 +7,7 @@ state: verified
 title: 拓扑、连续映射与同胚的库内定义层
 summary: 以开集公理定义本库拓扑，并由此定义闭集、邻域、连续映射和同胚，再建立到 Mathlib 的显式桥
 premises: [settheory.set.extensionality]
-mathlib: [TopologicalSpace, continuous_def]
+mathlib: [TextbookTopology.toMathlib, TextbookTopology.continuous_iff_mathlib]
 provenance:
   source_type: book
   ref: "Munkres, Topology, Section 12"
@@ -40,7 +40,7 @@ def Continuous (τX : TextbookTopology X) (τY : TextbookTopology Y) (f : X → 
 
 # 思维脉络（thinking trace）
 
-先以任意并公理作用于空集合族推出空集开，再以二元集合族推出两个开集的并开。随后所有映射概念只引用本库的 `IsOpen` 与 `Continuous`。最后构造 `toMathlib`，逐字段把三条公理交给 Mathlib，并证明连续性的两个定义完全一致。
+先以任意并公理作用于空集合族推出空集开，再以二元集合族推出两个开集的并开。随后所有映射概念只引用本库的 `IsOpen` 与 `Continuous`。互操作在独立的 `MathlibBridge.lean` 中构造 `toMathlib`，逐字段把三条公理交给 Mathlib，并证明连续性的两个定义完全一致。
 
 # 自然语言 ↔ Lean 映射
 
@@ -48,8 +48,8 @@ def Continuous (τX : TextbookTopology X) (τY : TextbookTopology Y) (f : X → 
 
 # 依赖（人话版）
 
-数学定义只依赖集合、补集、原像、交与任意并。Mathlib 的 `TopologicalSpace` 不参与定义，只在最后的桥中承载已有定理；`continuous_def` 用来校验桥后的连续性与本库定义一致。
+数学定义只依赖集合、补集、原像、交、任意并和集合间等价。`Foundation.lean` 不导入 Mathlib 拓扑层；`TopologicalSpace` 与 `continuous_def` 仅在隔离的 `MathlibBridge.lean` 中用于互操作校验。
 
 # 应用与陷阱
 
-后续道路、同伦、连通与单连通必须先引用这里的本库概念，再按需安装 `toMathlib` 使用后端。不要把 `toMathlib` 声明成全局实例，否则同一类型上的多个教材拓扑会发生实例歧义；也不要把桥后的 Mathlib 名称重新描述成本库定义。
+后续道路、同伦、连通与单连通核心模块只能引用 `Foundation` 与 `Constructions`，不得导入 `MathlibBridge`。只有证明后端适配模块可按需安装 `toMathlib`；不要把它声明成全局实例，否则同一类型上的多个教材拓扑会发生实例歧义，也不要把桥后的 Mathlib 名称重新描述成本库定义。

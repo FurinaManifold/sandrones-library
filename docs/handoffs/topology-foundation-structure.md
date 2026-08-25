@@ -3,7 +3,7 @@
 ## 分支与范围
 
 - 分支：`codex/topology-foundations`；专用 worktree：`sandrones-library-topology`。
-- 新源码：`SandronesLibrary/Topology/Foundation.lean`。
+- 新源码：`SandronesLibrary/Topology/Foundation.lean` 与隔离的 `MathlibBridge.lean`。
 - 新条目：`docs/entries/topology/foundation/structure.md`。
 - Entry id：`topology.foundation.structure`。
 
@@ -11,15 +11,15 @@
 
 - 本库公开对象为 `TextbookTopology`、`TextbookTopology.IsClosed`、`IsNeighborhood`、
   `Continuous` 和 `Homeomorphism`。
-- `TextbookTopology.toMathlib` 是显式、非全局的实现桥；Mathlib 的 `TopologicalSpace` 和
-  `continuous_def` 仅用于互操作与校验。
+- `Foundation.lean` 不导入 Mathlib 拓扑层；`TextbookTopology.toMathlib` 被隔离在
+  `MathlibBridge.lean`，是显式、非全局的实现桥。
 - 旧 T1–T3 模块暂不删除，也尚未迁移到新定义层；它们应视作待维护的历史接口。
 
 ## 负责人审核
 
 - 检查定义依赖顺序为开集公理、闭集/邻域、连续、同胚，没有循环借用 Mathlib 概念。
 - 检查空集开与二元并开确实由三条公理推出，不作为隐藏字段重复假设。
-- 桥不注册为全局实例，避免同一载体的多个拓扑造成实例冲突。
+- 桥不注册为全局实例，且核心构造模块不 import 桥，避免实例冲突与后续定义误挂靠。
 
 ## Main 共有文件建议
 

@@ -3,14 +3,14 @@ Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
-import Mathlib.Topology.Continuous
+import Mathlib.Data.Set.Lattice
+import Mathlib.Logic.Equiv.Basic
 
 /-!
 # A textbook foundation for topology
 
-This file defines the elementary objects of topology inside Sandrone's Library.  Mathlib's
-`TopologicalSpace` is used only through an explicit bridge after the textbook definitions and their
-first consequences have been established.
+This file defines the elementary objects of topology inside Sandrone's Library.  It deliberately
+does not import Mathlib's topology hierarchy; interoperability is isolated in `MathlibBridge.lean`.
 
 Current entry:
 
@@ -80,27 +80,6 @@ structure Homeomorphism (τX : TextbookTopology X) (τY : TextbookTopology Y) wh
   toEquiv : X ≃ Y
   continuous_toFun : Continuous τX τY toEquiv
   continuous_invFun : Continuous τY τX toEquiv.symm
-
-/-- A textbook topology gives a Mathlib topology with exactly the same open sets.  This is an
-implementation bridge, not the definition used by the textbook layer. -/
-@[instance_reducible]
-def toMathlib (τ : TextbookTopology X) : TopologicalSpace X where
-  IsOpen := τ.IsOpen
-  isOpen_univ := τ.isOpen_univ
-  isOpen_inter := τ.isOpen_inter
-  isOpen_sUnion := τ.isOpen_sUnion
-
-/-- The Mathlib bridge preserves the predicate of being open definitionally. -/
-@[simp]
-theorem isOpen_toMathlib (τ : TextbookTopology X) (s : Set X) :
-    @_root_.IsOpen X τ.toMathlib s ↔ τ.IsOpen s :=
-  Iff.rfl
-
-/-- Textbook continuity is exactly Mathlib continuity after installing the two explicit bridges. -/
-theorem continuous_iff_mathlib (τX : TextbookTopology X) (τY : TextbookTopology Y) (f : X → Y) :
-    Continuous τX τY f ↔ @_root_.Continuous X Y τX.toMathlib τY.toMathlib f := by
-  rw [_root_.continuous_def]
-  rfl
 
 end TextbookTopology
 
