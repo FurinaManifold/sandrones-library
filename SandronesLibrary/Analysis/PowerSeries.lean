@@ -43,6 +43,24 @@ def ConvergesAt (a : ℕ → ℝ) (c x : ℝ) : Prop :=
 def AbsolutelyConvergesAt (a : ℕ → ℝ) (c x : ℝ) : Prop :=
   Summable (fun n => |term a c x n|)
 
+/-- 幂级数在一点的自然顺序和，就是其项列作为一般实数级数的教材和。 -/
+theorem hasSumAt_iff_seriesHasSum {a : ℕ → ℝ} {c x s : ℝ} :
+    HasSumAt a c x s ↔ Analysis.Series.SeriesHasSum (term a c x) s :=
+  Iff.rfl
+
+/-- 幂级数在一点收敛，就是其项列作为一般实数级数按自然顺序收敛。 -/
+theorem convergesAt_iff_seriesConvergent {a : ℕ → ℝ} {c x : ℝ} :
+    ConvergesAt a c x ↔ Analysis.Series.SeriesConvergent (term a c x) :=
+  Iff.rfl
+
+/-- 幂级数在一点绝对收敛，与其项列的一般级数教材绝对收敛完全等价。 -/
+theorem absolutelyConvergesAt_iff_seriesAbsolutelyConvergent
+    {a : ℕ → ℝ} {c x : ℝ} :
+    AbsolutelyConvergesAt a c x ↔
+      Analysis.Series.SeriesAbsolutelyConvergent (term a c x) := by
+  rw [AbsolutelyConvergesAt,
+    Analysis.Series.seriesAbsolutelyConvergent_iff_summable_abs]
+
 /-- 幂级数的收敛点集。 -/
 def convergenceSet (a : ℕ → ℝ) (c : ℝ) : Set ℝ :=
   {x | ConvergesAt a c x}
@@ -66,8 +84,10 @@ theorem absolutelyConvergesAt_imp_hasSumAt {a : ℕ → ℝ} {c x : ℝ}
 
 /-- 绝对收敛蕴含按自然顺序收敛。 -/
 theorem absolutelyConvergesAt_imp_convergesAt {a : ℕ → ℝ} {c x : ℝ}
-    (h : AbsolutelyConvergesAt a c x) : ConvergesAt a c x :=
-  ⟨sum a c x, absolutelyConvergesAt_imp_hasSumAt h⟩
+    (h : AbsolutelyConvergesAt a c x) : ConvergesAt a c x := by
+  rw [convergesAt_iff_seriesConvergent]
+  exact Analysis.Series.seriesConvergent_of_seriesAbsolutelyConvergent
+    (absolutelyConvergesAt_iff_seriesAbsolutelyConvergent.mp h)
 
 /-- 任意幂级数在中心 `c` 处绝对收敛，因为除常数项外所有项均为零。 -/
 theorem center_absolutelyConvergesAt (a : ℕ → ℝ) (c : ℝ) :

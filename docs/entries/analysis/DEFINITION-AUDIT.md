@@ -38,8 +38,8 @@
   `Summable (fun n => |f n|)`；条件收敛可由收敛且非绝对收敛组合表达。
 - [x] 条件收敛：`SeriesConditionallyConvergent` 明确定义为 `SeriesConvergent` 且非
   `SeriesAbsolutelyConvergent`，并提供两个教材投影性质。
-- [ ] 幂级数已具备 `HasSumAt`、`ConvergesAt`、`AbsolutelyConvergesAt` 等本库定义；待补充
-  与一般级数定义层的一致桥。
+- [x] 幂级数的 `HasSumAt`、`ConvergesAt`、`AbsolutelyConvergesAt` 已分别桥接一般级数的
+  `SeriesHasSum`、`SeriesConvergent`、`SeriesAbsolutelyConvergent`；绝对收敛推出收敛真实复用该层。
 
 ## A3 一元微分与积分
 
