@@ -2921,6 +2921,26 @@
 - **人话**：把自然数不等式送入序数，并展开序数右乘后继。
 - **谁在用**：有限复制森林和有限序数度量计算。
 
+### `hasDerivAt_iff_tendsto_slope` / `DifferentiableAt.hasDerivAt` / `HasDerivAt.tendsto_slope`
+- **人话**：在复数域上连接去心差商极限、导数见证与 Fréchet 可微。
+- **谁在用**：复分析 C1 的教材复可微定义及其 Mathlib 兼容桥。
+
+### `curveIntegral` / `intervalIntegral.integral_comp_mul_deriv` / `Complex.circleIntegral`
+- **人话**：承载复路径积分、有向参数换元与圆周积分公式。
+- **谁在用**：复分析 C2 路径积分、Cauchy 公式与 C3 圆周残数 foundation。
+
+### `AnalyticAt.taylorSeries_eq` / `AnalyticAt.sum_taylorSeries` / `HasFPowerSeriesAt.coeff_unique`
+- **人话**：解析函数的 Taylor 系数、级数求和与局部系数唯一性。
+- **谁在用**：`complex-analysis.series.taylor`；本库仍公开自己的 Taylor 系数与展开接口。
+
+### `MeromorphicAt.order` / `Complex.circleIntegral_sub_center_inv` / `Complex.integral_inv_one_add_sq`
+- **人话**：亚纯函数阶、简单极点圆周计算与一个广义实积分后端。
+- **谁在用**：C3 奇点分类 foundation、简单极点公式和实积分例题；不代表一般 Laurent 或残数定理已完成。
+
+### `Relation.TransGen` / `WellFounded.transGen`
+- **人话**：关系的非空传递闭包及其良基性保持。
+- **谁在用**：认证 Hydra 有限多步下降与闭包归纳；不覆盖普通 `Hydra.Step`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

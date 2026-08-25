@@ -11155,7 +11155,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "0d86ecaaf78ff521"
+    "proof_sha": "45d21644c893ee3c"
   },
   {
     "id": "settheory.googology.hydra-certified-step-well-founded",
@@ -11188,5 +11188,774 @@
       "propext"
     ],
     "proof_sha": "ddc33f9832ddb1f7"
+  },
+  {
+    "id": "complex-analysis.liouville",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Liouville 定理",
+    "summary": "证明在整个复平面上全纯且全局有界的复函数必为常值",
+    "premises": [
+      "complex-analysis.cauchy.derivatives"
+    ],
+    "mathlib": [
+      "Differentiable.exists_const_forall_eq_of_bounded",
+      "isBounded_iff_forall_norm_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（Liouville 定理）"
+    },
+    "lean_file": "ComplexAnalysis/Liouville.lean",
+    "nl_file": "docs/entries/complex-analysis/liouville.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.liouville",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "669a794259fa1241"
+  },
+  {
+    "id": "complex-analysis.argument-principle.linear-special-case",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "辐角积分与 Rouché 比较的线性特例",
+    "summary": "计算 z-c 的正规化对数导数圆周积分，并验证常数扰动的边界不等式与唯一零点",
+    "premises": [
+      "complex-analysis.residue.circle-foundation"
+    ],
+    "mathlib": [
+      "logDeriv",
+      "circleIntegral.integral_sub_center_inv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "辐角原理与 Rouché 定理的线性模型"
+    },
+    "lean_file": "ComplexAnalysis/ArgumentPrinciple.lean",
+    "nl_file": "docs/entries/complex-analysis/argument-principle/linear-special-case.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.argument-principle.linear-special-case",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "cc8d596f7ad51cef"
+  },
+  {
+    "id": "settheory.googology.hereditary-natural-encoding-same-block-order",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "修正遗传编码的同商块严格保序",
+    "summary": "修正遗传编码的同商块严格保序",
+    "premises": [
+      "settheory.googology.hereditary-natural-encoding"
+    ],
+    "mathlib": [
+      "add_lt_add_iff_left",
+      "Nat.div_add_mod"
+    ],
+    "provenance": {
+      "source_type": "derived",
+      "ref": "Ordinal order of corrected Horner encoding"
+    },
+    "lean_file": "SetTheory/HereditaryNatEncodingOrder.lean",
+    "nl_file": "docs/entries/settheory/googology/hereditary-natural-encoding-same-block-order.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hereditary-natural-encoding-same-block-order",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "968cef04acccef36"
+  },
+  {
+    "id": "settheory.googology.hydra-certified-transitive-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "认证 Hydra 有限多步的严格下降与良基闭包",
+    "summary": "认证 Hydra 有限多步的严格下降与良基闭包",
+    "premises": [
+      "settheory.googology.hydra-certified-step-well-founded"
+    ],
+    "mathlib": [
+      "Relation.TransGen",
+      "WellFounded.transGen"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "良基关系的有限传递闭包；本条只处理本库认证 Hydra 步骤"
+    },
+    "lean_file": "SetTheory/HydraCertifiedTransitiveDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-certified-transitive-descent.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hydra-certified-transitive-descent",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c8580d51e640d66f"
+  },
+  {
+    "id": "settheory.googology.hereditary-natural-encoding-strict-order",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "遗传自然数编码的全局严格保序",
+    "summary": "遗传自然数编码的全局严格保序",
+    "premises": [
+      "settheory.googology.hereditary-natural-encoding-same-block-order"
+    ],
+    "mathlib": [
+      "Ordinal.mul_succ",
+      "Ordinal.natCast_lt_omega0"
+    ],
+    "provenance": {
+      "source_type": "derived",
+      "ref": "Ordinal order of corrected Horner encoding"
+    },
+    "lean_file": "SetTheory/HereditaryNatEncodingOrder.lean",
+    "nl_file": "docs/entries/settheory/googology/hereditary-natural-encoding-strict-order.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.hereditary-natural-encoding-strict-order",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "968cef04acccef36"
+  },
+  {
+    "id": "settheory.googology.busy-beaver-time-halting-bound",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "最大首次停机时间给出的统一停机界",
+    "summary": "最大首次停机时间给出的统一停机界",
+    "premises": [
+      "settheory.googology.busy-beaver-time"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "derivation",
+      "ref": "Maximum first-halting time over a finite machine class"
+    },
+    "lean_file": "SetTheory/BusyBeaverTimeHaltingBound.lean",
+    "nl_file": "docs/entries/settheory/googology/busy-beaver-time-halting-bound.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology.busy-beaver-time-halting-bound",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2b7b084eaa91002b"
+  },
+  {
+    "id": "complex-analysis.integral.path",
+    "kind": "definition",
+    "state": "verified",
+    "title": "复路径与路径积分",
+    "summary": "以标量一形式定义复路径积分及可积性，并给出连续 integrand 沿 C1 路径的可积性与线段公式",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "Path",
+      "curveIntegral",
+      "CurveIntegrable",
+      "curveIntegral_segment",
+      "ContinuousLinearMap.smulRight"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（复路径积分）"
+    },
+    "lean_file": "ComplexAnalysis/PathIntegral.lean",
+    "nl_file": "docs/entries/complex-analysis/integral/path.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.integral",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d12877a54bbb2719"
+  },
+  {
+    "id": "complex-analysis.integral.reparametrization",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "路径反向、拼接与参数空间换元",
+    "summary": "证明路径积分在反向时变号、在可积拼接时相加，并给出底层有向区间换元公式",
+    "premises": [
+      "complex-analysis.integral.path"
+    ],
+    "mathlib": [
+      "curveIntegral_symm",
+      "curveIntegral_trans",
+      "intervalIntegral.integral_deriv_smul_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（路径积分的基本运算）"
+    },
+    "lean_file": "ComplexAnalysis/PathIntegral.lean",
+    "nl_file": "docs/entries/complex-analysis/integral/reparametrization.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.integral",
+    "variant": "parameter-space",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d12877a54bbb2719"
+  },
+  {
+    "id": "complex-analysis.cauchy.derivatives",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy 高阶导数公式与估计",
+    "summary": "以边界圆周积分表示圆心处的高阶导数，并由边界上界得到 Cauchy 估计",
+    "premises": [
+      "complex-analysis.cauchy.formula"
+    ],
+    "mathlib": [
+      "DifferentiableOn.circleIntegral_one_div_sub_center_pow_smul",
+      "Complex.norm_iteratedDeriv_le_of_forall_mem_sphere_norm_le",
+      "iteratedDeriv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（Cauchy 导数公式与估计）"
+    },
+    "lean_file": "ComplexAnalysis/CauchyFormula.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/derivatives.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.cauchy.derivatives",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c8571998c6063d3a"
+  },
+  {
+    "id": "complex-analysis.cauchy.triangle-ball",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "球内三角形边界积分为零",
+    "summary": "由圆盘上全纯函数的原函数存在性推出三条有向边上的路径积分之和为零",
+    "premises": [
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.integral.path"
+    ],
+    "mathlib": [
+      "DifferentiableOn.isExactOn_ball",
+      "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "curveIntegral_segment",
+      "convex_ball"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Cauchy's theorem for a triangle; formalized here in the currently supported ball-with-primitive form"
+    },
+    "lean_file": "ComplexAnalysis/CauchyTheorem.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/triangle-ball.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.cauchy",
+    "variant": "ball",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d58e921e0f0487c0"
+  },
+  {
+    "id": "complex-analysis.cauchy.path-independence-primitive",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "原函数条件下的路径无关",
+    "summary": "在显式原函数、路径可微与可积条件下证明路径积分只依赖端点；同伦相等仅作为直接推论",
+    "premises": [
+      "complex-analysis.integral.path"
+    ],
+    "mathlib": [
+      "curveIntegral_eq_intervalIntegral_deriv",
+      "intervalIntegral.integral_eq_sub_of_hasDerivAt",
+      "HasDerivAt.comp_hasFDerivAt",
+      "ContinuousMap.Homotopy"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, path independence from primitives; no unsupported simply-connected converse is asserted"
+    },
+    "lean_file": "ComplexAnalysis/CauchyTheorem.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/path-independence-primitive.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.cauchy",
+    "variant": "primitive",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d58e921e0f0487c0"
+  },
+  {
+    "id": "complex-analysis.cauchy.formula",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy 积分公式",
+    "summary": "用正向边界圆周积分恢复闭圆盘内全纯函数在任意内点的值",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "DifferentiableOn.circleIntegral_sub_inv_smul",
+      "circleIntegral"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（Cauchy 积分公式）"
+    },
+    "lean_file": "ComplexAnalysis/CauchyFormula.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/formula.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.cauchy.formula",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c8571998c6063d3a"
+  },
+  {
+    "id": "complex-analysis.residue.real-integral-example",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实积分例题：洛伦兹核",
+    "summary": "验证整条实轴上 1/(1+x²) 的积分等于 π",
+    "premises": [],
+    "mathlib": [
+      "integral_univ_inv_one_add_sq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "标准广义积分例题"
+    },
+    "lean_file": "ComplexAnalysis/Residue.lean",
+    "nl_file": "docs/entries/complex-analysis/residue/real-integral-example.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.residue.real-integral-example",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9178e3e95f7e3710"
+  },
+  {
+    "id": "complex-analysis.residue.simple-pole",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "单极点的圆周残数",
+    "summary": "证明 g(z)/(z-a) 在以 a 为中心的圆周上的正规化积分等于 g(a)",
+    "premises": [
+      "complex-analysis.residue.circle-foundation",
+      "complex-analysis.cauchy.formula"
+    ],
+    "mathlib": [
+      "circleIntegral.integral_sub_center_inv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway，简单极点的残数"
+    },
+    "lean_file": "ComplexAnalysis/Residue.lean",
+    "nl_file": "docs/entries/complex-analysis/residue/simple-pole.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.residue.simple-pole",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9178e3e95f7e3710"
+  },
+  {
+    "id": "complex-analysis.residue.circle-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "圆周正规化残数基础",
+    "summary": "将指定正向圆周上的积分除以 2πi，作为局部残数理论的 foundation 接口",
+    "premises": [
+      "complex-analysis.cauchy.formula"
+    ],
+    "mathlib": [
+      "circleIntegral"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway，残数的圆周积分表示"
+    },
+    "lean_file": "ComplexAnalysis/Residue.lean",
+    "nl_file": "docs/entries/complex-analysis/residue/circle-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.residue.circle-foundation",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9178e3e95f7e3710"
+  },
+  {
+    "id": "complex-analysis.series.taylor",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "圆盘内 Taylor 展开与局部系数唯一性",
+    "summary": "全纯函数在指定圆盘内等于以圆心为中心的导数系数 Taylor 级数，且局部幂级数系数唯一",
+    "premises": [
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.holomorphic.power-series",
+      "complex-analysis.cauchy.derivatives"
+    ],
+    "mathlib": [
+      "Complex.hasSum_taylorSeries_on_ball",
+      "HasFPowerSeriesAt.eq_formalMultilinearSeries",
+      "FormalMultilinearSeries.ofScalars"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（Taylor 展开与唯一性）"
+    },
+    "lean_file": "ComplexAnalysis/Taylor.lean",
+    "nl_file": "docs/entries/complex-analysis/series/taylor.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.series.taylor",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "3e6f8ea3d1918af8"
+  },
+  {
+    "id": "complex-analysis.series.laurent-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "解析 Laurent 展开的基础接口",
+    "summary": "定义环域上的整数双向 HasSum 展开并验证常数和简单极点例子",
+    "premises": [],
+    "mathlib": [
+      "HasSum",
+      "hasSum_ite_eq",
+      "zpow"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Laurent series"
+    },
+    "lean_file": "ComplexAnalysis/Laurent.lean",
+    "nl_file": "docs/entries/complex-analysis/series/laurent-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.series",
+    "variant": "foundation",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "71b82e0e6ae17e47"
+  },
+  {
+    "id": "complex-analysis.holomorphic.cr-sufficient",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy–Riemann 方程的充分性",
+    "summary": "实 Fréchet 可微函数若在一点满足 CR 方程，则该点复可微，并确定复导数",
+    "premises": [
+      "complex-analysis.holomorphic.cauchy-riemann"
+    ],
+    "mathlib": [
+      "differentiableAt_complex_iff_differentiableAt_real",
+      "complexOfReal_hasDerivAt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I, Ch 2"
+    },
+    "lean_file": "ComplexAnalysis/CauchyRiemann.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/cr-sufficient.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic.cr-sufficient",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "cebaa8a58a06f5cc"
+  },
+  {
+    "id": "complex-analysis.holomorphic.cauchy-riemann",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cauchy–Riemann 方程：复可微的必要条件",
+    "summary": "用实 Fréchet 导数沿 x、y 方向的四个实偏导定义 CR 方程，并由复可微推出 CR",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "differentiableAt_complex_iff_differentiableAt_real"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Ch 2（Cauchy–Riemann equations）"
+    },
+    "lean_file": "ComplexAnalysis/CauchyRiemann.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/cauchy-riemann.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic.cauchy-riemann",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "cebaa8a58a06f5cc"
+  },
+  {
+    "id": "complex-analysis.holomorphic.power-series",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复幂级数在收敛圆内全纯并可逐项求导",
+    "summary": "用系数与中心定义复幂级数，建立收敛半径、圆内全纯性和显式逐项求导公式",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "FormalMultilinearSeries.ofScalars",
+      "FormalMultilinearSeries.radius",
+      "FormalMultilinearSeries.hasFPowerSeriesOnBall",
+      "HasFPowerSeriesOnBall.comp_sub",
+      "HasFPowerSeriesOnBall.differentiableOn",
+      "HasFPowerSeriesOnBall.fderiv",
+      "FormalMultilinearSeries.hasFDerivAt_sum",
+      "FormalMultilinearSeries.derivSeries_coeff_one",
+      "ContinuousLinearMap.map_tsum"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（幂级数与解析函数）"
+    },
+    "lean_file": "ComplexAnalysis/PowerSeries.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/power-series.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic.power-series",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1fe7c9b6813985ab"
+  },
+  {
+    "id": "complex-analysis.holomorphic.elementary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复指数、复三角函数与局部对数分支的全纯性",
+    "summary": "证明复指数、复正弦和复余弦是整函数，并在通过非零基点的射线补集上构造局部对数分支",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "Complex.differentiable_exp",
+      "Complex.hasDerivAt_exp",
+      "Complex.differentiable_sin",
+      "Complex.hasDerivAt_sin",
+      "Complex.differentiable_cos",
+      "Complex.hasDerivAt_cos",
+      "Complex.slitPlane",
+      "Complex.isOpen_slitPlane",
+      "Complex.differentiableAt_log",
+      "Complex.exp_log",
+      "Complex.exp_add"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Conway, Functions of One Complex Variable I（初等全纯函数与对数分支）"
+    },
+    "lean_file": "ComplexAnalysis/Elementary.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/elementary.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic.elementary",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "48260c76034520fe"
+  },
+  {
+    "id": "complex-analysis.holomorphic.algebra",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "全纯函数的代数与复合封闭性",
+    "summary": "全纯函数对和、积、非零分母的商及满足值域条件的复合封闭",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "DifferentiableAt.add",
+      "DifferentiableAt.mul",
+      "DifferentiableAt.div",
+      "DifferentiableAt.comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Chapter 2"
+    },
+    "lean_file": "ComplexAnalysis/Holomorphic.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/algebra.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "68397d0d5fbb1868"
+  },
+  {
+    "id": "complex-analysis.holomorphic.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "复可微与集合上全纯",
+    "summary": "以去心邻域差商极限定义复可微，并把集合上全纯定义为每点全邻域复可微",
+    "premises": [],
+    "mathlib": [
+      "slope_def_field",
+      "hasDerivAt_iff_tendsto_slope",
+      "DifferentiableAt.hasDerivAt",
+      "HasDerivAt.tendsto_slope",
+      "IsOpen.mem_nhds"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Chapter 2"
+    },
+    "lean_file": "ComplexAnalysis/Holomorphic.lean",
+    "nl_file": "docs/entries/complex-analysis/holomorphic/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.holomorphic",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "68397d0d5fbb1868"
+  },
+  {
+    "id": "complex-analysis.singularity.classification-foundation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "孤立奇点分类的基础接口",
+    "summary": "定义可去、极点与本性奇点，证明逻辑三分并在 MeromorphicAt 下桥接阶数",
+    "premises": [
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "MeromorphicAt",
+      "meromorphicOrderAt",
+      "tendsto_nhds_iff_meromorphicOrderAt_nonneg",
+      "tendsto_cobounded_iff_meromorphicOrderAt_neg"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, isolated singularities"
+    },
+    "lean_file": "ComplexAnalysis/Singularity.lean",
+    "nl_file": "docs/entries/complex-analysis/singularity/classification-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.singularity",
+    "variant": "foundation",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6d743d88fb7f12e0"
   }
 ]

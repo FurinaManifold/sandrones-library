@@ -32,7 +32,7 @@
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🔲 | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
-| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5✅ C1🚧 C2-C3🔒 | R2 T3 M4 |
+| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅ C2-C3🚧 | R2 T3 M4 |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1🚧 F2-F4🔒 | L5 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
@@ -451,42 +451,51 @@ Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均
 
 ## 7. Phase 6 — 复分析（C0-C3）
 
-C0 复数基础与 C0.5 代数学基本定理已完成。C1-C3 尚未进入 main。
+C0 复数基础、C0.5 代数学基本定理与 C1 已完成。C2/C3 已进入 main，但一般 Goursat/同伦、
+Laurent 存在唯一性、一般残数与辐角原理仍未完成。
 
-### C1 复微分与全纯函数 🚧
-
-| # | 条目 id | 内容 | 主要 Mathlib 接口 |
-|---|---|---|---|
-| 1 | `complex-analysis.holomorphic.definition` | 复可微、区域上全纯 | `ComplexDifferentiableAt/On` |
-| 2 | `complex-analysis.holomorphic.algebra` | 和、积、商、复合的全纯性 | 复导数代数接口 |
-| 3 | `complex-analysis.holomorphic.cauchy-riemann` | CR 方程必要条件 | `Complex.hasFDerivAt_iff` |
-| 4 | `complex-analysis.holomorphic.cr-sufficient` | 实可微加 CR 推出复可微 | Fréchet 导数 |
-| 5 | `complex-analysis.holomorphic.power-series` | 幂级数圆内全纯与逐项求导 | `PowerSeries`、`HasSum` |
-| 6 | `complex-analysis.holomorphic.elementary` | exp、sin、cos、局部 log | `Complex.exp/sin/cos/log` |
-
-### C2 复积分与 Cauchy 理论 🔒（依赖 C1）
+### C1 复微分与全纯函数 ✅
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `complex-analysis.integral.path` | 分段光滑路径与复路径积分 | `PathIntegral` |
-| 2 | `complex-analysis.integral.reparametrization` | 换参数、反向、拼接 | path integral invariance |
+| 1 | `complex-analysis.holomorphic.definition` | 复可微、区域上全纯 ✅ | `ComplexDifferentiableAt/On` |
+| 2 | `complex-analysis.holomorphic.algebra` | 和、积、商、复合的全纯性 ✅ | 复导数代数接口 |
+| 3 | `complex-analysis.holomorphic.cauchy-riemann` | CR 方程必要条件 ✅ | `Complex.hasFDerivAt_iff` |
+| 4 | `complex-analysis.holomorphic.cr-sufficient` | 实可微加 CR 推出复可微 ✅ | Fréchet 导数 |
+| 5 | `complex-analysis.holomorphic.power-series` | 幂级数圆内全纯与逐项求导 ✅ | `PowerSeries`、`HasSum` |
+| 6 | `complex-analysis.holomorphic.elementary` | exp、sin、cos、局部 log ✅ | `Complex.exp/sin/cos/log` |
+
+### C2 复积分与 Cauchy 理论 🚧（依赖 C1）
+
+| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+|---|---|---|---|
+| 1 | `complex-analysis.integral.path` | 分段光滑路径与复路径积分 ✅ | `PathIntegral` |
+| 2 | `complex-analysis.integral.reparametrization` | 底层换元、反向、拼接 ✅；一般 `Path.reparam` 待补 | path integral invariance |
 | 3 | `complex-analysis.cauchy.triangle` | 三角形 Cauchy 定理 | Cauchy triangle API |
 | 4 | `complex-analysis.cauchy.homotopy` | 同伦不变与单连通域版本 | winding/homotopy |
-| 5 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | circle integral API |
-| 6 | `complex-analysis.cauchy.derivatives` | 高阶导数公式与 Cauchy 估计 | iterated derivative |
-| 7 | `complex-analysis.liouville` | Liouville 与 FTA 的分析证明 | Cauchy estimate |
+| 5 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 ✅ | circle integral API |
+| 6 | `complex-analysis.cauchy.derivatives` | 高阶导数公式与 Cauchy 估计 ✅ | iterated derivative |
+| 7 | `complex-analysis.liouville` | Liouville 与 FTA 的分析证明 ✅ | Cauchy estimate |
+| 8 | `complex-analysis.cauchy.triangle-ball` | 圆盘内三角形边界积分为零 ✅（foundation） | 原函数桥 |
+| 9 | `complex-analysis.cauchy.path-independence-primitive` | 已有原函数时路径无关 ✅（foundation） | 原函数端点公式 |
 
-### C3 Laurent、残数与亚纯函数 🔒（依赖 C2）
+### C3 Laurent、残数与亚纯函数 🚧（依赖 C2）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `complex-analysis.series.taylor` | Taylor 展开与唯一性 | analytic/power series |
+| 1 | `complex-analysis.series.taylor` | Taylor 展开与唯一性 ✅ | analytic/power series |
 | 2 | `complex-analysis.series.laurent` | 环域 Laurent 展开 | `LaurentSeries` |
 | 3 | `complex-analysis.singularity.classification` | 可去、极点、本性奇点 | `MeromorphicAt` |
 | 4 | `complex-analysis.residue.definition` | 残数与 Laurent 系数 | `residue` |
 | 5 | `complex-analysis.residue.theorem` | 残数定理 | winding/cycle integral |
 | 6 | `complex-analysis.argument-principle` | 辐角原理与 Rouché | logarithmic derivative |
 | 7 | `complex-analysis.residue.real-integrals` | 实积分计算例题 | contour estimates |
+| 8 | `complex-analysis.series.laurent-foundation` | Laurent 解析定义与单项例子 ✅ | 双向整数指标 `HasSum` |
+| 9 | `complex-analysis.singularity.classification-foundation` | 孤立奇点教材谓词与亚纯阶桥 ✅ | `MeromorphicAt` |
+| 10 | `complex-analysis.residue.circle-foundation` | 指定圆周的正规化积分 ✅ | circle integral |
+| 11 | `complex-analysis.residue.simple-pole` | 简单极点圆周公式 ✅ | Cauchy 公式 |
+| 12 | `complex-analysis.residue.real-integral-example` | 一个广义实积分课程接口 ✅ | Mathlib 广义积分后端 |
+| 13 | `complex-analysis.argument-principle.linear-special-case` | 线性辐角/Rouché 特例 ✅ | logarithmic derivative |
 
 ## 8. Phase 7 — 泛函分析（F1-F4）
 

@@ -1,12 +1,12 @@
 # Entries 索引
 
-> 自动生成（2026-08-24）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-08-25）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **350** 个条目（verified 350，pending 0）。
+共 **374** 个条目（verified 374，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -222,6 +222,50 @@
 - ✅ [`sum-product.md`](sum-product.md) — 三角函数和差化积公式
 - ✅ [`tan-identities.md`](tan-identities.md) — 正切的和差与倍角公式
 
+## `complex-analysis`
+
+- ✅ [`liouville.md`](liouville.md) — Liouville 定理
+
+## `complex-analysis.argument-principle`
+
+- ✅ [`linear-special-case.md`](linear-special-case.md) — 辐角积分与 Rouché 比较的线性特例
+
+## `complex-analysis.cauchy`
+
+- ✅ [`derivatives.md`](derivatives.md) — Cauchy 高阶导数公式与估计
+- ✅ [`formula.md`](formula.md) — Cauchy 积分公式
+- ✅ [`path-independence-primitive.md`](path-independence-primitive.md) — 原函数条件下的路径无关
+- ✅ [`triangle-ball.md`](triangle-ball.md) — 球内三角形边界积分为零
+
+## `complex-analysis.holomorphic`
+
+- ✅ [`algebra.md`](algebra.md) — 全纯函数的代数与复合封闭性
+- ✅ [`cauchy-riemann.md`](cauchy-riemann.md) — Cauchy–Riemann 方程：复可微的必要条件
+- ✅ [`cr-sufficient.md`](cr-sufficient.md) — Cauchy–Riemann 方程的充分性
+- ✅ [`definition.md`](definition.md) — 复可微与集合上全纯
+- ✅ [`elementary.md`](elementary.md) — 复指数、复三角函数与局部对数分支的全纯性
+- ✅ [`power-series.md`](power-series.md) — 复幂级数在收敛圆内全纯并可逐项求导
+
+## `complex-analysis.integral`
+
+- ✅ [`path.md`](path.md) — 复路径与路径积分
+- ✅ [`reparametrization.md`](reparametrization.md) — 路径反向、拼接与参数空间换元
+
+## `complex-analysis.residue`
+
+- ✅ [`circle-foundation.md`](circle-foundation.md) — 圆周正规化残数基础
+- ✅ [`real-integral-example.md`](real-integral-example.md) — 实积分例题：洛伦兹核
+- ✅ [`simple-pole.md`](simple-pole.md) — 单极点的圆周残数
+
+## `complex-analysis.series`
+
+- ✅ [`laurent-foundation.md`](laurent-foundation.md) — 解析 Laurent 展开的基础接口
+- ✅ [`taylor.md`](taylor.md) — 圆盘内 Taylor 展开与局部系数唯一性
+
+## `complex-analysis.singularity`
+
+- ✅ [`classification-foundation.md`](classification-foundation.md) — 孤立奇点分类的基础接口
+
 ## `linear-algebra`
 
 - ✅ [`inner-product.md`](inner-product.md) — 内积、正交分解与伴随算子
@@ -400,6 +444,7 @@
 - ✅ [`busy-beaver-convergence.md`](busy-beaver-convergence.md) — 有限燃料 Busy Beaver 候选的最终稳定
 - ✅ [`busy-beaver-existence.md`](busy-beaver-existence.md) — 经典 Busy Beaver 最大值的存在性
 - ✅ [`busy-beaver-time.md`](busy-beaver-time.md) — 时间型 Busy Beaver：最大首次停机时间
+- ✅ [`busy-beaver-time-halting-bound.md`](busy-beaver-time-halting-bound.md) — 最大首次停机时间给出的统一停机界
 - ✅ [`busy-beaver-value-relation.md`](busy-beaver-value-relation.md) — 经典 Busy Beaver 的最大值关系与有限候选桥
 - ✅ [`conway-chain.md`](conway-chain.md) — Conway 链式箭头：有限语法与诚实的受限求值
 - ✅ [`conway-recursion.md`](conway-recursion.md) — 一般有限 Conway 链的递归求值
@@ -420,8 +465,11 @@
 - ✅ [`hardy-hierarchy.md`](hardy-hierarchy.md) — Hardy 层级：沿记号下降，把后继变成输入递增
 - ✅ [`hereditary-base.md`](hereditary-base.md) — 遗传基表示：连指数也用同一底数展开
 - ✅ [`hereditary-natural-encoding.md`](hereditary-natural-encoding.md) — 任意自然数的遗传基编码
+- ✅ [`hereditary-natural-encoding-same-block-order.md`](hereditary-natural-encoding-same-block-order.md) — 修正遗传编码的同商块严格保序
+- ✅ [`hereditary-natural-encoding-strict-order.md`](hereditary-natural-encoding-strict-order.md) — 遗传自然数编码的全局严格保序
 - ✅ [`hydra-certified-play-termination.md`](hydra-certified-play-termination.md) — 带最右脊柱证书的 Hydra 轨迹不可能无限
 - ✅ [`hydra-certified-step-well-founded.md`](hydra-certified-step-well-founded.md) — 认证 Hydra 步骤的良基关系与归纳原理
+- ✅ [`hydra-certified-transitive-descent.md`](hydra-certified-transitive-descent.md) — 认证 Hydra 有限多步的严格下降与良基闭包
 - ✅ [`hydra-game-step.md`](hydra-game-step.md) — 有限 Hydra 游戏的定义与阶段相关单步
 - ✅ [`hydra-one-level-descent.md`](hydra-one-level-descent.md) — 含阶段复制的一层 Hydra 砍头严格下降
 - ✅ [`hydra-ordinal-assignment.md`](hydra-ordinal-assignment.md) — Hydra 的结构性序数赋值与两个已验证接口
