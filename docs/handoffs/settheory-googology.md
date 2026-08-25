@@ -15,6 +15,9 @@
 - 遗传编码次序修正、认证多步下降与统一停机界提交：`7084a73`
 - 固定状态数机器编码提交：`118ddef`
 - 认证 Hydra 策略终止提交：`1f98af1`
+- 本库序数幂通用桥提交：`357e407`
+- 遗传编码底数幂精确秩提交：`7e4292d`
+- 遗传幂指数一般借位提交：`70d05dd`
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -53,8 +56,12 @@
 - `SandronesLibrary/SetTheory/BusyBeaverTimeHaltingBound.lean`
 - `SandronesLibrary/SetTheory/BinaryMachineCoding.lean`
 - `SandronesLibrary/SetTheory/HydraCertifiedStrategyTermination.lean`
+- `SandronesLibrary/SetTheory/OrdinalPowerBridge.lean`
+- `SandronesLibrary/SetTheory/HereditaryNatPowerRank.lean`
+- `SandronesLibrary/SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
+- `docs/entries/settheory/ordinal/power-bridge.md`
 
 ## 顶层导入
 
@@ -94,6 +101,9 @@ import SandronesLibrary.SetTheory.HydraCertifiedTransitiveDescent
 import SandronesLibrary.SetTheory.BusyBeaverTimeHaltingBound
 import SandronesLibrary.SetTheory.BinaryMachineCoding
 import SandronesLibrary.SetTheory.HydraCertifiedStrategyTermination
+import SandronesLibrary.SetTheory.OrdinalPowerBridge
+import SandronesLibrary.SetTheory.HereditaryNatPowerRank
+import SandronesLibrary.SetTheory.GoodsteinHereditaryPowerExponentBorrow
 ```
 
 ## Registry
@@ -156,6 +166,9 @@ import SandronesLibrary.SetTheory.HydraCertifiedStrategyTermination
 54. `settheory.googology.busy-beaver-time-halting-bound`（`theorem`）
 55. `settheory.computability.binary-machine-coding`（`definition`）
 56. `settheory.googology.hydra-certified-strategy-termination`（`theorem`）
+57. `settheory.ordinal.power-bridge`（`theorem`）
+58. `settheory.googology.hereditary-natural-power-rank`（`theorem`）
+59. `settheory.googology.goodstein-hereditary-power-exponent-borrow`（`theorem`）
 
 ## 定义边界
 
@@ -260,6 +273,15 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 组装任意起点到某个终态的有限精确轨迹；它是 Prop 层存在性规格，不给可执行选择器、统一步数界，
 也不覆盖普通 `Hydra.Step`。
 
+第十二小批按 Main 建议选择一般 Goodstein 借位方向。`OrdinalPowerBridge` 首先证明本库
+`ordinalPow a b` 对任意底数与指数都等于 Mathlib `a^b`，并把底数大于一时的指数严格比较转回
+本库接口；它是 ST3 下游所需证明桥，不重新交付或改写已经进入 Main 的 ST1 源文件。
+`HereditaryNatPowerRank` 随后精确证明修正编码器对 `q^k` 的序数值为 `ω^k`，以及所有
+`n<q^k` 的编码秩严格低于该值。最终 `HereditaryPowerExponentBorrowForm` 覆盖任意
+`base≥2`、`0<k<base` 和合法头部的 `head+B^(B^k)`：升底后用一般编码器重建整个
+`q^(q^k)-1`，证明合法、求值正确并由 `ω^(q^k)<ω^(ω^k)` 得到严格下降。指数内加乘、任意遗传
+指数、更高任意塔、完整 Goodstein 下降与终止仍未覆盖。
+
 ## RADAR
 
 - `Nat.rec`
@@ -271,6 +293,10 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `Fintype.equivFin`
 - `Fintype.card`
 - `WellFounded.induction`
+- `Ordinal.limitRecOn`
+- `Ordinal.opow_succ`
+- `Ordinal.opow_limit`
+- `Ordinal.opow_lt_opow_iff_right`
 
 ## 子 Agent 所有权与负责人审核
 
@@ -369,6 +395,14 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_hydra`（第十批）：`HydraCertifiedStrategyTermination.lean` 与一篇文档，独立提交
   `1f98af1`。负责人确认策略 `progress` 只产生 `CertifiedStep`，终止结论只给有限轨迹存在，不产生
   可执行 selector、最大步数或普通 Hydra 全覆盖。
+- `st3_opow_bridge`（第十一批基础桥）：`OrdinalPowerBridge.lean` 与一篇文档，独立提交
+  `357e407`。负责人核对它证明任意底数／指数上的运算一致性，但只作为 ST3 Goodstein 下游证明
+  桥；没有修改或重复交付 Main 中的 `Ordinal.lean`。
+- `st3_power_rank`（第十一批基础桥）：`HereditaryNatPowerRank.lean` 与一篇文档，独立提交
+  `7e4292d`。负责人核对 `q^k` 的精确编码秩与较小自然数编码上界均使用修正后的乘法方向。
+- `st3_general_borrow`（第十一批组装）：`GoodsteinHereditaryPowerExponentBorrow.lean` 与一篇文档，
+  独立提交 `70d05dd`。负责人确认借位尾部整体经一般编码器重建，两座新桥都实际进入下降证明；
+  接受 `0<k<base` 参数族，不接受外推到任意复合遗传指数或终止。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -407,6 +441,9 @@ Hydra 的精确有限步、非空传递下降、闭包良基与归纳；时间�
 第十一批新增的稳定接口包括：固定状态数二符号机器的有限 `MachineCode`、编码／解码逆律、唯一性
 与自然数边界检查；认证 Hydra 策略规格以及从任意起点有限到达策略终态的存在性。仍不可依赖机器
 编码由本库程序执行、跨状态数统一 Gödel 编号、通用解释器实例、普通 Hydra 策略终止或步数界。
+第十二批新增的稳定接口包括：本库序数幂与原生序数幂的通用等式及 `ω` 幂指数比较；修正遗传编码
+对 `q^k` 的精确秩和严格下界；`head+B^(B^k)`（`0<k<base`）的合法重编码、数值正确和序数严格
+下降。仍不可依赖任意遗传指数正规借位、所有表达式逐步下降、完整 Goodstein 终止或 PA 不可证性。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -462,6 +499,16 @@ Hydra 认证步骤或机器停机关系。
 第十一批公开教材定义是 `MachineCode`、`encodeMachine`、`decodeMachine`、`decodeMachineNat`、
 `CertifiedStrategySpec` 与 `ReachesTerminal`。`Fintype.equivFin` 仅为非可计算有限枚举桥；Hydra
 终止证明只复用本库认证步骤良基归纳，没有新增 Mathlib 高层后端。
+
+第十二批三个新增模块分别构建通过（1034、1052、1054 jobs）；集合论 40 模块及依赖闭包联合构建
+通过，共 1095 jobs；聚合文件检查通用幂桥、`ω` 幂比较、底数幂编码精确秩与上界，以及
+`head+B^(B^k)` 借位下降主 API。三个 Entry 与三篇文档一一对应，精确八段 3/3；禁用证明占位与
+`TODO`/`FIXME`/`TBD` 零命中，`git diff --check` 通过。未运行全库 `lake build`。
+
+第十二批公开教材定义是 `HereditaryPowerExponentBorrowForm` 及其源表达式、借位尾部和借位后
+表达式；`ordinalPow_eq_opow` 是本库公开运算到 Mathlib 后端的显式证明桥，
+`HereditaryNatPowerRank` 则保持所有公开结论以本库 `ordinalPow` 表述。Mathlib 的极限递归与原生
+幂比较只作证明后端，没有替代本库定义链。
 
 ## 合并后验收
 
