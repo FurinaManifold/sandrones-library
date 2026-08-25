@@ -341,9 +341,9 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 4 | `abstract-algebra.ring.domain` | 零因子、整环与域的本库公理定义 | ✅（定义层与 Mathlib 桥已完成） |
 | 4.5 | `abstract-algebra.ring.prime-ideal` | 素理想、极大理想及商整环／商域双向判据 | ✅ |
 | 5 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约与素元、最大公因子 | ✅ |
-| 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | 🔲 |
-| 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | 🔲 |
-| 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | 🔲 |
+| 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | ✅ |
+| 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | ✅ |
+| 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | ✅ |
 | 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | 🔲 |
 
 ### A3 多项式与域扩张 🚧
@@ -414,8 +414,8 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
 | 1 | `topology.homeomorph.invariants` | 同胚的复合、逆及对连通性、紧致性等拓扑性质的保持 | `Homeomorph.trans`、`Homeomorph.toHomotopyEquiv` |
-| 2 | `topology.homotopy.path-loop` | 道路、逆道路、环路与道路拼接基础 ✅；道路同伦仍待后续 | `Path.Homotopic` |
-| 3 | `topology.homotopy.maps` | 映射之间的同伦、相对端点同伦及同伦的复合运算 | `ContinuousMap.Homotopy`、`ContinuousMap.HomotopyRel` |
+| 2 | `topology.homotopy.path-loop` | 道路、逆道路、环路、拼接、道路分支与道路连通基础 ✅ | `Path.Homotopic` |
+| 3 | `topology.homotopy.maps` | 本库同伦与相对端点同伦定义、自反和对称 ✅；传递与复合待续 | `ContinuousMap.Homotopy`、`ContinuousMap.HomotopyRel` |
 | 4 | `topology.homotopy.equivalence` | 同伦等价、同伦逆及同伦等价关系 | `ContinuousMap.HomotopyEquiv`、`Homeomorph.toHomotopyEquiv` |
 | 5 | `topology.fundamental-group.def` | 基点环路按端点固定同伦取商，定义基本群 `π₁(X,x₀)` | `FundamentalGroupoid`、`FundamentalGroup`、`Path.Homotopic.Quotient` |
 | 6 | `topology.fundamental-group.group` | 环路拼接诱导群结构，恒定环路、逆环路及结合律 | `FundamentalGroup.toPath`、`FundamentalGroup.fromPath` |

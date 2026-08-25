@@ -10,6 +10,11 @@ mathlib: ["HasDerivAt.smul_const", "intervalIntegral.integral_const", "HasDerivA
 # 参数曲线与参数曲面
 
 `ParametrizedGeometry.lean` 建立经典微分几何与曲线曲面积分共用的前置。
+`ParametrizedCurve n` 与 `ParametrizedSurface n` 是透明函数数据载体，分别展开为
+`ℝ → ℝⁿ` 与 `ℝ² → ℝⁿ`；它们只记录参数域和值域，不自行声称连续、可微或正则。
+这些教材性质由 `CurveRegularAt`、`CurveRegularOn`、`SurfaceRegularAt` 和
+`SurfaceRegularOn` 明确表达，因此无需另建一套函数结构。
+
 参数曲线已有速度、速率、点态/集合正则性和有向弧长；仿射直线的速度、
 速率、正则判据与弧长公式已完成。
 
@@ -36,3 +41,6 @@ Lebesgue 二重积分。仿射平面的面积元已化为常数 `‖u×v‖`；�
 积分级一般换参数定理现已完成：若 `s` 可测、`φ` 全局可微并在 `s` 上单射，则
 `surfaceAreaOn3 (σ∘φ) s = surfaceAreaOn3 σ (φ '' s)`。证明直接调用一般 Jacobian
 换元公式吸收面积元中的 `|det Dφ|`。至此参数曲线与参数曲面的本阶段前置完成。
+
+边界：`curveVelocity`、`surfaceTangent₁`、`surfaceTangent₂` 的底层选择函数在不可微点沿用
+Mathlib 的零值约定；任何几何结论都必须携带相应可微或正则性假设，不能仅从参数化载体推出。

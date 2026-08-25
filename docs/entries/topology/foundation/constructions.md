@@ -34,6 +34,10 @@ def product (τX : TextbookTopology X) (τY : TextbookTopology Y) : TextbookTopo
 
 theorem continuous_fst : Continuous (product τX τY) τX Prod.fst
 theorem continuous_snd : Continuous (product τX τY) τY Prod.snd
+theorem continuous_prod_mk (hf : Continuous τW τX f) (hg : Continuous τW τY g) :
+  Continuous τW (product τX τY) (fun w ↦ (f w, g w))
+theorem continuous_subtype_mk (hf : Continuous τY τX f) (hs : ∀ y, f y ∈ s) :
+  Continuous τY (subspace s τX) (fun y ↦ ⟨f y, hs y⟩)
 ```
 
 # 思维脉络（thinking trace）
@@ -42,7 +46,7 @@ theorem continuous_snd : Continuous (product τX τY) τY Prod.snd
 
 # 自然语言 ↔ Lean 映射
 
-“拉回开集”对应 `induced`；“包含映射”对应 `Subtype.val`；“子空间”对应 `subspace`；“开矩形”对应 `Set.prod` 记号 `u ×ˢ v`；“局部包含”对应积拓扑定义中的 `p ∈ u ×ˢ v ∧ u ×ˢ v ⊆ w`；“投影连续”对应 `continuous_fst` 和 `continuous_snd`。
+“拉回开集”对应 `induced`；“包含映射”对应 `Subtype.val`；“子空间”对应 `subspace`；“映射提升到子空间”对应 `continuous_subtype_mk`；“开矩形”对应 `Set.prod` 记号 `u ×ˢ v`；“局部包含”对应积拓扑定义中的 `p ∈ u ×ˢ v ∧ u ×ˢ v ⊆ w`；“投影连续”对应 `continuous_fst` 和 `continuous_snd`；“坐标连续推出积映射连续”对应 `continuous_prod_mk`。
 
 # 依赖（人话版）
 

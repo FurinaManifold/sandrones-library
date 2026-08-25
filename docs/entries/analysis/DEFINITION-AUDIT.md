@@ -50,11 +50,12 @@
 
 - [x] Fréchet 导数：`HasFrechetDerivativeAtTextbook` 给出线性主部的余项比值趋零定义，并桥接
   `HasFDerivAt`；连续线性映射继续作为全微分的数据载体。
-- [ ] `TotalDerivative`、`DifferentialForm`、`RiemannBox` 等透明别名需逐项标明是数据载体还是
-  教材概念；后者必须改为本库定义，前者可以保留但不能替代性质谓词。
-- [ ] 方向导数当前由 `fderiv` 求值定义，缺少沿方向的一元差商定义及两者在可微条件下的桥。
-- [ ] 参数曲线、曲面已有部分本库正则性和积分定义；需审计 `ParametrizedCurve`、
-  `ParametrizedSurface` 等别名是否只承担载体角色。
+- [x] `TotalDerivative`、`DifferentialForm`、`RiemannBox` 已逐项标明为透明数据载体；它们分别
+  由 Fréchet 导数条件、形式场正则性条件、Riemann 可积性谓词补充性质，不能替代这些性质谓词。
+- [x] 方向导数已有沿固定方向的一元去心差商定义，并桥接 `HasLineDerivAt`；同时仅证明
+  Fréchet 可微蕴含方向可导，不误写一般不成立的反向命题。
+- [x] `ParametrizedCurve`、`ParametrizedSurface` 已明确为参数域到欧氏空间的透明函数数据载体；
+  连续、可微和正则性不由别名暗含，而由 `CurveRegular*`、`SurfaceRegular*` 等本库谓词表达。
 
 ## 当前已提交维护范围
 

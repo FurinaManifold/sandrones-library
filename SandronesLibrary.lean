@@ -66,11 +66,16 @@ import SandronesLibrary.AbstractAlgebra.RingQuotient
 import SandronesLibrary.AbstractAlgebra.RingPrimeIdeal
 import SandronesLibrary.AbstractAlgebra.RingIsomorphismTheorems
 import SandronesLibrary.AbstractAlgebra.RingDivisibility
+import SandronesLibrary.AbstractAlgebra.RingEuclidean
+import SandronesLibrary.AbstractAlgebra.RingPIDUFD
+import SandronesLibrary.AbstractAlgebra.RingCRT
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.Constructions
 import SandronesLibrary.Topology.RealLine
 import SandronesLibrary.Topology.Path
+import SandronesLibrary.Topology.PathConnected
+import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
 import SandronesLibrary.Topology.Closure
 import SandronesLibrary.Topology.Separation

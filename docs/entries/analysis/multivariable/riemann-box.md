@@ -3,7 +3,7 @@ id: analysis.multivariable.riemann-box
 kind: definition
 state: verified
 title: "闭盒上的多元 Riemann 积分"
-premises: ["analysis.multivariable.jordan-region"]
+premises: []
 mathlib: ["BoxIntegral.IntegrationParams.Riemann", "ContinuousOn.hasBoxIntegral"]
 provenance:
   source_type: book
@@ -15,6 +15,11 @@ provenance:
 `HasRiemannBoxIntegral f I y` 表示闭盒 `I` 的带标签细分所形成的 Riemann 和趋于
 `y`。`RiemannIntegrableOnBox f I` 表示这样的极限存在，`riemannBoxIntegral f I`
 给出积分值。
+
+`RiemannBox n` 只是轴平行闭盒端点数据的透明载体，底层为 Mathlib
+`BoxIntegral.Box (Fin n)`；它本身不表达可积性或积分值。教材性质分别由
+`HasRiemannBoxIntegral` 与 `RiemannIntegrableOnBox` 表达。保留底层盒类型可直接复用
+`Box.Icc`、分割和体积接口，无需复制一套端点结构。
 
 底层采用 `BoxIntegral.IntegrationParams.Riemann`。该参数要求控制所有小盒的尺度使用
 同一个常数，因而确实对应多元 Riemann 积分，而不是一般的 Henstock 或 McShane 积分。

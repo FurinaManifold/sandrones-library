@@ -11,7 +11,7 @@
 
 - `induced` 从开集原像定义诱导拓扑；`subspace` 是包含映射诱导的特例。
 - `product` 用每点具有内含开矩形的局部条件定义积拓扑。
-- `continuous_subtype_val`、`continuous_fst`、`continuous_snd` 全部使用本库 `Continuous`。
+- `continuous_subtype_val`、`continuous_subtype_mk`、`continuous_fst`、`continuous_snd` 全部使用本库 `Continuous`。
 - 本模块没有安装或调用 Mathlib 拓扑实例。
 
 ## 负责人审核
@@ -19,6 +19,14 @@
 - 检查诱导拓扑的任意并证明没有偷偷使用 Mathlib `induced`。
 - 检查积拓扑交集证明同时缩小两个坐标，任意并证明保持矩形的内含关系。
 - 检查“积拓扑”定义的是开矩形的任意并，而不是错误地只允许单个开矩形。
+
+## 教材概念清单
+
+| 概念 | 本库教材定义 | 定义展开／一手性质 | Mathlib 桥 | 首个真实使用者 | 源码 Entry |
+|---|---|---|---|---|---|
+| 诱导拓扑 | `induced` | 开集是目标开集的原像 | 无 | `subspace` | `topology.foundation.constructions` |
+| 子空间拓扑 | `subspace` | `isOpen_subspace_iff`、`continuous_subtype_val/mk` | 无 | `unitInterval`、`IsPathConnected.image` | `topology.foundation.constructions` |
+| 积拓扑 | `product` | `isOpen_prod`、`continuous_fst/snd`、`continuous_prod_mk` | 无 | `Homotopy.symm` | `topology.foundation.constructions` |
 
 ## Main 共有文件建议
 

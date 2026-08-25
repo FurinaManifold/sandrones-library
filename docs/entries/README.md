@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **395** 个条目（verified 395，pending 0）。
+共 **402** 个条目（verified 402，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -32,12 +32,15 @@
 
 ## `abstract-algebra.ring`
 
+- ✅ [`crt.md`](crt.md) — 中国剩余定理与有限商环直积
 - ✅ [`def.md`](def.md) — 环、单位、子环与环同态
 - ✅ [`divisibility.md`](divisibility.md) — 整除、相伴、不可约元、素元与最大公因子
 - ✅ [`domain.md`](domain.md) — 零因子、整环与域
+- ✅ [`euclidean.md`](euclidean.md) — Euclidean 环与扩展 Euclidean 算法
 - ✅ [`ideal.md`](ideal.md) — 理想的定义与基本运算
 - ✅ [`iso.md`](iso.md) — 环同态基本定理
 - ✅ [`iso-theorems.md`](iso-theorems.md) — 环的同构定理
+- ✅ [`pid-ufd.md`](pid-ufd.md) — 主理想整环与唯一分解整环
 - ✅ [`prime-ideal.md`](prime-ideal.md) — 素理想、极大理想与商环判据
 - ✅ [`quotient.md`](quotient.md) — 商环及其泛性质
 
@@ -140,6 +143,8 @@
 - ✅ [`hessian-taylor.md`](hessian-taylor.md) — Hessian与多元Taylor公式
 - ✅ [`implicit-function.md`](implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](inverse-function.md) — 多元反函数定理
+- ✅ [`parametrized-curves-surfaces.md`](parametrized-curves-surfaces.md) — 参数曲线与参数曲面
+- ✅ [`riemann-box.md`](riemann-box.md) — 多元 Riemann 盒积分
 - ✅ [`second-kind-integrals.md`](second-kind-integrals.md) — 第二型曲线积分与曲面积分
 
 ## `analysis.mvt`
@@ -556,6 +561,10 @@
 - ✅ [`finite.md`](finite.md) — 紧 Hausdorff 的闭紧性
 - ✅ [`tychonoff.md`](tychonoff.md) — Tychonoff 定理
 
+## `topology.connectedness`
+
+- ✅ [`path-components-foundation.md`](path-components-foundation.md) — 道路连接、道路分支与道路连通
+
 ## `topology.foundation`
 
 - ✅ [`constructions.md`](constructions.md) — 诱导拓扑、子空间拓扑与积拓扑
@@ -564,6 +573,7 @@
 
 ## `topology.homotopy`
 
+- ✅ [`definition-foundation.md`](definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接
 - ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的教材定义
 - ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路

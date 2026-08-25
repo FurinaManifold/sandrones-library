@@ -24,7 +24,10 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set MeasureTheory Matrix
 open scoped Interval Matrix
 
-/-- `ℝⁿ` 中的参数曲线。 -/
+/-- `ℝⁿ` 中参数曲线的函数数据载体；正则性由后续本库谓词表达。
+
+> **Entry**: analysis.multivariable.parametrized-curves-surfaces
+-/
 abbrev ParametrizedCurve (n : ℕ) := ℝ → (Fin n → ℝ)
 
 /-- 参数曲线在 `t` 处的速度向量。 -/
@@ -127,7 +130,7 @@ theorem curveArcLength_comp_of_deriv_nonneg_of_endpoints {n : ℕ}
 
 /-! ## 参数曲面 -/
 
-/-- `ℝⁿ` 中的二参数曲面片。 -/
+/-- `ℝⁿ` 中二参数曲面片的函数数据载体；正则性由后续本库谓词表达。 -/
 abbrev ParametrizedSurface (n : ℕ) := (ℝ × ℝ) → (Fin n → ℝ)
 
 /-- 曲面的第一个坐标切向量 `∂σ/∂u`。 -/

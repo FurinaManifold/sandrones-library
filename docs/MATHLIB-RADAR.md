@@ -3008,3 +3008,10 @@
 - 登记过的名字在此文件的 `### ` 标题里。
 - 快速检查"某个名字有没有登记"：`grep "### \`名字\`" docs/MATHLIB-RADAR.md`。
 - 叙述层每条目 front matter 的 `mathlib:` 字段应都能在本文找到锚点。
+## 抽象代数：有限中国剩余定理
+
+### `Ideal.exists_forall_sub_mem_ideal`
+- **人话**：有限个两两互素理想允许同时选择一个满足所有指定剩余类的环元素。
+- **谁在用**：`abstract-algebra.ring.crt` 的有限族规范映射满射证明。
+- **本库边界**：只在证明体中把本库集合型理想局部桥接为 Mathlib `Ideal`；公开 CRT 定义与
+  同构签名仍使用本库 `TwoSidedIdealSet`、`quotientRingSet` 和 `RingIsomorphism`。

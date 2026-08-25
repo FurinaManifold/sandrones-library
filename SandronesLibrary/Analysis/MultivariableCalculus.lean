@@ -9,6 +9,7 @@ import Mathlib.Algebra.BigOperators.Pi
 import Mathlib.Analysis.Calculus.FDeriv.Comp
 import Mathlib.Analysis.Calculus.FDeriv.Symmetric
 import Mathlib.Analysis.Calculus.Gradient.Basic
+import Mathlib.Analysis.Calculus.LineDeriv.Basic
 import Mathlib.Analysis.Calculus.TaylorIntegral
 import Mathlib.Data.Matrix.Mul
 
@@ -39,23 +40,52 @@ variable {E F G : Type*}
 abbrev TotalDerivative := E →L[ℝ] F
 
 /-- `A` 是 `f` 在 `x` 处 Fréchet 导数的教材余项比值定义。 -/
-def HasFrechetDerivativeAtTextbook (f : E → F) (A : E →L[ℝ] F) (x : E) : Prop :=
+def HasFrechetDerivativeAtTextbook (f : E → F) (A : TotalDerivative (E := E) (F := F))
+    (x : E) : Prop :=
   Filter.Tendsto (fun y => ‖y - x‖⁻¹ * ‖f y - f x - A (y - x)‖)
     (nhds x) (nhds 0)
 
 /-- 本库余项比值定义与 Mathlib 的 `HasFDerivAt` 完全等价。 -/
 theorem hasFrechetDerivativeAtTextbook_iff_hasFDerivAt
-    {f : E → F} {A : E →L[ℝ] F} {x : E} :
+    {f : E → F} {A : TotalDerivative (E := E) (F := F)} {x : E} :
     HasFrechetDerivativeAtTextbook f A x ↔ HasFDerivAt f A x := by
   exact (hasFDerivAt_iff_tendsto (f := f) (f' := A) (x := x)).symm
 
 /-- 教材余项接口下 Fréchet 导数唯一。 -/
 theorem hasFrechetDerivativeAtTextbook_unique
-    {f : E → F} {A B : E →L[ℝ] F} {x : E}
+    {f : E → F} {A B : TotalDerivative (E := E) (F := F)} {x : E}
     (hA : HasFrechetDerivativeAtTextbook f A x)
     (hB : HasFrechetDerivativeAtTextbook f B x) : A = B := by
   exact (hasFrechetDerivativeAtTextbook_iff_hasFDerivAt.mp hA).unique
     (hasFrechetDerivativeAtTextbook_iff_hasFDerivAt.mp hB)
+
+/-- `d` 是 `f` 在 `x` 沿方向 `v` 的教材方向导数：当非零实数 `t` 趨于零时，
+方向差商趋于 `d`。这只检查一个固定方向，严格弱于 Fréchet 可微性。 -/
+def HasDirectionalDerivativeAtTextbook (f : E → F) (d : F) (x v : E) : Prop :=
+  Filter.Tendsto (fun t : ℝ ↦ t⁻¹ • (f (x + t • v) - f x)) (nhdsWithin 0 {0}ᶜ) (nhds d)
+
+/-- 教材方向差商定义与 Mathlib 的沿直线导数谓词完全等价。 -/
+theorem hasDirectionalDerivativeAtTextbook_iff_hasLineDerivAt
+    {f : E → F} {d : F} {x v : E} :
+    HasDirectionalDerivativeAtTextbook f d x v ↔ HasLineDerivAt ℝ f d x v := by
+  exact hasLineDerivAt_iff_tendsto_slope_zero.symm
+
+/-- 固定点和方向上的教材方向导数唯一。 -/
+theorem hasDirectionalDerivativeAtTextbook_unique
+    {f : E → F} {d₁ d₂ : F} {x v : E}
+    (h₁ : HasDirectionalDerivativeAtTextbook f d₁ x v)
+    (h₂ : HasDirectionalDerivativeAtTextbook f d₂ x v) : d₁ = d₂ := by
+  exact (hasDirectionalDerivativeAtTextbook_iff_hasLineDerivAt.mp h₁).unique
+    (hasDirectionalDerivativeAtTextbook_iff_hasLineDerivAt.mp h₂)
+
+/-- Fréchet 可微蕴含每个固定方向上的教材方向导数，导数值为 `A v`。
+反向一般不成立，因此这里只提供单向桥。 -/
+theorem frechetDerivativeTextbook_hasDirectionalDerivativeAtTextbook
+    {f : E → F} {A : TotalDerivative (E := E) (F := F)} {x v : E}
+    (h : HasFrechetDerivativeAtTextbook f A x) :
+    HasDirectionalDerivativeAtTextbook f (A v) x v := by
+  rw [hasDirectionalDerivativeAtTextbook_iff_hasLineDerivAt]
+  exact (hasFrechetDerivativeAtTextbook_iff_hasFDerivAt.mp h).hasLineDerivAt v
 
 /-- 方向导数取 Fréchet 导数在线性方向 `v` 上的值。不可微时 Mathlib 的 `fderiv`
 按约定取零，因此需要实际计算时通常同时携带 `HasFDerivAt` 假设。 -/

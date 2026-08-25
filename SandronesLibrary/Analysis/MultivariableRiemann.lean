@@ -21,6 +21,10 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set MeasureTheory
 open BoxIntegral
 
+/-- 轴平行闭盒的端点数据载体；可积性由后续本库谓词表达。
+
+> **Entry**: analysis.multivariable.riemann-box
+-/
 abbrev RiemannBox (n : ℕ) := BoxIntegral.Box (Fin n)
 
 /-- 多元函数在闭盒上的 Riemann 和趋于 `y`。 -/

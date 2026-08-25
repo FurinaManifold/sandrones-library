@@ -1335,7 +1335,7 @@
     ],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1363,7 +1363,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1391,7 +1391,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1419,7 +1419,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1447,7 +1447,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1475,7 +1475,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1503,7 +1503,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1531,7 +1531,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1559,7 +1559,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1587,7 +1587,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1615,7 +1615,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1647,7 +1647,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1677,7 +1677,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1712,7 +1712,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1740,7 +1740,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1768,7 +1768,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1796,7 +1796,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1824,7 +1824,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1852,7 +1852,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1881,7 +1881,7 @@
     "dependedOnBy": [],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1911,7 +1911,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1944,7 +1944,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1976,7 +1976,7 @@
     ],
     "family": "analysis.continuity",
     "variant": "ecnu",
-    "proof_sha": "f6413ab9da932696",
+    "proof_sha": "af571584d8557d9a",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3304,7 +3304,7 @@
     "dependedOnBy": [],
     "family": "analysis.func-limit",
     "variant": "ecnu",
-    "proof_sha": "54787294953c0373",
+    "proof_sha": "e2c78be4a3dd95ec",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7135,7 +7135,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "f91c8d0a182008d0",
+    "proof_sha": "75d63843b3d9f30d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7167,7 +7167,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "f91c8d0a182008d0",
+    "proof_sha": "75d63843b3d9f30d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7203,7 +7203,7 @@
     ],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "f91c8d0a182008d0",
+    "proof_sha": "75d63843b3d9f30d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -7238,7 +7238,7 @@
     "dependedOnBy": [],
     "family": "analysis.multivariable",
     "variant": "generated",
-    "proof_sha": "f91c8d0a182008d0",
+    "proof_sha": "75d63843b3d9f30d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12379,7 +12379,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "4cae6299f02a0aa1",
+    "proof_sha": "a2ff03900eae2f67",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12589,5 +12589,206 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "abstract-algebra.ring.euclidean",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Euclidean 环与扩展 Euclidean 算法",
+    "summary": "自建带余除法与严格下降数据，构造 gcd 并证明 Bezout 恒等式",
+    "premises": [
+      "abstract-algebra.ring.domain",
+      "abstract-algebra.ring.divisibility"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2"
+    },
+    "lean_file": "AbstractAlgebra/RingEuclidean.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/euclidean.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "abstract-algebra.ring.pid-ufd"
+    ],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a33d3f8e8cd7f00f"
+  },
+  {
+    "id": "abstract-algebra.ring.pid-ufd",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "主理想整环与唯一分解整环",
+    "summary": "自建 PID 与 UFD 公理并证明 Euclidean 推出 PID、PID 推出 UFD",
+    "premises": [
+      "abstract-algebra.ring.divisibility",
+      "abstract-algebra.ring.euclidean"
+    ],
+    "mathlib": [
+      "IsPrincipalIdealRing",
+      "UniqueFactorizationMonoid"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 2"
+    },
+    "lean_file": "AbstractAlgebra/RingPIDUFD.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/pid-ufd.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2606bd324ea48dd2"
+  },
+  {
+    "id": "abstract-algebra.ring.crt",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "中国剩余定理与有限商环直积",
+    "summary": "用集合型理想与本库商环证明二元及有限族中国剩余定理",
+    "premises": [
+      "abstract-algebra.ring.ideal",
+      "abstract-algebra.ring.quotient",
+      "abstract-algebra.ring.iso-theorems"
+    ],
+    "mathlib": [
+      "Ideal.exists_forall_sub_mem_ideal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Atiyah--Macdonald, Proposition 1.10"
+    },
+    "lean_file": "AbstractAlgebra/RingCRT.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/crt.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "f542d7c048a5db58"
+  },
+  {
+    "id": "topology.connectedness.path-components-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路连接、道路分支与道路连通",
+    "summary": "从本库道路和子空间拓扑建立道路连接等价关系及道路连通子集",
+    "premises": [
+      "topology.foundation.constructions",
+      "topology.homotopy.path-definition-foundation",
+      "topology.homotopy.path-concatenation-foundation",
+      "topology.homotopy.path-reversal-foundation"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Section 24"
+    },
+    "lean_file": "Topology/PathConnected.lean",
+    "nl_file": "docs/entries/topology/connectedness/path-components-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "topology.homotopy.definition-foundation"
+    ],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a18d5cf2d8c4b352"
+  },
+  {
+    "id": "topology.homotopy.definition-foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "同伦与相对端点道路同伦",
+    "summary": "使用本库积拓扑和单位区间定义一般同伦及固定端点的道路同伦",
+    "premises": [
+      "topology.foundation.constructions",
+      "topology.foundation.real-line",
+      "topology.homotopy.path-definition-foundation"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Hatcher, Algebraic Topology, Section 0"
+    },
+    "lean_file": "Topology/Homotopy.lean",
+    "nl_file": "docs/entries/topology/homotopy/definition-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "509fff056aa7e6e3"
+  },
+  {
+    "id": "analysis.multivariable.riemann-box",
+    "kind": "definition",
+    "state": "verified",
+    "title": "多元 Riemann 盒积分",
+    "summary": "以轴平行盒为数据载体定义 Riemann 和、可积性与积分值",
+    "premises": [],
+    "mathlib": [
+      "BoxIntegral.Box"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：重积分"
+    },
+    "lean_file": "Analysis/MultivariableRiemann.lean",
+    "nl_file": "docs/entries/analysis/multivariable/riemann-box.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "fecc44ab400efdeb"
+  },
+  {
+    "id": "analysis.multivariable.parametrized-curves-surfaces",
+    "kind": "definition",
+    "state": "verified",
+    "title": "参数曲线与参数曲面",
+    "summary": "以函数为数据载体并用独立谓词表达曲线与曲面的正则性",
+    "premises": [],
+    "mathlib": [
+      "deriv",
+      "fderiv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "多元微积分：参数曲线与曲面"
+    },
+    "lean_file": "Analysis/ParametrizedGeometry.lean",
+    "nl_file": "docs/entries/analysis/multivariable/parametrized-curves-surfaces.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "59c39814c4dabe55"
   }
 ]

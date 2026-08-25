@@ -40,7 +40,16 @@
 - [x] 整除、相伴、不可约、素元与 gcd：`DividesElement`、`AssociateElements`、
   `IrreducibleElement`、`PrimeElement`、`GreatestCommonDivisor` 已建立；素元推出不可约及 gcd
   相伴唯一已经证明，并提供与 Mathlib 对应谓词的具名桥。
-- [ ] Euclidean 环、PID、UFD、局部化。
+- [x] Euclidean 环：`DivisionWithRemainder`、`EuclideanDomainAxioms`、递归 gcd 与扩展
+  Euclidean 算法已自建；gcd 泛性质和 Bézout 恒等式已经证明，公开签名不依赖 Mathlib
+  `EuclideanDomain`。
+- [x] PID 与 UFD：`PrincipalIdealSet`、`PrincipalIdealDomainAxioms`、
+  `AtomicFactorizationAxiom`、`UniqueFactorizationDomainAxioms` 已自建，并证明
+  Euclidean⇒PID⇒UFD；Mathlib 分解结构只在局部证明后端出现。
+- [x] 中国剩余定理：`ComaximalIdealSets`、`PairwiseComaximalIdealSets`、集合型理想交与
+  本库商环规范映射已建立；二元及有限族 CRT 同构均已证明，Mathlib `Ideal` 只作为有限满射
+  的局部证明后端。
+- [ ] 局部化。
 
 ## A1 群论回修
 

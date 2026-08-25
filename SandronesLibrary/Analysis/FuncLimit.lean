@@ -240,6 +240,48 @@ lemma heine {f : ℝ → ℝ} {a L : ℝ} :
         Tendsto (f ∘ u) atTop (𝓝 L) :=
   ⟨heine_forward, heine_backward⟩
 
+/-- `x → +∞` 时 `f x → L` 的教材 ε-M 定义。
+> **Entry**: analysis.func-limit.at-top
+-/
+def FunctionConvergesAtTopTo (f : ℝ → ℝ) (L : ℝ) : Prop :=
+  ∀ ε > 0, ∃ M : ℝ, ∀ x, M ≤ x → |f x - L| < ε
+
+/-- `x → a` 时 `f x → +∞` 的教材 M-δ 定义。 -/
+def FunctionDivergesToAtTopAt (f : ℝ → ℝ) (a : ℝ) : Prop :=
+  ∀ M : ℝ, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → M ≤ f x
+
+/-- `x → -∞` 时 `f x → L` 的教材 ε-M 定义。 -/
+def FunctionConvergesAtBotTo (f : ℝ → ℝ) (L : ℝ) : Prop :=
+  ∀ ε > 0, ∃ M : ℝ, ∀ x, x ≤ M → |f x - L| < ε
+
+/-- `x → a` 时 `f x → -∞` 的教材 M-δ 定义。 -/
+def FunctionDivergesToAtBotAt (f : ℝ → ℝ) (a : ℝ) : Prop :=
+  ∀ M : ℝ, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → f x ≤ M
+
+/-- 展开正无穷远有限极限的教材 ε-M 量词。 -/
+theorem functionConvergesAtTopTo_iff {f : ℝ → ℝ} {L : ℝ} :
+    FunctionConvergesAtTopTo f L ↔
+      ∀ ε > 0, ∃ M : ℝ, ∀ x, M ≤ x → |f x - L| < ε :=
+  Iff.rfl
+
+/-- 展开有限点处趋于正无穷的教材 M-δ 量词。 -/
+theorem functionDivergesToAtTopAt_iff {f : ℝ → ℝ} {a : ℝ} :
+    FunctionDivergesToAtTopAt f a ↔
+      ∀ M : ℝ, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → M ≤ f x :=
+  Iff.rfl
+
+/-- 展开负无穷远有限极限的教材 ε-M 量词。 -/
+theorem functionConvergesAtBotTo_iff {f : ℝ → ℝ} {L : ℝ} :
+    FunctionConvergesAtBotTo f L ↔
+      ∀ ε > 0, ∃ M : ℝ, ∀ x, x ≤ M → |f x - L| < ε :=
+  Iff.rfl
+
+/-- 展开有限点处趋于负无穷的教材 M-δ 量词。 -/
+theorem functionDivergesToAtBotAt_iff {f : ℝ → ℝ} {a : ℝ} :
+    FunctionDivergesToAtBotAt f a ↔
+      ∀ M : ℝ, ∃ δ > 0, ∀ x, |x - a| < δ → x ≠ a → f x ≤ M :=
+  Iff.rfl
+
 /-- 自变量趋于正无穷时的极限：f (x) → L 当 x → ∞（ε-N 判据）。 
 > **Entry**: analysis.func-limit.at-top
 -/
@@ -259,6 +301,18 @@ lemma tendsto_atTop_iff_eps_N {f : ℝ → ℝ} {L : ℝ} :
     intro x hx
     simpa [Real.dist_eq] using hM x hx
 
+/-- 教材 ε-M 定义与 Mathlib 的正无穷远有限极限接口等价。 -/
+theorem functionConvergesAtTopTo_iff_tendsto {f : ℝ → ℝ} {L : ℝ} :
+    FunctionConvergesAtTopTo f L ↔ Tendsto f atTop (𝓝 L) := by
+  simpa [FunctionConvergesAtTopTo] using
+    (tendsto_atTop_iff_eps_N (f := f) (L := L)).symm
+
+/-- 教材接口下，正无穷远有限极限唯一。 -/
+theorem functionConvergesAtTopTo_unique {f : ℝ → ℝ} {L M : ℝ}
+    (hL : FunctionConvergesAtTopTo f L) (hM : FunctionConvergesAtTopTo f M) : L = M := by
+  exact tendsto_nhds_unique (functionConvergesAtTopTo_iff_tendsto.mp hL)
+    (functionConvergesAtTopTo_iff_tendsto.mp hM)
+
 /-- 函数在 a 处发散到正无穷：f (x) → ∞ 当 x → a：对任意 M 最终有 M ≤ f x。 
 > **Entry**: analysis.func-limit.at-top
 -/
@@ -272,6 +326,53 @@ lemma tendsto_nhds_atTop_iff {f : ℝ → ℝ} {a : ℝ} :
     exact ⟨δ, hδpos, hδ⟩
   · intro h
     exact tendsto_atTop.mpr (fun (M : ℝ) => (eventually_nhds_within_iff_delta a (fun x => M ≤ f x)).mpr (h M))
+
+/-- 教材 M-δ 定义与 Mathlib 的函数值趋于 `+∞` 接口等价。 -/
+theorem functionDivergesToAtTopAt_iff_tendsto {f : ℝ → ℝ} {a : ℝ} :
+    FunctionDivergesToAtTopAt f a ↔ Tendsto f (𝓝[≠] a) atTop := by
+  simpa [FunctionDivergesToAtTopAt] using (tendsto_nhds_atTop_iff (f := f) (a := a)).symm
+
+/-- 教材发散定义直接给出每个下界最终成立。 -/
+theorem functionDivergesToAtTopAt_eventually_ge {f : ℝ → ℝ} {a : ℝ}
+    (h : FunctionDivergesToAtTopAt f a) (M : ℝ) : ∀ᶠ x in 𝓝[≠] a, M ≤ f x := by
+  exact tendsto_atTop.mp (functionDivergesToAtTopAt_iff_tendsto.mp h) M
+
+/-- 教材 ε-M 定义与 Mathlib 的负无穷远有限极限等价。 -/
+theorem functionConvergesAtBotTo_iff_tendsto {f : ℝ → ℝ} {L : ℝ} :
+    FunctionConvergesAtBotTo f L ↔ Tendsto f atBot (𝓝 L) := by
+  rw [Metric.tendsto_nhds]
+  constructor
+  · intro h ε hε
+    rcases h ε hε with ⟨M, hM⟩
+    rw [eventually_atBot]
+    exact ⟨M, fun x hx => by simpa [Real.dist_eq] using hM x hx⟩
+  · intro h ε hε
+    have hev := h ε hε
+    rw [eventually_atBot] at hev
+    rcases hev with ⟨M, hM⟩
+    exact ⟨M, fun x hx => by simpa [Real.dist_eq] using hM x hx⟩
+
+/-- 教材接口下，负无穷远有限极限唯一。 -/
+theorem functionConvergesAtBotTo_unique {f : ℝ → ℝ} {L M : ℝ}
+    (hL : FunctionConvergesAtBotTo f L) (hM : FunctionConvergesAtBotTo f M) : L = M := by
+  exact tendsto_nhds_unique (functionConvergesAtBotTo_iff_tendsto.mp hL)
+    (functionConvergesAtBotTo_iff_tendsto.mp hM)
+
+/-- 教材 M-δ 定义与 Mathlib 的函数值趋于 `-∞` 接口等价。 -/
+theorem functionDivergesToAtBotAt_iff_tendsto {f : ℝ → ℝ} {a : ℝ} :
+    FunctionDivergesToAtBotAt f a ↔ Tendsto f (𝓝[≠] a) atBot := by
+  constructor
+  · intro h
+    exact tendsto_atBot.mpr fun M =>
+      (eventually_nhds_within_iff_delta a (fun x => f x ≤ M)).mpr (h M)
+  · intro h M
+    exact (eventually_nhds_within_iff_delta a (fun x => f x ≤ M)).mp
+      (tendsto_atBot.mp h M)
+
+/-- 教材负无穷发散定义给出每个上界最终成立。 -/
+theorem functionDivergesToAtBotAt_eventually_le {f : ℝ → ℝ} {a : ℝ}
+    (h : FunctionDivergesToAtBotAt f a) (M : ℝ) : ∀ᶠ x in 𝓝[≠] a, f x ≤ M := by
+  exact tendsto_atBot.mp (functionDivergesToAtBotAt_iff_tendsto.mp h) M
 
 /-- 单调递增到无穷的定义：r > 1 时 rⁿ → ∞。 
 > **Entry**: analysis.func-limit.at-top

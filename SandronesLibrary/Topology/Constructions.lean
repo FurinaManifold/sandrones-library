@@ -61,6 +61,15 @@ theorem continuous_subtype_val (s : Set X) (τX : TextbookTopology X) :
   intro v hv
   exact ⟨v, hv, rfl⟩
 
+/-- A continuous map whose values lie in a subset is continuous as a map into the corresponding
+subspace. -/
+theorem continuous_subtype_mk {τY : TextbookTopology Y} {τX : TextbookTopology X}
+    {s : Set X} {f : Y → X} (hf : Continuous τY τX f) (hs : ∀ y, f y ∈ s) :
+    Continuous τY (subspace s τX) (fun y ↦ ⟨f y, hs y⟩) := by
+  intro u hu
+  obtain ⟨v, hv, rfl⟩ := hu
+  exact hf v hv
+
 /-- The product topology: every point of an open set lies in an open rectangle contained in it.
 
 > **Entry**: topology.foundation.constructions -/
@@ -107,5 +116,30 @@ theorem continuous_snd (τX : TextbookTopology X) (τY : TextbookTopology Y) :
   have hpre : Prod.snd ⁻¹' v = (univ : Set X) ×ˢ v := by ext; simp
   rw [hpre]
   exact isOpen_prod τX.isOpen_univ hv
+
+/-- A map into a product is continuous when both of its coordinate maps are continuous. -/
+theorem continuous_prod_mk {W : Type*} {τW : TextbookTopology W}
+    {τX : TextbookTopology X} {τY : TextbookTopology Y} {f : W → X} {g : W → Y}
+    (hf : Continuous τW τX f) (hg : Continuous τW τY g) :
+    Continuous τW (product τX τY) (fun w ↦ (f w, g w)) := by
+  intro s hs
+  let S : Set (Set W) := {u | τW.IsOpen u ∧ u ⊆ (fun w ↦ (f w, g w)) ⁻¹' s}
+  have hopen : τW.IsOpen (⋃₀ S) :=
+    τW.isOpen_sUnion S (fun u hu ↦ hu.1)
+  have heq : (⋃₀ S) = (fun w ↦ (f w, g w)) ⁻¹' s := by
+    ext w
+    constructor
+    · rintro ⟨u, hu, hwu⟩
+      exact hu.2 hwu
+    · intro hw
+      obtain ⟨u, v, hu, hv, hwuv, huv⟩ := hs (f w, g w) hw
+      let q := f ⁻¹' u ∩ g ⁻¹' v
+      have hqopen : τW.IsOpen q := τW.isOpen_inter _ _ (hf u hu) (hg v hv)
+      have hqsub : q ⊆ (fun z ↦ (f z, g z)) ⁻¹' s := by
+        intro z hz
+        exact huv hz
+      exact ⟨q, ⟨hqopen, hqsub⟩, hwuv⟩
+  rw [← heq]
+  exact hopen
 
 end SandronesLibrary.Topology.TextbookTopology
