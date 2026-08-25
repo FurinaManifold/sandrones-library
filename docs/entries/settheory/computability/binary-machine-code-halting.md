@@ -5,7 +5,7 @@ state: verified
 title: "固定状态数机器代码的有界停机检查"
 premises: ["settheory.computability.binary-machine-coding", "settheory.googology.busy-beaver-time-halting-bound"]
 mathlib: []
-provenance: {source_type: derivation, ref: "Finite-fuel inspection after fixed-size machine decoding"}
+provenance: {source_type: book, ref: "odifreddi-classical-recursion-1989"}
 ---
 
 # 动机

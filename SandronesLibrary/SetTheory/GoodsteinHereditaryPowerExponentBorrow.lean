@@ -7,11 +7,10 @@ import SandronesLibrary.SetTheory.HereditaryNatPowerRank
 import SandronesLibrary.SetTheory.OrdinalPowerBridge
 
 /-!
-# Goodstein borrowing for the hereditary exponent family `B^(B^k)`
+# 遗传指数族 `B^(B^k)` 的 Goodstein 借位
 
-For positive digit exponents `k`, this file certifies the base-change-and-subtract
-step for `head + B^(B^k)`.  The new value `q^(q^k)-1` is encoded by the general
-hereditary natural-number encoder, rather than by a bounded digit expansion.
+本文件处理 `head + B^(B^k)` 的换底减一步，其中 `k` 是正的合法数字。新数值
+`q^(q^k)-1` 不再靠有限位数的手工借位展开，而是交给一般遗传自然数编码器重新编码。
 -/
 
 namespace SandronesLibrary.SetTheory.Googology
@@ -20,7 +19,15 @@ open SandronesLibrary.SetTheory.Ordinal
 
 noncomputable section
 
-/-- A certified member of the family `head + B^(B^k)`, with `k` a positive legal digit. -/
+/--
+> **Entry**: settheory.googology.goodstein-hereditary-power-exponent-borrow
+> **一句话**: 正数字 `k` 的参数族 `head+B^(B^k)` 在升底减一并完全重编码后，数值正确且 `ω` 度量严格下降。
+> **依赖**: `settheory.googology.hereditary-natural-power-rank`、
+>   `settheory.ordinal.power-bridge`
+> **mathlib**: `Ordinal.natCast_lt_omega0`、`Ordinal.opow_le_opow_right`
+
+`head + B^(B^k)` 这一族表达式的带证书数据，其中 `k` 是正的合法数字。
+-/
 structure HereditaryPowerExponentBorrowForm (base : ℕ) where
   base_ge_two : 2 ≤ base
   exponent : ℕ
@@ -29,24 +36,24 @@ structure HereditaryPowerExponentBorrowForm (base : ℕ) where
   head : HereditaryBaseExpr
   head_valid : head.Valid base
 
-/-- The inner hereditary exponent `B^k`. -/
+/-- 内层遗传指数 `B^k`。 -/
 def HereditaryPowerExponentBorrowForm.exponentExpression {base : ℕ}
     (f : HereditaryPowerExponentBorrowForm base) : HereditaryBaseExpr :=
   .basePow (.digit f.exponent)
 
-/-- The source expression `head + B^(B^k)`. -/
+/-- 原表达式 `head + B^(B^k)`。 -/
 def HereditaryPowerExponentBorrowForm.expression {base : ℕ}
     (f : HereditaryPowerExponentBorrowForm base) : HereditaryBaseExpr :=
   .add f.head (.basePow f.exponentExpression)
 
-/-- At the new base `q=base+1`, encode the entire natural number `q^(q^k)-1`. -/
+/-- 在新底数 `q=base+1` 下，把自然数 `q^(q^k)-1` 整体重新编码。 -/
 def HereditaryPowerExponentBorrowForm.borrowedTail {base : ℕ}
     (f : HereditaryPowerExponentBorrowForm base) : HereditaryBaseExpr :=
   let q := base + 1
   hereditaryNatEncode q (le_trans f.base_ge_two (Nat.le_succ base))
     (q ^ (q ^ f.exponent) - 1)
 
-/-- Keep the head and replace the final power by its certified borrowed encoding. -/
+/-- 保留头部，并用带证书的借位编码替换末尾幂。 -/
 def HereditaryPowerExponentBorrowForm.borrowedExpression {base : ℕ}
     (f : HereditaryPowerExponentBorrowForm base) : HereditaryBaseExpr :=
   .add f.head f.borrowedTail
@@ -117,13 +124,7 @@ private theorem HereditaryPowerExponentBorrowForm.borrowedTail_omega_lt {base : 
         (ordinalPow Ordinal.omega0 (f.exponent : Ordinal))
   exact hencoded.trans houter
 
-/--
-> **Entry**: settheory.googology.goodstein-hereditary-power-exponent-borrow
-> **一句话**: 正数字 `k` 的参数族 `head+B^(B^k)` 在升底减一并完全重编码后，数值正确且 `ω` 度量严格下降。
-> **依赖**: `settheory.googology.hereditary-natural-power-rank`、
->   `settheory.ordinal.power-bridge`
-> **mathlib**: `Ordinal.natCast_lt_omega0`、`Ordinal.opow_le_opow_right`
--/
+/-- 对整个参数族证明换底减一后的数值规格、合法性与严格序数下降。 -/
 theorem hereditaryPowerExponent_goodstein_borrow_descent {base : ℕ}
     (f : HereditaryPowerExponentBorrowForm base) :
     f.expression.Valid base ∧

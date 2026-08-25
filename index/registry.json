@@ -11184,6 +11184,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "settheory.googology.canonical-goodstein-state",
       "settheory.googology.hereditary-natural-encoding-same-block-order"
     ],
     "family": "settheory.googology.hereditary-natural-encoding",
@@ -11379,6 +11380,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "settheory.googology.canonical-goodstein-state",
       "settheory.googology.hereditary-natural-power-rank"
     ],
     "family": "settheory.googology.hereditary-natural-encoding-strict-order",
@@ -11408,7 +11410,9 @@
     "nl_file": "docs/entries/settheory/googology/busy-beaver-time-halting-bound.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.computability.binary-machine-code-halting"
+    ],
     "family": "settheory.googology.busy-beaver-time-halting-bound",
     "variant": "generated",
     "axioms": [
@@ -12430,7 +12434,9 @@
     "nl_file": "docs/entries/settheory/computability/binary-machine-coding.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-25T03:51:39Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.computability.binary-machine-code-halting"
+    ],
     "proof_sha": "15301e866f567477",
     "axioms": [
       "Classical.choice",
@@ -12489,7 +12495,9 @@
     "nl_file": "docs/entries/settheory/ordinal/power-bridge.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-25T03:51:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.googology.goodstein-hereditary-power-exponent-borrow"
+    ],
     "proof_sha": "c2e7b6951ff33190",
     "axioms": [
       "Classical.choice",
@@ -12686,7 +12694,9 @@
     "nl_file": "docs/entries/settheory/googology/hereditary-natural-power-rank.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-25T03:51:40Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.googology.goodstein-hereditary-power-exponent-borrow"
+    ],
     "proof_sha": "15c844aaa412d67e",
     "axioms": [
       "Classical.choice",
@@ -14923,5 +14933,95 @@
       "propext"
     ],
     "proof_sha": "fadeb02c90bac94e"
+  },
+  {
+    "id": "settheory.googology.goodstein-hereditary-power-exponent-borrow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Goodstein 遗传幂指数借位：从 B¹ 推进到 B^k",
+    "summary": "对 head+B^(B^k) 参数族证明换底减一后的数值正确、重编码合法且序数度量严格下降",
+    "premises": [
+      "settheory.googology.hereditary-natural-power-rank",
+      "settheory.ordinal.power-bridge"
+    ],
+    "mathlib": [
+      "Ordinal.natCast_lt_omega0",
+      "Ordinal.opow_le_opow_right"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "goodstein-restricted-ordinal-1944"
+    },
+    "lean_file": "SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean",
+    "nl_file": "docs/entries/settheory/googology/goodstein-hereditary-power-exponent-borrow.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology",
+    "variant": "hereditary-power-exponent-borrow",
+    "proof_sha": "3028e76d36dd6b7d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.canonical-goodstein-state",
+    "kind": "definition",
+    "state": "verified",
+    "title": "规范 Goodstein 状态与一步重编码",
+    "summary": "由底数和值唯一生成遗传表达式，并精确刻画换底减一后在新底数下的规范重编码",
+    "premises": [
+      "settheory.googology.hereditary-natural-encoding",
+      "settheory.googology.hereditary-natural-encoding-strict-order"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "pohlers-proof-theory-1989"
+    },
+    "lean_file": "SetTheory/CanonicalGoodsteinState.lean",
+    "nl_file": "docs/entries/settheory/googology/canonical-goodstein-state.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.googology",
+    "variant": "canonical-state-conditional-descent",
+    "proof_sha": "4c1270a86354522c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.computability.binary-machine-code-halting",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "固定状态数机器代码的有界停机检查",
+    "summary": "在已知正确统一界时，固定状态数机器代码的有限运行检查精确刻画最终停机",
+    "premises": [
+      "settheory.computability.binary-machine-coding",
+      "settheory.googology.busy-beaver-time-halting-bound"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "odifreddi-classical-recursion-1989"
+    },
+    "lean_file": "SetTheory/BinaryMachineCodeHalting.lean",
+    "nl_file": "docs/entries/settheory/computability/binary-machine-code-halting.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "settheory.computability",
+    "variant": "fixed-size-code-uniform-bound",
+    "proof_sha": "4072f1fb96ffc3b0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

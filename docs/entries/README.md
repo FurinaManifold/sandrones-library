@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **460** 个条目（verified 460，pending 0）。
+共 **463** 个条目（verified 463，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -526,6 +526,7 @@
 
 ## `settheory.computability`
 
+- ✅ [`binary-machine-code-halting.md`](settheory/computability/binary-machine-code-halting.md) — 固定状态数机器代码的有界停机检查
 - ✅ [`binary-machine-coding.md`](settheory/computability/binary-machine-coding.md) — 固定状态数二进制机器的有限编码
 - ✅ [`concrete-pairing-code.md`](settheory/computability/concrete-pairing-code.md) — 可计算的自然数配对实例
 - ✅ [`conditional-diagonal.md`](settheory/computability/conditional-diagonal.md) — 自应用停机判定的条件式对角矛盾
@@ -561,6 +562,7 @@
 - ✅ [`busy-beaver-time.md`](settheory/googology/busy-beaver-time.md) — 时间型 Busy Beaver：最大首次停机时间
 - ✅ [`busy-beaver-time-halting-bound.md`](settheory/googology/busy-beaver-time-halting-bound.md) — 最大首次停机时间给出的统一停机界
 - ✅ [`busy-beaver-value-relation.md`](settheory/googology/busy-beaver-value-relation.md) — 经典 Busy Beaver 的最大值关系与有限候选桥
+- ✅ [`canonical-goodstein-state.md`](settheory/googology/canonical-goodstein-state.md) — 规范 Goodstein 状态与一步重编码
 - ✅ [`conway-chain.md`](settheory/googology/conway-chain.md) — Conway 链式箭头：有限语法与诚实的受限求值
 - ✅ [`conway-recursion.md`](settheory/googology/conway-recursion.md) — 一般有限 Conway 链的递归求值
 - ✅ [`fast-growing-hierarchy.md`](settheory/googology/fast-growing-hierarchy.md) — 快速增长层级：后继处迭代前一级函数
@@ -570,6 +572,7 @@
 - ✅ [`goodstein-certified-state.md`](settheory/googology/goodstein-certified-state.md) — Goodstein 带证书状态：数值与表示不可分离
 - ✅ [`goodstein-finite-power-borrow.md`](settheory/googology/goodstein-finite-power-borrow.md) — Goodstein 有限指数借位：递归展开底数幂减一
 - ✅ [`goodstein-hereditary-base-exponent-borrow.md`](settheory/googology/goodstein-hereditary-base-exponent-borrow.md) — Goodstein 遗传指数借位：底数自身进入指数
+- ✅ [`goodstein-hereditary-power-exponent-borrow.md`](settheory/googology/goodstein-hereditary-power-exponent-borrow.md) — Goodstein 遗传幂指数借位：从 B¹ 推进到 B^k
 - ✅ [`goodstein-ordinal-measure.md`](settheory/googology/goodstein-ordinal-measure.md) — Goodstein 序数度量：把有限底数换成 ω
 - ✅ [`goodstein-positive-digit-descent.md`](settheory/googology/goodstein-positive-digit-descent.md) — Goodstein 的非零数字正规形下降
 - ✅ [`goodstein-positive-tail-no-borrow.md`](settheory/googology/goodstein-positive-tail-no-borrow.md) — Goodstein 正末位无借位下降：复合前缀与正数字末项

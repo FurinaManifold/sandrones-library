@@ -5,7 +5,7 @@ state: verified
 title: "Goodstein 遗传幂指数借位：从 B¹ 推进到 B^k"
 premises: ["settheory.googology.hereditary-natural-power-rank", "settheory.ordinal.power-bridge"]
 mathlib: ["Ordinal.natCast_lt_omega0", "Ordinal.opow_le_opow_right"]
-provenance: {source_type: paper, ref: "R. L. Goodstein, On the Restricted Ordinal Theorem, 1944"}
+provenance: {source_type: paper, ref: "goodstein-restricted-ordinal-1944"}
 ---
 
 # 动机

@@ -21,7 +21,15 @@ namespace SandronesLibrary.SetTheory.BinaryMachineCodeHalting
 open GoogologyComputability
 open BinaryMachineCoding BusyBeaver BusyBeaverTime BusyBeaverTimeHaltingBound
 
-/-- `code` 解码出的机器在 `fuel` 步时已经停机。 -/
+/--
+> **Entry**: settheory.computability.binary-machine-code-halting
+> **一句话**: 固定状态数机器代码在已知正确统一界时，可由界内有限运行检查精确刻画最终停机。
+> **依赖**: `settheory.computability.binary-machine-coding`,
+> `settheory.googology.busy-beaver-time-halting-bound`
+> **mathlib**: 无（组合本库机器编码和统一停机界接口）
+
+`code` 解码出的机器在 `fuel` 步时已经停机。
+-/
 noncomputable def CodeHaltedAt (code : MachineCode n) (fuel : ℕ) : Prop :=
   HaltedAt (decodeMachine code) fuel
 
@@ -51,13 +59,7 @@ theorem codeHaltsBy_classical_time_iff (code : MachineCode n) :
   exact codeHaltsByFuel_decides_of_uniform_bound
     (classicalBusyBeaverTime_is_uniform_bound n) code
 
-/--
-> **Entry**: settheory.computability.binary-machine-code-halting
-> **一句话**: 固定状态数机器代码在已知正确统一界时，可由界内有限运行检查精确刻画最终停机。
-> **依赖**: `settheory.computability.binary-machine-coding`,
-> `settheory.googology.busy-beaver-time-halting-bound`
-> **mathlib**: 无（组合本库机器编码和统一停机界接口）
--/
+/-- 固定状态数代码在正确统一界下精确判定最终停机的汇总规格。 -/
 theorem binaryMachineCode_halting_specification {n bound : ℕ}
     (hbound : IsUniformHaltingBound n bound) (code : MachineCode n) :
     codeHaltsByFuel bound code = true ↔ CodeEventuallyHalts code := by

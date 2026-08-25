@@ -34,7 +34,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E1.5 基数算术 | `examples.settheory.cardinal-arithmetic` | 有限基数加乘幂；可数集与有限集运算 | 基数相等不等于集合相等；无限基数算术不能照搬自然数消去律 | ST2 |
 | E1.6 序数基础 | `examples.settheory.ordinals` | `0,1,2,ω,ω+1` 的序关系、后继／极限辨析 | `1+ω=ω` 但 `ω+1≠ω`，展示序数加法不交换 | ST1 |
 | E1.7 序数算术 | `examples.settheory.ordinal-arithmetic` | 有限序数、`ω` 的加乘幂和 Cantor 正规形小例 | 加法与乘法不交换、左消去失败的具体反例 | 序数运算主线 |
-| E1.8 递归与增长 | `examples.settheory.recursion-growth` | 小输入计算原始递归、Ackermann、Goodstein／Hydra 的前若干步 | “前几步下降”不等于全程终止；计算样例不得冒充一般定理 | ST3 |
+| E1.8 递归与增长 | `examples.settheory.recursion-growth` | 小输入计算原始递归、Ackermann、规范 Goodstein 状态／`B^(B^k)` 借位、Hydra 的前若干步，并演示固定机器代码的燃料检查 | “前几步下降”不等于全程终止；有限燃料返回假不等于永不停机；条件式换底兼容性不得冒充完整 Goodstein 下降 | ST3 |
 
 ## E2 一元分析基础
 

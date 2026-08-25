@@ -12,6 +12,13 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## Goodstein 遗传指数借位
+
+### `Ordinal.natCast_lt_omega0` / `Ordinal.opow_le_opow_right`
+- **人话**：前者说明每个自然数对应的有限序数都严格小于 `ω`；后者说明固定正底数的序数幂随指数单调。
+- **出处**：Mathlib 的序数算术与序数幂接口。
+- **谁在用**：`settheory.googology.goodstein-hereditary-power-exponent-borrow`；先把有限指数值压到 `ω` 以下，再把它与 `ω^k` 比较，完成借位尾部的严格下降。
+
 ## 连续双对偶与自反性
 
 ### `NormedSpace.inclusionInDoubleDual` / `NormedSpace.dual_def`

@@ -1,11 +1,11 @@
 ---
 id: settheory.googology.canonical-goodstein-state
-kind: theorem
+kind: definition
 state: verified
 title: "规范 Goodstein 状态与一步重编码"
 premises: ["settheory.googology.hereditary-natural-encoding", "settheory.googology.hereditary-natural-encoding-strict-order"]
 mathlib: []
-provenance: {source_type: textbook, ref: "Goodstein sequences, canonical hereditary base notation"}
+provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
 ---
 
 # 动机
