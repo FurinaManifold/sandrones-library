@@ -3,7 +3,8 @@
 ## 范围与基线
 
 - 分支：`codex/topology-foundations`。
-- 开工前以 `git merge main` 同步 Main `5946cc2`，同步提交为 `94149b4`。
+- 开工前以 `git merge main` 同步 Main `5946cc2`，同步提交为 `94149b4`；开发后再次同步
+  Main `c46e8a7`，合并提交为 `21e0c9d`。
 - 权限：`integration_open`；独占 `PathHomotopyStandard.lean`。
 - 本批不修改 Registry、RADAR、ROADMAP、顶层 import 或其他 Main 共有文件。
 
@@ -27,13 +28,13 @@
 - 顶层 import：加入 `SandronesLibrary.Topology.PathHomotopyStandard`。
 - Registry：新增 `topology.homotopy.path-homotopy-standard`，课程文档在 Main 集成时由 `staging` 收敛。
 - ROADMAP/RADAR：将 T4-H1 标记已交付；H2 的集成门可在 H1 进入 Main 后解除。
-- 建议引用：Hatcher, *Algebraic Topology*, Section 1.1；由 Main 复用或分配 `reference.bib` key。
+- 引用：复用已出版书籍 key `hatcher-algebraic-topology-2002`，教材定位为 Section 1.1。
 
 ## 验证
 
-- `/tmp/sandrones-library/PathHomotopyStandardPrototype.lean` 中先完成无 `sorry` 原型并单独编译。
+- `/tmp/sandrones-library/PathHomotopyStandardPrototype.lean` 中先完成无占位原型并单独编译。
 - `lake env lean SandronesLibrary/Topology/PathHomotopyStandard.lean` 通过。
 - `lake build SandronesLibrary.Topology.PathHomotopyStandard SandronesLibrary.Topology.PathReparameterization SandronesLibrary.Topology.PathConnected SandronesLibrary.Topology.MathlibCompatibility` 通过，共 1670 jobs。
 - `/tmp/sandrones-library/TopologyH1PathHomotopyAudit.lean` 同时 `#check` 正式承载、存在刻画、四条操作展开和 Mathlib 原始操作；五条声明的公理均为 `propext`、`Classical.choice`、`Quot.sound`。
 - `scripts.check_axioms.map_entry_to_decl` 将本 Entry 精确映射到上述 5 条公开声明，没有跨文件或相邻 Entry 吸入。
-- 正式源码、Entry 文档和 handoff 的占位／冲突标记扫描无结果；`git diff --check` 通过。
+- 正式源码的禁用占位扫描以及全部交付文件的冲突标记扫描无结果；`git diff --check` 通过。

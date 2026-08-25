@@ -10,7 +10,7 @@ premises: [topology.foundation.constructions, topology.foundation.real-line, top
 mathlib: [Path.Homotopy, ContinuousMap.HomotopyRel, Path.Homotopy.refl, Path.Homotopy.symm, Path.Homotopy.trans]
 provenance:
   source_type: book
-  ref: "Hatcher, Algebraic Topology, Section 1.1"
+  ref: "hatcher-algebraic-topology-2002"
 ---
 
 # 动机
@@ -47,7 +47,7 @@ theorem nonempty_pathHomotopy_iff_exists_fixed_endpoint_deformation :
 
 # 依赖（人话版）
 
-本条目直接依赖已经解释的标准 `Path` 与 Mathlib 的一般相对同伦承载。`Path.Homotopy` 与教材语义一致，故直接作为正式接口；旧 `TextbookTopology.Homotopy` 不参与新定义链，也没有新增向旧结构回退的桥。
+本条目直接依赖已经解释的标准 `Path` 与 Mathlib 的一般相对同伦承载。教材定位为 Hatcher 第 1.1 节。`Path.Homotopy` 与教材语义一致，故直接作为正式接口；旧 `TextbookTopology.Homotopy` 不参与新定义链，也没有新增向旧结构回退的桥。
 
 # 应用与陷阱
 
