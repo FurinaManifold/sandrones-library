@@ -27,7 +27,10 @@
 - [x] 零因子、整环与域：`ZeroDivisorElement`、`NoZeroDivisorsAxiom`、
   `IntegralDomainAxioms`、`FieldAxioms` 已建立；域推出整环直接由本库单位元素与环公理证明，
   Mathlib 的 `NoZeroDivisors`、`IsDomain`、`IsField` 只出现在具名桥接接口中。
-- [ ] 素理想与极大理想：自建谓词并重写商整环/商域判据。
+- [x] 素理想与极大理想（`abstract-algebra.ring.prime-ideal`，`RingPrimeIdeal.lean`）：
+  `PrimeIdealSet`、`MaximalIdealSet` 已自建；极大推出素、商整环与商域的双向判据均使用
+  本库 `quotientRingSet`、`IntegralDomainAxioms`、`FieldAxioms`。Mathlib 理想属性只保留在
+  两个具名承载桥和旧兼容接口中。
 - [ ] 环同构定理：公开陈述使用本库核、像和商映射接口。
 - [ ] 整除、相伴、不可约、素元、gcd、Euclidean 环、PID、UFD、局部化。
 

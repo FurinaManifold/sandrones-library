@@ -689,28 +689,31 @@ theorem is_field_inv_exists {R : Type*} [Ring R] (hF : IsField R) {a : R} (ha : 
     ∃ b : R, a * b = 1 := by
   exact IsField.mul_inv_cancel hF ha
 
-/-- **素理想定义**（教材判据）：I 素 ⟺ I ≠ ⊤ 且 a·b ∈ I ⟹ a ∈ I 或 b ∈ I。 
+/-- **Mathlib 素理想兼容接口**：展开 `Ideal.IsPrime` 的乘积判据。教材主接口见
+`RingPrimeIdeal.lean` 中的 `PrimeIdealSet`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem is_prime_iff {R : Type*} [CommRing R] (I : Ideal R) :
     I.IsPrime ↔ I ≠ ⊤ ∧ ∀ {x y : R}, x * y ∈ I → x ∈ I ∨ y ∈ I := by
   exact Ideal.isPrime_iff
 
-/-- **极大理想是素理想**：极大理想必为素理想。 
+/-- **Mathlib 极大理想兼容接口**：`Ideal.IsMaximal` 推出 `Ideal.IsPrime`。教材主接口见
+`RingPrimeIdeal.lean` 中的 `maximalIdealSet_is_prime`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem is_maximal_implies_is_prime {R : Type*} [CommRing R] (I : Ideal R)
     (hI : I.IsMaximal) : I.IsPrime := by
   exact hI.isPrime
 
-/-- **素理想 ⟹ 商环是整环**：I 是素理想 ⟹ 商环 R/I 是整环。 
+/-- **Mathlib 商整环兼容接口**：Mathlib 素理想的商类型具有 `IsDomain`。教材双向判据见
+`RingPrimeIdeal.lean` 中的 `primeIdealSet_iff_quotient_integralDomainAxioms`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem quotient_is_domain_of_is_prime {R : Type*} [CommRing R] (I : Ideal R)
     (hI : I.IsPrime) : IsDomain (R ⧸ I) := by
   exact Ideal.Quotient.isDomain I
 
-/-- **R 是域 ⟺ 零理想极大**：环 R 是域当且仅当零理想 (0) 是极大理想。 
+/-- **Mathlib 零理想兼容接口**：`IsField R` 等价于 Mathlib 零理想极大。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem is_field_iff_bot_is_maximal {R : Type*} [CommRing R] [Nontrivial R] :
@@ -725,8 +728,8 @@ theorem ring_first_isomorphism {R S : Type*} [Ring R] [Ring S] (f : R →+* S) :
     Nonempty (R ⧸ RingHom.ker f ≃+* ↥f.range) := by
   exact ⟨RingHom.quotientKerEquivRange f⟩
 
-/-- **商环是域 ⟹ 理想极大**：若商环 R/I 是域，则 I 是极大理想。
-  （教材：极大理想 ⟺ 商环是域，的另一半方向。） 
+/-- **Mathlib 商域兼容接口**：Mathlib 商类型为域时，原理想极大。教材双向判据见
+`RingPrimeIdeal.lean` 中的 `maximalIdealSet_iff_quotient_fieldAxioms`。
 > **Entry**: abstract-algebra.ring.domain
 -/
 theorem ideal_maximal_of_quotient_isField {R : Type*} [CommRing R] (I : Ideal R)
