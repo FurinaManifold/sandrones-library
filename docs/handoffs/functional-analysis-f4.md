@@ -46,6 +46,16 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.BanachAlaoglu`：8723 jobs 通过；Entry 精确映射为
   三个公开声明，三者公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`。
 
+## F4.4 弱星可度量化与序列抽取窗
+
+- 可分性直接使用 `TopologicalSpace.SeparableSpace E`；不选择或定义本地弱星度量。
+- 紧子集可度量化挂靠 `WeakDual.metrizable_of_isCompact`，闭球序列紧挂靠
+  `WeakDual.isSeqCompact_closedBall`。
+- 上层使用者把闭单位球序列紧展开为严格递增指标的弱星收敛子列，极限仍满足范数不超过一。
+- 不声称整个弱星对偶可度量化，也不把弱星收敛误写成范数收敛。
+- `lake build SandronesLibrary.FunctionalAnalysis.WeakStarMetrizable`：8724 jobs 通过；Entry 精确映射
+  为三个公开声明，公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`。
+
 ## 共有文件建议
 
 - Main 集成时新增顶层 `WeakTopology` import，登记 Entry、RADAR 与 ROADMAP 状态。
