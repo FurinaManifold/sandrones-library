@@ -52,3 +52,15 @@
   按 Main 裁决这些留作 F5.2 后续独立增量。
 - Main 集成建议：新增顶层 `ClosedRange` import，登记 `functional-analysis.closed-range`；
   ROADMAP 应标记第一批零化子刻画完成，不将四项等价标成已完成。
+
+## F5.2 双零化子与对偶闭性（第二批）
+
+- 文件所有权独立为 `ClosedRangeConsequences.lean`，只依赖第一批和已集成 F4.5，不改动正在审核的第一批源码。
+- 无条件证明 `closure (range T) = (ker T')⊥`的逐点形式；闭值域时去掉闭包。
+- 由 `range T' = (ker T)⊥` 得到对偶值域的范数闭性和弱星闭性；弱星零化子闭性按
+  `WeakDual.eval_continuous` 的求值核交直接展开。
+- 正式承载仍为 `Submodule.topologicalClosure`、`StrongDual.polarSubmodule`、`weakStarImage`；
+  未引入 preannihilator 包装或新拓扑。
+- 诚实边界：仍未证明对偶范数闭性的逆向，因此不声称原/对偶四项闭值域等价已完成。
+- Main 集成建议：新增 `ClosedRangeConsequences` 顶层 import，登记
+  `functional-analysis.closed-range.double-annihilator`。
