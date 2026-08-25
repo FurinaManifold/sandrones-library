@@ -1,9 +1,10 @@
 # F5 对偶算子、紧算子与 Fredholm 理论 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`5946cc2`（`git rebase main`）
-- 权限：对偶算子基础 `development_open`；紧算子 `research_open`；Fredholm 冻结
-- 当前阶段：对偶算子定义窗口开发中
+- Main 基线：`aacbd3d`（已同步本地 Main）
+- 权限：F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性
+  `development_open`；闭值域 `research_open`；Fredholm 冻结
+- 当前阶段：紧算子 F5.3--F5.4 窗口待审
 
 ## 对偶算子基础
 
@@ -21,3 +22,18 @@
 
 - Main 集成时新增 `DualOperator` 顶层 import，登记 Entry、RADAR 和 ROADMAP 状态。
 - 引用建议挂靠 Bühler–Salamon 第 4.1 节；学科分支不修改 `reference.bib`。
+
+## 紧算子 F5.3--F5.4
+
+- 直接复用 Mathlib 的 `IsCompactOperator` 谓词和 `compactOperator` 子模，没有建立平行包装类型。
+- `CompactOperator.lean` 对齐开单位球像闭包紧的教材定义，并提供零算子、有限维定义域／值域与恒等算子判据。
+- `CompactOperatorComposition.lean` 给出左右复合、加法稳定性，以及完备值域中的算子范数极限闭性。
+- 单模块构建 `SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition`：8711 jobs 通过；
+  警告只来自既有 `Topology/Metric.lean` 依赖。
+- 聚合 `#check` 覆盖 Mathlib 承载与 9 个本地公开定理；`#print axioms` 和占位符扫描单独记录。
+
+## 紧算子窗口的共有文件建议
+
+- Main 集成时新增 `CompactOperator` 和 `CompactOperatorComposition` 顶层 import，登记两个 Entry 及
+  ROADMAP/RADAR 状态。
+- 本窗不包含闭值域或 Fredholm 声明，也不把范数极限结论扩张到强／弱算子拓扑。
