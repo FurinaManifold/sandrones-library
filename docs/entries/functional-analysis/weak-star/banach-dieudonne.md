@@ -1,8 +1,11 @@
 ---
 id: functional-analysis.weak-star.banach-dieudonne
+family: functional-analysis.weak-star
+variant: banach-dieudonne-unit-slice
 kind: theorem
 state: verified
 title: Banach--Dieudonné 弱星闭性判据
+summary: 实 Banach 空间连续对偶的线性子空间弱星闭，当且仅当它与对偶闭单位球的交在弱星拓扑中闭
 premises: [functional-analysis.weak.metrizable-separable, functional-analysis.hahn-banach.extension]
 mathlib: [WeakDual, ZeroAtInfty, Submodule.mkQ]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}

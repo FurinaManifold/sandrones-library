@@ -165,6 +165,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.6 Hahn–Banach、双对偶与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维范数化泛函和凸集分离、坐标子空间零化子、有限维典范双对偶同构、坐标泛函族的弱／弱星收敛 | 代数零化子不等于连续零化子；一般空间不必自反；闭单位球弱紧刻画不能脱离 F4；范数、弱与弱星收敛不可混同 | F2+/F4 |
 | E11.6a Banach–Alaoglu | `examples.functional-analysis.banach-alaoglu` | 有限维对偶闭球在弱星坐标下的紧致实例 | 弱星紧致不等于范数紧致，也不直接等于原空间闭球弱紧 | F4.3 |
 | E11.6b 弱星序列抽取 | `examples.functional-analysis.weak-star-subsequences` | 可分空间对偶单位球序列的弱星收敛子列 | 只对紧子集断言可度量化；不可把弱星收敛写成范数收敛 | F4.4 |
+| E11.6c Banach–Dieudonné 判据 | `examples.functional-analysis.banach-dieudonne` | 有限维对偶的坐标子空间：直接比较整体弱星闭性与单位球截面闭性，并展示外点分离向量 | 判据只针对线性子空间；单位球截面弱星闭不能外推到任意非线性集合；原空间完备性不可省略 | F4.5 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
 | E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |
 | E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |

@@ -86,6 +86,12 @@
 - **谁在用**：`functional-analysis.weak.metrizable-separable`；从闭单位球中的任意序列抽取严格递增
   指标的弱星收敛子列，并保留极限的范数界。
 
+### `ZeroAtInfty` / `Submodule.mkQ`
+- **人话**：`ZeroAtInfty` 承载趋于零的标量序列组成的 `C₀(ℕ,ℝ)` 空间；`Submodule.mkQ` 把线性
+  子空间压成商空间，从而允许 Hahn–Banach 泛函在商上分离一个外点。
+- **谁在用**：`functional-analysis.weak-star.banach-dieudonne` 的证明中间层；前者编码趋零检测
+  序列上的对偶求值，后者产生绝对可和坐标。两者都不是 Banach–Dieudonné 最终定理的替代品。
+
 ### `ContinuousLinearMap.precomp` / `StrongDual`
 - **人话**：把目标空间上的连续泛函沿固定连续线性映射预复合，得到原空间上的连续泛函。
 - **谁在用**：`functional-analysis.dual-operator.definition` 的正式后端；本库薄桥只赋予教材名称并公开范数与复合性质。

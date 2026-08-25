@@ -751,7 +751,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 ✅ | `WeakDual` |
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 ✅ | `WeakDual.isCompact_closedBall` |
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形弱星紧集可度量化、闭球序列紧与收敛子列抽取 ✅ | `WeakDual.metrizable_of_isCompact`、序列紧接口 |
-| 6 | `functional-analysis.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 | dual topology API |
+| 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
 | 7 | `functional-analysis.eberlein-smulian` | 弱紧致与弱序列紧致的等价 | weak compactness API |
 | 8 | `functional-analysis.krein-milman` | 紧凸集、极点与闭凸包 | `extremePoints`、Krein–Milman API |
 | 9 | `functional-analysis.ergodic.mean` | 均值遍历定理的泛函分析入口 | power-bounded operator/ergodic averages |
@@ -808,8 +808,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.4 已集成；F4.5 Banach--Dieudonné 为
-`integration_open`，F4.7 Eberlein--Šmulian 为 `development_open`，两者使用互不重叠文件；F4.8
+**F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.5 已集成；F4.7 Eberlein--Šmulian 为
+`development_open`，F4.8
 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5 闭值域保持
 `research_open`；F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经
 集成。F5.2 闭值域提升为 `development_open`，F5.5 Fredholm 定义层为 `research_open`，二者不得

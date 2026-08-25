@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **458** 个条目（verified 458，pending 0）。
+共 **459** 个条目（verified 459，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -364,6 +364,7 @@
 
 ## `functional-analysis.weak-star`
 
+- ✅ [`banach-dieudonne.md`](functional-analysis/weak-star/banach-dieudonne.md) — Banach–Dieudonné 弱星闭性判据
 - ✅ [`definition.md`](functional-analysis/weak-star/definition.md) — 对偶空间的弱星拓扑与收敛
 
 ## `functional-analysis.weak-topology`
