@@ -3,7 +3,9 @@ id: real-analysis.riemann.ftc
 kind: theorem
 state: verified
 title: "自建 Riemann 积分的微积分基本定理"
-premises: ["real-analysis.riemann.eq-lebesgue", "real-analysis.calculus.ftc", "real-analysis.calculus.ftc-differentiate"]
+premises: ["analysis.continuity.definition", "analysis.derivative.definition",
+  "real-analysis.riemann.def", "real-analysis.riemann.eq-lebesgue",
+  "real-analysis.calculus.ftc", "real-analysis.calculus.ftc-differentiate"]
 mathlib: ["intervalIntegral.integral_of_le", "eventually_gt_nhds", "HasDerivAt.congr_of_eventuallyEq"]
 provenance:
   source_type: book
@@ -14,6 +16,11 @@ provenance:
 
 本条目把已经建立在 Mathlib 区间积分上的两种微积分基本定理，转写成本库自建
 Darboux–Riemann 积分的教材陈述。
+
+概念层仍挂靠本库教材定义：区间连续可读作 `ContinuousOnTextbook f (Icc a b)`，原函数条件
+可读作逐点 `HasDerivativeAtTextbook F (f x) x`，积分值是本库 `riemannIntegral`。Lean 主定理为
+兼容既有下游保留 `ContinuousOn`、`HasDerivAt` 签名；前两者分别由
+`continuousOnTextbook_iff_continuousOn`、`hasDerivativeAtTextbook_iff_hasDerivAt` 精确桥接。
 
 第二形式是 Newton–Leibniz 公式：若 `a<b`，`f` 在 `[a,b]` 上连续，并且
 `F'(x)=f(x)`，则
@@ -53,6 +60,17 @@ Newton–Leibniz 公式是纯粹的数值适配。先用连续函数的积分值
 - `riemannIntegral_eq_sub_of_hasDerivAt`：Newton–Leibniz 公式；
 - `hasDerivAt_riemannIntegral_right`：变上限 Riemann 积分的导数。
 
+第二形式中的教材前提与 Lean 接口逐项对应：
+
+| 教材概念 | 本库定义 | Lean 历史接口／桥 |
+|---|---|---|
+| `[a,b]` 上连续 | `ContinuousOnTextbook f (Icc a b)` | `ContinuousOn f (Icc a b)`，由 `continuousOnTextbook_iff_continuousOn` |
+| `F'(x)=f(x)` | `HasDerivativeAtTextbook F (f x) x` | `HasDerivAt F (f x) x`，由 `hasDerivativeAtTextbook_iff_hasDerivAt` |
+| Riemann 积分 | `riemannIntegral f a b` | 本库 Darboux 下和上确界定义，不是 Mathlib 别名 |
+
+第一形式的 `Continuous f` 是全域连续历史接口；它等价于在 `Set.univ` 上的 `ContinuousOn`，再由
+上述连续性桥恢复本库逐点 ε-δ 语义。结论 `HasDerivAt` 同样位于导数具名桥的 Mathlib 一侧。
+
 这里没有重新证明 Mathlib 的 FTC；本文件的职责仅是把已验证的区间积分定理与自建
 Riemann 积分定义对齐。
 
@@ -62,6 +80,8 @@ Riemann 积分定义对齐。
 - 第一形式当前采用全局连续性，以保持教材接口简洁；数学上可进一步弱化为目标点附近
   连续，并且在相关闭区间上连续。
 - 这里只处理正向区间。反向有向积分应在后续统一扩展自建 Riemann 积分的端点约定。
+- `ContinuousOn`、`Continuous`、`HasDerivAt` 是具名桥后的正式派生接口；保留它们不表示教材
+  定义层缺失，也不授权全面替换既有 API。
 
 # 公理依赖
 

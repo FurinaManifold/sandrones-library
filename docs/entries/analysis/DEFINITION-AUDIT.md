@@ -23,7 +23,8 @@
   使用 Mathlib 接口。
 - [x] 函数有限点极限：`FunctionConvergesToAt` 给出去心邻域 ε-δ 定义，并桥接
   `Tendsto f (𝓝[≠] a) (𝓝 L)`；现有极限定理继续使用 Mathlib 接口。
-- [ ] 无穷远极限及无穷极限：分别建立量词定义，避免把不同趋向统一隐藏在 `Tendsto` 中。
+- [x] 正／负无穷远有限极限与有限点处正／负无穷极限已有四个独立量词定义、直接展开和
+  `Tendsto` 桥；单侧版本仍属于后续范围。
 - [x] 点连续、集上连续与集合上一致连续：`ContinuousAtTextbook`、`ContinuousOnTextbook`、
   `UniformContinuousOnTextbook` 给出教材量词，并分别桥接 `ContinuousAt`、`ContinuousOn` 和
   `UniformContinuousOn`；全域 `UniformContinuous` 的 ε-δ 展开沿用既有定理。
@@ -47,7 +48,8 @@
   `DifferentiableAt` 和 `deriv` 继续作为正式派生接口。
 - [x] Riemann 一元积分的 `DarbouxPartition`、上下和、`RiemannIntegrable` 与积分值均挂入本库
   教材 Entry；标准有界接口为 `RiemannIntegrableWithBound`，Mathlib 积分只用于具名数值桥或后端。
-- [ ] 微积分基本定理继续使用 Mathlib 连续/导数谓词；在相应定义条目完成后补充概念挂靠说明。
+- [x] 微积分基本定理文档已把 `ContinuousOn`／`Continuous`、`HasDerivAt` 分别挂靠本库连续与
+  导数教材定义桥，并确认结论使用本库 `riemannIntegral`；历史 Mathlib 签名继续保留。
 
 ## A4 多元分析与几何
 
