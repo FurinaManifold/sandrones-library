@@ -3,7 +3,7 @@ id: topology.fundamental-group.operations-standard
 family: topology.fundamental-group
 variant: group-operations-and-laws
 kind: theorem
-state: staging
+state: verified
 title: 基本群的运算、复合次序与群律
 summary: 解释基本群的单位、乘法和逆元在道路同伦商上的含义，并区分商上的群律与原始道路等式
 premises: [topology.fundamental-group.carrier-standard]

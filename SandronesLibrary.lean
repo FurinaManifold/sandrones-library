@@ -88,6 +88,7 @@ import SandronesLibrary.Topology.HomotopyStandard
 import SandronesLibrary.Topology.HomotopyEquivalenceStandard
 import SandronesLibrary.Topology.PathHomotopyQuotientStandard
 import SandronesLibrary.Topology.FundamentalGroupCarrierStandard
+import SandronesLibrary.Topology.FundamentalGroupOperationsStandard
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

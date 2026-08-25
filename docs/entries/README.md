@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **447** 个条目（verified 447，pending 0）。
+共 **448** 个条目（verified 448，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -662,6 +662,7 @@
 ## `topology.fundamental-group`
 
 - ✅ [`carrier-standard.md`](topology/fundamental-group/carrier-standard.md) — 基本群胚与基本群的标准承载
+- ✅ [`operations-standard.md`](topology/fundamental-group/operations-standard.md) — 基本群的运算、复合次序与群律
 
 ## `topology.homotopy`
 

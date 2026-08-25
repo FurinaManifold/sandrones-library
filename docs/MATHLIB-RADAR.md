@@ -113,6 +113,12 @@
 - **谁在用**：`topology.fundamental-group.carrier-standard`；当前只冻结载体与严格往返，群运算次序
   和函子性留给后续窗口。
 
+### `FundamentalGroup.one_def` / `mul_def` / `inv_def`
+- **人话**：基本群单位是恒等道路类，逆元是反向道路类；乘法来自自同态的范畴复合，因此
+  `p * q` 的道路视角是先走 `q` 再走 `p`。
+- **谁在用**：`topology.fundamental-group.operations-standard`；公式只在基本群／道路同伦商层成立，
+  不把原始 `Path.trans` 误写成严格满足群律。
+
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。
 - **出处**：Mathlib 的 Hahn–Banach 模块。

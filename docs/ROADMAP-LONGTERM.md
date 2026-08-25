@@ -503,9 +503,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-E 同伦等价 | 已集成 | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | Main 全库验收完成 |
 | T4-F1a 道路同伦商 | 已集成 | `PathHomotopyQuotientStandard.lean`；标准商、判等展开与代表存在 | Main 全库验收完成 |
 | T4-F1b 基本群胚/基本群承载 | 已集成 | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | Main 全库验收完成 |
-| T4-F2a 群运算与群律 | `integration_open` | 独立文件解释拼接次序、单位、逆与结合律 | F1b 已集成；可提交正式验收 |
-| T4-F2b 函子性与同伦不变性 | `development_open` | 连续映射诱导、同伦自然同构、同胚／同伦等价不变性与基点变换 | 使用 F1b/F2a 已冻结承载；独立文件 |
-| T4-F2c 基本群计算 | `research_open` | 单点、凸集、可缩空间和圆周的接口调查/RFC | 不以 Mathlib 最终等价替代圆周计算课程链 |
+| T4-F2a 群运算与群律 | 已集成 | `FundamentalGroupOperationsStandard.lean`；解释单位、逆、乘法反序和商上群律 | Main 全库验收完成 |
+| T4-F2b 函子性与同伦不变性 | `integration_open` | 连续映射诱导、同伦自然同构、同胚／同伦等价不变性与基点变换 | F1b/F2a 已冻结；可提交正式验收 |
+| T4-F2c 基本群计算 | `development_open` | 单点、凸集、可缩空间；圆周计算先冻结证明链 | 不以 Mathlib 最终等价替代圆周计算课程链 |
 | T4-R 连续同伦正则化桥 | `research_open` | 调查连续道路同伦到分段光滑／可积同伦的相对端点逼近 | 为 G-T4/C 提供可审计桥；不得先宣称一般 C2 完成 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路

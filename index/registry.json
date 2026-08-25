@@ -14359,6 +14359,43 @@
     ]
   },
   {
+    "id": "topology.fundamental-group.operations-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "基本群的运算、复合次序与群律",
+    "summary": "解释基本群单位、乘法和逆元在道路同伦商上的含义，并区分商上群律与原始道路严格等式",
+    "premises": [
+      "topology.fundamental-group.carrier-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroup.one_def",
+      "FundamentalGroup.mul_def",
+      "FundamentalGroup.inv_def",
+      "mul_assoc",
+      "one_mul",
+      "mul_one",
+      "inv_mul_cancel",
+      "mul_inv_cancel"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupOperationsStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/operations-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "group-operations-and-laws",
+    "proof_sha": "629fa680c607c4f4",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
     "id": "topology.fundamental-group.carrier-standard",
     "kind": "definition",
     "state": "verified",
@@ -14382,7 +14419,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/carrier-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.operations-standard"
+    ],
     "family": "topology.fundamental-group",
     "variant": "groupoid-endomorphism-carrier",
     "proof_sha": "9ea87e89739af432",
