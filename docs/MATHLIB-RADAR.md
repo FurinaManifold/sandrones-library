@@ -49,6 +49,12 @@
 - **人话**：承载映射后多项式的一次因子分解、扩域根集、由根生成的分裂域性质及标准分裂域构造。
 - **谁在用**：`abstract-algebra.field.splitting` 的私有桥；公开接口保持显式域嵌入、教材根集和基域上同构。
 
+### `Polynomial.Separable` / `IsSeparable` / `Normal` / `PerfectField`
+- **人话**：依次承载多项式与导数互素、元素／扩张可分、代数扩张正规，以及有限域等完美基域。
+- **出处**：Mathlib 的可分扩张、正规扩张和完美域接口。
+- **谁在用**：`abstract-algebra.field.separable-normal` 的私有验证桥；公开课程签名保持显式
+  `FieldEmbedding` 和本库可分／正规定义，并先证明局部 `algebraMap` 就是指定嵌入。
+
 ## Hahn–Banach、凸分离与连续零化子
 
 ### `TopologicalSpace.SeparableSpace` / `StrongDual` / `Submodule.span`
@@ -74,6 +80,11 @@
 ### `WeakDual.isClosed_closedBall` / `WeakDual.isCompact_closedBall`
 - **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
 - **谁在用**：`functional-analysis.banach-alaoglu`，正式集合写成 `WeakDual.toStrongDual` 下的闭球原像。
+
+### `WeakDual.metrizable_of_isCompact` / `WeakDual.isSeqCompact_closedBall`
+- **人话**：原空间可分时，弱星紧子集可度量化；连续对偶的范数闭球在弱星拓扑下序列紧。
+- **谁在用**：`functional-analysis.weak.metrizable-separable`；从闭单位球中的任意序列抽取严格递增
+  指标的弱星收敛子列，并保留极限的范数界。
 
 ### `ContinuousLinearMap.precomp` / `StrongDual`
 - **人话**：把目标空间上的连续泛函沿固定连续线性映射预复合，得到原空间上的连续泛函。

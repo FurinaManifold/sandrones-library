@@ -88,5 +88,5 @@ A3.8 第二批及 A3.9 研究框架可以稳定依赖四个核心定义、
 在第二批正式完成前，不得依赖尚不存在的根重数可分刻画或“不可约多项式有根则分裂”等价；
 A3.9 仍为 `research_open`，不得把 Galois 群或基本定理写入正式源码。
 
-本次不修改顶层 import、Registry、ROADMAP、RADAR、Playbook、`reference.bib` 或派生文件，
-也不创建 git commit；共享集成事项由 Main 完成。
+学科提交不修改顶层 import、Registry、ROADMAP、RADAR、Playbook、`reference.bib` 或派生文件；
+共享集成事项由 Main 完成。正式成果提交为 `56429d7`。

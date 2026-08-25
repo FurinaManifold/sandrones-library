@@ -13861,6 +13861,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "abstract-algebra.field.degree",
+      "abstract-algebra.field.separable-normal",
       "abstract-algebra.field.splitting"
     ],
     "family": "abstract-algebra.field",
@@ -13934,11 +13935,48 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "abstract-algebra.field.separable-normal",
       "abstract-algebra.field.splitting"
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "ef798020463c99b2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.separable-normal",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可分多项式、可分扩张与正规扩张",
+    "summary": "建立导数 Bezout 判据、可分元与扩张、正规扩张、分裂域正规性、有限正规刻画和有限域扩张可分性",
+    "premises": [
+      "abstract-algebra.field.extension",
+      "abstract-algebra.field.degree",
+      "abstract-algebra.field.splitting"
+    ],
+    "mathlib": [
+      "Polynomial.Separable",
+      "IsSeparable",
+      "Algebra.IsSeparable",
+      "Normal",
+      "PerfectField"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldSeparableNormal.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/separable-normal.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "612f8997326282c8",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -14064,7 +14102,9 @@
     "nl_file": "docs/entries/functional-analysis/banach-alaoglu.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.weak.metrizable-separable"
+    ],
     "family": "functional-analysis.banach-alaoglu",
     "variant": "salamon",
     "axioms": [
@@ -14073,6 +14113,38 @@
       "propext"
     ],
     "proof_sha": "6c20710f0ad6d124"
+  },
+  {
+    "id": "functional-analysis.weak.metrizable-separable",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可分空间对偶球的弱星可度量化与序列抽取",
+    "summary": "证明可分赋范空间的弱星紧子集可度量化、对偶闭球序列紧，并从闭单位球序列抽取弱星收敛子列",
+    "premises": [
+      "functional-analysis.banach-alaoglu",
+      "functional-analysis.weak-star.definition"
+    ],
+    "mathlib": [
+      "WeakDual.metrizable_of_isCompact",
+      "WeakDual.isSeqCompact_closedBall"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/WeakStarMetrizable.lean",
+    "nl_file": "docs/entries/functional-analysis/weak/metrizable-separable.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak",
+    "variant": "salamon",
+    "proof_sha": "d4c142b166410007",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   },
   {
     "id": "functional-analysis.weak-star.definition",
@@ -14098,7 +14170,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.banach-alaoglu"
+      "functional-analysis.banach-alaoglu",
+      "functional-analysis.weak.metrizable-separable"
     ],
     "family": "functional-analysis.weak-star",
     "variant": "salamon",
@@ -14273,7 +14346,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/splitting.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.separable-normal"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "f0e6fb99de29bafc",

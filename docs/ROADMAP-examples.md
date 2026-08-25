@@ -98,6 +98,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E6.8 域扩张 | `examples.abstract-algebra.field-extensions` | 有理数嵌入实数、二次代数元、`X²-2` 最小多项式及单扩张 | 域扩张必须固定嵌入；超越元没有最小多项式；子域集合不自动包含指定基域像 | A3.5 |
 | E6.9 扩张次数 | `examples.abstract-algebra.extension-degree` | 二次扩张的显式二元基、坐标唯一性、恒等扩张次数一与简单塔次数乘法 | 次数依赖指定嵌入；无限扩张不能编码成次数零；塔式公式必须核对两层基 | A3.6 |
 | E6.10 分裂域 | `examples.abstract-algebra.splitting-fields` | 二次多项式在实数／复数上的根集、一次因子分解及最小分裂扩域 | 零多项式虽满足 Mathlib 分裂约定却没有本条意义的分裂域；唯一性只到基域上同构 | A3.7 |
+| E6.11 可分与正规扩张 | `examples.abstract-algebra.separable-normal` | 有限域扩张可分、二次不可约多项式的导数判据及分裂域正规性 | 不完美域上不可约多项式可有零导数；有限扩张不自动可分 | A3.8 |
 
 ## E7 拓扑学
 
@@ -161,6 +162,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、矩阵伴随、有限正交基 Parseval 与正交/酉变换计算 | 投影需要闭性；正交规范族不稠密时只有 Bessel 不等式；等距线性映射不满时不是酉算子 | F3 |
 | E11.6 Hahn–Banach、双对偶与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维范数化泛函和凸集分离、坐标子空间零化子、有限维典范双对偶同构、坐标泛函族的弱／弱星收敛 | 代数零化子不等于连续零化子；一般空间不必自反；闭单位球弱紧刻画不能脱离 F4；范数、弱与弱星收敛不可混同 | F2+/F4 |
 | E11.6a Banach–Alaoglu | `examples.functional-analysis.banach-alaoglu` | 有限维对偶闭球在弱星坐标下的紧致实例 | 弱星紧致不等于范数紧致，也不直接等于原空间闭球弱紧 | F4.3 |
+| E11.6b 弱星序列抽取 | `examples.functional-analysis.weak-star-subsequences` | 可分空间对偶单位球序列的弱星收敛子列 | 只对紧子集断言可度量化；不可把弱星收敛写成范数收敛 | F4.4 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
 | E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |
 | E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |

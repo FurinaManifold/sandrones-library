@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.weak.metrizable-separable
 kind: theorem
-state: staging
+state: verified
 title: 可分空间对偶球的弱星可度量化与序列抽取
 premises: [functional-analysis.banach-alaoglu, functional-analysis.weak-star.definition]
 mathlib: [WeakDual.metrizable_of_isCompact, WeakDual.isSeqCompact_closedBall]

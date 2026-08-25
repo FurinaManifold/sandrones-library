@@ -6,12 +6,13 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **445** 个条目（verified 445，pending 0）。
+共 **447** 个条目（verified 447，pending 0）。
 
 ## `abstract-algebra.field`
 
 - ✅ [`degree.md`](abstract-algebra/field/degree.md) — 域扩张次数、有限扩张与塔式公式
 - ✅ [`extension.md`](abstract-algebra/field/extension.md) — 域扩张、生成中间域、代数元与最小多项式
+- ✅ [`separable-normal.md`](abstract-algebra/field/separable-normal.md) — 可分多项式、可分扩张与正规扩张
 - ✅ [`splitting.md`](abstract-algebra/field/splitting.md) — 多项式的分裂域、存在性与唯一到同构
 
 ## `abstract-algebra.group`
@@ -349,6 +350,10 @@
 ## `functional-analysis.topological-vector-space`
 
 - ✅ [`foundation.md`](functional-analysis/topological-vector-space/foundation.md) — 拓扑向量空间基础
+
+## `functional-analysis.weak`
+
+- ✅ [`metrizable-separable.md`](functional-analysis/weak/metrizable-separable.md) — 可分空间对偶球的弱星可度量化与序列抽取
 
 ## `functional-analysis.weak-star`
 

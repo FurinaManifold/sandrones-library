@@ -407,7 +407,7 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 | 5 | `abstract-algebra.field.extension` | 显式域嵌入、生成中间域、单扩张、代数/超越元与最小多项式 | ✅ |
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
-| 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
+| 8 | `abstract-algebra.field.separable-normal` | 可分多项式、可分／正规扩张、有限正规刻画与有限域上的可分性 | ✅ 第一批；根重数／不可约有根刻画待续 |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
 
 **当前并行权限（2026-08-25）**：
@@ -416,8 +416,10 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 |---|---|---|---|
 | A3.6 扩张次数 | 已集成 | 显式有限线性组合、线性无关、基、扩张次数和塔式公式 | Main 全库验收完成 |
 | A3.7 分裂域基础 | 已集成 | 根集、分裂、根生成、存在性、有限性与基域上同构 | Main 全库验收完成 |
-| A3.8 可分/正规扩张 | `integration_open` | 正式源码、Entry 初稿与学科闭包 | 使用已集成 A3.7 接口并同步最新 Main |
-| A3.9 Galois | `research_open` | 书目、依赖、公开签名和 `/tmp` 证明框架 | A3.8 正式接口冻结后开放开发 |
+| A3.8 可分/正规扩张第一批 | 已集成 | 四个核心定义、导数判据、有限正规刻画与有限域扩张可分 | Main 全库验收完成 |
+| A3.8 第二批刻画 | `development_open` | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | 复用第一批冻结定义；独立文件／提交 |
+| A3.9a Galois 定义层 | `development_open` | Galois 扩张、显式自同构群、固定域及展开性质 | 集成等待 A3.8 必需刻画；不得提前发布基本定理 |
+| A3.9b 基本定理 | `research_open` | 中间域—子群对应、正规／可分条件和低次例子的接口调查 | A3.9a 签名冻结后开发 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
@@ -661,7 +663,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 ✅ | `WeakSpace`、initial topology API |
 | 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 ✅ | `WeakDual` |
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 ✅ | `WeakDual.isCompact_closedBall` |
-| 5 | `functional-analysis.weak.metrizable-separable` | 可分情形单位球弱星可度量化与序列抽取 | metrizability/separability API |
+| 5 | `functional-analysis.weak.metrizable-separable` | 可分情形弱星紧集可度量化、闭球序列紧与收敛子列抽取 ✅ | `WeakDual.metrizable_of_isCompact`、序列紧接口 |
 | 6 | `functional-analysis.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 | dual topology API |
 | 7 | `functional-analysis.eberlein-smulian` | 弱紧致与弱序列紧致的等价 | weak compactness API |
 | 8 | `functional-analysis.krein-milman` | 紧凸集、极点与闭凸包 | `extremePoints`、Krein–Milman API |
@@ -719,10 +721,11 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4 当前并行权限（2026-08-25）**：F4.1--F4.3 已集成；F4.4 弱星可度量化与序列抽取为
-`integration_open`，F4.5 Banach--Dieudonné 与 F4.7 Eberlein--Šmulian 为互不重叠的
-`development_open`，F4.8 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做
-接口调查，但不得与上述文件争用承载。F5 的闭值域可 `research_open`，正式开发仍等待 F4 的弱紧致工具；F6 等待紧算子与
+**F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.4 已集成；F4.5 Banach--Dieudonné 为
+`integration_open`，F4.7 Eberlein--Šmulian 为 `development_open`，两者使用互不重叠文件；F4.8
+Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5 闭值域保持
+`research_open`；根据已验收 API 调查，F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与
+范数极限闭性为 `development_open`，不得提前混入 Fredholm。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

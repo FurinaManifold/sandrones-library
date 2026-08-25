@@ -15,12 +15,12 @@ Sandrone's Library 以 [mathlib4](https://github.com/leanprover-community/mathli
 
 ## 当前规模（2026-08-25）
 
-- **445** 个 verified Entry，覆盖分析、线性代数、抽象代数、拓扑、实分析、复分析、
+- **447** 个 verified Entry，覆盖分析、线性代数、抽象代数、拓扑、实分析、复分析、
   集合论、初等数论与泛函分析。
-- **504** 条直接教材依赖边；`premises` 是唯一事实源，`dependedOnBy` 由脚本反向生成。
+- **509** 条直接教材依赖边；`premises` 是唯一事实源，`dependedOnBy` 由脚本反向生成。
 - **23** 条经出版状态审计的统一参考资料，在 `reference.bib` 维护；Registry 只保存 citation key。
-- **443** 个 verified 非兼容桥条目进入依赖排行。
-- 最近 Main 全库验收为 **8930 jobs** 构建通过。
+- **445** 个 verified 非兼容桥条目进入依赖排行。
+- 最近 Main 全库验收为 **8932 jobs** 构建通过。
 
 阶段状态会持续变化；课程进度、学科路线和依赖门只在
 [`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) 维护，不从 README、Playbook 或历史 handoff
