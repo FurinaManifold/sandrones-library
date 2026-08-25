@@ -41,7 +41,7 @@
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础58项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
+| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧 E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
@@ -1047,7 +1047,7 @@ F5.6 Fredholm 备择现开放接口研究，负责人可提交无占位原型与
 
 ## 13. Phase 12+ — 高阶学科群（每门独立建设）
 
-> 本节不是一个名为“前沿”的杂项批次。以下十四门都是独立学科，每门的体量、负责人、worktree、
+> 本节不是一个名为“前沿”的杂项批次。以下十七门都是独立学科，每门的体量、负责人、worktree、
 > family 前缀、handoff 和完成状态均独立；一门完成不代表其他门完成。表中一行是一个可验收
 > Entry，不是用一个标题包装整章理论。正式开工时，学科负责人应按依赖把每个课程批次拆成
 > 3–6 条的文件包交给子 Agent，并由负责人组装验收。
@@ -1596,21 +1596,27 @@ Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
 Bornological／Montel／核性以及不同对偶拓扑；能在测试函数和分布空间中正确选择连续性、有界性与
 收敛概念，而不是把 Banach 空间定理无条件照搬到“性质较差”的空间。
 
-### 13.12 调和分析（HAna1–HAna7）🔒
+### 13.12 Fourier 与调和分析（HAna1–HAna7）🔒
 
 > 家族前缀 `harmonic-analysis.*`。课程门：R4、F1–F3、AFA；避免与同调代数 HA 缩写混淆。
-> 主教材为 Grafakos, *Classical Fourier Analysis* 第三版
->（`grafakos-classical-fourier-analysis-2014`）。`Lᵖ` 与插值、极大函数／Fourier 变换／分布、
-> Fourier 级数、卷积型奇异积分、Littlewood–Paley 与乘子、加权不等式依次对应 HAna1–HAna7；
+> 这是本库的**专门 Fourier 分析课程**，不是 AN3 的 Fourier 变换初步，也不是泛函分析 Parseval
+> 条目的附录。主教材为 Grafakos, *Classical Fourier Analysis* 第三版
+>（`grafakos-classical-fourier-analysis-2014`）。`Lᵖ` 与插值、Fourier 变换／分布／卷积、
+> Fourier 级数、极大函数、卷积型奇异积分、Littlewood–Paley 与乘子、加权不等式依次对应 HAna1–HAna7；
 > 群上调和分析与限制问题超出该书主线，补教材前保持研究专题。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| HAna1 | `harmonic-analysis.fourier.rn` | `ℝⁿ` Fourier 变换、反演与 Plancherel | R4/F3 |
-| HAna1 | `harmonic-analysis.fourier.schwartz` | Schwartz 空间与温和分布 | AFA5 |
-| HAna1 | `harmonic-analysis.convolution` | 卷积、近似恒等与 Young 不等式 | R4 |
-| HAna2 | `harmonic-analysis.fourier-series.convergence` | Fourier 级数的点态与 `L²` 收敛 | HAna1 |
-| HAna2 | `harmonic-analysis.poisson-summation` | Poisson 求和公式 | HAna1 |
+| HAna1 | `harmonic-analysis.fourier.normalization` | 固定 `ℝⁿ` Fourier 变换的指数、测度与常数约定 | R4/AN3 |
+| HAna1 | `harmonic-analysis.fourier.schwartz` | Schwartz 空间、变换自同构及微分／乘法互换 | AFA5 |
+| HAna1 | `harmonic-analysis.fourier.inversion` | `L¹` 与 Schwartz 类上的 Fourier 反演 | HAna1.schwartz |
+| HAna1 | `harmonic-analysis.fourier.plancherel` | 从稠密子空间延拓到 `L²` 的 Plancherel 酉算子 | F3/R4 |
+| HAna1 | `harmonic-analysis.convolution.young` | 卷积、平移、结合律与 Young 不等式 | R4 |
+| HAna1 | `harmonic-analysis.approximate-identity` | 近似恒等与 `Lᵖ` 收敛 | HAna1.convolution |
+| HAna1 | `harmonic-analysis.fourier.tempered-distribution` | 温和分布上的 Fourier 变换及卷积边界 | AFA5/HAna1.schwartz |
+| HAna2 | `harmonic-analysis.fourier-series.kernel` | 圆环 Fourier 系数、Dirichlet／Fejér／Poisson 核 | AN3/R4 |
+| HAna2 | `harmonic-analysis.fourier-series.convergence` | Fourier 级数的点态、Cesàro 与 `L²` 收敛 | HAna2.kernel/HAna1.plancherel |
+| HAna2 | `harmonic-analysis.poisson-summation` | Poisson 求和公式及成立条件 | HAna1.schwartz/HAna2.kernel |
 | HAna3 | `harmonic-analysis.maximal.hardy-littlewood` | Hardy–Littlewood 极大算子 | R4 |
 | HAna3 | `harmonic-analysis.differentiation-integrals` | Lebesgue 微分定理 | HAna3 |
 | HAna3 | `harmonic-analysis.interpolation` | Riesz–Thorin 与 Marcinkiewicz 插值 | F2/R4 |
@@ -1735,6 +1741,96 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 **完成能力节点**：模型论、可计算性、不完备性和证明论分别形成可追踪主线；“数理逻辑完成”只有
 在各路线独立达到 §15 标准后才能声明，不能用一条完备/不完备定理代表整门学科。
 
+### 13.15 多复变函数论（SCV1–SCV7）🔒
+
+> 家族前缀 `several-complex-variables.*`。主教材为 Krantz, *Function Theory of Several Complex
+> Variables* 第二版（`krantz-several-complex-variables-2001`）。课程从 `ℂⁿ` 上全纯性、幂级数与
+> 多重 Cauchy 公式推进到 Hartogs 现象、拟凸性、Levi 问题、`∂̄` 方法和解析集；不能把逐坐标全纯
+> 或把一元 Cauchy 定理重复 `n` 次冒充多复变理论。课程门为完整 C2–C3、AN-MV、R4；SCV5 以后
+> 另需 AFA5/DM。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| SCV1 | `several-complex-variables.holomorphic.definition` | `ℂⁿ` 上复 Fréchet 可微、全纯映射与坐标判据 | C1/AN-MV |
+| SCV1 | `several-complex-variables.power-series.multindex` | 多重指标、绝对收敛域与逐项微分 | C1/R4 |
+| SCV1 | `several-complex-variables.cauchy.polydisc` | 多圆盘上的迭代 Cauchy 公式与导数估计 | C2/Fubini |
+| SCV2 | `several-complex-variables.identity-uniqueness` | 恒等定理、唯一性集及零集边界 | SCV1 |
+| SCV2 | `several-complex-variables.hartogs.extension` | Hartogs 分别全纯与延拓现象 | SCV1 |
+| SCV2 | `several-complex-variables.domain-holomorphy` | 全纯域、全纯凸包与延拓障碍 | SCV2.hartogs |
+| SCV3 | `several-complex-variables.psh.definition` | 次调和／多重次调和函数与基本闭包性质 | C3/SCV1 |
+| SCV3 | `several-complex-variables.pseudoconvex.levi` | 拟凸域、Levi 形式与 Levi 拟凸性 | SCV3.psh/AN-MV |
+| SCV4 | `several-complex-variables.dbar.complex` | `(p,q)` 形式、`∂`、`∂̄` 与 Dolbeault 复形 | DM2/SCV1 |
+| SCV4 | `several-complex-variables.dbar.solution` | `∂̄` 方程的积分／估计解法入口 | SCV4/R4/AFA5 |
+| SCV4 | `several-complex-variables.levi-problem` | 拟凸域是全纯域的证明链 | SCV3/SCV4 |
+| SCV5 | `several-complex-variables.analytic-set.local` | 解析集、正则点、奇点与局部维数 | SCV1/CA |
+| SCV5 | `several-complex-variables.weierstrass.preparation` | Weierstrass 预备与除法定理 | SCV1/A3 |
+| SCV6 | `several-complex-variables.mapping.proper` | proper 全纯映射、分歧与有限性 | SCV5/DM |
+| SCV6 | `several-complex-variables.automorphism-domain` | 有界域自同构与不变量的一般接口 | SCV3/SCV6 |
+| SCV7 | `several-complex-variables.coherent-sheaf-entry` | 全纯函数层、凝聚性与 Cartan 定理入口 | SCV5/AG3/HA4 |
+
+**完成能力节点**：能够处理 Hartogs 延拓、拟凸性与 `∂̄` 三条真正多变量的主线，并把解析集接到
+复几何／代数几何；只建立 `ℂⁿ` 导数和多重幂级数不算完成。
+
+### 13.16 Riemann 曲面与一维复几何（RS1–RS7）🔒
+
+> “解析曲面”在本路线中精确登记为一维复流形，即 Riemann 曲面；复维二及以上的复解析空间归
+> SCV5–SCV7。主教材为 Forster, *Lectures on Riemann Surfaces*
+>（`forster-riemann-surfaces-1981`）。课程门为 T4、完整 C2–C3、DM1–DM2；层与 Riemann–Roch
+> 批次另需 HA/AG 基础。不得把“局部看起来像 `ℂ`”当成全局亚纯函数、除子或一致化已经建立。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| RS1 | `riemann-surfaces.definition.atlas` | 复图册、一维复流形与全纯／反全纯映射 | DM1/C1 |
+| RS1 | `riemann-surfaces.covering-analytic-continuation` | 解析延拓、单值化与覆盖空间接口 | T4/C2 |
+| RS2 | `riemann-surfaces.meromorphic.divisor` | 亚纯函数、零极点阶数与除子 | C3/RS1 |
+| RS2 | `riemann-surfaces.differential.meromorphic` | 全纯／亚纯微分与留数定理 | C3/RS1 |
+| RS3 | `riemann-surfaces.harmonic.green` | 调和函数、Green 函数与共轭微分 | R4/C2/RS1 |
+| RS3 | `riemann-surfaces.periods.homology` | 闭微分、周期与一阶同调配对 | AT2/RS2 |
+| RS4 | `riemann-surfaces.sheaf.cohomology` | 全纯函数层、亚纯函数层与一阶层上同调 | AG3/HA4/RS1 |
+| RS4 | `riemann-surfaces.runge-mittag-leffler` | Runge、Mittag–Leffler 与 Cousin 问题 | RS4/C3 |
+| RS5 | `riemann-surfaces.riemann-roch` | 紧 Riemann 曲面的 Riemann–Roch | RS2/RS4 |
+| RS5 | `riemann-surfaces.serre-duality` | 一维 Serre 对偶与残数配对 | RS4/HA5 |
+| RS6 | `riemann-surfaces.uniformization` | 单连通 Riemann 曲面一致化 | RS1/T4/HAna |
+| RS6 | `riemann-surfaces.compact.genus` | genus、Euler 特征与典范除子 | RS3/RS5/AT |
+| RS7 | `riemann-surfaces.jacobian.abel` | Jacobian、Abel 定理与 Abel–Jacobi 映射 | RS3/RS5 |
+| RS7 | `riemann-surfaces.algebraic-curve-bridge` | 紧 Riemann 曲面与光滑射影复曲线的桥 | RS5/AG7 |
+
+**完成能力节点**：局部复图册、覆盖与解析延拓、亚纯函数／微分、层上同调、Riemann–Roch 和
+一致化形成连续链；只形式化 Riemann 球面或环面等具体对象归 Examples，不代表课程完成。
+
+### 13.17 博弈论（GT1–GT8）🔒
+
+> 家族前缀 `game-theory.*`。主教材为 Osborne–Rubinstein, *A Course in Game Theory*
+>（`osborne-rubinstein-game-theory-1994`）；不完全信息、机制与合作博弈部分以 Myerson,
+> *Game Theory: Analysis of Conflict*（`myerson-game-theory-1991`）补齐。课程按战略式、混合策略与
+> 均衡存在、扩展式、重复博弈、不完全信息、合作博弈与机制设计推进。有限博弈入口只需有限集合与
+> 概率单纯形；Nash 存在需凸性／不动点，Bayesian 路线需 Pr1，连续行动空间另需 T2/F2。
+
+| 批次 | 条目 id | 内容 | 前置 |
+|---|---|---|---|
+| GT1 | `game-theory.strategic-form.definition` | 玩家、策略集、收益与战略式博弈 | ST1/L1 |
+| GT1 | `game-theory.best-response.nash` | 最优反应、纯策略 Nash 均衡与优势关系 | GT1 |
+| GT1 | `game-theory.dominance.rationalizability` | 严格／弱占优、迭代删除与可理性化 | GT1 |
+| GT2 | `game-theory.mixed-strategy.simplex` | 有限混合策略、期望收益与支撑 | Pr1/L1 |
+| GT2 | `game-theory.nash-existence.finite` | 有限博弈 Nash 均衡存在定理 | GT2/T2/F2.fixed-point |
+| GT2 | `game-theory.zero-sum.minimax` | 二人零和极小极大、鞍点与线性规划对偶接口 | GT2/L7/F2 |
+| GT3 | `game-theory.extensive-form.history` | 历史树、信息集、行为策略与实现计划 | GT1/ST1 |
+| GT3 | `game-theory.backward-induction` | 完美信息有限博弈的逆向归纳 | GT3 |
+| GT3 | `game-theory.subgame-perfect` | 子博弈精炼与一次偏离原则 | GT3 |
+| GT4 | `game-theory.repeated.discounted` | 折扣重复博弈、策略与收益 | GT3/Series |
+| GT4 | `game-theory.repeated.folk-theorem-entry` | 可行且个体理性收益与 folk theorem 入口 | GT4/GT2 |
+| GT5 | `game-theory.bayesian.type-space` | 类型空间、先验、策略与 Bayesian Nash 均衡 | Pr1/GT2 |
+| GT5 | `game-theory.incomplete-information.harsanyi` | Harsanyi 变换与序贯均衡入口 | GT3/GT5 |
+| GT6 | `game-theory.cooperative.core` | 特征函数博弈、核与平衡性 | GT1/CA |
+| GT6 | `game-theory.cooperative.shapley` | Shapley 值的公理刻画与唯一性 | GT6/L1 |
+| GT7 | `game-theory.bargaining.nash` | Nash 议价解的公理刻画 | GT2/F2 |
+| GT7 | `game-theory.social-choice.gibbard-satterthwaite-entry` | 社会选择、操纵与不可能性入口 | GT1/ST1 |
+| GT8 | `game-theory.mechanism.revelation` | 直接机制、激励相容与揭示原理 | GT5 |
+| GT8 | `game-theory.auction.revenue-equivalence` | 拍卖、支付恒等式与收益等价的一般定理 | GT5/GT8 |
+
+**完成能力节点**：至少贯通 Nash 均衡存在、扩展式精炼、不完全信息、合作解概念和机制设计；只枚举
+有限收益矩阵的均衡是 Examples 工作，不等于博弈论课程完成。
+
 ## 14. 批次纳入节奏（沿用 INGESTION_PROTOCOL）
 
 1. 每批开工：`.lean` 文件头写“本文件当前条目”清单，每条目一个 Entry（docstring 带 `> **Entry**: <id>`）。
@@ -1816,6 +1912,9 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 | 偏微分方程 | Nash, 1958（`nash-pde-continuity-1958`） | PDE1–PDE6、RA-F3–RA-F5、F1–F3 | 一致椭圆／抛物方程弱解的能量估计、迭代不等式与 Hölder 连续性 | `future_paper`；先做标量方程，不能泛化到任意非线性系统 |
 | 局部凸空间／广义泛函分析 | Grothendieck, 1955（`grothendieck-topological-tensor-1955`） | AFA1–AFA6、F1–F4、HA1；完备化与张量泛性质 | 投射／内射拓扑张量积、核型映射定义与首批等价刻画 | `future_paper`；Memoirs 专著按章节拆批，不以一个 nuclearity 谓词代替理论 |
 | 调和分析 | Carleson, 1966（`carleson-fourier-convergence-1966`） | HAna1–HAna5、RA-F3–RA-F6；极大算子与时频分解 | Carleson 算子模型、弱型／`L²` 估计分解及 Fourier 部分和 a.e. 收敛 | `future_paper`；先冻结周期归一化和 maximal truncation，不用 Plancherel 冒充核心估计 |
+| 多复变 | Hörmander, 1965（`hormander-dbar-estimates-1965`） | SCV1–SCV4、R4、AFA5；拟凸域、加权 `L²` 空间与闭算子 | `∂̄` 的先验估计、最小范数解与在拟凸域上的存在性链 | `future_paper`；必须固定权函数正则性和闭值域框架，不以最终 solvability theorem 包装全文 |
+| Riemann 曲面／复几何 | Serre, 1956（`serre-gaga-1956`） | RS1–RS7、AG3–AG7、HA4；解析／代数凝聚层与上同调 | analytification、凝聚层上同调比较及射影情形解析—代数态射对应 | `future_paper`；先限复射影对象，不把一般复解析空间都声称为代数化 |
+| 博弈论 | Nash, 1950（`nash-equilibrium-points-1950`） | GT1–GT2、T2；有限策略概率单纯形与不动点 | 最优反应对应、有限博弈混合策略均衡存在及原文有限维边界 | `future_paper`；具体收益矩阵归 Examples E17，不用单个 Mathlib 固定点调用代替对应构造 |
 | 代数几何 | Deligne–Mumford, 1969（`deligne-mumford-curves-1969`） | AG1–AG10、HA1–HA5；稳定曲线、代数栈与形变 | 稳定曲线族、DM 栈对角线／光滑覆盖、紧化和不可约性证明链 | `future_paper`；只完成模函子或稳定约化均不等于全文完成 |
 | 数理逻辑 | Gödel, 1931（`godel-incompleteness-1931`） | ML1–ML7、ST3；语法编码、递归代入、可证明性谓词 | 对角引理、第一不完备定理、第二不完备定理所需 Hilbert–Bernays 条件 | `future_paper`；一致性、ω-一致性与可靠性假设必须按采用版本区分 |
 

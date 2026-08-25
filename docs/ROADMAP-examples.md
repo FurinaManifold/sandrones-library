@@ -202,11 +202,47 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E13.1 特征标表 | `examples.representation-theory.character-tables` | 循环群、有限阿贝尔群和最小非阿贝尔群的共轭类、不可约特征标与完整表 | 一组类函数满足部分正交关系不等于已经穷尽不可约特征标 | RT3 |
 | E13.2 Deligne–Lusztig 低秩对象 | `examples.representation-theory.deligne-lusztig-low-rank` | 在理论接口完成后实例化最小秩有限 Lie 型群、相应簇作用和虚特征标计算 | 低秩计算不能冒充一般表示分类或上同调迹公式 | landmark RT gate |
 
-## E14 后续学科自动扩展
+## E14 Fourier 与调和分析
 
-概率、统计、泛函分析、微分几何、ODE/PDE、代数拓扑等学科首次进入 main 时，Main 按相同模板在
-本文件新增一个项目组。最低要求仍是“标准对象 + 计算／构造 + 必要反例”，不得只把理论文档中的
-一句例子复制过来。
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E14.1 Fourier 变换 | `examples.harmonic-analysis.fourier-transform` | Gaussian、矩形函数、平移调制缩放及卷积的完整常数计算 | 不同归一化不可混用；`L¹` 反演条件不能静默省略 | HAna1 |
+| E14.2 Fourier 级数核 | `examples.harmonic-analysis.fourier-series` | 方波／锯齿波系数、Dirichlet／Fejér／Poisson 核部分和 | 点态、Cesàro、`L²` 与 a.e. 收敛不得混称 | HAna2 |
+| E14.3 奇异积分 | `examples.harmonic-analysis.singular-integrals` | 截断 Hilbert 变换、极大函数和简单 Calderón–Zygmund 分解 | 主值存在不等于绝对可积；弱型不等于强型 | HAna3–HAna4 |
+| E14.4 频率分解 | `examples.harmonic-analysis.frequency-decomposition` | dyadic 频带、Littlewood–Paley 平方函数和简单乘子 | 有界符号不自动给所有 `Lᵖ` 乘子有界性 | HAna4–HAna5 |
+
+## E15 多复变函数论
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E15.1 多变量全纯 | `examples.several-complex-variables.holomorphic` | 多项式、乘积函数、多圆盘 Cauchy 积分与多重指标导数 | 分别连续／实可微不能替代联合复 Fréchet 可微 | SCV1 |
+| E15.2 Hartogs 与延拓 | `examples.several-complex-variables.hartogs` | 一个 Hartogs 图形上的延拓构造与 Laurent 系数消失 | 一元带孔域直觉不能无条件搬到 `ℂⁿ, n≥2` | SCV2 |
+| E15.3 拟凸与 Levi | `examples.several-complex-variables.pseudoconvex` | 球、多圆盘和一般定义函数的 Levi 形式计算 | 边界实凸与拟凸不是同一概念 | SCV3 |
+| E15.4 解析集 | `examples.several-complex-variables.analytic-sets` | 超曲面正则点、Jacobian 秩及简单奇点 | 零集不可约、光滑、连通三者不能混同 | SCV5 |
+
+## E16 Riemann 曲面
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E16.1 图册与映射 | `examples.riemann-surfaces.atlases` | Riemann 球面、复环面和开子域的图册转移函数 | 拓扑曲面不自动具有指定复结构 | RS1 |
+| E16.2 亚纯函数与除子 | `examples.riemann-surfaces.divisors` | 球面有理函数的零极点、次数和留数总和 | 局部主部数据不自动来自全局亚纯函数 | RS2–RS4 |
+| E16.3 周期与 genus | `examples.riemann-surfaces.periods-genus` | 环面的一阶微分周期、基本环路和 genus 计算 | 同调类相同与道路严格相同不可混称 | RS3/RS6 |
+| E16.4 Riemann–Roch | `examples.riemann-surfaces.riemann-roch` | genus `0/1` 上低次数除子的维数核对 | 几个低 genus 核对不能冒充一般 Riemann–Roch 证明 | RS5 |
+
+## E17 博弈论
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E17.1 战略式均衡 | `examples.game-theory.normal-form` | 囚徒困境、协调、鹰鸽的纯／混合最优反应和均衡 | 占优策略、Nash 均衡与社会最优互不等价 | GT1–GT2 |
+| E17.2 零和与极小极大 | `examples.game-theory.zero-sum` | 匹配硬币和小矩阵博弈的值及最优混合策略 | `max min` 与 `min max` 不因有限性自动相等，需定理条件 | GT2 |
+| E17.3 扩展式博弈 | `examples.game-theory.extensive-form` | 有限博弈树逆向归纳和子博弈完美均衡 | Nash 均衡不自动序贯可信 | GT3 |
+| E17.4 Bayesian 与机制 | `examples.game-theory.bayesian-mechanism` | 两类型 Bayesian 博弈、直接机制和激励约束 | 事后、Bayesian 与占优策略激励相容不得混称 | GT5/GT8 |
+| E17.5 合作解 | `examples.game-theory.cooperative` | 小型特征函数博弈的 core 与 Shapley 值 | core 可为空；Shapley 值不必属于 core | GT6 |
+
+## E18 后续学科自动扩展
+
+后续学科首次进入 main 时，Main 按相同模板在本文件新增项目组。最低要求仍是“标准对象 +
+计算／构造 + 必要反例”，不得只把理论文档中的一句例子复制过来。
 
 ## 建议实施优先级
 
