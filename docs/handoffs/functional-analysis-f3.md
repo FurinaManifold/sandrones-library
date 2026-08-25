@@ -1,9 +1,16 @@
 # F3 Hilbert 空间 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`000abbb`（`git rebase main`）
+- Main 基线：`a1d019e`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f3-design.md`
-- 当前阶段：正交投影已提交；Riesz 表示完成验证，伴随待开发
+- 当前阶段：正交投影与 Riesz 表示均已提交并在新基线上复验；伴随待开发
+
+## Main 基线同步
+
+- 按 `main-a1d019e-sync-notice.md` 在清洁工作树执行 `git rebase main`，七个学科提交无冲突重放。
+- `git merge-base --is-ancestor a1d019e HEAD` 通过；没有恢复或修改 Registry、ROADMAP、RADAR
+  等 Main 共有文件。
+- 同步后重新执行两个模块构建、联合定义链 `#check`、Entry 映射、公理与禁用占位扫描。
 
 ## Riesz 表示窗
 
