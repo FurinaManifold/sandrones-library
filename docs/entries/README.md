@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **385** 个条目（verified 385，pending 0）。
+共 **389** 个条目（verified 389，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -33,9 +33,11 @@
 ## `abstract-algebra.ring`
 
 - ✅ [`def.md`](def.md) — 环、单位、子环与环同态
-- ✅ [`domain.md`](domain.md) — 整环、域与素/极大理想
-- ✅ [`ideal.md`](ideal.md) — 理想与商环
+- ✅ [`domain.md`](domain.md) — 零因子、整环与域
+- ✅ [`ideal.md`](ideal.md) — 理想的定义与基本运算
 - ✅ [`iso.md`](iso.md) — 环同态基本定理
+- ✅ [`prime-ideal.md`](prime-ideal.md) — 素理想、极大理想与商环判据
+- ✅ [`quotient.md`](quotient.md) — 商环及其泛性质
 
 ## `analysis.asymptotic`
 
@@ -551,6 +553,11 @@
 - ✅ [`def.md`](def.md) — 紧致性（有限覆盖）
 - ✅ [`finite.md`](finite.md) — 紧 Hausdorff 的闭紧性
 - ✅ [`tychonoff.md`](tychonoff.md) — Tychonoff 定理
+
+## `topology.foundation`
+
+- ✅ [`constructions.md`](constructions.md) — 诱导拓扑、子空间拓扑与积拓扑
+- ✅ [`structure.md`](structure.md) — 拓扑、连续映射与同胚的库内定义层
 
 ## `topology.metric`
 

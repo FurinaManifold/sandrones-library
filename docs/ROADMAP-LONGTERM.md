@@ -335,9 +335,11 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
 | 1 | `abstract-algebra.ring.def` | 环、交换环、单位、子环与环同态的基本性质 | ✅（本库定义层与实现桥已完成） |
-| 2 | `abstract-algebra.ring.ideal` | 左/右/双边理想、生成理想、理想和积、商环 | 🟡（判定与商环判等已有） |
+| 2 | `abstract-algebra.ring.ideal` | 左/右/双边理想、生成理想与理想和积 | ✅（本库定义层与运算桥已完成） |
+| 2.5 | `abstract-algebra.ring.quotient` | 模双边理想同余、商环、投影、核与泛性质 | ✅（本库商集构造已完成） |
 | 3 | `abstract-algebra.ring.iso` | 环同态第一、第二、第三同构定理与对应定理 | 🟡（第一同构定理已有） |
-| 4 | `abstract-algebra.ring.domain` | 零因子、整环、域、素理想与极大理想、商环判据 | ✅（基础版） |
+| 4 | `abstract-algebra.ring.domain` | 零因子、整环与域的本库公理定义 | ✅（定义层与 Mathlib 桥已完成） |
+| 4.5 | `abstract-algebra.ring.prime-ideal` | 素理想、极大理想及商整环／商域双向判据 | ✅ |
 | 5 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约与素元、最大公因子 | 🔲 |
 | 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | 🔲 |
 | 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | 🔲 |
@@ -401,6 +403,13 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 
 > 依赖顺序固定为“同胚及拓扑不变量 → 道路与同伦 → 同伦等价 → 基本群”。其中 T1
 > 已完成同胚的定义和基本接口；本批次继续发展同胚保持性质，并建立代数拓扑所需结构。
+
+已进入 main 的定义前置层：
+
+| 条目 | 内容 | 状态 |
+|---|---|---|
+| `topology.foundation.structure` | 本库开集公理、闭集、邻域、连续与同胚；Mathlib 仅为显式桥 | ✅ |
+| `topology.foundation.constructions` | 诱导、子空间与积拓扑，包含映射及投影连续 | ✅ |
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|

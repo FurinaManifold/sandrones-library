@@ -3639,13 +3639,13 @@
       "abstract-algebra.poly.def",
       "abstract-algebra.ring.ideal"
     ],
-    "proof_sha": "3cc4ea24381c87fa"
+    "proof_sha": "da90e910e146b486"
   },
   {
     "id": "abstract-algebra.ring.ideal",
     "kind": "theorem",
-    "title": "理想与商环",
-    "summary": "理想判定定理；理想左/右吸收乘法；含单位元理想=全环；商环判等 x-y∈I；环同态核是理想/值域刻画",
+    "title": "理想的定义与基本运算",
+    "summary": "本库左、右、双边理想集合，生成理想、理想和积，以及到 Mathlib Ideal 的具名桥",
     "family": "abstract-algebra.ring",
     "variant": "rotman",
     "premises": [
@@ -3676,15 +3676,17 @@
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [
       "abstract-algebra.ring.domain",
-      "abstract-algebra.ring.iso"
+      "abstract-algebra.ring.iso",
+      "abstract-algebra.ring.quotient",
+      "abstract-algebra.ring.prime-ideal"
     ],
-    "proof_sha": "3cc4ea24381c87fa"
+    "proof_sha": "da90e910e146b486"
   },
   {
     "id": "abstract-algebra.ring.domain",
     "kind": "theorem",
-    "title": "整环、域与素/极大理想",
-    "summary": "整环无零因子；域中非零元可逆；素理想判据；极大理想是素理想；素理想⟹商环整环；R是域⟺零理想极大",
+    "title": "零因子、整环与域",
+    "summary": "本库零因子、无零因子、整环与域公理定义，并提供到 Mathlib IsDomain 和 IsField 的具名桥",
     "family": "abstract-algebra.ring",
     "variant": "rotman",
     "premises": [
@@ -3712,8 +3714,10 @@
     ],
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
-    "dependedOnBy": [],
-    "proof_sha": "3cc4ea24381c87fa"
+    "dependedOnBy": [
+      "abstract-algebra.ring.prime-ideal"
+    ],
+    "proof_sha": "da90e910e146b486"
   },
   {
     "id": "abstract-algebra.ring.iso",
@@ -3743,7 +3747,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "3cc4ea24381c87fa"
+    "proof_sha": "da90e910e146b486"
   },
   {
     "id": "abstract-algebra.poly.def",
@@ -12257,6 +12261,123 @@
     "added_at": "2026-08-25T03:51:40Z",
     "dependedOnBy": [],
     "proof_sha": "c2e7b6951ff33190",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.quotient",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "商环及其泛性质",
+    "summary": "从模双边理想同余构造商环、自然投影、投影核与唯一下降映射",
+    "premises": [
+      "abstract-algebra.ring.ideal"
+    ],
+    "mathlib": [
+      "Quotient"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（商环）"
+    },
+    "lean_file": "AbstractAlgebra/RingQuotient.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/quotient.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "abstract-algebra.ring.prime-ideal"
+    ],
+    "proof_sha": "f8902cd16a276933",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.prime-ideal",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "素理想、极大理想与商环判据",
+    "summary": "以理想集合定义素性与极大性，并证明商整环、商域的双向判据",
+    "premises": [
+      "abstract-algebra.ring.ideal",
+      "abstract-algebra.ring.quotient",
+      "abstract-algebra.ring.domain"
+    ],
+    "mathlib": [
+      "Ideal.IsPrime",
+      "Ideal.IsMaximal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, Ch 1（素理想与极大理想）"
+    },
+    "lean_file": "AbstractAlgebra/RingPrimeIdeal.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/prime-ideal.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "c610bf3b3eb3de32",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.foundation.structure",
+    "kind": "definition",
+    "state": "verified",
+    "title": "拓扑、连续映射与同胚的库内定义层",
+    "summary": "以开集公理定义本库拓扑，并由此定义闭集、邻域、连续映射和同胚，再建立到 Mathlib 的显式桥",
+    "premises": [
+      "settheory.set.ext"
+    ],
+    "mathlib": [
+      "TextbookTopology.toMathlib",
+      "TextbookTopology.continuous_iff_mathlib"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Section 12"
+    },
+    "lean_file": "Topology/Foundation.lean",
+    "nl_file": "docs/entries/topology/foundation/structure.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "topology.foundation.constructions"
+    ],
+    "proof_sha": "289f9ca248f38593",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.foundation.constructions",
+    "kind": "definition",
+    "state": "verified",
+    "title": "诱导拓扑、子空间拓扑与积拓扑",
+    "summary": "从本库开集公理构造诱导、子空间和积拓扑，并证明包含映射及两个投影连续",
+    "premises": [
+      "topology.foundation.structure"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Munkres, Topology, Sections 16 and 19"
+    },
+    "lean_file": "Topology/Constructions.lean",
+    "nl_file": "docs/entries/topology/foundation/constructions.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "4cae6299f02a0aa1",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

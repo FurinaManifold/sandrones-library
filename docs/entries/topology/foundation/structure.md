@@ -6,7 +6,7 @@ kind: definition
 state: verified
 title: 拓扑、连续映射与同胚的库内定义层
 summary: 以开集公理定义本库拓扑，并由此定义闭集、邻域、连续映射和同胚，再建立到 Mathlib 的显式桥
-premises: [settheory.set.extensionality]
+premises: [settheory.set.ext]
 mathlib: [TextbookTopology.toMathlib, TextbookTopology.continuous_iff_mathlib]
 provenance:
   source_type: book

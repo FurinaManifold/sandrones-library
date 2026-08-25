@@ -61,7 +61,11 @@ import SandronesLibrary.Analysis.NormedAlternating
 import SandronesLibrary.AbstractAlgebra.Group
 import SandronesLibrary.AbstractAlgebra.GroupCyclic
 import SandronesLibrary.AbstractAlgebra.Ring
+import SandronesLibrary.AbstractAlgebra.RingQuotient
+import SandronesLibrary.AbstractAlgebra.RingPrimeIdeal
 import SandronesLibrary.AbstractAlgebra.Poly
+import SandronesLibrary.Topology.Foundation
+import SandronesLibrary.Topology.Constructions
 import SandronesLibrary.Topology.Space
 import SandronesLibrary.Topology.Closure
 import SandronesLibrary.Topology.Separation

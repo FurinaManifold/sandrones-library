@@ -1141,6 +1141,12 @@
 - **谁在用**：`abstract-algebra.ring.ideal`。
 - **坑**：`RingHom.ker f` 已是 `Ideal R`（非 Subgroup）；商环投影需 `[I.IsTwoSided]`。
 
+### `Quotient`（本库商环的实现承载）
+- **人话**：本库先用 `TwoSidedIdealSet` 定义模理想同余，再以通用 `Quotient` 承载等价类；
+  加法、乘法、环公理、自然投影、核与泛性质均由本库证明。
+- **谁在用**：`abstract-algebra.ring.quotient`。
+- **边界**：Mathlib `Ideal.Quotient` 不是本条教材定义；它只保留在旧兼容接口中。
+
 ### `IsDomain` / `IsField.mul_inv_cancel` / `Ideal.isPrime_iff` / `Ideal.IsMaximal` / `Ideal.Quotient.isDomain` / `Ring.isField_iff_maximal_bot`
 - **人话**：整环 `IsDomain`（无零因子）；域 `IsField`（非零元可逆）；素理想判据
   `I.IsPrime ↔ I≠⊤ ∧ (x·y∈I → x∈I ∨ y∈I)`；极大 ⟹ 素；素理想 ⟹ 商环整环；**R 是域 ⟺ 零理想极大**。
@@ -1149,6 +1155,18 @@
 - **出处**：`Mathlib/RingTheory/Ideal/Basic.lean`、`Mathlib/RingTheory/Ideal/Quotient/Basic.lean`
 - **谁在用**：`abstract-algebra.ring.domain`。
 - **坑**：`IsField` 是 Prop 不是 typeclass（不能 `[IsField R]` binder）；`isField_iff_maximal_bot` 在 `namespace Ring`。
+
+### `Ideal.IsPrime` / `Ideal.IsMaximal`（素理想与极大理想桥）
+- **人话**：Mathlib 的素性、极大性用于把本库 `PrimeIdealSet`、`MaximalIdealSet` 接到成熟的
+  理想 API；教材主判据及商整环／商域双向定理由本库定义陈述。
+- **谁在用**：`abstract-algebra.ring.prime-ideal`。
+- **边界**：不能把 Mathlib 的单向商环实例冒充本库双向判据。
+
+### `TopologicalSpace` / `Continuous`（本库拓扑的显式桥）
+- **人话**：`TextbookTopology` 由本库开集公理定义；`TextbookTopology.toMathlib` 只在隔离模块
+  中显式构造对应的 Mathlib 拓扑，连续性桥也显式给出两端拓扑。
+- **谁在用**：`topology.foundation.structure`；`topology.foundation.constructions` 不导入桥。
+- **坑**：`toMathlib` 不得注册为实例，否则教材层可能通过类型类搜索误挂靠 Mathlib 定义。
 
 ### `RingHom.quotientKerEquivRange` / `Ideal.Quotient.maximal_of_isField`
 - **人话**：**环版第一同构定理** `R/ker f ≃+* im f`；**商环是域 ⟹ 理想极大**（极大理想 ⟺ 商域的反方向）。
