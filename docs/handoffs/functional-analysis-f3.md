@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`bdc17a6`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f3-design.md`
-- 当前阶段：正交投影与 Riesz 表示已由 Main 集成；伴随与正交规范基／Parseval 完成验证
+- 当前阶段：F3 五窗均完成学科侧开发；伴随、正交规范基／Parseval 与酉算子等待 Main 审核／集成
 
 ## Main 基线同步
 
@@ -51,6 +51,16 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.OrthonormalBasis`：8714 jobs 通过；警告只来自既有依赖。
 - 聚合 `#check` 覆盖 `HilbertBasis`、`repr`、系数刻画、级数重构、Parseval 与四个公开声明；
   Entry 精确映射为四个声明。
+- 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 酉算子窗口
+
+- 正式承载选用 `LinearIsometryEquiv ℝ E F`，直接打包线性、等距与双射；不建立本地酉算子结构。
+- 同空间的 `unitary (E →L[ℝ] E)` 只作为 Mathlib 已有等价视角披露，不复制为第二套课程定义。
+- 教材展开覆盖内积保持、范数保持、伴随等于逆和复合稳定性。
+- `lake build SandronesLibrary.FunctionalAnalysis.UnitaryOperator`：8715 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖正式承载、伴随等于逆接口和四个公开声明；Entry 精确映射为四个声明。
 - 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
