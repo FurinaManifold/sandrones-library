@@ -39,6 +39,21 @@ structure PolynomialSequence (R : Type*) [Zero R] where
 def coefficient {R : Type*} [Zero R] (p : PolynomialSequence R) (n : ℕ) : R :=
   p.coefficients n
 
+/-- **系数支撑**：本库多项式所有非零系数指标组成的有限集。
+> **Entry**: abstract-algebra.poly.def
+-/
+noncomputable def coefficientSupport {R : Type*} [Zero R]
+    (p : PolynomialSequence R) : Finset ℕ :=
+  p.finiteSupport.toFinset
+
+/-- 指标属于系数支撑，当且仅当该项系数非零。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem mem_coefficientSupport_iff {R : Type*} [Zero R]
+    (p : PolynomialSequence R) (n : ℕ) :
+    n ∈ coefficientSupport p ↔ coefficient p n ≠ 0 := by
+  simp [coefficientSupport, coefficient]
+
 /-- **多项式外延性**：每一项系数都相同的两个本库多项式相等。
 > **Entry**: abstract-algebra.poly.def
 -/
@@ -93,6 +108,16 @@ theorem coefficient_fromMathlibPolynomial {R : Type*} [Semiring R]
     (p : Polynomial R) (n : ℕ) :
     coefficient (fromMathlibPolynomial p) n = p.coeff n := by
   rfl
+
+/-- 本库系数支撑经过具名桥后，正好等于 Mathlib 多项式的支撑。这是实现桥，不是教材定义。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem coefficientSupport_eq_mathlib_support {R : Type*} [Semiring R]
+    (p : PolynomialSequence R) :
+    coefficientSupport p = (toMathlibPolynomial p).support := by
+  ext n
+  rw [mem_coefficientSupport_iff, Polynomial.mem_support_iff,
+    coefficient_toMathlibPolynomial]
 
 /-- 两个具名桥在“Mathlib → 本库 → Mathlib”方向互为逆映射。
 > **Entry**: abstract-algebra.poly.def
@@ -285,6 +310,41 @@ noncomputable def evaluate {R : Type*} [CommRing R]
 def IsRoot {R : Type*} [CommRing R] (p : PolynomialSequence R) (a : R) : Prop :=
   evaluate a p = 0
 
+/-- **求值的教材有限和公式**：只在本库非零系数支撑上求和，因此该和确实有限。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem evaluate_eq_coefficientSupport_sum {R : Type*} [CommRing R]
+    (a : R) (p : PolynomialSequence R) :
+    evaluate a p = ∑ n ∈ coefficientSupport p, coefficient p n * a ^ n := by
+  rw [evaluate]
+  change (toMathlibPolynomial p).eval a = _
+  rw [Polynomial.eval_eq_sum, Polynomial.sum_def, coefficientSupport_eq_mathlib_support]
+  simp only [coefficient_toMathlibPolynomial]
+
+/-- 求值与具名 Mathlib 桥后的 `eval` 一致；该定理明确隔离证明后端。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem evaluate_eq_mathlib_eval {R : Type*} [CommRing R]
+    (a : R) (p : PolynomialSequence R) :
+    evaluate a p = (toMathlibPolynomial p).eval a := by
+  rfl
+
+/-- 根的教材有限和判据。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem isRoot_iff_coefficientSupport_sum_eq_zero {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (a : R) :
+    IsRoot p a ↔ (∑ n ∈ coefficientSupport p, coefficient p n * a ^ n) = 0 := by
+  rw [IsRoot, evaluate_eq_coefficientSupport_sum]
+
+/-- 本库根谓词与具名 Mathlib 桥后的根谓词等价。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem isRoot_iff_mathlib_isRoot {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (a : R) :
+    IsRoot p a ↔ (toMathlibPolynomial p).IsRoot a := by
+  rw [IsRoot, Polynomial.IsRoot, evaluate_eq_mathlib_eval]
+
 /-- 零多项式的每一项系数均为零。
 > **Entry**: abstract-algebra.poly.def
 -/
@@ -361,6 +421,88 @@ theorem degree_zero {R : Type*} [CommRing R] :
     degree (0 : PolynomialSequence R) = ⊥ := by
   rw [degree, transportedDegree, toMathlib_zero, Polynomial.degree_zero]
 
+/-- 次数与具名 Mathlib 桥后的次数一致；这是后端桥，教材刻画由后续系数定理给出。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem degree_eq_mathlib_degree {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) :
+    degree p = (toMathlibPolynomial p).degree := by
+  rfl
+
+/-- 多项式次数为 `⊥`，当且仅当所有本库系数都为零。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem degree_eq_bot_iff_coefficients_zero {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) :
+    degree p = ⊥ ↔ ∀ n : ℕ, coefficient p n = 0 := by
+  constructor
+  · intro h n
+    rw [← coefficient_toMathlibPolynomial]
+    apply Polynomial.coeff_eq_zero_of_degree_lt
+    rw [← degree_eq_mathlib_degree]
+    exact h ▸ WithBot.bot_lt_coe n
+  · intro h
+    have hp : p = 0 := ext h
+    exact hp ▸ degree_zero
+
+/-- 严格高于次数的每一项系数都为零。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem coefficient_eq_zero_of_degree_lt {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (n : ℕ)
+    (h : degree p < (n : WithBot ℕ)) :
+    coefficient p n = 0 := by
+  rw [← coefficient_toMathlibPolynomial]
+  exact Polynomial.coeff_eq_zero_of_degree_lt
+    (degree_eq_mathlib_degree p ▸ h)
+
+/-- 若次数是有限值 `n`，则最高次项系数非零。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem coefficient_ne_zero_of_degree_eq {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (n : ℕ)
+    (h : degree p = (n : WithBot ℕ)) :
+    coefficient p n ≠ 0 := by
+  rw [← coefficient_toMathlibPolynomial]
+  exact Polynomial.coeff_ne_zero_of_eq_degree
+    (degree_eq_mathlib_degree p ▸ h)
+
+/-- **次数的系数刻画**：`degree p = n` 当且仅当第 `n` 项非零而所有更高项为零。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem degree_eq_nat_iff {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (n : ℕ) :
+    degree p = (n : WithBot ℕ) ↔
+      coefficient p n ≠ 0 ∧ ∀ m : ℕ, n < m → coefficient p m = 0 := by
+  rw [degree_eq_mathlib_degree]
+  constructor
+  · intro h
+    constructor
+    · rw [← coefficient_toMathlibPolynomial]
+      exact Polynomial.coeff_ne_zero_of_eq_degree h
+    · intro m hnm
+      rw [← coefficient_toMathlibPolynomial]
+      exact Polynomial.coeff_eq_zero_of_degree_lt (h ▸ WithBot.coe_lt_coe.mpr hnm)
+  · rintro ⟨hn, habove⟩
+    apply le_antisymm
+    · exact (Polynomial.degree_le_iff_coeff_zero _ _).2 fun m hnm => by
+        rw [coefficient_toMathlibPolynomial]
+        exact habove m (WithBot.coe_lt_coe.mp hnm)
+    · apply Polynomial.le_degree_of_ne_zero
+      rwa [coefficient_toMathlibPolynomial]
+
+/-- 满足“最高非零项”刻画的次数指标是唯一的。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem degree_index_unique {R : Type*} [CommRing R]
+    (p : PolynomialSequence R) (m n : ℕ)
+    (hm : coefficient p m ≠ 0 ∧ ∀ k : ℕ, m < k → coefficient p k = 0)
+    (hn : coefficient p n ≠ 0 ∧ ∀ k : ℕ, n < k → coefficient p k = 0) :
+    m = n := by
+  have hdm := (degree_eq_nat_iff p m).2 hm
+  have hdn := (degree_eq_nat_iff p n).2 hn
+  exact WithBot.coe_eq_coe.mp (hdm.symm.trans hdn)
+
 /-- 零多项式在任意元素处求值都为零。
 > **Entry**: abstract-algebra.poly.def
 -/
@@ -421,10 +563,11 @@ theorem divides_X_sub_constant_iff_root {R : Type*} [CommRing R]
     rw [toMathlib_mul, hfactor] at hm
     have hdvd : Polynomial.X - Polynomial.C a ∣ toMathlibPolynomial p := ⟨_, hm⟩
     have hr := (Polynomial.dvd_iff_isRoot (p := toMathlibPolynomial p) (a := a)).mp hdvd
-    exact hr
+    exact (isRoot_iff_mathlib_isRoot p a).2 hr
   · intro hr
+    have hr' := (isRoot_iff_mathlib_isRoot p a).1 hr
     have hdvd : Polynomial.X - Polynomial.C a ∣ toMathlibPolynomial p :=
-      (Polynomial.dvd_iff_isRoot (p := toMathlibPolynomial p) (a := a)).mpr hr
+      (Polynomial.dvd_iff_isRoot (p := toMathlibPolynomial p) (a := a)).mpr hr'
     obtain ⟨q, hq⟩ := hdvd
     refine ⟨fromMathlibPolynomial q, ?_⟩
     apply toMathlib_injective

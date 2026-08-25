@@ -28,5 +28,9 @@
 
 - `/tmp` 框架先组装因式定理与整环性，最终无 `sorry` 且单文件编译无输出。
 - `lake build SandronesLibrary.AbstractAlgebra.PolynomialDefinition`：8708 jobs，无 warning。
+- Main R1 已补 `degree_eq_bot_iff_coefficients_zero`、次数以上系数为零、最高项非零及
+  `degree_eq_nat_iff` 唯一刻画，并用 `degree_eq_mathlib_degree` 隔离后端。
+- Main R2 已补 `coefficientSupport`、`evaluate_eq_coefficientSupport_sum`、根的有限和判据和
+  `evaluate_eq_mathlib_eval`；因式定理已显式调用 `isRoot_iff_mathlib_isRoot`。
 - 公开主结论不含 `Module`、`Submodule` 或 `Algebra`。
 - A3.2–A3.4 的除法、不可约、唯一分解和重数仍未迁移；旧接口仅兼容，不算这些项目完成。

@@ -36,6 +36,9 @@ Cauchy 卷积。次数是最高非零项的位置，零多项式的次数记为 
 - `coefficient`、`ext`：系数与外延性。
 - `toMathlibPolynomial`、`fromMathlibPolynomial`：具名双向实现桥。
 - `constant`、`X`、`degree`、`evaluate`、`IsRoot`：教材基本运算与性质。
+- `degree_eq_nat_iff`：次数等于 `n` 当且仅当第 `n` 项非零且更高项全为零。
+- `evaluate_eq_coefficientSupport_sum`：求值等于非零系数支撑上的有限幂和。
+- `degree_eq_mathlib_degree`、`evaluate_eq_mathlib_eval`：方向明确的具名后端桥。
 - `coefficient_mul`：乘法系数的有限卷积公式。
 - `evaluate_ringHomomorphism`：求值保持环运算。
 - `divides_X_sub_constant_iff_root`：因式定理。
@@ -43,9 +46,10 @@ Cauchy 卷积。次数是最高非零项的位置，零多项式的次数记为 
 
 # 思维脉络（thinking trace）
 
-定义层使用函数及有限支撑证明，确保多项式概念不等同于 Mathlib 名称。为了复用成熟的卷积和
+定义层使用函数及有限支撑证明，确保多项式概念不等同于 Mathlib 名称。次数通过“最高项非零且
+更高项全零”唯一刻画，求值公开展开为系数支撑上的有限和。为了复用成熟的卷积和
 次数实现，构造到 Mathlib `Polynomial` 的双向桥并证明互逆；环运算通过这对桥私下传输，再用
-系数公式把其教材含义公开。因式定理先在具名桥另一侧调用标准结果，再把整除见证搬回本库类型。
+系数公式把其教材含义公开。因式定理显式经过本库根谓词与具名根桥，再把整除见证搬回本库类型。
 整环性同样把乘积为零送过单射桥，使用底层整环消去后返回。
 
 # 自然语言 ↔ Lean 映射
