@@ -22,8 +22,9 @@ Sandrone's Library 以 [mathlib4](https://github.com/leanprover-community/mathli
 - **439** 个 verified 非兼容桥条目进入依赖排行。
 - 最近 Main 全库验收为 **8926 jobs** 构建通过。
 
-阶段状态会持续变化；权威摘要只看
-[`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) §1，不从本页的日期快照推测新批次是否已解锁。
+阶段状态会持续变化；课程进度、学科路线和依赖门只在
+[`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) 维护，不从 README、Playbook 或历史 handoff
+推测新批次是否已解锁。Examples 的覆盖巡视另在专项账本维护。
 
 ## 快速开始
 
@@ -120,9 +121,9 @@ scripts/                        生成、审计和脚手架工具
 
 | 文档 | 用途 |
 |---|---|
-| [`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) | 全库阶段状态、依赖门和长期课程蓝图 |
+| [`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) | 课程进度、学科路线、阶段状态和依赖门的唯一事实源 |
 | [`docs/ROADMAP-examples.md`](docs/ROADMAP-examples.md) | 计算例、正例和反例覆盖账本 |
-| [`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md) | 证明工作流、Mathlib 复用规则和多 Codex 协作协议 |
+| [`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md) | 跨学科证明工作流、Mathlib 复用规则和多 Codex 协作协议（不保存课程规划） |
 | [`docs/INGESTION_PROTOCOL.md`](docs/INGESTION_PROTOCOL.md) | 新 Entry 的纳入流程 |
 | [`docs/SCHEMA.md`](docs/SCHEMA.md) | Registry 和课程文档字段契约 |
 | [`docs/MATHLIB-RADAR.md`](docs/MATHLIB-RADAR.md) | 重要 Mathlib API 的人话说明和使用者 |

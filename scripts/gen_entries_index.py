@@ -2,7 +2,7 @@
 """Sandrone's Library — 自动生成 docs/entries/README.md 索引。
 
 从 index/registry.json 读取条目，按家族（entry-id 去掉最后一段）分组，
-列出每条目的叙述层路径与状态。未注册的计划条目见 ROADMAP-math-analysis.md。
+列出每条目的叙述层路径与状态。未注册的课程计划见 ROADMAP-LONGTERM.md。
 
 用法:
     python3 scripts/gen_entries_index.py [--out docs/entries/README.md]
@@ -53,11 +53,11 @@ def main() -> None:
         lines.append(f"## `{family}`")
         lines.append("")
         for r in sorted(groups[family], key=lambda x: x["id"]):
-            rel = Path(r["nl_file"]).name
-            href = f"{r['id'].rsplit('.', 1)[-1]}.md"
-            lines.append(f"- {MARK.get(r['state'], '❓')} [`{rel}`]({'_'.join(href.split('_'))}) — {r['title']}")
+            nl_path = Path(r["nl_file"])
+            rel = nl_path.relative_to("docs/entries")
+            lines.append(f"- {MARK.get(r['state'], '❓')} [`{nl_path.name}`]({rel.as_posix()}) — {r['title']}")
         lines.append("")
-    lines.append("> 未注册的计划条目见 `docs/ROADMAP-math-analysis.md`。")
+    lines.append("> 未注册的课程计划见 `docs/ROADMAP-LONGTERM.md`；计算例与反例专项见 `docs/ROADMAP-examples.md`。")
     lines.append("")
 
     out = Path(args.out)

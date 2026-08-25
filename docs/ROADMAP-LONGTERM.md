@@ -1,7 +1,7 @@
 # Sandrone's Library — 长远批次规划（数学大厦扩展蓝图）
 
-> **定位**：本文件是 `ROADMAP-math-analysis.md` 的**超集**。那份文档管"数学分析（分析线）"
-> 的章节蓝图；这份文档管**全库学科前后顺序**，并把每一门课拆成**批次**，每批拆到
+> **定位**：本文件是全库课程进度、学科先后顺序与批次规划的**唯一事实源**。除跨学科计算例与
+> 反例专项账本 `ROADMAP-examples.md` 外，不再用第二份 ROADMAP 保存某门课程的章节蓝图。本文件把每一门课拆成
 > **具体定理条目**（粒度 = 现在"第四章第一批：函数极限基础 13 条"那么细致）。
 >
 > 每批都沿着 `INGESTION_PROTOCOL.md` 和 `LEAN-PLAYBOOK.md` 走：`.lean` 文件头列条目清单 →
@@ -27,11 +27,11 @@
 
 | 阶段 | 课程（家族前缀） | 批次 | 前驱 |
 |---|---|---|---|
-| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 | — |
+| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 AN-MV🚧 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
-| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
+| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F3✅ F4🚧 F5-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
@@ -208,18 +208,48 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 
 ### AN3 / Analysis 第三学期 🔒
 
-主参照为卓里奇《数学分析》第二卷第 16--18 章：一致收敛与函数族的基本分析运算、含参变量积分、
-傅里叶级数与傅里叶变换。课程顺序固定为：
+主参照为卓里奇《数学分析》第二卷第 16--18 章。它承接一元分析和多元微积分，终点是 Fourier
+变换初步；Folland 现代实分析路线另见 §6，不占用 AN3 编号。
 
-1. 函数列、函数项级数和函数族的一致／局部一致收敛；
-2. 极限与连续、积分、微分交换的精确条件；
-3. 含参正常积分与广义积分的连续性、积分号下求导及卷积入口；
-4. 正交函数系、三角 Fourier 级数、Dirichlet 核、逐点收敛、系数衰减与完备性；
-5. Fourier 积分表示和 Fourier 变换的初步运算性质。
+| 批次 | 条目家族 | 内容 | 前置／完成出口 |
+|---|---|---|---|
+| AN3-1 | `analysis.function-sequence.uniform-convergence` | 函数列／函数项级数的一致收敛、Cauchy 判据、Weierstrass M 判别法 | 教材定义、点态关系和一致 Cauchy 等价齐全 |
+| AN3-2 | `analysis.function-sequence.limit-operations` | 一致极限保持连续；极限与积分交换 | AN3-1；给出假设精确的交换次序定理 |
+| AN3-3 | `analysis.function-sequence.derivative-exchange` | 导函数列一致收敛时逐项求导及必要基点条件 | AN3-1；不把函数列本身一致收敛误当充分条件 |
+| AN3-4 | `analysis.function-family.uniform` | 带参数函数族的一致、局部一致与正规收敛 | 为含参积分和 Fourier 级数冻结统一接口 |
+| AN3-5 | `analysis.parameter-integral.continuity` | 正常积分的参数连续性与一致连续控制 | AN3-2、AN3-4 |
+| AN3-6 | `analysis.parameter-integral.differentiation` | 积分号下求导及支配／一致控制条件 | AN3-3、AN3-5 |
+| AN3-7 | `analysis.parameter-integral.improper` | 广义含参积分的一致收敛、连续性及求导 | AN3-4--AN3-6 |
+| AN3-8 | `analysis.parameter-integral.examples` | Gamma/Beta 型积分和参数技巧的理论接口 | AN3-6、AN3-7；数值题放 Examples |
+| AN3-9 | `analysis.convolution.intro` | 卷积的定义、基本运算及与含参积分的关系 | AN3-5--AN3-7 |
+| AN3-10 | `analysis.fourier-series.orthogonal-system` | 正交函数系、Fourier 系数／级数与 Bessel 不等式 | AN3-1；积分内积 |
+| AN3-11 | `analysis.fourier-series.trigonometric` | 三角 Fourier 系数、部分和与 Dirichlet 核 | AN3-10；三角恒等式 |
+| AN3-12 | `analysis.fourier-series.pointwise-convergence` | Dirichlet/Jordan 型逐点收敛，跳跃点取左右极限平均 | AN3-7、AN3-11 |
+| AN3-13 | `analysis.fourier-series.smoothness-decay` | 光滑性与 Fourier 系数衰减、逐项微分边界 | AN3-3、AN3-12 |
+| AN3-14 | `analysis.fourier-series.completeness` | 三角系完备性、Parseval 等式与均方收敛 | AN3-10--AN3-13 |
+| AN3-15 | `analysis.fourier-transform.intro` | Fourier 积分表示、变换定义及微分／平移／缩放／卷积性质 | AN3-6、AN3-9、AN3-12--AN3-14 |
 
-详细的 AN3-1--AN3-15 批次、完成出口及课程边界见 `ROADMAP-math-analysis.md`。傅里叶级数是
-AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz／分布和奇异积分仍留给
-`harmonic-analysis.*`。
+AN3-10--AN3-14 是第三学期正文，不得整体后移到调和分析。AN3-15 只做到卓里奇第 18 章意义下的
+Fourier 变换初步，须明确归一化、积分存在和反演正则性条件；`L²(ℝⁿ)` Plancherel 延拓、Schwartz
+空间、温和分布、Poisson 求和、奇异积分和局部紧群 Fourier 理论仍归 `harmonic-analysis.*`。
+
+### AN-MV 多元微积分收尾 🚧
+
+原旧路线曾误称“实分析 R6”；现统一归回数学分析路线。已完成 Fréchet 微分、梯度/Jacobian、
+Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、坐标积分、曲线曲面参数化及第一型
+积分。剩余课程出口为：
+
+| # | 条目 id | 内容 | 主要接口 |
+|---|---|---|---|
+| 1 | `analysis.forms.coordinate-expression` | 1/2/3-形式显式坐标表达 | 本库 `DifferentialForm` |
+| 2 | `analysis.forms.leibniz` | 外微分对楔积的分次 Leibniz 公式 | 外微分/楔积接口 |
+| 3 | `analysis.forms.poincare` | 星形域上的 Poincaré 引理 | 同伦算子与积分 |
+| 4 | `analysis.stokes.domain-gluing` | 参数片拼成一般分片光滑区域 | 已有三大公式片接口 |
+| 5 | `analysis.coordinate-integrals.mass-center` | 质量、重心、转动惯量理论接口 | 坐标换元 API；计算题归 Examples |
+| 6 | `analysis.multivariable.course-boundary` | 分析 II 覆盖范围与 de Rham 边界 | 本库多元分析 API |
+
+边界：本路线只到欧氏空间上的第二型积分、Green--Gauss--Stokes 与 Poincaré 型结论；de Rham
+上同调、同伦不变性和 de Rham 定理归微分几何／代数拓扑。
 
 ---
 
@@ -477,38 +507,40 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 
 ---
 
-## 6. Phase 5 — 实分析（R1-R6）
+## 6. Phase 5 — 实分析（R1-R4；Folland RA-F1–RA-F6）
 
-状态只以 §1 总览和本节表格为准。R1-R4 与 Riemann 桥已进入 main；以下只展开仍缺的课程入口。
+默认教材为 Gerald B. Folland, *Real Analysis: Modern Techniques and Their Applications*,
+Second Edition。来源须精确到章／节或定理主题。R1-R4 与 Riemann 桥已进入 main；后续现代实分析
+统一采用 RA-F 编号。多元微积分属于 §2 的 AN-MV，不再占用实分析编号。
 
-### R1-R4 与 R5.5 已完成主线 ✅
+### R1-R4 与 Riemann–Lebesgue 桥已完成主线 ✅
 
 测度、可测函数、Lebesgue 积分、三大收敛定理、乘积测度、Fubini/Tonelli、Lᵖ，以及本库
 Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均已登记。
 
-### R5 微分定理桥 🚧
+### Folland 后续路线 RA-F1–RA-F6 🚧
 
-| # | 条目 id | 内容 | 主要 Mathlib 接口 |
+现有正测度、可测函数、Lebesgue 积分、收敛定理、乘积测度、Fubini--Tonelli 与 `Lᵖ` 主线，不能
+代替测度微分所需的有符号／复测度与 Radon--Nikodym 前置。批次顺序和出口如下：
+
+| 批次 | 教材内容 | 开工门 | 完成出口 |
 |---|---|---|---|
-| 1 | `real-analysis.differentiation.maximal-function` | Hardy–Littlewood 极大函数与弱型估计 | 球平均/覆盖接口 |
-| 2 | `real-analysis.differentiation.lebesgue-points` | Lebesgue 点及几乎处处存在 | `ae_lebesguePoint` 系 |
-| 3 | `real-analysis.differentiation.theorem` | Lebesgue 微分定理 | integral average |
-| 4 | `real-analysis.ftc.absolute-continuity` | 绝对连续函数与积分表示 | `AbsolutelyContinuousOn` |
-| 5 | `real-analysis.ftc.ae-derivative` | a.e. 导数的 Newton–Leibniz 形式 | interval integral FTC |
-| 6 | `real-analysis.riemann.lebesgue-bridge-summary` | 两套积分接口的课程总桥 | 本库 R5.5 API |
+| RA-F1 | 有符号测度、Jordan 分解、正负／全变差、复测度 | 正测度与积分主线已验收 | 四类概念均有正式承载、教材解释、展开性质和必要桥 |
+| RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | RN 存在唯一性、由密度构造测度、积分换测度及链式／互逆边界 |
+| RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口冻结 | 极大函数教材定义、弱型估计和可测性边界 |
+| RA-F4 | Lebesgue 点与 Lebesgue 微分定理 | RA-F3 | 平均算子、Lebesgue 点定义、a.e. 定理和具名桥 |
+| RA-F5 | 单调函数、有界变差与绝对连续函数 | RA-F2；一维测度接口验收 | BV/AC 定义、分解性质与 a.e. 导数 |
+| RA-F6 | FTC 的 a.e. 版本与 Newton--Leibniz 表示 | RA-F4、RA-F5 | 积分表示双向定理及与既有 Riemann/FTC 接口的总桥 |
 
-### R6 多元微积分收尾 🚧
+Mathlib 的 `SignedMeasure`、`ComplexMeasure`、`Measure.AbsolutelyContinuous`、`rnDeriv` 等接口
+语义一致时应直接复用，但必须解释教材定义、量词、假设、展开性质和真实下游；语义不一致时才自建
+谓词或结构及具名桥。RA-F3/RA-F4 不得只包装 `ae_lebesguePoint` 或最终微分强定理：应保留覆盖／
+弱型估计、简单函数或 `L¹` 逼近、坏集测度控制以及通向 a.e. 结论的证明骨架；做不到时诚实登记为
+foundation/bridge，不能宣称整条 Folland 定理已经完成。
 
-| # | 条目 id | 内容 | 主要接口 |
-|---|---|---|---|
-| 1 | `analysis.forms.coordinate-expression` | 1/2/3-形式显式坐标表达 | 本库 `DifferentialForm` |
-| 2 | `analysis.forms.leibniz` | 外微分对楔积的分次 Leibniz 公式 | 外微分/楔积接口 |
-| 3 | `analysis.forms.poincare` | 星形域上的 Poincaré 引理 | 同伦算子与积分 |
-| 4 | `analysis.stokes.domain-gluing` | 参数片拼成一般分片光滑区域 | 已有三大公式片接口 |
-| 5 | `analysis.coordinate-integrals.mass-center` | 质量、重心、转动惯量例题 | 坐标换元 API |
-| 6 | `analysis.multivariable.course-boundary` | 分析 II 覆盖范围与 de Rham 边界 | 本库 R6 API |
-
-边界：R6 不定义 de Rham 上同调；闭形式模恰当形式的商空间归入 X5。
+本路线交付证据须明确：正／有符号／复测度类型、标量、有限性或 σ-有限性、`a.e.` 所依赖的测度、
+积分类型（`lintegral`／Bochner／区间积分）以及等式是处处、a.e. 还是测度相等。自然语言不得把
+a.e. 结论写成逐点结论。
 
 ## 7. Phase 6 — 复分析（C0-C3）
 
@@ -610,6 +642,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 > 紧自伴算子谱定理属于 Salamon Chapter 5，移至 F6；F3 只建立后续谱理论真正需要的 Hilbert
 > 空间语言，不提前声称已完成紧算子理论。
+
+本课程复用 Mathlib 时须按对象层级分别解释 `ContinuousLinearMap`、弱／弱星拓扑、紧／Fredholm
+算子、谱、投影值测度、稠密定义域算子和 `C₀` 半群的数据、量词与 topology/typeclass 假设，尤其
+不得混称 Banach 对偶与 Hilbert 伴随、有界与无界算子、自伴与对称、强与弱收敛。若只能调用最终
+强定理而不能交付章节的定义、关键展开和真实下游，应标为 foundation/bridge。handoff 还须明确
+标量域、完备性、可分／自反条件、算子类别、拓扑和收敛方式。
 
 ### F4 弱拓扑、弱星拓扑与弱紧性 🚧（Salamon Chapter 3；依赖 F2/T1/T2）
 
@@ -1004,12 +1042,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 ### 13.5 微分流形（DM1–DM5）🔒
 
-> 家族前缀 `differential-manifolds.*`。课程门：R6、T1–T4、L5；只负责光滑流形的语言、
+> 家族前缀 `differential-manifolds.*`。课程门：AN-MV、T1–T4、L5；只负责光滑流形的语言、
 > 切丛、形式与积分，不把微分拓扑或黎曼度量混入“流形基础”。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| DM1 | `differential-manifolds.manifold.definition` | 拓扑流形、图册与光滑结构 | R6/T4 |
+| DM1 | `differential-manifolds.manifold.definition` | 拓扑流形、图册与光滑结构 | AN-MV/T4 |
 | DM1 | `differential-manifolds.smooth-map` | 光滑映射、微分与链式法则 | DM1 |
 | DM1 | `differential-manifolds.product-submanifold` | 乘积流形、子流形与边界 | DM1 |
 | DM1 | `differential-manifolds.partition-of-unity` | bump 函数与单位分解 | DM1/T2 |
@@ -1036,7 +1074,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| DT1 | `differential-topology.rank-theorem` | 常秩、逆函数与隐函数定理 | DM2/R6 |
+| DT1 | `differential-topology.rank-theorem` | 常秩、逆函数与隐函数定理 | DM2/AN-MV |
 | DT1 | `differential-topology.immersion-submersion` | 浸入、浸没、嵌入的局部标准形 | DT1 |
 | DT1 | `differential-topology.regular-value` | 正则值定理与水平集子流形 | DT1 |
 | DT1 | `differential-topology.sard` | Sard 定理 | DT1/R4 |
@@ -1072,7 +1110,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | RG3 | `riemannian-geometry.geodesic` | 测地线方程与指数映射 | RG2/ODE |
 | RG3 | `riemannian-geometry.gauss-lemma` | Gauss 引理与法坐标 | RG3 |
 | RG3 | `riemannian-geometry.hopf-rinow` | Hopf–Rinow 完备性等价 | RG3/T3 |
-| RG3 | `riemannian-geometry.first-variation` | 第一变分与测地线极值性 | RG3/R6 |
+| RG3 | `riemannian-geometry.first-variation` | 第一变分与测地线极值性 | RG3/AN-MV |
 | RG4 | `riemannian-geometry.curvature.riemann` | 曲率张量、截面曲率与恒等式 | RG2 |
 | RG4 | `riemannian-geometry.curvature.ricci-scalar` | Ricci、标量曲率与曲率算子 | RG4 |
 | RG4 | `riemannian-geometry.jacobi-field` | Jacobi 场、共轭点与第二变分 | RG3/RG4 |
@@ -1122,20 +1160,20 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 ### 13.9 常微分方程（ODE1–ODE6）🔒
 
-> 家族前缀 `ode.*`。课程门：M4–M5、R6、L2、T3。
+> 家族前缀 `ode.*`。课程门：M4–M5、AN-MV、L2、T3。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| ODE1 | `ode.initial-value.problem` | 初值问题、经典解与最大解 | R6 |
-| ODE1 | `ode.picard-lindelof` | Picard–Lindelöf 存在唯一性 | R6/T3 |
-| ODE1 | `ode.peano-existence` | Peano 存在定理 | R6 |
+| ODE1 | `ode.initial-value.problem` | 初值问题、经典解与最大解 | AN-MV |
+| ODE1 | `ode.picard-lindelof` | Picard–Lindelöf 存在唯一性 | AN-MV/T3 |
+| ODE1 | `ode.peano-existence` | Peano 存在定理 | AN-MV |
 | ODE1 | `ode.continuous-dependence` | 对初值和参数连续依赖 | ODE1 |
 | ODE2 | `ode.flow.semigroup` | 流、逃逸时间与延拓准则 | ODE1 |
 | ODE2 | `ode.gronwall` | Grönwall 不等式及稳定性应用 | R4 |
 | ODE2 | `ode.variation-of-constants` | 常数变易公式 | L2/ODE1 |
 | ODE2 | `ode.linear.fundamental-matrix` | 基本矩阵、Wronskian 与 Liouville 公式 | L2 |
 | ODE3 | `ode.linear.constant-coefficients` | 常系数系统与矩阵指数 | L4 |
-| ODE3 | `ode.sturm-liouville` | Sturm 比较、振荡与边值问题 | R5/F3 |
+| ODE3 | `ode.sturm-liouville` | Sturm 比较、振荡与边值问题 | RA-F5/F3 |
 | ODE4 | `ode.phase-plane` | 平衡点、线性化与相图 | ODE2/L4 |
 | ODE4 | `ode.lyapunov.stability` | Lyapunov 稳定性与不变集原理 | ODE2 |
 | ODE4 | `ode.stable-manifold` | 稳定/不稳定流形定理 | ODE2/AFA |
@@ -1151,7 +1189,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 > 家族前缀 `pde.*`。默认教材固定为 Lawrence C. Evans, *Partial Differential Equations*,
 > Second Edition, AMS GSM 19（2010）。课程顺序保持教材的三部结构：表示公式（Chapters 2–4）、
-> 线性 PDE 理论（Chapters 5–7）、非线性 PDE 理论（Chapters 8–12）。课程门：多元分析、R4–R6、
+> 线性 PDE 理论（Chapters 5–7）、非线性 PDE 理论（Chapters 8–12）。课程门：AN-MV、R4、
 > ODE1–ODE2；Sobolev 以后另需 F1–F3。AFA5 分布和 F8 半群可作为后续桥，但不是跳过 Evans
 > 经典表示公式、能量估计与弱解施工的捷径。
 
@@ -1252,7 +1290,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | # | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| 1 | `pde.hamilton-jacobi.hopf-lax` | Hopf–Lax 公式、半群性质与经典解失效 | PDE2/R6 |
+| 1 | `pde.hamilton-jacobi.hopf-lax` | Hopf–Lax 公式、半群性质与经典解失效 | PDE2/AN-MV |
 | 2 | `pde.viscosity.definition` | 上／下测试函数、黏性次解／上解 | PDE2/PDE9.1 |
 | 3 | `pde.viscosity.stability` | 局部一致极限下稳定性 | PDE9.2 |
 | 4 | `pde.viscosity.comparison` | doubling variables、比较原理与唯一性 | PDE9.2 |
@@ -1288,7 +1326,11 @@ Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
 > 家族前缀 `advanced-functional-analysis.*`。本课程研究不能由单个范数良好控制的拓扑向量空间，
 > 主线是“半范数族 → 局部凸空间 → Fréchet／LF／DFS 空间 → 桶性、Bornological 与 Montel 性质
 > → 核空间 → 测试函数与分布”。Salamon 主线中的弱拓扑、紧／Fredholm 算子、有界与无界谱理论
-> 及半群仍归 F2–F8，本节不重复登记。课程门：F2、F4、F7、R4–R6、T1–T2。
+> 及半群仍归 F2–F8，本节不重复登记。课程门：F2、F4、F7、R4、AN-MV、T1–T2。
+
+本课程交付须逐对象报告：拓扑由哪些半范数／邻域生成、是否 Hausdorff、采用何种完备性与有界性、
+对偶上的具体拓扑，以及收敛使用序列还是一般网／滤子；不得把 Fréchet 完备性脱离“可度量局部凸”
+语境，也不得混称弱有界、拓扑有界和范数有界。
 
 #### AFA1 半范数与局部凸拓扑
 
@@ -1338,11 +1380,11 @@ Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
 
 | # | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| 1 | `advanced-functional-analysis.test-function.frechet` | `C∞` 空间的 Fréchet 拓扑与导数半范数 | AFA2/R6 |
-| 2 | `advanced-functional-analysis.test-function.lf` | 紧支撑光滑函数 `𝒟` 的 LF 拓扑 | AFA4.2/R6 |
+| 1 | `advanced-functional-analysis.test-function.frechet` | `C∞` 空间的 Fréchet 拓扑与导数半范数 | AFA2/AN-MV |
+| 2 | `advanced-functional-analysis.test-function.lf` | 紧支撑光滑函数 `𝒟` 的 LF 拓扑 | AFA4.2/AN-MV |
 | 3 | `advanced-functional-analysis.distribution.definition` | 分布作为 `𝒟` 的连续线性泛函、阶与支撑 | AFA5.2 |
 | 4 | `advanced-functional-analysis.schwartz-space` | Schwartz 空间的 Fréchet／核拓扑 | AFA2/AFA4.4 |
-| 5 | `advanced-functional-analysis.tempered-distribution` | 温和分布、Fourier 变换与卷积边界 | AFA5.4/R6 |
+| 5 | `advanced-functional-analysis.tempered-distribution` | 温和分布、Fourier 变换与卷积边界 | AFA5.4/AN3 |
 | 6 | `advanced-functional-analysis.schwartz-kernel` | Schwartz 核定理与双线性映射表示 | AFA4.6/AFA5.2 |
 
 #### AFA6 广义算子理论出口
@@ -1382,7 +1424,7 @@ Bornological／Montel／核性以及不同对偶拓扑；能在测试函数和�
 | HAna6 | `harmonic-analysis.locally-compact-group` | Haar 测度与群卷积 | A1/R4 |
 | HAna6 | `harmonic-analysis.pontryagin-duality` | 局部紧 Abel 群 Fourier 理论 | HAna6 |
 | HAna6 | `harmonic-analysis.peter-weyl` | 紧群 Peter–Weyl 定理 | HAna6/RT |
-| HAna7 | `harmonic-analysis.oscillatory-integral` | 振荡积分与驻相法 | C3/R6 |
+| HAna7 | `harmonic-analysis.oscillatory-integral` | 振荡积分与驻相法 | C3/AN3 |
 | HAna7 | `harmonic-analysis.restriction-entry` | Fourier 限制问题入口 | HAna7 |
 
 **完成能力节点**：从 Fourier/卷积推进到极大函数、奇异积分、函数空间和群上的调和分析；

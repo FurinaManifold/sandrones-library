@@ -22,7 +22,7 @@ git log --oneline -10
 | 事实 | 唯一或主要来源 |
 |---|---|
 | Lean 是否成立 | 源码 + Lean 编译器 |
-| 全库阶段状态与依赖门 | `docs/ROADMAP-LONGTERM.md` §1 及对应课程节 |
+| 课程进度、学科路线、阶段状态与依赖门 | `docs/ROADMAP-LONGTERM.md` §1 及对应课程节 |
 | Entry 身份、前提、文献和公理 | `index/registry.json` |
 | 文献元数据 | `reference.bib` |
 | 证明和协作规则 | `docs/LEAN-PLAYBOOK.md` |
@@ -33,6 +33,8 @@ git log --oneline -10
 ## 2. 开工前必读与角色选择
 
 所有角色先读 `docs/LEAN-PLAYBOOK.md`、`docs/ROADMAP-LONGTERM.md` 和本文件。
+Playbook 只规定跨学科工作方法；不得在其中另建课程批次。课程状态和计划只改 LONGTERM，Examples
+覆盖计划只改专项 `docs/ROADMAP-examples.md`。
 然后根据任务读完整 ROLE：
 
 - Main 审核/集成：`docs/roles/MAIN-ROLE.md`；

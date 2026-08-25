@@ -65,7 +65,7 @@ sequenceConvergesTo_iff_tendsto :
 
 - Registry 保持 Entry id `analysis.sequence.definition`，把定义角色和公开声明更新为
   `SequenceConvergesTo`，并登记 `sequenceConvergesTo_iff_tendsto` 为 Mathlib 桥。
-- `docs/ROADMAP-math-analysis.md` 的该条状态可继续为完成，但说明应从“直接使用
+- `docs/ROADMAP-LONGTERM.md` 的该条状态可继续为完成，但说明应从“直接使用
   `Metric.tendsto_atTop`”改为“本库 ε-N 定义 + Mathlib 桥”。
 - RADAR 记录数列教材定义与 Mathlib 桥已补齐；不要登记成接口替换工程。
 - 顶层 import 无需变化；本轮仍只修改现有 `Sequence.lean`。

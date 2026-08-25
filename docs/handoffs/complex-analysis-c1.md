@@ -22,7 +22,7 @@
 5. `complex-analysis.holomorphic.power-series`
 6. `complex-analysis.holomorphic.elementary`
 
-本批依赖 C0/R6 的复数与实 Fréchet 微分基础；接收后为 C2 路径积分与 Cauchy 理论提供稳定的
+本批依赖 C0/AN-MV 的复数与实 Fréchet 微分基础；接收后为 C2 路径积分与 Cauchy 理论提供稳定的
 全纯接口，但不表示 C2 已解锁完成。
 
 ## 本库定义与 Mathlib 后端
