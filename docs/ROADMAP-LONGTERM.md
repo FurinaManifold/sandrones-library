@@ -30,14 +30,14 @@
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
-| **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🔲 | 集合论 + 分析线直观 |
+| **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
-| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅ C2-C3🚧 | R2 T3 M4 |
+| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1🚧 F2-F4🔒 | L5 T3 R4 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础50项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础58项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
@@ -74,7 +74,8 @@
 |---|---|---|---|
 | G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | 🚧 |
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
-| G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧 |
+| G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | 🚧（当前优先门） |
+| G-C | T4 桥完成后，C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | ⏸（等待 G-T4/C） |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
 | G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
 | G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
@@ -87,24 +88,23 @@
 | 优先级 | 学科 staging | 负责人总目标 | 建议子 Agent 切分 | 出口条件 |
 |---|---|---|---|---|
 | P0 | A2 环论 | 补齐 A2.2–A2.9，打开 G-A2 | A2-I 理想和同构定理；A2-D 整除/Euclidean/PID/UFD；A2-C CRT/局部化 | 8 个课程入口完整；A3/N2 可只依赖本库 A2 API |
-| P0 | C1 复微分 | 全纯、复可微、Cauchy–Riemann 与幂级数入口 | C1-D 定义/代数；C1-CR Cauchy–Riemann；C1-P 局部幂级数 | 为 C2 复积分提供稳定公开签名 |
+| P0 | T4 拓扑学 | 补齐同伦课程层并打开 G-T4/C | T4-H 道路与相对端点同伦；T4-E 同伦等价；T4-F 基本群；T4-R 正则化桥 | 复分析负责人转岗；桥完成前 C2/C3 暂停 |
 | P1 | F1 泛函基础 | 赋范空间、连续线性映射、Banach 基础 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | 不提前引用开映射/闭图定理 |
 | P1 | Pr1 概率基础 | 概率空间、随机变量、分布、期望、独立性 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | 打开 G-Pr，且所有概率概念先有本库定义层 |
 | P1 | ST2/ST3 基础集成 | ST2 基数基础与 ST3 递归/增长/可计算性定义层 | 62 个新增 verified 条目 | ✅ 已进入 main；纵深路线转入下一波 |
 
 Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和文件分片；main 确认没有跨学科签名冲突后，
-子 Agent 才进入证明阶段。A2 和 C1 是关键路径，main 优先审核它们的 handoff。
+子 Agent 才进入证明阶段。A2 和 T4 是关键路径，main 优先审核它们的 handoff。
 
 #### Wave B：依赖满足即可启动，不必等待 Wave A 全部结束
 
 | 启动条件 | 学科 staging | 批次与子 Agent 包 | 关键出口 |
 |---|---|---|---|
 | A2-I 完成 | A3 多项式 | A3-P1 多项式定义/除法；A3-P2 不可约判据；A3-P3 分解/重根 | A3.1–A3.4 全部转正 |
-| C1 完成 | C2 复积分 | C2-I 路径积分；C2-C Cauchy 定理/公式；C2-A 解析性与唯一性 | 打开 Laurent/残数路线 |
+| G-T4/C 完成 | C2 复积分恢复开发 | 一般同伦不变；单连通域积分无关与原函数；Cauchy 理论收口 | 打开 Laurent/残数路线 |
 | F1 完成 | F2 Banach 定理 | 一致有界；开映像；闭图与逆算子 | 三大定理分别独立文件，公共 Baire 接口先行 |
 | Pr1 完成 | Pr2 概率极限定理 | 条件期望；大数律；中心极限定理前置 | S1 只在期望/方差/分布接口稳定后启动 |
 | ✅ G-ST 已打开 | ST3 深层 | 原始递归函数类；一般 Goodstein 正规化；通用机与翻转编译器实例 | 支配、终止、不可计算性仍须逐项证明 |
-| main 有空闲审核槽 | T4 代数拓扑入口 | 道路/同伦；同伦等价；基本群；教材例子 | 圆周基本群若 Mathlib 缺桥则明确降级，不伪造闭环 |
 
 #### Wave C：受门控的纵深工作
 
@@ -397,7 +397,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 6 | `topology.normed-space.inequalities` | 三角与反三角不等式、数乘范数 | `norm_add_le`、`abs_norm_sub_norm_le` |
 | 7 | `topology.normed-space.banach` | 范数收敛、Cauchy 与 Banach 完备性 | `Metric.tendsto_atTop`、`CompleteSpace` |
 
-### T4 同胚、同伦与基本群（点集拓扑后的代数拓扑入口）🔲
+### T4 同胚、同伦与基本群（点集拓扑后的代数拓扑入口）🚧
 
 > 依赖顺序固定为“同胚及拓扑不变量 → 道路与同伦 → 同伦等价 → 基本群”。其中 T1
 > 已完成同胚的定义和基本接口；本批次继续发展同胚保持性质，并建立代数拓扑所需结构。
@@ -413,6 +413,11 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 7 | `topology.fundamental-group.functorial` | 连续映射诱导基本群同态；同伦映射诱导自然同构 | `FundamentalGroupoidFunctor.map`、`FundamentalGroupoidFunctor.homotopicMapsNatIso` |
 | 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
 | 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
+
+**当前调度（2026-08-25）**：复分析负责人已停止 C2/C3 的新增研发并转任 T4 拓扑学负责人。
+优先顺序是本库道路与相对端点同伦定义、一手运算、同伦等价、基本群，再建立连续相对端点同伦到
+复路径积分所需分段光滑／C² 代表的正则化桥。该桥进入 main 并验收前，复分析不得继续用未在本库
+定义的同伦概念堆叠上层定理；已有复分析基础保留，不撤回，也不将 foundation 条目提前转正。
 
 ---
 
@@ -451,8 +456,10 @@ Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均
 
 ## 7. Phase 6 — 复分析（C0-C3）
 
-C0 复数基础、C0.5 代数学基本定理与 C1 已完成。C2/C3 已进入 main，但一般 Goursat/同伦、
-Laurent 存在唯一性、一般残数与辐角原理仍未完成。
+C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基础条目进入 main。当前研发暂停：
+一般同伦不变、单连通域原函数及其后续 Laurent／残数路线依赖 T4 中尚未完成的本库同伦、同伦等价、
+基本群和连续同伦正则化接口。原复分析负责人已转入 T4；只有 G-T4/C 经 Main 验收后才恢复 C2/C3。
+已有一般三角形 Goursat 等已提交成果继续保留，未完成内容不得借 Mathlib 拓扑结构直接冒充本库课程层。
 
 ### C1 复微分与全纯函数 ✅
 
@@ -465,7 +472,7 @@ Laurent 存在唯一性、一般残数与辐角原理仍未完成。
 | 5 | `complex-analysis.holomorphic.power-series` | 幂级数圆内全纯与逐项求导 ✅ | `PowerSeries`、`HasSum` |
 | 6 | `complex-analysis.holomorphic.elementary` | exp、sin、cos、局部 log ✅ | `Complex.exp/sin/cos/log` |
 
-### C2 复积分与 Cauchy 理论 🚧（依赖 C1）
+### C2 复积分与 Cauchy 理论 ⏸（依赖 C1 与 G-T4/C）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -479,7 +486,7 @@ Laurent 存在唯一性、一般残数与辐角原理仍未完成。
 | 8 | `complex-analysis.cauchy.triangle-ball` | 圆盘内三角形边界积分为零 ✅（foundation） | 原函数桥 |
 | 9 | `complex-analysis.cauchy.path-independence-primitive` | 已有原函数时路径无关 ✅（foundation） | 原函数端点公式 |
 
-### C3 Laurent、残数与亚纯函数 🚧（依赖 C2）
+### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
