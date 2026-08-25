@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`0418f7f`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函与凸分离完成验证
+- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函与凸分离完成验证；零化子闭包开发中
 
 ## Hahn–Banach 延拓窗
 
@@ -38,6 +38,17 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.ConvexSeparation`：8717 jobs 通过；警告只来自既有依赖。
 - 聚合 `#check` 覆盖 `Convex`、`gauge`、两项 Mathlib 分离主定理与四个公开声明；Entry 精确映射
   为四个声明。
+- 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 零化子与闭包窗
+
+- 连续零化子直接采用 `StrongDual.polarSubmodule ℝ S`；量词由 `mem_polarSubmodule` 展开。
+- 明确排除只使用代数对偶的 `Submodule.dualAnnihilator`，因为本窗目标是拓扑闭包刻画。
+- 凸分离真实用于证明“全部连续零化子共同核 = 子空间闭包”，并给出闭子空间特例。
+- `lake build SandronesLibrary.FunctionalAnalysis.AnnihilatorClosure`：8718 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖连续零化子承载、量词展开、子空间闭包与四个公开声明；Entry 精确映射为
+  四个声明。
 - 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
