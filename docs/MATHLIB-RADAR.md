@@ -56,6 +56,12 @@
 - **出处**：Mathlib 的可分拓扑空间、连续线性映射和子模接口。
 - **谁在用**：`functional-analysis.separable.dual`；证明用可数稠密对偶族和零化子闭包刻画推出原空间可分。
 
+### `IsTopologicalAddGroup` / `ContinuousSMul` / `Homeomorph.addLeft`
+- **人话**：分别表达加法与取负连续、标量和向量联合变化时数乘连续，以及固定向量平移是自同胚。
+- **出处**：Mathlib 的拓扑群、拓扑模和加法同胚接口。
+- **谁在用**：`functional-analysis.topological-vector-space.foundation`；本库直接组合这些正交
+  typeclass 承载实拓扑向量空间，不另造重复结构。
+
 ### `WeakSpace` / `toWeakSpace` / `toWeakSpaceCLM` / `WeakSpace.map`
 - **人话**：在同一底层向量上安装由连续对偶诱导的弱拓扑，并提供范数拓扑到弱拓扑的恒等映射及线性映射的弱化版本。
 - **出处**：Mathlib 的局部凸弱拓扑接口。
@@ -88,6 +94,13 @@
 ### `Path.Homotopic` / `Path.Homotopic.Quotient` / `Path.Homotopic.Quotient.mk`
 - **人话**：端点固定道路同伦关系、按该关系得到的标准商类型，以及把道路送入商类的满射。
 - **谁在用**：`topology.homotopy.path-homotopy-quotient-standard`；判等通过 H1 展开为固定端点连续正方形。
+
+### `FundamentalGroupoid` / `FundamentalGroup` / `FundamentalGroup.toPath` / `fromPath`
+- **人话**：把空间点包装成群胚对象、把点间道路同伦类作为态射，并在固定基点处取自同态群；
+  `toPath/fromPath` 在基本群元素和基点环路同伦商之间切换。
+- **出处**：Mathlib 的基本群胚与基本群接口。
+- **谁在用**：`topology.fundamental-group.carrier-standard`；当前只冻结载体与严格往返，群运算次序
+  和函子性留给后续窗口。
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。

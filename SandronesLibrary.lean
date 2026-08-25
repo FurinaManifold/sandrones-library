@@ -86,6 +86,7 @@ import SandronesLibrary.Topology.PathHomotopyStandard
 import SandronesLibrary.Topology.HomotopyStandard
 import SandronesLibrary.Topology.HomotopyEquivalenceStandard
 import SandronesLibrary.Topology.PathHomotopyQuotientStandard
+import SandronesLibrary.Topology.FundamentalGroupCarrierStandard
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
@@ -205,6 +206,7 @@ import SandronesLibrary.FunctionalAnalysis.AnnihilatorClosure
 import SandronesLibrary.FunctionalAnalysis.BidualReflexive
 import SandronesLibrary.FunctionalAnalysis.SeparableDual
 import SandronesLibrary.FunctionalAnalysis.ReflexiveExamples
+import SandronesLibrary.FunctionalAnalysis.TopologicalVectorSpace
 import SandronesLibrary.FunctionalAnalysis.WeakTopology
 import SandronesLibrary.FunctionalAnalysis.WeakStarTopology
 import SandronesLibrary.FunctionalAnalysis.BanachAlaoglu

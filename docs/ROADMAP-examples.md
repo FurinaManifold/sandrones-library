@@ -112,6 +112,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.6 度量与完备化 | `examples.topology.metric-completion` | `ℚ` 的 Cauchy 序列及实数完备化直观接口 | 有界不必完全；完全不必紧致 | T3 |
 | E7.7 同伦与基本群 | `examples.topology.homotopy` | 常值／凸集收缩、圆周道路、逆向和拼接 | 同伦等价不等于同胚 | T4 |
 | E7.8 道路同伦商 | `examples.topology.path-homotopy-quotient` | 两条重参数化道路落入同一商类，并展示代表满射 | 商类相等不等于道路函数严格相等；代表没有规范唯一性 | T4-F1a |
+| E7.9 基本群标准承载 | `examples.topology.fundamental-group-carrier` | 由具体基点环路构造商类并在 `toPath/fromPath` 间往返 | 群胚态射只在端点匹配时复合；群乘法次序不能按路径书写顺序猜测 | T4-F1b |
 
 ## E8 现代实分析
 
@@ -152,6 +153,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 
 | 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
 |---|---|---|---|---|
+| E11.0 拓扑向量空间 | `examples.functional-analysis.topological-vector-spaces` | `ℝⁿ` 的加法、数乘与平移自同胚 | 分别连续不能静默替代联合连续；一般拓扑向量空间不必范数化 | F4.1 |
 | E11.1 连续线性算子与算子范数 | `examples.functional-analysis.operators` | 恒等、零、坐标投影的算子范数与全局界 | 一般线性映射不自动连续；界常数不唯一而算子范数最小 | F1 |
 | E11.2 Banach 值级数 | `examples.functional-analysis.series` | 有限维向量几何级数及部分和收敛 | 条件可和不等于范数级数可和；完备性不可静默省略 | F1 |
 | E11.3 闭子空间商 | `examples.functional-analysis.quotients` | 有限维子空间商、商范数距离计算 | 非闭子空间会出现非零陪集范数为零的边界 | F1 |

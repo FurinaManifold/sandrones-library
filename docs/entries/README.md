@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **443** 个条目（verified 443，pending 0）。
+共 **445** 个条目（verified 445，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -346,6 +346,10 @@
 - ✅ [`annihilator-closure.md`](functional-analysis/subspace/annihilator-closure.md) — 连续零化子、双零化子与子空间闭包
 - ✅ [`quotient.md`](functional-analysis/subspace/quotient.md) — 闭线性子空间与商 Banach 空间
 
+## `functional-analysis.topological-vector-space`
+
+- ✅ [`foundation.md`](functional-analysis/topological-vector-space/foundation.md) — 拓扑向量空间基础
+
 ## `functional-analysis.weak-star`
 
 - ✅ [`definition.md`](functional-analysis/weak-star/definition.md) — 对偶空间的弱星拓扑与收敛
@@ -649,6 +653,10 @@
 - ✅ [`mathlib-compatibility.md`](topology/foundation/mathlib-compatibility.md) — 旧教材拓扑与 Mathlib 拓扑的兼容等价
 - ✅ [`real-line.md`](topology/foundation/real-line.md) — 标准实拓扑与单位区间的正式承载
 - ✅ [`structure.md`](topology/foundation/structure.md) — 拓扑、连续映射与同胚的正式承载
+
+## `topology.fundamental-group`
+
+- ✅ [`carrier-standard.md`](topology/fundamental-group/carrier-standard.md) — 基本群胚与基本群的标准承载
 
 ## `topology.homotopy`
 

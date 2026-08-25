@@ -500,9 +500,11 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-H2 一般/相对同伦 | 已集成 | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | Main 全库验收完成 |
 | T4-E 同伦等价 | 已集成 | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | Main 全库验收完成 |
 | T4-F1a 道路同伦商 | 已集成 | `PathHomotopyQuotientStandard.lean`；标准商、判等展开与代表存在 | Main 全库验收完成 |
-| T4-F1b 基本群胚/基本群承载 | `integration_open` | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | 依赖 F1a；接口审核后集成 |
-| T4-F2a 群运算与群律 | `development_open` | 独立文件解释拼接次序、单位、逆与结合律 | 集成等待 F1b；可并行开发 |
-| T4-F2b 函子性、同伦不变性与计算 | `research_open` | Mathlib API、基点变换与圆周计算调查/RFC | F1b/F2a 签名冻结后开发 |
+| T4-F1b 基本群胚/基本群承载 | 已集成 | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | Main 全库验收完成 |
+| T4-F2a 群运算与群律 | `integration_open` | 独立文件解释拼接次序、单位、逆与结合律 | F1b 已集成；可提交正式验收 |
+| T4-F2b 函子性与同伦不变性 | `development_open` | 连续映射诱导、同伦自然同构、同胚／同伦等价不变性与基点变换 | 使用 F1b/F2a 已冻结承载；独立文件 |
+| T4-F2c 基本群计算 | `research_open` | 单点、凸集、可缩空间和圆周的接口调查/RFC | 不以 Mathlib 最终等价替代圆周计算课程链 |
+| T4-R 连续同伦正则化桥 | `research_open` | 调查连续道路同伦到分段光滑／可积同伦的相对端点逼近 | 为 G-T4/C 提供可审计桥；不得先宣称一般 C2 完成 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
@@ -655,7 +657,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、局部基与连续线性泛函 | `TopologicalAddGroup`、`ContinuousSMul` |
+| 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、联合连续运算与平移自同胚 ✅ | `IsTopologicalAddGroup`、`ContinuousSMul` |
 | 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 ✅ | `WeakSpace`、initial topology API |
 | 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 ✅ | `WeakDual` |
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 ✅ | `WeakDual.isCompact_closedBall` |

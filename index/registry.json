@@ -13978,6 +13978,37 @@
     ]
   },
   {
+    "id": "functional-analysis.topological-vector-space.foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "拓扑向量空间基础",
+    "summary": "以拓扑加法群、实向量空间和联合连续数乘组合承载拓扑向量空间，并展开加法、取负、数乘连续性与平移自同胚",
+    "premises": [],
+    "mathlib": [
+      "IsTopologicalAddGroup",
+      "Module",
+      "ContinuousSMul",
+      "Homeomorph.addLeft"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/TopologicalVectorSpace.lean",
+    "nl_file": "docs/entries/functional-analysis/topological-vector-space/foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.topological-vector-space",
+    "variant": "salamon",
+    "proof_sha": "3812effa6b4746e5",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
     "id": "functional-analysis.weak-topology.definition",
     "kind": "definition",
     "state": "verified",
@@ -14253,6 +14284,40 @@
     ]
   },
   {
+    "id": "topology.fundamental-group.carrier-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "基本群胚与基本群的标准承载",
+    "summary": "解释基本群胚对象、道路同伦类态射与基点自同态群，并给出基本群和环路同伦商的定义性对应",
+    "premises": [
+      "topology.homotopy.path-homotopy-quotient-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroupoid",
+      "FundamentalGroupoid.equiv",
+      "FundamentalGroup",
+      "FundamentalGroup.toPath",
+      "FundamentalGroup.fromPath"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupCarrierStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/carrier-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "groupoid-endomorphism-carrier",
+    "proof_sha": "9ea87e89739af432",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
     "id": "topology.homotopy.path-homotopy-quotient-standard",
     "kind": "definition",
     "state": "verified",
@@ -14275,7 +14340,9 @@
     "nl_file": "docs/entries/topology/homotopy/path-homotopy-quotient-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.carrier-standard"
+    ],
     "family": "topology.homotopy",
     "variant": "endpoint-relative-quotient",
     "axioms": [

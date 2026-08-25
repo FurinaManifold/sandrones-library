@@ -1,11 +1,11 @@
 ---
 id: functional-analysis.topological-vector-space.foundation
 kind: definition
-state: staging
+state: verified
 title: 拓扑向量空间基础
 premises: []
 mathlib: [IsTopologicalAddGroup, Module, ContinuousSMul, Homeomorph.addLeft]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 3.1"}
+provenance: {source_type: book, ref: buehler-salamon-functional-analysis-2018}
 ---
 
 # 动机

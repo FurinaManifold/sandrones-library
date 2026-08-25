@@ -3,7 +3,7 @@ id: topology.fundamental-group.carrier-standard
 family: topology.fundamental-group
 variant: groupoid-endomorphism-carrier
 kind: definition
-state: staging
+state: verified
 title: 基本群胚与基本群的标准承载
 summary: 解释基本群胚的对象、道路同伦类态射及基点自同态群，并给出基本群与环路同伦商的定义性对应
 premises: [topology.homotopy.path-homotopy-quotient-standard]
