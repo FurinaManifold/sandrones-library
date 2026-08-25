@@ -3,6 +3,7 @@
 ## 范围、权限与基线
 
 - 分支：`codex/topology-foundations`。
+- 正式源码、Entry 与 handoff 主提交：`874cf44`。
 - 开工基线：Main `e81ce2e`；以合并提交 `6606d8d` 同步。
 - 权限：`review-inbox/topology/main-t4r-rfc-r2-development-open.md` 将 T4-R2 标为
   `development_open`；T4-R3 仍为 `research_open`。
