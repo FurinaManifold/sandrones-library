@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`8d5d823`
 - 设计 RFC：`docs/maintenance/functional-analysis-f1-design.md`
-- 当前阶段：按最新 Playbook 完成重复定义收缩；算子解释层已重新验证
+- 当前阶段：算子解释层与算子空间完成；Banach 级数和商空间待办
 
 ## 路线结论
 
@@ -26,8 +26,17 @@
 
 ## 尚未完成
 
-- 算子空间、Banach 级数和商空间尚未按新复用规则实现。
+- Banach 级数和商空间尚未按新复用规则实现。
 - F2/F3/F4 保持锁定。
+
+## 算子空间验证
+
+- `lake build SandronesLibrary.FunctionalAnalysis.OperatorSpace`：8709 jobs 通过；只重放既有
+  `Topology/Metric.lean` 格式警告。
+- 聚合 `#check` 覆盖 Mathlib 正式承载、上一窗有界刻画和本窗五个公开声明。
+- `functional-analysis.operator.space` 精确映射到五个声明；没有新增 `def`、结构或 instance。
+- 两个代表性结论的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`。
+- 禁用占位扫描与 `git diff --check` 通过。
 
 ## 修正版验证
 
