@@ -5,6 +5,7 @@
 - 分支：`codex/topology-foundations`。
 - Main 同步提交：`2ceb668`，包含 Main `8d5d823`。
 - RFC：`docs/maintenance/topology-mathlib-reuse-migration.md`。
+- 声明级 API 对照：`docs/maintenance/topology-mathlib-api-matrix.md`。
 - 等级／阶段：M2，调查与迁移设计阶段；尚未修改公开接口。
 - Main 指示已执行：冻结 `TextbookTopology` 平行链，不再落入 `/tmp` 的基本群单位律。
 
@@ -40,4 +41,3 @@
   `ContinuousMap.HomotopyEquiv`，不是 `Set.unitInterval` 或根 `HomotopyEquiv`。
 - 下一门：Main 审核本 RFC 的分类与 A0 公开入口；获准后单独实现 A0，不改旧 API。
 - 全库构建、公理全量审计、Registry 与 RADAR 更新未运行，归 Main 集成阶段。
-

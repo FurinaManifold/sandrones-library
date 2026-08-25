@@ -25,6 +25,9 @@
 
 ## 当前影响图
 
+逐模块的声明级对应、Mathlib 精确名称和处置结论见
+`docs/maintenance/topology-mathlib-api-matrix.md`。
+
 自建链的 Lean 依赖拓扑为：
 
 ```text
@@ -108,4 +111,3 @@ HomotopyRelation -> HomotopyEquivalence -> Contractible
 - 尚未修改公开接口，尚未建立新旧高层对象的完整等价桥，也未迁移任何 Registry Entry。
 - 当前拓扑分支中的后续自建同伦与基本群提交只算冻结中的施工成果，不应由 Main 登记为课程完成。
 - Main 共有文件由 Main 维护；本 RFC 不修改 Registry、RADAR、ROADMAP 或顶层 import。
-
