@@ -1,76 +1,138 @@
 # Sandrone's Library
 
-> **LLM 友好且绝对严格的数学大厦。**
+> 以教材解释组织、由 Lean 编译器裁决的可扩展数学库。
 
-以 [mathlib4](https://github.com/leanprover-community/mathlib4) 为地基，
-把**人类思维脉络**、**机器可验证的 Lean 形式化**、**面向 LLM 的双语解释**绑定为一条条
-可增量扩展的"事实条目"（Fact Entry）。
+Sandrone's Library 以 [mathlib4](https://github.com/leanprover-community/mathlib4) 为形式化地基，
+把一个数学知识点同时保存为：
 
-## 为什么是现在（2026）
+- 教材层的中文解释、直觉、依赖和边界；
+- 可编译的 Lean 定义、引理或定理；
+- Registry 中的条目身份、依赖图、Mathlib 接口、文献 key 和公理指纹。
 
-- 2024 年：模型没有链式思维，既无法构造 Lean 证明，也无法把人类答案转写成可编译的 Lean。
-- 2026 年：模型能读懂人类推理 → 逐句映射为 Lean → 依据编译器报错迭代修复。
-  瓶颈从"会不会证明"转移到了"知识如何组织、如何增量累积"。
-- Sandrone's Library 就是那个答案：**编译器是唯一裁判**，知识以双语条目增量沉淀。
+本库不以“去 Mathlib 化”为目标。当 Mathlib 对象与教材概念语义一致时，优先直接复用，
+同时在课程文档中展开定义、假设和语义边界。只有语义不同、课程需要更弱或更精确的
+接口，或 Mathlib 缺少相应对象时，才建立本库定义和显式桥。
+
+## 当前规模（2026-08-25 Main `0418f7f`）
+
+- **425** 个 verified Entry，覆盖分析、线性代数、抽象代数、拓扑、实分析、复分析、
+  集合论、初等数论与泛函分析。
+- **475** 条直接教材依赖边；`premises` 是唯一事实源，`dependedOnBy` 由脚本反向生成。
+- **304** 条统一参考资料，在 `reference.bib` 维护；Registry 只保存 citation key。
+- **423** 个 verified 非兼容桥条目进入依赖排行。
+- 最近 Main 全库验收为 **8910 jobs** 构建通过。
+
+阶段状态会持续变化；权威摘要只看
+[`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) §1，不从本页的日期快照推测新批次是否已解锁。
 
 ## 快速开始
 
-```bash
-# 依赖：elan（Lean 版本管理器），已配置在 ~/.elan
-source ~/.elan/env   # 或 export PATH="$HOME/.elan/bin:$PATH"
-lake build           # 构建（首次会拉取 mathlib，之后走缓存）
-python3 scripts/update_dependency_graph.py  # 由 premises 重建反向直接依赖
-python3 scripts/gen_entry_rankings.py        # 生成依赖综合榜和四个分榜
-python3 scripts/audit.py   # 审计库的一致性
-```
-
-## 核心文档
-
-| 文档 | 内容 |
-|---|---|
-| [docs/DESIGN.md](docs/DESIGN.md) | 架构设计：定位、条目结构、依赖图、LLM 友好性 |
-| [docs/INGESTION_PROTOCOL.md](docs/INGESTION_PROTOCOL.md) | **纳入协议**：把论文/书结论纳入库中的五步流程 |
-| [docs/SCHEMA.md](docs/SCHEMA.md) | 条目的精确字段规范（人 + 机器共读） |
-| [docs/ROADMAP-math-analysis.md](docs/ROADMAP-math-analysis.md) | **数学分析学习地图**：一年级主线的章节→条目蓝图 |
-| [docs/ROADMAP-examples.md](docs/ROADMAP-examples.md) | **Examples 跨学科例证路线图**：重要知识点的计算例、正例和反例覆盖账本 |
-| [docs/ROADMAP-LONGTERM.md](docs/ROADMAP-LONGTERM.md) | **长远批次规划**：分析→线代→抽象代数→拓扑→实分析→后续学科的阶段与批次蓝图 |
-| [docs/LEAN-PLAYBOOK.md](docs/LEAN-PLAYBOOK.md) | **自我驯化手册**：tactic 经验（调试工具/语义映射/实战教训） |
-| [reference.bib](reference.bib) | **统一参考文献库**：Registry 通过 citation key 引用 |
-
-## 库结构
-
-```
-SandronesLibrary/          # 形式化层（Lean，机器可校验）
-docs/entries/              # 叙述层（每个事实的双语解释 + 思维脉络）
-index/registry.json        # 元数据（依赖图 / 文献 key / 状态 / 公理）
-reference.bib              # 参考书、论文与课程资料的唯一维护点
-scripts/new_entry.py       # 纳入工具：生成条目骨架
-scripts/audit.py           # 纳入工具：一致性审计
-scripts/check_axioms.py    # 纳入工具：公理依赖审计（#print axioms 对比）
-scripts/update_dependency_graph.py  # 由 premises 重建 dependedOnBy
-scripts/gen_entry_rankings.py       # 生成 index/rankings.json 与可读榜单
-```
-
-## 当前条目与依赖图
-
-当前 Registry 共有 **422** 个条目。`premises` 是依赖图的唯一事实来源，
-`dependedOnBy` 是由它反向生成的直接引用缓存，不得手工维护。在合并多个学科批次后运行：
+需要 `elan`、Git 和 Python 3。Lean 版本由 `lean-toolchain` 固定为 4.33.0。
 
 ```bash
-python3 scripts/update_dependency_graph.py
-python3 scripts/gen_entry_rankings.py
+source ~/.elan/env
+lake build
 python3 scripts/audit.py
 ```
 
-`audit.py` 会同时检查悬空的 `premises`、失同步的 `dependedOnBy` 以及悬空的
-`reference.bib` citation key。
+修改 Lean 模块时的常用顺序：
 
-排行结果见 [docs/entries/RANKINGS.md](docs/entries/RANKINGS.md)。综合分由加权直接引用、
-距离衰减的传递影响、跨学科影响和 Lean 实际使用四项构成；排名不写回 Registry。
+```bash
+lake env lean SandronesLibrary/<Subject>/<Module>.lean
+lake build SandronesLibrary.<Subject>.<Module>
+python3 scripts/check_axioms.py --all --fix
+python3 scripts/check_axioms.py --all
+python3 scripts/audit.py
+```
 
-## 路线图
+Main 集成多学科提交时的完整流水线：
 
-- **Phase 1**：Schema 定稿 + 若干样板条目（含需要"新定义 + 引理链"的），人工走通全流程
-- **Phase 2**：协议工具化（Registry 与反向依赖已可审计，依赖图可视化待补）
-- **Phase 3**：ingestion benchmark（量化"可扩展性"：纳入通过率 / 迭代轮数 / 依赖复用率）
-- **Phase 4**：从教材（Rudin / Zorich / 中文教材）与论文批量纳入
+```bash
+python3 scripts/extract_registry_references.py
+python3 scripts/update_dependency_graph.py
+python3 scripts/gen_entries_index.py
+python3 scripts/gen_entry_rankings.py
+python3 scripts/check_axioms.py --all --fix
+python3 scripts/check_axioms.py --all
+python3 scripts/audit.py
+git diff --check
+lake build
+```
+
+## 一个 Entry 包含什么
+
+一个正式 Entry 通常同时具有：
+
+1. `SandronesLibrary/` 下的 Lean 声明，docstring 含唯一 `> **Entry**: ...` 标记；
+2. `docs/entries/<family>/...md` 中的教材文档；
+3. `index/registry.json` 中的唯一记录；
+4. `reference.bib` 中可解析的来源 key；
+5. `docs/MATHLIB-RADAR.md` 中对重要 Mathlib 接口的人话解释。
+
+Entry 标题、自然语言强度、Lean 陈述、ROADMAP 状态和 handoff 必须一致。不得把远期目标、
+弱化版本或尚未形式化的教材证明写成已完成结果。
+
+## 目录结构
+
+```text
+SandronesLibrary/               Lean 形式化模块
+  Analysis/                     一元/多元分析
+  LinearAlgebra/                线性代数
+  AbstractAlgebra/              抽象代数
+  Topology/                     点集拓扑与代数拓扑入口
+  RealAnalysis/                 测度、积分与 Lp
+  ComplexAnalysis/              复分析
+  SetTheory/                    集合、序数、基数、可计算性与大数
+  NumberTheory/                 初等数论
+  FunctionalAnalysis/           泛函分析
+  Examples/                     跨学科计算例与反例
+docs/entries/                   逐 Entry 教材文档
+docs/handoffs/                  学科批次交付记录
+docs/reviews/                   已纳入 Git 的 Main 审核闭环
+docs/roles/                     Main、学科、维护和 Examples ROLE
+index/registry.json             Entry 事实与依赖元数据
+index/rankings.json             可重建排行数据
+reference.bib                   参考文献唯一维护点
+scripts/                        生成、审计和脚手架工具
+```
+
+## 依赖图与排行
+
+- `premises`：教材上直接需要的库内 Entry，不混入 Mathlib 名称。
+- `dependedOnBy`：由 `premises` 反向生成的查询缓存，禁止手工编辑。
+- [`docs/entries/RANKINGS.md`](docs/entries/RANKINGS.md)：加权直接引用、传递影响、
+  跨学科影响和 Lean 实际使用四项榜单。
+- `index/rankings.json` 和可读榜单都是派生数据，不写回 Registry，不手工修改。
+
+## 开发模式
+
+本库使用独立 worktree 和 staging 分支并行开发：
+
+- 学科负责人开发定理、定义和可审核的课程文档初稿；
+- Main 负责共享 imports、Registry、文献、RADAR、ROADMAP、Examples 巡视、审核归档与全库构建；
+- 已完成学科的公开接口调整必须按维护 ROLE 先做影响审计，再分桥、迁移和退役三阶段完成。
+
+完整规程见 [`AGENTS.md`](AGENTS.md) 和
+[`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md)。自动化工具不代替数学审核；
+学科分支局部构建通过也不等于 Main 全库验收。
+
+## 核心文档
+
+| 文档 | 用途 |
+|---|---|
+| [`docs/ROADMAP-LONGTERM.md`](docs/ROADMAP-LONGTERM.md) | 全库阶段状态、依赖门和长期课程蓝图 |
+| [`docs/ROADMAP-examples.md`](docs/ROADMAP-examples.md) | 计算例、正例和反例覆盖账本 |
+| [`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md) | 证明工作流、Mathlib 复用规则和多 Codex 协作协议 |
+| [`docs/INGESTION_PROTOCOL.md`](docs/INGESTION_PROTOCOL.md) | 新 Entry 的纳入流程 |
+| [`docs/SCHEMA.md`](docs/SCHEMA.md) | Registry 和课程文档字段契约 |
+| [`docs/MATHLIB-RADAR.md`](docs/MATHLIB-RADAR.md) | 重要 Mathlib API 的人话说明和使用者 |
+| [`docs/roles/MAIN-ROLE.md`](docs/roles/MAIN-ROLE.md) | Main 审核与集成职责 |
+| [`docs/roles/SUBJECT-MAINTAINER-ROLE.md`](docs/roles/SUBJECT-MAINTAINER-ROLE.md) | 学科开发职责 |
+| [`docs/roles/SUBJECT-MAINTENANCE-ROLE.md`](docs/roles/SUBJECT-MAINTENANCE-ROLE.md) | 已完成学科的兼容迁移规程 |
+
+## 保证边界
+
+- 只有 Main 共享集成后的 `lake build` 可以报告为“全库通过”。
+- verified 区域不允许 `sorry`、`admit`、`sorryAx` 或用 `native_decide` 逃避证明。
+- `#print axioms` 中的选择公理、外延性和商类公理依赖如实登记，不做隐藏。
+- 自然语言不得强于 Lean 定理；部分形式化不得冒充整本教材或完整学科。
