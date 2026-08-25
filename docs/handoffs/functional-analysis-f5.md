@@ -89,3 +89,19 @@
 
 公开签名只暴露语义一致的 `ContinuousLinearMap`、`LinearMap.range/ker`、`IsClosed`、
 `StrongDual.polarSubmodule` 和显式共同零点量词；`WeakDual`、紧像与开映射受控原像均为私有后端。
+
+## F5.5 Fredholm 定义层
+
+- 基线：`main@275a6e2`，以 `git rebase main` 同步；F5.2 第三批提交随同步改写为 `fbf05d6`。
+- 正式承载直接采用 Mathlib `ContinuousLinearMap.IsFredholm`，指数直接采用
+  `T.toLinearMap.index`；没有建立本库同义结构、谓词或指数定义。
+- 教材展开覆盖严格映射、闭值域、有限维核、有限余维值域和核的拓扑可补性，并明确
+  `T.range.CoFG` 承载商空间 `F ⧸ T.range` 的有限维性。
+- 上层公开性质把 Fredholm 字段连接到既有 `Set.range` 闭值域语言，并分别给出核、余核有限维性
+  和指数的维数差公式。
+- 公开签名分类：`IsFredholm`、`LinearMap.index`、`CoFG`、`FiniteDimensional`、`IsStrictMap` 和
+  `ClosedComplemented` 均为语义一致且已解释的正式承载；没有新的桥结构或全局 instance。
+- 边界：Fredholm 备择、紧扰动／同伦下指数稳定性及具体算子计算均未开发；前两者仍冻结，
+  后者归 Examples E11。
+- Main 集成建议：新增 `FredholmDefinition` 顶层 import，登记
+  `functional-analysis.fredholm.definition`，将 ROADMAP F5.5 只标记为定义层完成。
