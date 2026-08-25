@@ -32,3 +32,15 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
 - 文档与组装门：`resolved`。新文档具有 front matter 和精确八段；模块单独构建及临时聚合
   `#check` 结果记录在 `docs/handoffs/complex-analysis-c2-goursat.md`。
 - 后续边界：单连通开集原函数、一般同伦不变及 Laurent 主线仍未在本提交中宣称完成。
+
+## 优先级 2 阶段性处理
+
+- `resolved foundation`：新增 `HomotopyInvariance.lean`，不假设原函数，直接证明全纯路径积分在
+  `C²` 相对端点同伦下不变，并证明光滑零同伦闭路积分为零。
+- `boundary retained`：该结果使用独立 id
+  `complex-analysis.cauchy.smooth-homotopy-foundation`，没有占用一般
+  `complex-analysis.cauchy.homotopy`。标准 `IsSimplyConnected` 只提供连续道路同伦，而当前
+  Mathlib 没有保持开域与端点的同伦平滑化桥；一般同伦和单连通域原函数仍记为未完成。
+- `external audit`：Mathlib 的 `HasPrimitives.lean` 仍明确把单连通域原函数列为 TODO；官方
+  Riemann mapping PR `#33505` 截至 2026-08-25 仍为 open，包含 974 行新增和三文件变更，未作为
+  本库依赖或复制来源。
