@@ -32,4 +32,3 @@ ST3 继续保持进行中。
 - `resolved`：handoff 已分别列出 imports、Entry id、RADAR API 建议与诚实边界；模块闭包、聚合
   `#check`、禁用占位、Entry／文档、精确八段和 `git diff --check` 的结果记录在本批验证段。
 - `resolved`：一般 Goodstein 借位仅保留在 `/tmp` 设计框架，在两个指导接口提交前未进入正式库。
-
