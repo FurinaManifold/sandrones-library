@@ -74,5 +74,7 @@
   非零除式除法、Euclidean 度量、gcd 与 Bézout 均已迁移到本库多项式和 A2 定义层。
 - [x] 不可约与判别：后续课程正式复用语义一致的 `Irreducible`、`Polynomial.IsPrimitive`、
   `content` 与 `IsEisensteinAt`，并已完成教材展开、Gauss 引理、有理根和 Eisenstein 判别。
-- [ ] 根的重数、导数与重根判据仍待 A3.4 完成。
+- [x] 唯一分解、根的重数、导数与重根判据：A3.4 以正式 `Polynomial`、
+  `normalizedFactors`、`rootMultiplicity` 和 `derivative` 承载，已解释规范因子唯一性、
+  线性因子整除、单根／重根及特征零下导数重数递降的精确边界。
 - [ ] 域扩张相关概念尚未开始；不得直接用 `Algebra`、`IntermediateField` 等结构充当教材定义。
