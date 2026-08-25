@@ -5,14 +5,12 @@ Authors: Sandrone's Library contributors
 -/
 import Mathlib
 
-open Polynomial
-
 /-!
 # AbstractAlgebra / Polynomial —— 多项式环与整除性（抽象代数第一学期 A3）
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **abstract-algebra.poly.def**（多项式外延性/X-a整除⟺根/根的定义/整环性/单位元=非零常数）✅。
+* **abstract-algebra.poly.mathlib-compat**（历史 Mathlib 多项式兼容接口）✅。
 * **abstract-algebra.poly.irreducible**（不可约判据/X-a不可约/X不可约/次数1不可约/带余除法/余式次数）✅。
 * **abstract-algebra.poly.roots-card**（根属于根集/乘积的根/根个数≤次数）✅。
 
@@ -20,12 +18,14 @@ open Polynomial
 > `EuclideanDomain` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
 -/
 
+open Polynomial
+
 namespace SandronesLibrary
 
 namespace AbstractAlgebra.Poly
 
 /-- **多项式外延性**：各项系数全相等 ⟹ 多项式相等。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem poly_ext {R : Type*} [Semiring R] {p q : R[X]} (h : ∀ n : ℕ, p.coeff n = q.coeff n) :
     p = q := by
@@ -38,21 +38,21 @@ theorem is_root_iff_eval_eq_zero {R : Type*} [Semiring R] (p : R[X]) (a : R) :
 
 /-- **因式定理（X−a 整除 ⟺ 根）**：X − C a 整除 p ⟺ a 是 p 的根。
   教材核心：a 是根 ⟺ 多项式含因式 X−a。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem dvd_X_sub_C_iff_isRoot {R : Type*} [CommRing R] (p : R[X]) (a : R) :
     X - C a ∣ p ↔ p.IsRoot a := by
   exact Polynomial.dvd_iff_isRoot (p := p) (a := a)
 
 /-- **多项式环整环性**：系数环 R 是整环 ⟹ 多项式环 R[X] 是整环。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem poly_is_domain_of_is_domain {R : Type*} [CommRing R] [IsDomain R] :
     IsDomain R[X] := by
   infer_instance
 
 /-- **多项式环的单位元 = 非零常数**：p 可逆 ⟺ p 是某个可逆常数。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem poly_isUnit_iff {R : Type*} [Semiring R] [NoZeroDivisors R] (p : R[X]) :
     IsUnit p ↔ ∃ r : R, IsUnit r ∧ C r = p := by
@@ -101,14 +101,14 @@ theorem degree_modByMonic_lt {R : Type*} [Ring R] [Nontrivial R] (p : R[X])
   exact Polynomial.degree_modByMonic_lt p hq
 
 /-- **根属于根集**：a 是 p 的根 ⟺ a 属于根集 p.roots（根集 = 全体根的 multiset）。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem mem_roots_iff_isRoot {R : Type*} [CommRing R] [IsDomain R] {p : R[X]}
     (hp : p ≠ 0) (a : R) : a ∈ p.roots ↔ p.IsRoot a := by
   exact Polynomial.mem_roots hp
 
 /-- **乘积的根**：a 是 p·q 的根 ⟺ a 是 p 的根或 q 的根（整环上）。 
-> **Entry**: abstract-algebra.poly.def
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem root_mul_iff {R : Type*} [CommRing R] [IsDomain R] {p q : R[X]} (a : R) :
     (p * q).IsRoot a ↔ p.IsRoot a ∨ q.IsRoot a := by
