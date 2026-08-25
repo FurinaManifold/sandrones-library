@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.MathlibBridge
+import SandronesLibrary.Topology.Constructions
 
 /-!
 # 旧教材拓扑与 Mathlib 拓扑的兼容层
@@ -19,7 +20,7 @@ import SandronesLibrary.Topology.MathlibBridge
 
 namespace SandronesLibrary.Topology.TextbookTopology
 
-variable {X : Type*}
+variable {X Y : Type*}
 
 set_option warn.classDefReducibility false in
 /-- 把一个 Mathlib 拓扑看作具有完全相同开集的冻结旧教材载体。这是迁移桥，而不是拓扑空间的
@@ -76,6 +77,35 @@ def equivMathlib : TextbookTopology X ≃ TopologicalSpace X where
   invFun := fromMathlib
   left_inv := fromMathlib_toMathlib
   right_inv := toMathlib_fromMathlib
+
+/-- 旧诱导拓扑转到 Mathlib 后，严格等于 Mathlib 的规范诱导拓扑。 -/
+theorem toMathlib_induced (f : X → Y) (τY : TextbookTopology Y) :
+    (induced f τY).toMathlib = TopologicalSpace.induced f τY.toMathlib := by
+  apply TopologicalSpace.ext
+  rfl
+
+/-- 旧子空间拓扑转到 Mathlib 后，严格等于 subtype 的规范拓扑实例。 -/
+theorem toMathlib_subspace (s : Set X) (τX : TextbookTopology X) :
+    (subspace s τX).toMathlib = @instTopologicalSpaceSubtype X s τX.toMathlib := by
+  apply TopologicalSpace.ext
+  rfl
+
+/-- 旧积拓扑转到 Mathlib 后，严格等于积类型的规范拓扑实例。 -/
+theorem toMathlib_product (τX : TextbookTopology X) (τY : TextbookTopology Y) :
+    (product τX τY).toMathlib = @instTopologicalSpaceProd X Y τX.toMathlib τY.toMathlib := by
+  apply TopologicalSpace.ext
+  funext s
+  apply propext
+  let _ := τX.toMathlib
+  let _ := τY.toMathlib
+  rw [SandronesLibrary.Topology.isOpen_prod_iff_rectangles]
+  constructor
+  · intro h x y hxy
+    obtain ⟨u, v, hu, hv, hmem, hsub⟩ := h (x, y) hxy
+    exact ⟨u, v, hu, hv, hmem.1, hmem.2, hsub⟩
+  · intro h p hp
+    obtain ⟨u, v, hu, hv, hpu, hpv, hsub⟩ := h p.1 p.2 hp
+    exact ⟨u, v, hu, hv, ⟨hpu, hpv⟩, hsub⟩
 
 namespace Homeomorphism
 

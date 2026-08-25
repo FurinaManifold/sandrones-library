@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.Foundation
+import Mathlib.Topology.Constructions
 
 /-!
 # Basic constructions of textbook topologies
@@ -17,6 +18,48 @@ Current entry:
 -/
 
 open Set Function
+
+namespace SandronesLibrary.Topology
+
+variable {X Y Z : Type*}
+
+/-- Mathlib 的诱导拓扑恰好把目标空间的开集沿映射拉回；这就是教材中由映射诱导拓扑的定义。
+
+> **Entry**: topology.foundation.constructions -/
+theorem isOpen_induced_iff_exists (f : X → Y) (τY : TopologicalSpace Y) (s : Set X) :
+    @_root_.IsOpen X (TopologicalSpace.induced f τY) s ↔
+      ∃ v : Set Y, @_root_.IsOpen Y τY v ∧ f ⁻¹' v = s := by
+  exact @isOpen_induced_iff X Y τY s f
+
+/-- 映射到子空间连续，当且仅当忘掉值域的成员证明后，映射到环境空间连续。这同时说明 subtype
+上的 Mathlib 拓扑就是包含映射诱导的教材子空间拓扑。 -/
+theorem continuous_subtype_iff [TopologicalSpace X] [TopologicalSpace Y]
+    {s : Set X} (f : Y → s) :
+    _root_.Continuous f ↔ _root_.Continuous (fun y ↦ (f y : X)) := by
+  exact Topology.IsInducing.subtypeVal.continuous_iff
+
+/-- 积空间中的集合开，当且仅当其中每一点都包含在某个仍位于该集合内的开矩形中。这是教材的
+积拓扑局部基刻画。 -/
+theorem isOpen_prod_iff_rectangles [TopologicalSpace X] [TopologicalSpace Y]
+    (s : Set (X × Y)) :
+    _root_.IsOpen s ↔ ∀ x y, (x, y) ∈ s →
+      ∃ u : Set X, ∃ v : Set Y,
+        _root_.IsOpen u ∧ _root_.IsOpen v ∧ x ∈ u ∧ y ∈ v ∧ u ×ˢ v ⊆ s := by
+  exact _root_.isOpen_prod_iff
+
+/-- 到积空间的映射连续，当且仅当两个坐标映射都连续；正向由连续投影复合得到，反向由
+Mathlib 的 `Continuous.prodMk` 组装。 -/
+theorem continuous_prod_mk_iff [TopologicalSpace X] [TopologicalSpace Y]
+    [TopologicalSpace Z] (f : Z → X) (g : Z → Y) :
+    _root_.Continuous (fun z ↦ (f z, g z)) ↔
+      _root_.Continuous f ∧ _root_.Continuous g := by
+  constructor
+  · intro h
+    exact ⟨_root_.continuous_fst.comp h, _root_.continuous_snd.comp h⟩
+  · rintro ⟨hf, hg⟩
+    exact hf.prodMk hg
+
+end SandronesLibrary.Topology
 
 namespace SandronesLibrary.Topology.TextbookTopology
 

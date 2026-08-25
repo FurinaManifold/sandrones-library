@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.Path
+import Mathlib.Topology.Connected.PathConnected
 
 /-!
 # Path connectedness
@@ -17,6 +18,32 @@ Current entry:
 -/
 
 open Set
+
+namespace SandronesLibrary.Topology
+
+variable {X Y : Type*}
+
+/-- Mathlib 的 `Joined x y` 按定义就是存在一条从 `x` 到 `y` 的道路。
+
+> **Entry**: topology.connectedness.path-components-foundation -/
+theorem joined_iff_nonempty_path [TopologicalSpace X] (x y : X) :
+    _root_.Joined x y ↔ Nonempty (_root_.Path x y) :=
+  Iff.rfl
+
+/-- 子集道路连通，当且仅当它非空，且任意两个属于该集合的点都能由一条始终留在集合内的道路
+连接。`JoinedIn` 显式记录“道路不离开子集”，避免与环境空间中的可连接性混淆。 -/
+theorem isPathConnected_iff_nonempty_joinedIn [TopologicalSpace X] (s : Set X) :
+    _root_.IsPathConnected s ↔ s.Nonempty ∧
+      ∀ x ∈ s, ∀ y ∈ s, _root_.JoinedIn s x y := by
+  exact _root_.isPathConnected_iff
+
+/-- 连续映射保持道路连通性；像集中的连接道路由原集合中的道路经 `Path.map` 得到。 -/
+theorem isPathConnected_image [TopologicalSpace X] [TopologicalSpace Y]
+    {s : Set X} (hs : _root_.IsPathConnected s) {f : X → Y}
+    (hf : _root_.Continuous f) : _root_.IsPathConnected (f '' s) :=
+  hs.image hf
+
+end SandronesLibrary.Topology
 
 namespace SandronesLibrary.Topology.TextbookTopology
 
