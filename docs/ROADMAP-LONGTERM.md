@@ -374,11 +374,15 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 2 | `abstract-algebra.poly.division` | 首一多项式带余除法、Euclidean 算法、gcd 与 Bézout | ✅ |
 | 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | ✅ |
 | 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | ✅ |
-| 5 | `abstract-algebra.field.extension` | 扩域、子域、单扩张、代数元与超越元、最小多项式 | 🔲 |
+| 5 | `abstract-algebra.field.extension` | 显式域嵌入、生成中间域、单扩张、代数/超越元与最小多项式 | ✅ |
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | 🔲 |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、代数闭包、有限域基础 | 🔲 |
 | 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
+
+**当前调度（2026-08-25）**：A3.5 已集成，A3.6 扩张次数窗口解锁。A3.6 的课程主签名继续
+显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材定义；Mathlib
+`Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。分裂域及其后续窗口仍冻结。
 
 ---
 

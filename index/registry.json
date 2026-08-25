@@ -3638,6 +3638,7 @@
     "added_by": "ingestor-abstractalgebra-A2",
     "added_at": "2026-08-21T10:04:25Z",
     "dependedOnBy": [
+      "abstract-algebra.field.extension",
       "abstract-algebra.poly.def",
       "abstract-algebra.ring.divisibility",
       "abstract-algebra.ring.ideal",
@@ -13374,7 +13375,9 @@
     "nl_file": "docs/entries/abstract-algebra/poly/factorization.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.extension"
+    ],
     "family": "abstract-algebra.poly",
     "variant": "factorization",
     "axioms": [
@@ -13839,6 +13842,39 @@
     "family": "functional-analysis.subspace",
     "variant": "salamon",
     "proof_sha": "20e5cfa3245bef06",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.extension",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "域扩张、生成中间域、代数元与最小多项式",
+    "summary": "以显式域嵌入建立子域和生成中间域、代数与超越元、单扩张以及最小多项式的存在唯一和不可约性",
+    "premises": [
+      "abstract-algebra.ring.def",
+      "abstract-algebra.poly.factorization"
+    ],
+    "mathlib": [
+      "RingHom",
+      "Polynomial.eval₂",
+      "minpoly"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-d53b48c245387b22"
+    },
+    "lean_file": "AbstractAlgebra/FieldExtension.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/extension.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "3c16488a48435478",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

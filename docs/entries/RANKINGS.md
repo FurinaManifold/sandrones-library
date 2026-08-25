@@ -11,35 +11,35 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.23 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.89 |
-| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.73 |
-| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.00 |
-| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.20 |
-| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.98 |
-| 7 | `analysis.series.basic` | 数项级数基础 | 93.60 |
-| 8 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.00 |
-| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.16 |
-| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.58 |
-| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.38 |
-| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.12 |
-| 13 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.91 |
-| 14 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 89.86 |
-| 15 | `linear-algebra.det.mul` | 积的行列式 | 89.34 |
-| 16 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.29 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.90 |
+| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.74 |
+| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.01 |
+| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.32 |
+| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.96 |
+| 7 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.79 |
+| 8 | `analysis.series.basic` | 数项级数基础 | 93.62 |
+| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.14 |
+| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.53 |
+| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.48 |
+| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.04 |
+| 13 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.02 |
+| 14 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.93 |
+| 15 | `linear-algebra.det.mul` | 积的行列式 | 89.30 |
+| 16 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.31 |
 | 17 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.17 |
-| 18 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.15 |
+| 18 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.17 |
 | 19 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.65 |
-| 20 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.25 |
-| 21 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.11 |
-| 22 | `settheory.set.ext` | 外延性原理 | 87.02 |
-| 23 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.29 |
-| 24 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.94 |
-| 25 | `settheory.ordinal.addition` | 序数加法不交换 | 85.39 |
-| 26 | `analysis.derivative.chain-rule` | 链式法则 | 85.13 |
-| 27 | `analysis.continuity.definition` | 连续性定义 | 84.46 |
-| 28 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.21 |
-| 29 | `real-analysis.measure.def` | 测度公理 | 83.69 |
-| 30 | `number-theory.elementary.divisibility` | 带余除法、最大公因数与 Bézout 等式 | 83.30 |
+| 20 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.26 |
+| 21 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.12 |
+| 22 | `settheory.set.ext` | 外延性原理 | 87.03 |
+| 23 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.30 |
+| 24 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.95 |
+| 25 | `settheory.ordinal.addition` | 序数加法不交换 | 85.35 |
+| 26 | `analysis.derivative.chain-rule` | 链式法则 | 85.11 |
+| 27 | `analysis.continuity.definition` | 连续性定义 | 84.47 |
+| 28 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.23 |
+| 29 | `real-analysis.measure.def` | 测度公理 | 83.63 |
+| 30 | `number-theory.elementary.divisibility` | 带余除法、最大公因数与 Bézout 等式 | 83.31 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -68,13 +68,13 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 21 | `topology.normed-space.banach` | 范数收敛与Banach完备性 | 2.500 |
 | 22 | `topology.space.continuous` | 连续映射 | 2.500 |
 | 23 | `settheory.googology.unbounded-halting-relation` | 无时间界停机关系与最终输出 | 2.250 |
-| 24 | `analysis.constants.pi-definition` | 圆周率 π 的定义接口与基本特殊值 | 2.083 |
-| 25 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 2.000 |
-| 26 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 2.000 |
-| 27 | `functional-analysis.open-mapping` | Banach 开映像定理 | 2.000 |
-| 28 | `linear-algebra.decomposition.qr` | QR 分解 | 2.000 |
-| 29 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 2.000 |
-| 30 | `analysis.multivariable.frechet` | Fréchet全微分与方向导数 | 1.958 |
+| 24 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 2.167 |
+| 25 | `analysis.constants.pi-definition` | 圆周率 π 的定义接口与基本特殊值 | 2.083 |
+| 26 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 2.000 |
+| 27 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 2.000 |
+| 28 | `functional-analysis.open-mapping` | Banach 开映像定理 | 2.000 |
+| 29 | `linear-algebra.decomposition.qr` | QR 分解 | 2.000 |
+| 30 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 2.000 |
 
 ## 基础设施榜（传递影响）
 
@@ -89,12 +89,12 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 7 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 13.312 |
 | 8 | `analysis.continuity.definition` | 连续性定义 | 12.281 |
 | 9 | `real-analysis.measure.def` | 测度公理 | 11.875 |
-| 10 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 9.750 |
+| 10 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 10.750 |
 | 11 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.688 |
 | 12 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 9.469 |
 | 13 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
-| 14 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
-| 15 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 8.875 |
+| 14 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 8.938 |
+| 15 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
 | 16 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
 | 17 | `settheory.ordinal.order-type` | 良序与序型 | 8.500 |
 | 18 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
@@ -106,9 +106,9 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 24 | `settheory.ordinal.transfinite-induction` | 超限归纳 | 7.219 |
 | 25 | `settheory.googology.primitive-recursion` | 原始递归：从初值逐步生成自然数函数 | 7.188 |
 | 26 | `complex-analysis.integral.path` | 复路径与路径积分 | 7.000 |
-| 27 | `settheory.googology.hereditary-base` | 遗传基表示：连指数也用同一底数展开 | 6.875 |
-| 28 | `analysis.special-functions.log-tan-pow` | 对数、正切、幂函数与反三角函数 | 6.812 |
-| 29 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 6.750 |
+| 27 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 6.875 |
+| 28 | `settheory.googology.hereditary-base` | 遗传基表示：连指数也用同一底数展开 | 6.875 |
+| 29 | `analysis.special-functions.log-tan-pow` | 对数、正切、幂函数与反三角函数 | 6.812 |
 | 30 | `real-analysis.riemann.def` | 黎曼积分定义 | 6.750 |
 
 ## 跨学科桥梁榜

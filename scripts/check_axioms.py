@@ -90,6 +90,11 @@ def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
                 scopes.pop()
         elif m := ENTRY_RE.search(line):
             entries.append((offset, m.group(1)))
+        # `private` 声明在编译后的环境中会被改写为不可从源码名称访问的内部名，
+        # 因而不能用源码全名执行 `#print axioms`。它们的公理会传递到调用它们的
+        # 公开声明；跳过私有声明既避免伪解析失败，也不会漏掉 Entry 的公开公理依赖。
+        elif re.match(r"^(?:@\[[^\]]+\]\s+)*private\s+", stripped):
+            pass
         elif m := DECL_RE.match(stripped):
             namespaces = [name for kind, name in scopes if kind == "namespace" and name]
             full = ".".join(namespaces + [m.group(2)])

@@ -12,6 +12,18 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## 显式域扩张与最小多项式
+
+### `RingHom` / `Polynomial.eval₂`
+- **人话**：把本库显式域嵌入临时包装成保持零、一、加法和乘法的映射，并沿该映射把系数送入扩域后求值。
+- **出处**：Mathlib 的环同态和多项式求值接口。
+- **谁在用**：`abstract-algebra.field.extension`；公开课程入口仍是显式 `FieldEmbedding` 与 `evaluateOver`。
+
+### `Algebra` / `aeval` / `IsIntegral` / `minpoly`
+- **人话**：在固定域嵌入诱导的局部代数结构下，Mathlib 提供整元素和首一最小多项式的成熟理论。
+- **出处**：Mathlib 的域论与最小多项式模块。
+- **谁在用**：`abstract-algebra.field.extension` 的私有桥；桥先证明 `algebraMap` 就是指定嵌入，再推出教材最小多项式的存在与不可约性。
+
 ## Hahn–Banach、凸分离与连续零化子
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`

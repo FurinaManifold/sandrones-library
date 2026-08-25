@@ -74,6 +74,7 @@ import SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 import SandronesLibrary.AbstractAlgebra.PolynomialDivision
 import SandronesLibrary.AbstractAlgebra.PolynomialIrreducibility
 import SandronesLibrary.AbstractAlgebra.PolynomialFactorization
+import SandronesLibrary.AbstractAlgebra.FieldExtension
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions

@@ -95,6 +95,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E6.5 整除与分解 | `examples.abstract-algebra.factorization` | Euclidean 算法、gcd、不可约分解、PID/UFD 链 | 不可约与素元在一般整环不必等价 | A2 |
 | E6.6 CRT 与局部化 | `examples.abstract-algebra.crt-localization` | 小模数 CRT、整数局部化为有理分式的计算 | 含零因子时分式判等不能只交叉相乘 | A2 |
 | E6.7 多项式 | `examples.abstract-algebra.polynomials` | 除法、因式分解、重根、不可约判别 | 在不同系数域上不可约性可改变 | A3 |
+| E6.8 域扩张 | `examples.abstract-algebra.field-extensions` | 有理数嵌入实数、二次代数元、`X²-2` 最小多项式及单扩张 | 域扩张必须固定嵌入；超越元没有最小多项式；子域集合不自动包含指定基域像 | A3.5 |
 
 ## E7 拓扑学
 

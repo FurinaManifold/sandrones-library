@@ -6,7 +6,11 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **429** 个条目（verified 429，pending 0）。
+共 **430** 个条目（verified 430，pending 0）。
+
+## `abstract-algebra.field`
+
+- ✅ [`extension.md`](extension.md) — 域扩张、生成中间域、代数元与最小多项式
 
 ## `abstract-algebra.group`
 
