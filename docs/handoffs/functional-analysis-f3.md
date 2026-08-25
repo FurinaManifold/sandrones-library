@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`bdc17a6`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f3-design.md`
-- 当前阶段：正交投影与 Riesz 表示已由 Main 集成；伴随窗口完成验证
+- 当前阶段：正交投影与 Riesz 表示已由 Main 集成；伴随与正交规范基／Parseval 完成验证
 
 ## Main 基线同步
 
@@ -40,6 +40,18 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.AdjointOperator`：8713 jobs 通过；警告只来自既有依赖。
 - 聚合 `#check` 覆盖正式承载、定义性刻画及五个公开声明；Entry 精确映射为五个声明。
 - 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 正交规范基／Parseval 窗口
+
+- 无限维正式承载选用 `HilbertBasis ι ℝ E`，即 `E` 与 `ℓ²(ι,ℝ)` 的等距线性等价；不复制基结构，
+  也不把只适合有限指标的 `OrthonormalBasis` 冒充一般承载。
+- 教材展开覆盖正交规范、稠密张成、Fourier 级数重构与 Parseval 自内积恒等式。
+- 不假设可分或可数指标；复数共轭版本、Schauder 基和紧自伴谱分解均保持在本窗之外。
+- `lake build SandronesLibrary.FunctionalAnalysis.OrthonormalBasis`：8714 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖 `HilbertBasis`、`repr`、系数刻画、级数重构、Parseval 与四个公开声明；
+  Entry 精确映射为四个声明。
+- 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
 ## 范围与边界
