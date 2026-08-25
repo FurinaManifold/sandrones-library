@@ -3,14 +3,18 @@ Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
 Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
-import Mathlib.Data.Set.Lattice
-import Mathlib.Logic.Equiv.Basic
+import Mathlib.Topology.Continuous
+import Mathlib.Topology.Homeomorph.Defs
 
 /-!
-# A textbook foundation for topology
+# The textbook meaning of Mathlib's topology foundation
 
-This file defines the elementary objects of topology inside Sandrone's Library.  It deliberately
-does not import Mathlib's topology hierarchy; interoperability is isolated in `MathlibBridge.lean`.
+Mathlib's `TopologicalSpace`, `IsOpen`, `Continuous`, and `Homeomorph` have exactly the meanings
+used in the textbook course, so they are the official public carriers of this entry. The opening
+theorems expose their textbook definitions without wrapping them in parallel structures.
+
+The older `TextbookTopology` hierarchy remains below as a frozen compatibility layer for existing
+SandronesLibrary declarations. New topology development must use the Mathlib carriers directly.
 
 Current entry:
 
@@ -21,9 +25,42 @@ open Set Function
 
 namespace SandronesLibrary.Topology
 
-/-- A topology on `X`, presented by its open sets and the three open-set axioms.
+variable {X Y : Type*}
+
+/-- Mathlib's topology structure supplies exactly the textbook open-set axioms: the whole space is
+open, binary intersections of open sets are open, and arbitrary unions of open sets are open. The
+empty set is then the union of the empty family.
 
 > **Entry**: topology.foundation.structure -/
+theorem topologicalSpace_open_axioms [TopologicalSpace X] :
+    IsOpen (Set.univ : Set X) ∧
+      (∀ s t : Set X, IsOpen s → IsOpen t → IsOpen (s ∩ t)) ∧
+      ∀ S : Set (Set X), (∀ s ∈ S, IsOpen s) → IsOpen (⋃₀ S) := by
+  exact ⟨isOpen_univ, fun _ _ hs ht ↦ hs.inter ht,
+    fun _ hS ↦ isOpen_sUnion hS⟩
+
+/-- A function is continuous exactly when the preimage of every open set is open. This theorem
+shows the textbook definition used by Mathlib's public `Continuous` predicate. -/
+theorem continuous_iff_preimage_open [TopologicalSpace X] [TopologicalSpace Y]
+    (f : X → Y) :
+    _root_.Continuous f ↔ ∀ u : Set Y, _root_.IsOpen u → _root_.IsOpen (f ⁻¹' u) := by
+  exact _root_.continuous_def
+
+/-- A homeomorphism exists exactly when there is an equivalence whose forward and inverse maps
+are both continuous. Thus Mathlib's `Homeomorph` packages the usual textbook data without changing
+its mathematical meaning. -/
+theorem nonempty_homeomorph_iff_exists_equiv [TopologicalSpace X] [TopologicalSpace Y] :
+    Nonempty (X ≃ₜ Y) ↔
+      ∃ e : X ≃ Y, _root_.Continuous (e : X → Y) ∧
+        _root_.Continuous (e.symm : Y → X) := by
+  constructor
+  · rintro ⟨e⟩
+    exact ⟨e.toEquiv, e.continuous, e.symm.continuous⟩
+  · rintro ⟨e, he, he'⟩
+    exact ⟨{ toEquiv := e, continuous_toFun := he, continuous_invFun := he' }⟩
+
+/-- Legacy explicit topology carrier retained only so already committed SandronesLibrary modules
+continue to compile during the M2 migration. New declarations must use `TopologicalSpace`. -/
 structure TextbookTopology (X : Type*) where
   /-- The predicate selecting the open subsets. -/
   IsOpen : Set X → Prop
@@ -87,7 +124,7 @@ theorem Continuous.comp {τX : TextbookTopology X} {τY : TextbookTopology Y}
   change τX.IsOpen (f ⁻¹' (g ⁻¹' w))
   exact hf _ (hg _ hw)
 
-/-- A textbook homeomorphism is an equivalence whose forward and inverse maps are continuous. -/
+/-- Legacy explicit homeomorphism carrier. New declarations use Mathlib's `Homeomorph`. -/
 structure Homeomorphism (τX : TextbookTopology X) (τY : TextbookTopology Y) where
   toEquiv : X ≃ Y
   continuous_toFun : Continuous τX τY toEquiv
