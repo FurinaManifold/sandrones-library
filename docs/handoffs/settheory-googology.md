@@ -18,6 +18,8 @@
 - 本库序数幂通用桥提交：`357e407`
 - 遗传编码底数幂精确秩提交：`7e4292d`
 - 遗传幂指数一般借位提交：`70d05dd`
+- 规范 Goodstein 状态提交：`7222e57`
+- 固定状态机器代码停机桥提交：`f36bc8e`
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -59,6 +61,8 @@
 - `SandronesLibrary/SetTheory/OrdinalPowerBridge.lean`
 - `SandronesLibrary/SetTheory/HereditaryNatPowerRank.lean`
 - `SandronesLibrary/SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean`
+- `SandronesLibrary/SetTheory/CanonicalGoodsteinState.lean`
+- `SandronesLibrary/SetTheory/BinaryMachineCodeHalting.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
 - `docs/entries/settheory/ordinal/power-bridge.md`
@@ -104,6 +108,8 @@ import SandronesLibrary.SetTheory.HydraCertifiedStrategyTermination
 import SandronesLibrary.SetTheory.OrdinalPowerBridge
 import SandronesLibrary.SetTheory.HereditaryNatPowerRank
 import SandronesLibrary.SetTheory.GoodsteinHereditaryPowerExponentBorrow
+import SandronesLibrary.SetTheory.CanonicalGoodsteinState
+import SandronesLibrary.SetTheory.BinaryMachineCodeHalting
 ```
 
 ## Registry
@@ -169,6 +175,8 @@ import SandronesLibrary.SetTheory.GoodsteinHereditaryPowerExponentBorrow
 57. `settheory.ordinal.power-bridge`（`theorem`）
 58. `settheory.googology.hereditary-natural-power-rank`（`theorem`）
 59. `settheory.googology.goodstein-hereditary-power-exponent-borrow`（`theorem`）
+60. `settheory.googology.canonical-goodstein-state`（`definition`）
+61. `settheory.computability.binary-machine-code-halting`（`theorem`）
 
 ## 定义边界
 
@@ -281,6 +289,14 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 `base≥2`、`0<k<base` 和合法头部的 `head+B^(B^k)`：升底后用一般编码器重建整个
 `q^(q^k)-1`，证明合法、求值正确并由 `ω^(q^k)<ω^(ω^k)` 得到严格下降。指数内加乘、任意遗传
 指数、更高任意塔、完整 Goodstein 下降与终止仍未覆盖。
+
+第十三小批建立两个后续接口。`CanonicalGoodsteinState` 只保存底数证书和值，表达式定义性地由
+`hereditaryNatEncode` 生成；`canonicalGoodsteinStep` 在新底数下重新编码换底减一后的数值，
+无条件证明新状态底数、合法性和求值规格。一般序数下降仍缺“旧规范树在新底数求值后重新编码保持
+原 `omegaValue`”的规范化桥；该义务被显式命名为 `CanonicalBaseChangeOmegaCompatible`，当前只
+在给定此兼容性与正值时证明条件下降。机器线把固定状态数 `MachineCode` 解码后接到统一停机界，
+定义代码级有限燃料检查并证明给定正确界时精确刻画最终停机；由于解码与经典界均
+`noncomputable`，它仍是命题规格而非通用算法。
 
 ## RADAR
 
@@ -403,6 +419,12 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_general_borrow`（第十一批组装）：`GoodsteinHereditaryPowerExponentBorrow.lean` 与一篇文档，
   独立提交 `70d05dd`。负责人确认借位尾部整体经一般编码器重建，两座新桥都实际进入下降证明；
   接受 `0<k<base` 参数族，不接受外推到任意复合遗传指数或终止。
+- `st3_canonical_goodstein`（第十二批）：`CanonicalGoodsteinState.lean` 与一篇文档，独立提交
+  `7222e57`。负责人确认无条件结论只覆盖规范状态、重编码一步的合法性与求值；兼容性被显式保留
+  为未证明前提，条件下降没有被标题或正文写成一般下降。
+- `st3_code_halting`（第十二批）：`BinaryMachineCodeHalting.lean` 与一篇文档，独立提交
+  `f36bc8e`。负责人确认 `codeHaltsByFuel` 因规范解码为 `noncomputable`，经典界也不可计算；定理
+  只给正确统一界下的代码谓词等价，不声称通用停机算法或不可判定性。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -444,6 +466,10 @@ Hydra 的精确有限步、非空传递下降、闭包良基与归纳；时间�
 第十二批新增的稳定接口包括：本库序数幂与原生序数幂的通用等式及 `ω` 幂指数比较；修正遗传编码
 对 `q^k` 的精确秩和严格下界；`head+B^(B^k)`（`0<k<base`）的合法重编码、数值正确和序数严格
 下降。仍不可依赖任意遗传指数正规借位、所有表达式逐步下降、完整 Goodstein 终止或 PA 不可证性。
+第十三批新增的稳定接口包括：由底数和值唯一决定的规范 Goodstein 状态、规范重编码一步及其无条件
+合法性／求值规格；机器有限代码上的停机谓词、燃料检查和正确统一界下的精确等价。仍不可依赖
+`CanonicalBaseChangeOmegaCompatible` 对所有状态成立、规范序列无条件下降、可执行代码解码、可计算
+经典时间界、一般停机算法或不可计算性结论。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -509,6 +535,15 @@ Hydra 认证步骤或机器停机关系。
 表达式；`ordinalPow_eq_opow` 是本库公开运算到 Mathlib 后端的显式证明桥，
 `HereditaryNatPowerRank` 则保持所有公开结论以本库 `ordinalPow` 表述。Mathlib 的极限递归与原生
 幂比较只作证明后端，没有替代本库定义链。
+
+第十三批两个新增模块分别构建通过（1052、775 jobs）；集合论 42 模块及依赖闭包联合构建通过，
+共 1097 jobs；聚合文件检查规范状态一步规格、条件下降、代码级统一界停机规格及经典界等价。
+两个 Entry 与两篇文档一一对应，精确八段 2/2；禁用证明占位和 `TODO`/`FIXME`/`TBD` 零命中，
+`git diff --check` 通过。未运行全库 `lake build`。
+
+第十三批公开教材定义是 `CanonicalGoodsteinState`、`canonicalGoodsteinStep`、
+`CanonicalBaseChangeOmegaCompatible`、`CodeHaltedAt`、`CodeEventuallyHalts` 与 `codeHaltsByFuel`。
+它们直接复用本库编码器、机器模型和统一界接口；没有新增 Mathlib 概念替代公开定义。
 
 ## 合并后验收
 
