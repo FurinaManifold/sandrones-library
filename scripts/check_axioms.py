@@ -34,7 +34,14 @@ LEAN_ROOT = ROOT / "SandronesLibrary"
 NAMESPACE_RE = re.compile(r"^namespace\s+([\w.]+)")
 SECTION_RE = re.compile(r"^section(?:\s+([\w.]+))?")
 END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
-DECL_RE = re.compile(r"^(theorem|lemma|def)\s+([\w!?]+)")
+# Public declarations may carry attributes/modifiers, may introduce structures,
+# and may use a qualified name such as `UnitInterval.reflect`.
+DECL_RE = re.compile(
+    r"^(?:(?:@\[[^\]]+\])\s+)*"
+    r"(?:(?:noncomputable|unsafe|private|protected)\s+)*"
+    r"(theorem|lemma|def|abbrev|structure|class|inductive|opaque)\s+"
+    r"([A-Za-z_][\w'.]*)"
+)
 ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
 AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]", re.DOTALL)
 AXIOMS_NONE = re.compile(r"does not depend on any axioms")
@@ -64,7 +71,7 @@ def parse_probe_segment(output: str, decl: str) -> list[str]:
 
 
 def map_entry_to_decl(lean_text: str) -> dict[str, list[str]]:
-    """把每个 `**Entry**: <id>` 关联到紧跟其 docstring 之后的所有定理/定义全名。"""
+    """把每个 Entry 关联到其公开声明，包括结构、修饰声明与带点名称。"""
     # 收集 (字符偏移, entry_id) 与 (字符偏移, full_decl_name)
     entries: list[tuple[int, str]] = []
     decls: list[tuple[int, str]] = []
@@ -111,9 +118,11 @@ def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[s
     """
     probe = Path("/tmp/opencode/check_axioms_probe.lean")
     probe.parent.mkdir(parents=True, exist_ok=True)
-    body: list[str] = []
+    # Lean requires every import to precede all other commands.  Emitting one
+    # import immediately before each module's probes breaks batches of two or
+    # more modules with "invalid import command".
+    body: list[str] = [f"import {mod}" for mod, _ in modules]
     for mod, decls in modules:
-        body.append(f"import {mod}")
         for decl in decls:
             body.extend(probe_block(decl))
     probe.write_text("\n".join(body))
