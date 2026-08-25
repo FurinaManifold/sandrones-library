@@ -10,36 +10,36 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.17 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.92 |
-| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.69 |
-| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 94.95 |
-| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.15 |
-| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.87 |
-| 7 | `analysis.series.basic` | 数项级数基础 | 93.61 |
-| 8 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 92.87 |
-| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.18 |
-| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.61 |
-| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.30 |
-| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.02 |
-| 13 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 89.98 |
-| 14 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.95 |
-| 15 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 89.74 |
-| 16 | `linear-algebra.det.mul` | 积的行列式 | 89.37 |
-| 17 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.25 |
-| 18 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.14 |
-| 19 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.13 |
-| 20 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.68 |
-| 21 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.27 |
-| 22 | `settheory.set.ext` | 外延性原理 | 87.04 |
-| 23 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.99 |
-| 24 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.21 |
-| 25 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.92 |
-| 26 | `settheory.ordinal.addition` | 序数加法不交换 | 85.50 |
-| 27 | `analysis.derivative.chain-rule` | 链式法则 | 85.11 |
-| 28 | `analysis.continuity.definition` | 连续性定义 | 84.53 |
-| 29 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.18 |
-| 30 | `real-analysis.measure.def` | 测度公理 | 83.58 |
+| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.22 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.97 |
+| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.73 |
+| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.00 |
+| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.19 |
+| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.99 |
+| 7 | `analysis.series.basic` | 数项级数基础 | 93.66 |
+| 8 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 92.99 |
+| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 92.23 |
+| 10 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.66 |
+| 11 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.42 |
+| 12 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 90.14 |
+| 13 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.02 |
+| 14 | `settheory.googology.bounded-halting` | 限定步数停机 | 90.00 |
+| 15 | `linear-algebra.det.mul` | 积的行列式 | 89.49 |
+| 16 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 88.29 |
+| 17 | `number-theory.elementary.congruence` | 同余与剩余环 | 88.29 |
+| 18 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.15 |
+| 19 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.80 |
+| 20 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.30 |
+| 21 | `settheory.set.ext` | 外延性原理 | 87.06 |
+| 22 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.01 |
+| 23 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.23 |
+| 24 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.95 |
+| 25 | `settheory.ordinal.addition` | 序数加法不交换 | 85.58 |
+| 26 | `analysis.derivative.chain-rule` | 链式法则 | 85.13 |
+| 27 | `analysis.continuity.definition` | 连续性定义 | 84.55 |
+| 28 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.21 |
+| 29 | `real-analysis.measure.def` | 测度公理 | 83.67 |
+| 30 | `number-theory.elementary.divisibility` | 带余除法、最大公因数与 Bézout 等式 | 83.28 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -150,33 +150,33 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.homotopy.path-reversal-foundation` | 逆道路 | 93 |
-| 2 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 10 |
-| 3 | `settheory.ordinal.addition` | 序数加法不交换 | 9 |
-| 4 | `settheory.ordinal.multiplication` | 序数乘法不交换 | 9 |
-| 5 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 9 |
-| 6 | `linear-algebra.vector-space.span` | 生成子空间 | 6 |
-| 7 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 4 |
-| 8 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 3 |
-| 9 | `abstract-algebra.ring.quotient` | 商环及其泛性质 | 3 |
-| 10 | `complex-analysis.integral.path` | 复路径与路径积分 | 3 |
-| 11 | `linear-algebra.det.mul` | 积的行列式 | 3 |
-| 12 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 3 |
-| 13 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
-| 14 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
-| 15 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
-| 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
-| 17 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
-| 18 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
-| 19 | `topology.homotopy.definition-foundation` | 同伦与相对端点道路同伦 | 2 |
-| 20 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 1 |
-| 21 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 1 |
-| 22 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 1 |
-| 23 | `abstract-algebra.ring.iso-theorems` | 环的同构定理 | 1 |
-| 24 | `analysis.continuity.max-min` | 最值定理 | 1 |
-| 25 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss与Stokes公式 | 1 |
-| 26 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 1 |
-| 27 | `analysis.series.basic` | 数项级数基础 | 1 |
-| 28 | `analysis.series.cauchy-product-definition` | Cauchy 乘积的定义与有限三角恒等式 | 1 |
-| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 1 |
-| 30 | `complex-analysis.cauchy.derivatives` | Cauchy 高阶导数公式与估计 | 1 |
+| 1 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 10 |
+| 2 | `settheory.ordinal.addition` | 序数加法不交换 | 9 |
+| 3 | `settheory.ordinal.multiplication` | 序数乘法不交换 | 9 |
+| 4 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 9 |
+| 5 | `linear-algebra.vector-space.span` | 生成子空间 | 6 |
+| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 4 |
+| 7 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 3 |
+| 8 | `abstract-algebra.ring.quotient` | 商环及其泛性质 | 3 |
+| 9 | `complex-analysis.integral.path` | 复路径与路径积分 | 3 |
+| 10 | `linear-algebra.det.mul` | 积的行列式 | 3 |
+| 11 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 3 |
+| 12 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
+| 13 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
+| 14 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
+| 15 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
+| 16 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
+| 17 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
+| 18 | `topology.homotopy.definition-foundation` | 同伦与相对端点道路同伦 | 2 |
+| 19 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 1 |
+| 20 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 1 |
+| 21 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 1 |
+| 22 | `abstract-algebra.ring.iso-theorems` | 环的同构定理 | 1 |
+| 23 | `analysis.continuity.max-min` | 最值定理 | 1 |
+| 24 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss与Stokes公式 | 1 |
+| 25 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 1 |
+| 26 | `analysis.series.basic` | 数项级数基础 | 1 |
+| 27 | `analysis.series.cauchy-product-definition` | Cauchy 乘积的定义与有限三角恒等式 | 1 |
+| 28 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 1 |
+| 29 | `complex-analysis.cauchy.derivatives` | Cauchy 高阶导数公式与估计 | 1 |
+| 30 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 1 |

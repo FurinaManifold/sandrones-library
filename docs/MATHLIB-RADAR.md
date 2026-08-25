@@ -12,6 +12,23 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## 标准道路的逆向与拼接
+
+### `Path.symm` / `Path.symm_apply` / `Path.symm_symm`
+- **人话**：逆道路把参数 `t` 反射为 `1-t`，所以交换起点和终点；连续反向两次严格恢复原道路。
+- **出处**：Mathlib 的道路与单位区间接口。
+- **谁在用**：`topology.homotopy.path-reversal-foundation`；本库公开逐点公式，旧道路实现只保留迁移桥。
+
+### `Path.trans` / `Path.trans_apply`
+- **人话**：把两条首尾相接的道路拼起来：前半段以二倍速度走第一条，后半段以二倍速度走第二条。
+- **出处**：Mathlib 的道路拼接接口。
+- **谁在用**：`topology.homotopy.path-concatenation-foundation`；本库分别公开左右半区取值公式。
+
+### `unitInterval.symm`
+- **人话**：标准闭单位区间上的反射 `t ↦ 1-t`，仍落在单位区间内并交换两个端点。
+- **出处**：Mathlib 的单位区间接口。
+- **谁在用**：`topology.homotopy.path-reversal-foundation`，作为 `Path.symm` 的参数变换。
+
 ## 环同构与整除的实现桥
 
 ### `Quotient` / `Quot.sound`

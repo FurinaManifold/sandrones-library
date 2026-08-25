@@ -3,7 +3,7 @@ id: topology.homotopy.path-reversal-foundation
 family: topology.homotopy
 variant: reflected-parameter
 kind: theorem
-state: staging
+state: verified
 title: 逆道路及双重反向的正式承载
 summary: 解释 Mathlib Path.symm 的单位区间反射参数化及双重反向严格等式，并保留旧实现作为迁移兼容层
 premises: [topology.homotopy.path-definition-foundation]

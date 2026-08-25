@@ -433,6 +433,8 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | `topology.foundation.constructions` | 诱导、子空间与积拓扑的 explained Mathlib reuse，旧构造冻结兼容 | ✅ A1 第二波已集成 |
 | `topology.foundation.real-line` | 标准实拓扑的 ε 邻域刻画与标准 `unitInterval` | ✅ A1 第三波已集成 |
 | `topology.homotopy.path-definition-foundation` | Mathlib `Path` 的连续轨迹与端点语义，及旧/新道路桥 | ✅ A1 道路数据窗口已集成 |
+| `topology.homotopy.path-reversal-foundation` | `Path.symm` 的单位区间反射语义、双重反向严格等式及旧操作桥 | ✅ A1 道路运算窗口已集成 |
+| `topology.homotopy.path-concatenation-foundation` | `Path.trans` 的左右半区二倍速参数化及旧操作桥 | ✅ A1 道路运算窗口已集成 |
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -446,10 +448,10 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
 | 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
 
-**当前调度（2026-08-25）**：A1 已集成拓扑基础、空间构造、道路连通、标准实线/单位区间
-与 Mathlib `Path` 数据窗口。下一小批只迁移道路逆向与拼接，必须继续区分严格道路等式和
-道路同伦。新课程不得借兼容桥绕回 `TextbookTopology`或旧 `Path`。A2/A3、同伦商与
-基本群继续锁定，直到 A1 道路运算完成迁移并复验。
+**当前调度（2026-08-25）**：A1 已集成拓扑基础、空间构造、道路连通、标准实线/单位区间、
+Mathlib `Path` 数据窗口以及道路逆向/拼接运算窗口。新课程不得借兼容桥绕回
+`TextbookTopology` 或旧 `Path`。A2/A3、同伦商与基本群仍锁定；下一小批必须由 Main
+结合标准 `Path.Homotopy` 的承载审计另行授权，不从旧同伦实现直接续写。
 
 ---
 

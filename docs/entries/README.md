@@ -615,9 +615,9 @@
 ## `topology.homotopy`
 
 - ✅ [`definition-foundation.md`](definition-foundation.md) — 同伦与相对端点道路同伦
-- ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接
+- ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接的正式承载
 - ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的正式承载
-- ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路
+- ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路及双重反向的正式承载
 
 ## `topology.metric`
 

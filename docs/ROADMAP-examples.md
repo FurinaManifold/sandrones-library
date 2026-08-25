@@ -104,7 +104,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.2 连续与同胚 | `examples.topology.continuity-homeomorphism` | 具体连续映射和区间同胚 | 连续双射不必同胚（缺逆连续条件） | T1 |
 | E7.3 子空间与商 | `examples.topology.subspace-quotient` | 区间／圆周的子空间和端点粘合 | 子空间开集不必在母空间中开 | T2 |
 | E7.4 紧致与分离 | `examples.topology.compactness-separation` | 有限空间、闭区间、有限积 | 有界不必紧致（非欧氏／非闭情形）；紧集闭需要分离条件 | T2-T3 |
-| E7.5 连通与道路 | `examples.topology.connected-path` | 标准单位区间上的常值、线性道路，圆周和凸集道路，以及道路拼接 | 连通不必道路连通；严格道路等式不等于道路同伦 | T3-T4 |
+| E7.5 连通与道路 | `examples.topology.connected-path` | 标准单位区间上的常值、线性道路，圆周和凸集道路，以及 `Path.symm`/`Path.trans` 的逐点计算 | 连通不必道路连通；固定二倍速拼接的单位律、结合律不应误写成严格道路等式 | T3-T4 |
 | E7.6 度量与完备化 | `examples.topology.metric-completion` | `ℚ` 的 Cauchy 序列及实数完备化直观接口 | 有界不必完全；完全不必紧致 | T3 |
 | E7.7 同伦与基本群 | `examples.topology.homotopy` | 常值／凸集收缩、圆周道路、逆向和拼接 | 同伦等价不等于同胚 | T4 |
 

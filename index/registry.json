@@ -12642,7 +12642,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "738304be590cf550",
+    "proof_sha": "9d90c8ddac9030c3",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12802,9 +12802,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "topology.homotopy.definition-foundation",
-      "topology.homotopy.path-concatenation-foundation",
-      "topology.homotopy.path-definition-foundation",
-      "topology.homotopy.path-reversal-foundation"
+      "topology.homotopy.path-definition-foundation"
     ],
     "proof_sha": "58e0d8981b435a62",
     "axioms": [
@@ -12843,7 +12841,7 @@
       "topology.homotopy.path-concatenation-foundation",
       "topology.homotopy.path-reversal-foundation"
     ],
-    "proof_sha": "60754ef8285d19e5",
+    "proof_sha": "199ea6b119773d26",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12854,13 +12852,17 @@
     "id": "topology.homotopy.path-reversal-foundation",
     "kind": "definition",
     "state": "verified",
-    "title": "逆道路",
-    "summary": "用单位区间反射构造逆道路并证明双重反向还原",
+    "title": "逆道路及双重反向的正式承载",
+    "summary": "解释 Mathlib Path.symm 的单位区间反射参数化及双重反向严格等式，并保留旧实现作为迁移兼容层",
     "premises": [
-      "topology.foundation.real-line",
       "topology.homotopy.path-definition-foundation"
     ],
-    "mathlib": [],
+    "mathlib": [
+      "Path.symm",
+      "Path.symm_apply",
+      "Path.symm_symm",
+      "unitInterval.symm"
+    ],
     "provenance": {
       "source_type": "book",
       "ref": "sandrones-ref-1ef337313be1381d"
@@ -12872,7 +12874,7 @@
     "dependedOnBy": [
       "topology.connectedness.path-components-foundation"
     ],
-    "proof_sha": "60754ef8285d19e5",
+    "proof_sha": "199ea6b119773d26",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12883,13 +12885,15 @@
     "id": "topology.homotopy.path-concatenation-foundation",
     "kind": "definition",
     "state": "verified",
-    "title": "道路拼接",
-    "summary": "用单位区间左右半段的线性缩放拼接具有公共端点的两条道路",
+    "title": "道路拼接的正式承载",
+    "summary": "解释 Mathlib Path.trans 的左右半区二倍速参数化，并保留旧分段连续性实现作为迁移兼容层",
     "premises": [
-      "topology.foundation.real-line",
       "topology.homotopy.path-definition-foundation"
     ],
-    "mathlib": [],
+    "mathlib": [
+      "Path.trans",
+      "Path.trans_apply"
+    ],
     "provenance": {
       "source_type": "book",
       "ref": "sandrones-ref-1ef337313be1381d"
@@ -12901,7 +12905,7 @@
     "dependedOnBy": [
       "topology.connectedness.path-components-foundation"
     ],
-    "proof_sha": "60754ef8285d19e5",
+    "proof_sha": "199ea6b119773d26",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

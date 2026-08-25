@@ -3,7 +3,7 @@ id: topology.homotopy.path-concatenation-foundation
 family: topology.homotopy
 variant: half-interval-gluing
 kind: definition
-state: staging
+state: verified
 title: 道路拼接的正式承载
 summary: 解释 Mathlib Path.trans 的左右半区二倍速参数化，并保留旧分段连续性实现作为迁移兼容层
 premises: [topology.homotopy.path-definition-foundation]

@@ -13,11 +13,11 @@ Sandrone's Library 以 [mathlib4](https://github.com/leanprover-community/mathli
 同时在课程文档中展开定义、假设和语义边界。只有语义不同、课程需要更弱或更精确的
 接口，或 Mathlib 缺少相应对象时，才建立本库定义和显式桥。
 
-## 当前规模（2026-08-25 Main `0418f7f`）
+## 当前规模（2026-08-25）
 
 - **425** 个 verified Entry，覆盖分析、线性代数、抽象代数、拓扑、实分析、复分析、
   集合论、初等数论与泛函分析。
-- **475** 条直接教材依赖边；`premises` 是唯一事实源，`dependedOnBy` 由脚本反向生成。
+- **473** 条直接教材依赖边；`premises` 是唯一事实源，`dependedOnBy` 由脚本反向生成。
 - **304** 条统一参考资料，在 `reference.bib` 维护；Registry 只保存 citation key。
 - **423** 个 verified 非兼容桥条目进入依赖排行。
 - 最近 Main 全库验收为 **8910 jobs** 构建通过。
