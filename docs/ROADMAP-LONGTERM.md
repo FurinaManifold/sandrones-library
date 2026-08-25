@@ -380,9 +380,18 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
 
-**当前调度（2026-08-25）**：A3.5 已集成，A3.6 扩张次数窗口解锁。A3.6 的课程主签名继续
-显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材定义；Mathlib
-`Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。分裂域及其后续窗口仍冻结。
+**当前并行权限（2026-08-25）**：
+
+| 窗口 | 权限 | 可执行范围 | 集成门 |
+|---|---|---|---|
+| A3.6 扩张次数 | `integration_open` | 正式入库显式有限线性组合、线性无关、基、扩张次数和塔式公式 | 同步最新 Main 后可交付 |
+| A3.7 分裂域基础 | `development_open` | 独立文件开发“多项式在扩域中分裂”、根集、分裂域的生成与最小性；可形成提交 | 等待 A3.6 集成并对齐最终次数接口 |
+| A3.8 可分/正规扩张 | `research_open` | Mathlib 承载审计、公开签名和 `/tmp` 证明框架 | A3.7 定义进入 Main 后才能正式交付 |
+| A3.9 Galois | 冻结 | 只允许书目和依赖调查 | G-A3 前置全部完成 |
+
+A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
+定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
+结束才开始开发，但不得在自己的正式接口中猜测尚未集成的次数 API。
 
 ---
 
@@ -452,10 +461,19 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
 | 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
 
-**当前调度（2026-08-25）**：A1 已集成拓扑基础、空间构造、道路连通、标准实线/单位区间、
-Mathlib `Path` 数据窗口以及道路逆向/拼接运算窗口。新课程不得借兼容桥绕回
-`TextbookTopology` 或旧 `Path`。A2/A3、同伦商与基本群仍锁定；下一小批必须由 Main
-结合标准 `Path.Homotopy` 的承载审计另行授权，不从旧同伦实现直接续写。
+**当前并行权限（2026-08-25）**：A1 已集成标准 `Path` 数据与逆向/拼接运算窗口；新课程不得
+借兼容桥绕回 `TextbookTopology` 或旧 `Path`。后续不再整体冻结为单一串行批次：
+
+| 窗口 | 权限 | 文件所有权建议 | 集成门 |
+|---|---|---|---|
+| T4-H1 标准道路同伦承载 | `integration_open` | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | 同步最新 Main 后可交付 |
+| T4-H2 一般/相对同伦 | `development_open` | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | H1 公开签名不得被复制，集成等待 H1 |
+| T4-E 同伦等价 | `development_open` | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | 集成等待 H2 的一般同伦接口 |
+| T4-F1 同伦类/基本群承载审计 | `research_open` | `/tmp` 框架与一页 RFC；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | T4-H1/H2 集成后转正式开发 |
+| T4-F2 群结构、函子性与计算 | 冻结 | 只允许书目和依赖调查 | 同伦商正式 Entry 进入 Main |
+
+三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
+等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
 
 ---
 

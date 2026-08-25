@@ -33,6 +33,10 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 - 维护共有文件：`SandronesLibrary.lean`、`index/registry.json`、`docs/entries/README.md`、
   `docs/MATHLIB-RADAR.md`、`docs/ROADMAP-LONGTERM.md`、`docs/LEAN-PLAYBOOK.md`。
 - 根据 ROADMAP 的依赖门和波次安排后续学科；避免多个负责人领取相同文件。
+- 对每条活跃关键路线至少维持一个 `integration_open` 窗口和一个所有权不冲突的
+  `development_open` 或 `research_open` 后续窗口。不得把“尚不可集成”等同于“禁止开发”；
+  权限按 Playbook 的三级模型写入 ROADMAP 或 review-inbox。只有公开载体未冻结、会产生语义
+  冲突或跨学科硬依赖未满足时才真正冻结，并列出明确解冻证据。
 - 对已完成学科的定义转正或公开接口调整，先指定窗口按
   `docs/roles/SUBJECT-MAINTENANCE-ROLE.md` 完成影响审计和兼容迁移；没有 RFC 与影响图时，
   main 不接受高扇出定义修改。

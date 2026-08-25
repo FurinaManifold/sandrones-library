@@ -209,6 +209,20 @@
 > `git status --short` 和提交尖端，以便把 `reviewed_commit` 与未提交范围写清。Main 不得因拥有
 > inbox 写权限而进入忙碌的学科 worktree 修改源码、handoff、Git 内 review、未跟踪文件或 index。
 >
+> **开发权限不得与集成依赖门混为一谈。** Main 对连续课程路线使用三级权限，并在 ROADMAP 或
+> review-inbox 中写明当前级别：
+>
+> 1. `research_open`：可以查 Mathlib、设计公开签名、在 `/tmp/sandrones-library/` 完成带 `sorry`
+>    框架和消除证明责任；不得把成果写成 verified 或要求 Main 集成。
+> 2. `development_open`：可以在学科 worktree 建立所有权明确的正式源码、Entry 文档和提交，运行
+>    学科闭包并申请审核；若直接依赖尚未集成，handoff 必须写 `integration_waits_for`。
+> 3. `integration_open`：直接依赖已经进入 Main，可以交付审核并在通过后集成。
+>
+> 一个后续窗口只要公开签名边界已经冻结、文件所有权不重叠，默认至少开放到
+> `research_open`；Main 不得仅因前一小批尚在审核就让负责人停工。相邻窗口可以同时处于
+> `development_open`，但每个提交必须能独立复验，且后窗不得复制或猜测尚未稳定的前窗 API。
+> 真正冻结只保留给会改变数学语义、共享载体或跨学科接口的节点，并须明确写出解冻证据。
+>
 > 每轮 review 至少包含以下字段：
 >
 > ```markdown
