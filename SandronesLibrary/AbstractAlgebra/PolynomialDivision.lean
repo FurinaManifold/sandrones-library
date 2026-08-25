@@ -226,6 +226,27 @@ noncomputable def monicRemainder {R : Type*} [CommRing R]
     (p d : PolynomialSequence R) : PolynomialSequence R :=
   fromMathlibPolynomial (toMathlibPolynomial p |>.modByMonic (toMathlibPolynomial d))
 
+/-- **首一商的承载一致性桥**：把本库 `monicQuotient p d` 转到 Mathlib 正式多项式承载后，
+恰好得到 `toMathlibPolynomial p` 除以 `toMathlibPolynomial d` 的 `divByMonic` 首一商。
+该桥对任意交换环及任意除式成立；首一性只在商的数学性质中需要。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem toMathlibPolynomial_monicQuotient {R : Type*} [CommRing R]
+    (p d : PolynomialSequence R) :
+    toMathlibPolynomial (monicQuotient p d) =
+      (toMathlibPolynomial p).divByMonic (toMathlibPolynomial d) := by
+  exact toMathlibPolynomial_fromMathlibPolynomial _
+
+/-- **首一余数的承载一致性桥**：把本库 `monicRemainder p d` 转到 Mathlib 正式承载后，
+恰好得到对应两多项式的 `modByMonic` 首一余数。该等式直接记录双向承载转换互为逆映射。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem toMathlibPolynomial_monicRemainder {R : Type*} [CommRing R]
+    (p d : PolynomialSequence R) :
+    toMathlibPolynomial (monicRemainder p d) =
+      (toMathlibPolynomial p).modByMonic (toMathlibPolynomial d) := by
+  exact toMathlibPolynomial_fromMathlibPolynomial _
+
 /-- **首一带余除法恒等式**：若 `d` 首一，则被除式等于除式乘商再加余数，
 `p = d * monicQuotient p d + monicRemainder p d`。
 > **Entry**: abstract-algebra.poly.division
@@ -316,6 +337,28 @@ noncomputable def polynomialRemainder {K : Type*} [Field K]
     (p d : PolynomialSequence K) : PolynomialSequence K :=
   fromMathlibPolynomial (toMathlibPolynomial p % toMathlibPolynomial d)
 
+/-- **域上多项式商的承载一致性桥**：本库 `polynomialQuotient p d` 经具名桥转换后，
+等于 Mathlib 正式承载上的商 `toMathlibPolynomial p / toMathlibPolynomial d`。
+该桥包括 Mathlib 对零除式采用的总函数约定，不额外要求 `d ≠ 0`。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem toMathlibPolynomial_polynomialQuotient {K : Type*} [Field K]
+    (p d : PolynomialSequence K) :
+    toMathlibPolynomial (polynomialQuotient p d) =
+      toMathlibPolynomial p / toMathlibPolynomial d := by
+  exact toMathlibPolynomial_fromMathlibPolynomial _
+
+/-- **域上多项式余数的承载一致性桥**：本库 `polynomialRemainder p d` 经具名桥转换后，
+等于 Mathlib 正式承载上的余数 `toMathlibPolynomial p % toMathlibPolynomial d`。
+它使两套除法接口的余数定理可以直接互相搬运。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem toMathlibPolynomial_polynomialRemainder {K : Type*} [Field K]
+    (p d : PolynomialSequence K) :
+    toMathlibPolynomial (polynomialRemainder p d) =
+      toMathlibPolynomial p % toMathlibPolynomial d := by
+  exact toMathlibPolynomial_fromMathlibPolynomial _
+
 /-- **多项式 Euclidean 度量**：零多项式次数为 `⊥`，度量定义为 `0`；非零多项式次数为
 自然数 `n` 时，度量定义为 `n+1`。加一使每个非零多项式的度量严格为正，从而不会把常数
 多项式与零多项式混为同一终止层级。
@@ -326,6 +369,18 @@ noncomputable def polynomialDegreeMeasure {K : Type*} [Field K]
   match degree p with
   | ⊥ => 0
   | (n : ℕ) => n + 1
+
+/-- **零安全次数度量的承载一致性桥**：本库系数序列 `p` 的 `polynomialDegreeMeasure`
+等于其 Mathlib 正式承载的 `mathlibPolynomialDegreeMeasure`。两侧都把零多项式映为 `0`，
+把非零 `n` 次多项式映为 `n+1`，一致性仅依赖现有次数桥。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem polynomialDegreeMeasure_eq_mathlibPolynomialDegreeMeasure
+    {K : Type*} [Field K] (p : PolynomialSequence K) :
+    polynomialDegreeMeasure p =
+      mathlibPolynomialDegreeMeasure (toMathlibPolynomial p) := by
+  rw [polynomialDegreeMeasure, mathlibPolynomialDegreeMeasure,
+    degree_eq_mathlib_degree]
 
 private theorem polynomialDegreeMeasure_lt_of_degree_lt {K : Type*} [Field K]
     {r d : PolynomialSequence K} (hdegree : degree r < degree d) :
