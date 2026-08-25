@@ -3,6 +3,7 @@
 ## 范围与权限
 
 - 分支：`codex/topology-foundations`
+- 数学与文档提交：`7db1ab9`。
 - Main 基线：`1af9a64`，以 merge 方式同步，学科分支同步提交为 `d9c6b5c`。
 - 权限来源：`review-inbox/topology/main-7cc53d9-f2c3-r2-accepted-and-at1-permissions.md`、
   `main-26817dd-sync-and-at1-open.md` 与 `main-1af9a64-sync-notice.md`。
