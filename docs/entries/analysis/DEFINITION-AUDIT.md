@@ -45,8 +45,8 @@
 
 - [x] 一元导数：`HasDerivativeAtTextbook` 给出去心差商极限定义并桥接 `HasDerivAt`；
   `DifferentiableAt` 和 `deriv` 继续作为正式派生接口。
-- [ ] Riemann 一元积分已有本库分割、和与可积性定义；继续保持其为教材定义层，Mathlib
-  积分只作为比较或后端。
+- [x] Riemann 一元积分的 `DarbouxPartition`、上下和、`RiemannIntegrable` 与积分值均挂入本库
+  教材 Entry；标准有界接口为 `RiemannIntegrableWithBound`，Mathlib 积分只用于具名数值桥或后端。
 - [ ] 微积分基本定理继续使用 Mathlib 连续/导数谓词；在相应定义条目完成后补充概念挂靠说明。
 
 ## A4 多元分析与几何

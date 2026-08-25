@@ -29,7 +29,10 @@ open MeasureTheory
 open SandronesLibrary.Analysis.Continuity
 open scoped ENNReal Interval BigOperators
 
-/-- **达布分划**：区间 [a,b] 的一个分划是点列 a = x₀ < x₁ < ... < xₙ = b。 -/
+/-- **达布分划**：区间 [a,b] 的一个分划是点列 a = x₀ < x₁ < ... < xₙ = b。
+
+> **Entry**: real-analysis.riemann.def
+-/
 structure DarbouxPartition (a b : ℝ) where
   n : ℕ
   x : ℕ → ℝ
