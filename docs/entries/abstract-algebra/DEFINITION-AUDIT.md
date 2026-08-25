@@ -80,5 +80,7 @@
 - [x] 域扩张第一层：A3.5 已自建显式 `FieldEmbedding`、`SubfieldSet`、
   `IntermediateFieldSet`、生成中间域、代数／超越元、最小多项式关系和单扩张；Mathlib
   `Algebra`、`IntermediateField` 不充当教材定义，`Algebra` 与 `minpoly` 只在私有证明桥中使用。
-- [ ] 扩张次数、分裂域、可分／正规扩张与 Galois 理论仍须继续使用上述显式定义层，不能重新
-  退回隐式 `Algebra`、`IntermediateField` 或 `Module` 公开签名。
+- [x] 扩张次数：A3.6 已以显式嵌入上的有限和定义线性无关、张成和域基，证明次数唯一与正性、
+  有限扩张必代数及塔式公式；`Algebra`、`Module`、`Submodule`、Mathlib 基和维数只在私有桥中。
+- [ ] 分裂域、可分／正规扩张与 Galois 理论仍须继续使用上述显式定义层，不能重新退回隐式
+  `Algebra`、`IntermediateField` 或 `Module` 公开签名；是否启动服从 Main 依赖门通知。
