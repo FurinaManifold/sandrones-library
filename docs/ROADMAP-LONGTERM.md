@@ -466,8 +466,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 
 | 窗口 | 权限 | 文件所有权建议 | 集成门 |
 |---|---|---|---|
-| T4-H1 标准道路同伦承载 | `integration_open` | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | 同步最新 Main 后可交付 |
-| T4-H2 一般/相对同伦 | `development_open` | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | H1 公开签名不得被复制，集成等待 H1 |
+| T4-H1 标准道路同伦承载 | 已集成 | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | Main 全库验收完成 |
+| T4-H2 一般/相对同伦 | `integration_open` | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | H1 公开签名不得被复制；同步最新 Main |
 | T4-E 同伦等价 | `development_open` | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | 集成等待 H2 的一般同伦接口 |
 | T4-F1 同伦类/基本群承载审计 | `research_open` | `/tmp` 框架与一页 RFC；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | T4-H1/H2 集成后转正式开发 |
 | T4-F2 群结构、函子性与计算 | 冻结 | 只允许书目和依赖调查 | 同伦商正式 Entry 进入 Main |
@@ -616,7 +616,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 |---|---|---|---|
 | 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、局部基与连续线性泛函 | `TopologicalAddGroup`、`ContinuousSMul` |
 | 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 ✅ | `WeakSpace`、initial topology API |
-| 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 | weak-star topology API |
+| 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 ✅ | `WeakDual` |
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 | Banach–Alaoglu/Tychonoff API |
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形单位球弱星可度量化与序列抽取 | metrizability/separability API |
 | 6 | `functional-analysis.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 | dual topology API |
@@ -676,9 +676,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4 当前并行权限（2026-08-25）**：F4.1 已集成；F4.2 弱星拓扑为 `integration_open`；
-F4.3 Banach--Alaoglu 为 `development_open`，可形成正式提交但集成等待 F4.2；F4.4--F4.5 为
-`research_open`，可做承载审计和 `/tmp` 证明框架。F5 等待 F4 的弱紧致工具，F6 等待紧算子与
+**F4 当前并行权限（2026-08-25）**：F4.1--F4.2 已集成；F4.3 Banach--Alaoglu 为
+`integration_open`；F4.4--F4.5 为 `development_open`，可形成正式提交但集成等待 F4.3；F4.6 为
+`research_open`。F5 等待 F4 的弱紧致工具，F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

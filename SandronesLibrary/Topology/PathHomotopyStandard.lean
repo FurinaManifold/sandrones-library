@@ -8,13 +8,12 @@ import Mathlib.Topology.Homotopy.Path
 import Mathlib.Tactic.Linarith
 
 /-!
-# Standard homotopies between paths
+# 道路之间的标准同伦
 
-This module explains Mathlib's `Path.Homotopy` directly as a continuous two-parameter deformation
-whose two path endpoints stay fixed.  It does not route new topology through the frozen
-`TextbookTopology` homotopy structures.
+本模块把 Mathlib 的 `Path.Homotopy` 直接解释为端点保持固定的二参数连续变形，不让新的拓扑
+课程接口绕回已经冻结的 `TextbookTopology` 同伦结构。
 
-Current entry:
+当前条目：
 
 * `topology.homotopy.path-homotopy-standard`.
 -/
@@ -28,9 +27,8 @@ universe u
 variable {X : Type u} [TopologicalSpace X]
 variable {x y : X} {p q r : _root_.Path x y}
 
-/-- A standard homotopy between paths is exactly a continuous map on the square whose time-zero
-and time-one slices are the given paths and whose two spatial endpoints remain fixed for all time.
-The first coordinate is homotopy time and the second coordinate is path position.
+/-- 标准道路同伦恰好是正方形上的连续映射：时间零与时间一切片分别为两条道路，并且两个道路
+端点在全部时间内保持固定。第一坐标是同伦时间，第二坐标是道路位置。
 
 > **Entry**: topology.homotopy.path-homotopy-standard -/
 theorem nonempty_pathHomotopy_iff_exists_fixed_endpoint_deformation :
@@ -58,27 +56,26 @@ theorem nonempty_pathHomotopy_iff_exists_fixed_endpoint_deformation :
     · exact (hsource t).trans p.source.symm
     · exact (htarget t).trans p.target.symm
 
-/-- The reflexive path homotopy is constant in homotopy time. -/
+/-- 反身道路同伦在同伦时间方向保持常值。 -/
 theorem pathHomotopy_refl_apply (p : _root_.Path x y)
     (z : unitInterval × unitInterval) :
     _root_.Path.Homotopy.refl p z = p z.2 := by
   exact _root_.Path.Homotopy.refl_apply p z
 
-/-- Reversing a path homotopy reflects only its time coordinate; it does not reverse the paths. -/
+/-- 道路同伦的对称操作只反射时间坐标，并不反转其中的道路。 -/
 theorem pathHomotopy_symm_apply (H : p.Homotopy q)
     (z : unitInterval × unitInterval) :
     H.symm z = H (unitInterval.symm z.1, z.2) := by
   exact _root_.Path.Homotopy.symm_apply H z
 
-/-- During the first half of a composite homotopy, time is doubled in the first deformation. -/
+/-- 复合同伦的前半段把时间加倍后送入第一个变形。 -/
 theorem pathHomotopy_trans_apply_of_le (H : p.Homotopy q) (K : q.Homotopy r)
     (z : unitInterval × unitInterval) (h : (z.1 : ℝ) ≤ 1 / 2) :
     H.trans K z = H (⟨2 * z.1, by constructor <;> linarith [z.1.2.1, z.1.2.2]⟩, z.2) := by
   rw [_root_.Path.Homotopy.trans_apply]
   simp only [dif_pos h]
 
-/-- During the second half of a composite homotopy, translated doubled time runs through the
-second deformation. -/
+/-- 复合同伦的后半段用平移后的二倍时间走过第二个变形。 -/
 theorem pathHomotopy_trans_apply_of_not_le (H : p.Homotopy q) (K : q.Homotopy r)
     (z : unitInterval × unitInterval) (h : ¬(z.1 : ℝ) ≤ 1 / 2) :
     H.trans K z = K (⟨2 * z.1 - 1, by constructor <;> linarith [z.1.2.1, z.1.2.2]⟩, z.2) := by

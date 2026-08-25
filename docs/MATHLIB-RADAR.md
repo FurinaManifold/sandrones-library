@@ -53,6 +53,14 @@
 - **出处**：Mathlib 的局部凸弱拓扑接口。
 - **谁在用**：`functional-analysis.weak-topology.definition`，用于评价连续、逐泛函收敛判据、范数收敛蕴含弱收敛和映射保持性。
 
+### `WeakDual` / `StrongDual.toWeakDual` / `WeakDual.eval_continuous`
+- **人话**：在连续对偶的同一底层线性对象上安装逐原空间向量求值的弱星拓扑，并保证这些求值连续。
+- **谁在用**：`functional-analysis.weak-star.definition`；它与测试全部双对偶元的对偶弱拓扑明确区分。
+
+### `Path.Homotopy` / `Path.Homotopy.refl` / `Path.Homotopy.symm` / `Path.Homotopy.trans`
+- **人话**：承载道路之间端点固定的正方形连续变形，以及反身、时间反向和分段传递操作。
+- **谁在用**：`topology.homotopy.path-homotopy-standard`；第一坐标为同伦时间，第二坐标为道路位置。
+
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。
 - **出处**：Mathlib 的 Hahn–Banach 模块。

@@ -5,7 +5,7 @@ state: staging
 title: 对偶空间的弱星拓扑与收敛
 premises: [functional-analysis.weak-topology.definition, functional-analysis.bidual.reflexive]
 mathlib: [WeakDual, StrongDual.toWeakDual, WeakDual.eval_continuous]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 3.1"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机
@@ -15,7 +15,7 @@ provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Se
 
 # 教材定义与正式承载
 
-寱星拓扑是 `E*` 上使所有求值映射 `f ↦ f(x)`（`x ∈ E`）连续的最弱拓扑。Mathlib 以
+弱星拓扑是 `E*` 上使所有求值映射 `f ↦ f(x)`（`x ∈ E`）连续的最弱拓扑。Mathlib 以
 `WeakDual ℝ E` 承载该拓扑，并以 `StrongDual.toWeakDual` 给出从范数对偶到弱星对偶的底层线性恒等。
 本库不建立第二个弱星拓扑谓词或结构。
 

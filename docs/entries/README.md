@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **434** 个条目（verified 434，pending 0）。
+共 **436** 个条目（verified 436，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -339,6 +339,10 @@
 - ✅ [`annihilator-closure.md`](annihilator-closure.md) — 连续零化子、双零化子与子空间闭包
 - ✅ [`quotient.md`](quotient.md) — 闭线性子空间与商 Banach 空间
 
+## `functional-analysis.weak-star`
+
+- ✅ [`definition.md`](definition.md) — 对偶空间的弱星拓扑与收敛
+
 ## `functional-analysis.weak-topology`
 
 - ✅ [`definition.md`](definition.md) — 赋范空间的弱拓扑与弱收敛
@@ -644,6 +648,7 @@
 - ✅ [`definition-foundation.md`](definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接的正式承载
 - ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的正式承载
+- ✅ [`path-homotopy-standard.md`](path-homotopy-standard.md) — 标准道路同伦与端点固定
 - ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路及双重反向的正式承载
 
 ## `topology.metric`
