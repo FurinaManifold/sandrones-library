@@ -102,6 +102,13 @@ HomotopyRelation -> HomotopyEquivalence -> Contractible
 
 每个波次独立提交，不能把新增正式入口、迁移所有条目和删除旧链压成一次提交。
 
+### 当前执行状态
+
+- 结构级兼容桥已由 Main 接受。
+- A1 第一波按 Main 决定采用原 Entry `topology.foundation.structure` 原地迁移：正式承载改为
+  `TopologicalSpace`、`IsOpen`、`Continuous`、`Homeomorph`，旧声明留作兼容。
+- A1 第二波（子空间、积、道路连通）必须等第一波复验后开始；A2/A3 仍锁定。
+
 ## 验收与诚实边界
 
 - 已用临时聚合文件核对 Mathlib 正式名称：`TopologicalSpace`、`Continuous`、`Homeomorph`、
