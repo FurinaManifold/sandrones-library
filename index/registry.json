@@ -749,7 +749,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -777,7 +777,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -808,7 +808,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -836,7 +836,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -867,7 +867,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -901,7 +901,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -935,7 +935,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -970,7 +970,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -1003,7 +1003,7 @@
     ],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3007,6 +3007,7 @@
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -3123,7 +3124,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3153,7 +3154,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3183,7 +3184,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3213,7 +3214,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3243,7 +3244,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3273,7 +3274,7 @@
     "dependedOnBy": [],
     "family": "analysis.sequence",
     "variant": "ecnu",
-    "proof_sha": "e5903bd460c5cd38",
+    "proof_sha": "f99d15da251bbdda",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -4875,7 +4876,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "70f28afaa0f76087"
+    "proof_sha": "e0fa568509d7ede1"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4990,7 +4991,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "70f28afaa0f76087"
+    "proof_sha": "e0fa568509d7ede1"
   },
   {
     "id": "real-analysis.riemann.lebesgue-criterion",
@@ -5324,6 +5325,7 @@
       "analysis.constants.special-values"
     ],
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -5750,7 +5752,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "2b582de420270786"
+    "proof_sha": "0257e816ea870f77"
   },
   {
     "id": "analysis.series.tests",
@@ -5781,7 +5783,7 @@
       "analysis.series.conditional",
       "analysis.series.root-test"
     ],
-    "proof_sha": "2b582de420270786",
+    "proof_sha": "0257e816ea870f77",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5814,7 +5816,7 @@
       "analysis.series.cauchy-product-absolute",
       "analysis.series.rearrangement"
     ],
-    "proof_sha": "2b582de420270786",
+    "proof_sha": "0257e816ea870f77",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5851,7 +5853,7 @@
       "Classical.choice",
       "Quot.sound"
     ],
-    "proof_sha": "2b582de420270786"
+    "proof_sha": "0257e816ea870f77"
   },
   {
     "id": "analysis.series.rearrangement",
@@ -5875,7 +5877,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T05:08:05Z",
     "dependedOnBy": [],
-    "proof_sha": "2b582de420270786",
+    "proof_sha": "0257e816ea870f77",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -5911,9 +5913,10 @@
     "dependedOnBy": [],
     "proof_sha": "f4ebd5600b7a7c85",
     "axioms": [
-      "propext",
+      "<解析失败>",
       "Classical.choice",
-      "Quot.sound"
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -6068,11 +6071,11 @@
     "dependedOnBy": [
       "analysis.power-series.radius"
     ],
-    "proof_sha": "792dbe374d2b85f5",
+    "proof_sha": "3d9a079cd2438f64",
     "axioms": [
-      "propext",
       "Classical.choice",
-      "Quot.sound"
+      "Quot.sound",
+      "propext"
     ]
   },
   {
@@ -6103,7 +6106,7 @@
       "analysis.power-series.endpoints",
       "analysis.power-series.operations"
     ],
-    "proof_sha": "792dbe374d2b85f5",
+    "proof_sha": "3d9a079cd2438f64",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -6135,7 +6138,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "792dbe374d2b85f5",
+    "proof_sha": "3d9a079cd2438f64",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -6169,7 +6172,7 @@
     "dependedOnBy": [
       "analysis.series.taylor"
     ],
-    "proof_sha": "792dbe374d2b85f5",
+    "proof_sha": "3d9a079cd2438f64",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -6200,7 +6203,7 @@
     "added_by": "codex",
     "added_at": "2026-08-22T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "2b582de420270786",
+    "proof_sha": "0257e816ea870f77",
     "axioms": [
       "propext",
       "Classical.choice",
@@ -6301,6 +6304,7 @@
     "dependedOnBy": [],
     "proof_sha": "89eb5ea33e9c2241",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7653,6 +7657,7 @@
     ],
     "proof_sha": "d14eff3a781ca05b",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7754,6 +7759,7 @@
     "dependedOnBy": [],
     "proof_sha": "ec9663a65046d019",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7817,6 +7823,7 @@
     "dependedOnBy": [],
     "proof_sha": "a2bef3b4d94d8651",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8059,6 +8066,7 @@
     ],
     "proof_sha": "2a8f4f7252c6eea2",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8156,7 +8164,7 @@
     "dependedOnBy": [
       "number-theory.elementary.prime-tests"
     ],
-    "proof_sha": "ed94e7ac948bfaa3",
+    "proof_sha": "cf210ca9a090d982",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8292,6 +8300,7 @@
     "family": "settheory.ordinal.addition",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8328,6 +8337,7 @@
     "family": "settheory.ordinal.multiplication",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8366,6 +8376,7 @@
     "family": "settheory.ordinal.exponentiation",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8470,6 +8481,7 @@
     "family": "settheory.ordinal.cofinality",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8634,7 +8646,7 @@
       "number-theory.elementary.fermat-euler",
       "number-theory.elementary.quadratic-residues"
     ],
-    "proof_sha": "b127bfdea64e34c9",
+    "proof_sha": "23e8135d0da43b8d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8665,7 +8677,7 @@
     "dependedOnBy": [
       "number-theory.elementary.totient"
     ],
-    "proof_sha": "b127bfdea64e34c9",
+    "proof_sha": "23e8135d0da43b8d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8695,7 +8707,7 @@
     "dependedOnBy": [
       "number-theory.elementary.fermat-euler"
     ],
-    "proof_sha": "b66ab3833319df28",
+    "proof_sha": "e016d400d974d856",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8728,7 +8740,7 @@
     "dependedOnBy": [
       "number-theory.elementary.quadratic-residues"
     ],
-    "proof_sha": "b66ab3833319df28",
+    "proof_sha": "e016d400d974d856",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8759,7 +8771,7 @@
     "dependedOnBy": [
       "number-theory.elementary.infinite-primes"
     ],
-    "proof_sha": "553db48f2f7137b2",
+    "proof_sha": "fc55713dcd51db25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8790,7 +8802,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "553db48f2f7137b2",
+    "proof_sha": "fc55713dcd51db25",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9091,7 +9103,7 @@
       "number-theory.elementary.pell-fundamental-solution",
       "number-theory.elementary.pell-positive-existence"
     ],
-    "proof_sha": "675a807110aa2a48",
+    "proof_sha": "c90e8701e3c3943c",
     "axioms": [
       "propext"
     ]
@@ -9115,7 +9127,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "675a807110aa2a48",
+    "proof_sha": "c90e8701e3c3943c",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -9145,7 +9157,7 @@
     "dependedOnBy": [
       "number-theory.elementary.pell-fundamental-solution"
     ],
-    "proof_sha": "675a807110aa2a48",
+    "proof_sha": "c90e8701e3c3943c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9178,7 +9190,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "675a807110aa2a48",
+    "proof_sha": "c90e8701e3c3943c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9563,7 +9575,9 @@
     "family": "settheory.cardinal.finite-set",
     "variant": "generated",
     "axioms": [
-      "Quot.sound"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
     "proof_sha": "1d5af7db314bdf10"
   },
@@ -9809,6 +9823,7 @@
     "family": "settheory.computability.nat-computable",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -10555,6 +10570,8 @@
     "family": "settheory.googology.goodstein-sequence",
     "variant": "generated",
     "axioms": [
+      "Classical.choice",
+      "Quot.sound",
       "propext"
     ],
     "proof_sha": "dbee80a134b9008e"
@@ -10948,6 +10965,7 @@
     "family": "settheory.googology.hyperoperation",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Quot.sound",
       "propext"
     ],
@@ -11008,6 +11026,7 @@
     "family": "settheory.googology.machine-execution",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -11040,8 +11059,7 @@
     "family": "settheory.googology.primitive-recursion",
     "variant": "generated",
     "axioms": [
-      "Quot.sound",
-      "propext"
+      "<解析失败>"
     ],
     "proof_sha": "93da0bf9b708449f"
   },
@@ -11282,6 +11300,7 @@
     "family": "settheory.googology.hereditary-natural-encoding-same-block-order",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12050,6 +12069,7 @@
     "family": "linear-algebra.decomposition.polar",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12144,6 +12164,7 @@
     "family": "linear-algebra.decomposition.schur",
     "variant": "generated",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12617,7 +12638,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a33d3f8e8cd7f00f"
+    "proof_sha": "cde337b03b89149f"
   },
   {
     "id": "abstract-algebra.ring.pid-ufd",
@@ -12647,7 +12668,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "2606bd324ea48dd2"
+    "proof_sha": "bd9bd0db85c6f21d"
   },
   {
     "id": "abstract-algebra.ring.crt",

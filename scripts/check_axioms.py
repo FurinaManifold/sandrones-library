@@ -128,10 +128,15 @@ def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[s
     probe.write_text("\n".join(body))
     env = dict(__import__("os").environ)
     env["PATH"] = str(Path.home() / ".elan/bin") + ":" + env.get("PATH", "")
+    # Lean may emit `#eval` sentinels and `#print axioms` results on different
+    # streams.  Capture them into one pipe at process level so their original
+    # order is preserved; concatenating stdout and stderr afterwards can move
+    # an axiom result outside its sentinel pair and produce a false parse error.
     r = subprocess.run(
         ["lake", "env", "lean", str(probe)],
-        capture_output=True, text=True, cwd=ROOT, env=env)
-    out = r.stdout + r.stderr
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        text=True, cwd=ROOT, env=env)
+    out = r.stdout
     result: dict[str, dict[str, list[str]]] = {}
     for mod, decls in modules:
         result[mod] = {decl: parse_probe_segment(out, decl) for decl in decls}
@@ -149,8 +154,9 @@ def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
     env["PATH"] = str(Path.home() / ".elan/bin") + ":" + env.get("PATH", "")
     r = subprocess.run(
         ["lake", "env", "lean", str(probe)],
-        capture_output=True, text=True, cwd=ROOT, env=env)
-    out = r.stdout + r.stderr
+        stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+        text=True, cwd=ROOT, env=env)
+    out = r.stdout
     result: dict[str, list[str]] = {}
     for decl in decls:
         result[decl] = parse_probe_segment(out, decl)
