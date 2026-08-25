@@ -1,10 +1,9 @@
 # F2 Banach 三大定理 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`0418f7f`（`git rebase main`）
+- Main 基线：`8d8a111`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函、凸分离与零化子闭包完成验证；
-  双对偶／自反性开发中
+- 当前阶段：F2 前十项已由 Main 集成；可分性／对偶为最后开放窗口
 
 ## Hahn–Banach 延拓窗
 
@@ -65,6 +64,17 @@
   声明。
 - 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
+
+## 可分性与对偶窗
+
+- 可分性直接采用 `TopologicalSpace.SeparableSpace`，连续对偶直接采用 `StrongDual`，不建立改名谓词。
+- 公开链覆盖可分自反空间的双对偶可分、对偶可分推原空间可分，以及可分自反空间的对偶可分。
+- 核心逆向蕴含用可数稠密对偶族选取近似取范向量，再由“共同连续零化子为零”推出可数生成子空间稠密。
+- 一般“原空间可分 推对偶可分”为假；`ℓ1`/`ℓ∞` 边界在教材文档披露。弱星可度量化和弱紧单位球仍留给 F4。
+- `lake build SandronesLibrary.FunctionalAnalysis.SeparableDual`：8720 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖可分性、连续对偶、可数稠密集、近似取范、可分线性生成、零化子闭包与三个公开声明。
+- Entry `functional-analysis.separable.dual` 精确映射为三个公开声明；三者公理依赖均为
+  `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与 `git diff --check` 通过。
 
 ## 有界逆窗
 
