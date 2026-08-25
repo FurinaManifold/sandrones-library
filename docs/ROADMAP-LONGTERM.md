@@ -39,7 +39,7 @@
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F3✅ F4🚧 F5-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
-| **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
+| **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础58项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、调和分析、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧 E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
@@ -87,7 +87,7 @@ main 的理论命名例子 Entry 暂不破坏性迁移，但其补例、扩展�
 | 门 | 开门条件 | 解锁工作 | 当前状态 |
 |---|---|---|---|
 | G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | ✅ |
-| G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
+| G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | ✅ |
 | G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | 🚧（当前优先门） |
 | G-C | T4 桥完成后，C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | ⏸（等待 G-T4/C） |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
@@ -458,7 +458,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
 | 8 | `abstract-algebra.field.separable-normal`、`abstract-algebra.field.separable-normal-characterizations` | 可分多项式、可分／正规扩张、根重数与不可约有根刻画 | ✅ |
-| 9 | `abstract-algebra.field.galois-definitions` | Galois 扩张、显式基域自同构群与固定域定义层 | ✅；基本定理待续 |
+| 9 | `abstract-algebra.field.galois-definitions`、`abstract-algebra.field.galois-correspondence` | Galois 扩张、显式基域自同构群、固定域与有限 Galois 基本对应 | ✅；次数—指数和正规子群推论待续 |
 
 **当前并行权限（2026-08-25）**：
 
@@ -469,8 +469,8 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | A3.8 可分/正规扩张第一批 | 已集成 | 四个核心定义、导数判据、有限正规刻画与有限域扩张可分 | Main 全库验收完成 |
 | A3.8 第二批刻画 | 已集成 | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | Main 全库验收完成 |
 | A3.9a Galois 定义层 | 已集成 | Galois 扩张、显式自同构群、固定域及展开性质 | Main 全库验收完成 |
-| A3.9b 基本定理 | `development_open` | 中间域—子群对应、正规／可分条件、限制映射与阶数关系的独立证明批次 | 复用 A3.9a 冻结定义；不得用 Mathlib 最终对应替代教材链 |
-| A3.9c Galois 对应推论 | `research_open` | 次数—指数公式、正规中间扩张—正规子群、限制同态的核像与商群同构 | 等待 A3.9b；二次扩张、有限域和低次多项式计算归 Examples E6.12 |
+| A3.9b 基本定理 | 已集成 | 显式中间域—子群反变连接、restriction、群阶—相对次数链与双向恢复 | Main 全库验收完成；具体有限扩张计算归 Examples E6.12 |
+| A3.9c Galois 对应推论 | `development_open` | 次数—指数公式、正规中间扩张—正规子群、限制同态的核像与商群同构 | 复用已集成 A3.9b；二次扩张、有限域和低次多项式计算归 Examples E6.12 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
@@ -768,6 +768,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 |---|---|---|---|
 | 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
 | 2 | `functional-analysis.closed-range` | 闭值域与“对偶值域等于核零化子”的双向刻画 ✅；对偶值域闭与四项等价留作后续增量 | `ContinuousLinearMap.exists_preimage_norm_le`、反 Lipschitz 闭像接口 |
+| 2b | `functional-analysis.closed-range.double-annihilator` | 值域闭包的双零化子刻画；闭值域推出对偶值域范数闭与弱星闭 ✅ | `Submodule.topologicalClosure`、`WeakDual.eval_continuous` |
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维实例与恒等算子判据 ✅ | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
@@ -818,7 +819,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 `development_open`，F4.8
 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经集成。F5.2 第一批零化子刻画
-已集成；对偶值域闭与原／对偶四项闭值域等价继续为 `development_open`。F5.5 Fredholm 定义层
+已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价继续为 `development_open`。F5.5 Fredholm 定义层
 提升为 `development_open`，但不得把尚未建立的闭值域加强或指数稳定性冒充为已完成。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
@@ -933,7 +934,7 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | Pell bridge |
 | 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 周期奇偶性 |
 
-### N2 代数数论 🔒（N2.1–N2.12 `research_open`；正式开发依赖 G-A2/G-A3）
+### N2 代数数论 🚧（G-A2/G-A3 已满足；N2.1–N2.3 `development_open`，N2.4–N2.15 `research_open`）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|

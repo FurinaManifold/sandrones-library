@@ -6,12 +6,13 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **465** 个条目（verified 465，pending 0）。
+共 **467** 个条目（verified 467，pending 0）。
 
 ## `abstract-algebra.field`
 
 - ✅ [`degree.md`](abstract-algebra/field/degree.md) — 域扩张次数、有限扩张与塔式公式
 - ✅ [`extension.md`](abstract-algebra/field/extension.md) — 域扩张、生成中间域、代数元与最小多项式
+- ✅ [`galois-correspondence.md`](abstract-algebra/field/galois-correspondence.md) — 有限 Galois 基本对应
 - ✅ [`galois-definitions.md`](abstract-algebra/field/galois-definitions.md) — Galois 扩张、显式自同构群与固定域
 - ✅ [`separable-normal.md`](abstract-algebra/field/separable-normal.md) — 可分多项式、可分扩张与正规扩张
 - ✅ [`separable-normal-characterizations.md`](abstract-algebra/field/separable-normal-characterizations.md) — 可分性与正规性的根论刻画
@@ -310,6 +311,10 @@
 
 - ✅ [`reflexive.md`](functional-analysis/bidual/reflexive.md) — 典范双对偶嵌入与自反性
 - ✅ [`reflexive-examples.md`](functional-analysis/bidual/reflexive-examples.md) — 有限维空间与实 Hilbert 空间的自反性
+
+## `functional-analysis.closed-range`
+
+- ✅ [`double-annihilator.md`](functional-analysis/closed-range/double-annihilator.md) — 闭值域的双零化子与对偶闭性
 
 ## `functional-analysis.compact-operator`
 

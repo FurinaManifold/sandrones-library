@@ -81,6 +81,7 @@ import SandronesLibrary.AbstractAlgebra.FieldSplitting
 import SandronesLibrary.AbstractAlgebra.FieldSeparableNormal
 import SandronesLibrary.AbstractAlgebra.FieldSeparableNormalCharacterizations
 import SandronesLibrary.AbstractAlgebra.FieldGaloisDefinitions
+import SandronesLibrary.AbstractAlgebra.FieldGaloisCorrespondence
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
@@ -231,6 +232,7 @@ import SandronesLibrary.FunctionalAnalysis.CompactOperator
 import SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.ClosedRange
+import SandronesLibrary.FunctionalAnalysis.ClosedRangeConsequences
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator

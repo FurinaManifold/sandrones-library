@@ -3444,6 +3444,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-correspondence",
       "abstract-algebra.field.galois-definitions",
       "abstract-algebra.group.coset",
       "abstract-algebra.group.cyclic",
@@ -13954,6 +13955,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-correspondence",
       "abstract-algebra.field.separable-normal",
       "abstract-algebra.field.splitting"
     ],
@@ -14192,7 +14194,9 @@
     "nl_file": "docs/entries/functional-analysis/weak-star/banach-dieudonne.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.closed-range.double-annihilator"
+    ],
     "family": "functional-analysis.weak-star",
     "variant": "banach-dieudonne-unit-slice",
     "proof_sha": "40ac8084adad71cf",
@@ -14931,7 +14935,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/galois-definitions.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.galois-correspondence"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "axioms": [
@@ -15085,10 +15091,80 @@
     "nl_file": "docs/entries/functional-analysis/closed-range.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.closed-range.double-annihilator"
+    ],
     "family": "functional-analysis",
     "variant": "closed-range-annihilator-criterion",
     "proof_sha": "92f13cdbae69a099",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.galois-correspondence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限 Galois 基本对应",
+    "summary": "以显式中间域集合和基域自同构子群集合表述有限 Galois 基本定理",
+    "premises": [
+      "abstract-algebra.field.galois-definitions",
+      "abstract-algebra.field.degree",
+      "abstract-algebra.group.def"
+    ],
+    "mathlib": [
+      "FieldTheory.IntermediateField.Adjoin.Basic",
+      "FieldTheory.IntermediateField.Adjoin.Algebra",
+      "FieldTheory.Fixed",
+      "FieldTheory.Galois.Basic"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldGaloisCorrespondence.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/galois-correspondence.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "874cb4fbd2113ba6",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.closed-range.double-annihilator",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "闭值域的双零化子与对偶闭性",
+    "summary": "刻画值域闭包的双零化子，并由原值域闭推出对偶值域范数闭和弱星闭",
+    "premises": [
+      "functional-analysis.closed-range",
+      "functional-analysis.weak-star.banach-dieudonne"
+    ],
+    "mathlib": [
+      "Submodule.topologicalClosure",
+      "StrongDual.polarSubmodule",
+      "WeakDual.eval_continuous"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/ClosedRangeConsequences.lean",
+    "nl_file": "docs/entries/functional-analysis/closed-range/double-annihilator.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.closed-range",
+    "variant": "double-annihilator-and-dual-closedness",
+    "proof_sha": "df93d7f7a8fe6d39",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

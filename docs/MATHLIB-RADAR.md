@@ -82,7 +82,19 @@
 
 ### `WeakDual` / `StrongDual.toWeakDual` / `WeakDual.eval_continuous`
 - **人话**：在连续对偶的同一底层线性对象上安装逐原空间向量求值的弱星拓扑，并保证这些求值连续。
-- **谁在用**：`functional-analysis.weak-star.definition`；它与测试全部双对偶元的对偶弱拓扑明确区分。
+- **谁在用**：`functional-analysis.weak-star.definition` 与
+  `functional-analysis.closed-range.double-annihilator`；后者把连续零化子写成逐点求值核的交，
+  从而证明闭值域时对偶值域弱星闭。它与测试全部双对偶元的对偶弱拓扑明确区分。
+
+## 有限 Galois 基本对应的私有后端
+
+### `FixedPoints.toAlgHomEquiv` / `IntermediateField.fixingSubgroupEquiv`
+- **人话**：前者把有限自同构群作用下的固定点域同态与原群元素联系起来；后者把固定中间域的
+  自同构写成相对该中间域的代数自同构。组合后可比较显式 fixing 群和相对 Galois 群的基数。
+- **出处**：Mathlib 的固定点域与 Galois 理论接口。
+- **谁在用**：`abstract-algebra.field.galois-correspondence` 的私有换基和基数证明；公开 API 仍使用
+  本库 `FieldAutomorphismOver`、`IntermediateFieldSet`、`SubgroupSet` 和显式 restriction。
+- **本库边界**：未调用直接给出中间域恢复、子群恢复或完整中间域—子群等价的最终接口。
 
 ### `WeakDual.isClosed_closedBall` / `WeakDual.isCompact_closedBall`
 - **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
