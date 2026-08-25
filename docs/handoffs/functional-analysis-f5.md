@@ -37,3 +37,18 @@
 - Main 集成时新增 `CompactOperator` 和 `CompactOperatorComposition` 顶层 import，登记两个 Entry 及
   ROADMAP/RADAR 状态。
 - 本窗不包含闭值域或 Fredholm 声明，也不把范数极限结论扩张到强／弱算子拓扑。
+
+## F5.2 闭值域的零化子刻画（第一批）
+
+- 同步基线：`main@7078add`，通过 `git rebase main` 同步；F4.5 重复提交被 Git 正确跳过。
+- 权限：F5.2 `development_open`；范围按 Main 早期接口审阅收窄为“闭值域的零化子刻画”。
+- 正式承载：`ContinuousLinearMap`、`dualOperator`、`StrongDual.polarSubmodule`、`IsClosed (Set.range T)`；
+  不建立平行对偶、零化子、闭值域谓词或 Fredholm 结构。
+- 公开链覆盖 `ker T' = (range T)⊥`、`range T' ≤ (ker T)⊥`、连续零化子的范数闭性，以及
+  `range T` 闭当且仅当 `range T' = (ker T)⊥`。
+- 证明后端：核商的连续映射、反 Lipschitz 闭像估计、Hahn--Banach 延拓、对偶范数化函数和
+  `ContinuousLinearMap.exists_preimage_norm_le`；均为私有辅助定义或证明。
+- 诚实边界：本批未覆盖 `range T'` 范数闭、原/对偶闭值域互推、双零化子四项等价；
+  按 Main 裁决这些留作 F5.2 后续独立增量。
+- Main 集成建议：新增顶层 `ClosedRange` import，登记 `functional-analysis.closed-range`；
+  ROADMAP 应标记第一批零化子刻画完成，不将四项等价标成已完成。
