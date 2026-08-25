@@ -452,7 +452,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
 | 8 | `abstract-algebra.field.separable-normal`、`abstract-algebra.field.separable-normal-characterizations` | 可分多项式、可分／正规扩张、根重数与不可约有根刻画 | ✅ |
-| 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
+| 9 | `abstract-algebra.field.galois-definitions` | Galois 扩张、显式基域自同构群与固定域定义层 | ✅；基本定理待续 |
 
 **当前并行权限（2026-08-25）**：
 
@@ -462,8 +462,9 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | A3.7 分裂域基础 | 已集成 | 根集、分裂、根生成、存在性、有限性与基域上同构 | Main 全库验收完成 |
 | A3.8 可分/正规扩张第一批 | 已集成 | 四个核心定义、导数判据、有限正规刻画与有限域扩张可分 | Main 全库验收完成 |
 | A3.8 第二批刻画 | 已集成 | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | Main 全库验收完成 |
-| A3.9a Galois 定义层 | `integration_open` | Galois 扩张、显式自同构群、固定域及展开性质 | A3.8 依赖已冻结；可提交正式验收 |
-| A3.9b 基本定理 | `development_open` | 中间域—子群对应、正规／可分条件和低次例子的接口调查与独立证明批次 | 集成等待 A3.9a 签名冻结；不得复制定义 |
+| A3.9a Galois 定义层 | 已集成 | Galois 扩张、显式自同构群、固定域及展开性质 | Main 全库验收完成 |
+| A3.9b 基本定理 | `development_open` | 中间域—子群对应、正规／可分条件、限制映射与阶数关系的独立证明批次 | 复用 A3.9a 冻结定义；不得用 Mathlib 最终对应替代教材链 |
+| A3.9c 典型有限扩张计算 | `research_open` | 二次扩张、有限域与低次多项式的自同构群／固定域例子 | 等待 A3.9b 所需接口调查，不阻塞独立例子设计 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核

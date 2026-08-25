@@ -3444,6 +3444,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-definitions",
       "abstract-algebra.group.coset",
       "abstract-algebra.group.cyclic",
       "abstract-algebra.group.normal"
@@ -14351,6 +14352,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-definitions",
       "abstract-algebra.field.separable-normal"
     ],
     "family": "abstract-algebra.field",
@@ -14536,7 +14538,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/separable-normal-characterizations.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.galois-definitions"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "axioms": [
@@ -14750,5 +14754,35 @@
       "propext"
     ],
     "proof_sha": "14cece54019a6b06"
+  },
+  {
+    "id": "abstract-algebra.field.galois-definitions",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Galois 扩张、显式自同构群与固定域",
+    "summary": "基域自同构的教材群结构、固定域集合以及可分且正规的 Galois 扩张定义",
+    "premises": [
+      "abstract-algebra.field.separable-normal-characterizations",
+      "abstract-algebra.group.def",
+      "abstract-algebra.field.splitting"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldGaloisDefinitions.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/galois-definitions.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "fadeb02c90bac94e"
   }
 ]
