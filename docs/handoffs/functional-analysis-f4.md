@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`5946cc2`（`git rebase main`）
 - 权限：F4.1/F4.2 `development_open`；F4.3 `research_open`
-- 当前阶段：F4.1 弱拓扑定义窗口开发中
+- 当前阶段：F4.1 弱拓扑定义完成验证；F4.2 弱星拓扑开发中
 
 ## F4.1 弱拓扑窗
 
@@ -15,6 +15,16 @@
 - 弱星拓扑在独立 `WeakStarTopology.lean` 窗口开发；Banach–Alaoglu 及弱紧性仍只有 `research_open`。
 - `lake build SandronesLibrary.FunctionalAnalysis.WeakTopology`：8721 jobs 通过；警告只来自既有依赖。
 - 聚合 `#check` 覆盖 `WeakSpace`、两个恒等承载、`WeakSpace.map` 与四个公开声明；Entry 精确映射为四个声明。
+- 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## F4.2 弱星拓扑窗
+
+- 弱星拓扑直接采用 `WeakDual ℝ E`，`StrongDual.toWeakDual` 是范数对偶到弱星对偶的底层线性恒等；不建立平行承载。
+- 公开链覆盖向量求值连续、弱星收敛的逐点判据、对偶范数收敛蕴含弱星收敛，以及对偶弱收敛蕴含弱星收敛。
+- 文档与公开类型明确区分 `WeakDual ℝ E` 与 `WeakSpace ℝ (StrongDual ℝ E)`，不把弱拓扑与弱星拓扑混同。
+- `lake build SandronesLibrary.FunctionalAnalysis.WeakStarTopology`：8722 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖弱星承载、底层恒等、求值连续与四个公开声明；Entry 精确映射为四个声明。
 - 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
