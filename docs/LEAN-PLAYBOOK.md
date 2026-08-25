@@ -253,6 +253,19 @@
 > - 学科负责人被临时提拔为 main 时，先暂停学科开发、保存当前成果，再进入主 worktree 按 Main
 >   ROLE 接管；main 任期结束后回到原学科 worktree，不能在两个角色下同时写共享状态。
 
+> **10.1 Examples 是独立的跨学科巡视学科**
+>
+> Examples 负责人执行 `docs/roles/EXAMPLES-MAINTAINER-ROLE.md`，维护
+> `docs/ROADMAP-examples.md`。它巡视已经进入 main 的教材定义、主定理和课程能力出口，为每个重要
+> 知识点建立至少一个 Lean 验证的正例；有标准算法时给出完整计算，存在错误逆命题、易混概念或
+> 不可省略假设时给出精确反例。
+>
+> 例子源码统一放在 `SandronesLibrary/Examples/**`，Entry 使用 `examples.<subject>.<topic>`。
+> Examples 可以单向导入理论模块，任何理论模块不得反向导入 Examples。新理论提交缺少普通例子时，
+> Main 原则上接收数学成果并把缺口排入 Examples 巡视；若例子本身是该课程出口或用于证明接口真实
+> 可用，则应作为同批验收门。Examples 不能自建一套重复理论，也不能用 Mathlib 现成对象绕过原学科
+> 尚未完成的教材定义层。
+
 > **11. 实分析学科采用 Folland 第二版课程线**
 >
 > 实分析 `real-analysis.*` 的默认教材版本固定为 Gerald B. Folland, *Real Analysis: Modern

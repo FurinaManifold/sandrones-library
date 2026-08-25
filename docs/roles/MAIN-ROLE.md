@@ -70,6 +70,8 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 3. 先裁决数学与接口范围；若仅有文档／规范缺口，标记为 `accepted_main_docs`，不得退回。
 4. 合并数学审核通过的学科提交，并由 Main 规范化课程文档、handoff 和 Git 内 review。
 5. 更新顶层 imports、Registry、RADAR、ROADMAP 和 Playbook 教训。
+   同时把本批新增的重要知识点登记到 `ROADMAP-examples.md`：已有例子则关联，缺失则排入巡视，
+   但普通例子文档缺口本身不作为退回数学提交的理由。
 6. 运行 `python3 scripts/gen_entries_index.py`。
 7. 运行 `python3 scripts/check_axioms.py --all --fix`，随后无 `--fix` 复查。
 8. 运行 `python3 scripts/audit.py`、`git diff --check` 和条目 id 一致性检查。
