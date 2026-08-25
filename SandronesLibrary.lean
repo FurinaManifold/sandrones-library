@@ -69,6 +69,7 @@ import SandronesLibrary.AbstractAlgebra.RingDivisibility
 import SandronesLibrary.AbstractAlgebra.RingEuclidean
 import SandronesLibrary.AbstractAlgebra.RingPIDUFD
 import SandronesLibrary.AbstractAlgebra.RingCRT
+import SandronesLibrary.AbstractAlgebra.RingLocalization
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 import SandronesLibrary.AbstractAlgebra.PolynomialDivision
@@ -229,6 +230,7 @@ import SandronesLibrary.FunctionalAnalysis.BanachDieudonne
 import SandronesLibrary.FunctionalAnalysis.CompactOperator
 import SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition
 import SandronesLibrary.FunctionalAnalysis.DualOperator
+import SandronesLibrary.FunctionalAnalysis.ClosedRange
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator

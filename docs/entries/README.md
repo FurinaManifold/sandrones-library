@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **463** 个条目（verified 463，pending 0）。
+共 **465** 个条目（verified 465，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -52,6 +52,7 @@
 - ✅ [`ideal.md`](abstract-algebra/ring/ideal.md) — 理想的定义与基本运算
 - ✅ [`iso.md`](abstract-algebra/ring/iso.md) — 环同态基本定理
 - ✅ [`iso-theorems.md`](abstract-algebra/ring/iso-theorems.md) — 环的同构定理
+- ✅ [`localization.md`](abstract-algebra/ring/localization.md) — 交换环的局部化与分式域
 - ✅ [`pid-ufd.md`](abstract-algebra/ring/pid-ufd.md) — 主理想整环与唯一分解整环
 - ✅ [`prime-ideal.md`](abstract-algebra/ring/prime-ideal.md) — 素理想、极大理想与商环判据
 - ✅ [`quotient.md`](abstract-algebra/ring/quotient.md) — 商环及其泛性质
@@ -297,6 +298,7 @@
 - ✅ [`banach-alaoglu.md`](functional-analysis/banach-alaoglu.md) — Banach–Alaoglu 定理
 - ✅ [`banach-steinhaus.md`](functional-analysis/banach-steinhaus.md) — Banach–Steinhaus 一致有界原理
 - ✅ [`closed-graph.md`](functional-analysis/closed-graph.md) — Banach 闭图定理
+- ✅ [`closed-range.md`](functional-analysis/closed-range.md) — 闭值域的零化子刻画
 - ✅ [`inverse-operator.md`](functional-analysis/inverse-operator.md) — Banach 有界逆定理
 - ✅ [`open-mapping.md`](functional-analysis/open-mapping.md) — Banach 开映像定理
 

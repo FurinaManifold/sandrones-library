@@ -32,7 +32,7 @@
 |---|---|---|---|
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 AN-MV🚧 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
-| **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
+| **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3🚧 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
@@ -80,7 +80,7 @@
 
 | 门 | 开门条件 | 解锁工作 | 当前状态 |
 |---|---|---|---|
-| G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | 🚧 |
+| G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | ✅ |
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | 🚧 |
 | G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | 🚧（当前优先门） |
 | G-C | T4 桥完成后，C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | ⏸（等待 G-T4/C） |
@@ -421,7 +421,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 11 | `abstract-algebra.group.sylow` | Cauchy 定理、Sylow 三定理及低阶群应用 | ✅ |
 | 12 | `abstract-algebra.group.abelian-structure` | 有限生成交换群结构定理及有限交换群分类 | ✅ |
 
-### A2 环 🚧
+### A2 环 ✅
 
 > 现有 `AbstractAlgebra/Ring.lean` 覆盖子环、理想、商环、素/极大理想和第一同构
 > 定理的基础接口。完整章节还需系统处理整除理论和典型构造。
@@ -438,7 +438,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 6 | `abstract-algebra.ring.euclidean` | Euclidean 环、带余除法与扩展 Euclidean 算法 | ✅ |
 | 7 | `abstract-algebra.ring.pid-ufd` | PID、UFD、唯一分解及 Euclidean⇒PID⇒UFD | ✅ |
 | 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | ✅ |
-| 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | 🔲 |
+| 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | ✅ |
 
 ### A3 多项式与域扩张 🚧
 
@@ -761,7 +761,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
-| 2 | `functional-analysis.closed-range` | 闭值域定理及算子与对偶算子的像／核关系 | closed range API |
+| 2 | `functional-analysis.closed-range` | 闭值域与“对偶值域等于核零化子”的双向刻画 ✅；对偶值域闭与四项等价留作后续增量 | `ContinuousLinearMap.exists_preimage_norm_le`、反 Lipschitz 闭像接口 |
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维实例与恒等算子判据 ✅ | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
@@ -810,10 +810,10 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 **F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.5 已集成；F4.7 Eberlein--Šmulian 为
 `development_open`，F4.8
-Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5 闭值域保持
-`research_open`；F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经
-集成。F5.2 闭值域提升为 `development_open`，F5.5 Fredholm 定义层为 `research_open`，二者不得
-把尚未建立的闭值域或指数稳定性冒充为已完成。F6 等待紧算子与
+Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
+紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经集成。F5.2 第一批零化子刻画
+已集成；对偶值域闭与原／对偶四项闭值域等价继续为 `development_open`。F5.5 Fredholm 定义层
+提升为 `development_open`，但不得把尚未建立的闭值域加强或指数稳定性冒充为已完成。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

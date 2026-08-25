@@ -172,7 +172,15 @@
 ### `StrongDual.polarSubmodule` / `StrongDual.mem_polarSubmodule`
 - **人话**：连续对偶中在给定子空间上恒为零的泛函组成一个子模；成员定理把它展开为逐点为零的量词。
 - **出处**：Mathlib 的连续对偶极集接口。
-- **谁在用**：`functional-analysis.subspace.annihilator-closure`；这里刻意区别于纯代数对偶零化子。
+- **谁在用**：`functional-analysis.subspace.annihilator-closure` 与
+  `functional-analysis.closed-range`；这里刻意区别于纯代数对偶零化子。
+
+### `ContinuousLinearMap.exists_preimage_norm_le` / `ContinuousLinearMap.antilipschitz_of_injective_of_isClosed_range`
+- **人话**：前者把连续线性满射的开放映射性质写成“每个目标向量都有范数受控的原像”；后者把
+  单射且值域闭转成反 Lipschitz 下界，从而控制核商中的代表元。
+- **出处**：Mathlib 的 Banach 空间连续线性算子接口。
+- **谁在用**：`functional-analysis.closed-range`；两个方向分别从对偶限制映射的满射性和原算子的
+  闭值域取得所需范数估计，公开结论仍以闭值域和零化子表述。
 
 ## 标准道路的逆向与拼接
 

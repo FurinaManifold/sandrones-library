@@ -10,7 +10,7 @@ premises: [abstract-algebra.ring.def, abstract-algebra.ring.domain, abstract-alg
 mathlib: []
 provenance:
   source_type: book
-  ref: Atiyah--Macdonald, Introduction to Commutative Algebra, Section 3
+  ref: atiyah-macdonald-commutative-algebra-1969
 ---
 
 # 动机

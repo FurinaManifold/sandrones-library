@@ -3642,7 +3642,8 @@
       "abstract-algebra.poly.def",
       "abstract-algebra.ring.divisibility",
       "abstract-algebra.ring.ideal",
-      "abstract-algebra.ring.iso-theorems"
+      "abstract-algebra.ring.iso-theorems",
+      "abstract-algebra.ring.localization"
     ],
     "proof_sha": "da90e910e146b486"
   },
@@ -3725,6 +3726,7 @@
       "abstract-algebra.poly.def",
       "abstract-algebra.ring.divisibility",
       "abstract-algebra.ring.euclidean",
+      "abstract-algebra.ring.localization",
       "abstract-algebra.ring.prime-ideal"
     ],
     "proof_sha": "da90e910e146b486"
@@ -12762,6 +12764,7 @@
     "dependedOnBy": [
       "abstract-algebra.poly.def",
       "abstract-algebra.ring.euclidean",
+      "abstract-algebra.ring.localization",
       "abstract-algebra.ring.pid-ufd"
     ],
     "proof_sha": "87d732b464a7ff52",
@@ -13729,6 +13732,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.closed-range",
       "functional-analysis.convex.separation",
       "functional-analysis.hahn-banach.norming-functional",
       "functional-analysis.weak-star.banach-dieudonne"
@@ -13839,7 +13843,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.bidual.reflexive"
+      "functional-analysis.bidual.reflexive",
+      "functional-analysis.closed-range"
     ],
     "family": "functional-analysis.subspace",
     "variant": "salamon",
@@ -14295,7 +14300,9 @@
     "nl_file": "docs/entries/functional-analysis/dual-operator/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.closed-range"
+    ],
     "family": "functional-analysis.dual-operator",
     "variant": "salamon",
     "proof_sha": "ecb1d53a579567ac",
@@ -15018,6 +15025,70 @@
     "family": "settheory.computability",
     "variant": "fixed-size-code-uniform-bound",
     "proof_sha": "4072f1fb96ffc3b0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.ring.localization",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "交换环的局部化与分式域",
+    "summary": "从乘法集和分式对构造局部化，证明泛性质并得到整环的分式域",
+    "premises": [
+      "abstract-algebra.ring.def",
+      "abstract-algebra.ring.domain",
+      "abstract-algebra.ring.divisibility"
+    ],
+    "mathlib": [],
+    "provenance": {
+      "source_type": "book",
+      "ref": "atiyah-macdonald-commutative-algebra-1969"
+    },
+    "lean_file": "AbstractAlgebra/RingLocalization.lean",
+    "nl_file": "docs/entries/abstract-algebra/ring/localization.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.ring",
+    "variant": "textbook",
+    "proof_sha": "8e46fef11ea0e45e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.closed-range",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "闭值域的零化子刻画",
+    "summary": "Banach 空间间连续线性映射的值域闭，当且仅当对偶值域等于原核的连续零化子",
+    "premises": [
+      "functional-analysis.dual-operator.definition",
+      "functional-analysis.subspace.annihilator-closure",
+      "functional-analysis.hahn-banach.extension"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.exists_preimage_norm_le",
+      "ContinuousLinearMap.antilipschitz_of_injective_of_isClosed_range",
+      "StrongDual.polarSubmodule"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/ClosedRange.lean",
+    "nl_file": "docs/entries/functional-analysis/closed-range.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "closed-range-annihilator-criterion",
+    "proof_sha": "92f13cdbae69a099",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
