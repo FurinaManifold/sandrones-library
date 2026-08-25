@@ -17,7 +17,8 @@
 
 - [x] 数列收敛：`SequenceConvergesTo` 给出实数列的 ε-N 定义，并以
   `sequenceConvergesTo_iff_tendsto` 桥接 `Tendsto u atTop (𝓝 l)`。
-- [ ] 数列收敛存在性：讲清“存在某个极限”的教材量词，并说明其与现有 `Tendsto` 定理的关系。
+- [x] 数列收敛存在性：`SequenceConvergent` 定义为存在某个 `SequenceConvergesTo` 极限，桥接
+  `∃ l, Tendsto u atTop (𝓝 l)`，并用于收敛列有界定理。
 - [x] Cauchy 列：`SequenceIsCauchy` 给出双指标 ε-N 谓词并桥接 `CauchySeq`；完备性定理继续
   使用 Mathlib 接口。
 - [x] 函数有限点极限：`FunctionConvergesToAt` 给出去心邻域 ε-δ 定义，并桥接

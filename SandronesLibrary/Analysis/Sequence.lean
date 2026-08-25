@@ -39,6 +39,10 @@ namespace Analysis.Sequence
 def SequenceConvergesTo (u : ℕ → ℝ) (l : ℝ) : Prop :=
   ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε
 
+/-- 实数列收敛，即存在某个实数极限。 -/
+def SequenceConvergent (u : ℕ → ℝ) : Prop :=
+  ∃ l : ℝ, SequenceConvergesTo u l
+
 /-- 展开本库数列收敛定义。 -/
 theorem sequenceConvergesTo_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
     SequenceConvergesTo u l ↔ ∀ ε > 0, ∃ N : ℕ, ∀ n ≥ N, |u n - l| < ε :=
@@ -61,6 +65,11 @@ theorem tendsto_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
 theorem sequenceConvergesTo_iff_tendsto {u : ℕ → ℝ} {l : ℝ} :
     SequenceConvergesTo u l ↔ Tendsto u atTop (𝓝 l) := by
   simpa [SequenceConvergesTo] using (tendsto_iff_epsilon_N (u := u) (l := l)).symm
+
+/-- 本库“收敛列”定义与存在 Mathlib 滤子极限等价。 -/
+theorem sequenceConvergent_iff_exists_tendsto {u : ℕ → ℝ} :
+    SequenceConvergent u ↔ ∃ l : ℝ, Tendsto u atTop (𝓝 l) := by
+  simp only [SequenceConvergent, sequenceConvergesTo_iff_tendsto]
 
 /-- 实数列 `u` 是 Cauchy 列的教材双指标 ε-N 定义。
 > **Entry**: analysis.sequence.cauchy
@@ -149,6 +158,12 @@ theorem convergent_bddBelow {u : ℕ → ℝ} {l : ℝ} (h : Tendsto u atTop (�
 theorem convergent_bounded {u : ℕ → ℝ} {l : ℝ} (h : Tendsto u atTop (𝓝 l)) :
     BddAbove (Set.range u) ∧ BddBelow (Set.range u) := by
   exact ⟨convergent_bddAbove h, convergent_bddBelow h⟩
+
+/-- 教材“收敛列”接口下，数列值域有上下界。 -/
+theorem sequenceConvergent_bounded {u : ℕ → ℝ} (h : SequenceConvergent u) :
+    BddAbove (Set.range u) ∧ BddBelow (Set.range u) := by
+  rcases h with ⟨l, hl⟩
+  exact convergent_bounded (sequenceConvergesTo_iff_tendsto.mp hl)
 
 /--
 > **Entry**: analysis.sequence.squeeze
