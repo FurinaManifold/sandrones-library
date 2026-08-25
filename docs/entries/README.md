@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **467** 个条目（verified 467，pending 0）。
+共 **470** 个条目（verified 470，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -315,6 +315,7 @@
 ## `functional-analysis.closed-range`
 
 - ✅ [`double-annihilator.md`](functional-analysis/closed-range/double-annihilator.md) — 闭值域的双零化子与对偶闭性
+- ✅ [`duality.md`](functional-analysis/closed-range/duality.md) — 原算子与对偶算子的闭值域等价
 
 ## `functional-analysis.compact-operator`
 
@@ -328,6 +329,10 @@
 ## `functional-analysis.dual-operator`
 
 - ✅ [`definition.md`](functional-analysis/dual-operator/definition.md) — 连续线性算子的对偶算子
+
+## `functional-analysis.fredholm`
+
+- ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
 
 ## `functional-analysis.hahn-banach`
 
@@ -687,6 +692,7 @@
 - ✅ [`product-standard.md`](topology/fundamental-group/product-standard.md) — 积空间的基本群
 - ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
 - ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
+- ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射
 
 ## `topology.homotopy`
 

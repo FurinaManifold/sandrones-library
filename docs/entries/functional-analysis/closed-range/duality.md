@@ -3,6 +3,7 @@ id: functional-analysis.closed-range.duality
 kind: theorem
 state: verified
 title: 原算子与对偶算子的闭值域等价
+summary: 原算子与对偶算子的值域范数闭性等价，并统一给出四项闭值域刻画
 premises: [functional-analysis.closed-range.double-annihilator, functional-analysis.weak-star.banach-dieudonne]
 mathlib: [ContinuousLinearMap.exists_preimage_norm_le, IsCompact.image, StrongDual.polarSubmodule]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}

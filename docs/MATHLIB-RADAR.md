@@ -83,8 +83,9 @@
 ### `WeakDual` / `StrongDual.toWeakDual` / `WeakDual.eval_continuous`
 - **人话**：在连续对偶的同一底层线性对象上安装逐原空间向量求值的弱星拓扑，并保证这些求值连续。
 - **谁在用**：`functional-analysis.weak-star.definition` 与
-  `functional-analysis.closed-range.double-annihilator`；后者把连续零化子写成逐点求值核的交，
-  从而证明闭值域时对偶值域弱星闭。它与测试全部双对偶元的对偶弱拓扑明确区分。
+  `functional-analysis.closed-range.double-annihilator`、`functional-analysis.closed-range.duality`；
+  后两者先把连续零化子写成逐点求值核的交，再用弱星紧球连续像与 Banach--Dieudonné 完成
+  原／对偶闭值域的逆向。它与测试全部双对偶元的对偶弱拓扑明确区分。
 
 ## 有限 Galois 基本对应的私有后端
 
@@ -129,6 +130,12 @@
 - **人话**：紧致度量空间的开覆盖存在统一局部半径，使每个足够小的球完整落在某个覆盖成员中。
 - **谁在用**：van Kampen VK1 只对参数空间 `unitInterval` 使用它，因而不把原拓扑空间 `X` 的
   假设加强成度量空间。
+
+### `Monoid.PushoutI` / `Monoid.PushoutI.lift` / `Monoid.PushoutI.lift_of`
+- **人话**：承载两个群沿共同来源同态粘合得到的合并自由积，并通过泛性质定义从该粘合对象出发的
+  同态；`lift_of` 计算规范同态在两侧生成元上的值。
+- **谁在用**：`topology.fundamental-group.van-kampen-surjectivity` 直接构造二开集覆盖成员基本群到
+  环境基本群的规范同态，并把有限修正环路词提升为其原像；本库没有重造自由积或推送商。
 
 ### `ContinuousMap.Homotopy` / `ContinuousMap.HomotopyRel` / `ContinuousMap.Homotopy.comp`
 - **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。

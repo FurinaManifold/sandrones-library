@@ -3,7 +3,7 @@ id: topology.fundamental-group.van-kampen-surjectivity
 family: topology.fundamental-group
 variant: binary-open-cover-path-connected-surjectivity
 kind: theorem
-state: staging
+state: verified
 title: 二开集 van Kampen 规范同态的满射
 summary: 道路连通二开集及其交覆盖空间时，基本群合并自由积到环境基本群的规范同态满射
 premises: [topology.fundamental-group.van-kampen-cover-subdivision]

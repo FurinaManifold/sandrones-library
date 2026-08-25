@@ -579,8 +579,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-F2c2 圆周基本群分类 | 已集成 | 指数覆盖、环路提升、绕数同态及 `π₁(S¹,1) ≃* Multiplicative ℤ` 的一般分类定理；具体绕数计算归 Examples E7.11 | Main 全库验收完成 |
 | T4-F2c3 积空间基本群 | 已集成 | 从群胚积同构提取指定基点的基本群乘法等价及一般作用公式；具体空间积计算归 Examples E7.11 | `prodIso` 已有定义体内真实使用者及正逆复合公式 |
 | AT1-VK1 van Kampen 覆盖细分 | 已集成 | 二开集覆盖下，用 Mathlib `Path.subpath` 封装有限带标签子段及相邻切换点交集性质 | 已冻结有限网格、标签、逐段包含和拼接同伦接口 |
-| AT1-VK2 规范同态与满射 | `development_open` | 用 VK1 数据建立同标签 blocks、交集内基点修正环路词及规范同态满射 | 直接复用 `Monoid.PushoutI`；不得提前声称单射或同构 |
-| AT1-VK3 网格零同伦与单射 | `research_open` | 调查方格细分与 amalgamated free product 的 kernel 关系 | 等待 VK1 正式接口冻结后再确定公开签名 |
+| AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
+| AT1-VK3a 零同伦方格细分 | `development_open` | 正式化一致二维网格、逐格覆盖标签及异标签公共边落在交集；保持为独立基础接口 | 已有无占位原型；只准证明细分接口，不得提前声称 kernel 消失 |
+| AT1-VK3b 单格边界词与内部边抵消 | `research_open` | 冻结四边定向、单格边界词为单位及有限网格内部边成对抵消的公开签名 | VK3a 集成后再申请正式开发；完成前不发布单射或同构 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3 一般连续／分段 `C¹` 边界正则化 | `research_open` | 一维相对平滑或有限细分积分不变性路线 | R2 不推出 R3；完成前不得解冻复分析一般连续同伦门 |
@@ -769,12 +770,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
-| 2 | `functional-analysis.closed-range` | 闭值域与“对偶值域等于核零化子”的双向刻画 ✅；对偶值域闭与四项等价留作后续增量 | `ContinuousLinearMap.exists_preimage_norm_le`、反 Lipschitz 闭像接口 |
+| 2 | `functional-analysis.closed-range` | 闭值域、对偶值域闭、核零化子及共同零点恢复的四项等价 ✅ | `ContinuousLinearMap.exists_preimage_norm_le`、Banach–Dieudonné、弱星分离 |
 | 2b | `functional-analysis.closed-range.double-annihilator` | 值域闭包的双零化子刻画；闭值域推出对偶值域范数闭与弱星闭 ✅ | `Submodule.topologicalClosure`、`WeakDual.eval_continuous` |
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
-| 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
-| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择 | compact perturbation API |
+| 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 ✅ | `ContinuousLinearMap.IsFredholm`、`LinearMap.index` |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；先冻结精确承载与所需紧算子桥 | `research_open`；定义层已集成，不得用 Mathlib 最终 package 代替教材证明链 |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
@@ -822,8 +823,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
-已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价继续为 `development_open`。F5.5 Fredholm 定义层
-提升为 `development_open`，但不得把尚未建立的闭值域加强或指数稳定性冒充为已完成。F6 等待紧算子与
+已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
+F5.6 Fredholm 备择现开放接口研究，负责人可提交无占位原型与定义依赖图；在 Main 冻结签名前不得
+提交最终定理。F4.7 Eberlein--Šmulian 的 `development_open` 权限继续有效。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

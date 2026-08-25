@@ -14195,7 +14195,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.closed-range.double-annihilator"
+      "functional-analysis.closed-range.double-annihilator",
+      "functional-analysis.closed-range.duality"
     ],
     "family": "functional-analysis.weak-star",
     "variant": "banach-dieudonne-unit-slice",
@@ -14905,7 +14906,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-cover-subdivision.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-surjectivity"
+    ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-labelled-subpaths",
     "proof_sha": "01b5849d6e4d3450",
@@ -15161,10 +15164,114 @@
     "nl_file": "docs/entries/functional-analysis/closed-range/double-annihilator.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.closed-range.duality"
+    ],
     "family": "functional-analysis.closed-range",
     "variant": "double-annihilator-and-dual-closedness",
     "proof_sha": "df93d7f7a8fe6d39",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-surjectivity",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二开集 van Kampen 规范同态的满射",
+    "summary": "道路连通二开集及其交覆盖空间时，基本群合并自由积到环境基本群的规范同态满射",
+    "premises": [
+      "topology.fundamental-group.van-kampen-cover-subdivision"
+    ],
+    "mathlib": [
+      "FundamentalGroup.map",
+      "Monoid.PushoutI",
+      "Monoid.PushoutI.lift",
+      "Monoid.PushoutI.lift_of",
+      "IsPathConnected.joinedIn",
+      "Path.Homotopic.Quotient.map_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenSurjectivity.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-surjectivity.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-open-cover-path-connected-surjectivity",
+    "proof_sha": "03abf00eb628b4c0",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.closed-range.duality",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "原算子与对偶算子的闭值域等价",
+    "summary": "实 Banach 空间之间的连续线性算子与其对偶算子的值域范数闭性等价，并给出四项闭值域刻画",
+    "premises": [
+      "functional-analysis.closed-range.double-annihilator",
+      "functional-analysis.weak-star.banach-dieudonne"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.exists_preimage_norm_le",
+      "IsCompact.image",
+      "StrongDual.polarSubmodule"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/ClosedRangeDuality.lean",
+    "nl_file": "docs/entries/functional-analysis/closed-range/duality.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.fredholm.definition"
+    ],
+    "family": "functional-analysis.closed-range",
+    "variant": "primal-dual-norm-closed-equivalence",
+    "proof_sha": "d4222a032f78c888",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.fredholm.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "Fredholm 算子与指数",
+    "summary": "展开 Fredholm 算子的严格性、闭值域、有限维核余核与可补核条件，并固定指数符号约定",
+    "premises": [
+      "functional-analysis.closed-range.duality"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.IsFredholm",
+      "LinearMap.index",
+      "Submodule.CoFG"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmDefinition.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.fredholm",
+    "variant": "mathlib-carrier-and-index",
+    "proof_sha": "9556e0c26d9ca104",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

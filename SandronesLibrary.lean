@@ -100,6 +100,7 @@ import SandronesLibrary.Topology.CircleFundamentalGroupStandard
 import SandronesLibrary.Topology.FundamentalGroupProductStandard
 import SandronesLibrary.Topology.BoundaryCollarHomotopySmoothing
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
+import SandronesLibrary.Topology.VanKampenSurjectivity
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
@@ -233,6 +234,8 @@ import SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.ClosedRange
 import SandronesLibrary.FunctionalAnalysis.ClosedRangeConsequences
+import SandronesLibrary.FunctionalAnalysis.ClosedRangeDuality
+import SandronesLibrary.FunctionalAnalysis.FredholmDefinition
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator
