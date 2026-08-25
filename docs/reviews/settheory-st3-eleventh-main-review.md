@@ -32,3 +32,39 @@ ST3 继续保持进行中。
 - `resolved`：handoff 已分别列出 imports、Entry id、RADAR API 建议与诚实边界；模块闭包、聚合
   `#check`、禁用占位、Entry／文档、精确八段和 `git diff --check` 的结果记录在本批验证段。
 - `resolved`：一般 Goodstein 借位仅保留在 `/tmp` 设计框架，在两个指导接口提交前未进入正式库。
+
+## Round 2: 有限机器编码与认证策略终止
+
+- reviewed_commit: `63bbf24`（包含 `118ddef`、`1f98af1`）
+- reviewer: `main`
+- verdict: `needs_changes`
+- reviewed_at: 2026-08-25
+
+### 数学与接口审核
+
+- `BinaryMachineCoding` 正确把固定状态数机器编码为有限索引，并明确它不是可执行编译器或通用解释器。
+- `HydraCertifiedStrategyTermination` 正确地只对 `CertifiedStep` 策略规格证明有限终止轨迹，没有扩大成任意普通 `Hydra.Step` 的终止性。
+- 两个模块的目标构建、公开 API `#check`、禁用占位扫描、八段文档检查均通过。
+- 核心定理公理审计仅见 `propext`、`Classical.choice`、`Quot.sound`。
+
+### 必须修正
+
+- R1: `docs/reviews/settheory-st3-eleventh-main-review.md` 文件末尾多出一个空行，导致
+  `git diff --check 4d08931..63bbf24` 失败。删除并提交后，本轮两个数学提交即可接收。
+
+### 未纳入本轮的工作
+
+以下四个未跟踪文件属于下一批，Main 没有移动、删除、提交或审核它们：
+
+- `SandronesLibrary/SetTheory/HereditaryNatPowerRank.lean`
+- `SandronesLibrary/SetTheory/OrdinalPowerBridge.lean`
+- `docs/entries/settheory/googology/hereditary-natural-power-rank.md`
+- `docs/entries/settheory/ordinal/power-bridge.md`
+
+R1 修复提交必须保持独立，不得顺带纳入上述文件。
+
+### 学科负责人 Round 2 处理记录
+
+- R1 `resolved`：独立提交 `1c015fe` 只删除 review 文件末尾空行；未纳入四个下一批文件。
+- 验证：`git diff --check 4d08931..1c015fe` 通过。
+- 后续范围：两座 Goodstein 基础桥在 R1 闭环后分别提交为 `357e407` 与 `7e4292d`，不借用 Round 2 的数学接受结论。
