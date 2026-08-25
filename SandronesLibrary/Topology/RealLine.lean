@@ -5,12 +5,16 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.Constructions
 import Mathlib.Data.Real.Basic
+import Mathlib.Topology.Instances.Real.Lemmas
+import Mathlib.Topology.UnitInterval
+import Mathlib.Tactic.Linarith
+import Mathlib.Tactic.Ring
 
 /-!
-# The real line and unit interval as textbook topological spaces
+# 实直线与单位区间的拓扑
 
-The real topology is constructed directly from open epsilon-neighborhoods.  No Mathlib topology
-instance is imported or used.
+正式课程接口直接使用 Mathlib 的标准实数拓扑和 `unitInterval`，并用正半径
+ε 邻域刻画解释教材语义。文件后半保留旧显式构造，仅供已提交下游迁移使用。
 
 Current entry:
 
@@ -18,6 +22,29 @@ Current entry:
 -/
 
 open Set
+
+namespace SandronesLibrary.Topology
+
+/-- 标准实数拓扑中的开集，恰好满足教材的正半径绝对值邻域刻画。
+
+> **Entry**: topology.foundation.real-line -/
+theorem real_isOpen_iff_abs (s : Set ℝ) :
+    _root_.IsOpen s ↔
+      ∀ x ∈ s, ∃ ε : ℝ, 0 < ε ∧ ∀ y, |y - x| < ε → y ∈ s := by
+  rw [Metric.isOpen_iff]
+  constructor
+  · intro h x hx
+    obtain ⟨ε, hε, hball⟩ := h x hx
+    exact ⟨ε, hε, fun y hy ↦ hball (by simpa [Real.dist_eq] using hy)⟩
+  · intro h x hx
+    obtain ⟨ε, hε, hball⟩ := h x hx
+    exact ⟨ε, hε, fun y hy ↦ hball y (by simpa [Real.dist_eq] using hy)⟩
+
+/-- Mathlib 的道路参数类型 `unitInterval` 就是闭区间 `Set.Icc 0 1`。 -/
+theorem unitInterval_eq_Icc : unitInterval = Set.Icc (0 : ℝ) 1 :=
+  rfl
+
+end SandronesLibrary.Topology
 
 namespace SandronesLibrary.Topology.TextbookTopology
 

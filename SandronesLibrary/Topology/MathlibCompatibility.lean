@@ -5,6 +5,7 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.MathlibBridge
 import SandronesLibrary.Topology.Constructions
+import SandronesLibrary.Topology.Path
 
 /-!
 # 旧教材拓扑与 Mathlib 拓扑的兼容层
@@ -106,6 +107,68 @@ theorem toMathlib_product (τX : TextbookTopology X) (τY : TextbookTopology Y) 
   · intro h p hp
     obtain ⟨u, v, hu, hv, hpu, hpv, hsub⟩ := h p.1 p.2 hp
     exact ⟨u, v, hu, hv, ⟨hpu, hpv⟩, hsub⟩
+
+/-- 旧 ε 邻域实拓扑转到 Mathlib 后，严格等于标准实数拓扑实例。 -/
+theorem toMathlib_realLine :
+    realLine.toMathlib = (inferInstance : TopologicalSpace ℝ) := by
+  apply TopologicalSpace.ext
+  funext s
+  apply propext
+  rw [SandronesLibrary.Topology.real_isOpen_iff_abs]
+  rfl
+
+/-- 旧单位区间拓扑转到 Mathlib 后，严格等于闭区间 subtype 的规范拓扑实例。 -/
+theorem toMathlib_unitInterval :
+    unitInterval.toMathlib =
+      @instTopologicalSpaceSubtype ℝ (fun t ↦ 0 ≤ t ∧ t ≤ 1)
+        (inferInstance : TopologicalSpace ℝ) := by
+  unfold unitInterval UnitInterval
+  rw [toMathlib_subspace, toMathlib_realLine]
+
+namespace Path
+
+/-- 把旧道路转换为同一拓扑上的 Mathlib 道路，保持参数函数与两个端点不变。 -/
+def toMathlib {τX : TextbookTopology X} {a b : X}
+    (γ : Path τX a b) : @_root_.Path X τX.toMathlib a b := by
+  let _ := τX.toMathlib
+  have hγ : @_root_.Continuous UnitInterval X unitInterval.toMathlib τX.toMathlib γ :=
+    (continuous_iff_mathlib unitInterval τX γ).mp γ.continuous
+  rw [toMathlib_unitInterval] at hγ
+  exact { toFun := γ, continuous_toFun := hγ, source' := γ.source, target' := γ.target }
+
+/-- 把桥接拓扑上的 Mathlib 道路转换为旧道路，保持参数函数与两个端点不变。 -/
+def fromMathlib {τX : TextbookTopology X} {a b : X}
+    (γ : @_root_.Path X τX.toMathlib a b) : Path τX a b := by
+  let _ := τX.toMathlib
+  have hγ : @_root_.Continuous UnitInterval X unitInterval.toMathlib τX.toMathlib γ := by
+    rw [toMathlib_unitInterval]
+    exact γ.continuous
+  exact {
+    toFun := γ
+    continuous := (continuous_iff_mathlib unitInterval τX γ).mpr hγ
+    source := γ.source
+    target := γ.target }
+
+/-- 旧道路转到 Mathlib 再转回后不变。 -/
+@[simp]
+theorem fromMathlib_toMathlib {τX : TextbookTopology X} {a b : X} (γ : Path τX a b) :
+    fromMathlib (toMathlib γ) = γ := by
+  apply Path.ext
+  intro t
+  change γ t = γ t
+  rfl
+
+/-- Mathlib 道路转到旧载体再转回后不变。 -/
+@[simp]
+theorem toMathlib_fromMathlib {τX : TextbookTopology X} {a b : X}
+    (γ : @_root_.Path X τX.toMathlib a b) :
+    toMathlib (fromMathlib γ) = γ := by
+  let _ := τX.toMathlib
+  apply _root_.Path.ext
+  change (γ : UnitInterval → X) = γ
+  rfl
+
+end Path
 
 namespace Homeomorphism
 

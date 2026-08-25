@@ -5,9 +5,9 @@ variant: legacy-carrier-equivalence
 kind: bridge
 state: staging
 title: 旧教材拓扑与 Mathlib 拓扑的兼容等价
-summary: 证明冻结的 TextbookTopology 与 Mathlib TopologicalSpace 及其诱导、子空间、积构造具有相同数据，并建立双向等价以支持分层迁移
+summary: 证明冻结的 TextbookTopology 及其实线、单位区间和道路与 Mathlib 正式承载具有相同数据，并建立双向等价以支持分层迁移
 premises: [topology.foundation.structure]
-mathlib: [TopologicalSpace, IsOpen, IsClosed, nhds, Homeomorph]
+mathlib: [TopologicalSpace, IsOpen, IsClosed, nhds, Homeomorph, unitInterval, Path]
 provenance:
   source_type: migration
   ref: "Topology Mathlib reuse migration RFC"
@@ -23,7 +23,7 @@ provenance:
 
 # 陈述（自然语言）
 
-任意 Mathlib 拓扑都能转成旧教材拓扑，且开集和闭集逐一定义相同；旧邻域谓词正是 Mathlib 邻域滤子的成员关系。从 Mathlib 转旧再转回，或从旧转 Mathlib 再转回，都得到原结构。因此二者作为拓扑结构的载体等价；旧同胚也能无损转成正式 `Homeomorph`。旧诱导、子空间与积拓扑转到 Mathlib 后，分别严格等于规范构造和规范实例。
+任意 Mathlib 拓扑都能转成旧教材拓扑，且开集、闭集、邻域与同胚数据一致。旧诱导、子空间、积、实线与单位区间拓扑转到 Mathlib 后分别严格等于规范构造或实例。旧道路与 Mathlib `Path` 也能保持参数函数和端点双向转换。
 
 # 陈述（Lean 对照）
 
@@ -51,19 +51,25 @@ theorem TextbookTopology.toMathlib_subspace :
   (subspace s τX).toMathlib = @instTopologicalSpaceSubtype X s τX.toMathlib
 theorem TextbookTopology.toMathlib_product :
   (product τX τY).toMathlib = @instTopologicalSpaceProd X Y τX.toMathlib τY.toMathlib
+theorem TextbookTopology.toMathlib_realLine :
+  realLine.toMathlib = (inferInstance : TopologicalSpace ℝ)
+theorem TextbookTopology.toMathlib_unitInterval :
+  unitInterval.toMathlib = instTopologicalSpaceSubtype
+def TextbookTopology.Path.toMathlib
+def TextbookTopology.Path.fromMathlib
 ```
 
 # 思维脉络（thinking trace）
 
-`fromMathlib` 逐字段读取 `TopologicalSpace` 的开集谓词和公理。闭集桥使用“补集开”，邻域桥使用正式条目已经证明的 `mem_nhds_iff_exists_open`。Mathlib 一侧的拓扑往返等式使用 `TopologicalSpace.ext`，只需核对开集谓词；旧结构一侧析构结构后即可由定义归约完成。最后把两个转换和两条往返定理组装成 `Equiv`。同胚桥保留同一个底层 `Equiv`，并通过 `continuous_iff_mathlib` 转换正逆连续性证明。诱导和 subtype 桥在开集谓词层定义相同；积拓扑桥用正式的开矩形刻画逐项重排局部矩形数据。
+`fromMathlib` 逐字段读取拓扑数据。闭集、邻域、同胚及空间构造桥分别使用补集、邻域展开、连续性桥和拓扑外延。实线桥把标准度量开集改写为绝对值 ε 邻域；单位区间桥复用 subtype 规范性。道路桥再转换连续性并原样保留参数函数与端点，两侧往返由道路外延成立。
 
 # 自然语言 ↔ Lean 映射
 
-“同一批开集、闭集”对应 `isOpen_fromMathlib` 和 `isClosed_toMathlib`；“教材邻域就是滤子邻域”对应 `isNeighborhood_iff_mem_nhds`；“Mathlib 一侧来回不变”对应 `toMathlib_fromMathlib`；“旧结构一侧来回不变”对应 `fromMathlib_toMathlib`；“结构等价”对应 `equivMathlib`；同胚的无损转换对应 `Homeomorphism.toMathlib`、`fromMathlib` 及其两条往返定理；三种空间构造的规范性对应 `toMathlib_induced/subspace/product`。
+基础拓扑往返对应 `equivMathlib`；同胚转换对应 `Homeomorphism.toMathlib/fromMathlib`；空间构造对应 `toMathlib_induced/subspace/product`；实线和单位区间对应 `toMathlib_realLine/unitInterval`；道路无损转换对应 `Path.toMathlib/fromMathlib` 及其往返定理。
 
 # 依赖（人话版）
 
-依赖旧结构已有的显式 `toMathlib` 桥、正式基础条目的邻域刻画、正式构造条目的开矩形刻画，以及 Mathlib 的 `TopologicalSpace.ext` 和 `Homeomorph`。没有建立新的拓扑概念，也没有调用同伦或基本群理论。
+依赖既有拓扑与连续性桥、正式构造和标准实线的教材刻画，以及 Mathlib 的 `TopologicalSpace.ext`、`Homeomorph`、`unitInterval` 与 `Path`。没有建立新的拓扑概念，也没有调用同伦或基本群理论。
 
 # 应用与陷阱
 

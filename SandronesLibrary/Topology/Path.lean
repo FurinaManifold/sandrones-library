@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.RealLine
+import Mathlib.Topology.Path
 import Mathlib.Tactic.Linarith
 import Mathlib.Tactic.NormNum
 
@@ -20,6 +21,26 @@ Current entry:
 -/
 
 open Set Function
+
+namespace SandronesLibrary.Topology
+
+variable {X : Type*}
+
+/-- Mathlib 的 `Path x y` 恰好打包一条从闭单位区间到空间的连续函数，以及它在零、一端点的
+取值。这是教材道路定义的数据展开。
+
+> **Entry**: topology.homotopy.path-definition-foundation -/
+theorem nonempty_path_iff_exists_continuous [TopologicalSpace X] (x y : X) :
+    Nonempty (_root_.Path x y) ↔
+      ∃ f : unitInterval → X, _root_.Continuous f ∧
+        f ⟨0, unitInterval.zero_mem⟩ = x ∧ f ⟨1, unitInterval.one_mem⟩ = y := by
+  constructor
+  · rintro ⟨γ⟩
+    exact ⟨γ, γ.continuous, γ.source, γ.target⟩
+  · rintro ⟨f, hf, h0, h1⟩
+    exact ⟨{ toFun := f, continuous_toFun := hf, source' := h0, target' := h1 }⟩
+
+end SandronesLibrary.Topology
 
 namespace SandronesLibrary.Topology.TextbookTopology
 

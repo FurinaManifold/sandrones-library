@@ -3,11 +3,11 @@ id: topology.homotopy.path-definition-foundation
 family: topology.homotopy
 variant: textbook-unit-interval
 kind: definition
-state: verified
-title: 道路与环路的库内定义
-summary: 将道路定义为本库单位区间到本库拓扑空间的连续映射，并定义常值道路、连续像和环路
-premises: [topology.foundation.real-line]
-mathlib: []
+state: staging
+title: 道路与环路的正式承载
+summary: 解释 Mathlib Path 如何打包单位区间上的连续轨迹与端点，并保留旧道路结构作为迁移兼容层
+premises: [topology.foundation.real-line, topology.foundation.structure]
+mathlib: [Path, Path.refl, Path.map, unitInterval]
 provenance:
   source_type: book
   ref: "Hatcher, Algebraic Topology, Section 1.1"
@@ -15,42 +15,38 @@ provenance:
 
 # 动机
 
-道路、同伦和单连通性是复分析全局 Cauchy 理论的拓扑基础。它们不能以 Mathlib `Path` 为未解释的公开起点。本条使用已经构造的实单位区间和连续性，冻结本库自己的道路核心接口。
+道路、同伦和单连通性是复分析全局 Cauchy 理论的拓扑基础。Mathlib `Path` 可以作为正式起点，但必须把它携带的参数函数、连续性和端点条件逐项解释清楚。
 
 # 直觉
 
-道路是在单位时间内连续移动的轨迹：时间零位于起点，时间一位于终点。环路是最终回到起点的道路。空间之间的连续映射会把整条道路逐点送到目标空间中的一条道路。
+道路是在单位时间内连续移动的轨迹。Mathlib 把连续函数包装为 `ContinuousMap`，再附加零、一两个端点等式；环路就是起点和终点相同的道路，连续映射用 `Path.map` 逐点作用。
 
 # 陈述（自然语言）
 
-在拓扑空间 `(X,τX)` 中，从 `a` 到 `b` 的道路由函数 `γ:[0,1]→X`、其连续性、`γ(0)=a` 和 `γ(1)=b` 组成。常值函数给出从 `a` 到自身的道路。若 `f:X→Y` 连续，则 `f∘γ` 是从 `f(a)` 到 `f(b)` 的道路。以 `a` 为基点的环路是从 `a` 到 `a` 的道路。
+`Path x y` 非空，当且仅当存在连续函数 `f:[0,1]→X`，满足 `f(0)=x`、`f(1)=y`。`Path.refl` 给出常值道路，`Path.map` 给出连续像；环路直接写成 `Path x x`。旧本库 `Path/Loop` 只为已提交下游保留。
 
 # 陈述（Lean 对照）
 
 ```lean
-structure Path (τX : TextbookTopology X) (a b : X) where
-  toFun : UnitInterval → X
-  continuous : Continuous unitInterval τX toFun
-  source : toFun UnitInterval.zero = a
-  target : toFun UnitInterval.one = b
-
-def Path.refl (τX) (a) : Path τX a a
-def Path.map (γ : Path τX a b) (f : X → Y) (hf : Continuous τX τY f) :
-  Path τY (f a) (f b)
+theorem nonempty_path_iff_exists_continuous [TopologicalSpace X] (x y : X) :
+  Nonempty (Path x y) ↔
+    ∃ f : unitInterval → X, Continuous f ∧ f 0 = x ∧ f 1 = y
+def TextbookTopology.Path.toMathlib
+def TextbookTopology.Path.fromMathlib
 ```
 
 # 思维脉络（thinking trace）
 
-先从开集原像定义证明常函数连续，再把函数、连续性和端点等式打包为 `Path`。常值道路直接使用常函数连续性。道路的连续像使用连续映射复合定理；两个新端点等式分别由原道路的 `source` 与 `target` 化简得到。
+正向拆开 `Path`，取得底层函数、连续性和两个端点等式；反向把这些数据填回结构。兼容模块借助单位区间拓扑等式和连续性桥，保持同一参数函数构造旧／新道路，并用道路外延证明两侧往返。
 
 # 自然语言 ↔ Lean 映射
 
-“单位时间”对应 `UnitInterval`；“连续轨迹”对应字段 `toFun` 与 `continuous`；“起点/终点”对应 `source`、`target`；“停留不动”对应 `Path.refl`；“连续映射下的道路”对应 `Path.map`；“基点环路”对应透明定义 `Loop τX a := Path τX a a`，常值环路对应 `loopRefl`。
+“单位时间”对应根 `unitInterval`；“连续轨迹与端点”对应 `nonempty_path_iff_exists_continuous`；“停留不动”对应 Mathlib `Path.refl`；“连续像”对应 `Path.map`；“基点环路”对应 `Path x x`；旧道路迁移对应 `TextbookTopology.Path.toMathlib/fromMathlib`。
 
 # 依赖（人话版）
 
-本条只依赖本库实单位区间、拓扑与连续映射定义，以及本库证明的连续复合和常函数连续性。没有导入 `MathlibBridge`，没有使用 Mathlib `Path`、`ContinuousMap` 或单位区间结构。
+正式接口依赖 Mathlib 的 `Topology.Path`、标准 `unitInterval` 和根 `Continuous`。旧道路仍依赖旧单位区间与旧连续性，只作为冻结兼容层。
 
 # 应用与陷阱
 
-当前 foundation 只冻结道路、环路、常值道路和连续像；尚未定义逆道路与拼接，因此不能把本条冒充 ROADMAP 中完整的 `topology.homotopy.path-loop`。后续操作必须证明相应分段参数函数在本库意义下连续，不能直接转调 Mathlib 道路操作。
+本批只迁移道路数据、常值道路与连续像；逆道路和拼接仍由相邻 Entry 单独迁移。新声明不得把 Mathlib 道路转回旧 `Path` 再开发。严格道路等式与道路同伦不能混淆，A2 仍锁定。
