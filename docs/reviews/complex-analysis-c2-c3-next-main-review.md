@@ -44,3 +44,7 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
 - `external audit`：Mathlib 的 `HasPrimitives.lean` 仍明确把单连通域原函数列为 TODO；官方
   Riemann mapping PR `#33505` 截至 2026-08-25 仍为 open，包含 974 行新增和三文件变更，未作为
   本库依赖或复制来源。
+- `resolved analytic construction`：新增 `PrimitiveFromPathIntegral.lean`，从“基点可由可积域内
+  道路到达每点”与“同端点道路积分无关”构造全局原函数，并逐点证明导数等于原函数。该结果用
+  `complex-analysis.cauchy.primitive-from-path-independence-foundation`，没有把尚待证明的积分无关性
+  或标准单连通结论写成已完成。
