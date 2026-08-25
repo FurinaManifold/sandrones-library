@@ -81,6 +81,28 @@
 > → `gen_entries_index.py` → `check_axioms.py --all --fix` → `audit.py` → 全库 `lake build`
 > → 集成提交。禁止多个 Codex直接向 `main` 并发提交共有文件。
 >
+> **Main 集成提交后的基线同步是下一批开工门。** Main 宣布集成提交完成后，各学科负责人必须
+> 在开始下一批开发或返工前，将自己的 staging 分支同步到最新 `main`。推荐在工作区干净且当前
+> 成果已经提交后执行：
+>
+> ```bash
+> git fetch origin
+> git rebase origin/main
+> ```
+>
+> 若本地 `main` 已确认指向刚发布的 Main 提交，也可执行 `git rebase main`。多人共享同一 staging
+> 分支时不得擅自改写公共历史，应由分支负责人统一执行 `git merge origin/main`。不带目标的
+> `git pull` 只更新当前分支的上游，未必包含 `main`，因此不能作为“已同步 Main”的验收证据。
+> rebase 后若需更新已经推送的个人 staging 分支，只能使用 `git push --force-with-lease`，禁止
+> 使用普通 `--force`。
+>
+> 同步冲突先由学科负责人处理：本学科源码和课程文档做语义合并；`SandronesLibrary.lean`、
+> Registry、生成索引、RADAR、ROADMAP 和 Playbook 等 Main 共有文件以最新 Main 版本为基线，
+> 学科分支只保留 handoff 中的修改建议，不得恢复旧共有状态。同步完成后至少重跑本批目标模块
+> 和临时聚合 `#check`。负责人在下一次 handoff 中记录所同步的 Main 提交号和采用的同步方式；
+> Main 接收时必须核对该基线。若负责人基于旧 Main 继续开发，应先要求同步后再审，避免把可预防
+> 的冲突和旧版共有文件清理转移给 Main。
+>
 > **6. 冲突处理原则**
 >
 > - 遇到自己学科文件的真实逻辑冲突，由该学科负责人解决。
