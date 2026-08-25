@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **413** 个条目（verified 413，pending 0）。
+共 **414** 个条目（verified 413，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -588,8 +588,9 @@
 ## `topology.foundation`
 
 - ✅ [`constructions.md`](constructions.md) — 诱导拓扑、子空间拓扑与积拓扑
+- ❓ [`mathlib-compatibility.md`](mathlib-compatibility.md) — 旧教材拓扑与 Mathlib 拓扑的兼容等价
 - ✅ [`real-line.md`](real-line.md) — 实直线与单位区间的教材拓扑
-- ✅ [`structure.md`](structure.md) — 拓扑、连续映射与同胚的库内定义层
+- ✅ [`structure.md`](structure.md) — 拓扑、连续映射与同胚的正式承载
 
 ## `topology.homotopy`
 

@@ -1174,11 +1174,14 @@
 - **谁在用**：`abstract-algebra.ring.prime-ideal`。
 - **边界**：不能把 Mathlib 的单向商环实例冒充本库双向判据。
 
-### `TopologicalSpace` / `Continuous`（本库拓扑的显式桥）
-- **人话**：`TextbookTopology` 由本库开集公理定义；`TextbookTopology.toMathlib` 只在隔离模块
-  中显式构造对应的 Mathlib 拓扑，连续性桥也显式给出两端拓扑。
-- **谁在用**：`topology.foundation.structure`；`topology.foundation.constructions` 不导入桥。
-- **坑**：`toMathlib` 不得注册为实例，否则教材层可能通过类型类搜索误挂靠 Mathlib 定义。
+### `TopologicalSpace` / `IsOpen` / `IsClosed` / `nhds` / `Continuous` / `Homeomorph`
+- **人话**：这些 Mathlib 接口分别承载拓扑空间、开闭集、邻域滤子、连续映射与同胚，语义与教材
+  定义一致。`topologicalSpace_open_axioms`、开闭集原像刻画、邻域的含点开集刻画和同胚的正逆
+  连续刻画负责把类型类与滤子表示解释成教材语言。
+- **谁在用**：`topology.foundation.structure` 以它们作为正式课程承载；
+  `topology.foundation.mathlib-compatibility` 只负责迁移旧 `TextbookTopology`。
+- **坑**：允许直接复用 Mathlib 接口，但必须在课程文档解释量词、typeclass 和滤子成员关系。
+  `fromMathlib` 只能服务旧声明迁移，新课程不得先转回旧载体再发展。
 
 ### `RingHom.quotientKerEquivRange` / `Ideal.Quotient.maximal_of_isField`
 - **人话**：**环版第一同构定理** `R/ker f ≃+* im f`；**商环是域 ⟹ 理想极大**（极大理想 ⟺ 商域的反方向）。

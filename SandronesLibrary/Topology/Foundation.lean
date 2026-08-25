@@ -8,16 +8,16 @@ import Mathlib.Topology.Homeomorph.Defs
 import Mathlib.Topology.Neighborhoods
 
 /-!
-# The textbook meaning of Mathlib's topology foundation
+# Mathlib 基础拓扑接口的教材含义
 
-Mathlib's `TopologicalSpace`, `IsOpen`, `Continuous`, and `Homeomorph` have exactly the meanings
-used in the textbook course, so they are the official public carriers of this entry. The opening
-theorems expose their textbook definitions without wrapping them in parallel structures.
+Mathlib 的 `TopologicalSpace`、`IsOpen`、`Continuous` 与 `Homeomorph` 和本课程采用的教材定义
+语义一致，因此直接作为本条目的正式公开承载。文件开头的定理逐项展开它们的教材含义，而不再
+包装一套平行结构。
 
-The older `TextbookTopology` hierarchy remains below as a frozen compatibility layer for existing
-SandronesLibrary declarations. New topology development must use the Mathlib carriers directly.
+下方旧 `TextbookTopology` 层级仅作为既有 SandronesLibrary 声明的冻结兼容层保留。新的拓扑学
+开发必须直接使用 Mathlib 承载。
 
-Current entry:
+当前条目：
 
 * `topology.foundation.structure`.
 -/
@@ -29,9 +29,8 @@ namespace SandronesLibrary.Topology
 
 variable {X Y : Type*}
 
-/-- Mathlib's topology structure supplies exactly the textbook open-set axioms: the whole space is
-open, binary intersections of open sets are open, and arbitrary unions of open sets are open. The
-empty set is then the union of the empty family.
+/-- Mathlib 的拓扑结构恰好给出教材中的开集公理：全集是开集，两个开集之交仍开，任意族开集之并
+仍开。空集则可看作空集合族的并。
 
 > **Entry**: topology.foundation.structure -/
 theorem topologicalSpace_open_axioms [TopologicalSpace X] :
@@ -41,15 +40,14 @@ theorem topologicalSpace_open_axioms [TopologicalSpace X] :
   exact ⟨isOpen_univ, fun _ _ hs ht ↦ hs.inter ht,
     fun _ hS ↦ isOpen_sUnion hS⟩
 
-/-- A function is continuous exactly when the preimage of every open set is open. This theorem
-shows the textbook definition used by Mathlib's public `Continuous` predicate. -/
+/-- 函数连续，当且仅当每个开集的原像仍是开集。这条定理公开展示 Mathlib 的 `Continuous`
+谓词所采用的教材定义。 -/
 theorem continuous_iff_preimage_open [TopologicalSpace X] [TopologicalSpace Y]
     (f : X → Y) :
     _root_.Continuous f ↔ ∀ u : Set Y, _root_.IsOpen u → _root_.IsOpen (f ⁻¹' u) := by
   exact _root_.continuous_def
 
-/-- Equivalently, a function is continuous exactly when the preimage of every closed set is
-closed. This is derived from the open-set formulation using complements. -/
+/-- 等价地，函数连续当且仅当每个闭集的原像仍闭。证明通过取补集从开集原像刻画推出。 -/
 theorem continuous_iff_preimage_closed [TopologicalSpace X] [TopologicalSpace Y]
     (f : X → Y) :
     _root_.Continuous f ↔
@@ -65,8 +63,8 @@ theorem continuous_iff_preimage_closed [TopologicalSpace X] [TopologicalSpace Y]
     have hopen := hpre.isOpen_compl
     simpa only [preimage_compl, compl_compl] using hopen
 
-/-- A set is a neighborhood of `x` exactly when it contains an open set containing `x`. Thus
-membership in Mathlib's neighborhood filter is the standard textbook notion of neighborhood. -/
+/-- 集合是 `x` 的邻域，当且仅当它包含某个含 `x` 的开集。因此，属于 Mathlib 的邻域滤子正是
+教材中的邻域概念。 -/
 theorem mem_nhds_iff_exists_open [TopologicalSpace X] (x : X) (s : Set X) :
     s ∈ 𝓝 x ↔ ∃ u : Set X, _root_.IsOpen u ∧ x ∈ u ∧ u ⊆ s := by
   rw [_root_.mem_nhds_iff]
@@ -76,9 +74,8 @@ theorem mem_nhds_iff_exists_open [TopologicalSpace X] (x : X) (s : Set X) :
   · rintro ⟨u, hu, hxu, hus⟩
     exact ⟨u, hus, hu, hxu⟩
 
-/-- A homeomorphism exists exactly when there is an equivalence whose forward and inverse maps
-are both continuous. Thus Mathlib's `Homeomorph` packages the usual textbook data without changing
-its mathematical meaning. -/
+/-- 两空间之间存在同胚，当且仅当存在一个集合等价，且其正向与逆向映射都连续。因此 Mathlib 的
+`Homeomorph` 只是把教材中的数据打包起来，没有改变数学含义。 -/
 theorem nonempty_homeomorph_iff_exists_equiv [TopologicalSpace X] [TopologicalSpace Y] :
     Nonempty (X ≃ₜ Y) ↔
       ∃ e : X ≃ Y, _root_.Continuous (e : X → Y) ∧
@@ -89,51 +86,51 @@ theorem nonempty_homeomorph_iff_exists_equiv [TopologicalSpace X] [TopologicalSp
   · rintro ⟨e, he, he'⟩
     exact ⟨{ toEquiv := e, continuous_toFun := he, continuous_invFun := he' }⟩
 
-/-- Legacy explicit topology carrier retained only so already committed SandronesLibrary modules
-continue to compile during the M2 migration. New declarations must use `TopologicalSpace`. -/
+/-- 旧的显式拓扑载体，仅用于保证已经提交的 SandronesLibrary 模块在 M2 迁移期间继续编译。
+新声明必须使用 `TopologicalSpace`。 -/
 structure TextbookTopology (X : Type*) where
-  /-- The predicate selecting the open subsets. -/
+  /-- 指定哪些子集是开集的谓词。 -/
   IsOpen : Set X → Prop
-  /-- The whole space is open. -/
+  /-- 全集是开集。 -/
   isOpen_univ : IsOpen univ
-  /-- The intersection of two open sets is open. -/
+  /-- 两个开集的交仍是开集。 -/
   isOpen_inter : ∀ s t, IsOpen s → IsOpen t → IsOpen (s ∩ t)
-  /-- The union of an arbitrary collection of open sets is open. -/
+  /-- 任意一族开集的并仍是开集。 -/
   isOpen_sUnion : ∀ S : Set (Set X), (∀ s ∈ S, IsOpen s) → IsOpen (⋃₀ S)
 
 namespace TextbookTopology
 
 variable {X Y Z : Type*}
 
-/-- The empty set is open, derived as the union of the empty collection. -/
+/-- 空集是开集，因为它是空集合族的并。 -/
 theorem isOpen_empty (τ : TextbookTopology X) : τ.IsOpen ∅ := by
   rw [← sUnion_empty]
   exact τ.isOpen_sUnion ∅ (by simp)
 
-/-- The union of two open sets is open. -/
+/-- 两个开集的并仍是开集。 -/
 theorem isOpen_union (τ : TextbookTopology X) {s t : Set X}
     (hs : τ.IsOpen s) (ht : τ.IsOpen t) : τ.IsOpen (s ∪ t) := by
   rw [← sUnion_pair]
   exact τ.isOpen_sUnion {s, t} (by simpa using And.intro hs ht)
 
-/-- A set is closed when its complement is open. -/
+/-- 集合的补集为开集时，称该集合为闭集。 -/
 def IsClosed (τ : TextbookTopology X) (s : Set X) : Prop :=
   τ.IsOpen sᶜ
 
-/-- A set is a neighborhood of `x` when it contains an open set containing `x`. -/
+/-- 若集合包含某个含 `x` 的开集，则称它为 `x` 的邻域。 -/
 def IsNeighborhood (τ : TextbookTopology X) (x : X) (s : Set X) : Prop :=
   ∃ u, τ.IsOpen u ∧ x ∈ u ∧ u ⊆ s
 
-/-- A map is continuous when the preimage of every open set is open. -/
+/-- 若每个开集的原像仍开，则称映射连续。 -/
 def Continuous (τX : TextbookTopology X) (τY : TextbookTopology Y) (f : X → Y) : Prop :=
   ∀ v, τY.IsOpen v → τX.IsOpen (f ⁻¹' v)
 
-/-- The identity map is continuous. -/
+/-- 恒等映射连续。 -/
 theorem continuous_id (τ : TextbookTopology X) : Continuous τ τ id := by
   intro v hv
   simpa using hv
 
-/-- Every constant map is continuous. -/
+/-- 每个常值映射都连续。 -/
 theorem continuous_const (τX : TextbookTopology X) (τY : TextbookTopology Y) (y : Y) :
     Continuous τX τY (fun _ : X ↦ y) := by
   intro v hv
@@ -145,7 +142,7 @@ theorem continuous_const (τX : TextbookTopology X) (τY : TextbookTopology Y) (
     rw [hpre]
     exact τX.isOpen_empty
 
-/-- A composite of continuous maps is continuous. -/
+/-- 连续映射的复合仍连续。 -/
 theorem Continuous.comp {τX : TextbookTopology X} {τY : TextbookTopology Y}
     {τZ : TextbookTopology Z} {f : X → Y} {g : Y → Z}
     (hg : Continuous τY τZ g) (hf : Continuous τX τY f) :
@@ -154,7 +151,7 @@ theorem Continuous.comp {τX : TextbookTopology X} {τY : TextbookTopology Y}
   change τX.IsOpen (f ⁻¹' (g ⁻¹' w))
   exact hf _ (hg _ hw)
 
-/-- Legacy explicit homeomorphism carrier. New declarations use Mathlib's `Homeomorph`. -/
+/-- 旧的显式同胚载体；新声明应使用 Mathlib 的 `Homeomorph`。 -/
 structure Homeomorphism (τX : TextbookTopology X) (τY : TextbookTopology Y) where
   toEquiv : X ≃ Y
   continuous_toFun : Continuous τX τY toEquiv

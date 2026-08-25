@@ -12501,14 +12501,18 @@
     "id": "topology.foundation.structure",
     "kind": "definition",
     "state": "verified",
-    "title": "拓扑、连续映射与同胚的库内定义层",
-    "summary": "以开集公理定义本库拓扑，并由此定义闭集、邻域、连续映射和同胚，再建立到 Mathlib 的显式桥",
+    "title": "拓扑、连续映射与同胚的正式承载",
+    "summary": "直接复用 Mathlib 的拓扑空间、开闭集、邻域、连续映射与同胚，并逐项给出教材刻画；旧显式结构仅作迁移兼容",
     "premises": [
       "settheory.set.ext"
     ],
     "mathlib": [
-      "TextbookTopology.toMathlib",
-      "TextbookTopology.continuous_iff_mathlib"
+      "TopologicalSpace",
+      "IsOpen",
+      "IsClosed",
+      "Continuous",
+      "nhds",
+      "Homeomorph"
     ],
     "provenance": {
       "source_type": "book",
@@ -12521,9 +12525,40 @@
     "dependedOnBy": [
       "topology.foundation.constructions"
     ],
-    "proof_sha": "28eb2f0345f6094d",
+    "proof_sha": "54ad1e0107910b46",
     "axioms": [
       "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.foundation.mathlib-compatibility",
+    "kind": "definition",
+    "state": "verified",
+    "title": "旧教材拓扑与 Mathlib 拓扑的兼容等价",
+    "summary": "证明冻结的 TextbookTopology 与 Mathlib TopologicalSpace 具有相同的开闭集、邻域和同胚数据，为下游逐波迁移提供双向桥",
+    "premises": [
+      "topology.foundation.structure"
+    ],
+    "mathlib": [
+      "TopologicalSpace",
+      "IsOpen",
+      "IsClosed",
+      "nhds",
+      "Homeomorph"
+    ],
+    "provenance": {
+      "source_type": "migration",
+      "ref": "Topology Mathlib reuse migration RFC"
+    },
+    "lean_file": "Topology/MathlibCompatibility.lean",
+    "nl_file": "docs/entries/topology/foundation/mathlib-compatibility.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "528cd320bd579656",
+    "axioms": [
       "Quot.sound",
       "propext"
     ]

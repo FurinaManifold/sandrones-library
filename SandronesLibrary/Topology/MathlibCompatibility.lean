@@ -6,14 +6,13 @@ Authors: Sandrone's Library contributors
 import SandronesLibrary.Topology.MathlibBridge
 
 /-!
-# Compatibility between the legacy textbook topology and Mathlib
+# 旧教材拓扑与 Mathlib 拓扑的兼容层
 
-The legacy `TextbookTopology` carrier is structurally equivalent to Mathlib's `TopologicalSpace`.
-This module supplies a temporary two-way compatibility layer for migration. New topology
-development should use Mathlib's carrier directly and must not pass through `fromMathlib` merely
-to continue the legacy parallel hierarchy.
+旧 `TextbookTopology` 载体与 Mathlib 的 `TopologicalSpace` 在结构上等价。本模块提供迁移期间
+使用的临时双向兼容层。新的拓扑学开发应直接使用 Mathlib 载体，不得仅为延续旧平行层级而先经过
+`fromMathlib`。
 
-Current entry:
+当前条目：
 
 * `topology.foundation.mathlib-compatibility`.
 -/
@@ -23,8 +22,8 @@ namespace SandronesLibrary.Topology.TextbookTopology
 variable {X : Type*}
 
 set_option warn.classDefReducibility false in
-/-- Regard a Mathlib topology as the frozen legacy textbook carrier with exactly the same open
-sets. This is a migration bridge, not a new definition of topological space.
+/-- 把一个 Mathlib 拓扑看作具有完全相同开集的冻结旧教材载体。这是迁移桥，而不是拓扑空间的
+新定义。
 
 > **Entry**: topology.foundation.mathlib-compatibility -/
 def fromMathlib (τ : TopologicalSpace X) : TextbookTopology X where
@@ -33,28 +32,27 @@ def fromMathlib (τ : TopologicalSpace X) : TextbookTopology X where
   isOpen_inter := fun s t ↦ @_root_.IsOpen.inter X τ s t
   isOpen_sUnion := @_root_.isOpen_sUnion X τ
 
-/-- The reverse bridge preserves the open-set predicate definitionally. -/
+/-- 反向桥在定义层面保持开集谓词不变。 -/
 @[simp]
 theorem isOpen_fromMathlib (τ : TopologicalSpace X) (s : Set X) :
     (fromMathlib τ).IsOpen s ↔ @_root_.IsOpen X τ s :=
   Iff.rfl
 
-/-- Converting a Mathlib topology into the legacy carrier and back changes no topology. -/
+/-- Mathlib 拓扑转到旧载体再转回后，拓扑不变。 -/
 @[simp]
 theorem toMathlib_fromMathlib (τ : TopologicalSpace X) :
     (fromMathlib τ).toMathlib = τ := by
   apply TopologicalSpace.ext
   rfl
 
-/-- Converting a legacy topology to Mathlib and back changes no legacy topology. -/
+/-- 旧拓扑转到 Mathlib 再转回后，旧拓扑不变。 -/
 @[simp]
 theorem fromMathlib_toMathlib (τ : TextbookTopology X) :
     fromMathlib τ.toMathlib = τ := by
   cases τ
   rfl
 
-/-- The bridge also preserves closed sets: on both sides, closed means that the complement is
-open. -/
+/-- 该桥也保持闭集：两侧的“闭”都表示补集是开集。 -/
 @[simp]
 theorem isClosed_toMathlib (τ : TextbookTopology X) (s : Set X) :
     @_root_.IsClosed X τ.toMathlib s ↔ τ.IsClosed s := by
@@ -64,17 +62,15 @@ theorem isClosed_toMathlib (τ : TextbookTopology X) (s : Set X) :
   · intro h
     exact @IsClosed.mk X τ.toMathlib s h
 
-/-- The legacy neighborhood predicate is membership in Mathlib's neighborhood filter after
-installing the same topology. -/
+/-- 安装同一个拓扑后，旧邻域谓词等价于属于 Mathlib 的邻域滤子。 -/
 theorem isNeighborhood_iff_mem_nhds (τ : TextbookTopology X) (x : X) (s : Set X) :
     τ.IsNeighborhood x s ↔ s ∈ @nhds X τ.toMathlib x := by
   rw [@SandronesLibrary.Topology.mem_nhds_iff_exists_open X τ.toMathlib x s]
   rfl
 
-/-- The frozen legacy topology carrier and Mathlib's topology carrier are equivalent structures.
+/-- 冻结的旧拓扑载体与 Mathlib 拓扑载体结构等价。
 
-This equivalence exists only to migrate old declarations. It is not an invitation to transport
-new Mathlib-facing theorems back into the legacy hierarchy. -/
+这个等价只用于迁移旧声明，不能据此把面向 Mathlib 的新定理搬回旧层级。 -/
 def equivMathlib : TextbookTopology X ≃ TopologicalSpace X where
   toFun := toMathlib
   invFun := fromMathlib
@@ -85,7 +81,7 @@ namespace Homeomorphism
 
 variable {Y : Type*}
 
-/-- Two legacy homeomorphisms with the same underlying equivalence are equal. -/
+/-- 底层集合等价相同的两个旧同胚相等。 -/
 theorem ext {τX : TextbookTopology X} {τY : TextbookTopology Y}
     {e e' : Homeomorphism τX τY} (h : e.toEquiv = e'.toEquiv) : e = e' := by
   cases e
@@ -93,7 +89,7 @@ theorem ext {τX : TextbookTopology X} {τY : TextbookTopology Y}
   cases h
   rfl
 
-/-- Convert a legacy homeomorphism to Mathlib's official `Homeomorph` carrier. -/
+/-- 把旧同胚转换为 Mathlib 的正式 `Homeomorph` 承载。 -/
 def toMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     (e : Homeomorphism τX τY) :
     @Homeomorph X Y τX.toMathlib τY.toMathlib :=
@@ -101,7 +97,7 @@ def toMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     ((continuous_iff_mathlib τX τY _).mp e.continuous_toFun)
     ((continuous_iff_mathlib τY τX _).mp e.continuous_invFun)
 
-/-- Convert a Mathlib homeomorphism between bridged topologies to the legacy carrier. -/
+/-- 把桥接拓扑之间的 Mathlib 同胚转换到旧载体。 -/
 def fromMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     (e : @Homeomorph X Y τX.toMathlib τY.toMathlib) :
     Homeomorphism τX τY := by
@@ -112,14 +108,14 @@ def fromMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     continuous_toFun := (continuous_iff_mathlib τX τY _).mpr e.continuous
     continuous_invFun := (continuous_iff_mathlib τY τX _).mpr e.symm.continuous }
 
-/-- Converting a legacy homeomorphism to Mathlib and back changes no data. -/
+/-- 旧同胚转到 Mathlib 再转回后，数据不变。 -/
 @[simp]
 theorem fromMathlib_toMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     (e : Homeomorphism τX τY) : fromMathlib (toMathlib e) = e := by
   apply ext
   rfl
 
-/-- Converting a Mathlib homeomorphism to the legacy carrier and back changes no data. -/
+/-- Mathlib 同胚转到旧载体再转回后，数据不变。 -/
 @[simp]
 theorem toMathlib_fromMathlib {τX : TextbookTopology X} {τY : TextbookTopology Y}
     (e : @Homeomorph X Y τX.toMathlib τY.toMathlib) :

@@ -73,6 +73,7 @@ import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 import SandronesLibrary.AbstractAlgebra.PolynomialDivision
 import SandronesLibrary.Topology.Foundation
+import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
 import SandronesLibrary.Topology.RealLine
 import SandronesLibrary.Topology.Path

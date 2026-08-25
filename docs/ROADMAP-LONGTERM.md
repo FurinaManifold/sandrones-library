@@ -428,8 +428,9 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 
 | 条目 | 内容 | 状态 |
 |---|---|---|
-| `topology.foundation.structure` | 本库开集公理、闭集、邻域、连续与同胚；Mathlib 仅为显式桥 | ✅ |
-| `topology.foundation.constructions` | 诱导、子空间与积拓扑，包含映射及投影连续 | ✅ |
+| `topology.foundation.structure` | Mathlib `TopologicalSpace`、开闭集、邻域、连续与同胚的教材刻画；旧载体冻结兼容 | ✅ A1 第一波已集成 |
+| `topology.foundation.mathlib-compatibility` | 旧载体与 Mathlib 拓扑、邻域和同胚的双向迁移桥，不计为第二套课程定义 | 🚧 迁移桥 |
+| `topology.foundation.constructions` | 既有旧载体上的诱导、子空间与积拓扑；待 A1 第二波迁移到正式 Mathlib 承载 | 🚧 待迁移 |
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -443,10 +444,10 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
 | 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
 
-**当前调度（2026-08-25）**：复分析负责人已停止 C2/C3 的新增研发并转任 T4 拓扑学负责人。
-优先顺序是本库道路与相对端点同伦定义、一手运算、同伦等价、基本群，再建立连续相对端点同伦到
-复路径积分所需分段光滑／C² 代表的正则化桥。该桥进入 main 并验收前，复分析不得继续用未在本库
-定义的同伦概念堆叠上层定理；已有复分析基础保留，不撤回，也不将 foundation 条目提前转正。
+**当前调度（2026-08-25）**：A1 第一波已把拓扑空间、开闭集、邻域、连续与同胚原地迁移为
+explained Mathlib reuse。拓扑负责人同步本次 Main 后可启动 A1 第二波，仅迁移 `Constructions`
+中的子空间、积与道路连通连续依赖链；不得借兼容桥让新课程绕回 `TextbookTopology`。A2/A3 的
+同伦与基本群迁移继续锁定，直到 A1 基础下游完成迁移并复验。
 
 ---
 
