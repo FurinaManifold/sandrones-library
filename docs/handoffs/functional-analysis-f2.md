@@ -1,9 +1,21 @@
 # F2 Banach 三大定理 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`b82e9d4`（`git rebase main`）
+- Main 基线：`bdc17a6`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 五项学科开发与联合验收完成，等待 Main 审核
+- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach 延拓窗口完成验证
+
+## Hahn–Banach 延拓窗
+
+- 代数支配形式直接采用 `exists_extension_of_le_sublinear`；公开输入展开正齐次、次可加和支配
+  三组量词，不建立本地 `Sublinear` 包装结构。
+- 赋范形式直接采用 `exists_extension_norm_eq` 与 `StrongDual`，覆盖等范数延拓及不增范数推论。
+- 部分线性映射 `LinearPMap` 只在证明后端用于把 `S →ₗ[ℝ] ℝ` 组成 Mathlib 所需承载，不泄漏为
+  课程公开概念。
+- `lake build SandronesLibrary.FunctionalAnalysis.HahnBanach`：8715 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖部分映射后端、两项 Mathlib 主定理与三个公开声明；Entry 精确映射为三个声明。
+- 三个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
 
 ## 有界逆窗
 
