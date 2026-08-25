@@ -57,6 +57,10 @@ theorem TextbookTopology.toMathlib_unitInterval :
   unitInterval.toMathlib = instTopologicalSpaceSubtype
 def TextbookTopology.Path.toMathlib
 def TextbookTopology.Path.fromMathlib
+theorem TextbookTopology.Path.toMathlib_symm :
+  toMathlib γ.symm = (toMathlib γ).symm
+theorem TextbookTopology.Path.toMathlib_trans :
+  toMathlib (γ.trans δ) = (toMathlib γ).trans (toMathlib δ)
 ```
 
 # 思维脉络（thinking trace）
@@ -65,7 +69,7 @@ def TextbookTopology.Path.fromMathlib
 
 # 自然语言 ↔ Lean 映射
 
-基础拓扑往返对应 `equivMathlib`；同胚转换对应 `Homeomorphism.toMathlib/fromMathlib`；空间构造对应 `toMathlib_induced/subspace/product`；实线和单位区间对应 `toMathlib_realLine/unitInterval`；道路无损转换对应 `Path.toMathlib/fromMathlib` 及其往返定理。
+基础拓扑往返对应 `equivMathlib`；同胚转换对应 `Homeomorphism.toMathlib/fromMathlib`；空间构造对应 `toMathlib_induced/subspace/product`；实线和单位区间对应 `toMathlib_realLine/unitInterval`；道路无损转换对应 `Path.toMathlib/fromMathlib` 及其往返定理，操作保持对应 `Path.toMathlib_symm/trans`。
 
 # 依赖（人话版）
 

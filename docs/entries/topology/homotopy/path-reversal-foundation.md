@@ -3,11 +3,11 @@ id: topology.homotopy.path-reversal-foundation
 family: topology.homotopy
 variant: reflected-parameter
 kind: theorem
-state: verified
-title: 逆道路及双重反向
-summary: 使用已建立的连续单位区间反射定义逆道路，并证明反向两次恢复原道路
-premises: [topology.foundation.real-line, topology.homotopy.path-definition-foundation]
-mathlib: []
+state: staging
+title: 逆道路及双重反向的正式承载
+summary: 解释 Mathlib Path.symm 的单位区间反射参数化及双重反向严格等式，并保留旧实现作为迁移兼容层
+premises: [topology.homotopy.path-definition-foundation]
+mathlib: [Path.symm, Path.symm_apply, Path.symm_symm, unitInterval.symm]
 provenance:
   source_type: book
   ref: "Hatcher, Algebraic Topology, Section 1.1"
@@ -15,35 +15,38 @@ provenance:
 
 # 动机
 
-逆道路是道路代数和基本群逆元的来源。实直线与单位区间模块已经完成参数反射及其连续性；本条只负责用这个前置接口构造道路层的逆向操作。
+逆道路是道路代数和基本群逆元的来源。Mathlib 已用标准单位区间反射实现 `Path.symm`；本条展开其参数含义，并区分严格道路等式与以后才使用的道路同伦。
 
 # 直觉
 
-单位区间反射把零和一交换，而且反射两次恢复原参数。用它重新参数化道路，会交换道路的起点与终点；再次逆向则逐点回到原道路。
+`unitInterval.symm` 把参数 `t` 送到 `1-t`，交换零和一，且作用两次恢复原参数。与道路复合后会交换起点、终点；再次逆向逐点回到原道路。
 
 # 陈述（自然语言）
 
-设本库单位区间反射已经连续。对从 `a` 到 `b` 的道路 `γ`，定义逆道路 `γ⁻¹(t)=γ(1-t)`；它从 `b` 到 `a`。任意道路反向两次严格等于原道路。
+对 Mathlib 道路 `γ : Path a b`，`γ.symm : Path b a` 满足 `γ.symm t = γ (unitInterval.symm t)`；任意道路反向两次严格等于原道路。旧逆道路转换到 Mathlib 后等于正式逆道路。
 
 # 陈述（Lean 对照）
 
 ```lean
-def Path.symm (γ : Path τX a b) : Path τX b a
-theorem Path.symm_symm (γ : Path τX a b) : γ.symm.symm = γ
+theorem path_symm_apply (γ : Path x y) (t : unitInterval) :
+  γ.symm t = γ (unitInterval.symm t)
+theorem path_symm_symm (γ : Path x y) : γ.symm.symm = γ
+theorem TextbookTopology.Path.toMathlib_symm :
+  toMathlib γ.symm = (toMathlib γ).symm
 ```
 
 # 思维脉络（thinking trace）
 
-把道路函数与已经验收的 `UnitInterval.reflect` 复合。连续性由本库 `Continuous.comp` 和前置的 `continuous_unitInterval_reflect` 得到；源点化简到原道路终点，目标点化简到原道路源点。双重反向通过道路外延，把目标化为区间反射两次的逐点等式。
+`path_symm_apply` 直接公开 Mathlib `Path.symm_apply` 的参数函数；`path_symm_symm` 使用 Mathlib 已证明的道路外延结果。兼容桥比较两侧参数函数，旧 `UnitInterval.reflect` 与标准 `unitInterval.symm` 定义相同，因此转换与反向交换。
 
 # 自然语言 ↔ Lean 映射
 
-“已有的参数反射”对应 premise 中的 `UnitInterval.reflect` 与 `continuous_unitInterval_reflect`；“逆道路”对应本文件的 `Path.symm`；“逆道路取值”对应 `symm_apply`；“反向两次”对应 `Path.symm_symm`。
+“参数反射”对应 `unitInterval.symm`；“逆道路”对应根 `Path.symm`；“逆道路取值”对应 `path_symm_apply`；“反向两次”对应 `path_symm_symm`；“旧操作语义保留”对应 `TextbookTopology.Path.toMathlib_symm`。
 
 # 依赖（人话版）
 
-本条依赖 `topology.foundation.real-line` 已提供的连续单位区间反射，以及道路定义和本库连续复合。实数反射及区间反射的构造继续归属于 `RealLine.lean`，不计入本 Entry；本条没有调用 Mathlib `Path.symm`。
+正式接口只依赖 Mathlib `Path` 与单位区间反射。旧 `UnitInterval.reflect`、连续性证明和旧 `Path.symm` 留在文件后半部作为冻结兼容实现，不是新课程依赖。
 
 # 应用与陷阱
 
-本条不能脱离前置的区间反射连续性单独成立。双重反向是严格道路相等，但拼接结合律通常只能在重新参数化或同伦意义下成立；本条尚未完成道路拼接，因此继续保留 foundation id。
+双重反向是严格道路相等，因为参数反射严格自反。不能由此类推道路拼接的单位律或结合律也是严格等式；后二者通常需要重新参数化同伦，仍属于冻结的 A2 范围。

@@ -168,6 +168,26 @@ theorem toMathlib_fromMathlib {τX : TextbookTopology X} {a b : X}
   change (γ : UnitInterval → X) = γ
   rfl
 
+/-- 旧道路转到 Mathlib 的转换与道路反向交换。 -/
+theorem toMathlib_symm {τX : TextbookTopology X} {a b : X} (γ : Path τX a b) :
+    toMathlib γ.symm =
+      @_root_.Path.symm X τX.toMathlib a b (toMathlib γ) := by
+  let _ := τX.toMathlib
+  apply _root_.Path.ext
+  funext t
+  rfl
+
+/-- 旧道路转到 Mathlib 的转换与道路拼接交换。 -/
+theorem toMathlib_trans {τX : TextbookTopology X} {a b c : X}
+    (γ : Path τX a b) (δ : Path τX b c) :
+    toMathlib (γ.trans δ) =
+      @_root_.Path.trans X τX.toMathlib a b c (toMathlib γ) (toMathlib δ) := by
+  let _ := τX.toMathlib
+  apply _root_.Path.ext
+  funext t
+  rw [_root_.Path.trans_apply]
+  rfl
+
 end Path
 
 namespace Homeomorphism

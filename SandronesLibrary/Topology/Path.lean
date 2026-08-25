@@ -40,6 +40,37 @@ theorem nonempty_path_iff_exists_continuous [TopologicalSpace X] (x y : X) :
   · rintro ⟨f, hf, h0, h1⟩
     exact ⟨{ toFun := f, continuous_toFun := hf, source' := h0, target' := h1 }⟩
 
+/-- Mathlib 的逆道路用单位区间反射重新参数化，因此在参数 `t` 处取原道路在 `1-t` 处的值。
+
+> **Entry**: topology.homotopy.path-reversal-foundation -/
+theorem path_symm_apply [TopologicalSpace X] {x y : X}
+    (γ : _root_.Path x y) (t : unitInterval) :
+    γ.symm t = γ (unitInterval.symm t) := by
+  exact _root_.Path.symm_apply γ t
+
+/-- 道路反向两次严格恢复原道路；这是参数函数的严格等式，不需要道路同伦。 -/
+theorem path_symm_symm [TopologicalSpace X] {x y : X} (γ : _root_.Path x y) :
+    γ.symm.symm = γ :=
+  γ.symm_symm
+
+/-- 在参数区间左半段，Mathlib 道路拼接以双倍速度沿第一条道路前进。
+
+> **Entry**: topology.homotopy.path-concatenation-foundation -/
+theorem path_trans_apply_of_le [TopologicalSpace X] {x y z : X}
+    (γ : _root_.Path x y) (δ : _root_.Path y z) (t : unitInterval)
+    (h : (t : ℝ) ≤ 1 / 2) :
+    γ.trans δ t = γ ⟨2 * t, by constructor <;> linarith [t.2.1, t.2.2]⟩ := by
+  rw [_root_.Path.trans_apply]
+  simp only [dif_pos h]
+
+/-- 在参数区间右半段，Mathlib 道路拼接以双倍速度沿第二条道路前进。 -/
+theorem path_trans_apply_of_not_le [TopologicalSpace X] {x y z : X}
+    (γ : _root_.Path x y) (δ : _root_.Path y z) (t : unitInterval)
+    (h : ¬(t : ℝ) ≤ 1 / 2) :
+    γ.trans δ t = δ ⟨2 * t - 1, by constructor <;> linarith [t.2.1, t.2.2]⟩ := by
+  rw [_root_.Path.trans_apply]
+  simp only [dif_neg h]
+
 end SandronesLibrary.Topology
 
 namespace SandronesLibrary.Topology.TextbookTopology
