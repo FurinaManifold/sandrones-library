@@ -201,6 +201,7 @@ import SandronesLibrary.FunctionalAnalysis.ConvexSeparation
 import SandronesLibrary.FunctionalAnalysis.AnnihilatorClosure
 import SandronesLibrary.FunctionalAnalysis.BidualReflexive
 import SandronesLibrary.FunctionalAnalysis.SeparableDual
+import SandronesLibrary.FunctionalAnalysis.ReflexiveExamples
 import SandronesLibrary.FunctionalAnalysis.WeakTopology
 import SandronesLibrary.FunctionalAnalysis.WeakStarTopology
 import SandronesLibrary.FunctionalAnalysis.DualOperator

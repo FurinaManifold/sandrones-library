@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **438** 个条目（verified 438，pending 0）。
+共 **439** 个条目（verified 439，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -302,6 +302,7 @@
 ## `functional-analysis.bidual`
 
 - ✅ [`reflexive.md`](reflexive.md) — 典范双对偶嵌入与自反性
+- ✅ [`reflexive-examples.md`](reflexive-examples.md) — 有限维空间与实 Hilbert 空间的自反性
 
 ## `functional-analysis.convex`
 

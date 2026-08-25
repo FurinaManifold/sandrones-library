@@ -596,6 +596,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、连续零化子与双零化子刻画 ✅ | `StrongDual.polarSubmodule`、dual pairing |
 | 10 | `functional-analysis.bidual.reflexive` | 连续双对偶典范等距嵌入、自反性的满射刻画与弱紧性边界 ✅ | `NormedSpace.inclusionInDoubleDual`、`inclusionInDoubleDualLi` |
 | 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 ✅ | separability/reflexivity API |
+| 12 | `functional-analysis.bidual.reflexive-examples` | 有限维实赋范空间与完备实内积空间的自反性 ✅ | finite dimension、Riesz equivalence |
 
 ### F3 Hilbert 空间 ✅（F1、L5 均已完成）
 

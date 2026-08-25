@@ -13894,6 +13894,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.bidual.reflexive-examples",
       "functional-analysis.dual-operator.definition",
       "functional-analysis.separable.dual",
       "functional-analysis.weak-star.definition"
@@ -14139,6 +14140,38 @@
     "family": "topology.homotopy",
     "variant": "continuous-map-relative-set",
     "proof_sha": "fb2330a5c8c3ba7b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.bidual.reflexive-examples",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限维空间与实 Hilbert 空间的自反性",
+    "summary": "以维数比较证明有限维实赋范空间自反，并由 Riesz 表示证明完备实内积空间自反",
+    "premises": [
+      "functional-analysis.bidual.reflexive"
+    ],
+    "mathlib": [
+      "LinearMap.toContinuousLinearMap",
+      "Subspace.dual_finrank_eq",
+      "InnerProductSpace.toDual"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/ReflexiveExamples.lean",
+    "nl_file": "docs/entries/functional-analysis/bidual/reflexive-examples.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.bidual",
+    "variant": "salamon-examples",
+    "proof_sha": "53a876e63ed8e84b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

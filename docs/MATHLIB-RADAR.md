@@ -24,6 +24,10 @@
 - **出处**：Mathlib 的赋范空间双对偶接口。
 - **谁在用**：`functional-analysis.bidual.reflexive` 的范数保持和唯一表示链。
 
+### `LinearMap.toContinuousLinearMap` / `Subspace.dual_finrank_eq` / `InnerProductSpace.toDual`
+- **人话**：有限维时识别代数对偶与连续对偶并比较维数；在完备内积空间中用 Riesz 表示把连续对偶识别回原空间。
+- **谁在用**：`functional-analysis.bidual.reflexive-examples`，分别证明有限维实赋范空间和实 Hilbert 空间自反。
+
 ## 显式域扩张与最小多项式
 
 ### `RingHom` / `Polynomial.eval₂`
