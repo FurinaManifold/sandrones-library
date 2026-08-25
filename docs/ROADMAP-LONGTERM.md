@@ -370,8 +370,8 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
-| 1 | `abstract-algebra.poly.def` | 系数、次数、求值、根、整除及多项式环整环性 | 🟡（求值、根与整环性已有） |
-| 2 | `abstract-algebra.poly.division` | 首一多项式带余除法、Euclidean 算法、gcd 与 Bézout | 🟡（带余除法接口已有） |
+| 1 | `abstract-algebra.poly.def` | `Polynomial` 正式承载的有限支撑系数语义、次数、求值、根与旧表示双向桥 | ✅ |
+| 2 | `abstract-algebra.poly.division` | 首一多项式带余除法、Euclidean 算法、gcd 与 Bézout | ✅ |
 | 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | 🟡（一次多项式已有） |
 | 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | 🟡（根数上界已有） |
 | 5 | `abstract-algebra.field.extension` | 扩域、子域、单扩张、代数元与超越元、最小多项式 | 🔲 |

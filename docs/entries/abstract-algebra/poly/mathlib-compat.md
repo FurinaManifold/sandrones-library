@@ -4,8 +4,8 @@ family: abstract-algebra.poly
 variant: compatibility
 kind: theorem
 state: verified
-title: Mathlib 多项式正式承载的历史课程接口
-summary: 以正式 Polynomial 承载提供外延、根、单位、整环与根数结论
+title: Mathlib 多项式正式承载的基础课程接口
+summary: 以正式 Polynomial 承载提供外延、根、单位、整环与根数结论，并保留旧入口兼容关系
 premises: [abstract-algebra.poly.def]
 mathlib: [Polynomial.ext, Polynomial.dvd_iff_isRoot, Polynomial.isUnit_iff]
 provenance:

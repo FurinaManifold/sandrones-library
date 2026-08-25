@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **411** 个条目（verified 411，pending 0）。
+共 **413** 个条目（verified 413，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -26,8 +26,10 @@
 
 ## `abstract-algebra.poly`
 
-- ✅ [`def.md`](def.md) — 多项式环与整除性
+- ✅ [`def.md`](def.md) — 多项式的有限支撑系数语义与 Lean 承载
+- ✅ [`division.md`](division.md) — 多项式带余除法与 Euclidean 算法
 - ✅ [`irreducible.md`](irreducible.md) — 不可约与带余除法
+- ✅ [`mathlib-compat.md`](mathlib-compat.md) — Mathlib 多项式正式承载的基础课程接口
 - ✅ [`roots-card.md`](roots-card.md) — 根的个数不超过次数
 
 ## `abstract-algebra.ring`

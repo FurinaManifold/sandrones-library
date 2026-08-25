@@ -3753,20 +3753,19 @@
   {
     "id": "abstract-algebra.poly.def",
     "kind": "theorem",
-    "title": "多项式环与整除性",
-    "summary": "多项式外延性；根的定义；因式定理(X-a整除⟺根)；R整环⟹R[X]整环；单位元=非零常数",
+    "title": "多项式的有限支撑系数语义与 Lean 承载",
+    "summary": "解释 Polynomial 的有限支撑系数语义、系数、支撑、次数、求值和旧兼容表示",
     "family": "abstract-algebra.poly",
-    "variant": "rotman",
+    "variant": "textbook",
     "premises": [
-      "abstract-algebra.ring.def"
+      "abstract-algebra.ring.def",
+      "abstract-algebra.ring.domain",
+      "abstract-algebra.ring.divisibility"
     ],
     "mathlib": [
-      "Polynomial.ext",
-      "Polynomial.dvd_iff_isRoot",
-      "Polynomial.isDomain_iff",
-      "Polynomial.isUnit_iff"
+      "Polynomial"
     ],
-    "lean_file": "AbstractAlgebra/Poly.lean",
+    "lean_file": "AbstractAlgebra/PolynomialDefinition.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/def.md",
     "provenance": {
       "source_type": "book",
@@ -3774,6 +3773,7 @@
     },
     "state": "verified",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -3781,10 +3781,12 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [
+      "abstract-algebra.poly.division",
+      "abstract-algebra.poly.mathlib-compat",
       "abstract-algebra.poly.irreducible",
       "abstract-algebra.poly.roots-card"
     ],
-    "proof_sha": "b94e08b2c824fafd"
+    "proof_sha": "2d26da17e9cc88d4"
   },
   {
     "id": "abstract-algebra.poly.irreducible",
@@ -3819,7 +3821,7 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "b94e08b2c824fafd"
+    "proof_sha": "2a3cd9affcb4efe3"
   },
   {
     "id": "abstract-algebra.poly.roots-card",
@@ -3851,7 +3853,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b94e08b2c824fafd"
+    "proof_sha": "2a3cd9affcb4efe3"
   },
   {
     "id": "topology.space.def",
@@ -13122,5 +13124,73 @@
       "propext"
     ],
     "proof_sha": "96df14a5450747ab"
+  },
+  {
+    "id": "abstract-algebra.poly.mathlib-compat",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Mathlib 多项式正式承载的基础课程接口",
+    "summary": "以正式 Polynomial 承载提供外延、根、单位、整环与根数结论，并保留旧入口兼容关系",
+    "premises": [
+      "abstract-algebra.poly.def"
+    ],
+    "mathlib": [
+      "Polynomial.ext",
+      "Polynomial.dvd_iff_isRoot",
+      "Polynomial.isUnit_iff"
+    ],
+    "provenance": {
+      "source_type": "library",
+      "ref": "Sandrone's Library legacy polynomial API"
+    },
+    "lean_file": "AbstractAlgebra/Poly.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/mathlib-compat.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.poly",
+    "variant": "compatibility",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2a3cd9affcb4efe3"
+  },
+  {
+    "id": "abstract-algebra.poly.division",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "多项式带余除法与 Euclidean 算法",
+    "summary": "在 Polynomial 正式承载上建立首一与域上带余除法，并接入本库 gcd 和 Bézout 算法",
+    "premises": [
+      "abstract-algebra.poly.def",
+      "abstract-algebra.ring.euclidean"
+    ],
+    "mathlib": [
+      "Polynomial.Monic",
+      "Polynomial.divByMonic",
+      "Polynomial.modByMonic",
+      "EuclideanDomain.mod_add_div",
+      "Polynomial.degree_mod_lt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, polynomial division and Euclidean algorithm"
+    },
+    "lean_file": "AbstractAlgebra/PolynomialDivision.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/division.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.poly",
+    "variant": "division",
+    "axioms": [
+      "<解析失败>",
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "5b99f01d814d68e1"
   }
 ]

@@ -27,7 +27,7 @@ open SandronesLibrary.AbstractAlgebra.Ring
 
 set_option linter.style.haveILetI false
 
-/-- **本库多项式定义**：由系数函数 `ℕ → R` 及其非零位置集合有限的证明组成。
+/-- **旧兼容多项式表示**：由系数函数 `ℕ → R` 及其非零位置集合有限的证明组成。
 > **Entry**: abstract-algebra.poly.def
 -/
 structure PolynomialSequence (R : Type*) [Zero R] where
@@ -76,7 +76,7 @@ private noncomputable def coefficientFinsupp {R : Type*} [Zero R]
     simpa using hn)
 
 /-- **到 Mathlib 的具名桥**：把本库有限支撑系数序列转换为 Mathlib `Polynomial`。
-这是明确的兼容边界，不改变本库多项式作为公开教材概念的地位。
+这是旧表示迁移到正式 `Polynomial` 承载的兼容边界，不是新的课程多项式定义。
 > **Entry**: abstract-algebra.poly.def
 -/
 noncomputable def toMathlibPolynomial {R : Type*} [Semiring R]
@@ -340,7 +340,7 @@ theorem evaluate_eq_coefficientSupport_sum {R : Type*} [CommRing R]
   rw [Polynomial.eval_eq_sum, Polynomial.sum_def, coefficientSupport_eq_mathlib_support]
   simp only [coefficient_toMathlibPolynomial]
 
-/-- 求值与具名 Mathlib 桥后的 `eval` 一致；该定理明确隔离证明后端。
+/-- 旧兼容求值经具名桥后与正式承载的 `Polynomial.eval` 一致。
 > **Entry**: abstract-algebra.poly.def
 -/
 theorem evaluate_eq_mathlib_eval {R : Type*} [CommRing R]
@@ -440,7 +440,7 @@ theorem degree_zero {R : Type*} [CommRing R] :
     degree (0 : PolynomialSequence R) = ⊥ := by
   rw [degree, transportedDegree, toMathlib_zero, Polynomial.degree_zero]
 
-/-- 次数与具名 Mathlib 桥后的次数一致；这是后端桥，教材刻画由后续系数定理给出。
+/-- 旧兼容次数经具名桥后与正式承载的 `Polynomial.degree` 一致。
 > **Entry**: abstract-algebra.poly.def
 -/
 theorem degree_eq_mathlib_degree {R : Type*} [CommRing R]

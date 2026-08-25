@@ -3027,6 +3027,15 @@
 - **人话**：商范数等于到子空间的距离，闭子空间的 Banach 商保持完备。
 - **谁在用**：`functional-analysis.subspace.quotient`。
 
+### `Polynomial` / `Polynomial.Monic` / `divByMonic` / `modByMonic`
+- **人话**：以有限支撑系数多项式为正式承载，并提供首一除法的商、余数、次数界和唯一性。
+- **谁在用**：`abstract-algebra.poly.def` 与 `abstract-algebra.poly.division`；旧
+  `PolynomialSequence` 只作为双向兼容表示保留。
+
+### `EuclideanDomain.mod_add_div` / `Polynomial.degree_mod_lt`
+- **人话**：域上多项式满足带余除法恒等式，且非零除式下余数次数严格下降。
+- **谁在用**：把正式 `Polynomial K` 组装进本库 A2 Euclidean 算法，得到 gcd 与 Bézout。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。
