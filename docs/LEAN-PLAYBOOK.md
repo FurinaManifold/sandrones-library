@@ -97,6 +97,8 @@
 > - 学科负责人移交时必须提供 `docs/handoffs/<subject>-<batch>.md`，至少列出：源码与条目文件、
 >   顶层 import、Registry id、ROADMAP 状态、RADAR API、Playbook 教训、已运行的验证命令，以及
 >   明确未完成或仍在进行的边界。若共有文件由 main 维护，handoff 只写变更清单，不直接修改。
+>   这是一份可审核初稿，不是要求学科负责人承担最终出版编辑。缺字段、六列表重排、四类归档、
+>   八段格式、review 收口和共有文件同步由 main 在集成时完成；不得仅因此退回数学成果。
 > - main 接收前必须检查 `git status --short`、`git worktree list`、分支尖端和提交差异。其他
 >   worktree 中未跟踪或未提交文件一律视为正在进行的工作，不纳入、不删除、不移动，也不替该
 >   Agent 擅自提交。
@@ -144,6 +146,12 @@
 > 本库定义无人使用；桥没有方向或语义边界；同一 Entry 横跨多个 Lean 文件；核心定义未进入公理
 > 审计；通过全局实例让 Mathlib 结构被自动选择而 handoff 未披露。以上任一项存在，学科负责人
 > 不得把批次标为 ready，Main 不得用“后续维护再转正”代替当前返工。
+>
+> 上述拒收针对源码中的数学与接口事实，不针对证据排版。若定义链、公开签名和验证事实可以从
+> 已提交源码确定，而问题只是 handoff 没排成精确六列表、课程初稿未整理为八段、review 未收口、
+> Registry/RADAR/ROADMAP 未同步或 Main 审计器尚未支持，Main 必须接收为 `accepted_main_docs`
+> 并自行修复。只有必须新增或修改 Lean 定义、性质、桥、上层使用者、定理强度或证明时，才退回
+> 学科负责人。
 
 > **9. Main 负责人通知返工流程**
 >
@@ -176,7 +184,7 @@
 > - branch: <学科分支>
 > - reviewed_commit: <被审核提交；含未提交成果时写 commit 加 git status 摘要>
 > - reviewer: main
-> - verdict: needs_changes | blocked | accepted
+> - verdict: needs_changes | blocked | accepted_main_docs | accepted
 > - reviewed_at: YYYY-MM-DD
 >
 > ## 已通过
@@ -191,6 +199,9 @@
 > “证明太薄”“文档不好”。若允许降级，必须明确需要同步修改的 Lean docstring、标题、summary、
 > Registry 建议和 ROADMAP 完成度。若共有文件由 main 管理，通知中必须再次列明学科负责人不得
 > 修改的共有文件。
+> 纯 front matter、八段重排、handoff 字段、概念表／分类表排版、Git 内 review 收口、共有文件或
+> Main-side 工具问题不得列入“必须返工”；应列入 `Main 集成整理`，verdict 使用
+> `accepted_main_docs`，由 Main 在接收提交后完成。
 >
 > main 写完后，通过聊天或协作消息只发送一句短通知：
 >
