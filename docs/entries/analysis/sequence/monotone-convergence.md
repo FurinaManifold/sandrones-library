@@ -6,7 +6,7 @@ kind: theorem
 state: verified
 title: 单调有界收敛定理
 summary: 单调递增且值域有上界的序列收敛到其值域的上确界
-premises: [analysis.real.sup]
+premises: [analysis.real.sup, analysis.sequence.definition]
 mathlib: [tendsto_atTop_ciSup, Real.isLUB_sSup]
 provenance:
   source_type: book
@@ -41,6 +41,7 @@ provenance:
 | 单调递增 | `Monotone u` |
 | 值域有上界 | `BddAbove (Set.range u)` |
 | 收敛到上确界 | `Tendsto u atTop (𝓝 (sSup (Set.range u)))` |
+| 本库教材 ε-N 收敛 | `SequenceConvergesTo u (sSup (Set.range u))` |
 | 上确界即最小上界 | `IsLUB (Set.range u) (sSup (Set.range u))` |
 
 ## 思维脉络
@@ -50,10 +51,14 @@ provenance:
 3. `⨆ i, u i`（索引上确界）与 `sSup (Set.range u)`（值域上确界）是同一个数
    （`IsLUB.ciSup_eq` 桥接），于是定理干脆直接写成收敛到 `sSup`。
 4. 同时把 `IsLUB` 也一并给出——"极限 = 上确界"这个更强结论一起封装。
+5. 公开定理保留 `Tendsto` 结论，以便下游复用滤子运算；通过
+   `sequenceConvergesTo_iff_tendsto` 可立即还原为本库 ε-N 教材定义。这是具名桥后的正式接口，
+   不是把“收敛”概念静默交给 Mathlib。
 
 ## 依赖
 
 - `analysis.real.sup`（确界原理：非空有上界集有上确界）。
+- `analysis.sequence.definition`（`SequenceConvergesTo` 及其 `Tendsto` 双向桥）。
 
 ## 应用与陷阱
 

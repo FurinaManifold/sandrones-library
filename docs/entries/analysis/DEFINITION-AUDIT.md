@@ -30,8 +30,8 @@
 
 ## A2 实数完备性与级数
 
-- [ ] 单调有界原理、闭区间套和 Cauchy 完备性应在文档中明确引用 A1 的教材定义与桥；其公开
-  命题继续返回 `Tendsto` 或接收 `CauchySeq` 是可接受的。
+- [x] 单调有界原理、闭区间套和 Cauchy 完备性文档已明确引用 `SequenceConvergesTo`、
+  `SequenceIsCauchy` 及具名桥；公开命题继续返回 `Tendsto` 或接收 `CauchySeq`，不复制证明接口。
 - [x] 自然顺序部分和、级数和与收敛：`SeriesHasSum`、`SeriesConvergent` 明确教材顺序；
   `HasSum` 总能推出前者，绝对可和时二者等价，不虚构无条件反向桥。
 - [x] 绝对收敛：`SeriesAbsolutelyConvergent` 定义为绝对值级数按自然顺序收敛，并桥接

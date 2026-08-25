@@ -6,7 +6,7 @@ kind: theorem
 state: verified
 title: 闭区间套定理
 summary: 嵌套闭区间 [aₙ,bₙ]（aₙ 增、bₙ 减、aₙ≤bₙ）之交非空；长度趋于 0 时交为单点
-premises: ["analysis.sequence.monotone-convergence", "analysis.real.sup"]
+premises: ["analysis.sequence.monotone-convergence", "analysis.sequence.definition", "analysis.real.sup"]
 mathlib: ["Real.isLUB_sSup", "IsLUB"]
 provenance:
   source_type: generated
@@ -28,10 +28,15 @@ aₙ 与 bₙ 像两个相向而行的巡游队伍：aₙ 只进不退、bₙ �
 ## 陈述（Lean 对照）
 
 `∃ x : ℝ, ∀ n, x ∈ Set.Icc (a n) (b n)`；`hshr` 版本进一步得 `∃! x`（交为单点）。
+单点版本的 `hshr : Tendsto (fun n ↦ b n - a n) atTop (𝓝 0)` 正是本库教材陈述
+`SequenceConvergesTo (fun n ↦ b n - a n) 0` 经
+`sequenceConvergesTo_iff_tendsto` 展开的接口形式。
 
 ## 依赖（人话版）
 
 **前提**：`analysis.sequence.monotone-convergence`（思想同源）、`analysis.real.sup`。
+长度趋零的含义挂靠 `analysis.sequence.definition` 的 ε-N 定义；源码继续接收 `Tendsto`，因为
+唯一性证明直接使用其邻域消去接口。
 **mathlib**：`Real.isLUB_sSup`（确界存在即最小上界）、`IsLUB`。
 
 ## 应用与陷阱

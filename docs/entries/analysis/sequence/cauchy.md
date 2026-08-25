@@ -49,6 +49,10 @@ theorem cauchy_seq_convergent {u : ℕ → ℝ} (h : CauchySeq u) :
     ∃ l : ℝ, Tendsto u atTop (𝓝 l)
 ```
 
+后两条历史公开接口中的 `CauchySeq` 与 `Tendsto` 分别位于具名桥
+`sequenceIsCauchy_iff_cauchySeq`、`sequenceConvergesTo_iff_tendsto` 的 Mathlib 一侧；因此教材版本
+可读作 `SequenceIsCauchy u → SequenceConvergent u`，而无需复制完备空间证明或全面替换旧签名。
+
 # 思维脉络（thinking trace）
 
 1. `Metric.cauchySeq_iff` 将 `CauchySeq u` 展开成尾部任意两项距离小于 ε。
@@ -82,3 +86,5 @@ theorem cauchy_seq_convergent {u : ℕ → ℝ} (h : CauchySeq u) :
 - 陷阱：`N` 同时控制两个下标；不能让 `N` 在选定 `m` 或 `n` 后再次变化。
 - 陷阱：Cauchy 蕴含收敛依赖空间完备性，在 `ℚ` 中不成立。
 - 接口边界：本库谓词负责展示教材定义；现有定理继续使用 `CauchySeq`，这不是未清理的债务。
+- 挂靠边界：应用 `sequenceIsCauchy_iff_cauchySeq` 后调用完备性后端，再用
+  `sequenceConvergesTo_iff_tendsto` 返回教材收敛语义；Mathlib 谓词只处在桥和历史接口中。
