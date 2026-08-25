@@ -57,6 +57,12 @@
 边界，不能等全库完成后集中补题。每次 Main 集成新增重要知识点后都产生一次 Examples 覆盖巡检；
 详细规则和跨学科清单见 `ROADMAP-examples.md`。
 
+**职责硬边界**：本文件各理论学科路线只分配一般定义、结构、定理和供例子调用的计算接口；不得把
+具体数值题、标准对象实例、低维／低阶计算或反例作为该理论学科负责人的后续开发窗口。此类任务
+一律登记到 `ROADMAP-examples.md`，由 Examples 负责人领取。理论负责人只需保证公开接口足够使用，
+并在 handoff 提交 Examples 需求清单；不得自行在理论目录扩建新的 example 批次。历史上已经进入
+main 的理论命名例子 Entry 暂不破坏性迁移，但其补例、扩展和维护改由 Examples 负责人承担。
+
 ### 1.1 多学科并行生产路线（main 调度基线）
 
 本节是后续开工的权威调度表。章节清单回答“最终要学什么”，本节回答“下一轮谁先做什么、
@@ -237,7 +243,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | AN3-5 | `analysis.parameter-integral.continuity` | 正常积分的参数连续性与一致连续控制 | AN3-2、AN3-4 |
 | AN3-6 | `analysis.parameter-integral.differentiation` | 积分号下求导及支配／一致控制条件 | AN3-3、AN3-5 |
 | AN3-7 | `analysis.parameter-integral.improper` | 广义含参积分的一致收敛、连续性及求导 | AN3-4--AN3-6 |
-| AN3-8 | `analysis.parameter-integral.examples` | Gamma/Beta 型积分和参数技巧的理论接口 | AN3-6、AN3-7；数值题放 Examples |
+| AN3-8 | `analysis.parameter-integral.special-functions` | Gamma/Beta 型积分所需的参数恒等式与一般理论接口 | AN3-6、AN3-7；具体计算归 Examples |
 | AN3-9 | `analysis.convolution.intro` | 卷积的定义、基本运算及与含参积分的关系 | AN3-5--AN3-7 |
 | AN3-10 | `analysis.fourier-series.orthogonal-system` | 正交函数系、Fourier 系数／级数与 Bessel 不等式 | AN3-1；积分内积 |
 | AN3-11 | `analysis.fourier-series.trigonometric` | 三角 Fourier 系数、部分和与 Dirichlet 核 | AN3-10；三角恒等式 |
@@ -464,7 +470,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | A3.8 第二批刻画 | 已集成 | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | Main 全库验收完成 |
 | A3.9a Galois 定义层 | 已集成 | Galois 扩张、显式自同构群、固定域及展开性质 | Main 全库验收完成 |
 | A3.9b 基本定理 | `development_open` | 中间域—子群对应、正规／可分条件、限制映射与阶数关系的独立证明批次 | 复用 A3.9a 冻结定义；不得用 Mathlib 最终对应替代教材链 |
-| A3.9c 典型有限扩张计算 | `research_open` | 二次扩张、有限域与低次多项式的自同构群／固定域例子 | 等待 A3.9b 所需接口调查，不阻塞独立例子设计 |
+| A3.9c Galois 对应推论 | `research_open` | 次数—指数公式、正规中间扩张—正规子群、限制同态的核像与商群同构 | 等待 A3.9b；二次扩张、有限域和低次多项式计算归 Examples E6.12 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
@@ -679,12 +685,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 4 | `complex-analysis.residue.definition` | 残数与 Laurent 系数 | `residue` |
 | 5 | `complex-analysis.residue.theorem` | 残数定理 | winding/cycle integral |
 | 6 | `complex-analysis.argument-principle` | 辐角原理与 Rouché | logarithmic derivative |
-| 7 | `complex-analysis.residue.real-integrals` | 实积分计算例题 | contour estimates |
-| 8 | `complex-analysis.series.laurent-foundation` | Laurent 解析定义与单项例子 ✅ | 双向整数指标 `HasSum` |
+| 7 | `complex-analysis.residue.contour-estimates` | 供残数应用调用的一般轮廓估计接口；具体实积分归 Examples E9.5 | contour estimates |
+| 8 | `complex-analysis.series.laurent-foundation` | Laurent 解析定义与单项级数接口 ✅ | 双向整数指标 `HasSum` |
 | 9 | `complex-analysis.singularity.classification-foundation` | 孤立奇点教材谓词与亚纯阶桥 ✅ | `MeromorphicAt` |
 | 10 | `complex-analysis.residue.circle-foundation` | 指定圆周的正规化积分 ✅ | circle integral |
 | 11 | `complex-analysis.residue.simple-pole` | 简单极点圆周公式 ✅ | Cauchy 公式 |
-| 12 | `complex-analysis.residue.real-integral-example` | 一个广义实积分课程接口 ✅ | Mathlib 广义积分后端 |
+| 12 | `complex-analysis.residue.real-integral-example` | 历史已验证广义实积分接口 ✅；后续扩例与维护归 Examples E9.5 | Mathlib 广义积分后端 |
 | 13 | `complex-analysis.argument-principle.linear-special-case` | 线性辐角/Rouché 特例 ✅ | logarithmic derivative |
 
 ## 8. Phase 7 — 泛函分析（F1-F8，Bühler–Salamon 主线）
@@ -721,7 +727,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、连续零化子与双零化子刻画 ✅ | `StrongDual.polarSubmodule`、dual pairing |
 | 10 | `functional-analysis.bidual.reflexive` | 连续双对偶典范等距嵌入、自反性的满射刻画与弱紧性边界 ✅ | `NormedSpace.inclusionInDoubleDual`、`inclusionInDoubleDualLi` |
 | 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 ✅ | separability/reflexivity API |
-| 12 | `functional-analysis.bidual.reflexive-examples` | 有限维实赋范空间与完备实内积空间的自反性 ✅ | finite dimension、Riesz equivalence |
+| 12 | `functional-analysis.bidual.reflexive-examples` | 两类一般自反性定理：有限维实赋范空间与完备实内积空间 ✅；历史 id 保留，具体实例归 Examples E11.6 | finite dimension、Riesz equivalence |
 
 ### F3 Hilbert 空间 ✅（F1、L5 均已完成）
 
@@ -1184,7 +1190,7 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | RT3 | `representation-theory.character.definition` | 特征标、类函数与内积 | RT1/L5 |
 | RT3 | `representation-theory.character.orthogonality` | 行、列正交关系 | RT3.definition |
 | RT3 | `representation-theory.character.decomposition` | 特征标分解与不可约判据 | RT3.orthogonality |
-| RT3 | `representation-theory.character.table` | 特征标表及有限群例子 | RT3.decomposition |
+| RT3 | `representation-theory.character.table` | 特征标表的构造、行列索引与正交约束接口；具体有限群表归 Examples | RT3.decomposition |
 | RT3 | `representation-theory.induction-restriction` | 诱导、限制与 Frobenius 互反 | RT1/CA3.tensor |
 | RT4 | `representation-theory.symmetric-group.partitions` | 分拆、Young 图与 tableaux | A1 |
 | RT4 | `representation-theory.symmetric-group.specht` | Specht 模构造 | RT4.partitions |
@@ -1530,7 +1536,7 @@ Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
 | # | 条目 id | 内容 | 前置 |
 |---|---|---|---|
 | 1 | `advanced-functional-analysis.metrizable.countable-seminorms` | 可数半范数族与平移不变度量 | AFA1 |
-| 2 | `advanced-functional-analysis.frechet.definition` | Fréchet 空间、完备可度量局部凸性及标准例子 | AFA2.1 |
+| 2 | `advanced-functional-analysis.frechet.definition` | Fréchet 空间、完备可度量局部凸性的定义与基本性质；标准空间实例归 Examples E11.11 | AFA2.1 |
 | 3 | `advanced-functional-analysis.locally-convex.completion` | Hausdorff 化、完备化及稠密嵌入泛性质 | AFA1/AFA2.1 |
 | 4 | `advanced-functional-analysis.frechet.open-mapping` | Fréchet 空间开映射定理 | AFA2.2/F2 |
 | 5 | `advanced-functional-analysis.frechet.closed-graph` | Fréchet 空间闭图定理 | AFA2.4 |
@@ -1795,7 +1801,7 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 | 交换代数 | Quillen, 1976（`quillen-projective-modules-1976`） | CA1–CA6、HA1–HA5；有限表示投射模、局部化与拼接 | Quillen 局部—整体拼接引理，继而证明多项式环上的有限生成投射模自由 | `future_paper`；须说明与 Suslin 独立证明的范围，不把 Serre 问题名称当证明 |
 | 同调代数 | Grothendieck, 1957（`grothendieck-tohoku-1957`） | HA1–HA5、CA1–CA3；Abel 范畴、分解、导出函子 | AB 公理、足够内射对象条件、导出函子长正合列与 Grothendieck 谱序列入口 | `future_paper`；一篇论文拆多批，不能用一个“有足够内射”包装覆盖全文 |
 | 代数拓扑 | Serre, 1951（`serre-fiber-spaces-1951`） | AT1–AT4、HA2–HA6；纤维化、过滤复形与谱序列 | Serre 谱序列构造、边缘同态和首批纤维束同调计算 | `future_paper`；先固定同调系数与收敛型，不笼统声称全部应用 |
-| 表示论 | Deligne–Lusztig, 1976（`deligne-lusztig-finite-groups-1976`） | RT1–RT6、AG3–AG6；有限 Lie 型群、étale 上同调 | Deligne–Lusztig 簇的群作用、虚特征标定义和最小秩例子 | `future_paper`；几何构造与上同调迹公式未完成前不得发布表示分类 |
+| 表示论 | Deligne–Lusztig, 1976（`deligne-lusztig-finite-groups-1976`） | RT1–RT6、AG3–AG6；有限 Lie 型群、étale 上同调 | Deligne–Lusztig 簇的群作用、虚特征标定义和低秩计算接口；具体最小秩对象归 Examples | `future_paper`；几何构造与上同调迹公式未完成前不得发布表示分类 |
 | 微分流形 | Whitney, 1936（`whitney-differentiable-manifolds-1936`） | DM1–DM5、T2、AN-MV | Whitney 嵌入定理的局部图、一般位置和有限子覆盖证明链 | `future_paper`；与主干表共享同一来源，只登记一个 BibTeX 条目 |
 | 微分拓扑 | Smale, 1961（`smale-generalized-poincare-1961`） | DT1–DT5、AT1–AT5；手术、handle 与 h-cobordism | handle 消去、h-cobordism 主步骤及高维广义 Poincaré 推论 | `future_paper`；维数与单连通前提必须逐条保留，不涉及四维情形 |
 | 黎曼几何 | Cheeger, 1970（`cheeger-finiteness-1970`） | RG1–RG7、DT1–DT3；曲率、测地坐标与紧性 | 曲率／直径／体积界下的坐标控制、有限微分同胚型结论 | `future_paper`；先冻结论文使用的归一化与注入半径桥 |

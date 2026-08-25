@@ -99,6 +99,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E6.9 扩张次数 | `examples.abstract-algebra.extension-degree` | 二次扩张的显式二元基、坐标唯一性、恒等扩张次数一与简单塔次数乘法 | 次数依赖指定嵌入；无限扩张不能编码成次数零；塔式公式必须核对两层基 | A3.6 |
 | E6.10 分裂域 | `examples.abstract-algebra.splitting-fields` | 二次多项式在实数／复数上的根集、一次因子分解及最小分裂扩域 | 零多项式虽满足 Mathlib 分裂约定却没有本条意义的分裂域；唯一性只到基域上同构 | A3.7 |
 | E6.11 可分与正规扩张 | `examples.abstract-algebra.separable-normal` | 有限域扩张可分、二次不可约多项式的导数判据及分裂域正规性 | 不完美域上不可约多项式可有零导数；有限扩张不自动可分 | A3.8 |
+| E6.12 有限 Galois 对应计算 | `examples.abstract-algebra.galois-correspondence` | 二次扩张、有限域与低次多项式分裂域的自同构群、固定域和中间域—子群对应 | 只列出若干自同构不等于证明群已穷尽；固定域计算必须验证逐点固定与恢复两向 | A3.9b |
 
 ## E7 拓扑学
 
@@ -140,6 +141,10 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E9.4 级数与奇点 | `examples.complex-analysis.laurent-singularities` | 几何级数在内外环域的 Laurent 展开、三类孤立奇点 | 同一函数在不同环域展开不同 | C3 |
 | E9.5 残数 | `examples.complex-analysis.residues` | 简单极点、高阶极点和一个实积分 | 漏计轮廓内极点或方向符号的反例辨析 | C3 |
 | E9.6 辐角原理 | `examples.complex-analysis.argument-principle` | 低次多项式零点计数和 Rouché 比较 | 边界上有零点时不能直接套用 | C3 |
+
+复分析负责人只开发 Laurent、残数、轮廓估计等一般理论接口；本节所有具体圆周计算、实积分和
+低次多项式零点计数均由 Examples 负责人领取。历史理论目录中的已验证实积分 Entry 作为可复用
+资产保留，新增题目不得继续写入 `ComplexAnalysis/**`。
 
 ## E10 初等数论
 
@@ -189,7 +194,14 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E12.8 黏性解与守恒律 | `examples.pde.viscosity-entropy` | Eikonal/Hopf–Lax、Burgers 熵解和 Riemann 问题 | 黏性解与分布解是不同框架；Rankine–Hugoniot 不足以选熵解 | PDE9-PDE10 |
 | E12.9 非线性波 | `examples.pde.nonlinear-wave` | 半线性波能量、局部迭代和爆破型 ODE 比较 | 局部解不自动整体；守恒能量不自动排除所有爆破 | PDE10 |
 
-## E13 后续学科自动扩展
+## E13 表示论与高阶代数
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E13.1 特征标表 | `examples.representation-theory.character-tables` | 循环群、有限阿贝尔群和最小非阿贝尔群的共轭类、不可约特征标与完整表 | 一组类函数满足部分正交关系不等于已经穷尽不可约特征标 | RT3 |
+| E13.2 Deligne–Lusztig 低秩对象 | `examples.representation-theory.deligne-lusztig-low-rank` | 在理论接口完成后实例化最小秩有限 Lie 型群、相应簇作用和虚特征标计算 | 低秩计算不能冒充一般表示分类或上同调迹公式 | landmark RT gate |
+
+## E14 后续学科自动扩展
 
 概率、统计、泛函分析、微分几何、ODE/PDE、代数拓扑等学科首次进入 main 时，Main 按相同模板在
 本文件新增一个项目组。最低要求仍是“标准对象 + 计算／构造 + 必要反例”，不得只把理论文档中的
