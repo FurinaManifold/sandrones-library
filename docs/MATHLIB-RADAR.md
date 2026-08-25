@@ -3003,6 +3003,18 @@
 - **人话**：计算自然数幂按底数整除和取余时的商、余数。
 - **谁在用**：`settheory.googology.hereditary-natural-power-rank` 的 `q^(k+1)` 商余递推。
 
+### `Convex.exists_forall_hasDerivWithinAt` / `HasDerivWithinAt.comp_hasDerivAt`
+- **人话**：在闭凸三角形内构造相对原函数，并沿参数化线段使用链式法则得到端点公式。
+- **谁在用**：`complex-analysis.cauchy.triangle` 的一般局部三角形 Cauchy--Goursat 定理。
+
+### `ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt` / `ContDiffOn`
+- **人话**：对具有二阶光滑证书的正方形同伦应用边界积分公式，从而比较两条端点固定道路的积分。
+- **谁在用**：`complex-analysis.cauchy.smooth-homotopy-foundation`；不代表普通连续同伦已正则化。
+
+### `HasFDerivWithinAt.curveIntegral_segment_source` / `curveIntegrable_segment`
+- **人话**：短线段积分随终点变化的导数等于被积函数，并保证连续函数沿线段可积。
+- **谁在用**：由路径积分无关构造原函数，以及开连通域的 admissible 道路可达性。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

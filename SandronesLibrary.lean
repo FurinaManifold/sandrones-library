@@ -173,6 +173,10 @@ import SandronesLibrary.ComplexAnalysis.Laurent
 import SandronesLibrary.ComplexAnalysis.Singularity
 import SandronesLibrary.ComplexAnalysis.Residue
 import SandronesLibrary.ComplexAnalysis.ArgumentPrinciple
+import SandronesLibrary.ComplexAnalysis.Goursat
+import SandronesLibrary.ComplexAnalysis.HomotopyInvariance
+import SandronesLibrary.ComplexAnalysis.PrimitiveFromPathIntegral
+import SandronesLibrary.ComplexAnalysis.AdmissiblePathConnectivity
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

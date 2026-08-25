@@ -8968,7 +8968,7 @@
       "number-theory.elementary.continued-fraction-recursion",
       "number-theory.elementary.legendre-criterion"
     ],
-    "proof_sha": "33e3375a15dd29a0",
+    "proof_sha": "1bca91e8659d643c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -8997,7 +8997,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "33e3375a15dd29a0",
+    "proof_sha": "1bca91e8659d643c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9021,7 +9021,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "33e3375a15dd29a0",
+    "proof_sha": "1bca91e8659d643c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9047,7 +9047,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "33e3375a15dd29a0",
+    "proof_sha": "1bca91e8659d643c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9075,7 +9075,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "33e3375a15dd29a0",
+    "proof_sha": "1bca91e8659d643c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9103,7 +9103,7 @@
       "number-theory.elementary.pell-fundamental-solution",
       "number-theory.elementary.pell-positive-existence"
     ],
-    "proof_sha": "c90e8701e3c3943c",
+    "proof_sha": "347d37ec3100ffac",
     "axioms": [
       "propext"
     ]
@@ -9127,7 +9127,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "c90e8701e3c3943c",
+    "proof_sha": "347d37ec3100ffac",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -9157,7 +9157,7 @@
     "dependedOnBy": [
       "number-theory.elementary.pell-fundamental-solution"
     ],
-    "proof_sha": "c90e8701e3c3943c",
+    "proof_sha": "347d37ec3100ffac",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9190,7 +9190,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "c90e8701e3c3943c",
+    "proof_sha": "347d37ec3100ffac",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -11494,6 +11494,151 @@
       "propext"
     ],
     "proof_sha": "c8571998c6063d3a"
+  },
+  {
+    "id": "complex-analysis.cauchy.triangle",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "三角形上的 Cauchy--Goursat 定理",
+    "summary": "若函数在包含闭三角形的开集上全纯，则沿三条有向边的路径积分之和为零",
+    "premises": [
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.integral.path"
+    ],
+    "mathlib": [
+      "Convex.exists_forall_hasDerivWithinAt",
+      "intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le",
+      "convex_convexHull",
+      "lineMap_mem_segment"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, Cauchy theorem for a triangle"
+    },
+    "lean_file": "ComplexAnalysis/Goursat.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/triangle.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.cauchy.smooth-homotopy-foundation"
+    ],
+    "family": "complex-analysis.cauchy",
+    "variant": "local-triangle",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "f9e79bf91833ecd0"
+  },
+  {
+    "id": "complex-analysis.cauchy.smooth-homotopy-foundation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "C² 道路同伦下的全纯路径积分不变性",
+    "summary": "若两条同端点道路由像留在全纯域内的 C² 相对端点同伦连接，则全纯函数沿它们的路径积分相等",
+    "premises": [
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.integral.path",
+      "complex-analysis.cauchy.triangle"
+    ],
+    "mathlib": [
+      "ContinuousMap.Homotopy.curveIntegral_add_curveIntegral_eq_of_hasFDerivWithinAt",
+      "Path.Homotopy",
+      "ContDiffOn",
+      "ContinuousLinearMap.smulRightL"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, homotopy form of Cauchy's theorem; C2-regular foundation"
+    },
+    "lean_file": "ComplexAnalysis/HomotopyInvariance.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/smooth-homotopy-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.cauchy.primitive-from-path-independence-foundation"
+    ],
+    "family": "complex-analysis.cauchy",
+    "variant": "c2-relative-endpoint",
+    "axioms": [
+      "<解析失败>",
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d0ee63b9e14a1a90"
+  },
+  {
+    "id": "complex-analysis.cauchy.primitive-from-path-independence-foundation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "由路径积分无关性构造原函数",
+    "summary": "若开全纯域内从基点可由分段 C1 可积道路到达且同端点道路积分相等，则从基点到变量终点的积分定义一个原函数",
+    "premises": [
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.integral.path",
+      "complex-analysis.cauchy.smooth-homotopy-foundation"
+    ],
+    "mathlib": [
+      "HasFDerivWithinAt.curveIntegral_segment_source",
+      "Path.trans_range",
+      "curveIntegrable_segment",
+      "Metric.isOpen_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Ahlfors, Complex Analysis, construction of a primitive by path integration"
+    },
+    "lean_file": "ComplexAnalysis/PrimitiveFromPathIntegral.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/primitive-from-path-independence-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.cauchy.admissible-path-connectivity-foundation"
+    ],
+    "family": "complex-analysis.cauchy",
+    "variant": "endpoint-independent-integrals",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "935bfe067633bcc0"
+  },
+  {
+    "id": "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "开连通域中的可积道路可达性",
+    "summary": "连续复函数在开连通域内从固定基点到每一点都有像留在域内且可积的道路，因此单连通原函数构造只剩端点积分无关性",
+    "premises": [
+      "complex-analysis.integral.path",
+      "complex-analysis.cauchy.primitive-from-path-independence-foundation"
+    ],
+    "mathlib": [
+      "IsPreconnected.subset_left_of_subset_union",
+      "Metric.isOpen_iff",
+      "Path.trans_range",
+      "curveIntegrable_segment"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Open connected subsets of a normed vector space are polygonally connected; clopen reachable-set proof"
+    },
+    "lean_file": "ComplexAnalysis/AdmissiblePathConnectivity.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/admissible-path-connectivity-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.cauchy",
+    "variant": "open-connected-reachability",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "970d5d5cdb4550f3"
   },
   {
     "id": "complex-analysis.cauchy.triangle-ball",

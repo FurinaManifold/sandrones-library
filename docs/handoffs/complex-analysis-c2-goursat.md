@@ -5,7 +5,7 @@
 - 分支：`codex/complex-analysis`。
 - 基线：Main 已在 `c715c9b` 接收 C1、C2 foundations/Cauchy 公式和 C3 foundations。
 - 本批新增源码：`SandronesLibrary/ComplexAnalysis/Goursat.lean`。
-- 本批新增文档：`docs/entries/complex-analysis/cauchy/goursat-triangle.md`。
+- 本批新增文档：`docs/entries/complex-analysis/cauchy/triangle.md`。
 - 本批完成 `complex-analysis.cauchy.triangle`，落实 Main 意见箱的第一优先级；它为下一批
   单连通域原函数与一般同伦不变提供局部三角形接口，但尚未独自打开完整 C2 依赖门。
 

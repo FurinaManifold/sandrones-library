@@ -507,13 +507,16 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 |---|---|---|---|
 | 1 | `complex-analysis.integral.path` | 分段光滑路径与复路径积分 ✅ | `PathIntegral` |
 | 2 | `complex-analysis.integral.reparametrization` | 底层换元、反向、拼接 ✅；一般 `Path.reparam` 待补 | path integral invariance |
-| 3 | `complex-analysis.cauchy.triangle` | 三角形 Cauchy 定理 | Cauchy triangle API |
+| 3 | `complex-analysis.cauchy.triangle` | 任意开集内的局部三角形 Cauchy--Goursat 定理 ✅ | 凸三角形上的相对原函数接口 |
 | 4 | `complex-analysis.cauchy.homotopy` | 同伦不变与单连通域版本 | winding/homotopy |
 | 5 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 ✅ | circle integral API |
 | 6 | `complex-analysis.cauchy.derivatives` | 高阶导数公式与 Cauchy 估计 ✅ | iterated derivative |
 | 7 | `complex-analysis.liouville` | Liouville 与 FTA 的分析证明 ✅ | Cauchy estimate |
 | 8 | `complex-analysis.cauchy.triangle-ball` | 圆盘内三角形边界积分为零 ✅（foundation） | 原函数桥 |
 | 9 | `complex-analysis.cauchy.path-independence-primitive` | 已有原函数时路径无关 ✅（foundation） | 原函数端点公式 |
+| 10 | `complex-analysis.cauchy.smooth-homotopy-foundation` | 给定 C² 相对端点同伦时路径积分不变 ✅（foundation） | `ContinuousMap.Homotopy`、`ContDiffOn` |
+| 11 | `complex-analysis.cauchy.primitive-from-path-independence-foundation` | 由 admissible 道路积分无关构造原函数 ✅（foundation） | `HasDerivAt`、短线段积分 |
+| 12 | `complex-analysis.cauchy.admissible-path-connectivity-foundation` | 开连通域内从基点到各点存在有限分段正则道路 ✅（foundation） | `IsPreconnected`、`Path.trans` |
 
 ### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 

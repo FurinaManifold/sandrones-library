@@ -92,3 +92,18 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
 - `resolved admissible reachability`：新增 `AdmissiblePathConnectivity.lean`，以可达集合的相对开闭
   论证证明任意开连通域内从基点到每点存在 admissible 道路；并把标准 `IsSimplyConnected` 原函数
   路线压缩为唯一剩余假设 `PathIntegralIndependentOn`。该推论仍保留此显式前提，不冒充最终定理。
+
+## Round 5: Mathlib 复用口径更正与最终接收
+
+- reviewed_commit: `3c6f82eece0db5da6885337a3bd2711e172361eb`
+- reviewer: `main`
+- verdict: `accepted_main_docs`
+- reviewed_at: 2026-08-25
+
+此前要求为“原函数”另造本库谓词的意见撤回：课程文档已经把原函数解释为 `g` 在 `U` 上逐点满足
+`HasDerivAt g (f z) z`，该 Mathlib 接口与教材语义一致，可以作为正式公开承载。`inductive`
+声明映射覆盖属于 Main-side 审计器问题，也不再退回负责人。
+
+Main 定向构建四个新模块通过，并在集成工作树完成 406 条 Registry 审计、仓库 audit 与
+8890-job 全库构建。一般连续同伦正则化、无条件单连通域积分无关和原函数存在仍未完成；三个相关
+结果继续以 foundation 条目接收，不扩大完整 C2 的完成度。
