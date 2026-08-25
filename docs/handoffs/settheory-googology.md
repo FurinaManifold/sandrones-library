@@ -13,6 +13,8 @@
 - 具体配对编码与认证 Hydra 轨迹终止提交：`ba895df`
 - 遗传自然数编码、认证步骤良基与时间型 Busy Beaver 提交：`ea5b440`
 - 遗传编码次序修正、认证多步下降与统一停机界提交：`7084a73`
+- 固定状态数机器编码提交：`118ddef`
+- 认证 Hydra 策略终止提交：`1f98af1`
 
 本文件供集成 Codex 使用。当前批次包含：
 
@@ -49,6 +51,8 @@
 - `SandronesLibrary/SetTheory/HereditaryNatEncodingOrder.lean`
 - `SandronesLibrary/SetTheory/HydraCertifiedTransitiveDescent.lean`
 - `SandronesLibrary/SetTheory/BusyBeaverTimeHaltingBound.lean`
+- `SandronesLibrary/SetTheory/BinaryMachineCoding.lean`
+- `SandronesLibrary/SetTheory/HydraCertifiedStrategyTermination.lean`
 - `docs/entries/settheory/googology/*.md`
 - `docs/entries/settheory/computability/*.md`
 
@@ -88,6 +92,8 @@ import SandronesLibrary.SetTheory.BusyBeaverTime
 import SandronesLibrary.SetTheory.HereditaryNatEncodingOrder
 import SandronesLibrary.SetTheory.HydraCertifiedTransitiveDescent
 import SandronesLibrary.SetTheory.BusyBeaverTimeHaltingBound
+import SandronesLibrary.SetTheory.BinaryMachineCoding
+import SandronesLibrary.SetTheory.HydraCertifiedStrategyTermination
 ```
 
 ## Registry
@@ -148,6 +154,8 @@ import SandronesLibrary.SetTheory.BusyBeaverTimeHaltingBound
 52. `settheory.googology.hereditary-natural-encoding-strict-order`（`theorem`）
 53. `settheory.googology.hydra-certified-transitive-descent`（`theorem`）
 54. `settheory.googology.busy-beaver-time-halting-bound`（`theorem`）
+55. `settheory.computability.binary-machine-coding`（`definition`）
+56. `settheory.googology.hydra-certified-strategy-termination`（`theorem`）
 
 ## 定义边界
 
@@ -245,6 +253,13 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 固定状态数机器的统一停机界，并给出“已知显式正确界时”的有限布尔检查；经典界仍不可计算且数值
 未知，因此没有得到一般可执行停机算法。
 
+第十一小批按 Main 指导拆成两个可独立审核的接口。`MachineCode n` 以固定状态数机器有限类型的
+`Fintype.equivFin` 建立编码、解码、双向恢复、唯一代码与自然数边界检查；该等价明确是
+`noncomputable` 的有限索引桥，不是 `NatProgram` 实现，也没有统一不同状态数或构造通用解释器。
+`CertifiedStrategySpec` 则要求每个状态满足终止谓词或存在一个 `CertifiedStep` 后继，良基归纳由此
+组装任意起点到某个终态的有限精确轨迹；它是 Prop 层存在性规格，不给可执行选择器、统一步数界，
+也不覆盖普通 `Hydra.Step`。
+
 ## RADAR
 
 - `Nat.rec`
@@ -253,6 +268,9 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `Fin`
 - `Finset`
 - `Finset.sup`
+- `Fintype.equivFin`
+- `Fintype.card`
+- `WellFounded.induction`
 
 ## 子 Agent 所有权与负责人审核
 
@@ -345,6 +363,12 @@ Hydra 步骤，砍去独头后复制 `stage+1` 个空父节点；有限份较低
 - `st3_busy_beaver`（第九批）：`BusyBeaverTimeHaltingBound.lean` 与一篇文档。负责人核对
   `haltsByFuel` 只在显式给定正确统一界时形成有限判定；代入 `noncomputable` 经典最大时间只是
   命题等价，文档没有把未知常量包装成算法。
+- `st3_busy_beaver`（第十批）：`BinaryMachineCoding.lean` 与一篇文档，独立提交 `118ddef`。
+  负责人按 Main 指导逐层核对强度：公开的是固定 `n` 的有限代码／解码接口；实现后端为
+  `noncomputable Fintype.equivFin`；本批没有 `NatProgram` 编译器或 `UniversalNatInterpreter` 实例。
+- `st3_hydra`（第十批）：`HydraCertifiedStrategyTermination.lean` 与一篇文档，独立提交
+  `1f98af1`。负责人确认策略 `progress` 只产生 `CertifiedStep`，终止结论只给有限轨迹存在，不产生
+  可执行 selector、最大步数或普通 Hydra 全覆盖。
 
 各子包文件所有权互不重叠；子 Agent 未修改 handoff、review 或共有文件。负责人亲自审查公开
 签名、标题强度、定义链和诚实边界后再统一组装。
@@ -380,6 +404,9 @@ Hydra 步骤的良基性、时间最大值算法或任何 Busy Beaver 不可计�
 Hydra 的精确有限步、非空传递下降、闭包良基与归纳；时间型经典最大值的统一停机界规格，以及在
 使用者显式给出正确界时的有限布尔判定桥。仍不可依赖一般 Goodstein 借位/终止、普通 Hydra.Step
 多步下降、经典时间界的可计算值、一般停机算法或 Busy Beaver 不可计算性。
+第十一批新增的稳定接口包括：固定状态数二符号机器的有限 `MachineCode`、编码／解码逆律、唯一性
+与自然数边界检查；认证 Hydra 策略规格以及从任意起点有限到达策略终态的存在性。仍不可依赖机器
+编码由本库程序执行、跨状态数统一 Gödel 编号、通用解释器实例、普通 Hydra 策略终止或步数界。
 
 不可依赖：Ackermann 非原始递归、Conway 递归的增长比较、TREE 最大值存在或 `TREE(3)` 大小、
 `ε₀` 全域 Hardy/快速增长层级及支配比较、完整 Goodstein/Hydra 终止与 PA 不可证性，以及经典
@@ -426,6 +453,15 @@ Hydra 认证步骤或机器停机关系。
 `hereditaryNatEncode` 则是原公开定义的语义修正，不另建同义编码器。`Relation.TransGen`、
 `WellFounded.transGen` 和原生序数乘法引理只作闭包或证明后端；停机判断仍直接连接本库
 `BinaryMachine` 与 `runSteps`。
+
+第十一批按 Main 已集成基线 `c715c9b` 后的新窗口独立验收：两个新增模块分别构建通过（770、
+1043 jobs）；集合论 37 模块及依赖闭包联合构建通过，共 1092 jobs；聚合文件检查机器编码双向
+规格、自然数解码边界和认证策略终止 API。两个 Entry 与两篇文档一一对应，精确八段 2/2；禁用
+证明占位与 `TODO`/`FIXME`/`TBD` 零命中，`git diff --check` 通过。未运行全库 `lake build`。
+
+第十一批公开教材定义是 `MachineCode`、`encodeMachine`、`decodeMachine`、`decodeMachineNat`、
+`CertifiedStrategySpec` 与 `ReachesTerminal`。`Fintype.equivFin` 仅为非可计算有限枚举桥；Hydra
+终止证明只复用本库认证步骤良基归纳，没有新增 Mathlib 高层后端。
 
 ## 合并后验收
 
