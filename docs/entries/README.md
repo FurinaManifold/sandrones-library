@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **430** 个条目（verified 430，pending 0）。
+共 **431** 个条目（verified 431，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -297,6 +297,10 @@
 ## `functional-analysis.baire`
 
 - ✅ [`theorem.md`](theorem.md) — Banach 空间上的 Baire 范畴定理
+
+## `functional-analysis.bidual`
+
+- ✅ [`reflexive.md`](reflexive.md) — 典范双对偶嵌入与自反性
 
 ## `functional-analysis.convex`
 

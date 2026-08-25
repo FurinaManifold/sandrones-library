@@ -12,6 +12,18 @@
 **必须**在此登记一条（协议见 INGESTION_PROTOCOL Step 3"登记 RADAR"）。
 找不到出处时用 `grep -rn "<名字>" .lake/packages/mathlib/Mathlib/` 定位模块族。
 
+## 连续双对偶与自反性
+
+### `NormedSpace.inclusionInDoubleDual` / `NormedSpace.dual_def`
+- **人话**：把向量 `x` 送到双对偶中的求值泛函；这个双对偶元作用在 `f` 上就是 `f x`。
+- **出处**：Mathlib 的赋范空间双对偶接口。
+- **谁在用**：`functional-analysis.bidual.reflexive`，并以该映射的满射性作为连续自反性的正式表达。
+
+### `NormedSpace.inclusionInDoubleDualLi`
+- **人话**：把同一张典范映射打包成线性等距嵌入，因此它保持范数并自动单射。
+- **出处**：Mathlib 的赋范空间双对偶接口。
+- **谁在用**：`functional-analysis.bidual.reflexive` 的范数保持和唯一表示链。
+
 ## 显式域扩张与最小多项式
 
 ### `RingHom` / `Polynomial.eval₂`

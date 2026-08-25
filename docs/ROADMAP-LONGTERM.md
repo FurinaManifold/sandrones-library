@@ -576,7 +576,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.hahn-banach.norming-functional` | 给定非零向量的范数化泛函与对偶范数刻画 ✅ | `exists_dual_vector`、dual norm API |
 | 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 ✅ | geometric Hahn–Banach、`Convex` |
 | 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、连续零化子与双零化子刻画 ✅ | `StrongDual.polarSubmodule`、dual pairing |
-| 10 | `functional-analysis.bidual.reflexive` | 典范嵌入到双对偶、自反性与闭单位球边界 | `NormedSpace.inclusionInDoubleDual`、`IsReflexive` |
+| 10 | `functional-analysis.bidual.reflexive` | 连续双对偶典范等距嵌入、自反性的满射刻画与弱紧性边界 ✅ | `NormedSpace.inclusionInDoubleDual`、`inclusionInDoubleDualLi` |
 | 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 | separability/reflexivity API |
 
 ### F3 Hilbert 空间 ✅（F1、L5 均已完成）

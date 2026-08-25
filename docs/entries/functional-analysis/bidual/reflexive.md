@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.bidual.reflexive
 kind: theorem
-state: staging
+state: verified
 title: 典范双对偶嵌入与自反性
 premises: [functional-analysis.hahn-banach.norming-functional, functional-analysis.subspace.annihilator-closure]
 mathlib: [NormedSpace.inclusionInDoubleDual, NormedSpace.inclusionInDoubleDualLi, NormedSpace.dual_def]

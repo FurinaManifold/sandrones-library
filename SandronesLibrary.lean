@@ -196,6 +196,7 @@ import SandronesLibrary.FunctionalAnalysis.HahnBanach
 import SandronesLibrary.FunctionalAnalysis.NormingFunctional
 import SandronesLibrary.FunctionalAnalysis.ConvexSeparation
 import SandronesLibrary.FunctionalAnalysis.AnnihilatorClosure
+import SandronesLibrary.FunctionalAnalysis.BidualReflexive
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator

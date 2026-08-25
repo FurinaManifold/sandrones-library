@@ -13767,6 +13767,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.bidual.reflexive",
       "functional-analysis.convex.separation",
       "functional-analysis.subspace.annihilator-closure"
     ],
@@ -13838,7 +13839,9 @@
     "nl_file": "docs/entries/functional-analysis/subspace/annihilator-closure.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.bidual.reflexive"
+    ],
     "family": "functional-analysis.subspace",
     "variant": "salamon",
     "proof_sha": "20e5cfa3245bef06",
@@ -13875,6 +13878,39 @@
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "3c16488a48435478",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.bidual.reflexive",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "典范双对偶嵌入与自反性",
+    "summary": "展开连续双对偶典范嵌入的求值与等距性质，并以满射性刻画自反性和唯一表示",
+    "premises": [
+      "functional-analysis.hahn-banach.norming-functional",
+      "functional-analysis.subspace.annihilator-closure"
+    ],
+    "mathlib": [
+      "NormedSpace.inclusionInDoubleDual",
+      "NormedSpace.inclusionInDoubleDualLi",
+      "NormedSpace.dual_def"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-f7895b7bf30e4a61"
+    },
+    "lean_file": "FunctionalAnalysis/BidualReflexive.lean",
+    "nl_file": "docs/entries/functional-analysis/bidual/reflexive.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.bidual",
+    "variant": "salamon",
+    "proof_sha": "bbe85f1bbedb826c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
