@@ -8,13 +8,15 @@
 检查项（对应 docs/SCHEMA.md §4）:
     1. id 唯一、合法；kind/state 取值合法
     2. state=verified ⇒ lean 文件存在、非 pending 模板、无 `sorry`（形式化区域）
-    3. premises 必须存在于 registry（依赖不悬空）
-    4. provenance.ref 非空（verified 条目）
+    3. premises 必须存在于 registry，不重复、不自指、不成环
+       ；dependedOnBy 必须等于 premises 的反向图
+    4. provenance.ref 是 reference.bib 中存在的 citation key（verified 条目）
     5. 叙述层文件存在；front matter 的 id/premises 与 registry 一致
     6. lean 文件头部 docstring 含本条目 id
 退出码: 0=全过; 1=有错误; 2=用法错误
 """
 import argparse
+from collections import defaultdict
 import json
 import re
 import sys
@@ -24,12 +26,14 @@ ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "index" / "registry.json"
 ENTRIES = ROOT / "docs" / "entries"
 LEAN_ROOT = ROOT / "SandronesLibrary"
+BIBLIOGRAPHY = ROOT / "reference.bib"
 
 ID_RE = re.compile(r"^[a-z][a-z0-9]*(-[a-z0-9]+)*(\.[a-z][a-z0-9]*(-[a-z0-9]+)*)*$")
 KINDS = {"definition", "lemma", "proposition", "theorem", "example"}
 STATES = {"verified", "pending", "unresolved"}
 
 errors: list[str] = []
+BIB_KEYS: set[str] = set()
 
 
 def err(msg: str) -> None:
@@ -76,8 +80,11 @@ def check(record: dict) -> None:
             formal = text.split("#exit")[0]
             if re.search(r"\bsorry\b", formal):
                 err(f"{eid}: verified 条目的形式化区域出现 sorry")
-        if not record.get("provenance", {}).get("ref"):
-            err(f"{eid}: verified 条目缺 provenance.ref")
+        citation_key = record.get("provenance", {}).get("ref")
+        if not citation_key:
+            err(f"{eid}: verified 条目缺 provenance.ref citation key")
+        elif citation_key not in BIB_KEYS:
+            err(f"{eid}: provenance.ref={citation_key!r} 未在 reference.bib 中声明")
         if not nl_path.exists():
             err(f"{eid}: verified 但缺少叙述层 {eid}.md")
         else:
@@ -90,7 +97,7 @@ def check(record: dict) -> None:
 
 
 def main() -> None:
-    global REGISTRY_DATA
+    global REGISTRY_DATA, BIB_KEYS
     ap = argparse.ArgumentParser()
     ap.add_argument("entry_id", nargs="?")
     args = ap.parse_args()
@@ -100,6 +107,54 @@ def main() -> None:
     REGISTRY_DATA = json.loads(REGISTRY.read_text(encoding="utf-8"))
     if not isinstance(REGISTRY_DATA, list):
         sys.exit("registry.json 应为数组")
+    if not BIBLIOGRAPHY.exists():
+        sys.exit("缺少 reference.bib")
+    bib_text = BIBLIOGRAPHY.read_text(encoding="utf-8")
+    BIB_KEYS = set(re.findall(r"@\w+\s*\{\s*([^,\s]+)\s*,", bib_text))
+
+    # premises 是唯一事实来源；dependedOnBy 必须与其反向图完全一致。
+    reverse: dict[str, set[str]] = defaultdict(set)
+    for record in REGISTRY_DATA:
+        premises = record.get("premises", [])
+        if len(premises) != len(set(premises)):
+            err(f"{record['id']}: premises 含重复依赖")
+        if record["id"] in premises:
+            err(f"{record['id']}: 不得直接依赖自身")
+        for premise in premises:
+            reverse[premise].add(record["id"])
+    for record in REGISTRY_DATA:
+        expected = sorted(reverse[record["id"]])
+        actual = sorted(record.get("dependedOnBy", []))
+        if actual != expected:
+            err(f"{record['id']}: dependedOnBy 与 premises 反向图不一致；"
+                f"应为 {expected}，实为 {actual}")
+
+    # 教材的前置关系必须是有向无环图，否则无法给出可学习的先后顺序。
+    graph = {record["id"]: record.get("premises", []) for record in REGISTRY_DATA}
+    color: dict[str, int] = {}
+    stack: list[str] = []
+    reported_cycles: set[tuple[str, ...]] = set()
+
+    def visit(node: str) -> None:
+        color[node] = 1
+        stack.append(node)
+        for premise in graph[node]:
+            if premise not in graph:
+                continue
+            if color.get(premise, 0) == 0:
+                visit(premise)
+            elif color.get(premise) == 1:
+                start = stack.index(premise)
+                cycle = tuple(stack[start:] + [premise])
+                if cycle not in reported_cycles:
+                    reported_cycles.add(cycle)
+                    err("依赖图存在环: " + " -> ".join(cycle))
+        stack.pop()
+        color[node] = 2
+
+    for entry_id in graph:
+        if color.get(entry_id, 0) == 0:
+            visit(entry_id)
 
     targets = REGISTRY_DATA
     if args.entry_id:

@@ -30,7 +30,7 @@
   ],
   "provenance": {                                // 来源
     "source_type": "book",                       // book | paper | generated
-    "ref": "Rudin, Principles of Mathematical Analysis, Thm 9.22"
+    "ref": "rudin-principles-1976"              // reference.bib 中的 citation key
   },
   "lean_file": "SandronesLibrary/Analysis/FixedPoint.lean",
   "nl_file": "docs/entries/analysis/fixedpoint/banach.md",
@@ -45,6 +45,8 @@
 约定：
 - `premises` 只列库内条目 id；mathlib 的引用放 `mathlib` 字段，不混。
 - `state` 只能取三值之一；`unresolved` 条目不得有 `lean_file`。
+- `provenance.ref` 只存放根目录 `reference.bib` 中的 citation key，不再重复书名、
+  论文名或课程资料描述。书目信息的补全、去重和更正统一在 `reference.bib` 完成。
 - `id` 一经注册不得更改；作废条目用 `state: unresolved` + 说明，而非删除。
 - **多版本**：同一 family 可以有任意多个变体条目。
   - 无变体的条目：`variant` 取 `generated`（库内自创/无教材出处）。
@@ -72,6 +74,12 @@
 - 完整流水线建议：`lake build`（增量）→ `python3 scripts/check_axioms.py --all --fix`
   → `python3 scripts/audit.py`。
 
+### 1.1 排行是派生数据
+
+`index/rankings.json` 和 `docs/entries/RANKINGS.md` 由 `scripts/gen_entry_rankings.py`
+生成，不得手工修改，也不得把 `rank` 或 `score` 回写到 Registry。排行不是数学事实，
+只是当前依赖图和 Lean 使用状态的可重建视图。
+
 ## 2. 叙述层：`docs/entries/<family>/<entry>.md`
 
 YAML front matter + 固定分节。front matter 与 registry.json 字段一一对应
@@ -87,7 +95,7 @@ premises: [analysis.metric.complete, analysis.metric.contraction]
 mathlib: [exists_fixedPoint_of_isContraction]
 provenance:
   source_type: book
-  ref: "Rudin, Principles of Mathematical Analysis, Thm 9.22"
+  ref: rudin-principles-1976
 ---
 
 # 动机
@@ -152,4 +160,5 @@ theorem banach_fixed_point {α : Type*} [MetricSpace α] [CompleteSpace α]
 3. .lean 中实际 `#check` 使用的库内依赖 ⊆ registry 的 `premises`。
 4. `state: verified` ⇒ `lake build` 通过 且 .lean 无 `sorry`。
 5. `state: pending` ⇒ 证明可含 `sorry`，但必须在 `#exit` 后集中登记。
-6. `provenance.ref` 必须能定位到具体章节/编号（格式：`作者, 标题, 节/章`）。
+6. `provenance.ref` 必须是 `reference.bib` 中存在的 citation key；来源的完整书目与
+   章节/编号定位信息在对应 BibTeX 条目中维护。

@@ -12,25 +12,17 @@
 - 形式化层：`SandronesLibrary/`（Lean 源码，机器可校验）
 - 叙述层：`docs/entries/`（每条目的中文解释 + 思维脉络）
 - 元数据：`index/registry.json`（依赖图 / 来源 / 状态 / 公理）
+- 参考文献：`reference.bib`（Registry 的 `provenance.ref` 只存 citation key）
 - 家族前缀：`analysis.*`、`linear-algebra.*`、`abstract-algebra.*`、`topology.*`、
   `real-analysis.*`、`settheory.*`
 
 ## 当前进度（截至交接）
 
-**已验证条目 160 条**，分布：
+**Registry 当前共 422 条**。精确学科进度必须以
+`docs/ROADMAP-LONGTERM.md` 的当前状态为准，不再在本交接文档复制一份容易过期的阶段表。
 
-| 阶段 | 完成情况 |
-|---|---|
-| **数学分析第一学期** | ✅ 完整（M1 序列 → M5 中值定理） |
-| **线性代数第一学期 L1-L4** | ✅ 完整（向量空间/线性映射/行列式/特征值） |
-| **抽象代数第一学期 A1-A3** | ✅ 完整（群/环/多项式环） |
-| **点集拓扑 T1-T3** | ✅ 完整（拓扑空间/紧致/度量） |
-| **数学分析第二学期（测度积分线）** | 🔶 大部分完成（R1 测度/R2 可测函数/R3 收敛定理/R5 微积分基本定理/R5.5 黎曼积分全套） |
-| **R5.5 黎曼积分的 Lebesgue 判据** | ⏳ **待续**（黎曼可积 ⟺ 几乎处处连续） |
-| **R4 乘积/Lᵖ、R6 多元微积分** | 🔲 待做 |
-| **第二学期抽象代数 A3.3-A3.4/A4** | 🔲 待做 |
-
-详见 `docs/ROADMAP-LONGTERM.md` 进度表和 §9。
+依赖图约定：`premises` 是唯一事实来源；`dependedOnBy` 是可重建的反向直接引用缓存。
+禁止手工改 `dependedOnBy`。集成后必须运行 `scripts/update_dependency_graph.py`，再运行审计。
 
 ## 环境与命令
 
@@ -40,6 +32,8 @@ export PATH="$HOME/.elan/bin:$PATH"
 lake build                 # 构建（增量）
 lake env lean <file>.lean  # 单文件编译（快速验证）
 python3 scripts/audit.py   # 一致性审计（条目 vs 文件 vs 叙述层）
+python3 scripts/update_dependency_graph.py  # 由 premises 重建 dependedOnBy
+python3 scripts/gen_entry_rankings.py        # 重建条目排行派生文件
 python3 scripts/check_axioms.py --all --fix   # 公理审计（增量，秒级）
 python3 scripts/check_axioms.py --all --full  # 公理审计（全量，约50秒）
 ```
@@ -68,10 +62,12 @@ python3 scripts/check_axioms.py --all --full  # 公理审计（全量，约50秒
 
 1. 在对应 `.lean` 文件头注释更新"本文件当前条目"清单。
 2. 定义/定理加 docstring，末尾带 `> **Entry**: <家族.子域.名称>`。
-3. 编译通过后注册：`index/registry.json` 加记录（含 proof_sha、axioms）。
+3. 编译通过后注册：`index/registry.json` 加记录（含 proof_sha、axioms）；
+   `provenance.ref` 必须是 `reference.bib` 中的 citation key。
 4. 写叙述层 `docs/entries/<家族>/<子域>/<名称>.md`。
 5. 补 RADAR：`docs/MATHLIB-RADAR.md`（每个用到的 mathlib 名登记"谁在用"）。
-6. `check_axioms.py --all --fix` + `audit.py` 全过。
+6. `update_dependency_graph.py` + `gen_entry_rankings.py` + `check_axioms.py --all --fix`
+   + `audit.py` 全过。
 
 完整流程见 `docs/INGESTION_PROTOCOL.md`，字段规范见 `docs/SCHEMA.md`。
 
@@ -83,22 +79,21 @@ python3 scripts/check_axioms.py --all --full  # 公理审计（全量，约50秒
 | `docs/ROADMAP-LONGTERM.md` | 长远批次规划 + 进度表 + 学期分界 + 瘦身维护（§8.2）+ 论文下沉（§8.3） |
 | `docs/INGESTION_PROTOCOL.md` | 纳入协议（新增条目的五步流程） |
 | `docs/SCHEMA.md` | 条目字段规范 |
+| `reference.bib` | 参考书、论文和资料的唯一维护点 |
 | `docs/MATHLIB-RADAR.md` | mathlib 名登记（人话解释 + 谁在用） |
 | `docs/DESIGN.md` | 架构设计理念 |
 
-## 当前待办（建议顺序）
+## 当前待办的获取方式
 
-1. **`real-analysis.riemann.lebesgue-criterion`**（黎曼可积 ⟺ 几乎处处连续）：已排期。
-   mathlib 有 `oscillation f x : ENNReal`（振荡），但无"振荡=0 ⟺ 连续"现成引理，需自证桥。
-   用带 sorry 框架法。这是黎曼积分批次的收官。
-2. **R4 乘积/Lᵖ**：乘积测度、Fubini/Tonelli、Lᵖ 空间与完备性。
-3. **R6 多元微积分**：重积分/换元/曲线曲面积分/Green-Gauss-Stokes。
-4. **第二学期抽象代数**：A3.3 域扩张/Galois、A4 模。
-5. **瘦身维护**（持续）：按 Playbook §4.1 扫"证明体直接 exact mathlib"的条目，改本库推导。
+本文档不再复制会快速过期的学科待办。接手时按以下顺序取当前事实：
+
+1. 阅读 `docs/ROADMAP-LONGTERM.md` 中的解锁状态与批次门。
+2. 检查当前 Main 分支、worktree 和 `review-inbox/`，确认已提交但尚未集成的批次。
+3. 执行 `scripts/update_dependency_graph.py` 与 `scripts/audit.py`，不从旧交接文字推测当前状态。
 
 ## GitHub
 
 - 仓库：`FurinaManifold/sandrones-library`
-- 凭据：`gh` 已认证（令牌在 `/home/pisquare/czt/github_authkey.txt`，格式 `username:<用户>\nAccess token:<ghp_...>`）
+- 凭据：使用当前环境已配置的 `gh` 认证；不在文档或命令输出中记录凭据路径与内容。
 - 提交信息风格：`"<阶段><批>: <主题>（<N> 条）+ 注册/RADAR"` 或 `"瘦身批次N: <条目>"` 等
 - 只在你被明确要求时才 push/commit

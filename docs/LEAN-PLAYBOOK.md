@@ -58,6 +58,7 @@
 >
 > - `SandronesLibrary.lean`
 > - `index/registry.json`
+> - `reference.bib`
 > - `docs/entries/README.md`
 > - `docs/MATHLIB-RADAR.md`
 > - `docs/ROADMAP-LONGTERM.md`
@@ -68,9 +69,16 @@
 > 一份共有文件。若用户明确要求当前 Codex完成登记并提交，则当前 Codex暂时承担该批次的
 > 集成职责，但提交前仍必须先同步并核对其他分支的共有文件变化。
 >
+> **参考文献单一来源规则**：`index/registry.json` 的 `provenance.ref` 只写
+> `reference.bib` 中的 citation key，不在 Registry 重复书名、论文名或资料说明。
+> 学科负责人在 handoff 中提交建议引用及精确章节；Main 负责分配 key、去重、
+> 补全 BibTeX 字段并运行 `audit.py` 验证所有 key 均有定义。
+>
 > **4. 自动生成文件只能在合并后重生成**
 >
 > - `docs/entries/README.md` 不手工解决冲突；合并全部条目后运行生成脚本重建。
+> - `index/rankings.json` 与 `docs/entries/RANKINGS.md` 不手工编辑；先运行
+>   `scripts/update_dependency_graph.py`，再运行 `scripts/gen_entry_rankings.py` 重建。
 > - Registry 中的 `proof_sha`、`axioms` 不从冲突两边任选一个；源码合并后重新运行
 >   `check_axioms.py --all --fix`。
 > - 即使 Git 没报告冲突，也要检查重复 id、丢失 import、ROADMAP 状态回退和 RADAR 条目覆盖。
@@ -97,7 +105,7 @@
 > 使用普通 `--force`。
 >
 > 同步冲突先由学科负责人处理：本学科源码和课程文档做语义合并；`SandronesLibrary.lean`、
-> Registry、生成索引、RADAR、ROADMAP 和 Playbook 等 Main 共有文件以最新 Main 版本为基线，
+> Registry、`reference.bib`、生成索引、RADAR、ROADMAP 和 Playbook 等 Main 共有文件以最新 Main 版本为基线，
 > 学科分支只保留 handoff 中的修改建议，不得恢复旧共有状态。同步完成后至少重跑本批目标模块
 > 和临时聚合 `#check`。负责人在下一次 handoff 中记录所同步的 Main 提交号和采用的同步方式；
 > Main 接收时必须核对该基线。若负责人基于旧 Main 继续开发，应先要求同步后再审，避免把可预防

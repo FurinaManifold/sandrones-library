@@ -19,6 +19,8 @@
 # 依赖：elan（Lean 版本管理器），已配置在 ~/.elan
 source ~/.elan/env   # 或 export PATH="$HOME/.elan/bin:$PATH"
 lake build           # 构建（首次会拉取 mathlib，之后走缓存）
+python3 scripts/update_dependency_graph.py  # 由 premises 重建反向直接依赖
+python3 scripts/gen_entry_rankings.py        # 生成依赖综合榜和四个分榜
 python3 scripts/audit.py   # 审计库的一致性
 ```
 
@@ -33,27 +35,42 @@ python3 scripts/audit.py   # 审计库的一致性
 | [docs/ROADMAP-examples.md](docs/ROADMAP-examples.md) | **Examples 跨学科例证路线图**：重要知识点的计算例、正例和反例覆盖账本 |
 | [docs/ROADMAP-LONGTERM.md](docs/ROADMAP-LONGTERM.md) | **长远批次规划**：分析→线代→抽象代数→拓扑→实分析→后续学科的阶段与批次蓝图 |
 | [docs/LEAN-PLAYBOOK.md](docs/LEAN-PLAYBOOK.md) | **自我驯化手册**：tactic 经验（调试工具/语义映射/实战教训） |
+| [reference.bib](reference.bib) | **统一参考文献库**：Registry 通过 citation key 引用 |
 
 ## 库结构
 
 ```
 SandronesLibrary/          # 形式化层（Lean，机器可校验）
 docs/entries/              # 叙述层（每个事实的双语解释 + 思维脉络）
-index/registry.json        # 元数据（依赖图 / 来源 / 状态）
+index/registry.json        # 元数据（依赖图 / 文献 key / 状态 / 公理）
+reference.bib              # 参考书、论文与课程资料的唯一维护点
 scripts/new_entry.py       # 纳入工具：生成条目骨架
 scripts/audit.py           # 纳入工具：一致性审计
 scripts/check_axioms.py    # 纳入工具：公理依赖审计（#print axioms 对比）
+scripts/update_dependency_graph.py  # 由 premises 重建 dependedOnBy
+scripts/gen_entry_rankings.py       # 生成 index/rankings.json 与可读榜单
 ```
 
-## 当前条目
+## 当前条目与依赖图
 
-| 条目 | 状态 | 一句话 |
-|---|---|---|
-| `analysis.real.archimedean` | verified | 阿基米德性质：任意正数放大足够整数倍能超过任何数 |
+当前 Registry 共有 **422** 个条目。`premises` 是依赖图的唯一事实来源，
+`dependedOnBy` 是由它反向生成的直接引用缓存，不得手工维护。在合并多个学科批次后运行：
+
+```bash
+python3 scripts/update_dependency_graph.py
+python3 scripts/gen_entry_rankings.py
+python3 scripts/audit.py
+```
+
+`audit.py` 会同时检查悬空的 `premises`、失同步的 `dependedOnBy` 以及悬空的
+`reference.bib` citation key。
+
+排行结果见 [docs/entries/RANKINGS.md](docs/entries/RANKINGS.md)。综合分由加权直接引用、
+距离衰减的传递影响、跨学科影响和 Lean 实际使用四项构成；排名不写回 Registry。
 
 ## 路线图
 
 - **Phase 1**：Schema 定稿 + 若干样板条目（含需要"新定义 + 引理链"的），人工走通全流程
-- **Phase 2**：协议工具化（registry 自动维护、依赖图可视化）
+- **Phase 2**：协议工具化（Registry 与反向依赖已可审计，依赖图可视化待补）
 - **Phase 3**：ingestion benchmark（量化"可扩展性"：纳入通过率 / 迭代轮数 / 依赖复用率）
 - **Phase 4**：从教材（Rudin / Zorich / 中文教材）与论文批量纳入

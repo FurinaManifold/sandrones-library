@@ -8,7 +8,7 @@
         --summary "完备度量空间上的压缩映射有唯一不动点" \
         --premises analysis.metric.complete analysis.metric.contraction \
         --mathlib exists_fixedPoint_of_isContraction \
-        --ref "Rudin, Principles of Mathematical Analysis, Thm 9.22"
+        --ref rudin-principles-1976
 
 产物:
     1. docs/entries/<entry-id>.md      （叙述层模板，state=pending）
@@ -24,6 +24,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "index" / "registry.json"
+BIBLIOGRAPHY = ROOT / "reference.bib"
 ENTRIES = ROOT / "docs" / "entries"
 LEAN_ROOT = ROOT / "SandronesLibrary"
 
@@ -39,6 +40,13 @@ def load_registry() -> list:
 
 
 def save_registry(data: list) -> None:
+    reverse = {record["id"]: set() for record in data}
+    for record in data:
+        for premise in record.get("premises", []):
+            if premise in reverse:
+                reverse[premise].add(record["id"])
+    for record in data:
+        record["dependedOnBy"] = sorted(reverse[record["id"]])
     with open(REGISTRY, "w") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
         f.write("\n")
@@ -52,7 +60,8 @@ def main() -> None:
     ap.add_argument("--summary", default="")
     ap.add_argument("--premises", nargs="*", default=[])
     ap.add_argument("--mathlib", nargs="*", default=[])
-    ap.add_argument("--ref", default="")
+    ap.add_argument("--ref", default="",
+                    help="reference.bib 中已存在的 citation key")
     ap.add_argument("--lean-file", default=None,
                     help="相对模块路径，如 Analysis/FixedPoint.lean；缺省由 id 推导")
     args = ap.parse_args()
@@ -65,6 +74,13 @@ def main() -> None:
     for p in args.premises:
         if not ID_RE.match(p):
             sys.exit(f"非法 premise id: {p!r}")
+    if args.ref:
+        if not BIBLIOGRAPHY.exists():
+            sys.exit("缺少 reference.bib")
+        bib_keys = set(re.findall(r"@\w+\s*\{\s*([^,\s]+)\s*,",
+                                  BIBLIOGRAPHY.read_text(encoding="utf-8")))
+        if args.ref not in bib_keys:
+            sys.exit(f"reference.bib 中无 citation key: {args.ref}")
 
     registry = load_registry()
     if any(r["id"] == eid for r in registry):
