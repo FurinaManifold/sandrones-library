@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`c9faa0f`
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：Baire 窗完成验证；Banach–Steinhaus 待开发
+- 当前阶段：Baire 已提交；Banach–Steinhaus 完成验证，开映射待开发
 
 ## 范围与边界
 
@@ -18,5 +18,14 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.Baire`：8708 jobs 通过；只有教材
   `BanachSpace` 语境中的未使用线性结构提示和既有 Topology 格式警告。
 - 聚合 `#check` 覆盖 `BaireSpace`、其教材展开和两个公开使用者；Entry 精确映射为两个声明。
+- 两个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## Banach–Steinhaus 窗
+
+- 点态有界直接保留 `∀ x, ∃ C, ∀ i, ‖g i x‖ ≤ C`，没有建立包装谓词。
+- `lake build SandronesLibrary.FunctionalAnalysis.BanachSteinhaus`：8711 jobs 通过；仅重放既有警告。
+- 聚合 `#check` 覆盖算子承载、Baire 前置、Mathlib 主定理和两个公开声明；Entry 精确映射为两个
+  声明。
 - 两个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
