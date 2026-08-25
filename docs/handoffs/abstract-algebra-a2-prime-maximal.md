@@ -30,6 +30,9 @@
 
 ## 验证命令
 
+Main R1 的影响面披露由返工提交 `7422162` 完成；该提交只修改本 handoff，没有夹带下一批
+`RingIsomorphismTheorems` 文件。
+
 ```bash
 lake env lean SandronesLibrary/AbstractAlgebra/RingPrimeIdeal.lean
 lake build SandronesLibrary.AbstractAlgebra.RingPrimeIdeal
