@@ -10,7 +10,7 @@ premises: [abstract-algebra.field.extension]
 mathlib: [LinearIndependent, Module.Basis, Module.finrank, Module.Basis.smulTower]
 provenance:
   source_type: book
-  ref: 本科抽象代数中的域扩张次数、有限扩张与塔式公式
+  ref: dummit-foote-abstract-algebra-2004
 ---
 
 # 动机

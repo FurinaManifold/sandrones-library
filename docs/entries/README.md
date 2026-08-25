@@ -6,10 +6,11 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **431** 个条目（verified 431，pending 0）。
+共 **434** 个条目（verified 434，pending 0）。
 
 ## `abstract-algebra.field`
 
+- ✅ [`degree.md`](degree.md) — 域扩张次数、有限扩张与塔式公式
 - ✅ [`extension.md`](extension.md) — 域扩张、生成中间域、代数元与最小多项式
 
 ## `abstract-algebra.group`
@@ -325,6 +326,10 @@
 - ✅ [`continuous-linear-map.md`](continuous-linear-map.md) — 连续线性算子
 - ✅ [`space.md`](space.md) — 算子范数与连续线性算子空间
 
+## `functional-analysis.separable`
+
+- ✅ [`dual.md`](dual.md) — 可分空间、对偶与双对偶边界
+
 ## `functional-analysis.series`
 
 - ✅ [`summable.md`](summable.md) — Banach 空间中绝对可和蕴含可和
@@ -333,6 +338,10 @@
 
 - ✅ [`annihilator-closure.md`](annihilator-closure.md) — 连续零化子、双零化子与子空间闭包
 - ✅ [`quotient.md`](quotient.md) — 闭线性子空间与商 Banach 空间
+
+## `functional-analysis.weak-topology`
+
+- ✅ [`definition.md`](definition.md) — 赋范空间的弱拓扑与弱收敛
 
 ## `linear-algebra`
 

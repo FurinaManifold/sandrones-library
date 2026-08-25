@@ -36,7 +36,22 @@
 - **出处**：Mathlib 的域论与最小多项式模块。
 - **谁在用**：`abstract-algebra.field.extension` 的私有桥；桥先证明 `algebraMap` 就是指定嵌入，再推出教材最小多项式的存在与不可约性。
 
+### `LinearIndependent` / `Module.Basis` / `Module.finrank` / `Module.Basis.smulTower`
+- **人话**：分别验证显式有限关系的线性无关、线性无关加张成所成的基、有限基长度，以及扩张塔中两层基的乘积基。
+- **出处**：Mathlib 的线性代数基、有限维数和标量塔接口。
+- **谁在用**：`abstract-algebra.field.degree` 的私有验证后端；公开课程接口仍是显式 `FieldEmbedding`、有限和与本库域基谓词。
+
 ## Hahn–Banach、凸分离与连续零化子
+
+### `TopologicalSpace.SeparableSpace` / `StrongDual` / `Submodule.span`
+- **人话**：依次承载可数稠密性、连续对偶，以及一族向量的线性生成子空间。
+- **出处**：Mathlib 的可分拓扑空间、连续线性映射和子模接口。
+- **谁在用**：`functional-analysis.separable.dual`；证明用可数稠密对偶族和零化子闭包刻画推出原空间可分。
+
+### `WeakSpace` / `toWeakSpace` / `toWeakSpaceCLM` / `WeakSpace.map`
+- **人话**：在同一底层向量上安装由连续对偶诱导的弱拓扑，并提供范数拓扑到弱拓扑的恒等映射及线性映射的弱化版本。
+- **出处**：Mathlib 的局部凸弱拓扑接口。
+- **谁在用**：`functional-analysis.weak-topology.definition`，用于评价连续、逐泛函收敛判据、范数收敛蕴含弱收敛和映射保持性。
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。

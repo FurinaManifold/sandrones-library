@@ -5,7 +5,7 @@ state: staging
 title: 赋范空间的弱拓扑与弱收敛
 premises: [functional-analysis.hahn-banach.norming-functional]
 mathlib: [WeakSpace, toWeakSpace, toWeakSpaceCLM, WeakSpace.map]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 3.1"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机
@@ -15,7 +15,7 @@ provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Se
 
 # 教材定义与正式承载
 
-`E` 的弱拑扑是使所有 `f ∈ E*` 连续的最弱拓扑。Mathlib 的 `WeakSpace ℝ E` 正是在与 `E`
+`E` 的弱拓扑是使所有 `f ∈ E*` 连续的最弱拓扑。Mathlib 的 `WeakSpace ℝ E` 正是在与 `E`
 相同的底层向量上，用顶层对偶配对的逐坐标初始拓扑实现这一定义。`toWeakSpace ℝ E`
 是原赋范空间与弱拓扑类型之间的线性恒等，`toWeakSpaceCLM` 是从范数拓扑到弱拓扑的连续版本。
 本库不再建一个弱拓扑结构。

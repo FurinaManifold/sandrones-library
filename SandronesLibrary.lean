@@ -75,6 +75,7 @@ import SandronesLibrary.AbstractAlgebra.PolynomialDivision
 import SandronesLibrary.AbstractAlgebra.PolynomialIrreducibility
 import SandronesLibrary.AbstractAlgebra.PolynomialFactorization
 import SandronesLibrary.AbstractAlgebra.FieldExtension
+import SandronesLibrary.AbstractAlgebra.FieldDegree
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
@@ -197,6 +198,8 @@ import SandronesLibrary.FunctionalAnalysis.NormingFunctional
 import SandronesLibrary.FunctionalAnalysis.ConvexSeparation
 import SandronesLibrary.FunctionalAnalysis.AnnihilatorClosure
 import SandronesLibrary.FunctionalAnalysis.BidualReflexive
+import SandronesLibrary.FunctionalAnalysis.SeparableDual
+import SandronesLibrary.FunctionalAnalysis.WeakTopology
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator

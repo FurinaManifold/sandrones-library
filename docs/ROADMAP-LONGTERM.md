@@ -33,7 +33,7 @@
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ R5🚧 R6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1✅ F2-F3🚧 F4-F8🔒 | L5 T3 R4 C1 |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1-F3✅ F4🚧 F5-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
@@ -375,7 +375,7 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | ✅ |
 | 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | ✅ |
 | 5 | `abstract-algebra.field.extension` | 显式域嵌入、生成中间域、单扩张、代数/超越元与最小多项式 | ✅ |
-| 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | 🔲 |
+| 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、代数闭包、有限域基础 | 🔲 |
 | 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
@@ -384,10 +384,10 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 
 | 窗口 | 权限 | 可执行范围 | 集成门 |
 |---|---|---|---|
-| A3.6 扩张次数 | `integration_open` | 正式入库显式有限线性组合、线性无关、基、扩张次数和塔式公式 | 同步最新 Main 后可交付 |
-| A3.7 分裂域基础 | `development_open` | 独立文件开发“多项式在扩域中分裂”、根集、分裂域的生成与最小性；可形成提交 | 等待 A3.6 集成并对齐最终次数接口 |
-| A3.8 可分/正规扩张 | `research_open` | Mathlib 承载审计、公开签名和 `/tmp` 证明框架 | A3.7 定义进入 Main 后才能正式交付 |
-| A3.9 Galois | 冻结 | 只允许书目和依赖调查 | G-A3 前置全部完成 |
+| A3.6 扩张次数 | 已集成 | 显式有限线性组合、线性无关、基、扩张次数和塔式公式 | Main 全库验收完成 |
+| A3.7 分裂域基础 | `integration_open` | 独立文件开发“多项式在扩域中分裂”、根集、分裂域的生成与最小性；可形成提交 | 使用已集成 A3.6 接口并同步最新 Main |
+| A3.8 可分/正规扩张 | `development_open` | 正式源码、Entry 初稿与学科闭包；不得提前登记 verified | 集成等待 A3.7 定义进入 Main |
+| A3.9 Galois | `research_open` | 书目、依赖、公开签名和 `/tmp` 证明框架 | A3.8 正式接口冻结后开放开发 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
@@ -581,7 +581,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 5 | `functional-analysis.series.summable` | Banach 中绝对可和推出可和 ✅ | `Summable.of_norm` |
 | 6 | `functional-analysis.subspace.quotient` | 闭子空间与商 Banach 空间 ✅ | `NormedSpace.Quotient` |
 
-### F2 泛函分析基本原理与凸性 🚧（Salamon Chapter 2；已由 F1 解锁）
+### F2 泛函分析基本原理与凸性 ✅（Salamon Chapter 2；已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -595,7 +595,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 ✅ | geometric Hahn–Banach、`Convex` |
 | 9 | `functional-analysis.subspace.annihilator-closure` | 子空间闭包、连续零化子与双零化子刻画 ✅ | `StrongDual.polarSubmodule`、dual pairing |
 | 10 | `functional-analysis.bidual.reflexive` | 连续双对偶典范等距嵌入、自反性的满射刻画与弱紧性边界 ✅ | `NormedSpace.inclusionInDoubleDual`、`inclusionInDoubleDualLi` |
-| 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 | separability/reflexivity API |
+| 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 ✅ | separability/reflexivity API |
 
 ### F3 Hilbert 空间 ✅（F1、L5 均已完成）
 
@@ -610,12 +610,12 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 > 紧自伴算子谱定理属于 Salamon Chapter 5，移至 F6；F3 只建立后续谱理论真正需要的 Hilbert
 > 空间语言，不提前声称已完成紧算子理论。
 
-### F4 弱拓扑、弱星拓扑与弱紧性 🔒（Salamon Chapter 3；依赖 F2/T1/T2）
+### F4 弱拓扑、弱星拓扑与弱紧性 🚧（Salamon Chapter 3；依赖 F2/T1/T2）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、局部基与连续线性泛函 | `TopologicalAddGroup`、`ContinuousSMul` |
-| 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 | `WeakTopology`、initial topology API |
+| 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 ✅ | `WeakSpace`、initial topology API |
 | 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 | weak-star topology API |
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 | Banach–Alaoglu/Tychonoff API |
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形单位球弱星可度量化与序列抽取 | metrizability/separability API |
@@ -676,8 +676,10 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**阶段门与诚实边界**：F2 可继续补 Hahn–Banach 与自反性，F3 可并行完成 Hilbert 基础；F4 必须
-等待凸分离与拓扑基础，F5 等待 F4 的弱紧致工具，F6 等待紧算子与复分析 C1，F7/F8 严格顺序
+**F4 当前并行权限（2026-08-25）**：F4.1 已集成；F4.2 弱星拓扑为 `integration_open`；
+F4.3 Banach--Alaoglu 为 `development_open`，可形成正式提交但集成等待 F4.2；F4.4--F4.5 为
+`research_open`，可做承载审计和 `/tmp` 证明框架。F5 等待 F4 的弱紧致工具，F6 等待紧算子与
+复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。
 

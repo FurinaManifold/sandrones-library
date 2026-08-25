@@ -5,7 +5,7 @@ state: staging
 title: 可分空间、对偶与双对偶边界
 premises: [functional-analysis.bidual.reflexive]
 mathlib: [TopologicalSpace.SeparableSpace, StrongDual, Submodule.span]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 2.4"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

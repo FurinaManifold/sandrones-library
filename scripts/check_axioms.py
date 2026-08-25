@@ -40,7 +40,7 @@ DECL_RE = re.compile(
     r"^(?:(?:@\[[^\]]+\])\s+)*"
     r"(?:(?:noncomputable|unsafe|private|protected)\s+)*"
     r"(theorem|lemma|def|abbrev|structure|class|inductive|opaque)\s+"
-    r"([A-Za-z_][\w'.]*)"
+    r"([A-Za-z_][\w'.!?]*)"
 )
 ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
 AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]", re.DOTALL)
@@ -141,6 +141,10 @@ def probe_axioms_batch(modules: list[tuple[str, list[str]]]) -> dict[str, dict[s
         ["lake", "env", "lean", str(probe)],
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, cwd=ROOT, env=env)
+    if r.returncode != 0:
+        raise RuntimeError(
+            "公理审计 probe 编译失败；不得把失败输出写入 Registry：\n" + r.stdout
+        )
     out = r.stdout
     result: dict[str, dict[str, list[str]]] = {}
     for mod, decls in modules:
@@ -161,6 +165,10 @@ def probe_axioms(decls: list[str], module: str) -> dict[str, list[str]]:
         ["lake", "env", "lean", str(probe)],
         stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
         text=True, cwd=ROOT, env=env)
+    if r.returncode != 0:
+        raise RuntimeError(
+            "公理审计 probe 编译失败；不得把失败输出写入 Registry：\n" + r.stdout
+        )
     out = r.stdout
     result: dict[str, list[str]] = {}
     for decl in decls:
@@ -204,8 +212,10 @@ def main() -> None:
             continue
         sha = file_sha(lf)
         rec["_sha"] = sha
+        recorded_axioms = rec.get("axioms")
         if (not args.full and rec.get("proof_sha") == sha
-                and isinstance(rec.get("axioms"), list)):
+                and isinstance(recorded_axioms, list)
+                and "<解析失败>" not in recorded_axioms):
             all_skipped += 1
             continue
         mapping = map_entry_to_decl(lf.read_text(encoding="utf-8"))

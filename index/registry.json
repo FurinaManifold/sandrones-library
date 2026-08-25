@@ -3008,7 +3008,6 @@
     "variant": "ecnu",
     "proof_sha": "b966df01524bc1ba",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -3782,7 +3781,6 @@
     },
     "state": "verified",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -3823,7 +3821,6 @@
     },
     "state": "verified",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -5340,7 +5337,6 @@
       "analysis.constants.special-values"
     ],
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -5928,7 +5924,6 @@
     "dependedOnBy": [],
     "proof_sha": "f4ebd5600b7a7c85",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -6319,7 +6314,6 @@
     "dependedOnBy": [],
     "proof_sha": "89eb5ea33e9c2241",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7679,7 +7673,6 @@
     ],
     "proof_sha": "d14eff3a781ca05b",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7782,7 +7775,6 @@
     "dependedOnBy": [],
     "proof_sha": "ec9663a65046d019",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -7846,7 +7838,6 @@
     "dependedOnBy": [],
     "proof_sha": "a2bef3b4d94d8651",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8089,7 +8080,6 @@
     ],
     "proof_sha": "2a8f4f7252c6eea2",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8323,7 +8313,6 @@
     "family": "settheory.ordinal.addition",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8360,7 +8349,6 @@
     "family": "settheory.ordinal.multiplication",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8400,7 +8388,6 @@
     "family": "settheory.ordinal.exponentiation",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -8505,7 +8492,6 @@
     "family": "settheory.ordinal.cofinality",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -9847,7 +9833,6 @@
     "family": "settheory.computability.nat-computable",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -10990,7 +10975,6 @@
     "family": "settheory.googology.hyperoperation",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Quot.sound",
       "propext"
     ],
@@ -11051,7 +11035,6 @@
     "family": "settheory.googology.machine-execution",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -11084,7 +11067,8 @@
     "family": "settheory.googology.primitive-recursion",
     "variant": "generated",
     "axioms": [
-      "<解析失败>"
+      "Quot.sound",
+      "propext"
     ],
     "proof_sha": "93da0bf9b708449f"
   },
@@ -11333,7 +11317,6 @@
     "family": "settheory.googology.hereditary-natural-encoding-same-block-order",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -11610,7 +11593,6 @@
     "family": "complex-analysis.cauchy",
     "variant": "c2-relative-endpoint",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12288,7 +12270,6 @@
     "family": "linear-algebra.decomposition.polar",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12388,7 +12369,6 @@
     "family": "linear-algebra.decomposition.schur",
     "variant": "generated",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12675,7 +12655,6 @@
     ],
     "proof_sha": "e3ebc0bcc3335958",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -13026,7 +13005,6 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -13346,7 +13324,6 @@
     "family": "abstract-algebra.poly",
     "variant": "division",
     "axioms": [
-      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -13769,7 +13746,8 @@
     "dependedOnBy": [
       "functional-analysis.bidual.reflexive",
       "functional-analysis.convex.separation",
-      "functional-analysis.subspace.annihilator-closure"
+      "functional-analysis.subspace.annihilator-closure",
+      "functional-analysis.weak-topology.definition"
     ],
     "family": "functional-analysis.hahn-banach",
     "variant": "salamon",
@@ -13874,7 +13852,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/extension.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.degree"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "3c16488a48435478",
@@ -13907,10 +13887,110 @@
     "nl_file": "docs/entries/functional-analysis/bidual/reflexive.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.separable.dual"
+    ],
     "family": "functional-analysis.bidual",
     "variant": "salamon",
     "proof_sha": "bbe85f1bbedb826c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.degree",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "域扩张次数、有限扩张与塔式公式",
+    "summary": "以显式有限线性组合和有限域基定义扩张次数，证明坐标与次数唯一、有限扩张代数性及塔式乘法公式",
+    "premises": [
+      "abstract-algebra.field.extension"
+    ],
+    "mathlib": [
+      "LinearIndependent",
+      "Module.Basis",
+      "Module.finrank",
+      "Module.Basis.smulTower"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldDegree.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/degree.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "ef798020463c99b2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.separable.dual",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可分空间、对偶与双对偶边界",
+    "summary": "证明连续对偶可分推出原空间可分，并由典范双对偶嵌入得到可分自反空间的对偶与双对偶可分性",
+    "premises": [
+      "functional-analysis.bidual.reflexive"
+    ],
+    "mathlib": [
+      "TopologicalSpace.SeparableSpace",
+      "StrongDual",
+      "Submodule.span"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/SeparableDual.lean",
+    "nl_file": "docs/entries/functional-analysis/separable/dual.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.separable",
+    "variant": "salamon",
+    "proof_sha": "eac51ffde56aedfb",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.weak-topology.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "赋范空间的弱拓扑与弱收敛",
+    "summary": "以 Mathlib WeakSpace 解释赋范空间弱拓扑，给出逐连续泛函收敛判据以及范数收敛和连续线性映射的保持性质",
+    "premises": [
+      "functional-analysis.hahn-banach.norming-functional"
+    ],
+    "mathlib": [
+      "WeakSpace",
+      "toWeakSpace",
+      "toWeakSpaceCLM",
+      "WeakSpace.map"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/WeakTopology.lean",
+    "nl_file": "docs/entries/functional-analysis/weak-topology/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak-topology",
+    "variant": "salamon",
+    "proof_sha": "b843c5b8038da760",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
