@@ -49,7 +49,9 @@
 - [x] 中国剩余定理：`ComaximalIdealSets`、`PairwiseComaximalIdealSets`、集合型理想交与
   本库商环规范映射已建立；二元及有限族 CRT 同构均已证明，Mathlib `Ideal` 只作为有限满射
   的局部证明后端。
-- [ ] 局部化。
+- [x] 局部化与分式域：`MultiplicativeSet`、`FractionPair`、一般零因子情形的分式判等、
+  `LocalizationRing`、规范映射及存在唯一泛性质均已自建；整环非零元局部化满足本库
+  `FieldAxioms`。公开签名与证明后端均不依赖 Mathlib 专用局部化结构。
 
 ## A1 群论回修
 
