@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`8d5d823`
 - 设计 RFC：`docs/maintenance/functional-analysis-f1-design.md`
-- 当前阶段：算子解释层与算子空间完成；Banach 级数和商空间待办
+- 当前阶段：算子解释层与算子空间已提交；Banach 级数完成验证，商空间待办
 
 ## 路线结论
 
@@ -26,8 +26,18 @@
 
 ## 尚未完成
 
-- Banach 级数和商空间尚未按新复用规则实现。
+- 商空间尚未按新复用规则实现。
 - F2/F3/F4 保持锁定。
+
+## Banach 级数验证
+
+- 直接采用 `Summable f`、`HasSum f x` 与 `Summable (fun n ↦ ‖f n‖)`；未增加级数或
+  “绝对可和”本地定义。
+- `lake build SandronesLibrary.FunctionalAnalysis.BanachSeries`：8708 jobs 通过；新增模块仅有
+  `BanachSpace` 教材语境中的未使用线性结构提示，另重放既有 Topology 格式警告。
+- 聚合 `#check` 覆盖正式承载、Mathlib 复用定理和三个公开声明；Entry 精确映射为三个声明。
+- 三个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
 
 ## 算子空间验证
 
