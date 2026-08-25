@@ -12605,7 +12605,8 @@
     "dependedOnBy": [
       "topology.foundation.constructions",
       "topology.foundation.mathlib-compatibility",
-      "topology.foundation.real-line"
+      "topology.foundation.real-line",
+      "topology.homotopy.path-definition-foundation"
     ],
     "proof_sha": "107e349f1d171d7c",
     "axioms": [
@@ -12619,7 +12620,7 @@
     "kind": "definition",
     "state": "verified",
     "title": "旧教材拓扑与 Mathlib 拓扑的兼容等价",
-    "summary": "证明冻结的 TextbookTopology 与 Mathlib TopologicalSpace 具有相同的开闭集、邻域和同胚数据，为下游逐波迁移提供双向桥",
+    "summary": "证明冻结的 TextbookTopology 及其实线、单位区间和道路与 Mathlib 正式承载数据一致，提供双向迁移桥",
     "premises": [
       "topology.foundation.structure"
     ],
@@ -12628,7 +12629,9 @@
       "IsOpen",
       "IsClosed",
       "nhds",
-      "Homeomorph"
+      "Homeomorph",
+      "unitInterval",
+      "Path"
     ],
     "provenance": {
       "source_type": "migration",
@@ -12639,9 +12642,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "d1fc2ca6fac9e7aa",
+    "proof_sha": "738304be590cf550",
     "axioms": [
-      "<解析失败>",
+      "Classical.choice",
       "Quot.sound",
       "propext"
     ]
@@ -12777,13 +12780,18 @@
     "id": "topology.foundation.real-line",
     "kind": "definition",
     "state": "verified",
-    "title": "实直线与单位区间的教材拓扑",
-    "summary": "以 epsilon 邻域定义实直线拓扑，并由子空间构造单位区间拓扑与反射",
+    "title": "标准实拓扑与单位区间的正式承载",
+    "summary": "解释 Mathlib 标准实拓扑的 epsilon 邻域刻画和 unitInterval subtype，并保留旧显式构造作迁移层",
     "premises": [
       "topology.foundation.structure",
       "topology.foundation.constructions"
     ],
-    "mathlib": [],
+    "mathlib": [
+      "Real.instTopologicalSpace",
+      "Metric.isOpen_iff",
+      "unitInterval",
+      "Set.Icc"
+    ],
     "provenance": {
       "source_type": "book",
       "ref": "sandrones-ref-a7834a6f0ad0ede9"
@@ -12798,7 +12806,7 @@
       "topology.homotopy.path-definition-foundation",
       "topology.homotopy.path-reversal-foundation"
     ],
-    "proof_sha": "86012bb76d5deedf",
+    "proof_sha": "58e0d8981b435a62",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12809,12 +12817,18 @@
     "id": "topology.homotopy.path-definition-foundation",
     "kind": "definition",
     "state": "verified",
-    "title": "道路与环路的教材定义",
-    "summary": "由本库单位区间连续映射定义道路、常值道路、映射复合与环路",
+    "title": "道路与环路的正式承载",
+    "summary": "解释 Mathlib Path 如何打包单位区间上的连续轨迹与端点，并保留旧道路结构作迁移层",
     "premises": [
-      "topology.foundation.real-line"
+      "topology.foundation.real-line",
+      "topology.foundation.structure"
     ],
-    "mathlib": [],
+    "mathlib": [
+      "Path",
+      "Path.refl",
+      "Path.map",
+      "unitInterval"
+    ],
     "provenance": {
       "source_type": "book",
       "ref": "sandrones-ref-1ef337313be1381d"
@@ -12829,7 +12843,7 @@
       "topology.homotopy.path-concatenation-foundation",
       "topology.homotopy.path-reversal-foundation"
     ],
-    "proof_sha": "6f143ed9e2f4f665",
+    "proof_sha": "60754ef8285d19e5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12858,7 +12872,7 @@
     "dependedOnBy": [
       "topology.connectedness.path-components-foundation"
     ],
-    "proof_sha": "6f143ed9e2f4f665",
+    "proof_sha": "60754ef8285d19e5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12887,7 +12901,7 @@
     "dependedOnBy": [
       "topology.connectedness.path-components-foundation"
     ],
-    "proof_sha": "6f143ed9e2f4f665",
+    "proof_sha": "60754ef8285d19e5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -13184,7 +13198,9 @@
     "nl_file": "docs/entries/functional-analysis/operator/space.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.hilbert.adjoint"
+    ],
     "family": "functional-analysis.operator",
     "variant": "space",
     "axioms": [
@@ -13540,6 +13556,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.hilbert.orthonormal-basis",
       "functional-analysis.hilbert.riesz"
     ],
     "family": "functional-analysis.hilbert",
@@ -13571,7 +13588,10 @@
     "nl_file": "docs/entries/functional-analysis/hilbert/riesz.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.hilbert.adjoint",
+      "functional-analysis.hilbert.orthonormal-basis"
+    ],
     "family": "functional-analysis.hilbert",
     "variant": "salamon",
     "axioms": [
@@ -13580,5 +13600,106 @@
       "propext"
     ],
     "proof_sha": "8ddaf7a9f66b56a7"
+  },
+  {
+    "id": "functional-analysis.hilbert.adjoint",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hilbert 空间上有界算子的伴随",
+    "summary": "用内积转移公式刻画伴随，并证明对合、范数保持和复合反序",
+    "premises": [
+      "functional-analysis.hilbert.riesz",
+      "functional-analysis.operator.space"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.adjoint",
+      "ContinuousLinearMap.eq_adjoint_iff"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-f609311131c7cc3a"
+    },
+    "lean_file": "FunctionalAnalysis/AdjointOperator.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/adjoint.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.hilbert.unitary"
+    ],
+    "family": "functional-analysis.hilbert",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "f786a047f800f26d"
+  },
+  {
+    "id": "functional-analysis.hilbert.orthonormal-basis",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hilbert 基、Fourier 展开与 Parseval 恒等式",
+    "summary": "建立 Hilbert 基的正交规范性、稠密张成、Fourier 级数重构和 Parseval 恒等式",
+    "premises": [
+      "functional-analysis.hilbert.projection",
+      "functional-analysis.hilbert.riesz"
+    ],
+    "mathlib": [
+      "HilbertBasis",
+      "HilbertBasis.orthonormal",
+      "HilbertBasis.hasSum_repr"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-06da25a0df9f1991"
+    },
+    "lean_file": "FunctionalAnalysis/OrthonormalBasis.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/orthonormal-basis.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.hilbert.unitary"
+    ],
+    "family": "functional-analysis.hilbert",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7ad935c377c163fc"
+  },
+  {
+    "id": "functional-analysis.hilbert.unitary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hilbert 空间之间的酉算子",
+    "summary": "用线性等距等价承载酉算子，建立内积和范数保持、伴随等于逆与复合稳定性",
+    "premises": [
+      "functional-analysis.hilbert.adjoint",
+      "functional-analysis.hilbert.orthonormal-basis"
+    ],
+    "mathlib": [
+      "LinearIsometryEquiv",
+      "LinearIsometryEquiv.adjoint_eq_symm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "sandrones-ref-baae256c34a2d11e"
+    },
+    "lean_file": "FunctionalAnalysis/UnitaryOperator.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/unitary.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.hilbert",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "bfb78a0cb2e9b4e2"
   }
 ]

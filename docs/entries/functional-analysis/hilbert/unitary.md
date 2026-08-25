@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.hilbert.unitary
 kind: theorem
-state: staging
+state: verified
 title: Hilbert 空间之间的酉算子
 premises: [functional-analysis.hilbert.adjoint, functional-analysis.hilbert.orthonormal-basis]
 mathlib: [LinearIsometryEquiv, LinearIsometryEquiv.adjoint_eq_symm]

@@ -3,7 +3,7 @@ id: topology.homotopy.path-definition-foundation
 family: topology.homotopy
 variant: textbook-unit-interval
 kind: definition
-state: staging
+state: verified
 title: 道路与环路的正式承载
 summary: 解释 Mathlib Path 如何打包单位区间上的连续轨迹与端点，并保留旧道路结构作为迁移兼容层
 premises: [topology.foundation.real-line, topology.foundation.structure]

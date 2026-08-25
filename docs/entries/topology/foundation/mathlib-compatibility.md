@@ -2,8 +2,8 @@
 id: topology.foundation.mathlib-compatibility
 family: topology.foundation
 variant: legacy-carrier-equivalence
-kind: bridge
-state: staging
+kind: definition
+state: verified
 title: 旧教材拓扑与 Mathlib 拓扑的兼容等价
 summary: 证明冻结的 TextbookTopology 及其实线、单位区间和道路与 Mathlib 正式承载具有相同数据，并建立双向等价以支持分层迁移
 premises: [topology.foundation.structure]

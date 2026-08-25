@@ -429,8 +429,10 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 条目 | 内容 | 状态 |
 |---|---|---|
 | `topology.foundation.structure` | Mathlib `TopologicalSpace`、开闭集、邻域、连续与同胚的教材刻画；旧载体冻结兼容 | ✅ A1 第一波已集成 |
-| `topology.foundation.mathlib-compatibility` | 旧载体与 Mathlib 拓扑、邻域和同胚的双向迁移桥，不计为第二套课程定义 | 🚧 迁移桥 |
-| `topology.foundation.constructions` | 既有旧载体上的诱导、子空间与积拓扑；待 A1 第二波迁移到正式 Mathlib 承载 | 🚧 待迁移 |
+| `topology.foundation.mathlib-compatibility` | 旧载体与 Mathlib 拓扑、空间构造、实线、单位区间及道路的双向迁移桥 | ✅ 随 A1 迁移扩展 |
+| `topology.foundation.constructions` | 诱导、子空间与积拓扑的 explained Mathlib reuse，旧构造冻结兼容 | ✅ A1 第二波已集成 |
+| `topology.foundation.real-line` | 标准实拓扑的 ε 邻域刻画与标准 `unitInterval` | ✅ A1 第三波已集成 |
+| `topology.homotopy.path-definition-foundation` | Mathlib `Path` 的连续轨迹与端点语义，及旧/新道路桥 | ✅ A1 道路数据窗口已集成 |
 
 | # | 条目 | 内容 | mathlib |
 |---|---|---|---|
@@ -444,10 +446,10 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 8 | `topology.fundamental-group.invariance` | 基本群在同胚与同伦等价下不变，并处理基点变换 | `FundamentalGroupoidFunctor.equivOfHomotopyEquiv`、`ContinuousMap.HomotopyEquiv` |
 | 9 | `topology.fundamental-group.examples` | 单点、凸集、可缩空间与圆周等例子；圆周基本群作为重点自证结果 | `SimplyConnectedSpace`、`FundamentalGroupoid.punitEquivDiscretePUnit` |
 
-**当前调度（2026-08-25）**：A1 第一波已把拓扑空间、开闭集、邻域、连续与同胚原地迁移为
-explained Mathlib reuse。拓扑负责人同步本次 Main 后可启动 A1 第二波，仅迁移 `Constructions`
-中的子空间、积与道路连通连续依赖链；不得借兼容桥让新课程绕回 `TextbookTopology`。A2/A3 的
-同伦与基本群迁移继续锁定，直到 A1 基础下游完成迁移并复验。
+**当前调度（2026-08-25）**：A1 已集成拓扑基础、空间构造、道路连通、标准实线/单位区间
+与 Mathlib `Path` 数据窗口。下一小批只迁移道路逆向与拼接，必须继续区分严格道路等式和
+道路同伦。新课程不得借兼容桥绕回 `TextbookTopology`或旧 `Path`。A2/A3、同伦商与
+基本群继续锁定，直到 A1 道路运算完成迁移并复验。
 
 ---
 
@@ -571,15 +573,15 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 10 | `functional-analysis.bidual.reflexive` | 典范嵌入到双对偶、自反性与闭单位球边界 | `NormedSpace.inclusionInDoubleDual`、`IsReflexive` |
 | 11 | `functional-analysis.separable.dual` | 可分空间、可分对偶的基本蕴含与不可逆边界 | separability/reflexivity API |
 
-### F3 Hilbert 空间 🚧（F1、L5 均已完成）
+### F3 Hilbert 空间 ✅（F1、L5 均已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `functional-analysis.hilbert.projection` | 闭凸集/闭子空间投影 ✅ | `orthogonalProjection` |
 | 2 | `functional-analysis.hilbert.riesz` | Riesz 表示定理 ✅ | `InnerProductSpace.toDual` |
-| 3 | `functional-analysis.hilbert.adjoint` | 有界算子伴随 | CLM adjoint |
-| 4 | `functional-analysis.hilbert.orthonormal-basis` | 正交规范基与 Parseval | `OrthonormalBasis` |
-| 5 | `functional-analysis.hilbert.unitary` | 等距、酉算子及正交分解的基本接口 | `LinearIsometryEquiv`、unitary API |
+| 3 | `functional-analysis.hilbert.adjoint` | 有界算子伴随 ✅ | `ContinuousLinearMap.adjoint` |
+| 4 | `functional-analysis.hilbert.orthonormal-basis` | Hilbert 基、Fourier 重构与 Parseval ✅ | `HilbertBasis` |
+| 5 | `functional-analysis.hilbert.unitary` | 等距、酉算子及正交分解的基本接口 ✅ | `LinearIsometryEquiv`、unitary API |
 
 > 紧自伴算子谱定理属于 Salamon Chapter 5，移至 F6；F3 只建立后续谱理论真正需要的 Hilbert
 > 空间语言，不提前声称已完成紧算子理论。

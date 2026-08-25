@@ -3,7 +3,7 @@ id: topology.foundation.real-line
 family: topology.foundation
 variant: epsilon-open
 kind: definition
-state: staging
+state: verified
 title: 标准实拓扑与单位区间的正式承载
 summary: 解释 Mathlib 标准实拓扑的 ε 邻域刻画和 unitInterval subtype，并保留旧显式构造作为迁移兼容层
 premises: [topology.foundation.constructions, real.order.absolute-value]

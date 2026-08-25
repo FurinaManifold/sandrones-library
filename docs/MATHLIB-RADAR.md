@@ -3039,6 +3039,26 @@
 - **人话**：域上多项式满足带余除法恒等式，且非零除式下余数次数严格下降。
 - **谁在用**：把正式 `Polynomial K` 组装进本库 A2 Euclidean 算法，得到 gcd 与 Bézout。
 
+### `Metric.isOpen_iff` / `unitInterval` / `Path`
+- **人话**：标准实拓扑可用正半径度量球刻画；`unitInterval` 是闭区间
+  `[0,1]` 的 subtype；`Path x y` 打包其上的连续轨迹与两个端点。
+- **谁在用**：`topology.foundation.real-line`、
+  `topology.homotopy.path-definition-foundation` 及 legacy compatibility 桥。
+
+### `ContinuousLinearMap.adjoint` / `ContinuousLinearMap.eq_adjoint_iff`
+- **人话**：Hilbert 空间上的伴随是唯一满足内积转移公式的反向有界算子。
+- **谁在用**：`functional-analysis.hilbert.adjoint` 与酉算子的“伴随等于逆”性质。
+
+### `HilbertBasis` / `HilbertBasis.hasSum_repr` / `HilbertBasis.tsum_inner_mul_inner`
+- **人话**：Hilbert 基同时记录正交规范性、稠密张成、平方可和 Fourier 坐标、
+  级数重构和 Parseval 内积恒等式。
+- **谁在用**：`functional-analysis.hilbert.orthonormal-basis`。
+
+### `LinearIsometryEquiv` / `LinearIsometryEquiv.adjoint_eq_symm`
+- **人话**：线性等距等价同时打包线性、距离保持与双射；在 Hilbert 空间中
+  其对应有界算子的伴随等于逆。
+- **谁在用**：`functional-analysis.hilbert.unitary`。
+
 ## 附：登记清单自动核对
 
 - 登记过的名字在此文件的 `### ` 标题里。

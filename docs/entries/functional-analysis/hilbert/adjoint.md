@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.hilbert.adjoint
 kind: theorem
-state: staging
+state: verified
 title: Hilbert 空间上有界算子的伴随
 premises: [functional-analysis.hilbert.riesz, functional-analysis.operator.space]
 mathlib: [ContinuousLinearMap.adjoint, ContinuousLinearMap.eq_adjoint_iff]

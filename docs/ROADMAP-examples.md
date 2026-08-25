@@ -104,7 +104,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.2 连续与同胚 | `examples.topology.continuity-homeomorphism` | 具体连续映射和区间同胚 | 连续双射不必同胚（缺逆连续条件） | T1 |
 | E7.3 子空间与商 | `examples.topology.subspace-quotient` | 区间／圆周的子空间和端点粘合 | 子空间开集不必在母空间中开 | T2 |
 | E7.4 紧致与分离 | `examples.topology.compactness-separation` | 有限空间、闭区间、有限积 | 有界不必紧致（非欧氏／非闭情形）；紧集闭需要分离条件 | T2-T3 |
-| E7.5 连通与道路 | `examples.topology.connected-path` | 区间、圆周、凸集的道路和道路拼接 | 连通不必道路连通的标准课程反例 | T3-T4 |
+| E7.5 连通与道路 | `examples.topology.connected-path` | 标准单位区间上的常值、线性道路，圆周和凸集道路，以及道路拼接 | 连通不必道路连通；严格道路等式不等于道路同伦 | T3-T4 |
 | E7.6 度量与完备化 | `examples.topology.metric-completion` | `ℚ` 的 Cauchy 序列及实数完备化直观接口 | 有界不必完全；完全不必紧致 | T3 |
 | E7.7 同伦与基本群 | `examples.topology.homotopy` | 常值／凸集收缩、圆周道路、逆向和拼接 | 同伦等价不等于同胚 | T4 |
 
@@ -151,7 +151,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.2 Banach 值级数 | `examples.functional-analysis.series` | 有限维向量几何级数及部分和收敛 | 条件可和不等于范数级数可和；完备性不可静默省略 | F1 |
 | E11.3 闭子空间商 | `examples.functional-analysis.quotients` | 有限维子空间商、商范数距离计算 | 非闭子空间会出现非零陪集范数为零的边界 | F1 |
 | E11.4 Banach 三大定理 | `examples.functional-analysis.banach-theorems` | 具体算子族的一致有界、开映射与有界逆应用 | 逐点有界与一致有界不能在缺 Baire 条件时混同 | F2 |
-| E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、Parseval 的有限维计算 | 最佳逼近与正交投影需要闭凸／闭子空间条件 | F3 |
+| E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、矩阵伴随、有限正交基 Parseval 与正交/酉变换计算 | 投影需要闭性；正交规范族不稠密时只有 Bessel 不等式；等距线性映射不满时不是酉算子 | F3 |
 | E11.6 Hahn–Banach 与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维分离泛函、坐标泛函族的弱／弱星收敛 | 范数收敛、弱收敛与弱星收敛不可混同；逆向通常失败 | F2+/F4 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
 | E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |

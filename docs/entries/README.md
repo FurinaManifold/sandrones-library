@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **422** 个条目（verified 422，pending 0）。
+共 **425** 个条目（verified 425，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -296,8 +296,11 @@
 
 ## `functional-analysis.hilbert`
 
+- ✅ [`adjoint.md`](adjoint.md) — Hilbert 空间上有界算子的伴随
+- ✅ [`orthonormal-basis.md`](orthonormal-basis.md) — Hilbert 基、Fourier 展开与 Parseval 恒等式
 - ✅ [`projection.md`](projection.md) — Hilbert 空间正交投影
 - ✅ [`riesz.md`](riesz.md) — Fréchet–Riesz 表示定理
+- ✅ [`unitary.md`](unitary.md) — Hilbert 空间之间的酉算子
 
 ## `functional-analysis.operator`
 
@@ -606,14 +609,14 @@
 
 - ✅ [`constructions.md`](constructions.md) — 诱导拓扑、子空间拓扑与积拓扑
 - ✅ [`mathlib-compatibility.md`](mathlib-compatibility.md) — 旧教材拓扑与 Mathlib 拓扑的兼容等价
-- ✅ [`real-line.md`](real-line.md) — 实直线与单位区间的教材拓扑
+- ✅ [`real-line.md`](real-line.md) — 标准实拓扑与单位区间的正式承载
 - ✅ [`structure.md`](structure.md) — 拓扑、连续映射与同胚的正式承载
 
 ## `topology.homotopy`
 
 - ✅ [`definition-foundation.md`](definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接
-- ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的教材定义
+- ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的正式承载
 - ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路
 
 ## `topology.metric`

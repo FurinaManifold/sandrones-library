@@ -193,6 +193,9 @@ import SandronesLibrary.FunctionalAnalysis.ClosedGraph
 import SandronesLibrary.FunctionalAnalysis.InverseOperator
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
+import SandronesLibrary.FunctionalAnalysis.AdjointOperator
+import SandronesLibrary.FunctionalAnalysis.OrthonormalBasis
+import SandronesLibrary.FunctionalAnalysis.UnitaryOperator
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

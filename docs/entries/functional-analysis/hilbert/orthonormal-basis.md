@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.hilbert.orthonormal-basis
 kind: theorem
-state: staging
+state: verified
 title: Hilbert 基、Fourier 展开与 Parseval 恒等式
 premises: [functional-analysis.hilbert.projection, functional-analysis.hilbert.riesz]
 mathlib: [HilbertBasis, HilbertBasis.orthonormal, HilbertBasis.hasSum_repr]
