@@ -27,7 +27,7 @@
 
 | 阶段 | 课程（家族前缀） | 批次 | 前驱 |
 |---|---|---|---|
-| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ | — |
+| **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2🚧 A3🚧 | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
@@ -140,7 +140,7 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 
 ---
 
-## 2. Phase 1 — 分析线（M1-M5 ✅）
+## 2. Phase 1 — 分析线（M1-M5 ✅；AN3🔒）
 
 > 家族前缀 `analysis.`；命名示例：`analysis.continuity.definition`、`analysis.derivative.chain-rule`。
 
@@ -200,6 +200,21 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 | 6 | `analysis.mvt.taylor` | **泰勒公式**（Peano/Lagrange 余项） | `taylor`、`Taylor`、`taylor_eq_sum` |
 | 6.5 | `analysis.mvt.taylor-integral-remainder` | **Taylor 积分型余项**（自建 Riemann 积分版本） | `taylor_integral_remainder` |
 | 7 | `analysis.asymptotic.stirling` | **Wallis 乘积与 Stirling 公式**（含全局下界） | `Real.tendsto_prod_pi_div_two`、`Stirling.factorial_isEquivalent_stirling` |
+
+### AN3 / Analysis 第三学期 🔒
+
+主参照为卓里奇《数学分析》第二卷第 16--18 章：一致收敛与函数族的基本分析运算、含参变量积分、
+傅里叶级数与傅里叶变换。课程顺序固定为：
+
+1. 函数列、函数项级数和函数族的一致／局部一致收敛；
+2. 极限与连续、积分、微分交换的精确条件；
+3. 含参正常积分与广义积分的连续性、积分号下求导及卷积入口；
+4. 正交函数系、三角 Fourier 级数、Dirichlet 核、逐点收敛、系数衰减与完备性；
+5. Fourier 积分表示和 Fourier 变换的初步运算性质。
+
+详细的 AN3-1--AN3-15 批次、完成出口及课程边界见 `ROADMAP-math-analysis.md`。傅里叶级数是
+AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz／分布和奇异积分仍留给
+`harmonic-analysis.*`。
 
 ---
 

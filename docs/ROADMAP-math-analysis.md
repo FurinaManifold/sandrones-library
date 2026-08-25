@@ -260,6 +260,50 @@
 | `analysis.multivariable.second-kind-integrals` | 第二型曲线积分与曲面积分 | 🚧 |
 | `analysis.multivariable.green-gauss-stokes` | Green/Gauss/Stokes 局部公式、有限片/多图册拼接、边面自动抵消与闭曲面推论 | 🚧 |
 
+## Analysis 第三学期：函数族、含参积分与 Fourier 初步
+
+> **主参照**：卓里奇《数学分析》第二卷第 16--18 章。第三学期承接本文件已经建设的多元微积分，
+> 依次学习一致收敛与函数项级数、含参变量积分、傅里叶级数，最后到傅里叶变换初步。
+> Folland 路线仍用于 Phase 5 的现代实分析维护，不作为本学期的章节顺序。
+
+### 第十六章：一致收敛与函数族的基本运算
+
+| 批次 | 条目家族 | 内容 | 完成出口 | 状态 |
+|---|---|---|---|---|
+| AN3-1 | `analysis.function-sequence.uniform-convergence` | 函数列／函数项级数的一致收敛、Cauchy 判据、Weierstrass M 判别法 | 教材定义、点态关系和一致 Cauchy 等价齐全 | 🔲 |
+| AN3-2 | `analysis.function-sequence.limit-operations` | 一致极限保持连续；极限与积分交换 | 给出假设精确的交换次序定理 | 🔲 |
+| AN3-3 | `analysis.function-sequence.derivative-exchange` | 导函数列一致收敛时逐项求导及其必要基点条件 | 不把函数列本身的一致收敛误当充分条件 | 🔲 |
+| AN3-4 | `analysis.function-family.uniform` | 带参数函数族的一致收敛、局部一致收敛与正规收敛 | 为含参积分和 Fourier 级数冻结统一接口 | 🔲 |
+
+### 第十七章：含参变量积分
+
+| 批次 | 条目家族 | 内容 | 前置 | 状态 |
+|---|---|---|---|---|
+| AN3-5 | `analysis.parameter-integral.continuity` | 正常积分的参数连续性与一致连续控制 | AN3-2、AN3-4 | 🔲 |
+| AN3-6 | `analysis.parameter-integral.differentiation` | 积分号下求导及支配／一致控制条件 | AN3-3、AN3-5 | 🔲 |
+| AN3-7 | `analysis.parameter-integral.improper` | 广义含参积分的一致收敛、连续性及求导 | AN3-4--AN3-6 | 🔲 |
+| AN3-8 | `analysis.parameter-integral.examples` | Gamma/Beta 型积分和参数技巧的理论接口；具体数值题放 `Examples` | AN3-6、AN3-7 | 🔲 |
+| AN3-9 | `analysis.convolution.intro` | 卷积的启发、定义、基本运算和与含参积分的关系 | AN3-5--AN3-7 | 🔲 |
+
+### 第十八章：傅里叶级数与傅里叶变换
+
+| 批次 | 条目家族 | 内容 | 前置 | 状态 |
+|---|---|---|---|---|
+| AN3-10 | `analysis.fourier-series.orthogonal-system` | 正交函数系、Fourier 系数与 Fourier 级数、Bessel 不等式 | AN3-1；积分内积 | 🔲 |
+| AN3-11 | `analysis.fourier-series.trigonometric` | 三角 Fourier 系数、部分和与 Dirichlet 核表示 | AN3-10；三角恒等式 | 🔲 |
+| AN3-12 | `analysis.fourier-series.pointwise-convergence` | Dirichlet/Jordan 型逐点收敛、跳跃点取左右极限平均 | AN3-11；AN3-7 | 🔲 |
+| AN3-13 | `analysis.fourier-series.smoothness-decay` | 函数光滑性与 Fourier 系数衰减、逐项微分边界 | AN3-3、AN3-12 | 🔲 |
+| AN3-14 | `analysis.fourier-series.completeness` | 三角函数系完备性、Parseval 等式及相应均方收敛 | AN3-10--AN3-13 | 🔲 |
+| AN3-15 | `analysis.fourier-transform.intro` | Fourier 积分表示、变换定义、微分／平移／缩放／卷积性质和典型例子 | AN3-6、AN3-9、AN3-12--AN3-14 | 🔲 |
+
+### 第三学期终点的诚实边界
+
+- AN3-10--AN3-14 属于本学期正文，不得把傅里叶级数整体推迟到高阶调和分析。
+- AN3-15 只做到卓里奇第 18 章意义下的 Fourier 变换初步；归一化 convention、积分存在条件和
+  反演公式的正则性假设必须逐一定明。
+- `L²(ℝⁿ)` Plancherel 延拓、Schwartz 空间、温和分布、Poisson 求和、奇异积分和一般局部紧群
+  Fourier 理论仍属于 `harmonic-analysis.*`。
+
 > **范围边界**：本数学分析 II 路线只做到欧氏空间（特别是星形/单连通区域）上的
 > Poincaré 型结论以及第二型积分和 Green–Gauss–Stokes 公式。de Rham 上同调、
 > 同伦不变性与 de Rham 定理移入后续微分几何/代数拓扑路线，不作为本阶段前置。
