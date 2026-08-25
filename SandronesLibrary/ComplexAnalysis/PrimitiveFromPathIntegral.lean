@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.ComplexAnalysis.HomotopyInvariance
+import Mathlib.Analysis.Calculus.AddTorsor.AffineMap
 
 /-!
 # Constructing a primitive from path-integral independence
@@ -25,11 +26,76 @@ namespace SandronesLibrary.ComplexAnalysis
 
 noncomputable section
 
-/-- An admissible path stays in `U` and the scalar one-form `f(z) dz` is integrable along it.
+/-- An admissible path is a finite concatenation of genuinely `C¹` paths which stay in `U` and
+along which the scalar one-form `f(z) dz` is integrable.  Storing these facts on every piece makes
+induction by concatenation available and excludes arbitrary continuous paths whose default
+`derivWithin` would not support the fundamental theorem of calculus.
 
 > **Entry**: complex-analysis.cauchy.primitive-from-path-independence-foundation -/
-def AdmissiblePath {a b : ℂ} (f : ℂ → ℂ) (U : Set ℂ) (gamma : Path a b) : Prop :=
-  range gamma ⊆ U ∧ PathIntegrable f gamma
+inductive AdmissiblePath (f : ℂ → ℂ) (U : Set ℂ) : {a b : ℂ} → Path a b → Prop
+  | of_contDiffOn {a b : ℂ} (gamma : Path a b)
+      (hrange : range gamma ⊆ U) (hintegrable : PathIntegrable f gamma)
+      (hregular : ContDiffOn ℝ 1 gamma.extend (Icc 0 1)) : AdmissiblePath f U gamma
+  | trans {a b c : ℂ} {gamma : Path a b} {delta : Path b c}
+      (hgamma : AdmissiblePath f U gamma) (hdelta : AdmissiblePath f U delta) :
+      AdmissiblePath f U (gamma.trans delta)
+
+namespace AdmissiblePath
+
+theorem range_subset {f : ℂ → ℂ} {U : Set ℂ} {a b : ℂ} {gamma : Path a b}
+    (hgamma : AdmissiblePath f U gamma) : range gamma ⊆ U := by
+  induction hgamma with
+  | of_contDiffOn _ hrange _ _ => exact hrange
+  | trans hgamma hdelta ihgamma ihdelta =>
+      rw [Path.trans_range]
+      exact union_subset ihgamma ihdelta
+
+theorem pathIntegrable {f : ℂ → ℂ} {U : Set ℂ} {a b : ℂ} {gamma : Path a b}
+    (hgamma : AdmissiblePath f U gamma) : PathIntegrable f gamma := by
+  induction hgamma with
+  | of_contDiffOn _ _ hintegrable _ => exact hintegrable
+  | trans hgamma hdelta ihgamma ihdelta => exact ihgamma.trans ihdelta
+
+end AdmissiblePath
+
+/-- The integral of a function with a primitive along an admissible path is the difference of the
+primitive at the endpoints.  The proof applies the fundamental theorem of calculus to each `C¹`
+piece and then adds the resulting endpoint differences.
+
+> **Entry**: complex-analysis.cauchy.primitive-from-path-independence-foundation -/
+theorem pathIntegral_eq_sub_of_primitive_of_admissiblePath
+    {f g : ℂ → ℂ} {U : Set ℂ} {a b : ℂ} {gamma : Path a b}
+    (hgamma : AdmissiblePath f U gamma) (hg : ∀ z ∈ U, HasDerivAt g (f z) z) :
+    pathIntegral f gamma = g b - g a := by
+  induction hgamma with
+  | of_contDiffOn gamma hrange hintegrable hregular =>
+      rw [pathIntegral, curveIntegral_def]
+      have hmaps : MapsTo gamma.extend (Icc (0 : ℝ) 1) U := by
+        intro t ht
+        exact hrange ⟨⟨t, ht⟩, by rw [Path.extend_apply _ ht]⟩
+      have hcont : ContinuousOn (fun t : ℝ ↦ g (gamma.extend t)) (Icc 0 1) := by
+        exact ContinuousOn.comp
+          (fun z hz ↦ (hg z hz).continuousAt.continuousWithinAt)
+          hregular.continuousOn hmaps
+      have hderiv : ∀ t ∈ Ioo (0 : ℝ) 1,
+          HasDerivAt (fun t : ℝ ↦ g (gamma.extend t))
+            (curveIntegralFun (scalarOneForm f) gamma t) t := by
+        intro t ht
+        have hinner : DifferentiableAt ℝ gamma.extend t :=
+          ((hregular.differentiableOn one_ne_zero).mono Ioo_subset_Icc_self t ht).differentiableAt
+            (Ioo_mem_nhds ht.1 ht.2)
+        have houter := hg _ (hmaps ⟨ht.1.le, ht.2.le⟩)
+        have hInhds : I ∈ nhds t := by
+          exact mem_of_superset (Ioo_mem_nhds ht.1 ht.2) Ioo_subset_Icc_self
+        simpa [curveIntegralFun_def, derivWithin_of_mem_nhds hInhds,
+          scalarOneForm, Function.comp_def, mul_comm] using
+          (houter.comp_hasFDerivAt t hinner.hasFDerivAt).hasDerivAt
+      simpa using intervalIntegral.integral_eq_sub_of_hasDerivAt_of_le
+        zero_le_one hcont hderiv hintegrable
+  | trans hgamma hdelta ihgamma ihdelta =>
+      rw [pathIntegral_trans f _ _ hgamma.pathIntegrable hdelta.pathIntegrable,
+        ihgamma, ihdelta]
+      abel
 
 /-- Path integrals are endpoint-independent on `U` if any two admissible paths with the same
 endpoints have equal integrals.
@@ -39,6 +105,16 @@ def PathIntegralIndependentOn (f : ℂ → ℂ) (U : Set ℂ) : Prop :=
   ∀ {a b : ℂ} (gamma delta : Path a b),
     AdmissiblePath f U gamma → AdmissiblePath f U delta →
       pathIntegral f gamma = pathIntegral f delta
+
+/-- A primitive makes admissible path integrals depend only on their endpoints.
+
+> **Entry**: complex-analysis.cauchy.primitive-from-path-independence-foundation -/
+theorem pathIntegralIndependentOn_of_primitive
+    {f g : ℂ → ℂ} {U : Set ℂ} (hg : ∀ z ∈ U, HasDerivAt g (f z) z) :
+    PathIntegralIndependentOn f U := by
+  intro a b gamma delta hgamma hdelta
+  rw [pathIntegral_eq_sub_of_primitive_of_admissiblePath hgamma hg,
+    pathIntegral_eq_sub_of_primitive_of_admissiblePath hdelta hg]
 
 /-- If every point can be reached from a fixed base point by an admissible path and admissible path
 integrals depend only on endpoints, then integration from the base point defines a primitive of `f`
@@ -88,15 +164,19 @@ theorem exists_primitive_of_pathIntegralIndependentOn
         (show ContinuousOn (fun t : ℝ ↦ (w - z) * f (lineMap z w t)) [[0, 1]] by
           simpa [uIcc_of_le zero_le_one] using hcont).intervalIntegrable
       simpa [scalarOneForm] using hi
+    have hsegRegular : ContDiffOn ℝ 1 (Path.segment z w).extend (Icc 0 1) := by
+      apply (AffineMap.contDiff_lineMap z w).contDiffOn.congr
+      intro t ht
+      rw [Path.extend_apply _ ht]
+      rfl
     have hPz := (P ⟨z, hz⟩).property
     have hPw := (P ⟨w, hwU⟩).property
-    have htrans : AdmissiblePath f U ((P ⟨z, hz⟩).1.trans (.segment z w)) := by
-      constructor
-      · rw [Path.trans_range]
-        exact union_subset hPz.1 hsegRange
-      · exact hPz.2.trans hsegInt
+    have hseg : AdmissiblePath f U (.segment z w) :=
+      .of_contDiffOn _ hsegRange hsegInt hsegRegular
+    have htrans : AdmissiblePath f U ((P ⟨z, hz⟩).1.trans (.segment z w)) :=
+      .trans hPz hseg
     have hi := hind (P ⟨w, hwU⟩).1 ((P ⟨z, hz⟩).1.trans (.segment z w)) hPw htrans
-    rw [pathIntegral_trans f _ _ hPz.2 hsegInt] at hi
+    rw [pathIntegral_trans f _ _ hPz.pathIntegrable hsegInt] at hi
     simpa [g, hz, hwU] using hi
   exact (hsegDeriv.const_add (g z)).congr_of_eventuallyEq heq
 

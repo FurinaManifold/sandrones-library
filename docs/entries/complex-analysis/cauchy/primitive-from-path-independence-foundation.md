@@ -5,7 +5,7 @@ variant: endpoint-independent-integrals
 kind: theorem
 state: verified
 title: 由路径积分无关性构造原函数
-summary: 若开全纯域内从基点可达且任意同端点可积道路的积分相等，则从基点到变量终点的积分定义一个原函数
+summary: 若开全纯域内从基点可由分段 C1 可积道路到达且同端点道路积分相等，则从基点到变量终点的积分定义一个原函数
 premises: [complex-analysis.holomorphic.definition, complex-analysis.integral.path, complex-analysis.cauchy.smooth-homotopy-foundation]
 mathlib: [HasFDerivWithinAt.curveIntegral_segment_source, Path.trans_range, curveIntegrable_segment, Metric.isOpen_iff]
 provenance:
@@ -28,8 +28,12 @@ provenance:
 # 陈述（Lean 对照）
 
 ```lean
-def AdmissiblePath (f : ℂ → ℂ) (U : Set ℂ) (gamma : Path a b) : Prop :=
-  Set.range gamma ⊆ U ∧ PathIntegrable f gamma
+inductive AdmissiblePath (f : ℂ → ℂ) (U : Set ℂ) : Path a b → Prop
+  | of_contDiffOn (gamma) (hrange : Set.range gamma ⊆ U)
+      (hintegrable : PathIntegrable f gamma)
+      (hregular : ContDiffOn ℝ 1 gamma.extend (Set.Icc 0 1))
+  | trans (hgamma : AdmissiblePath f U gamma)
+      (hdelta : AdmissiblePath f U delta)
 
 def PathIntegralIndependentOn (f : ℂ → ℂ) (U : Set ℂ) : Prop := ...
 
@@ -46,7 +50,7 @@ theorem exists_primitive_of_pathIntegralIndependentOn
 
 # 自然语言 ↔ Lean 映射
 
-“域内可积道路”对应 `AdmissiblePath` 的像包含与 `PathIntegrable` 合取；“积分只依赖端点”对应 `PathIntegralIndependentOn`；“选取从基点到每一点的道路”由依赖型函数 `P : ∀ z : U, {gamma : Path c z // ...}` 承载；“接上短线段”对应 `Path.trans`；“邻域内等于常数加短线段积分”对应滤子等式 `=ᶠ[nhds z]`。
+“分段 C¹ 域内可积道路”对应归纳定义 `AdmissiblePath.of_contDiffOn` 与 `AdmissiblePath.trans`；逐段端点公式对应对该证书归纳并使用一维微积分基本定理；“积分只依赖端点”对应 `PathIntegralIndependentOn`；“选取从基点到每一点的道路”由依赖型函数 `P : ∀ z : U, {gamma : Path c z // ...}` 承载；“接上短线段”对应 `Path.trans`；“邻域内等于常数加短线段积分”对应滤子等式 `=ᶠ[nhds z]`。
 
 # 依赖（人话版）
 
@@ -54,4 +58,4 @@ theorem exists_primitive_of_pathIntegralIndependentOn
 
 # 应用与陷阱
 
-该定理是一般单连通原函数定理的分析构造层，不是最终拓扑定理。`PathIntegralIndependentOn` 必须由 Goursat、同伦或多边形逼近另行证明；仅有道路连通性不够。`AdmissiblePath` 只要求曲线可积，不宣称所有连续 `Path` 自动可积。也不能把经典选择误读为可计算的规范道路算法：它只用于存在性证明。
+该定理是一般单连通原函数定理的分析构造层，不是最终拓扑定理。`PathIntegralIndependentOn` 必须由 Goursat、同伦或多边形逼近另行证明；仅有道路连通性不够。`AdmissiblePath` 特意携带有限分段 C¹ 证书和每段可积性：只要求 `CurveIntegrable` 会误收任意连续道路，因为 Mathlib 的默认 `derivWithin` 对病态道路不足以支持微积分基本定理。也不能把经典选择误读为可计算的规范道路算法：它只用于存在性证明。

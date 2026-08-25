@@ -12,7 +12,8 @@
 
 ## 定义层与证明边界
 
-- 不新增伪造的“多边形道路”结构，直接复用上一批 `AdmissiblePath`。
+- 直接复用上一批归纳式 `AdmissiblePath`：叶节点携带域内、可积、`C¹` 三项证明，拼接节点保留
+  有限分段结构。
 - `exists_admissiblePath_of_isPreconnected` 对任意连续 `f`、开预连通 `U` 成立；证明构造的道路由
   有限次短线段拼接隐式生成，但公开结论只承诺存在 admissible `Path`。
 - 两个原函数推论仍显式要求 `PathIntegralIndependentOn f U`。其中标准

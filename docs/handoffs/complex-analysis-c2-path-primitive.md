@@ -12,7 +12,10 @@
 
 ## 本库公开定义与后端边界
 
-- `AdmissiblePath f U gamma` 表示道路像留在 `U` 且 `f(z)dz` 沿道路可积。
+- `AdmissiblePath f U gamma` 是由域内、可积的 `C¹` 道路经有限拼接生成的归纳证书；它不把任意
+  连续 `Path` 误当作正则道路。
+- `pathIntegral_eq_sub_of_primitive_of_admissiblePath` 对证书归纳，逐段应用微积分基本定理；
+  `pathIntegralIndependentOn_of_primitive` 给出其端点无关推论。
 - `PathIntegralIndependentOn f U` 表示任意同端点 admissible 道路积分相等；这是公开的教材中间
   命题，不是原函数存在性的改名。
 - `exists_primitive_of_pathIntegralIndependentOn` 用基点到各点的 admissible 道路可达性和上述
@@ -26,7 +29,9 @@
   道路选择、短线段 admissibility、拼接积分比较、邻域函数等式和局部导数转移。
 - 负责人检查了定义没有把“存在原函数”藏入积分无关性：`PathIntegralIndependentOn` 只比较
   现有路径积分，主证明才首次构造 `g`。
-- 证明对道路只要求真实 `PathIntegrable`，没有把任意连续 `Path` 误当作自动可积。
+- 接口复审发现单独的 `PathIntegrable` 仍不足：Mathlib 的默认 `derivWithin` 可能让病态连续道路
+  通过可积性，却无法应用微积分基本定理。现已改为逐段同时携带 `ContDiffOn` 与可积性，并由
+  新端点公式实际验收该设计。
 
 ## 验证
 

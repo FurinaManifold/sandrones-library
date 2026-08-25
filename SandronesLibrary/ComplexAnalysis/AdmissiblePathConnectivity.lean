@@ -31,7 +31,7 @@ private theorem admissiblePath_segment_of_ball
     AdmissiblePath f U (.segment z w) := by
   have hline : MapsTo (lineMap z w) (Icc (0 : ℝ) 1) (ball center r) :=
     fun _ ht ↦ (convex_ball center r).lineMap_mem hz hw ht
-  constructor
+  apply AdmissiblePath.of_contDiffOn
   · rintro q ⟨t, rfl⟩
     exact hball (hline t.2)
   · rw [PathIntegrable, curveIntegrable_segment]
@@ -42,6 +42,10 @@ private theorem admissiblePath_segment_of_ball
       (show ContinuousOn (fun t : ℝ ↦ (w - z) * f (lineMap z w t)) [[0, 1]] by
         simpa [uIcc_of_le zero_le_one] using hcont).intervalIntegrable
     simpa [scalarOneForm] using hi
+  · apply (AffineMap.contDiff_lineMap z w).contDiffOn.congr
+    intro t ht
+    rw [Path.extend_apply _ ht]
+    rfl
 
 /-- In an open preconnected set, every point can be reached from a fixed member by an admissible
 path for any continuous integrand.
@@ -55,12 +59,16 @@ theorem exists_admissiblePath_of_isPreconnected
   let R : Set ℂ := {z | ∃ gamma : Path c z, AdmissiblePath f U gamma}
   have hcR : c ∈ R := by
     refine ⟨.refl c, ?_⟩
-    constructor
+    apply AdmissiblePath.of_contDiffOn
     · simpa using hc
     · simp [PathIntegrable]
+    · apply (show ContDiffOn ℝ 1 (fun _ : ℝ ↦ c) (Icc 0 1) by fun_prop).congr
+      intro t ht
+      rw [Path.extend_apply _ ht]
+      rfl
   have hRU : R ⊆ U := by
     rintro z ⟨gamma, hgamma⟩
-    exact hgamma.1 ⟨1, gamma.target⟩
+    exact hgamma.range_subset ⟨1, gamma.target⟩
   have hRopen : IsOpen R := by
     rw [Metric.isOpen_iff]
     rintro z ⟨gamma, hgamma⟩
@@ -68,10 +76,7 @@ theorem exists_admissiblePath_of_isPreconnected
     refine ⟨r, hr, fun w hw ↦ ?_⟩
     have hseg := admissiblePath_segment_of_ball hf hball (mem_ball_self hr) hw
     refine ⟨gamma.trans (.segment z w), ?_⟩
-    constructor
-    · rw [Path.trans_range]
-      exact union_subset hgamma.1 hseg.1
-    · exact hgamma.2.trans hseg.2
+    exact hgamma.trans hseg
   let V : Set ℂ := U \ R
   have hVopen : IsOpen V := by
     rw [Metric.isOpen_iff]
@@ -83,10 +88,7 @@ theorem exists_admissiblePath_of_isPreconnected
     have hseg := admissiblePath_segment_of_ball hf hball hw (mem_ball_self hr)
     apply hzR
     refine ⟨gamma.trans (.segment w z), ?_⟩
-    constructor
-    · rw [Path.trans_range]
-      exact union_subset hgamma.1 hseg.1
-    · exact hgamma.2.trans hseg.2
+    exact hgamma.trans hseg
   have hUR : U ⊆ R := by
     apply hconn.subset_left_of_subset_union hRopen hVopen
     · exact disjoint_sdiff_right
