@@ -27,7 +27,7 @@ variable [NormedAddCommGroup E] [NormedLinearSpace ℝ E] [BanachSpace E]
 Here the textbook premise “the series of norms converges” is represented directly by
 `Summable (fun n ↦ ‖f n‖)`; no parallel predicate is introduced.
 
-> **Entry**: functional-analysis.banach-series.absolute-summable
+> **Entry**: functional-analysis.series.summable
 -/
 theorem summable_of_summable_norm {f : ℕ → E}
     (hf : Summable (fun n ↦ ‖f n‖)) : Summable f := by

@@ -1,5 +1,5 @@
 ---
-id: functional-analysis.banach-series.absolute-summable
+id: functional-analysis.series.summable
 kind: theorem
 state: staging
 title: Banach 空间中绝对可和蕴含可和
