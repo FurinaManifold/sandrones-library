@@ -1,7 +1,7 @@
 # F1 泛函分析基础 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`8d5d823`
+- Main 基线：`14b150e`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f1-design.md`
 - 当前阶段：F1 六项学科开发与验证完成，等待 Main 审核集成
 
