@@ -3,7 +3,7 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`bdc17a6`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach 延拓窗口完成验证
+- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach 延拓与范数化泛函完成验证
 
 ## Hahn–Banach 延拓窗
 
@@ -15,6 +15,18 @@
 - `lake build SandronesLibrary.FunctionalAnalysis.HahnBanach`：8715 jobs 通过；警告只来自既有依赖。
 - 聚合 `#check` 覆盖部分映射后端、两项 Mathlib 主定理与三个公开声明；Entry 精确映射为三个声明。
 - 三个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 范数化泛函窗
+
+- 正式承载直接采用 `StrongDual`、`exists_dual_vector` 与 `exists_dual_vector''`，不建立本地
+  “范数化泛函”结构。
+- 对偶范数刻画公开为闭单位球上的普遍上界加取到性，避免为单一结论复制上确界定义。
+- 上层使用者给出连续对偶分离点；不要求空间完备，也不声称范数化泛函唯一或对偶单位球范数紧致。
+- `lake build SandronesLibrary.FunctionalAnalysis.NormingFunctional`：8716 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖连续对偶、两项 Mathlib 存在定理、算子范数上界与五个公开声明；Entry 精确
+  映射为五个声明。
+- 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
 ## 有界逆窗
