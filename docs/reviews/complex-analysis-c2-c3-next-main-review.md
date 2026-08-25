@@ -48,3 +48,6 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
   道路到达每点”与“同端点道路积分无关”构造全局原函数，并逐点证明导数等于原函数。该结果用
   `complex-analysis.cauchy.primitive-from-path-independence-foundation`，没有把尚待证明的积分无关性
   或标准单连通结论写成已完成。
+- `resolved admissible reachability`：新增 `AdmissiblePathConnectivity.lean`，以可达集合的相对开闭
+  论证证明任意开连通域内从基点到每点存在 admissible 道路；并把标准 `IsSimplyConnected` 原函数
+  路线压缩为唯一剩余假设 `PathIntegralIndependentOn`。该推论仍保留此显式前提，不冒充最终定理。
