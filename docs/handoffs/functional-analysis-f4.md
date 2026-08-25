@@ -2,8 +2,8 @@
 
 - 分支：`codex/functional-analysis`
 - Main 基线：`5946cc2`（`git rebase main`）
-- 权限：F4.1/F4.2 `development_open`；F4.3 `research_open`
-- 当前阶段：F4.1 弱拓扑定义完成验证；F4.2 弱星拓扑开发中
+- 权限：F4.1 已集成；F4.2 `integration_open`；F4.3 `development_open`
+- 当前阶段：F4.1 弱拓扑已集成；F4.2 弱星拓扑与 F4.3 Banach–Alaoglu 已完成验证
 
 ## F4.1 弱拓扑窗
 
@@ -27,6 +27,15 @@
 - 聚合 `#check` 覆盖弱星承载、底层恒等、求值连续与四个公开声明；Entry 精确映射为四个声明。
 - 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
+
+## F4.3 Banach–Alaoglu 窗
+
+- 直接采用 `WeakDual.isCompact_closedBall`；弱星球写成
+  `WeakDual.toStrongDual ⁻¹' Metric.closedBall f r`，不把弱星紧致误写成范数紧致。
+- 公开链覆盖弱星闭性、任意对偶闭球弱星紧致及闭单位球特例。
+- 集成等待 F4.2 的 `WeakDual` 教材承载进入 Main；可分时可度量化／序列紧致仍是后续窗口。
+- `lake build SandronesLibrary.FunctionalAnalysis.BanachAlaoglu`：8723 jobs 通过；Entry 精确映射为
+  三个公开声明，三者公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`。
 
 ## 共有文件建议
 
