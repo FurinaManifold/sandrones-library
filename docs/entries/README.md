@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **414** 个条目（verified 413，pending 0）。
+共 **422** 个条目（verified 422，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -28,7 +28,8 @@
 
 - ✅ [`def.md`](def.md) — 多项式的有限支撑系数语义与 Lean 承载
 - ✅ [`division.md`](division.md) — 多项式带余除法与 Euclidean 算法
-- ✅ [`irreducible.md`](irreducible.md) — 不可约与带余除法
+- ✅ [`factorization.md`](factorization.md) — 多项式唯一分解与根重数
+- ✅ [`irreducible.md`](irreducible.md) — 多项式不可约判据
 - ✅ [`mathlib-compat.md`](mathlib-compat.md) — Mathlib 多项式正式承载的基础课程接口
 - ✅ [`roots-card.md`](roots-card.md) — 根的个数不超过次数
 
@@ -281,6 +282,22 @@
 ## `complex-analysis.singularity`
 
 - ✅ [`classification-foundation.md`](classification-foundation.md) — 孤立奇点分类的基础接口
+
+## `functional-analysis`
+
+- ✅ [`banach-steinhaus.md`](banach-steinhaus.md) — Banach–Steinhaus 一致有界原理
+- ✅ [`closed-graph.md`](closed-graph.md) — Banach 闭图定理
+- ✅ [`inverse-operator.md`](inverse-operator.md) — Banach 有界逆定理
+- ✅ [`open-mapping.md`](open-mapping.md) — Banach 开映像定理
+
+## `functional-analysis.baire`
+
+- ✅ [`theorem.md`](theorem.md) — Banach 空间上的 Baire 范畴定理
+
+## `functional-analysis.hilbert`
+
+- ✅ [`projection.md`](projection.md) — Hilbert 空间正交投影
+- ✅ [`riesz.md`](riesz.md) — Fréchet–Riesz 表示定理
 
 ## `functional-analysis.operator`
 
@@ -588,7 +605,7 @@
 ## `topology.foundation`
 
 - ✅ [`constructions.md`](constructions.md) — 诱导拓扑、子空间拓扑与积拓扑
-- ❓ [`mathlib-compatibility.md`](mathlib-compatibility.md) — 旧教材拓扑与 Mathlib 拓扑的兼容等价
+- ✅ [`mathlib-compatibility.md`](mathlib-compatibility.md) — 旧教材拓扑与 Mathlib 拓扑的兼容等价
 - ✅ [`real-line.md`](real-line.md) — 实直线与单位区间的教材拓扑
 - ✅ [`structure.md`](structure.md) — 拓扑、连续映射与同胚的正式承载
 

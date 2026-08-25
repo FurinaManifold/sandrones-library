@@ -3791,8 +3791,8 @@
   {
     "id": "abstract-algebra.poly.irreducible",
     "kind": "theorem",
-    "title": "不可约与带余除法",
-    "summary": "不可约判据(p=ab⟹a或b单位)；X-a不可约；X不可约；次数1不可约；带余除法整除判据；余式次数小于除式",
+    "title": "多项式不可约判据",
+    "summary": "建立本原多项式、Gauss 引理、有理根定理与 Eisenstein 判据",
     "family": "abstract-algebra.poly",
     "variant": "rotman",
     "premises": [
@@ -3806,7 +3806,7 @@
       "Polynomial.modByMonic_eq_zero_iff_dvd",
       "Polynomial.degree_modByMonic_lt"
     ],
-    "lean_file": "AbstractAlgebra/Poly.lean",
+    "lean_file": "AbstractAlgebra/PolynomialIrreducibility.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/irreducible.md",
     "provenance": {
       "source_type": "book",
@@ -3814,6 +3814,7 @@
     },
     "state": "verified",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -3821,7 +3822,7 @@
     "added_by": "ingestor-abstractalgebra-A3",
     "added_at": "2026-08-21T10:19:20Z",
     "dependedOnBy": [],
-    "proof_sha": "2a3cd9affcb4efe3"
+    "proof_sha": "265c093486ccb0f2"
   },
   {
     "id": "abstract-algebra.poly.roots-card",
@@ -12525,7 +12526,7 @@
     "dependedOnBy": [
       "topology.foundation.constructions"
     ],
-    "proof_sha": "54ad1e0107910b46",
+    "proof_sha": "107e349f1d171d7c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12557,8 +12558,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "528cd320bd579656",
+    "proof_sha": "d1fc2ca6fac9e7aa",
     "axioms": [
+      "<解析失败>",
       "Quot.sound",
       "propext"
     ]
@@ -12582,8 +12584,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "a2ff03900eae2f67",
+    "proof_sha": "e3ebc0bcc3335958",
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
@@ -12907,11 +12910,12 @@
       "topology.homotopy.definition-foundation"
     ],
     "axioms": [
+      "<解析失败>",
       "Classical.choice",
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "a18d5cf2d8c4b352"
+    "proof_sha": "96a61c1b8d1255c4"
   },
   {
     "id": "topology.homotopy.definition-foundation",
@@ -13227,5 +13231,247 @@
       "propext"
     ],
     "proof_sha": "5b99f01d814d68e1"
+  },
+  {
+    "id": "abstract-algebra.poly.factorization",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "多项式唯一分解与根重数",
+    "summary": "域上不可约分解、根重数、形式导数与重根判据",
+    "premises": [
+      "abstract-algebra.poly.irreducible"
+    ],
+    "mathlib": [
+      "Polynomial.normalizedFactors",
+      "Polynomial.rootMultiplicity",
+      "Polynomial.derivative"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Rotman, Advanced Modern Algebra, polynomial factorization"
+    },
+    "lean_file": "AbstractAlgebra/PolynomialFactorization.lean",
+    "nl_file": "docs/entries/abstract-algebra/poly/factorization.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.poly",
+    "variant": "factorization",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "26d1867bdc3c9ea6"
+  },
+  {
+    "id": "functional-analysis.baire.theorem",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach 空间上的 Baire 范畴定理",
+    "summary": "可数个稠密开集的交稠密，并给出闭集覆盖形式",
+    "premises": [
+      "topology.normed-space.def"
+    ],
+    "mathlib": [
+      "dense_iInter_of_isOpen_nat"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, Baire theorem"
+    },
+    "lean_file": "FunctionalAnalysis/Baire.lean",
+    "nl_file": "docs/entries/functional-analysis/baire/theorem.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "3c922fe08e8a0ae6"
+  },
+  {
+    "id": "functional-analysis.banach-steinhaus",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach–Steinhaus 一致有界原理",
+    "summary": "点态有界的连续线性算子族在算子范数上一致有界",
+    "premises": [
+      "functional-analysis.baire.theorem"
+    ],
+    "mathlib": [
+      "banach_steinhaus"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, uniform boundedness"
+    },
+    "lean_file": "FunctionalAnalysis/BanachSteinhaus.lean",
+    "nl_file": "docs/entries/functional-analysis/banach-steinhaus.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7c2c09e551a227c7"
+  },
+  {
+    "id": "functional-analysis.open-mapping",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach 开映像定理",
+    "summary": "Banach 空间间的满连续线性映射是开映射",
+    "premises": [
+      "functional-analysis.baire.theorem"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.isOpenMap_of_surjective"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, open mapping theorem"
+    },
+    "lean_file": "FunctionalAnalysis/OpenMapping.lean",
+    "nl_file": "docs/entries/functional-analysis/open-mapping.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "47c86896c86fd82e"
+  },
+  {
+    "id": "functional-analysis.closed-graph",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach 闭图定理",
+    "summary": "Banach 空间间图像闭的线性映射连续",
+    "premises": [
+      "functional-analysis.open-mapping"
+    ],
+    "mathlib": [
+      "LinearMap.continuous_of_isClosed_graph"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, closed graph theorem"
+    },
+    "lean_file": "FunctionalAnalysis/ClosedGraph.lean",
+    "nl_file": "docs/entries/functional-analysis/closed-graph.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "ae17f23c1ecbd893"
+  },
+  {
+    "id": "functional-analysis.inverse-operator",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach 有界逆定理",
+    "summary": "Banach 空间间的连续线性同构具有连续且有界的逆",
+    "premises": [
+      "functional-analysis.open-mapping"
+    ],
+    "mathlib": [
+      "LinearEquiv.continuous_symm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, bounded inverse theorem"
+    },
+    "lean_file": "FunctionalAnalysis/InverseOperator.lean",
+    "nl_file": "docs/entries/functional-analysis/inverse-operator.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "70aaa2270f1c61f9"
+  },
+  {
+    "id": "functional-analysis.hilbert.projection",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Hilbert 空间正交投影",
+    "summary": "闭线性子空间上的正交投影、正交余项与最佳逼近",
+    "premises": [
+      "functional-analysis.subspace.quotient"
+    ],
+    "mathlib": [
+      "Submodule.starProjection"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, Hilbert spaces"
+    },
+    "lean_file": "FunctionalAnalysis/HilbertProjection.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/projection.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.hilbert",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "625ad55b2f91e45d"
+  },
+  {
+    "id": "functional-analysis.hilbert.riesz",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Fréchet–Riesz 表示定理",
+    "summary": "Hilbert 空间上连续线性泛函由唯一向量的内积表示且范数相等",
+    "premises": [
+      "functional-analysis.hilbert.projection"
+    ],
+    "mathlib": [
+      "InnerProductSpace.toDual"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Bühler–Salamon, Functional Analysis, Riesz representation"
+    },
+    "lean_file": "FunctionalAnalysis/RieszRepresentation.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/riesz.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.hilbert",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8ddaf7a9f66b56a7"
   }
 ]

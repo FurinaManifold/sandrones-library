@@ -117,6 +117,30 @@ theorem isOpen_union (τ : TextbookTopology X) {s t : Set X}
 def IsClosed (τ : TextbookTopology X) (s : Set X) : Prop :=
   τ.IsOpen sᶜ
 
+/-- 空集是闭集。 -/
+theorem isClosed_empty (τ : TextbookTopology X) : τ.IsClosed ∅ := by
+  change τ.IsOpen (∅ : Set X)ᶜ
+  simpa using τ.isOpen_univ
+
+/-- 全集是闭集。 -/
+theorem isClosed_univ (τ : TextbookTopology X) : τ.IsClosed univ := by
+  change τ.IsOpen (univ : Set X)ᶜ
+  simpa using τ.isOpen_empty
+
+/-- 两个闭集的并仍是闭集。 -/
+theorem isClosed_union (τ : TextbookTopology X) {s t : Set X}
+    (hs : τ.IsClosed s) (ht : τ.IsClosed t) : τ.IsClosed (s ∪ t) := by
+  change τ.IsOpen (s ∪ t)ᶜ
+  rw [compl_union]
+  exact τ.isOpen_inter _ _ hs ht
+
+/-- 两个闭集的交仍是闭集。 -/
+theorem isClosed_inter (τ : TextbookTopology X) {s t : Set X}
+    (hs : τ.IsClosed s) (ht : τ.IsClosed t) : τ.IsClosed (s ∩ t) := by
+  change τ.IsOpen (s ∩ t)ᶜ
+  rw [compl_inter]
+  exact τ.isOpen_union hs ht
+
 /-- 若集合包含某个含 `x` 的开集，则称它为 `x` 的邻域。 -/
 def IsNeighborhood (τ : TextbookTopology X) (x : X) (s : Set X) : Prop :=
   ∃ u, τ.IsOpen u ∧ x ∈ u ∧ u ⊆ s
@@ -124,6 +148,29 @@ def IsNeighborhood (τ : TextbookTopology X) (x : X) (s : Set X) : Prop :=
 /-- 若每个开集的原像仍开，则称映射连续。 -/
 def Continuous (τX : TextbookTopology X) (τY : TextbookTopology Y) (f : X → Y) : Prop :=
   ∀ v, τY.IsOpen v → τX.IsOpen (f ⁻¹' v)
+
+/-- 连续映射把闭集拉回为闭集。 -/
+theorem Continuous.isClosed_preimage {τX : TextbookTopology X} {τY : TextbookTopology Y}
+    {f : X → Y} (hf : Continuous τX τY f) {s : Set Y} (hs : τY.IsClosed s) :
+    τX.IsClosed (f ⁻¹' s) := by
+  change τX.IsOpen (f ⁻¹' s)ᶜ
+  rw [← preimage_compl]
+  exact hf _ hs
+
+/-- 连续性也可以等价地用闭集原像仍闭来检验。 -/
+theorem continuous_iff_isClosed_preimage {τX : TextbookTopology X}
+    {τY : TextbookTopology Y} {f : X → Y} :
+    Continuous τX τY f ↔ ∀ s, τY.IsClosed s → τX.IsClosed (f ⁻¹' s) := by
+  constructor
+  · intro hf s hs
+    exact hf.isClosed_preimage hs
+  · intro hf s hs
+    have hclosed : τY.IsClosed sᶜ := by
+      change τY.IsOpen (sᶜ)ᶜ
+      simpa using hs
+    have hpre := hf sᶜ hclosed
+    change τX.IsOpen ((f ⁻¹' sᶜ)ᶜ) at hpre
+    simpa only [preimage_compl, compl_compl] using hpre
 
 /-- 恒等映射连续。 -/
 theorem continuous_id (τ : TextbookTopology X) : Continuous τ τ id := by

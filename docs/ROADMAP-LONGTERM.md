@@ -372,8 +372,8 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 |---|---|---|---|
 | 1 | `abstract-algebra.poly.def` | `Polynomial` 正式承载的有限支撑系数语义、次数、求值、根与旧表示双向桥 | ✅ |
 | 2 | `abstract-algebra.poly.division` | 首一多项式带余除法、Euclidean 算法、gcd 与 Bézout | ✅ |
-| 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | 🟡（一次多项式已有） |
-| 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | 🟡（根数上界已有） |
+| 3 | `abstract-algebra.poly.irreducible` | 不可约判据、Gauss 引理、有理根判别、Eisenstein 判别 | ✅ |
+| 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | ✅ |
 | 5 | `abstract-algebra.field.extension` | 扩域、子域、单扩张、代数元与超越元、最小多项式 | 🔲 |
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | 🔲 |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、代数闭包、有限域基础 | 🔲 |
@@ -559,11 +559,11 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.baire.theorem` | Baire 范畴定理 | dense open intersection |
-| 2 | `functional-analysis.banach-steinhaus` | 一致有界原理 | `banach_steinhaus` |
-| 3 | `functional-analysis.open-mapping` | 开映射定理 | continuous linear surjection |
-| 4 | `functional-analysis.closed-graph` | 闭图定理 | closed graph |
-| 5 | `functional-analysis.inverse-operator` | 有界逆定理 | open mapping 推论 |
+| 1 | `functional-analysis.baire.theorem` | Baire 范畴定理 ✅ | dense open intersection |
+| 2 | `functional-analysis.banach-steinhaus` | 一致有界原理 ✅ | `banach_steinhaus` |
+| 3 | `functional-analysis.open-mapping` | 开映射定理 ✅ | continuous linear surjection |
+| 4 | `functional-analysis.closed-graph` | 闭图定理 ✅ | closed graph |
+| 5 | `functional-analysis.inverse-operator` | 有界逆定理 ✅ | open mapping 推论 |
 | 6 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理、支配次线性泛函版本与范数保持延拓 | `exists_extension_norm_eq`、`Sublinear` |
 | 7 | `functional-analysis.hahn-banach.norming-functional` | 给定非零向量的范数化泛函与对偶范数刻画 | `exists_dual_vector`、dual norm API |
 | 8 | `functional-analysis.convex.separation` | 开／闭凸集的几何分离与 Minkowski 泛函证明链 | geometric Hahn–Banach、`Convex` |
@@ -575,8 +575,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.hilbert.projection` | 闭凸集/闭子空间投影 | `orthogonalProjection` |
-| 2 | `functional-analysis.hilbert.riesz` | Riesz 表示定理 | `InnerProductSpace.toDual` |
+| 1 | `functional-analysis.hilbert.projection` | 闭凸集/闭子空间投影 ✅ | `orthogonalProjection` |
+| 2 | `functional-analysis.hilbert.riesz` | Riesz 表示定理 ✅ | `InnerProductSpace.toDual` |
 | 3 | `functional-analysis.hilbert.adjoint` | 有界算子伴随 | CLM adjoint |
 | 4 | `functional-analysis.hilbert.orthonormal-basis` | 正交规范基与 Parseval | `OrthonormalBasis` |
 | 5 | `functional-analysis.hilbert.unitary` | 等距、酉算子及正交分解的基本接口 | `LinearIsometryEquiv`、unitary API |

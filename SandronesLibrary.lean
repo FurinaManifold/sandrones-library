@@ -72,6 +72,8 @@ import SandronesLibrary.AbstractAlgebra.RingCRT
 import SandronesLibrary.AbstractAlgebra.Poly
 import SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 import SandronesLibrary.AbstractAlgebra.PolynomialDivision
+import SandronesLibrary.AbstractAlgebra.PolynomialIrreducibility
+import SandronesLibrary.AbstractAlgebra.PolynomialFactorization
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
@@ -184,6 +186,13 @@ import SandronesLibrary.FunctionalAnalysis.Operator
 import SandronesLibrary.FunctionalAnalysis.OperatorSpace
 import SandronesLibrary.FunctionalAnalysis.BanachSeries
 import SandronesLibrary.FunctionalAnalysis.QuotientSpace
+import SandronesLibrary.FunctionalAnalysis.Baire
+import SandronesLibrary.FunctionalAnalysis.BanachSteinhaus
+import SandronesLibrary.FunctionalAnalysis.OpenMapping
+import SandronesLibrary.FunctionalAnalysis.ClosedGraph
+import SandronesLibrary.FunctionalAnalysis.InverseOperator
+import SandronesLibrary.FunctionalAnalysis.HilbertProjection
+import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions
