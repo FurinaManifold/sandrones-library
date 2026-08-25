@@ -5,6 +5,15 @@
 - 权限：F4.1 已集成；F4.2 `integration_open`；F4.3 `development_open`
 - 当前阶段：F4.1 弱拓扑已集成；F4.2 弱星拓扑与 F4.3 Banach–Alaoglu 已完成验证
 
+## F4.1 拓扑向量空间基础窗
+
+- 实拓扑向量空间直接组合 `IsTopologicalAddGroup E`、`Module ℝ E` 与 `ContinuousSMul ℝ E`，
+  不建立本地包装 class。
+- 公开接口展开加法、取负、联合数乘的连续性，并以 `Homeomorph.addLeft` 给出平移自同胚。
+- 本窗只讲清基础定义，不把局部凸、弱或弱星拓扑并入定义。
+- `lake build SandronesLibrary.FunctionalAnalysis.TopologicalVectorSpace`：1669 jobs 通过；Entry 精确
+  映射为四个公开声明，公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`。
+
 ## F4.1 弱拓扑窗
 
 - 弱拓扑直接采用 Mathlib `WeakSpace ℝ E`，它是底层向量与 `E` 相同、拓扑由连续对偶配对诱导的
