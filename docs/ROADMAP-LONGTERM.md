@@ -685,20 +685,21 @@ Laurent 存在唯一性、一般残数与辐角原理仍未完成。
 
 边界：无选择基础中的 AC/良序/Zorn 双向等价和 CH 独立性证明均未完成。
 
-### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 50 项 ✅，纵深 🚧
+### ST3 递归、增长、Goodstein、Hydra 与可计算性：基础 58 项 ✅，纵深 🚧
 
 | # | 条目 id | 内容 | 状态 |
 |---|---|---|---|
-当前进入 main 的 50 项包括：递归定义与大数记号 7 项，Conway/TREE 与带燃料增长层级 10 项，
-Goodstein 状态、自然数遗传编码、局部借位和序数下降 11 项，Hydra 步骤、局部下降、赋值、认证
-轨迹与良基归纳 10 项，Busy Beaver 有限候选、经典输出/时间最大值与收敛 7 项，以及机器可计算性、部分可计算性和条件式对角接口
-5 项。逐项权威状态见 Registry；以下表格保留下一阶段真正尚缺的课程门。
+当前进入 main 的 58 项包括：递归定义、大数记号与序数幂桥 8 项，Conway/TREE 与带燃料增长层级
+10 项，Goodstein 状态、自然数遗传编码、幂秩、局部借位和序数下降 14 项，Hydra 步骤、局部下降、
+赋值、认证轨迹、策略终止与良基归纳 12 项，Busy Beaver 有限候选、经典输出/时间最大值与收敛
+8 项，以及机器编码、可计算性、部分可计算性和条件式对角接口 6 项。逐项权威状态见 Registry；
+以下表格保留下一阶段真正尚缺的课程门。
 
 | # | 待开发条目 | 需要补齐的内容 | 状态 |
 |---|---|---|---|
 | 1 | `settheory.googology.primitive-recursive-class` | 冻结原始递归函数类并证明闭包 | 🚧 |
 | 2 | `settheory.googology.ackermann-domination` | 支配全部原始递归函数及非原始递归性 | 🔒 |
-| 3 | `settheory.googology.hereditary-encoding-order` | 补齐遗传编码序数值关于输入的精确比较接口 | 🚧 |
+| 3 | `settheory.googology.hereditary-encoding-order` | 已有全局严格保序与底数幂精确秩；继续补一般借位正规化接口 | 🚧 |
 | 4 | `settheory.googology.goodstein-ordinal-descent` | 从局部借位推广到一般正规 Goodstein 步骤 | 🔒 |
 | 5 | `settheory.googology.goodstein-termination` | 用序数良基性证明完整序列终止 | 🔒 |
 | 6 | `settheory.googology.goodstein-pa-independence` | 精确形式化 PA 不可证性边界 | 🔒 |

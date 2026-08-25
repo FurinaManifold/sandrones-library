@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **381** 个条目（verified 381，pending 0）。
+共 **385** 个条目（verified 385，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -422,6 +422,7 @@
 
 ## `settheory.computability`
 
+- ✅ [`binary-machine-coding.md`](binary-machine-coding.md) — 固定状态数二进制机器的有限编码
 - ✅ [`concrete-pairing-code.md`](concrete-pairing-code.md) — 可计算的自然数配对实例
 - ✅ [`conditional-diagonal.md`](conditional-diagonal.md) — 自应用停机判定的条件式对角矛盾
 - ✅ [`executable-universal-spec.md`](executable-universal-spec.md) — 可由程序实现的通用解释器规格
@@ -477,8 +478,10 @@
 - ✅ [`hereditary-natural-encoding.md`](hereditary-natural-encoding.md) — 任意自然数的遗传基编码
 - ✅ [`hereditary-natural-encoding-same-block-order.md`](hereditary-natural-encoding-same-block-order.md) — 修正遗传编码的同商块严格保序
 - ✅ [`hereditary-natural-encoding-strict-order.md`](hereditary-natural-encoding-strict-order.md) — 遗传自然数编码的全局严格保序
+- ✅ [`hereditary-natural-power-rank.md`](hereditary-natural-power-rank.md) — 底数幂的遗传编码具有精确序数秩
 - ✅ [`hydra-certified-play-termination.md`](hydra-certified-play-termination.md) — 带最右脊柱证书的 Hydra 轨迹不可能无限
 - ✅ [`hydra-certified-step-well-founded.md`](hydra-certified-step-well-founded.md) — 认证 Hydra 步骤的良基关系与归纳原理
+- ✅ [`hydra-certified-strategy-termination.md`](hydra-certified-strategy-termination.md) — 认证 Hydra 策略规格的有限终止轨迹
 - ✅ [`hydra-certified-transitive-descent.md`](hydra-certified-transitive-descent.md) — 认证 Hydra 有限多步的严格下降与良基闭包
 - ✅ [`hydra-game-step.md`](hydra-game-step.md) — 有限 Hydra 游戏的定义与阶段相关单步
 - ✅ [`hydra-one-level-descent.md`](hydra-one-level-descent.md) — 含阶段复制的一层 Hydra 砍头严格下降
@@ -505,6 +508,7 @@
 - ✅ [`no-infinite-descent.md`](no-infinite-descent.md) — 序数无穷下降不可能
 - ✅ [`normal-function.md`](normal-function.md) — 正规序数函数
 - ✅ [`order-type.md`](order-type.md) — 良序与序型
+- ✅ [`power-bridge.md`](power-bridge.md) — 本库序数幂的通用运算桥
 - ✅ [`successor-limit.md`](successor-limit.md) — 后继序数与极限序数
 - ✅ [`supremum.md`](supremum.md) — 序数族的上确界
 - ✅ [`transfinite-induction.md`](transfinite-induction.md) — 超限归纳

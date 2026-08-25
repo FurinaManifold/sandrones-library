@@ -142,6 +142,10 @@ import SandronesLibrary.SetTheory.BusyBeaverTime
 import SandronesLibrary.SetTheory.HereditaryNatEncodingOrder
 import SandronesLibrary.SetTheory.HydraCertifiedTransitiveDescent
 import SandronesLibrary.SetTheory.BusyBeaverTimeHaltingBound
+import SandronesLibrary.SetTheory.BinaryMachineCoding
+import SandronesLibrary.SetTheory.HydraCertifiedStrategyTermination
+import SandronesLibrary.SetTheory.OrdinalPowerBridge
+import SandronesLibrary.SetTheory.HereditaryNatPowerRank
 import SandronesLibrary.ComplexAnalysis.Holomorphic
 import SandronesLibrary.ComplexAnalysis.CauchyRiemann
 import SandronesLibrary.ComplexAnalysis.PowerSeries

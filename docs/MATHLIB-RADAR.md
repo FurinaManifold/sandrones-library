@@ -1542,8 +1542,8 @@
 - **坑**：达布上下和定义在 `DarbouxPartition` 上（自建结构）。
 
 ### `Metric.uniformContinuousOn_iff` / `Metric.continuousOn_iff` / `IsCompact.elim_finite_subcover` / `Finset.min'`（一致连续自建用）
-- **人话**：**紧集上连续 ⟹ 一致连续**（Lebesgue 数引理法，mathlib 无此定理，自建）。
-  用每点 δx（continuousOn_iff）+ 开覆盖 + 有限子覆盖（elim_finite_subcover）+ 最小 δ（Finset.min'）。
+- **人话**：Mathlib 已有 `IsCompact.uniformContinuousOn_of_continuous` 给出紧集上的 Heine--Cantor
+  定理；本库仍保留 Lebesgue 数式的独立教材证明，用每点 δx、有限子覆盖和有限最小值完成论证。
 - **签名**：`Metric.uniformContinuousOn_iff : UniformContinuousOn f s ↔ ∀ ε>0, ∃ δ>0, ∀ x∈s, ∀ y∈s, dist x y < δ → dist (f x) (f y) < ε`
 - **谁在用**：`analysis.continuity.uniform-compact`。
 - **坑**：有限子覆盖的 `⋃ i ∈ t` 解构会绑架 binder（Playbook §3.12），用 `simpa [Set.mem_iUnion]`。
@@ -2787,6 +2787,10 @@
 - **人话**：非零底数的原生序数幂在极限指数处等于此前各值的上确界。
 - **谁在用**：验证本库由 `Ordinal.limitRecOn` 定义的 `ordinalPow`。
 
+### `Ordinal.opow_lt_opow_iff_right`
+- **人话**：底数严格大于一时，序数幂的严格大小等价于指数的严格大小。
+- **谁在用**：`settheory.ordinal.power-bridge`，把 Mathlib 原生比较转回本库 `ordinalPow` 接口。
+
 ### `Order.lt_succ_iff`
 - **人话**：在线性后继序中，`a < succ b` 当且仅当 `a ≤ b`。
 - **谁在用**：`settheory.ordinal.successor-limit`。
@@ -2940,6 +2944,14 @@
 ### `Relation.TransGen` / `WellFounded.transGen`
 - **人话**：关系的非空传递闭包及其良基性保持。
 - **谁在用**：认证 Hydra 有限多步下降与闭包归纳；不覆盖普通 `Hydra.Step`。
+
+### `Fintype.equivFin` / `Fintype.card`
+- **人话**：把固定的有限类型规范地等价到由其基数确定的 `Fin`，并读取有限类型的元素总数。
+- **谁在用**：`settheory.computability.binary-machine-coding` 的非可计算有限机器索引桥；不是通用解释器。
+
+### `Nat.mul_div_left` / `Nat.mul_mod_left`
+- **人话**：计算自然数幂按底数整除和取余时的商、余数。
+- **谁在用**：`settheory.googology.hereditary-natural-power-rank` 的 `q^(k+1)` 商余递推。
 
 ## 附：登记清单自动核对
 

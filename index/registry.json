@@ -12174,5 +12174,122 @@
       "propext"
     ],
     "proof_sha": "2c588620f73aad9e"
+  },
+  {
+    "id": "settheory.computability.binary-machine-coding",
+    "kind": "definition",
+    "state": "verified",
+    "title": "固定状态数二进制机器的有限编码",
+    "summary": "固定状态数的有限机器与有限代码类型一一对应，并支持自然数边界检查解码",
+    "premises": [
+      "settheory.googology.binary-machine"
+    ],
+    "mathlib": [
+      "Fintype.equivFin",
+      "Fintype.card"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "有限类型的规范 Fin 编码"
+    },
+    "lean_file": "SetTheory/BinaryMachineCoding.lean",
+    "nl_file": "docs/entries/settheory/computability/binary-machine-coding.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-25T03:51:39Z",
+    "dependedOnBy": [],
+    "proof_sha": "15301e866f567477",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.hydra-certified-strategy-termination",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "认证 Hydra 策略规格的有限终止轨迹",
+    "summary": "每步给出终止或认证后继的策略规格从任意起点都存在有限认证终止轨迹",
+    "premises": [
+      "settheory.googology.hydra-certified-transitive-descent"
+    ],
+    "mathlib": [
+      "WellFounded.induction"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "良基关系上的策略终止归纳"
+    },
+    "lean_file": "SetTheory/HydraCertifiedStrategyTermination.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-certified-strategy-termination.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-25T03:51:39Z",
+    "dependedOnBy": [],
+    "proof_sha": "ace3a787f7e00dfb",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.ordinal.power-bridge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "本库序数幂的通用运算桥",
+    "summary": "本库超限递归定义的序数幂在任意底数和指数上等于 Mathlib 原生序数幂",
+    "premises": [
+      "settheory.ordinal.exponentiation"
+    ],
+    "mathlib": [
+      "Ordinal.limitRecOn",
+      "Ordinal.opow_succ",
+      "Ordinal.opow_limit",
+      "Ordinal.opow_lt_opow_iff_right"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Transfinite recursion characterization of ordinal exponentiation"
+    },
+    "lean_file": "SetTheory/OrdinalPowerBridge.lean",
+    "nl_file": "docs/entries/settheory/ordinal/power-bridge.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-25T03:51:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "c2e7b6951ff33190",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.hereditary-natural-power-rank",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "底数幂的遗传编码具有精确序数秩",
+    "summary": "底数 q 至少为二时 q 的 k 次幂的修正遗传编码在 omegaValue 下精确等于 ω 的 k 次幂",
+    "premises": [
+      "settheory.googology.hereditary-natural-encoding-strict-order"
+    ],
+    "mathlib": [
+      "Nat.mul_div_left",
+      "Nat.mul_mod_left"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "Finite omega-power rank of corrected hereditary encoding"
+    },
+    "lean_file": "SetTheory/HereditaryNatPowerRank.lean",
+    "nl_file": "docs/entries/settheory/googology/hereditary-natural-power-rank.md",
+    "added_by": "ingestor-new_entry.py",
+    "added_at": "2026-08-25T03:51:40Z",
+    "dependedOnBy": [],
+    "proof_sha": "15c844aaa412d67e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]
