@@ -17,9 +17,9 @@ namespace SandronesLibrary.Topology.TextbookTopology
 
 variable {X Y : Type*}
 
+set_option warn.classDefReducibility false in
 /-- A textbook topology gives a Mathlib topology with exactly the same open sets.  This is an
 implementation bridge, not the definition used by the textbook layer. -/
-@[instance_reducible]
 def toMathlib (τ : TextbookTopology X) : TopologicalSpace X where
   IsOpen := τ.IsOpen
   isOpen_univ := τ.isOpen_univ
