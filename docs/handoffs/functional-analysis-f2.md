@@ -3,7 +3,22 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`b82e9d4`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：Baire、Banach–Steinhaus 已接受，开映射已提交；闭图完成验证，有界逆待开发
+- 当前阶段：F2 五项学科开发与联合验收完成，等待 Main 审核
+
+## 有界逆窗
+
+- 正式承载为 `LinearEquiv`、逆 `e.symm` 和 `ContinuousLinearEquiv`；没有本地逆算子结构。
+- `lake build SandronesLibrary.FunctionalAnalysis.InverseOperator`：8714 jobs 通过；仅重放既有警告。
+- 五模块联合聚合 `#check` 覆盖全部正式承载、依赖链和定量上层使用者。
+- 五个 Entry 分别精确映射为 2、2、3、3、3 个公开声明；有界逆三个声明的 `#print axioms` 均为
+  `propext`、`Classical.choice`、`Quot.sound`。
+- 全 F2 禁用占位扫描与 `git diff --check` 通过。
+
+## Main-side 集成建议
+
+- 新增 `Baire`、`BanachSteinhaus`、`OpenMapping`、`ClosedGraph`、`InverseOperator` 顶层 imports。
+- 登记五个 ROADMAP 冻结 id，并补相应 Registry、RADAR、ROADMAP 状态和生成索引。
+- F2 接收后可解除 F4 对 F2 一侧的依赖门；F4 仍需等待 F3 完成。
 
 ## 闭图窗
 
