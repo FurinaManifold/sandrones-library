@@ -27,17 +27,20 @@ Euler φ 函数计数 `1,…,n` 中与 `n` 互素的数。剩余环观点下，�
 
 # 陈述（Lean 对照）
 
-`reduced_residue_card (n) [NeZero n]` 证明
-`Fintype.card (ZMod n)ˣ = n.totient`。
+- `EulerTotient n`：小于 `n` 且与 `n` 互素的自然数组成的有限集合的基数。
+- `eulerTotient_eq_natTotient`：上述教材计数与 Mathlib `n.totient` 的精确桥。
+- `reduced_residue_card_eulerTotient (n) [NeZero n]`：证明
+  `Fintype.card (ZMod n)ˣ = EulerTotient n`。
+- `reduced_residue_card`：保留给既有调用者的 `n.totient` 签名。
 
 # 思维脉络（thinking trace）
 
-选择单位群而不是手工定义既约剩余系，是为了让后续 Euler 定理直接使用有限群结构；此处
-接口与 Mathlib 的计数定理完全一致，所以证明用 `exact`。
+`EulerTotient` 本身确实进行有限计数，而不是 `Nat.totient` 的透明别名。桥定理只需调换
+`Coprime` 两个参数的方向；单位群计数则经桥复用 Mathlib 的结构定理。
 
 # 自然语言 ↔ Lean 映射
 
-- `n.totient` 是 Euler φ 函数。
+- `EulerTotient n` 是课程定义的 Euler φ 函数，`n.totient` 是其 Mathlib 计算接口。
 - `(ZMod n)ˣ` 是剩余环的单位群。
 - `Fintype.card` 计算有限类型的元素个数。
 - `[NeZero n]` 是由类型类系统提供的 `n ≠ 0` 假设。

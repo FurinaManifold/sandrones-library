@@ -16,6 +16,16 @@ Euler φ 函数计数模 `n` 的可逆剩余类。由有限单位群中元素的
 
 namespace SandronesLibrary.NumberTheory.Elementary
 
+/-- Euler's totient counts the natural numbers below `n` which are coprime to `n`.
+
+> **Entry**: number-theory.elementary.totient -/
+def EulerTotient (n : ℕ) : ℕ :=
+  ((Finset.range n).filter fun a ↦ a.Coprime n).card
+
+/-- The textbook finite count agrees with Mathlib's arithmetic totient function. -/
+theorem eulerTotient_eq_natTotient (n : ℕ) : EulerTotient n = n.totient := by
+  simp [EulerTotient, Nat.totient, Nat.coprime_comm]
+
 /-- `φ(n)` 等于剩余环 `ZMod n` 的单位数。
 > **Entry**: number-theory.elementary.totient
 -/
@@ -23,12 +33,24 @@ theorem reduced_residue_card (n : ℕ) [NeZero n] :
     Fintype.card (ZMod n)ˣ = n.totient := by
   exact ZMod.card_units_eq_totient n
 
+/-- The unit group of `ZMod n` has cardinality equal to the textbook Euler totient. -/
+theorem reduced_residue_card_eulerTotient (n : ℕ) [NeZero n] :
+    Fintype.card (ZMod n)ˣ = EulerTotient n := by
+  rw [eulerTotient_eq_natTotient]
+  exact reduced_residue_card n
+
 /-- **Euler 定理**：若 `a,n` 互素，则 `a ^ φ(n) ≡ 1 (mod n)`。
 > **Entry**: number-theory.elementary.fermat-euler
 -/
 theorem euler_theorem {a n : ℕ} (h : a.Coprime n) :
     a ^ n.totient ≡ 1 [MOD n] := by
   exact Nat.ModEq.pow_totient h
+
+/-- Euler's theorem stated using the textbook totient and congruence definitions. -/
+theorem euler_theorem_congruent {a n : ℕ} (h : a.Coprime n) :
+    Congruent n (a ^ EulerTotient n) 1 := by
+  rw [eulerTotient_eq_natTotient, congruent_iff_modEq]
+  exact euler_theorem h
 
 /-- **Fermat 小定理（既约形式）**：素数 `p` 不整除 `a` 时，`a^(p-1) ≡ 1 (mod p)`。
 > **Entry**: number-theory.elementary.fermat-euler

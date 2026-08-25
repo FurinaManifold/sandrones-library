@@ -29,18 +29,21 @@ Euler 定理描述可逆剩余类的统一幂周期；当模数是素数时，�
 
 # 陈述（Lean 对照）
 
-依次对应 `euler_theorem`、`fermat_little_theorem_of_not_dvd` 和
-`fermat_little_theorem`。
+教材定义版本对应 `euler_theorem_congruent`，其结论使用 `Congruent` 与 `EulerTotient`。
+兼容版本依次为 `euler_theorem`、`fermat_little_theorem_of_not_dvd` 和
+`fermat_little_theorem`，继续使用 Mathlib 签名以避免破坏既有调用者。
 
 # 思维脉络（thinking trace）
 
-既约 Fermat 版本先把“不整除”经素数互素判据转成 `a.Coprime p`，调用 Euler 定理后以
+教材版本先用两条精确桥把定义还原为 Mathlib 的 Euler 定理。既约 Fermat 版本再把“不整除”
+经素数互素判据转成 `a.Coprime p`，调用 Euler 定理后以
 `φ(p)=p-1` 化简。无条件版本按 `p ∣ a` 分类：可整除时 `a` 与 `a^p` 都同余于零；否则将
 既约版本两边乘 `a`，再用 `p-1+1=p` 整理指数。
 
 # 自然语言 ↔ Lean 映射
 
 - `by_cases hpa : p ∣ a` 对命题是否成立分情况。
+- `euler_theorem_congruent` 是正文首选的教材签名。
 - `have` 为中间数学事实命名。
 - `.mul_right a` 把同余两边同时乘 `a`。
 - `.trans` 连接两条首尾相接的同余关系。

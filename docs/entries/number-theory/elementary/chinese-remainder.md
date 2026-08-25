@@ -28,13 +28,15 @@ provenance:
 
 # 陈述（Lean 对照）
 
-- `chinese_remainder_exists` 返回共同解及两项同余证明。
+- `chinese_remainder_exists_congruent` 以教材谓词 `Congruent` 返回共同解。
+- `chinese_remainder_exists` 保留 `Nat.ModEq` 签名供既有调用者使用。
 - `chineseRemainderEquiv` 返回保持加法、乘法和单位元的 `RingEquiv`。
 
 # 思维脉络（thinking trace）
 
-存在形式投影 `Nat.chineseRemainder` 返回的子类型元素及其 `.property`。结构形式直接保留
-Mathlib 的环同构，因为这比仅有双射更准确，并可供后续单位群和乘法函数结果使用。
+存在形式先投影 `Nat.chineseRemainder` 返回的子类型元素及其 `.property`，再经
+`congruent_iff_modEq` 得到教材签名。结构形式直接保留 Mathlib 的环同构，因为 `ZMod` 在这里
+是必要的数据载体，而不是尚未解释的课程定义。
 
 # 自然语言 ↔ Lean 映射
 

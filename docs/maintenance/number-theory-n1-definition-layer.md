@@ -70,5 +70,9 @@ N1 的 11 个 Lean 模块、21 个 Entry、Registry、RADAR 和 ROADMAP 已进�
 
 ## 本轮诚实边界
 
-RFC 完成只证明影响图和迁移方案已经冻结，不代表定义迁移完成。特别是 Euler φ 与素因子指数必须
-给出真正的有限计数／指数教材定义，不能用一个从未被上层使用的 `abbrev` 冒充完成。
+A1 已完成 Stage A：`Congruent` 是余数相等定义，`EulerTotient` 是对 `Finset.range n` 中互素元素
+的真实有限计数；二者都有到 Mathlib 的精确桥，并分别被运算闭包、CRT、单位群计数和 Euler
+定理的教材签名实际使用。旧 `Nat.ModEq`／`Nat.totient` 定理完整保留。
+
+A2、A3 仍未实施。特别是素因子指数必须给出真正的有限支撑／指数定义，不能用从未被上层使用的
+`abbrev` 冒充完成；本次 A1 也不声称替代 Mathlib 的完整同余或 totient 接口。

@@ -28,17 +28,21 @@ provenance:
 
 # 陈述（Lean 对照）
 
+- `Congruent n a b`：教材层定义，展开后是 `a % n = b % n`。
+- `congruent_iff_modEq`：教材定义与 Mathlib `Nat.ModEq` 的精确双向桥。
+- `congruent_add_mul_pow`：以教材定义陈述加法、乘法和乘方闭包。
 - `modEq_iff_zmod_eq`：`Nat.ModEq` 与 `ZMod` 相等之间的双向桥。
-- `modEq_add_mul_pow`：一次返回加法、乘法和乘方三种闭包性质。
+- `modEq_add_mul_pow`：保留给既有调用者的 Mathlib 签名。
 
 # 思维脉络（thinking trace）
 
-第一条把 Mathlib 原有等价的方向翻转成“同余在左、剩余环相等在右”的课程顺序。第二条
-不重新展开整除定义，而是组合 `Nat.ModEq` 已证明的三个运算闭包，从而突出结构而非算术细节。
+教材入口直接把“同余”定义为余数相等，因此也自然覆盖模数为零的情形。证明运算闭包时先经
+`congruent_iff_modEq` 进入 Mathlib 已验证的同余理论，再把结论留在教材接口中；这既讲清定义，
+也不重复建设底层算法。
 
 # 自然语言 ↔ Lean 映射
 
-- `a ≡ b [MOD n]` 是 Lean 对自然数模同余的专用记号。
+- `Congruent n a b` 是课程正文使用的同余谓词；`a ≡ b [MOD n]` 是兼容的 Mathlib 记号。
 - `(a : ZMod n)` 把自然数强制转换为模 `n` 的剩余类。
 - `.symm` 翻转等价命题或同余关系的方向。
 - `⟨hab.add hcd, hab.mul hcd, hab.pow k⟩` 构造三个结论组成的合取。
