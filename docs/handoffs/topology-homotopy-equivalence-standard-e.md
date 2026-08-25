@@ -2,7 +2,8 @@
 
 ## 范围与依赖门
 
-- 分支：`codex/topology-foundations`；基于同步 Main `24014c0` 的提交 `c82f83c`。
+- 分支：`codex/topology-foundations`；开工基于同步 Main `24014c0` 的提交 `c82f83c`；完成后
+  同步 Main `b4ab365`，合并提交为 `ac14099`。
 - 权限：`development_open`；独占 `HomotopyEquivalenceStandard.lean`。
 - `integration_waits_for`: T4-H2 `topology.homotopy.standard` 进入 Main。
 - 不修改任何 Main 共有文件。

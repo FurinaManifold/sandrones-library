@@ -5,7 +5,8 @@
 - 分支：`codex/topology-foundations`；开工基于同步 Main `c46e8a7` 的提交 `21e0c9d`；开发后
   再次同步 Main `24014c0`，合并提交为 `c82f83c`。
 - 权限：`development_open`；独占 `HomotopyStandard.lean`。
-- `integration_waits_for`: T4-H1 `topology.homotopy.path-homotopy-standard` 进入 Main。
+- 原 `integration_waits_for` 已解除：T4-H1 随 Main `019a17e` 集成；当前 H2 为
+  `integration_open`。
 - 不修改 Registry、RADAR、ROADMAP、Playbook、顶层 import 或生成文件。
 
 ## 概念链
@@ -29,7 +30,7 @@
 
 ## Main 集成建议
 
-- H1 进入 Main 后加入顶层 import `SandronesLibrary.Topology.HomotopyStandard`。
+- 加入顶层 import `SandronesLibrary.Topology.HomotopyStandard`。
 - Registry 新增 `topology.homotopy.standard`，并更新 ROADMAP/RADAR 的 H2 状态。
 - 引用复用 `hatcher-algebraic-topology-2002`；章节定位保留在课程正文。
 
