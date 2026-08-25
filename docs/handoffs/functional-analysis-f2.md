@@ -3,7 +3,15 @@
 - 分支：`codex/functional-analysis`
 - Main 基线：`b82e9d4`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：Baire 与 Banach–Steinhaus 已接受；开映射完成验证，闭图待开发
+- 当前阶段：Baire、Banach–Steinhaus 已接受，开映射已提交；闭图完成验证，有界逆待开发
+
+## 闭图窗
+
+- 正式承载为 `LinearMap.graph` 与 `IsClosed`；没有建立闭图算子包装结构。
+- `lake build SandronesLibrary.FunctionalAnalysis.ClosedGraph`：8713 jobs 通过；仅重放既有警告。
+- 聚合 `#check` 覆盖图、闭性、Mathlib 主定理和三个公开声明；Entry 精确映射为三个声明。
+- 三个声明的 `#print axioms` 均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
 
 ## 开映射窗
 
