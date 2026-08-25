@@ -11957,5 +11957,222 @@
       "propext"
     ],
     "proof_sha": "6d743d88fb7f12e0"
+  },
+  {
+    "id": "analysis.special-functions.tan-pow",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "反余弦函数的连续性",
+    "summary": "Mathlib 总函数约定下反余弦函数在整个实轴连续",
+    "premises": [
+      "analysis.special-functions.log-tan-pow"
+    ],
+    "mathlib": [
+      "Real.continuous_arccos"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "数学分析初等函数求导公式"
+    },
+    "lean_file": "Analysis/SpecialFunctions.lean",
+    "nl_file": "docs/entries/analysis/special-functions/tan-pow.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "analysis.special-functions.tan-pow",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b0f2b9044ff6b067"
+  },
+  {
+    "id": "linear-algebra.decomposition.cholesky",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Cholesky 分解",
+    "summary": "实对称正定矩阵具有正对角下三角平方根分解",
+    "premises": [
+      "linear-algebra.decomposition.qr"
+    ],
+    "mathlib": [
+      "LDL.lower",
+      "LDL.diagEntries"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Cholesky and LDL decomposition"
+    },
+    "lean_file": "LinearAlgebra/MatrixCholesky.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/cholesky.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.cholesky",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2df77818aba18c86"
+  },
+  {
+    "id": "linear-algebra.decomposition.polar",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "极分解",
+    "summary": "有限维线性映射分解为部分等距与正半定模的乘积",
+    "premises": [
+      "linear-algebra.decomposition.svd"
+    ],
+    "mathlib": [
+      "InnerProductSpace.rankOne",
+      "ContinuousLinearMap.IsPositive"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Polar decomposition from SVD"
+    },
+    "lean_file": "LinearAlgebra/MatrixPolar.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/polar.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.polar",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "437d7c2720e8ef21"
+  },
+  {
+    "id": "linear-algebra.decomposition.pseudoinverse",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Moore–Penrose 伪逆",
+    "summary": "有限维线性映射存在满足四条 Penrose 方程的规范伪逆",
+    "premises": [
+      "linear-algebra.decomposition.polar"
+    ],
+    "mathlib": [
+      "LinearMap.singularValues",
+      "InnerProductSpace.rankOne"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Moore-Penrose pseudoinverse"
+    },
+    "lean_file": "LinearAlgebra/MatrixPseudoinverse.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/pseudoinverse.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.pseudoinverse",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "78eb0f85e28869b2"
+  },
+  {
+    "id": "linear-algebra.decomposition.qr",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "QR 分解",
+    "summary": "任意实方阵分解为正交矩阵与上三角矩阵的乘积",
+    "premises": [
+      "linear-algebra.inner-product",
+      "linear-algebra.matrix.orthogonal-unitary"
+    ],
+    "mathlib": [
+      "InnerProductSpace.gramSchmidtOrthonormalBasis",
+      "Module.Basis.toMatrix_mul_toMatrix"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "QR decomposition via Gram-Schmidt"
+    },
+    "lean_file": "LinearAlgebra/MatrixQR.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/qr.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.qr",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "897a3f46dc485be2"
+  },
+  {
+    "id": "linear-algebra.decomposition.schur",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Schur 分解",
+    "summary": "复方阵酉相似于上三角矩阵并给出实 Schur 块形式",
+    "premises": [
+      "linear-algebra.decomposition.qr"
+    ],
+    "mathlib": [
+      "InnerProductSpace.gramSchmidtOrthonormalBasis",
+      "Module.Basis.toMatrix_mul_toMatrix"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Schur triangularization theorem"
+    },
+    "lean_file": "LinearAlgebra/MatrixSchur.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/schur.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.schur",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1e7d184df3503bf4"
+  },
+  {
+    "id": "linear-algebra.decomposition.svd",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "奇异值分解",
+    "summary": "有限维实或复线性映射具有正交奇异向量分解",
+    "premises": [
+      "linear-algebra.decomposition.schur"
+    ],
+    "mathlib": [
+      "LinearMap.singularValues",
+      "InnerProductSpace.rankOne"
+    ],
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "Singular value decomposition"
+    },
+    "lean_file": "LinearAlgebra/MatrixSVD.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/svd.md",
+    "added_by": "main-registry-debt-cleanup",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "linear-algebra.decomposition.svd",
+    "variant": "generated",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2c588620f73aad9e"
   }
 ]

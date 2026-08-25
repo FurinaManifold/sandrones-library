@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **374** 个条目（verified 374，pending 0）。
+共 **381** 个条目（verified 381，pending 0）。
 
 ## `abstract-algebra.group`
 
@@ -210,6 +210,7 @@
 - ✅ [`basic.md`](basic.md) — 初等特殊函数基础性质
 - ✅ [`log.md`](log.md) — 对数函数的基本性质
 - ✅ [`log-tan-pow.md`](log-tan-pow.md) — 对数、正切、幂函数与反三角函数
+- ✅ [`tan-pow.md`](tan-pow.md) — 反余弦函数的连续性
 
 ## `analysis.trigonometric`
 
@@ -271,6 +272,15 @@
 - ✅ [`inner-product.md`](inner-product.md) — 内积、正交分解与伴随算子
 - ✅ [`spectral-quadratic.md`](spectral-quadratic.md) — 实谱定理、二次型与惯性定律
 - ✅ [`tensor-exterior.md`](tensor-exterior.md) — 对偶空间、张量积与外代数
+
+## `linear-algebra.decomposition`
+
+- ✅ [`cholesky.md`](cholesky.md) — Cholesky 分解
+- ✅ [`polar.md`](polar.md) — 极分解
+- ✅ [`pseudoinverse.md`](pseudoinverse.md) — Moore–Penrose 伪逆
+- ✅ [`qr.md`](qr.md) — QR 分解
+- ✅ [`schur.md`](schur.md) — Schur 分解
+- ✅ [`svd.md`](svd.md) — 奇异值分解
 
 ## `linear-algebra.det`
 
