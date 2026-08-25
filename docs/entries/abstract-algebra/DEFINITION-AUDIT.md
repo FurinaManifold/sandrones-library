@@ -77,4 +77,8 @@
 - [x] 唯一分解、根的重数、导数与重根判据：A3.4 以正式 `Polynomial`、
   `normalizedFactors`、`rootMultiplicity` 和 `derivative` 承载，已解释规范因子唯一性、
   线性因子整除、单根／重根及特征零下导数重数递降的精确边界。
-- [ ] 域扩张相关概念尚未开始；不得直接用 `Algebra`、`IntermediateField` 等结构充当教材定义。
+- [x] 域扩张第一层：A3.5 已自建显式 `FieldEmbedding`、`SubfieldSet`、
+  `IntermediateFieldSet`、生成中间域、代数／超越元、最小多项式关系和单扩张；Mathlib
+  `Algebra`、`IntermediateField` 不充当教材定义，`Algebra` 与 `minpoly` 只在私有证明桥中使用。
+- [ ] 扩张次数、分裂域、可分／正规扩张与 Galois 理论仍须继续使用上述显式定义层，不能重新
+  退回隐式 `Algebra`、`IntermediateField` 或 `Module` 公开签名。
