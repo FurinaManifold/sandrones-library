@@ -10,36 +10,36 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.24 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.85 |
-| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.67 |
-| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 94.91 |
-| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.33 |
-| 6 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.65 |
-| 7 | `analysis.series.basic` | 数项级数基础 | 93.54 |
-| 8 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.47 |
-| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 91.87 |
-| 10 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.20 |
-| 11 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 91.02 |
-| 12 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 89.61 |
-| 13 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.59 |
-| 14 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 89.48 |
-| 15 | `linear-algebra.det.mul` | 积的行列式 | 88.92 |
-| 16 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.17 |
-| 17 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.73 |
-| 18 | `number-theory.elementary.congruence` | 同余与剩余环 | 87.73 |
-| 19 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 87.28 |
-| 20 | `settheory.set.ext` | 外延性原理 | 87.25 |
-| 21 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.20 |
-| 22 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.11 |
-| 23 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.10 |
-| 24 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.24 |
-| 25 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.83 |
-| 26 | `analysis.derivative.chain-rule` | 链式法则 | 85.07 |
-| 27 | `settheory.ordinal.addition` | 序数加法不交换 | 85.05 |
-| 28 | `analysis.continuity.definition` | 连续性定义 | 84.33 |
-| 29 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 84.17 |
-| 30 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 84.00 |
+| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.18 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.82 |
+| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.68 |
+| 4 | `complex-analysis.integral.path` | 复路径与路径积分 | 94.83 |
+| 5 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 94.14 |
+| 6 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.63 |
+| 7 | `analysis.series.basic` | 数项级数基础 | 93.46 |
+| 8 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 93.41 |
+| 9 | `real-analysis.riemann.def` | 黎曼积分定义 | 91.82 |
+| 10 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.30 |
+| 11 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.99 |
+| 12 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 89.73 |
+| 13 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 89.49 |
+| 14 | `settheory.googology.bounded-halting` | 限定步数停机 | 89.49 |
+| 15 | `linear-algebra.det.mul` | 积的行列式 | 88.94 |
+| 16 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 88.15 |
+| 17 | `number-theory.elementary.congruence` | 同余与剩余环 | 87.71 |
+| 18 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.60 |
+| 19 | `settheory.set.ext` | 外延性原理 | 87.51 |
+| 20 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 87.36 |
+| 21 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 87.19 |
+| 22 | `linear-algebra.vector-space.def` | 向量空间定义 | 87.09 |
+| 23 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 87.05 |
+| 24 | `topology.space.def` | 拓扑空间与开闭集公理 | 86.23 |
+| 25 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 85.82 |
+| 26 | `settheory.ordinal.addition` | 序数加法不交换 | 85.11 |
+| 27 | `analysis.derivative.chain-rule` | 链式法则 | 85.00 |
+| 28 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 84.76 |
+| 29 | `analysis.continuity.definition` | 连续性定义 | 84.27 |
+| 30 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 83.94 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -51,10 +51,10 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 4 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 5.000 |
 | 5 | `analysis.derivative.chain-rule` | 链式法则 | 4.750 |
 | 6 | `settheory.set.ext` | 外延性原理 | 4.000 |
-| 7 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 3.750 |
-| 8 | `complex-analysis.integral.path` | 复路径与路径积分 | 3.667 |
-| 9 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 3.500 |
-| 10 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 3.333 |
+| 7 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 3.833 |
+| 8 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 3.750 |
+| 9 | `complex-analysis.integral.path` | 复路径与路径积分 | 3.667 |
+| 10 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 3.500 |
 | 11 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 3.167 |
 | 12 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 3.000 |
 | 13 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 3.000 |
@@ -89,25 +89,25 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 7 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 13.312 |
 | 8 | `analysis.continuity.definition` | 连续性定义 | 12.281 |
 | 9 | `real-analysis.measure.def` | 测度公理 | 11.875 |
-| 10 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 11.250 |
+| 10 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 11.750 |
 | 11 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.688 |
 | 12 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 9.469 |
-| 13 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
-| 14 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 8.969 |
-| 15 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
-| 16 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
-| 17 | `settheory.set.ext` | 外延性原理 | 8.750 |
+| 13 | `settheory.set.ext` | 外延性原理 | 9.250 |
+| 14 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
+| 15 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 9.000 |
+| 16 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
+| 17 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
 | 18 | `settheory.ordinal.order-type` | 良序与序型 | 8.500 |
-| 19 | `topology.metric.def` | 度量空间与开球 | 8.281 |
-| 20 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
-| 21 | `analysis.series.basic` | 数项级数基础 | 7.906 |
-| 22 | `analysis.series.tests` | 数项级数判别法 | 7.812 |
-| 23 | `settheory.ordinal.transfinite-recursion` | 超限递归 | 7.594 |
-| 24 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 7.500 |
+| 19 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 8.500 |
+| 20 | `topology.metric.def` | 度量空间与开球 | 8.281 |
+| 21 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
+| 22 | `analysis.series.basic` | 数项级数基础 | 7.906 |
+| 23 | `analysis.series.tests` | 数项级数判别法 | 7.812 |
+| 24 | `settheory.ordinal.transfinite-recursion` | 超限递归 | 7.594 |
 | 25 | `settheory.ordinal.transfinite-induction` | 超限归纳 | 7.219 |
 | 26 | `settheory.googology.primitive-recursion` | 原始递归：从初值逐步生成自然数函数 | 7.188 |
-| 27 | `complex-analysis.integral.path` | 复路径与路径积分 | 7.000 |
-| 28 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 6.938 |
+| 27 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 7.000 |
+| 28 | `complex-analysis.integral.path` | 复路径与路径积分 | 7.000 |
 | 29 | `settheory.googology.hereditary-base` | 遗传基表示：连指数也用同一底数展开 | 6.875 |
 | 30 | `analysis.special-functions.log-tan-pow` | 对数、正切、幂函数与反三角函数 | 6.812 |
 
@@ -155,28 +155,28 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 3 | `settheory.ordinal.multiplication` | 序数乘法不交换 | 9 |
 | 4 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 9 |
 | 5 | `linear-algebra.vector-space.span` | 生成子空间 | 8 |
-| 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 4 |
-| 7 | `topology.homotopy.definition-foundation` | 同伦与相对端点道路同伦 | 4 |
+| 6 | `topology.homotopy.definition-foundation` | 同伦与相对端点道路同伦 | 5 |
+| 7 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 4 |
 | 8 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 3 |
 | 9 | `abstract-algebra.ring.quotient` | 商环及其泛性质 | 3 |
 | 10 | `complex-analysis.integral.path` | 复路径与路径积分 | 3 |
 | 11 | `linear-algebra.det.mul` | 积的行列式 | 3 |
 | 12 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 3 |
-| 13 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
-| 14 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
-| 15 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
-| 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
-| 17 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
-| 18 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
-| 19 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 1 |
-| 20 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 1 |
-| 21 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 1 |
-| 22 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 1 |
-| 23 | `abstract-algebra.ring.iso-theorems` | 环的同构定理 | 1 |
-| 24 | `analysis.continuity.max-min` | 最值定理 | 1 |
-| 25 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss与Stokes公式 | 1 |
-| 26 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 1 |
-| 27 | `analysis.series.basic` | 数项级数基础 | 1 |
-| 28 | `analysis.series.cauchy-product-definition` | Cauchy 乘积的定义与有限三角恒等式 | 1 |
-| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 1 |
-| 30 | `complex-analysis.cauchy.derivatives` | Cauchy 高阶导数公式与估计 | 1 |
+| 13 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 2 |
+| 14 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
+| 15 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
+| 16 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
+| 17 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
+| 18 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
+| 19 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
+| 20 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 1 |
+| 21 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 1 |
+| 22 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 1 |
+| 23 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 1 |
+| 24 | `abstract-algebra.ring.iso-theorems` | 环的同构定理 | 1 |
+| 25 | `analysis.continuity.max-min` | 最值定理 | 1 |
+| 26 | `analysis.multivariable.green-gauss-stokes` | Green、Gauss与Stokes公式 | 1 |
+| 27 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 1 |
+| 28 | `analysis.series.basic` | 数项级数基础 | 1 |
+| 29 | `analysis.series.cauchy-product-definition` | Cauchy 乘积的定义与有限三角恒等式 | 1 |
+| 30 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 1 |

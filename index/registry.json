@@ -12587,6 +12587,7 @@
       "topology.foundation.constructions",
       "topology.foundation.mathlib-compatibility",
       "topology.foundation.real-line",
+      "topology.homotopy.equivalence-standard",
       "topology.homotopy.path-definition-foundation",
       "topology.homotopy.standard"
     ],
@@ -13859,7 +13860,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "abstract-algebra.field.degree"
+      "abstract-algebra.field.degree",
+      "abstract-algebra.field.splitting"
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
@@ -13931,7 +13933,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/degree.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.splitting"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "ef798020463c99b2",
@@ -14136,7 +14140,9 @@
     "nl_file": "docs/entries/topology/homotopy/standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.equivalence-standard"
+    ],
     "family": "topology.homotopy",
     "variant": "continuous-map-relative-set",
     "proof_sha": "fb2330a5c8c3ba7b",
@@ -14172,6 +14178,75 @@
     "family": "functional-analysis.bidual",
     "variant": "salamon-examples",
     "proof_sha": "53a876e63ed8e84b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.splitting",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "多项式的分裂域、存在性与唯一到同构",
+    "summary": "以显式域嵌入定义根集、分裂和根生成分裂域，证明有限性、存在性及基域上同构唯一性",
+    "premises": [
+      "abstract-algebra.field.extension",
+      "abstract-algebra.field.degree"
+    ],
+    "mathlib": [
+      "Polynomial.Splits",
+      "Polynomial.rootSet",
+      "Polynomial.IsSplittingField",
+      "Polynomial.SplittingField"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldSplitting.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/splitting.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "f0e6fb99de29bafc",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.equivalence-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "标准同伦等价与双侧同伦逆",
+    "summary": "以 Mathlib HomotopyEquiv 承载双侧同伦逆，证明存在关系的反身、对称、传递并给出同胚桥",
+    "premises": [
+      "topology.foundation.structure",
+      "topology.homotopy.standard"
+    ],
+    "mathlib": [
+      "ContinuousMap.HomotopyEquiv",
+      "ContinuousMap.HomotopyEquiv.refl",
+      "ContinuousMap.HomotopyEquiv.symm",
+      "ContinuousMap.HomotopyEquiv.trans",
+      "Homeomorph.toHomotopyEquiv"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/HomotopyEquivalenceStandard.lean",
+    "nl_file": "docs/entries/topology/homotopy/equivalence-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "mathlib-two-sided-inverse",
+    "proof_sha": "3de4551129ffd3d7",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

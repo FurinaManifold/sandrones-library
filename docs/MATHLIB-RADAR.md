@@ -45,6 +45,10 @@
 - **出处**：Mathlib 的线性代数基、有限维数和标量塔接口。
 - **谁在用**：`abstract-algebra.field.degree` 的私有验证后端；公开课程接口仍是显式 `FieldEmbedding`、有限和与本库域基谓词。
 
+### `Polynomial.Splits` / `Polynomial.rootSet` / `Polynomial.IsSplittingField` / `Polynomial.SplittingField`
+- **人话**：承载映射后多项式的一次因子分解、扩域根集、由根生成的分裂域性质及标准分裂域构造。
+- **谁在用**：`abstract-algebra.field.splitting` 的私有桥；公开接口保持显式域嵌入、教材根集和基域上同构。
+
 ## Hahn–Banach、凸分离与连续零化子
 
 ### `TopologicalSpace.SeparableSpace` / `StrongDual` / `Submodule.span`
@@ -72,6 +76,10 @@
 ### `ContinuousMap.Homotopy` / `ContinuousMap.HomotopyRel` / `ContinuousMap.Homotopy.comp`
 - **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。
 - **谁在用**：`topology.homotopy.standard`；相对条件量化全部时间与固定集合中的全部点。
+
+### `ContinuousMap.HomotopyEquiv` / `Homeomorph.toHomotopyEquiv`
+- **人话**：打包两张连续映射及其两个复合同伦于恒等的证明；同胚可沿严格逆自然给出这种结构。
+- **谁在用**：`topology.homotopy.equivalence-standard`，并直接取得反身、对称与传递操作。
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。

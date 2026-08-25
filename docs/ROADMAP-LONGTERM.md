@@ -376,7 +376,7 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 4 | `abstract-algebra.poly.factorization` | 域上唯一分解、根的重数、导数与重根判据 | ✅ |
 | 5 | `abstract-algebra.field.extension` | 显式域嵌入、生成中间域、单扩张、代数/超越元与最小多项式 | ✅ |
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
-| 7 | `abstract-algebra.field.splitting` | 分裂域、代数闭包、有限域基础 | 🔲 |
+| 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
 | 8 | `abstract-algebra.field.separable-normal` | 可分扩张、正规扩张、有限域上的可分性 | 🔲 |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
 
@@ -385,8 +385,8 @@ AN3 正文，不后移到调和分析；但 `L²(ℝⁿ)` Plancherel、Schwartz�
 | 窗口 | 权限 | 可执行范围 | 集成门 |
 |---|---|---|---|
 | A3.6 扩张次数 | 已集成 | 显式有限线性组合、线性无关、基、扩张次数和塔式公式 | Main 全库验收完成 |
-| A3.7 分裂域基础 | `integration_open` | 独立文件开发“多项式在扩域中分裂”、根集、分裂域的生成与最小性；可形成提交 | 使用已集成 A3.6 接口并同步最新 Main |
-| A3.8 可分/正规扩张 | `development_open` | 正式源码、Entry 初稿与学科闭包；不得提前登记 verified | 集成等待 A3.7 定义进入 Main |
+| A3.7 分裂域基础 | 已集成 | 根集、分裂、根生成、存在性、有限性与基域上同构 | Main 全库验收完成 |
+| A3.8 可分/正规扩张 | `integration_open` | 正式源码、Entry 初稿与学科闭包 | 使用已集成 A3.7 接口并同步最新 Main |
 | A3.9 Galois | `research_open` | 书目、依赖、公开签名和 `/tmp` 证明框架 | A3.8 正式接口冻结后开放开发 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
@@ -468,8 +468,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 |---|---|---|---|
 | T4-H1 标准道路同伦承载 | 已集成 | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | Main 全库验收完成 |
 | T4-H2 一般/相对同伦 | 已集成 | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | Main 全库验收完成 |
-| T4-E 同伦等价 | `integration_open` | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | 使用已集成 H2 接口；同步最新 Main |
-| T4-F1 同伦类/基本群承载审计 | `research_open` | `/tmp` 框架与一页 RFC；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | T4-H1/H2 集成后转正式开发 |
+| T4-E 同伦等价 | 已集成 | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | Main 全库验收完成 |
+| T4-F1 同伦类/基本群承载审计 | `development_open` | 正式定义承载、Entry 初稿与学科闭包；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | 集成等待同伦商公开接口冻结 |
 | T4-F2 群结构、函子性与计算 | 冻结 | 只允许书目和依赖调查 | 同伦商正式 Entry 进入 Main |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路

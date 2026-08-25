@@ -97,6 +97,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E6.7 多项式 | `examples.abstract-algebra.polynomials` | 除法、因式分解、重根、不可约判别 | 在不同系数域上不可约性可改变 | A3 |
 | E6.8 域扩张 | `examples.abstract-algebra.field-extensions` | 有理数嵌入实数、二次代数元、`X²-2` 最小多项式及单扩张 | 域扩张必须固定嵌入；超越元没有最小多项式；子域集合不自动包含指定基域像 | A3.5 |
 | E6.9 扩张次数 | `examples.abstract-algebra.extension-degree` | 二次扩张的显式二元基、坐标唯一性、恒等扩张次数一与简单塔次数乘法 | 次数依赖指定嵌入；无限扩张不能编码成次数零；塔式公式必须核对两层基 | A3.6 |
+| E6.10 分裂域 | `examples.abstract-algebra.splitting-fields` | 二次多项式在实数／复数上的根集、一次因子分解及最小分裂扩域 | 零多项式虽满足 Mathlib 分裂约定却没有本条意义的分裂域；唯一性只到基域上同构 | A3.7 |
 
 ## E7 拓扑学
 
@@ -107,6 +108,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.3 子空间与商 | `examples.topology.subspace-quotient` | 区间／圆周的子空间和端点粘合 | 子空间开集不必在母空间中开 | T2 |
 | E7.4 紧致与分离 | `examples.topology.compactness-separation` | 有限空间、闭区间、有限积 | 有界不必紧致（非欧氏／非闭情形）；紧集闭需要分离条件 | T2-T3 |
 | E7.5 连通与道路 | `examples.topology.connected-path` | 标准单位区间上的常值、线性道路，圆周和凸集道路，以及 `Path.symm`/`Path.trans` 的逐点计算 | 连通不必道路连通；固定二倍速拼接的单位律、结合律不应误写成严格道路等式 | T3-T4 |
+| E7.6 同伦与同伦等价 | `examples.topology.homotopy-equivalence` | 区间缩并、同胚诱导同伦等价、双侧同伦逆的两个方向 | 同伦等价不要求双射或严格互逆；相对同伦必须全程固定指定子集 | T4-H1-T4-E |
 | E7.6 度量与完备化 | `examples.topology.metric-completion` | `ℚ` 的 Cauchy 序列及实数完备化直观接口 | 有界不必完全；完全不必紧致 | T3 |
 | E7.7 同伦与基本群 | `examples.topology.homotopy` | 常值／凸集收缩、圆周道路、逆向和拼接 | 同伦等价不等于同胚 | T4 |
 

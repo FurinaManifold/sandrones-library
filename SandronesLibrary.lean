@@ -76,6 +76,7 @@ import SandronesLibrary.AbstractAlgebra.PolynomialIrreducibility
 import SandronesLibrary.AbstractAlgebra.PolynomialFactorization
 import SandronesLibrary.AbstractAlgebra.FieldExtension
 import SandronesLibrary.AbstractAlgebra.FieldDegree
+import SandronesLibrary.AbstractAlgebra.FieldSplitting
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
@@ -83,6 +84,7 @@ import SandronesLibrary.Topology.RealLine
 import SandronesLibrary.Topology.Path
 import SandronesLibrary.Topology.PathHomotopyStandard
 import SandronesLibrary.Topology.HomotopyStandard
+import SandronesLibrary.Topology.HomotopyEquivalenceStandard
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

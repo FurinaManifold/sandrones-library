@@ -6,12 +6,13 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **439** 个条目（verified 439，pending 0）。
+共 **441** 个条目（verified 441，pending 0）。
 
 ## `abstract-algebra.field`
 
 - ✅ [`degree.md`](degree.md) — 域扩张次数、有限扩张与塔式公式
 - ✅ [`extension.md`](extension.md) — 域扩张、生成中间域、代数元与最小多项式
+- ✅ [`splitting.md`](splitting.md) — 多项式的分裂域、存在性与唯一到同构
 
 ## `abstract-algebra.group`
 
@@ -651,6 +652,7 @@
 ## `topology.homotopy`
 
 - ✅ [`definition-foundation.md`](definition-foundation.md) — 同伦与相对端点道路同伦
+- ✅ [`equivalence-standard.md`](equivalence-standard.md) — 标准同伦等价与双侧同伦逆
 - ✅ [`path-concatenation-foundation.md`](path-concatenation-foundation.md) — 道路拼接的正式承载
 - ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的正式承载
 - ✅ [`path-homotopy-standard.md`](path-homotopy-standard.md) — 标准道路同伦与端点固定
