@@ -14013,6 +14013,37 @@
     ]
   },
   {
+    "id": "functional-analysis.banach-alaoglu",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach–Alaoglu 定理",
+    "summary": "连续对偶的任意范数闭球在弱星拓扑下闭且紧，特别地闭单位球弱星紧致",
+    "premises": [
+      "functional-analysis.weak-star.definition"
+    ],
+    "mathlib": [
+      "WeakDual.isClosed_closedBall",
+      "WeakDual.isCompact_closedBall"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/BanachAlaoglu.lean",
+    "nl_file": "docs/entries/functional-analysis/banach-alaoglu.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.banach-alaoglu",
+    "variant": "salamon",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6c20710f0ad6d124"
+  },
+  {
     "id": "functional-analysis.weak-star.definition",
     "kind": "definition",
     "state": "verified",
@@ -14035,7 +14066,9 @@
     "nl_file": "docs/entries/functional-analysis/weak-star/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.banach-alaoglu"
+    ],
     "family": "functional-analysis.weak-star",
     "variant": "salamon",
     "proof_sha": "3eee7edea4d3d887",
@@ -14072,6 +14105,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.homotopy.path-homotopy-quotient-standard",
       "topology.homotopy.standard"
     ],
     "family": "topology.homotopy",
@@ -14217,6 +14251,39 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "topology.homotopy.path-homotopy-quotient-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路同伦商的标准承载",
+    "summary": "以 Mathlib Path.Homotopic.Quotient 承载端点固定道路同伦类，并把商类判等展开为连续正方形变形",
+    "premises": [
+      "topology.homotopy.path-homotopy-standard"
+    ],
+    "mathlib": [
+      "Path.Homotopic",
+      "Path.Homotopic.setoid",
+      "Path.Homotopic.Quotient",
+      "Path.Homotopic.Quotient.mk"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathHomotopyQuotientStandard.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-homotopy-quotient-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "endpoint-relative-quotient",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "20cacc052a926f19"
   },
   {
     "id": "topology.homotopy.equivalence-standard",

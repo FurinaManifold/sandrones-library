@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **441** 个条目（verified 441，pending 0）。
+共 **443** 个条目（verified 443，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -291,6 +291,7 @@
 
 ## `functional-analysis`
 
+- ✅ [`banach-alaoglu.md`](functional-analysis/banach-alaoglu.md) — Banach–Alaoglu 定理
 - ✅ [`banach-steinhaus.md`](functional-analysis/banach-steinhaus.md) — Banach–Steinhaus 一致有界原理
 - ✅ [`closed-graph.md`](functional-analysis/closed-graph.md) — Banach 闭图定理
 - ✅ [`inverse-operator.md`](functional-analysis/inverse-operator.md) — Banach 有界逆定理
@@ -655,6 +656,7 @@
 - ✅ [`equivalence-standard.md`](topology/homotopy/equivalence-standard.md) — 标准同伦等价与双侧同伦逆
 - ✅ [`path-concatenation-foundation.md`](topology/homotopy/path-concatenation-foundation.md) — 道路拼接的正式承载
 - ✅ [`path-definition-foundation.md`](topology/homotopy/path-definition-foundation.md) — 道路与环路的正式承载
+- ✅ [`path-homotopy-quotient-standard.md`](topology/homotopy/path-homotopy-quotient-standard.md) — 道路同伦商的标准承载
 - ✅ [`path-homotopy-standard.md`](topology/homotopy/path-homotopy-standard.md) — 标准道路同伦与端点固定
 - ✅ [`path-reversal-foundation.md`](topology/homotopy/path-reversal-foundation.md) — 逆道路及双重反向的正式承载
 - ✅ [`standard.md`](topology/homotopy/standard.md) — 一般同伦、相对同伦与复合

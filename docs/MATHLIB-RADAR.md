@@ -65,6 +65,10 @@
 - **人话**：在连续对偶的同一底层线性对象上安装逐原空间向量求值的弱星拓扑，并保证这些求值连续。
 - **谁在用**：`functional-analysis.weak-star.definition`；它与测试全部双对偶元的对偶弱拓扑明确区分。
 
+### `WeakDual.isClosed_closedBall` / `WeakDual.isCompact_closedBall`
+- **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
+- **谁在用**：`functional-analysis.banach-alaoglu`，正式集合写成 `WeakDual.toStrongDual` 下的闭球原像。
+
 ### `ContinuousLinearMap.precomp` / `StrongDual`
 - **人话**：把目标空间上的连续泛函沿固定连续线性映射预复合，得到原空间上的连续泛函。
 - **谁在用**：`functional-analysis.dual-operator.definition` 的正式后端；本库薄桥只赋予教材名称并公开范数与复合性质。
@@ -80,6 +84,10 @@
 ### `ContinuousMap.HomotopyEquiv` / `Homeomorph.toHomotopyEquiv`
 - **人话**：打包两张连续映射及其两个复合同伦于恒等的证明；同胚可沿严格逆自然给出这种结构。
 - **谁在用**：`topology.homotopy.equivalence-standard`，并直接取得反身、对称与传递操作。
+
+### `Path.Homotopic` / `Path.Homotopic.Quotient` / `Path.Homotopic.Quotient.mk`
+- **人话**：端点固定道路同伦关系、按该关系得到的标准商类型，以及把道路送入商类的满射。
+- **谁在用**：`topology.homotopy.path-homotopy-quotient-standard`；判等通过 H1 展开为固定端点连续正方形。
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。

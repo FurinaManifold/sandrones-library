@@ -111,6 +111,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E7.6 同伦与同伦等价 | `examples.topology.homotopy-equivalence` | 区间缩并、同胚诱导同伦等价、双侧同伦逆的两个方向 | 同伦等价不要求双射或严格互逆；相对同伦必须全程固定指定子集 | T4-H1-T4-E |
 | E7.6 度量与完备化 | `examples.topology.metric-completion` | `ℚ` 的 Cauchy 序列及实数完备化直观接口 | 有界不必完全；完全不必紧致 | T3 |
 | E7.7 同伦与基本群 | `examples.topology.homotopy` | 常值／凸集收缩、圆周道路、逆向和拼接 | 同伦等价不等于同胚 | T4 |
+| E7.8 道路同伦商 | `examples.topology.path-homotopy-quotient` | 两条重参数化道路落入同一商类，并展示代表满射 | 商类相等不等于道路函数严格相等；代表没有规范唯一性 | T4-F1a |
 
 ## E8 现代实分析
 
@@ -157,6 +158,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.4 Banach 三大定理 | `examples.functional-analysis.banach-theorems` | 具体算子族的一致有界、开映射与有界逆应用 | 逐点有界与一致有界不能在缺 Baire 条件时混同 | F2 |
 | E11.5 Hilbert 空间 | `examples.functional-analysis.hilbert` | 正交投影、Riesz 表示、矩阵伴随、有限正交基 Parseval 与正交/酉变换计算 | 投影需要闭性；正交规范族不稠密时只有 Bessel 不等式；等距线性映射不满时不是酉算子 | F3 |
 | E11.6 Hahn–Banach、双对偶与弱拓扑 | `examples.functional-analysis.duality-weak` | 有限维范数化泛函和凸集分离、坐标子空间零化子、有限维典范双对偶同构、坐标泛函族的弱／弱星收敛 | 代数零化子不等于连续零化子；一般空间不必自反；闭单位球弱紧刻画不能脱离 F4；范数、弱与弱星收敛不可混同 | F2+/F4 |
+| E11.6a Banach–Alaoglu | `examples.functional-analysis.banach-alaoglu` | 有限维对偶闭球在弱星坐标下的紧致实例 | 弱星紧致不等于范数紧致，也不直接等于原空间闭球弱紧 | F4.3 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
 | E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数 | F6 |
 | E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |

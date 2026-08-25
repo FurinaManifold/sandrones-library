@@ -5,7 +5,7 @@ state: staging
 title: Banach–Alaoglu 定理
 premises: [functional-analysis.weak-star.definition]
 mathlib: [WeakDual.isClosed_closedBall, WeakDual.isCompact_closedBall]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 3.2"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

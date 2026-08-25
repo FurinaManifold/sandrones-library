@@ -499,8 +499,10 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-H1 标准道路同伦承载 | 已集成 | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | Main 全库验收完成 |
 | T4-H2 一般/相对同伦 | 已集成 | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | Main 全库验收完成 |
 | T4-E 同伦等价 | 已集成 | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | Main 全库验收完成 |
-| T4-F1 同伦类/基本群承载审计 | `development_open` | 正式定义承载、Entry 初稿与学科闭包；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | 集成等待同伦商公开接口冻结 |
-| T4-F2 群结构、函子性与计算 | 冻结 | 只允许书目和依赖调查 | 同伦商正式 Entry 进入 Main |
+| T4-F1a 道路同伦商 | 已集成 | `PathHomotopyQuotientStandard.lean`；标准商、判等展开与代表存在 | Main 全库验收完成 |
+| T4-F1b 基本群胚/基本群承载 | `integration_open` | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | 依赖 F1a；接口审核后集成 |
+| T4-F2a 群运算与群律 | `development_open` | 独立文件解释拼接次序、单位、逆与结合律 | 集成等待 F1b；可并行开发 |
+| T4-F2b 函子性、同伦不变性与计算 | `research_open` | Mathlib API、基点变换与圆周计算调查/RFC | F1b/F2a 签名冻结后开发 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
@@ -656,7 +658,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 1 | `functional-analysis.topological-vector-space.foundation` | 拓扑向量空间、局部基与连续线性泛函 | `TopologicalAddGroup`、`ContinuousSMul` |
 | 2 | `functional-analysis.weak-topology.definition` | 弱拓扑、弱收敛及由对偶泛函刻画 ✅ | `WeakSpace`、initial topology API |
 | 3 | `functional-analysis.weak-star.definition` | 对偶空间的弱星拓扑、弱星收敛与弱／弱星辨析 ✅ | `WeakDual` |
-| 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 | Banach–Alaoglu/Tychonoff API |
+| 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 ✅ | `WeakDual.isCompact_closedBall` |
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形单位球弱星可度量化与序列抽取 | metrizability/separability API |
 | 6 | `functional-analysis.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 | dual topology API |
 | 7 | `functional-analysis.eberlein-smulian` | 弱紧致与弱序列紧致的等价 | weak compactness API |
@@ -715,9 +717,10 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4 当前并行权限（2026-08-25）**：F4.1--F4.2 已集成；F4.3 Banach--Alaoglu 为
-`integration_open`；F4.4--F4.5 为 `development_open`，可形成正式提交但集成等待 F4.3；F4.6 为
-`research_open`。F5 等待 F4 的弱紧致工具，F6 等待紧算子与
+**F4 当前并行权限（2026-08-25）**：F4.1--F4.3 已集成；F4.4 弱星可度量化与序列抽取为
+`integration_open`，F4.5 Banach--Dieudonné 与 F4.7 Eberlein--Šmulian 为互不重叠的
+`development_open`，F4.8 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做
+接口调查，但不得与上述文件争用承载。F5 的闭值域可 `research_open`，正式开发仍等待 F4 的弱紧致工具；F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

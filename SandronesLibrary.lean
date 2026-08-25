@@ -85,6 +85,7 @@ import SandronesLibrary.Topology.Path
 import SandronesLibrary.Topology.PathHomotopyStandard
 import SandronesLibrary.Topology.HomotopyStandard
 import SandronesLibrary.Topology.HomotopyEquivalenceStandard
+import SandronesLibrary.Topology.PathHomotopyQuotientStandard
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
@@ -206,6 +207,7 @@ import SandronesLibrary.FunctionalAnalysis.SeparableDual
 import SandronesLibrary.FunctionalAnalysis.ReflexiveExamples
 import SandronesLibrary.FunctionalAnalysis.WeakTopology
 import SandronesLibrary.FunctionalAnalysis.WeakStarTopology
+import SandronesLibrary.FunctionalAnalysis.BanachAlaoglu
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
