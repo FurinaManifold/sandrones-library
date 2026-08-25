@@ -1,13 +1,24 @@
 # 抽象代数 A2 素理想与极大理想：集成交接清单
 
-本批独立完成素理想、极大理想及商整环/商域判据的教材定义层，不修改此前两个已划定的 A2
-接收窗口。
+本批独立完成素理想、极大理想及商整环/商域判据的教材定义层。此前两个 A2 接收窗口的旧接口
+签名与证明保持不变；`Ring.lean` 仅更新五个 Mathlib 兼容接口的角色说明。
 
 ## 源码与条目
 
 - `SandronesLibrary/AbstractAlgebra/RingPrimeIdeal.lean`；
+- `SandronesLibrary/AbstractAlgebra/Ring.lean`（仅下列五个现有接口的文档注释）；
 - `docs/entries/abstract-algebra/ring/prime-ideal.md`；
 - `docs/entries/abstract-algebra/DEFINITION-AUDIT.md`。
+
+`Ring.lean` 的五处注释变更是：
+
+- `is_prime_iff`：标为 Mathlib 素理想兼容接口；
+- `is_maximal_implies_is_prime`：标为 Mathlib 极大推出素的兼容接口；
+- `quotient_is_domain_of_is_prime`：标为 Mathlib 商整环兼容接口；
+- `is_field_iff_bot_is_maximal`：标为 Mathlib 零理想兼容接口；
+- `ideal_maximal_of_quotient_isField`：标为 Mathlib 商域兼容接口。
+
+这些变更不修改任何声明类型或证明体；教材主接口均位于 `RingPrimeIdeal.lean`。
 
 新 Entry 为 `abstract-algebra.ring.prime-ideal`，只对应 `RingPrimeIdeal.lean`。Main 接收时应
 新增该 Registry 记录和顶层 import，不得把声明并回 `ring.domain` 或 `ring.quotient`。
