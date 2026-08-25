@@ -36,6 +36,8 @@
   `HasSum` 总能推出前者，绝对可和时二者等价，不虚构无条件反向桥。
 - [x] 绝对收敛：`SeriesAbsolutelyConvergent` 定义为绝对值级数按自然顺序收敛，并桥接
   `Summable (fun n => |f n|)`；条件收敛可由收敛且非绝对收敛组合表达。
+- [x] 条件收敛：`SeriesConditionallyConvergent` 明确定义为 `SeriesConvergent` 且非
+  `SeriesAbsolutelyConvergent`，并提供两个教材投影性质。
 - [ ] 幂级数已具备 `HasSumAt`、`ConvergesAt`、`AbsolutelyConvergesAt` 等本库定义；待补充
   与一般级数定义层的一致桥。
 

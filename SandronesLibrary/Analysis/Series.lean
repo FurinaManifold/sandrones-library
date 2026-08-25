@@ -32,6 +32,10 @@ def SeriesConvergent (f : ℕ → ℝ) : Prop :=
 def SeriesAbsolutelyConvergent (f : ℕ → ℝ) : Prop :=
   SeriesConvergent (fun n => |f n|)
 
+/-- 实数项级数条件收敛：按自然顺序收敛，但不绝对收敛。 -/
+def SeriesConditionallyConvergent (f : ℕ → ℝ) : Prop :=
+  SeriesConvergent f ∧ ¬ SeriesAbsolutelyConvergent f
+
 /-- Mathlib 的有限集滤子求和总能推出自然顺序部分和收敛。 -/
 theorem hasSum_seriesHasSum {f : ℕ → ℝ} {s : ℝ} (h : HasSum f s) :
     SeriesHasSum f s := by
@@ -89,6 +93,14 @@ theorem seriesConvergent_of_seriesAbsolutelyConvergent {f : ℕ → ℝ}
     seriesAbsolutelyConvergent_iff_summable_abs.mp h
   rcases (summable_of_absolute habs) with ⟨s, hs⟩
   exact ⟨s, hs.tendsto_sum_nat⟩
+
+/-- 条件收敛级数按自然顺序收敛。 -/
+theorem seriesConvergent_of_seriesConditionallyConvergent {f : ℕ → ℝ}
+    (h : SeriesConditionallyConvergent f) : SeriesConvergent f := h.1
+
+/-- 条件收敛级数不是绝对收敛级数。 -/
+theorem not_seriesAbsolutelyConvergent_of_seriesConditionallyConvergent {f : ℕ → ℝ}
+    (h : SeriesConditionallyConvergent f) : ¬ SeriesAbsolutelyConvergent f := h.2
 
 /-- 以有限集部分和表述的 Cauchy 收敛准则。 -/
 theorem summable_iff_cauchy {f : ℕ → ℝ} :
