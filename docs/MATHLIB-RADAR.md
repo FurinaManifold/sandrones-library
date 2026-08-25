@@ -57,9 +57,17 @@
 - **人话**：在连续对偶的同一底层线性对象上安装逐原空间向量求值的弱星拓扑，并保证这些求值连续。
 - **谁在用**：`functional-analysis.weak-star.definition`；它与测试全部双对偶元的对偶弱拓扑明确区分。
 
+### `ContinuousLinearMap.precomp` / `StrongDual`
+- **人话**：把目标空间上的连续泛函沿固定连续线性映射预复合，得到原空间上的连续泛函。
+- **谁在用**：`functional-analysis.dual-operator.definition` 的正式后端；本库薄桥只赋予教材名称并公开范数与复合性质。
+
 ### `Path.Homotopy` / `Path.Homotopy.refl` / `Path.Homotopy.symm` / `Path.Homotopy.trans`
 - **人话**：承载道路之间端点固定的正方形连续变形，以及反身、时间反向和分段传递操作。
 - **谁在用**：`topology.homotopy.path-homotopy-standard`；第一坐标为同伦时间，第二坐标为道路位置。
+
+### `ContinuousMap.Homotopy` / `ContinuousMap.HomotopyRel` / `ContinuousMap.Homotopy.comp`
+- **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。
+- **谁在用**：`topology.homotopy.standard`；相对条件量化全部时间与固定集合中的全部点。
 
 ### `exists_extension_of_le_sublinear` / `exists_extension_norm_eq`
 - **人话**：前者把受正齐次、次可加函数支配的实线性泛函延拓到全空间；后者在赋范空间中保持连续泛函的范数。

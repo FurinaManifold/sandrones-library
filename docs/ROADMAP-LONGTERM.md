@@ -467,8 +467,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | 窗口 | 权限 | 文件所有权建议 | 集成门 |
 |---|---|---|---|
 | T4-H1 标准道路同伦承载 | 已集成 | `PathHomotopyStandard.lean`；解释 `Path.Homotopy`、端点固定、refl/symm/trans | Main 全库验收完成 |
-| T4-H2 一般/相对同伦 | `integration_open` | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | H1 公开签名不得被复制；同步最新 Main |
-| T4-E 同伦等价 | `development_open` | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | 集成等待 H2 的一般同伦接口 |
+| T4-H2 一般/相对同伦 | 已集成 | `HomotopyStandard.lean`；解释 `ContinuousMap.Homotopy/HomotopyRel` 与复合 | Main 全库验收完成 |
+| T4-E 同伦等价 | `integration_open` | `HomotopyEquivalenceStandard.lean`；同伦逆、等价关系、同胚桥 | 使用已集成 H2 接口；同步最新 Main |
 | T4-F1 同伦类/基本群承载审计 | `research_open` | `/tmp` 框架与一页 RFC；审计 `Path.Homotopic.Quotient`、`FundamentalGroupoid` | T4-H1/H2 集成后转正式开发 |
 | T4-F2 群结构、函子性与计算 | 冻结 | 只允许书目和依赖调查 | 同伦商正式 Entry 进入 Main |
 
@@ -628,7 +628,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 | `ContinuousLinearMap.dualMap` |
+| 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
 | 2 | `functional-analysis.closed-range` | 闭值域定理及算子与对偶算子的像／核关系 | closed range API |
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的序列／相对紧像刻画、有限秩算子与闭包性质 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质与复合稳定性 | compact composition API |

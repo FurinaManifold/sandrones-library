@@ -12587,7 +12587,8 @@
       "topology.foundation.constructions",
       "topology.foundation.mathlib-compatibility",
       "topology.foundation.real-line",
-      "topology.homotopy.path-definition-foundation"
+      "topology.homotopy.path-definition-foundation",
+      "topology.homotopy.standard"
     ],
     "proof_sha": "107e349f1d171d7c",
     "axioms": [
@@ -12652,7 +12653,8 @@
       "topology.connectedness.path-components-foundation",
       "topology.foundation.real-line",
       "topology.homotopy.definition-foundation",
-      "topology.homotopy.path-homotopy-standard"
+      "topology.homotopy.path-homotopy-standard",
+      "topology.homotopy.standard"
     ],
     "proof_sha": "e3ebc0bcc3335958",
     "axioms": [
@@ -13185,6 +13187,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.dual-operator.definition",
       "functional-analysis.hahn-banach.extension",
       "functional-analysis.hilbert.adjoint"
     ],
@@ -13891,6 +13894,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.dual-operator.definition",
       "functional-analysis.separable.dual",
       "functional-analysis.weak-star.definition"
     ],
@@ -14062,10 +14066,79 @@
     "nl_file": "docs/entries/topology/homotopy/path-homotopy-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.standard"
+    ],
     "family": "topology.homotopy",
     "variant": "fixed-endpoint-square",
     "proof_sha": "5d7e53473b897fee",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.dual-operator.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "连续线性算子的对偶算子",
+    "summary": "以连续预复合定义 Banach 空间对偶算子，证明求值、范数控制、复合反序与恒等性质",
+    "premises": [
+      "functional-analysis.operator.space",
+      "functional-analysis.bidual.reflexive"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.precomp",
+      "StrongDual"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/DualOperator.lean",
+    "nl_file": "docs/entries/functional-analysis/dual-operator/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.dual-operator",
+    "variant": "salamon",
+    "proof_sha": "ecb1d53a579567ac",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "一般同伦、相对同伦与复合",
+    "summary": "以 Mathlib Homotopy 与 HomotopyRel 承载一般连续变形、相对集合全程固定条件及同步复合",
+    "premises": [
+      "topology.foundation.constructions",
+      "topology.foundation.structure",
+      "topology.homotopy.path-homotopy-standard"
+    ],
+    "mathlib": [
+      "ContinuousMap.Homotopy",
+      "ContinuousMap.HomotopyRel",
+      "ContinuousMap.Homotopy.comp",
+      "ContinuousMap.HomotopyRel.compContinuousMap"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/HomotopyStandard.lean",
+    "nl_file": "docs/entries/topology/homotopy/standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "continuous-map-relative-set",
+    "proof_sha": "fb2330a5c8c3ba7b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

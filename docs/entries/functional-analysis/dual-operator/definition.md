@@ -5,7 +5,7 @@ state: staging
 title: 连续线性算子的对偶算子
 premises: [functional-analysis.operator.space, functional-analysis.bidual.reflexive]
 mathlib: [ContinuousLinearMap.precomp, StrongDual]
-provenance: {source_type: book, ref: "Bühler–Salamon, Functional Analysis, Section 4.1"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 动机

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **436** 个条目（verified 436，pending 0）。
+共 **438** 个条目（verified 438，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -306,6 +306,10 @@
 ## `functional-analysis.convex`
 
 - ✅ [`separation.md`](separation.md) — 凸集的 Hahn–Banach 分离定理
+
+## `functional-analysis.dual-operator`
+
+- ✅ [`definition.md`](definition.md) — 连续线性算子的对偶算子
 
 ## `functional-analysis.hahn-banach`
 
@@ -650,6 +654,7 @@
 - ✅ [`path-definition-foundation.md`](path-definition-foundation.md) — 道路与环路的正式承载
 - ✅ [`path-homotopy-standard.md`](path-homotopy-standard.md) — 标准道路同伦与端点固定
 - ✅ [`path-reversal-foundation.md`](path-reversal-foundation.md) — 逆道路及双重反向的正式承载
+- ✅ [`standard.md`](standard.md) — 一般同伦、相对同伦与复合
 
 ## `topology.metric`
 
