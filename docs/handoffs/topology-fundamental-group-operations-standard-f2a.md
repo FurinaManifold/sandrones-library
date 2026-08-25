@@ -3,10 +3,9 @@
 ## 范围与基线
 
 - 分支：`codex/topology-foundations`。
-- 最新同步 Main `685fac9` 的提交为 `ef3d517`；该 Main 已提交 T4-F1b carrier 源码，但权威
-  ROADMAP 尚未把 F1b 标为已集成。
-- 权限：T4-F2a 保持 `development_open`，可以申请数学审核，但不得自行提升集成权限。
-- `integration_waits_for`: Main 完成 F1b 的正式集成闭环并在权威状态中解除本门。
+- 最新同步 Main `c25419a` 的提交为 `7373909`；其中 Main `bcb1d8b` 已完成 T4-F1b 共享集成。
+- 权限：T4-F2a 为 `integration_open`，可以提交正式验收。
+- `integration_waits_for`: 已由 Main `bcb1d8b` 解除。
 - F2b 函子性、同伦不变性与计算保持 `research_open`，未写入正式源码。
 
 ## 概念链
