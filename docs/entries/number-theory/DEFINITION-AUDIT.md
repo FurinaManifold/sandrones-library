@@ -9,8 +9,8 @@
 | A1 | Euler φ | `EulerTotient` | `eulerTotient_eq_natTotient` | 单位群计数、Euler 定理 | ✅ |
 | A2 | 教材素数结论 | 复用 `PassesTrialDivision` | `prime_iff_passesTrialDivision` | Euclid 构造、无限性 | ✅ |
 | A2 | 整数平方／非平方 | `IsIntegerSquare` | `isIntegerSquare_iff_isSquare` | 两个 Pell 存在定理 | ✅ |
-| A3 | 素因子指数 | `primeMultiplicity`（拟） | 到 `Nat.factorization` | 算术基本定理 | 待冻结零值 |
-| A3 | Legendre/Jacobi 值 | 数值承载待定 | 到 Mathlib 符号函数 | 二次互反律 | 待冻结符号边界 |
+| A3 | 素因子指数 | `primeMultiplicity` | `primeMultiplicity_eq_factorization` | 唯一分解 | ✅，零值为零 |
+| A3 | Legendre/Jacobi 值 | 不重复定义数值载体 | 分类桥已具名 | 剩余版互反律 | ✅，承载例外 |
 
 ## A1 边界检查
 
@@ -24,3 +24,10 @@
 - 不新增与 `PassesTrialDivision` 重复的素数谓词；Euclid 教材结论直接使用已有试除定义。
 - `IsIntegerSquare` 展开为整数见证及坐标平方等式，而非 `IsSquare` 的别名。
 - `Nat.Prime` 与 `IsSquare` 只留在桥、兼容签名或证明后端；Pell 的二次环结构未泄漏到新主签名。
+
+## A3 边界检查
+
+- `primeMultiplicity` 是有界最大幂次的可展开定义；`n=0` 时显式取零，桥只覆盖素数底数和非零数。
+- Legendre/Jacobi 的整数值是计算编码，不是新的课程性质。已有二次剩余／非剩余定义、具名
+  `1/-1` 分类桥和剩余版互反律，因此不创建只转发符号函数的装饰别名。
+- Jacobi 值为 `1` 对合数模不充分，现有反例继续明确这条语义边界。

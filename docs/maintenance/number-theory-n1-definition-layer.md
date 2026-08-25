@@ -77,5 +77,9 @@ A1 已完成 Stage A：`Congruent` 是余数相等定义，`EulerTotient` 是对
 A2 也已完成 Stage A：Euclid 构造与无限性直接以 `PassesTrialDivision` 陈述；整数平方由
 `IsIntegerSquare` 的坐标定义表达，并用于正 Pell 解与基本解存在性的教材签名。
 
-A3 仍未实施。特别是素因子指数必须给出真正的有限支撑／指数定义，不能用从未被上层使用的
-`abbrev` 冒充完成；A1/A2 也不声称替代 Mathlib 的完整接口。
+A3 已完成 Stage A：`primeMultiplicity` 是有界最大幂次定义，零输入约定为零；对素数底数和
+非零自然数精确桥接 `Nat.factorization`，并由唯一分解的教材签名真实使用。
+
+Legendre/Jacobi 经冻结后不新增数值别名：整数值只承担计算编码，已有二次剩余／非剩余定义、
+具名分类桥和剩余版互反律构成教材定义链。新增透明别名不会讲清更多数学，只会制造平行接口。
+A1–A3 均不声称替代 Mathlib 的完整接口。

@@ -2,7 +2,7 @@
 
 - RFC：`docs/maintenance/number-theory-n1-definition-layer.md`
 - 影响等级：M2（新旧语义可证明等价，采用双轨兼容）
-- 当前阶段：A1、A2 Stage A 已实现；A3 待办
+- 当前阶段：A1–A3 Stage A 已实现；等待 Main 分波验收
 - 维护分支：`codex/number-theory-maintenance`
 
 ## 已确认
@@ -40,6 +40,15 @@
 - 两个 Pell 教材存在性签名使用 `¬IsIntegerSquare d`；原 `¬IsSquare d` 签名完整保留。
 - `Pell.Solution₁` 仍只出现在证明体；没有扩张到负 Pell 或连分数分类。
 
+## A3 已交付
+
+- `primeMultiplicity` 以 `Nat.findGreatest` 定义满足 `p^k∣n` 的最大有界指数；
+  `primeMultiplicity_zero` 冻结零输入取零。
+- `primeMultiplicity_eq_factorization` 只在素数底数与非零自然数上桥接；
+  `eq_of_primeMultiplicity_eq` 是真实上层使用者。
+- Legendre/Jacobi 数值函数批准为计算承载：教材性质已有本库二次剩余／非剩余定义、分类桥及
+  剩余版互反律；拒绝新增无人使用的透明数值别名。
+
 ## 验证记录
 
 - 模块闭包：`lake build` 同时构建 `Congruence`、`FermatEuler`，1938 jobs 通过。
@@ -52,8 +61,13 @@
   使用者，通过后已删除。
 - A2 Entry 映射：prime-tests 7、infinite-primes 4、pell-positive-existence 5、
   pell-fundamental-solution 2；四个 Entry 的结构与公理审计均通过。
+- A3 模块闭包：`PrimeFactorization` 1009 jobs 通过；为核验既有符号承载链，
+  `QuadraticReciprocity` 2844 jobs 通过。
+- A3 聚合 `#check` 覆盖重数定义、零值、一条桥、唯一性使用者，以及二次剩余定义、Legendre
+  分类桥和两条剩余版互反律，通过后已删除。
+- prime-factorization Entry 映射覆盖 6 个声明；结构与公理审计通过，公理集合与 Registry 一致。
 
 ## 下一门
 
-进入 A3 前先冻结 `primeMultiplicity` 在 `n = 0` 时的语义，以及 Legendre/Jacobi 数值接口的
-值域和符号边界；仍采用双轨兼容，不删除旧 API。
+等待 Main 对 A1–A3 分波验收。后续若进入 Stage B，只调整课程文档首选接口；仍不删除旧 API，
+也不扩张到 N1+ 的负 Pell、周期连分数或全体解分类。
