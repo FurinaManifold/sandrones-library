@@ -810,6 +810,11 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 
 ## 9. Phase 8 — 概率论（Pr1-Pr3）
 
+> 主教材为 Kallenberg, *Foundations of Modern Probability* 第三版
+>（`kallenberg-modern-probability-2021`）：测度概率、分布与独立性对应 Pr1，条件化、过滤与鞅
+> 对应 Pr2，收敛方式与经典极限定理对应 Pr3。Markov 过程、Brownian 运动、随机积分和 SDE 按书
+> 后半转入 SP，不在 Pr3 提前展开。
+
 ### Pr1 概率空间、随机变量与期望 🚧
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
@@ -845,6 +850,11 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |
 
 ## 10. Phase 9 — 统计推断（S1-S2）
+
+> 主教材为 Schervish, *Theory of Statistics*（`schervish-theory-statistics-1995`），按统计模型、
+> 充分性、决策与风险、估计、检验组织 S1–S2；线性回归采用 Seber–Lee,
+> *Linear Regression Analysis* 第二版（`seber-lee-linear-regression-2003`）。似然和密度必须
+> 等待 RN 接口，不能用有限样本公式冒充一般统计实验已经定义。
 
 ### S1 参数估计 🔒（依赖 Pr1）
 
@@ -1019,10 +1029,21 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 > family 前缀、handoff 和完成状态均独立；一门完成不代表其他门完成。表中一行是一个可验收
 > Entry，不是用一个标题包装整章理论。正式开工时，学科负责人应按依赖把每个课程批次拆成
 > 3–6 条的文件包交给子 Agent，并由负责人组装验收。
+>
+> **CA–HA–AG 统一施工参考：The Stacks Project。** 它以稳定 Tag 提供从范畴／同调语言、交换
+> 代数到概形、层、上同调、下降、étale、代数栈和形变理论的细粒度依赖网。正式课程顺序和
+> provenance 仍由已出版教材决定；Stacks Tag 用于核对定义、拆分引理和记录跨章依赖。它是持续
+> 维护的网站，故不进入 `reference.bib`，Registry 的 `provenance.ref` 也不得填写 Stacks URL。
+> 每个 CA/HA/AG handoff 可另列“Stacks tags consulted”，但不得以某个最终 Tag 代替教材证明链。
 
 ### 13.1 交换代数（CA1–CA6）🔒
 
 > 家族前缀 `commutative-algebra.*`。课程门：A2 的理想、商环、整除、局部化完成；CA5 另需 A3。
+> 主教材为 Atiyah–Macdonald, *Introduction to Commutative Algebra*
+>（`atiyah-macdonald-commutative-algebra-1969`），Eisenbud
+>（`eisenbud-commutative-algebra-1995`）补自由分解、关联素理想、深度与几何应用。Stacks Project
+> 的 Algebra、Commutative Algebra 与 More on Algebra chapters 负责 Tag 级定义核对，不改变
+> “模／张量 → 局部化 → Noether → 整扩张 → 维数与局部环”的教材顺序。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1063,6 +1084,10 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.2 同调代数（HA1–HA6）🔒
 
 > 家族前缀 `homological-algebra.*`。课程门：CA1–CA3；抽象范畴接口必须先有教材定义与桥。
+> 主教材为 Weibel, *An Introduction to Homological Algebra*（`weibel-homological-algebra-1994`）：
+> 范畴语言和链复形 → 正合列 → 分解与导出函子 → Ext/Tor → 谱序列。Stacks Project 的
+> Categories、Homological Algebra 与 Derived Categories chapters 只提供稳定 Tag 索引；不得从
+> 导出范畴 Tag 反向跳过链复形、连接同态和分解无关性。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1131,6 +1156,10 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.4 表示论（RT1–RT6）🔒
 
 > 家族前缀 `representation-theory.*`。课程门：A1、A2、L1–L5；模表示路线另需 CA1。
+> 主教材为 Fulton–Harris, *Representation Theory: A First Course*
+>（`fulton-harris-representation-theory-1991`）。有限群表示、Schur/Maschke、特征标和对称群
+> 对应 RT1–RT4；Lie 代数、`sl₂`、根系、最高权与 Weyl 特征标对应 RT5–RT6。两条线共享基础
+> 定义，但不得互相替代各自的完全可约与分类证明。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1165,6 +1194,9 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 
 > 家族前缀 `differential-manifolds.*`。课程门：AN-MV、T1–T4、L5；只负责光滑流形的语言、
 > 切丛、形式与积分，不把微分拓扑或黎曼度量混入“流形基础”。
+> 主教材为 Lee, *Introduction to Smooth Manifolds* 第二版（`lee-smooth-manifolds-2012`）：光滑
+> 结构、切丛、向量场与流、Lie 群、微分形式、Stokes 和 de Rham 理论依次约束 DM1–DM5。Sard、
+> 横截性与映射度按课程职责转入 DT，不重复造接口。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1192,6 +1224,10 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.6 微分拓扑（DT1–DT5）🔒
 
 > 家族前缀 `differential-topology.*`。课程门：DM1–DM4、T4、AT1。
+> 主教材为 Guillemin–Pollack, *Differential Topology*
+>（`guillemin-pollack-differential-topology-1974`），负责 DT1–DT3 的 Sard、横截、交数和映射度；
+> DT4 采用 Milnor, *Morse Theory*（`milnor-morse-theory-1963`）。DT5 的配边与特征类尚缺完整
+> 出版教材，在补齐前保持 `research_open`。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1219,6 +1255,10 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.7 黎曼几何（RG1–RG7）🔒
 
 > 家族前缀 `riemannian-geometry.*`。课程门：DM1–DM4、L5、ODE；比较几何另需实分析。
+> 主教材为 Lee, *Introduction to Riemannian Manifolds* 第二版
+>（`lee-riemannian-manifolds-2018`），依书序覆盖度量、联络、Levi–Civita、测地线、曲率、
+> 子流形、Jacobi 场与比较理论，即 RG1–RG6。RG7 的完整 Hodge 理论与 Gauss–Bonnet–Chern 尚需
+> 专题教材，补齐前只开放研究接口。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1252,6 +1292,9 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.8 随机过程（SP1–SP6）🔒
 
 > 家族前缀 `stochastic-processes.*`。课程门：Pr1–Pr3、R4；随机分析另需高等泛函。
+> 主教材继续采用 Kallenberg 第三版（`kallenberg-modern-probability-2021`）：过程与扩张、Markov
+> 链、鞅、Gaussian/Brownian、随机积分、半鞅、SDE 与扩散依次对应 SP1–SP6。SP 与 Pr 共用同一
+> 概率基础，不另造随机变量、条件期望或过滤。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1282,6 +1325,10 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 ### 13.9 常微分方程（ODE1–ODE6）🔒
 
 > 家族前缀 `ode.*`。课程门：M4–M5、AN-MV、L2、T3。
+> 主教材为 Teschl, *Ordinary Differential Equations and Dynamical Systems*
+>（`teschl-ode-dynamical-systems-2012`）。Part I 的初值问题、连续依赖、线性方程与边值问题对应
+> ODE1–ODE3；Part II 的动力系统、平面系统、高维系统和稳定性对应 ODE4–ODE6。分岔、KAM 与
+> 遍历入口只作后续专题，不得早于存在唯一性、延拓与流的基础链。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1449,6 +1496,9 @@ Mathlib 强定理当成跳过 Evans 经典公式与估计链的捷径。
 > 主线是“半范数族 → 局部凸空间 → Fréchet／LF／DFS 空间 → 桶性、Bornological 与 Montel 性质
 > → 核空间 → 测试函数与分布”。Salamon 主线中的弱拓扑、紧／Fredholm 算子、有界与无界谱理论
 > 及半群仍归 F2–F8，本节不重复登记。课程门：F2、F4、F7、R4、AN-MV、T1–T2。
+> 主教材为 Trèves, *Topological Vector Spaces, Distributions and Kernels*
+>（`treves-topological-vector-spaces-1967`），依次约束 AFA1–AFA5。AFA6 的现代算子理想、最大
+> 正则性和非线性出口超出主教材，补指定专题教材前只开放研究。
 
 本课程交付须逐对象报告：拓扑由哪些半范数／邻域生成、是否 Hausdorff、采用何种完备性与有界性、
 对偶上的具体拓扑，以及收敛使用序列还是一般网／滤子；不得把 Fréchet 完备性脱离“可度量局部凸”
@@ -1527,6 +1577,10 @@ Bornological／Montel／核性以及不同对偶拓扑；能在测试函数和�
 ### 13.12 调和分析（HAna1–HAna7）🔒
 
 > 家族前缀 `harmonic-analysis.*`。课程门：R4、F1–F3、AFA；避免与同调代数 HA 缩写混淆。
+> 主教材为 Grafakos, *Classical Fourier Analysis* 第三版
+>（`grafakos-classical-fourier-analysis-2014`）。`Lᵖ` 与插值、极大函数／Fourier 变换／分布、
+> Fourier 级数、卷积型奇异积分、Littlewood–Paley 与乘子、加权不等式依次对应 HAna1–HAna7；
+> 群上调和分析与限制问题超出该书主线，补教材前保持研究专题。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1556,6 +1610,11 @@ Bornological／Montel／核性以及不同对偶拓扑；能在测试函数和�
 
 > 家族前缀 `algebraic-geometry.*`。课程门：CA1–CA6、A3、HA1–HA5。它是独立的大型路线，
 > 仿射簇课程只能算 AG1–AG2，不能代表概形、层上同调或高维几何。
+> 主教材为 Hartshorne, *Algebraic Geometry*（`hartshorne-algebraic-geometry-1977`）：Chapter I
+> 对应 AG1–AG2，Chapter II 对应 AG3–AG5，Chapter III 对应 AG6，Chapters IV–V 对应 AG7 与
+> 曲面入口。Stacks Project 从 Schemes 起承担 AG3 之后的 Tag 级依赖导航，并为 descent、étale、
+> algebraic stacks、deformation 等 AG8–AG10 专题提供施工地图；这些超出 Hartshorne 连续覆盖的
+> 批次仍须补出版教材，不能因为 Stacks 已有章节就直接开放正式开发。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
@@ -1607,13 +1666,14 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 > 家族前缀 `mathematical-logic.*`。课程门：ST1–ST2；可计算性路线与 ST3 共享底层编码，必须指定
 > 单一文件所有者，避免集合论和逻辑分支各自定义一套机器模型。
 >
-> **现有教材框架**：ML4 可计算性以 Odifreddi, *Classical Recursion Theory* 为主教材，ML6
+> **教材框架**：ML1–ML2 与 ML5 以 Enderton, *A Mathematical Introduction to Logic* 第二版
+>（`enderton-mathematical-logic-2001`）为主教材，按语法／语义、可靠性／完备性、可定义性与
+> 不完备性推进；ML3 以 Marker, *Model Theory: An Introduction*（`marker-model-theory-2002`）
+> 为主教材。ML4 可计算性以 Odifreddi, *Classical Recursion Theory* 为主教材，ML6
 > 的模型、可构造宇宙与 forcing 以 Jech 的 Models/Constructible Sets/Forcing 章节为主教材，ML7
-> 证明论以 Pohlers, *Proof Theory: An Introduction* 为主教材。三书固定可计算性、模型集合论、
-> 相继式、切消和序数分析的术语边界；但不覆盖 ML1–ML3 的一阶逻辑／模型论课程和 ML5 的
-> 不完备性全课程。这些批次仍标为“教材待指定”，在 Main
-> 补入正式出版教材前只能做接口研究，不能宣称已具有完整课程框架。现有文献键为
-> `jech-set-theory-2003`、`odifreddi-classical-recursion-1989`、`pohlers-proof-theory-1989`。
+> 证明论以 Pohlers, *Proof Theory: An Introduction* 为主教材。至此 ML1–ML7 均有出版教材；各书
+> 的对象语言、证明系统、机器模型和集合论宇宙不得静默混用。其余文献键为 `jech-set-theory-2003`、
+> `odifreddi-classical-recursion-1989`、`pohlers-proof-theory-1989`。
 
 路线顺序据教材调整为 ML1 语法／语义 → ML2 证明系统与完备性 → ML3 模型论；ML4 可在共享机器
 承载冻结后并行；ML5 必须同时等待 ML1 的语法编码和 ML4 的可表示性工具；ML6 等待 ML2 的模型
