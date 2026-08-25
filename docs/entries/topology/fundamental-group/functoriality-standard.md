@@ -1,13 +1,13 @@
 ---
 id: topology.fundamental-group.functoriality-standard
 family: topology.fundamental-group
-variant: induced-maps-homotopy-invariance
+variant: induced-maps-homotopy-naturality
 kind: theorem
 state: staging
-title: 基本群的函子性、基点变换与同伦不变性
-summary: 解释连续映射诱导基本群同态及其恒等复合律，并以自然同构准确表达同伦映射的诱导关系
+title: 基本群诱导映射的函子律与同伦自然性
+summary: 解释连续映射诱导基本群同态及其恒等复合律，并展开同伦映射所给自然同构的分量与自然性
 premises: [topology.fundamental-group.operations-standard, topology.homotopy.equivalence-standard]
-mathlib: [FundamentalGroup.map, FundamentalGroup.mapOfEq, FundamentalGroup.fundamentalGroupMulEquivOfPath, FundamentalGroupoidFunctor.homotopicMapsNatIso, FundamentalGroupoidFunctor.equivOfHomotopyEquiv]
+mathlib: [FundamentalGroup.map, FundamentalGroup.map_apply, FundamentalGroupoidFunctor.homotopicMapsNatIso]
 provenance:
   source_type: book
   ref: "hatcher-algebraic-topology-2002"
@@ -36,7 +36,7 @@ theorem fundamentalGroup_map_comp (f : C(X, Y)) (g : C(Y, Z)) (x : X) :
     (FundamentalGroup.map g (f x)).comp (FundamentalGroup.map f x)
 ```
 
-`homotopicMapsNatIso_app_eq_pathClass` 展开自然同构分量；`homotopicMapsNatIso_naturality_loop` 给出环路上的自然性方程。若另有证明 `h : f x = y`，Mathlib 的 `FundamentalGroup.mapOfEq f h` 把目标类型改写到指定基点 `y`。
+`homotopicMapsNatIso_app_eq_pathClass` 展开自然同构分量；`homotopicMapsNatIso_naturality_loop` 给出环路上的自然性方程。
 
 # 思维脉络（thinking trace）
 
@@ -44,12 +44,12 @@ theorem fundamentalGroup_map_comp (f : C(X, Y)) (g : C(Y, Z)) (x : X) :
 
 # 自然语言 ↔ Lean 映射
 
-“诱导群同态”对应 `FundamentalGroup.map`；“指定相等基点”对应 `mapOfEq`；“基点变换”对应 `fundamentalGroupMulEquivOfPath`；“同伦映射的自然同构”对应 `homotopicMapsNatIso`；“同伦等价诱导基本群胚等价”对应 `equivOfHomotopyEquiv`；“同伦期间的基点轨迹”对应 `ContinuousMap.Homotopy.evalAt`。
+“诱导群同态”对应 `FundamentalGroup.map`；“逐道路同伦类作用”对应 `FundamentalGroup.map_apply`；“恒等与复合”对应本库两条 `fundamentalGroup_map_*` 函子律；“同伦映射的自然同构”对应 `homotopicMapsNatIso`；“同伦期间的基点轨迹”对应 `ContinuousMap.Homotopy.evalAt`。
 
 # 依赖（人话版）
 
-本条目依赖道路同伦商、基本群承载、基本群运算以及一般连续映射同伦。Mathlib 的 `ContinuousMap`、`MonoidHom`、自然同构、范畴等价和基点变换乘法等价都与教材语义一致，直接作为正式承载；本库新增的是恒等/复合的教材级接口和自然同构分量、自然性方程的可见展开，不重建函子或群同态结构。
+本条目依赖道路同伦商、基本群承载、基本群运算以及一般连续映射同伦。Mathlib 的 `ContinuousMap`、`MonoidHom`、基本群胚函子和自然同构与教材语义一致，直接作为正式承载；本库新增的是恒等/复合的教材级接口和自然同构分量、自然性方程的可见展开，不重建函子或群同态结构。
 
 # 应用与陷阱
 
-`fundamentalGroupMulEquivOfPath p` 依赖所选道路 `p`；在道路连通空间中由 `fundamentalGroupMulEquivOfPathConnected` 选出的等价也不是规范选择。`equivOfHomotopyEquiv` 给出基本群胚等价，但若要比较两个预先指定的目标基点，仍须提供基点等式或连接道路。尤其当 `H.evalAt x` 不是恒定道路时，`f_*` 与 `g_*` 的正确关系是自然性/共轭，不是字面相等。本条目不声称圆周基本群为整数，也不处理单连通、可缩或积空间计算；这些属于 F2c。
+尤其当 `H.evalAt x` 不是恒定道路时，`f_*` 与 `g_*` 的正确关系是自然性方程所表达的共轭，而不是字面相等。本条目只冻结诱导映射的函子律和同伦自然性；沿道路改变基点、指定目标基点的 transport 以及同伦等价诱导的群胚/基本群等价留给独立 F2b2。圆周、单连通、可缩或积空间计算属于 F2c。

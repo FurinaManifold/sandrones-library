@@ -7,10 +7,10 @@ import SandronesLibrary.Topology.FundamentalGroupOperationsStandard
 import Mathlib.AlgebraicTopology.FundamentalGroupoid.InducedMaps
 
 /-!
-# 基本群的函子性与同伦不变性
+# 基本群诱导映射的函子律与同伦自然性
 
 本文件解释连续映射怎样诱导基本群同态、恒等与复合怎样保持，以及两个同伦映射诱导的基本群胚
-函子怎样由同伦轨迹自然同构。基点变换和同伦等价沿用 Mathlib 的标准接口。
+函子怎样由同伦轨迹自然同构。基点变换和同伦等价不变性留给独立后续文件。
 
 当前条目：
 
