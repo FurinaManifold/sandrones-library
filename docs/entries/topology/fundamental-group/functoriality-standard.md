@@ -3,7 +3,7 @@ id: topology.fundamental-group.functoriality-standard
 family: topology.fundamental-group
 variant: induced-maps-homotopy-naturality
 kind: theorem
-state: staging
+state: verified
 title: 基本群诱导映射的函子律与同伦自然性
 summary: 解释连续映射诱导基本群同态及其恒等复合律，并展开同伦映射所给自然同构的分量与自然性
 premises: [topology.fundamental-group.operations-standard, topology.homotopy.equivalence-standard]

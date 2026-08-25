@@ -78,6 +78,7 @@ import SandronesLibrary.AbstractAlgebra.FieldExtension
 import SandronesLibrary.AbstractAlgebra.FieldDegree
 import SandronesLibrary.AbstractAlgebra.FieldSplitting
 import SandronesLibrary.AbstractAlgebra.FieldSeparableNormal
+import SandronesLibrary.AbstractAlgebra.FieldSeparableNormalCharacterizations
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions
@@ -89,6 +90,7 @@ import SandronesLibrary.Topology.HomotopyEquivalenceStandard
 import SandronesLibrary.Topology.PathHomotopyQuotientStandard
 import SandronesLibrary.Topology.FundamentalGroupCarrierStandard
 import SandronesLibrary.Topology.FundamentalGroupOperationsStandard
+import SandronesLibrary.Topology.FundamentalGroupFunctorialityStandard
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
@@ -213,6 +215,8 @@ import SandronesLibrary.FunctionalAnalysis.WeakTopology
 import SandronesLibrary.FunctionalAnalysis.WeakStarTopology
 import SandronesLibrary.FunctionalAnalysis.BanachAlaoglu
 import SandronesLibrary.FunctionalAnalysis.WeakStarMetrizable
+import SandronesLibrary.FunctionalAnalysis.CompactOperator
+import SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation

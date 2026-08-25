@@ -451,7 +451,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 5 | `abstract-algebra.field.extension` | 显式域嵌入、生成中间域、单扩张、代数/超越元与最小多项式 | ✅ |
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
-| 8 | `abstract-algebra.field.separable-normal` | 可分多项式、可分／正规扩张、有限正规刻画与有限域上的可分性 | ✅ 第一批；根重数／不可约有根刻画待续 |
+| 8 | `abstract-algebra.field.separable-normal`、`abstract-algebra.field.separable-normal-characterizations` | 可分多项式、可分／正规扩张、根重数与不可约有根刻画 | ✅ |
 | 9 | `abstract-algebra.field.galois` | Galois 群、基本定理及典型低次多项式例子 | 🔲 |
 
 **当前并行权限（2026-08-25）**：
@@ -461,9 +461,9 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | A3.6 扩张次数 | 已集成 | 显式有限线性组合、线性无关、基、扩张次数和塔式公式 | Main 全库验收完成 |
 | A3.7 分裂域基础 | 已集成 | 根集、分裂、根生成、存在性、有限性与基域上同构 | Main 全库验收完成 |
 | A3.8 可分/正规扩张第一批 | 已集成 | 四个核心定义、导数判据、有限正规刻画与有限域扩张可分 | Main 全库验收完成 |
-| A3.8 第二批刻画 | `development_open` | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | 复用第一批冻结定义；独立文件／提交 |
-| A3.9a Galois 定义层 | `development_open` | Galois 扩张、显式自同构群、固定域及展开性质 | 集成等待 A3.8 必需刻画；不得提前发布基本定理 |
-| A3.9b 基本定理 | `research_open` | 中间域—子群对应、正规／可分条件和低次例子的接口调查 | A3.9a 签名冻结后开发 |
+| A3.8 第二批刻画 | 已集成 | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | Main 全库验收完成 |
+| A3.9a Galois 定义层 | `integration_open` | Galois 扩张、显式自同构群、固定域及展开性质 | A3.8 依赖已冻结；可提交正式验收 |
+| A3.9b 基本定理 | `development_open` | 中间域—子群对应、正规／可分条件和低次例子的接口调查与独立证明批次 | 集成等待 A3.9a 签名冻结；不得复制定义 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核
@@ -564,7 +564,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-F1a 道路同伦商 | 已集成 | `PathHomotopyQuotientStandard.lean`；标准商、判等展开与代表存在 | Main 全库验收完成 |
 | T4-F1b 基本群胚/基本群承载 | 已集成 | `FundamentalGroupCarrierStandard.lean`；只冻结 carrier 与转换，不发布群运算 | Main 全库验收完成 |
 | T4-F2a 群运算与群律 | 已集成 | `FundamentalGroupOperationsStandard.lean`；解释单位、逆、乘法反序和商上群律 | Main 全库验收完成 |
-| T4-F2b 函子性与同伦不变性 | `integration_open` | 连续映射诱导、同伦自然同构、同胚／同伦等价不变性与基点变换 | F1b/F2a 已冻结；可提交正式验收 |
+| T4-F2b1 诱导映射函子律与同伦自然性 | 已集成 | 连续映射诱导、恒等／复合律、同伦自然同构及其自然性 | Main 全库验收完成 |
+| T4-F2b2 基点变换与同伦等价不变性 | `integration_open` | `mapOfEq`、沿道路换基点、同伦等价诱导基本群等价 | F2b1 已冻结；可提交正式验收 |
 | T4-F2c 基本群计算 | `development_open` | 单点、凸集、可缩空间；圆周计算先冻结证明链 | 不以 Mathlib 最终等价替代圆周计算课程链 |
 | T4-R 连续同伦正则化桥 | `research_open` | 调查连续道路同伦到分段光滑／可积同伦的相对端点逼近 | 为 G-T4/C 提供可审计桥；不得先宣称一般 C2 完成 |
 
@@ -753,8 +754,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 |---|---|---|---|
 | 1 | `functional-analysis.dual-operator.definition` | Banach 空间对偶算子、范数、复合与核／像零化子 ✅ | `ContinuousLinearMap.precomp` |
 | 2 | `functional-analysis.closed-range` | 闭值域定理及算子与对偶算子的像／核关系 | closed range API |
-| 3 | `functional-analysis.compact-operator.definition` | 紧算子的序列／相对紧像刻画、有限秩算子与闭包性质 | compact operator API |
-| 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质与复合稳定性 | compact composition API |
+| 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维实例与恒等算子判据 ✅ | compact operator API |
+| 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 | Fredholm operator/index API |
 | 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择 | compact perturbation API |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
@@ -802,8 +803,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 **F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.4 已集成；F4.5 Banach--Dieudonné 为
 `integration_open`，F4.7 Eberlein--Šmulian 为 `development_open`，两者使用互不重叠文件；F4.8
 Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5 闭值域保持
-`research_open`；根据已验收 API 调查，F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与
-范数极限闭性为 `development_open`，不得提前混入 Fredholm。F6 等待紧算子与
+`research_open`；F5.3--F5.4 紧算子定义、单位球像刻画、有限维实例、复合与范数极限闭性已经
+集成。F5.2 闭值域提升为 `development_open`，F5.5 Fredholm 定义层为 `research_open`，二者不得
+把尚未建立的闭值域或指数稳定性冒充为已完成。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

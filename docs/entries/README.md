@@ -6,13 +6,14 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **448** 个条目（verified 448，pending 0）。
+共 **452** 个条目（verified 452，pending 0）。
 
 ## `abstract-algebra.field`
 
 - ✅ [`degree.md`](abstract-algebra/field/degree.md) — 域扩张次数、有限扩张与塔式公式
 - ✅ [`extension.md`](abstract-algebra/field/extension.md) — 域扩张、生成中间域、代数元与最小多项式
 - ✅ [`separable-normal.md`](abstract-algebra/field/separable-normal.md) — 可分多项式、可分扩张与正规扩张
+- ✅ [`separable-normal-characterizations.md`](abstract-algebra/field/separable-normal-characterizations.md) — 可分性与正规性的根论刻画
 - ✅ [`splitting.md`](abstract-algebra/field/splitting.md) — 多项式的分裂域、存在性与唯一到同构
 
 ## `abstract-algebra.group`
@@ -306,6 +307,11 @@
 
 - ✅ [`reflexive.md`](functional-analysis/bidual/reflexive.md) — 典范双对偶嵌入与自反性
 - ✅ [`reflexive-examples.md`](functional-analysis/bidual/reflexive-examples.md) — 有限维空间与实 Hilbert 空间的自反性
+
+## `functional-analysis.compact-operator`
+
+- ✅ [`composition.md`](functional-analysis/compact-operator/composition.md) — 紧算子的理想性质与范数极限
+- ✅ [`definition.md`](functional-analysis/compact-operator/definition.md) — 紧算子与单位球像刻画
 
 ## `functional-analysis.convex`
 
@@ -662,6 +668,7 @@
 ## `topology.fundamental-group`
 
 - ✅ [`carrier-standard.md`](topology/fundamental-group/carrier-standard.md) — 基本群胚与基本群的标准承载
+- ✅ [`functoriality-standard.md`](topology/fundamental-group/functoriality-standard.md) — 基本群诱导映射的函子律与同伦自然性
 - ✅ [`operations-standard.md`](topology/fundamental-group/operations-standard.md) — 基本群的运算、复合次序与群律
 
 ## `topology.homotopy`

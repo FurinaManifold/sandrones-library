@@ -1,8 +1,11 @@
 ---
 id: functional-analysis.compact-operator.definition
+family: functional-analysis.compact-operator
+variant: textbook-unit-ball
 kind: definition
-state: staging
+state: verified
 title: 紧算子与单位球像刻画
+summary: 用单位球像相对紧刻画紧算子，并给出零算子、有限维情形和恒等算子判据
 premises: [functional-analysis.operator.space]
 mathlib: [IsCompactOperator, isCompactOperator_iff_isCompact_closure_image_ball, compactOperator]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}

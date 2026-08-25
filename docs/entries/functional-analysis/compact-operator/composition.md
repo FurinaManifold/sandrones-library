@@ -1,8 +1,11 @@
 ---
 id: functional-analysis.compact-operator.composition
+family: functional-analysis.compact-operator
+variant: operator-ideal
 kind: theorem
-state: staging
+state: verified
 title: 紧算子的理想性质与范数极限
+summary: 证明紧算子在左右复合、加法及完备值域中的算子范数极限下封闭
 premises: [functional-analysis.compact-operator.definition]
 mathlib: [IsCompactOperator.comp_clm, IsCompactOperator.clm_comp, isCompactOperator_of_tendsto]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}

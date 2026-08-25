@@ -13188,6 +13188,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.compact-operator.definition",
       "functional-analysis.dual-operator.definition",
       "functional-analysis.hahn-banach.extension",
       "functional-analysis.hilbert.adjoint"
@@ -13360,7 +13361,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "abstract-algebra.field.extension"
+      "abstract-algebra.field.extension",
+      "abstract-algebra.field.separable-normal-characterizations"
     ],
     "family": "abstract-algebra.poly",
     "variant": "factorization",
@@ -13973,7 +13975,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/separable-normal.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.separable-normal-characterizations"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "612f8997326282c8",
@@ -14385,7 +14389,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/operations-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.functoriality-standard"
+    ],
     "family": "topology.fundamental-group",
     "variant": "group-operations-and-laws",
     "proof_sha": "629fa680c607c4f4",
@@ -14491,7 +14497,9 @@
     "nl_file": "docs/entries/topology/homotopy/equivalence-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.functoriality-standard"
+    ],
     "family": "topology.homotopy",
     "variant": "mathlib-two-sided-inverse",
     "proof_sha": "3de4551129ffd3d7",
@@ -14500,5 +14508,137 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "abstract-algebra.field.separable-normal-characterizations",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "可分性与正规性的根论刻画",
+    "summary": "扩域根重数判据、分裂时的可分性充要条件及正规扩张的不可约多项式判据",
+    "premises": [
+      "abstract-algebra.field.separable-normal",
+      "abstract-algebra.poly.factorization"
+    ],
+    "mathlib": [
+      "Polynomial.rootMultiplicity",
+      "Polynomial.nodup_roots_iff_of_splits",
+      "Polynomial.Splits.of_dvd"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldSeparableNormalCharacterizations.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/separable-normal-characterizations.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "92e73bc175fe2620"
+  },
+  {
+    "id": "functional-analysis.compact-operator.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "紧算子与单位球像刻画",
+    "summary": "用单位球像相对紧刻画紧算子，并给出零算子、有限维情形和恒等算子判据",
+    "premises": [
+      "functional-analysis.operator.space"
+    ],
+    "mathlib": [
+      "IsCompactOperator",
+      "isCompactOperator_iff_isCompact_closure_image_ball",
+      "compactOperator"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/CompactOperator.lean",
+    "nl_file": "docs/entries/functional-analysis/compact-operator/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.compact-operator.composition"
+    ],
+    "family": "functional-analysis.compact-operator",
+    "variant": "textbook-unit-ball",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c25b1c2c1997ebbb"
+  },
+  {
+    "id": "functional-analysis.compact-operator.composition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "紧算子的理想性质与范数极限",
+    "summary": "证明紧算子在左右复合、加法及完备值域中的算子范数极限下封闭",
+    "premises": [
+      "functional-analysis.compact-operator.definition"
+    ],
+    "mathlib": [
+      "IsCompactOperator.comp_clm",
+      "IsCompactOperator.clm_comp",
+      "isCompactOperator_of_tendsto"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/CompactOperatorComposition.lean",
+    "nl_file": "docs/entries/functional-analysis/compact-operator/composition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.compact-operator",
+    "variant": "operator-ideal",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9e4670a4caa1304f"
+  },
+  {
+    "id": "topology.fundamental-group.functoriality-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "基本群诱导映射的函子律与同伦自然性",
+    "summary": "解释连续映射诱导基本群同态及其恒等复合律，并展开同伦映射所给自然同构的分量与自然性",
+    "premises": [
+      "topology.fundamental-group.operations-standard",
+      "topology.homotopy.equivalence-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroup.map",
+      "FundamentalGroup.map_apply",
+      "FundamentalGroupoidFunctor.homotopicMapsNatIso"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/FundamentalGroupFunctorialityStandard.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/functoriality-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-25T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "induced-maps-homotopy-naturality",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "246ed6f59f533a48"
   }
 ]
