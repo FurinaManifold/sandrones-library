@@ -8,78 +8,53 @@ import Mathlib.Analysis.Normed.Operator.ContinuousLinearMap
 import Mathlib.Analysis.Normed.Group.Hom
 
 /-!
-# Bounded linear operators
+# Continuous linear operators
 
-A linear operator between normed spaces is bounded when one constant controls the norm of every
-output by the norm of its input.  This textbook predicate is the public starting point;
-Mathlib's bundled `ContinuousLinearMap` is connected by explicit construction and equivalence
-theorems.
+Mathlib's `ContinuousLinearMap` has exactly the textbook data: a linear map together with
+continuity.  It is therefore the public carrier rather than the target of a duplicate wrapper.
+This file explains that carrier through the global norm bound characterization used in functional
+analysis.
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
 
 open SandronesLibrary.Topology.NormedSpace
 
-variable {E F G : Type*}
-variable [NormedAddCommGroup E] [NormedAddCommGroup F] [NormedAddCommGroup G]
-variable [NormedLinearSpace ℝ E] [NormedLinearSpace ℝ F] [NormedLinearSpace ℝ G]
+variable {E F : Type*}
+variable [NormedAddCommGroup E] [NormedAddCommGroup F]
+variable [NormedLinearSpace ℝ E] [NormedLinearSpace ℝ F]
 
-/-- A linear map is bounded when some nonnegative constant `C` satisfies
-`‖T x‖ ≤ C ‖x‖` for every vector `x`.
+/-- Every continuous linear operator admits a nonnegative global norm bound.
+
+This is the textbook boundedness property of the formal carrier `E →L[ℝ] F`.
 
 > **Entry**: functional-analysis.operator.continuous-linear-map -/
-def IsBoundedLinearOperator (T : E →ₗ[ℝ] F) : Prop :=
-  ∃ C : ℝ, 0 ≤ C ∧ ∀ x : E, ‖T x‖ ≤ C * ‖x‖
+theorem continuousLinearMap_exists_bound (T : E →L[ℝ] F) :
+    ∃ C : ℝ, 0 ≤ C ∧ ∀ x : E, ‖T x‖ ≤ C * ‖x‖ := by
+  exact ⟨‖T‖, norm_nonneg T, T.le_opNorm⟩
 
-/-- The zero linear operator is bounded, directly from the textbook definition. -/
-theorem isBoundedLinearOperator_zero :
-    IsBoundedLinearOperator (0 : E →ₗ[ℝ] F) := by
-  refine ⟨0, le_rfl, ?_⟩
+/-- The underlying function of a continuous linear operator is continuous. -/
+theorem continuousLinearMap_continuous (T : E →L[ℝ] F) : Continuous T := by
+  exact T.continuous
+
+/-- The zero continuous linear operator has global bound zero, directly illustrating the carrier. -/
+theorem continuousLinearMap_zero_bound :
+    ∀ x : E, ‖(0 : E →L[ℝ] F) x‖ ≤ 0 * ‖x‖ := by
   intro x
   simp
 
-/-- Package a textbook-bounded linear operator as Mathlib's continuous linear map. -/
-noncomputable def toContinuousLinearMap (T : E →ₗ[ℝ] F) (hT : IsBoundedLinearOperator T) :
-    E →L[ℝ] F := by
-  choose C hC hbound using hT
-  exact T.mkContinuous C hbound
-
-/-- Forgetting the bridge construction returns the original linear map. -/
-@[simp]
-theorem toContinuousLinearMap_toLinearMap (T : E →ₗ[ℝ] F)
-    (hT : IsBoundedLinearOperator T) :
-    (toContinuousLinearMap T hT).toLinearMap = T := by
-  rfl
-
-/-- Textbook boundedness is exactly the existence of a bundled continuous linear map with the
-same underlying linear map. -/
-theorem isBoundedLinearOperator_iff_exists_continuousLinearMap (T : E →ₗ[ℝ] F) :
-    IsBoundedLinearOperator T ↔ ∃ L : E →L[ℝ] F, L.toLinearMap = T := by
-  constructor
-  · intro hT
-    exact ⟨toContinuousLinearMap T hT, toContinuousLinearMap_toLinearMap T hT⟩
-  · rintro ⟨L, rfl⟩
-    exact ⟨‖L‖, norm_nonneg L, L.le_opNorm⟩
-
-/-- A textbook-bounded linear map is continuous.
+/-- A linear map between real normed spaces is continuous exactly when it admits a nonnegative
+global norm bound.
 
 > **Entry**: functional-analysis.operator.bounded-iff -/
-theorem continuous_of_isBoundedLinearOperator {T : E →ₗ[ℝ] F}
-    (hT : IsBoundedLinearOperator T) : Continuous T := by
-  rcases hT with ⟨C, -, hbound⟩
-  change Continuous (fun x ↦ T x)
-  exact (T.mkContinuous C hbound).continuous
-
-/-- A continuous linear map satisfies a global norm bound. -/
-theorem isBoundedLinearOperator_of_continuous {T : E →ₗ[ℝ] F} (hT : Continuous T) :
-    IsBoundedLinearOperator T := by
-  let L : E →L[ℝ] F := ⟨T, hT⟩
-  exact ⟨‖L‖, norm_nonneg L, fun x ↦ by simpa [L] using L.le_opNorm x⟩
-
-/-- For linear maps between real normed spaces, global norm boundedness and continuity are
-equivalent. -/
-theorem isBoundedLinearOperator_iff_continuous (T : E →ₗ[ℝ] F) :
-    IsBoundedLinearOperator T ↔ Continuous T :=
-  ⟨continuous_of_isBoundedLinearOperator, isBoundedLinearOperator_of_continuous⟩
+theorem linearMap_continuous_iff_exists_bound (T : E →ₗ[ℝ] F) :
+    Continuous T ↔ ∃ C : ℝ, 0 ≤ C ∧ ∀ x : E, ‖T x‖ ≤ C * ‖x‖ := by
+  constructor
+  · intro hT
+    let L : E →L[ℝ] F := ⟨T, hT⟩
+    exact ⟨‖L‖, norm_nonneg L, fun x ↦ by simpa [L] using L.le_opNorm x⟩
+  · rintro ⟨C, -, hbound⟩
+    change Continuous (fun x ↦ T x)
+    exact (T.mkContinuous C hbound).continuous
 
 end SandronesLibrary.FunctionalAnalysis

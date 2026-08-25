@@ -1,37 +1,38 @@
 # F1 泛函分析基础 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`fe232a4`
+- Main 基线：`8d5d823`
 - 设计 RFC：`docs/maintenance/functional-analysis-f1-design.md`
-- 当前阶段：算子定义层首窗已实现；算子空间、级数、商空间待办
+- 当前阶段：按最新 Playbook 完成重复定义收缩；算子解释层已重新验证
 
 ## 路线结论
 
-- F1 依赖 L5、T3、R4，当前均已满足；完成后建议打开 F2。
-- 赋范空间与 Banach 空间已经由 `topology.normed-space.def`／`.banach` 验收，F1 复用而不重复
-  建立 Registry id。
-- 新公共定义从 `IsBoundedLinearOperator` 开始；`ContinuousLinearMap` 只作桥和实现承载。
-- 算子范数必须有最小全局界的教材语义；向量值绝对可和与闭线性子空间也必须先有本库入口。
+- 赋范／Banach 空间复用已验收 Topology 条目。
+- `ContinuousLinearMap` 是“线性且连续”的语义一致正式承载。
+- 算子范数直接采用该承载上的 Mathlib 范数，以基本估计和最小界性质完成教材解释。
+- 绝对可和直接写 `Summable (fun n ↦ ‖f n‖)`；闭子空间直接采用 `Submodule` 加 `IsClosed`。
+
+## 重复造轮子修正
+
+- 已删除 `IsBoundedLinearOperator` 及人工打包桥。
+- 已撤回未提交的 `operatorBounds`、`operatorNorm := sInf ...`。
+- `Operator.lean` 改为正式承载、全局界刻画与有界／连续等价；不创建平行接口。
 
 ## Main-side 建议
 
 - ROADMAP F1 第 1 项标记为复用 `topology.normed-space.def`，不要创建重复 Entry。
-- 后续集成新增 `SandronesLibrary.FunctionalAnalysis.*` 顶层 imports、五个实际新 Entry 的 Registry、
-  RADAR API 和 F1 状态；这些共有文件不由本分支修改。
-
-## 当前验证
-
-- `lake build SandronesLibrary.FunctionalAnalysis.Operator`：8708 jobs 通过；仅重放既有 Topology
-  文件的格式 linter 警告。
-- 临时聚合同时 `#check` 定义、一手性质、打包桥和有界／连续等价，并检查两项 axioms；通过后
-  已删除。
-- Entry 映射：continuous-linear-map 5 个声明，bounded-iff 3 个声明；没有跨文件或漏审。
-- 正式源码禁用占位扫描与 `git diff --check` 通过。
+- 后续集成新增 `SandronesLibrary.FunctionalAnalysis.*` imports、实际新 Entry 的 Registry 和 RADAR；
+  共有文件不由本分支修改。
 
 ## 尚未完成
 
-- `Operator.lean` 已给出 `IsBoundedLinearOperator`、零算子一手性质、到
-  `ContinuousLinearMap` 的桥，以及有界与连续的双向等价。
-- 两篇课程文档已完成 staging 初稿；Registry 与顶层 import 留给 Main。
-- 尚未验证算子范数下确界定义和商范数所需的 Mathlib API。
-- F2/F3/F4 仍保持锁定，本分支不提前使用其结论。
+- 算子空间、Banach 级数和商空间尚未按新复用规则实现。
+- F2/F3/F4 保持锁定。
+
+## 修正版验证
+
+- `lake build SandronesLibrary.FunctionalAnalysis.Operator`：8708 jobs 通过；只重放既有 Topology
+  格式警告。
+- 聚合 `#check` 覆盖正式承载、算子范数基本估计、三条展开性质和有界／连续等价；公理检查通过。
+- Entry 映射：continuous-linear-map 3 个声明，bounded-iff 1 个声明；无自建核心 `def`。
+- 禁用占位扫描和 `git diff --check` 通过。

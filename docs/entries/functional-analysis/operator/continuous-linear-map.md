@@ -2,49 +2,50 @@
 id: functional-analysis.operator.continuous-linear-map
 kind: definition
 state: staging
-title: 有界线性算子与连续线性映射
+title: 连续线性算子
 premises: [topology.normed-space.def, linear-algebra.maps.basic]
-mathlib: [LinearMap.mkContinuous, ContinuousLinearMap.le_opNorm]
+mathlib: [ContinuousLinearMap, ContinuousLinearMap.le_opNorm, ContinuousLinearMap.continuous]
 provenance: {source_type: book, ref: "Conway, A Course in Functional Analysis, Chapter I"}
 ---
 
 # 动机
 
-泛函分析研究的基本态射不是任意线性映射，而是不会把小向量无限放大的线性算子。教材上最直接
-的表达是存在统一常数 `C`，使所有向量都满足 `‖Tx‖≤C‖x‖`。
+泛函分析的基本态射既保持线性运算，又保持极限。连续线性算子因此同时连接线性代数、拓扑和范数
+估计。
 
-# 定义
+# 教材定义与正式承载
 
-`IsBoundedLinearOperator T` 表示存在非负实数 `C`，对每个 `x` 都有
-`‖T x‖ ≤ C * ‖x‖`。非负性使 `C` 真正表示大小上界，也便于后续定义最小上界即算子范数。
+教材定义是“线性且连续的映射”。Mathlib `ContinuousLinearMap` 正好打包这两项数据，没有额外
+改变量词或数学边界，因此本库直接把 `E →L[ℝ] F` 作为正式公开承载，不建立同构包装。
 
 # 陈述（自然语言）
 
-零线性算子有界。一个线性映射有界，当且仅当它能包装成具有同一底层线性映射的连续线性映射。
+每个连续线性算子都有一个非负常数 `C`，使 `‖Tx‖≤C‖x‖` 对所有向量成立；其底层函数连续。
+零算子可取全局界零。
 
 # 陈述（Lean 对照）
 
-- `IsBoundedLinearOperator`：教材有界性定义。
-- `isBoundedLinearOperator_zero`：直接由定义验证零算子有界。
-- `toContinuousLinearMap`：从显式全局界构造 Mathlib 连续线性映射。
-- `isBoundedLinearOperator_iff_exists_continuousLinearMap`：教材定义与打包实现的精确桥。
+- `continuousLinearMap_exists_bound`：展示正式承载的全局范数刻画。
+- `continuousLinearMap_continuous`：取出连续性字段。
+- `continuousLinearMap_zero_bound`：直接验证零算子的基本估计。
 
 # 思维脉络
 
-正向取出定义中的 `C`，交给 `LinearMap.mkContinuous`；反向对打包连续线性映射取其算子范数，
-使用标准估计 `‖Lx‖≤‖L‖‖x‖`。因此 Mathlib 结构是实现承载，而不是未解释的课程定义。
+Mathlib 已在打包类型上定义算子范数，并证明 `‖Tx‖≤‖T‖‖x‖`，因此取 `C=‖T‖` 即得全局界。
+这不是把高级定理冒充定义，而是说明正式承载如何展开成教材可操作的性质。
 
 # 自然语言 ↔ Lean 映射
 
-- 线性算子：`T : E →ₗ[ℝ] F`。
-- 统一全局界：`∃ C, 0 ≤ C ∧ ∀ x, ‖T x‖ ≤ C * ‖x‖`。
-- 打包连续线性映射：`E →L[ℝ] F`。
-- 遗忘打包：`L.toLinearMap`。
+- 线性且连续的算子：`T : E →L[ℝ] F`。
+- 作用于向量：`T x`。
+- 底层连续性：`T.continuous`。
+- 全局放大界：`T.le_opNorm x`。
 
 # 依赖
 
-复用拓扑学已经验收的 `NormedLinearSpace` 与线性代数的线性映射；不重复建立赋范空间定义。
+复用拓扑学已解释的 `NormedLinearSpace`，以及线性代数阶段的线性映射概念。
 
 # 应用与边界
 
-本条只讨论实赋范空间。复赋范空间与半线性算子的推广留到接口稳定后；本批也尚未定义算子范数。
+本批先讨论实赋范空间。`ContinuousLinearMap` 是语义一致的正式承载，不是私有后端；课程文档必须
+继续解释其中的线性、连续和 typeclass 假设。
