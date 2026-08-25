@@ -148,6 +148,12 @@ Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和�
 ## 2. Phase 1 — 分析线（M1-M5 ✅；AN3🔒）
 
 > 家族前缀 `analysis.`；命名示例：`analysis.continuity.definition`、`analysis.derivative.chain-rule`。
+>
+> **教材框架**：M1–M5 与 AN-MV 以华东师范大学《数学分析》第五版为中文课程主教材，按照极限、
+> 连续、微分、积分、级数和多元微积分的通常先后组织；第三学期 AN3 单独以卓里奇
+> *Mathematical Analysis II* 第二版第 16–18 章为主线。前者负责基础教学顺序，后者负责函数列、
+> 含参积分、Fourier 级数与 Fourier 变换初步；两条线不得互相占用编号。对应文献键分别为
+> `ecnu-mathematical-analysis-5` 与 `zorich-mathematical-analysis-ii-2016`。
 
 ### M1 数列极限 ✅（已完，9 条）
 
@@ -257,6 +263,13 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 
 > 家族前缀 `linear-algebra.`。mathlib 线性代数是模语言（`Module`/`Submodule`/`Basis`），
 > 向量空间 = 系数为域（`Field`）的模。叙述层先做"域上模 = 向量空间"翻译。
+>
+> **教材框架**：L1–L5 的抽象向量空间、线性映射、特征理论与内积空间以 Sheldon Axler,
+> *Linear Algebra Done Right* 第三版为主教材；行列式在本库中的位置可以早于该书，但不得因此
+> 跳过“算子先于矩阵”的概念顺序。L5 的矩阵谱专题以及 L6–L7 的正规／酉矩阵、矩阵群、Schur、
+> SVD、极分解等以 Horn–Johnson, *Matrix Analysis* 第二版为专题主教材。Axler 不负责数值分解，
+> Horn–Johnson 也不替代 L1–L4 的向量空间定义链。文献键为 `axler-linear-algebra-2015`、
+> `horn-johnson-matrix-analysis-2013`。
 
 ### L1 向量空间（基质/子空间/基/维数）✅
 
@@ -348,6 +361,11 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 > 家族前缀 `abstract-algebra.`。mathlib 用 Typeclass（`Group`/`Ring`/`Module`）+ 子结构
 > （`Subgroup`/`Ideal`/`Subring`）。先集合论/等价关系已备。
 >
+> **教材框架**：A1–A3 统一以 Dummit–Foote, *Abstract Algebra* 第三版为主教材：群论部分确定
+> A1，环、理想与多项式部分确定 A2 及 A3.1–A3.2，域扩张、可分／正规扩张与 Galois 理论确定
+> A3 后半。该书的模论和更深交换代数内容不提前塞入 A2/A3，而归 §13.1；本库批次可以因 Lean
+> 依赖调整证明次序，但不得改变这条概念依赖。文献键为 `dummit-foote-abstract-algebra-2004`。
+>
 > **学期分界**：第一学期 = A1 群 + A2 环 + A3 的多项式环部分（A3.1-A3.2，域扩张前置）；
 > 第二学期 = A3 域扩张/Galois。分界依据：经典近世代数一学期内容
 > 即群论+环论（含多项式环），域扩张/Galois 与模需要更多抽象背景，与 L 线"第一学期基础结构、
@@ -430,6 +448,12 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 ## 5. Phase 4 — 点集拓扑及代数拓扑入口（T1-T4）
 
 > 家族前缀 `topology.`。
+>
+> **教材框架**：T1–T3 以 Munkres, *Topology* 第二版为主教材，依次组织拓扑空间、连续性、
+> 子空间／积／商、连通、紧致、分离公理和度量化／完备性。T4 的同伦、基本群及其计算改以
+> Hatcher, *Algebraic Topology* 的第 0–1 章为主线；Munkres 只提供点集拓扑和基本群入口，不能
+> 代替 Hatcher 的函子性、同伦不变性与计算路线。文献键为 `munkres-topology-2000`、
+> `hatcher-algebraic-topology-2002`。
 
 ### T1 拓扑空间（开闭/邻域/连续/子商积）✅
 
@@ -517,7 +541,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 
 默认教材为 Gerald B. Folland, *Real Analysis: Modern Techniques and Their Applications*,
 Second Edition。来源须精确到章／节或定理主题。R1-R4 与 Riemann 桥已进入 main；后续现代实分析
-统一采用 RA-F 编号。多元微积分属于 §2 的 AN-MV，不再占用实分析编号。
+统一采用 RA-F 编号。多元微积分属于 §2 的 AN-MV，不再占用实分析编号。文献键为
+`folland-real-analysis-1999`。
 
 ### R1-R4 与 Riemann–Lebesgue 桥已完成主线 ✅
 
@@ -549,6 +574,12 @@ foundation/bridge，不能宣称整条 Folland 定理已经完成。
 a.e. 结论写成逐点结论。
 
 ## 7. Phase 6 — 复分析（C0-C3）
+
+> **教材框架**：C0–C3 以 Ahlfors, *Complex Analysis* 第三版为主教材。复数与初等函数、解析性
+> 和幂级数对应 C0–C1；路径积分、Cauchy 理论和同伦边界对应 C2；Laurent 展开、孤立奇点、残数
+> 与辐角原理对应 C3。ROADMAP 中新增 foundation 条目只是在 Lean 依赖尚未闭合时保留教材链，
+> 不改变 Ahlfors 主线，也不得把 foundation 状态写成对应章节已经完成。文献键为
+> `ahlfors-complex-analysis-1979`。
 
 C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基础条目进入 main。当前研发暂停：
 一般同伦不变、单连通域原函数及其后续 Laurent／残数路线依赖 T4 中尚未完成的本库同伦、同伦等价、
@@ -606,7 +637,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 > 默认教材固定为 Theo Bühler 与 Dietmar A. Salamon, *Functional Analysis*, AMS GSM 191
 >（2018；ETH 讲义更新版可作勘误参考）。课程顺序对应第 1–7 章：基础、三大原理与凸分离、
 > 弱／弱星拓扑、Fredholm 理论、有界谱理论、无界算子、算子半群。现有条目保留，不为贴合章节
-> 编号重造等价接口；新增批次负责补齐教材缺口并冻结真实依赖门。
+> 编号重造等价接口；新增批次负责补齐教材缺口并冻结真实依赖门。文献键为
+> `buehler-salamon-functional-analysis-2018`。
 
 ### F1 赋范空间与连续线性算子 ✅
 
@@ -796,6 +828,14 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 
 ## 11. Phase 10 — 数论（N1-N3）
 
+> **教材框架**：N1 与 N1+ 以 Hardy–Wright, *An Introduction to the Theory of Numbers* 第六版
+> 为主教材，覆盖整除、同余、素数、算术函数、连分数与 Pell 方程；Ireland–Rosen,
+> *A Classical Introduction to Modern Number Theory* 第二版作为现代数论桥，负责 N2 的代数
+> 数论入口以及 N3 的特征、二次互反、算术函数和解析方法入口。两书都不单独覆盖 ROADMAP 中
+> 完整的局部域、类域式纵深或素数定理证明链；这些后续批次在开工前仍须由 Main 补指定专题教材，
+> 不得把现有书目挂名为整条 N2/N3 已有出处。文献键为 `hardy-wright-number-theory-2008`、
+> `ireland-rosen-number-theory-1990`。
+
 ### N1 初等数论 ✅
 
 21 个教材入口已进入 main。最佳逼近必要方向、√d 连分数桥、负 Pell 和全体正解分类归入 N1+。
@@ -848,6 +888,13 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 | 12 | `number-theory.analytic.primes-in-progression` | 算术级数中的素数 | character/L nonvanishing |
 
 ## 12. Phase 11 — 集合论深化（ST1-ST3）
+
+> **教材框架**：ST1–ST2 以 Jech, *Set Theory* 第三千禧版为集合论主教材，负责序数、基数、选择、
+> 共尾性以及独立性语言的标准框架。ST3 的 Goodstein、Hydra、大数与可计算性不是 Jech 课程的
+> 单一章节：数的表示和大数例证可参考 Conway–Guy，经典递归论以 Odifreddi 为主教材，Goodstein、
+> Kirby–Paris、Wainer、Rado 与 Knuth 的已发表论文只作为相应定理的原始 provenance。原始论文
+> 不能代替教材定义层。文献键为 `jech-set-theory-2003`、`conway-guy-book-of-numbers-1996`、
+> `odifreddi-classical-recursion-1989` 及各专题论文键。
 
 ### ST1 序数理论 ✅
 
@@ -1199,7 +1246,8 @@ Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先
 > Second Edition, AMS GSM 19（2010）。课程顺序保持教材的三部结构：表示公式（Chapters 2–4）、
 > 线性 PDE 理论（Chapters 5–7）、非线性 PDE 理论（Chapters 8–12）。课程门：AN-MV、R4、
 > ODE1–ODE2；Sobolev 以后另需 F1–F3。AFA5 分布和 F8 半群可作为后续桥，但不是跳过 Evans
-> 经典表示公式、能量估计与弱解施工的捷径。
+> 经典表示公式、能量估计与弱解施工的捷径。文献键为
+> `evans-partial-differential-equations-2010`。
 
 #### PDE1 四类重要线性方程与表示公式（Evans Chapter 2）
 
@@ -1492,6 +1540,13 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 
 > 家族前缀 `mathematical-logic.*`。课程门：ST1–ST2；可计算性路线与 ST3 共享底层编码，必须指定
 > 单一文件所有者，避免集合论和逻辑分支各自定义一套机器模型。
+>
+> **现有教材框架**：ML4 可计算性以 Odifreddi, *Classical Recursion Theory* 为主教材，ML7
+> 证明论以 Pohlers, *Proof Theory: An Introduction* 为主教材；二者分别固定机器／递归函数等价、
+> 可枚举性、不可判定性，以及相继式、切消和序数分析的术语边界。它们不覆盖 ML1–ML3 的一阶逻辑
+> 与模型论、ML5 的不完备性全课程和 ML6 的模型集合论；这些批次仍标为“教材待指定”，在 Main
+> 补入正式出版教材前只能做接口研究，不能宣称已具有完整课程框架。现有文献键为
+> `odifreddi-classical-recursion-1989`、`pohlers-proof-theory-1989`。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
