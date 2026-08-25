@@ -10,17 +10,17 @@ import Mathlib.Algebra.Polynomial.FieldDivision
 /-!
 # 抽象代数 / 多项式带余除法与 Euclidean 算法
 
-本模块在本库有限支撑系数序列 `PolynomialSequence R` 上建立多项式带余除法。第一部分针对
-交换环上的首一除式：首一性由系数逐项定义，商、余数、除法恒等式、余数次数界、整除判据与
-唯一性均以本库多项式公开。第二部分把系数环加强为域，为任意非零除式定义商和余数，并采用
-诚实处理零多项式的自然数度量构造本库 `EuclideanDomainAxioms`。最后直接调用环论层已经证明的
-Euclidean 算法，得到多项式最大公因数的泛性质和 Bézout 恒等式。
+本模块先在 Mathlib 的正式承载 `Polynomial R` 上建立可直接复用的多项式带余除法接口，随后
+保留本库有限支撑系数序列 `PolynomialSequence R` 的兼容版本。两部分首先处理交换环上的首一
+除式：正式承载使用 `Polynomial.Monic`、`divByMonic` 与 `modByMonic`，兼容承载则使用逐系数
+`Monic` 及其具名桥。之后把系数环加强为域，为任意非零除式给出商余恒等式，并采用诚实处理零
+多项式的自然数度量构造本库 `EuclideanDomainAxioms`。最后直接调用 A2 已证明的 Euclidean
+算法，得到多项式最大公因数的泛性质和 Bézout 恒等式。
 
-Mathlib 的 `Polynomial.Monic`、`divByMonic`、`modByMonic`、域上除法及 EuclideanDomain 运算
-只作为具名兼容桥或私有证明后端。除明确标注的首一性桥外，公开教材接口只使用本库
-`PolynomialSequence`、`degree`、`DividesElement`、`GreatestCommonDivisor` 与
-`EuclideanDomainAxioms`，不把 Mathlib 的多项式 EuclideanDomain、模、子模或代数结构泄漏到
-上层签名中。
+Mathlib 的 `Polynomial.Monic`、`divByMonic`、`modByMonic`、域上 `/` 与 `%` 是经过教材解释的
+正式公开承载，而不是静默证明后端；其类型类假设在每条定理中显式给出。旧
+`PolynomialSequence` 接口继续使用具名桥。两条路线共同调用本库 `GreatestCommonDivisor` 与
+`EuclideanDomainAxioms`，公开签名不泄漏模、子模或代数扩张结构。
 
 > **Entry**: abstract-algebra.poly.division
 -/
@@ -31,6 +31,135 @@ open SandronesLibrary.AbstractAlgebra.Ring
 open SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 
 set_option linter.style.haveILetI false
+
+/-! ### Mathlib `Polynomial` 正式承载接口 -/
+
+/-- **正式承载上的首一除法恒等式**：对交换环上的 Mathlib 多项式 `p,d`，若除式 `d`
+首一，则 `p` 等于 `d` 乘以首一商，再加首一余数。该接口直接使用成熟的
+`divByMonic` 与 `modByMonic` 运算，供仍以 `Polynomial R` 为承载的下游代码复用。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_monic_division_identity {R : Type*} [CommRing R]
+    (p d : Polynomial R) (_hd : d.Monic) :
+    p = d * p.divByMonic d + p.modByMonic d := by
+  rw [add_comm, Polynomial.modByMonic_add_div]
+
+/-- **正式承载上的首一余数次数界**：在非平凡交换环上，以首一多项式 `d` 除 `p`，
+所得 `modByMonic` 余数的次数严格小于 `d` 的次数；零余数的次数 `⊥` 也包含在结论中。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_monic_remainder_degree_lt {R : Type*} [CommRing R] [Nontrivial R]
+    (p d : Polynomial R) (hd : d.Monic) :
+    (p.modByMonic d).degree < d.degree := by
+  exact Polynomial.degree_modByMonic_lt p hd
+
+/-- **正式承载上的首一整除判据**：对首一除式 `d`，`p` 的首一余数为零，当且仅当
+`d` 整除 `p`。这是余数计算与环论整除关系之间的标准接口。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_monic_remainder_eq_zero_iff_dvd {R : Type*} [CommRing R]
+    (p d : Polynomial R) (hd : d.Monic) :
+    p.modByMonic d = 0 ↔ d ∣ p := by
+  exact Polynomial.modByMonic_eq_zero_iff_dvd hd
+
+/-- **正式承载上的首一商余唯一性**：若 `p = d*q+r`，`d` 首一且 `r` 的次数严格小于
+`d` 的次数，则候选商 `q` 和余数 `r` 分别等于 `divByMonic` 与 `modByMonic` 给出的结果。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_monic_quotient_remainder_unique
+    {R : Type*} [CommRing R] [Nontrivial R]
+    (p d q r : Polynomial R) (hd : d.Monic)
+    (hidentity : p = d * q + r) (hdegree : r.degree < d.degree) :
+    q = p.divByMonic d ∧ r = p.modByMonic d := by
+  have hidentity' : r + d * q = p := by
+    rw [hidentity, add_comm]
+  have hu := Polynomial.div_modByMonic_unique q r hd ⟨hidentity', hdegree⟩
+  exact ⟨hu.1.symm, hu.2.symm⟩
+
+/-- **正式承载上的零安全 Euclidean 度量**：零多项式的次数为 `⊥`，故度量取 `0`；
+非零 `n` 次多项式的度量取 `n+1`。加一保证每个非零多项式的度量严格为正。
+> **Entry**: abstract-algebra.poly.division
+-/
+noncomputable def mathlibPolynomialDegreeMeasure {K : Type*} [Field K]
+    (p : Polynomial K) : ℕ :=
+  match p.degree with
+  | ⊥ => 0
+  | (n : ℕ) => n + 1
+
+private theorem mathlibPolynomialDegreeMeasure_lt_of_degree_lt
+    {K : Type*} [Field K] {r d : Polynomial K} (hdegree : r.degree < d.degree) :
+    mathlibPolynomialDegreeMeasure r < mathlibPolynomialDegreeMeasure d := by
+  cases hr : r.degree with
+  | bot =>
+      cases hd : d.degree with
+      | bot => simp [hr, hd] at hdegree
+      | coe n => simp [mathlibPolynomialDegreeMeasure, hr, hd]
+  | coe m =>
+      cases hd : d.degree with
+      | bot => simp [hr, hd] at hdegree
+      | coe n =>
+          have hmn : m < n := by simpa [hr, hd] using hdegree
+          simp only [mathlibPolynomialDegreeMeasure, hr, hd]
+          omega
+
+/-- **正式承载上的域多项式除法恒等式**：域上每个非零多项式 `d` 都可作为除式，且
+`p = d * (p / d) + p % d`。商和余数直接采用 Mathlib 多项式 EuclideanDomain 运算。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_polynomial_division_identity {K : Type*} [Field K]
+    (p d : Polynomial K) (_hd : d ≠ 0) :
+    p = d * (p / d) + p % d := by
+  rw [add_comm, EuclideanDomain.mod_add_div]
+
+/-- **正式承载上的余数度量下降**：域上以非零 `d` 除 `p` 时，余数 `p % d` 的
+零安全自然数度量严格小于 `d` 的度量，为本库 Euclidean 递归提供终止依据。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlib_polynomial_remainder_measure_lt {K : Type*} [Field K]
+    (p d : Polynomial K) (hd : d ≠ 0) :
+    mathlibPolynomialDegreeMeasure (p % d) < mathlibPolynomialDegreeMeasure d := by
+  apply mathlibPolynomialDegreeMeasure_lt_of_degree_lt
+  exact Polynomial.degree_mod_lt p hd
+
+/-- **正式承载上的 Euclidean 环公理**：对域 `K`，以零安全次数为度量、`/` 为商、`%`
+为余数，把 `Polynomial K` 组装成本库普通数据结构 `EuclideanDomainAxioms`；不额外注册实例。
+> **Entry**: abstract-algebra.poly.division
+-/
+noncomputable def mathlibPolynomialEuclideanDomainAxioms
+    (K : Type*) [Field K] : EuclideanDomainAxioms (Polynomial K) := by
+  exact {
+    domain := (integralDomainAxioms_iff_isDomain (R := Polynomial K)).2 inferInstance
+    measure := mathlibPolynomialDegreeMeasure
+    quotient := fun a b => a / b
+    remainder := fun a b => a % b
+    divisionWithRemainder := by
+      intro a b hb
+      exact ⟨mathlib_polynomial_division_identity a b hb,
+        mathlib_polynomial_remainder_measure_lt a b hb⟩ }
+
+/-- **正式承载上的最大公因数泛性质**：本库 Euclidean 算法作用于 `Polynomial K` 后得到的
+`euclideanGCD` 同时整除 `a,b`，并被 `a,b` 的每个公因子整除。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlibPolynomialGCD_isGreatestCommonDivisor {K : Type*} [Field K]
+    (a b : Polynomial K) :
+    GreatestCommonDivisor
+      (euclideanGCD (mathlibPolynomialEuclideanDomainAxioms K) a b) a b := by
+  exact euclideanGCD_isGreatestCommonDivisor
+    (mathlibPolynomialEuclideanDomainAxioms K) a b
+
+/-- **正式承载上的 Bézout 恒等式**：对域上的任意 Mathlib 多项式 `a,b`，存在多项式
+`s,t`，使 Euclidean 算法所得 gcd 等于 `s*a+t*b`。
+> **Entry**: abstract-algebra.poly.division
+-/
+theorem mathlibPolynomialGCD_bezout {K : Type*} [Field K]
+    (a b : Polynomial K) :
+    ∃ s t : Polynomial K,
+      euclideanGCD (mathlibPolynomialEuclideanDomainAxioms K) a b = s * a + t * b := by
+  exact euclideanDomain_bezout_for_gcd
+    (mathlibPolynomialEuclideanDomainAxioms K) a b
+
+/-! ### 本库 `PolynomialSequence` 教材接口 -/
 
 /-- **首一多项式的本库定义**：存在指标 `n`，使第 `n` 项系数等于一，且所有严格高于
 `n` 的系数都为零。这个定义直接读取本库系数序列，不依赖外部首项系数谓词；在零环中也按
