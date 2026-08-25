@@ -253,6 +253,52 @@
 > - 学科负责人被临时提拔为 main 时，先暂停学科开发、保存当前成果，再进入主 worktree 按 Main
 >   ROLE 接管；main 任期结束后回到原学科 worktree，不能在两个角色下同时写共享状态。
 
+> **11. 实分析学科采用 Folland 第二版课程线**
+>
+> 实分析 `real-analysis.*` 的默认教材版本固定为 Gerald B. Folland, *Real Analysis: Modern
+> Techniques and Their Applications*, Second Edition。课程文档的来源字段必须写到章／节或明确
+> 定理主题；不能只写“Folland”或把 Mathlib 文档当作教材来源。若其他教材提供更适合 Lean 的
+> 引理顺序，可以作为补充 provenance，但条目标题、概念先后与诚实边界仍以 Folland 第二版为准。
+>
+> **现有完成度不能代替依赖审计。** 仓库已有正测度、可测函数、Lebesgue 积分、收敛定理、
+> 乘积测度、Fubini--Tonelli 与 `Lᵖ` 主线；这不等于 Folland 的测度微分前置已经齐全。启动
+> Hardy--Littlewood 极大函数、Lebesgue 点或 Lebesgue 微分定理以前，负责人必须检查并补齐下列
+> 本库教材入口：
+>
+> 1. 有符号测度与 Jordan 分解；
+> 2. 正负变差、全变差与复测度；
+> 3. 测度的绝对连续和互奇异；
+> 4. Radon--Nikodym 导数及其存在、唯一性；
+> 5. 由密度构造测度、积分换测度公式，以及 RN 导数的链式／互逆边界。
+>
+> 上述概念若尚无 Registry Entry，不得因为 Mathlib 已有 `SignedMeasure`、`ComplexMeasure`、
+> `Measure.AbsolutelyContinuous` 或 `rnDeriv` 就在后续公开主定理中直接使用。学科负责人应先建立
+> 本库教材谓词或结构、量词展开／一手性质、具名 Mathlib 桥和至少一个真实上层使用者。Mathlib
+> 对象可以作为底层数据承载或证明后端，但其角色必须在公开签名四类扫描与 handoff 中披露。
+>
+> **Folland 后续批次顺序固定如下：**
+>
+> | 批次 | 教材内容 | 开工门 | 完成出口 |
+> |---|---|---|---|
+> | RA-F1 | 有符号测度、Jordan 分解、全变差、复测度 | 正测度与积分主线已验收 | 四类概念均有本库定义、展开性质和桥 |
+> | RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | RN 存在唯一性、积分换测度公式及真实下游 |
+> | RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口已冻结 | 极大函数教材定义、弱型估计和可测性边界 |
+> | RA-F4 | Lebesgue 点与 Lebesgue 微分定理 | RA-F3 | 平均算子、Lebesgue 点定义、a.e. 定理和桥 |
+> | RA-F5 | 单调函数、有界变差与绝对连续函数 | RA-F2；一维测度接口已验收 | BV/AC 定义、分解性质与 a.e. 导数 |
+> | RA-F6 | FTC 的 a.e. 版本与 Newton--Leibniz 表示 | RA-F4、RA-F5 | 积分表示双向定理及与既有 Riemann/FTC 接口的总桥 |
+>
+> 不得把 RA-F3/RA-F4 的 Mathlib 强定理直接当作 Folland 课程条目完成；尤其不能只包装
+> `ae_lebesguePoint` 或现成微分定理。每批必须保留教材证明骨架：覆盖或弱型估计所需的局部引理、
+> 简单函数／`L¹` 逼近步骤、坏集测度控制，以及从极大估计到 a.e. 结论的逻辑链。若某一步确实
+> 只能使用 Mathlib 强后端，Entry 必须降级为 bridge/foundation，标题和 ROADMAP 不得写成完整
+> Folland 定理已经由本库推导。
+>
+> **实分析专用验收证据：** handoff 除通用六列表外，还必须列出测度类型（正／有符号／复）、
+> 底层标量、有限性或 σ-有限性假设、`a.e.` 所依赖的测度、积分类型（`lintegral`／Bochner 积分／
+> 区间积分）和等式成立方式（处处／a.e.／测度相等）。自然语言省略这些条件而 Lean 签名保留，
+> 或自然语言把 a.e. 结论写成逐点结论，属于数学强度错误，必须退回负责人；front matter、八段
+> 重排和 Registry/RADAR 状态同步仍由 Main 接收后整理。
+
 > **5 次试错法**：同一证明试错 ≥ 5 次 ⟹ 停止盲试，拆成子 todo（带 sorry 框架），逐个解决。
 
 > **用途**：把"用 Lean 表达数学推理"的实战经验沉淀为可检索知识。
