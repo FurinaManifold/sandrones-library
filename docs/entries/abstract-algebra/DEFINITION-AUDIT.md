@@ -72,5 +72,7 @@
   `Poly.lean` 的直接 Mathlib 接口已降为独立兼容 Entry。
 - [x] 首一多项式与带余除法：`Monic` 已由系数自建；交换环上的首一除法、域上的一般
   非零除式除法、Euclidean 度量、gcd 与 Bézout 均已迁移到本库多项式和 A2 定义层。
-- [ ] 一般不可约理论与根的重数仍需在 A2 整除定义层上回修。
+- [x] 不可约与判别：后续课程正式复用语义一致的 `Irreducible`、`Polynomial.IsPrimitive`、
+  `content` 与 `IsEisensteinAt`，并已完成教材展开、Gauss 引理、有理根和 Eisenstein 判别。
+- [ ] 根的重数、导数与重根判据仍待 A3.4 完成。
 - [ ] 域扩张相关概念尚未开始；不得直接用 `Algebra`、`IntermediateField` 等结构充当教材定义。
