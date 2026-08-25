@@ -6,19 +6,20 @@ Authors: Sandrone's Library contributors
 import Mathlib.NumberTheory.DiophantineApproximation.ContinuedFractions
 
 /-!
-# Continued fractions and rational approximation
+# 连分数与有理逼近
 
-This file gives textbook-facing interfaces for
+本文件从初等数论教材的角度介绍实数的简单连分数，提供以下接口：
 
-* the convergents of the simple continued fraction of a real number;
-* best rational approximation, both globally by denominator and in a finite candidate set;
-* Legendre's sufficient criterion for a rational number to be a convergent.
+* 实数的简单连分数及其渐近分数；
+* 按分母大小比较的最佳有理逼近，以及有限候选集中的最佳逼近；
+* Legendre 判别准则：误差足够小的有理数一定是某个渐近分数。
 
-Mathlib currently proves Legendre's criterion, but it does not yet provide the usual theorem that
-every continued-fraction convergent is a best approximation.  The declarations below deliberately
-keep these two facts separate rather than claiming that missing converse direction.
+这里直接复用 Mathlib 的渐近分数与 Legendre 判别准则接口，因为它们与本节采用的教材语义一致。
+不过，Mathlib 目前尚未提供教材中常见的“每个连分数渐近分数都是最佳逼近”定理。因此下文会明确
+区分“误差足够小则为渐近分数”和“渐近分数具有最佳性”这两个方向，不会把尚缺的后一个方向写成
+已经证明的结论。
 
-## Current entries
+## 本文件条目
 
 * `number-theory.elementary.continued-fraction-convergent`
 * `number-theory.elementary.continued-fraction-recursion`
@@ -29,23 +30,26 @@ keep these two facts separate rather than claiming that missing converse directi
 
 namespace SandronesLibrary.NumberTheory.Elementary
 
-/-- The `n`th rational convergent of the simple continued fraction of `ξ`.
+/-- 实数 `ξ` 的简单连分数的第 `n` 个渐近分数。
 
-This is the elementary rational-valued interface; Mathlib's generalized continued-fraction
-representation is kept behind the definition.
+渐近分数是一个有理数：把连分数在第 `n` 层截断后求值，就得到这个有理逼近。本定义采用
+Mathlib 的 `Real.convergent` 作为正式承载，但对本课程公开的仍是取值于 `ℚ` 的初等接口，而不是
+广义连分数的内部表示。
 
 > **Entry**: number-theory.elementary.continued-fraction-convergent -/
 noncomputable def continuedFractionConvergent (ξ : ℝ) (n : ℕ) : ℚ :=
   Real.convergent ξ n
 
-/-- The zeroth convergent is the integer part of the real number. -/
+/-- 第零个渐近分数就是 `ξ` 的整数部分 `⌊ξ⌋`。这是连分数递归展开的起点。 -/
 @[simp]
 theorem continuedFractionConvergent_zero (ξ : ℝ) :
     continuedFractionConvergent ξ 0 = (⌊ξ⌋ : ℤ) := by
   exact Real.convergent_zero ξ
 
-/-- Removing the integer part and taking a reciprocal gives the recursive continued-fraction
-step.
+/-- 连分数的递归步骤：先从 `ξ` 中去掉整数部分，再对剩余的小数部分取倒数并继续展开。
+
+因此，第 `n + 1` 个渐近分数等于整数部分，加上“倒数后所得实数的第 `n` 个渐近分数”的倒数。
+这个公式把连分数算法的一步直接翻译成了有理数等式。
 
 > **Entry**: number-theory.elementary.continued-fraction-recursion -/
 @[simp]
@@ -54,33 +58,34 @@ theorem continuedFractionConvergent_succ (ξ : ℝ) (n : ℕ) :
       (⌊ξ⌋ : ℤ) + (continuedFractionConvergent (Int.fract ξ)⁻¹ n)⁻¹ := by
   exact Real.convergent_succ ξ n
 
-/-- The absolute error made when `q` is used to approximate `ξ`. -/
+/-- 用有理数 `q` 逼近实数 `ξ` 时的绝对误差，即 `|ξ - q|`。 -/
 def rationalApproximationError (ξ : ℝ) (q : ℚ) : ℝ :=
   |ξ - (q : ℝ)|
 
-/-- A rational number is a best approximation to `ξ` if no rational with a denominator at most
-as large has smaller approximation error.
+/-- 若所有分母不超过 `q.den` 的有理数都不能比 `q` 更接近 `ξ`，就称 `q` 是 `ξ` 的最佳有理逼近。
 
-The comparison allows equality, so ties are permitted.  This is the standard denominator-bounded
-notion; it is intentionally defined independently of continued fractions because the theorem that
-convergents satisfy it is not currently available in Mathlib.
+这里用 `≤` 比较误差，因此允许两个候选者并列最佳。这个定义只谈“分母预算内谁的误差最小”，
+并不预先假定 `q` 来自连分数。这样处理是为了诚实地区分最佳逼近的教材定义与当前已经形式化的
+连分数定理；Mathlib 尚未给出“每个渐近分数都满足此定义”的一般结论。
 
 > **Entry**: number-theory.elementary.best-rational-approximation -/
 def IsBestRationalApproximation (ξ : ℝ) (q : ℚ) : Prop :=
   ∀ r : ℚ, r.den ≤ q.den →
     rationalApproximationError ξ q ≤ rationalApproximationError ξ r
 
-/-- An exact rational representation is automatically a best rational approximation. -/
+/-- 若被逼近的实数本来就是有理数 `q`，那么用 `q` 自身逼近时误差为零，所以它自动是最佳逼近。 -/
 theorem exact_rational_isBestApproximation (q : ℚ) :
     IsBestRationalApproximation (q : ℝ) q := by
   intro r _
   simp [rationalApproximationError]
 
-/-- `q` minimizes the approximation error among the finite candidate set `s`. -/
+/-- `q` 属于有限候选集 `s`，并且它的逼近误差不大于 `s` 中任何候选者的误差。 -/
 def IsBestApproximationIn (ξ : ℝ) (s : Finset ℚ) (q : ℚ) : Prop :=
   q ∈ s ∧ ∀ r ∈ s, rationalApproximationError ξ q ≤ rationalApproximationError ξ r
 
-/-- Every nonempty finite set of rational candidates contains a best approximation.
+/-- 每个非空的有限有理候选集都存在误差最小的元素，也就是该候选集中的最佳逼近。
+
+这里的结论只是有限集合取最小值，并没有声称所得有理数是按所有分母受限候选比较的全局最佳逼近。
 
 > **Entry**: number-theory.elementary.finite-best-approximation -/
 theorem exists_bestApproximationIn (ξ : ℝ) {s : Finset ℚ} (hs : s.Nonempty) :
@@ -88,16 +93,15 @@ theorem exists_bestApproximationIn (ξ : ℝ) {s : Finset ℚ} (hs : s.Nonempty)
   obtain ⟨q, hqs, hq⟩ := s.exists_min_image (rationalApproximationError ξ) hs
   exact ⟨q, hqs, hq⟩
 
-/-- Legendre's quantitative hypothesis: the error is strictly below
-`1 / (2 * denominator²)`. -/
+/-- Legendre 判别准则使用的定量条件：逼近误差严格小于 `1 / (2 * 分母²)`。 -/
 def IsLegendreApproximation (ξ : ℝ) (q : ℚ) : Prop :=
   rationalApproximationError ξ q < 1 / (2 * (q.den : ℝ) ^ 2)
 
-/-- **Legendre's criterion.** A rational approximation satisfying the sharp textbook threshold
-`| ξ - q | < 1 / (2 q.den²)` occurs among the continued-fraction convergents of `ξ`.
+/-- **Legendre 判别准则。** 若有理数 `q` 对 `ξ` 的逼近满足教材中的阈值
+`|ξ - q| < 1 / (2 q.den²)`，那么 `q` 一定会出现在 `ξ` 的连分数渐近分数序列中。
 
-This is a sufficient criterion, not the presently unavailable statement that every convergent is
-a best rational approximation.
+这是一个充分条件：它从“小误差”推出“是渐近分数”。它不是反方向的陈述，也没有证明每个渐近
+分数都是最佳有理逼近。
 
 > **Entry**: number-theory.elementary.legendre-criterion -/
 theorem legendreApproximation_is_convergent {ξ : ℝ} {q : ℚ}
