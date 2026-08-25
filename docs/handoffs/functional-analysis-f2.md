@@ -1,9 +1,9 @@
 # F2 Banach 三大定理 handoff
 
 - 分支：`codex/functional-analysis`
-- Main 基线：`bdc17a6`（`git rebase main`）
+- Main 基线：`0418f7f`（`git rebase main`）
 - 设计 RFC：`docs/maintenance/functional-analysis-f2-design.md`
-- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach 延拓与范数化泛函完成验证
+- 当前阶段：F2 前五项已由 Main 集成；Hahn–Banach、范数化泛函与凸分离完成验证
 
 ## Hahn–Banach 延拓窗
 
@@ -27,6 +27,18 @@
 - 聚合 `#check` 覆盖连续对偶、两项 Mathlib 存在定理、算子范数上界与五个公开声明；Entry 精确
   映射为五个声明。
 - 五个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
+  `git diff --check` 通过。
+
+## 凸分离窗
+
+- `Convex`、`StrongDual`、`gauge` 与几何 Hahn–Banach 定理均直接作为正式接口或证明后端；
+  不建立本地凸集、半空间或 Minkowski 泛函定义。
+- 教材接口覆盖含零开凸邻域与外点、两个不交开凸集、闭凸集与外点，以及闭凸集的半空间交刻画。
+- 一般两个闭凸集的严格分离仍需要额外紧致性或距离条件，本窗不作过强陈述。
+- `lake build SandronesLibrary.FunctionalAnalysis.ConvexSeparation`：8717 jobs 通过；警告只来自既有依赖。
+- 聚合 `#check` 覆盖 `Convex`、`gauge`、两项 Mathlib 分离主定理与四个公开声明；Entry 精确映射
+  为四个声明。
+- 四个声明的公理依赖均为 `propext`、`Classical.choice`、`Quot.sound`；禁用占位扫描与
   `git diff --check` 通过。
 
 ## 有界逆窗
