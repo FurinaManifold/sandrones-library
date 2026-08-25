@@ -177,23 +177,41 @@ noncomputable instance {R : Type*} [Semiring R] : Mul (PolynomialSequence R) :=
 noncomputable instance {R : Type*} [Ring R] : Neg (PolynomialSequence R) :=
   ⟨transportedNeg⟩
 
-private theorem toMathlib_zero {R : Type*} [Semiring R] :
+/-- 具名桥保持零多项式。该基础搬运性质公开供后续章节复用，避免重复证明。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_zero {R : Type*} [Semiring R] :
     toMathlibPolynomial (0 : PolynomialSequence R) = 0 := by
   exact toMathlibPolynomial_fromMathlibPolynomial 0
-private theorem toMathlib_one {R : Type*} [Semiring R] :
+/-- 具名桥保持乘法单位元。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_one {R : Type*} [Semiring R] :
     toMathlibPolynomial (1 : PolynomialSequence R) = 1 := by
   exact toMathlibPolynomial_fromMathlibPolynomial 1
-private theorem toMathlib_add {R : Type*} [Semiring R] (p q : PolynomialSequence R) :
+/-- 具名桥保持多项式加法，是后续章节共享的证明搬运接口。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_add {R : Type*} [Semiring R] (p q : PolynomialSequence R) :
     toMathlibPolynomial (p + q) = toMathlibPolynomial p + toMathlibPolynomial q := by
   exact toMathlibPolynomial_fromMathlibPolynomial _
-private theorem toMathlib_mul {R : Type*} [Semiring R] (p q : PolynomialSequence R) :
+/-- 具名桥保持多项式乘法，是整除、除法与因式分解章节共享的证明搬运接口。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_mul {R : Type*} [Semiring R] (p q : PolynomialSequence R) :
     toMathlibPolynomial (p * q) = toMathlibPolynomial p * toMathlibPolynomial q := by
   exact toMathlibPolynomial_fromMathlibPolynomial _
-private theorem toMathlib_neg {R : Type*} [Ring R] (p : PolynomialSequence R) :
+/-- 具名桥保持多项式取负。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_neg {R : Type*} [Ring R] (p : PolynomialSequence R) :
     toMathlibPolynomial (-p) = -toMathlibPolynomial p := by
   exact toMathlibPolynomial_fromMathlibPolynomial _
 
-private theorem toMathlib_injective {R : Type*} [Semiring R] :
+/-- 到 Mathlib 承载层的具名桥是单射；后续章节应复用本定理而不再展开双向桥。
+> **Entry**: abstract-algebra.poly.def
+-/
+theorem toMathlib_injective {R : Type*} [Semiring R] :
     Function.Injective (toMathlibPolynomial : PolynomialSequence R → Polynomial R) := by
   intro p q h
   rw [← fromMathlibPolynomial_toMathlibPolynomial p,

@@ -32,32 +32,6 @@ open SandronesLibrary.AbstractAlgebra.PolynomialDefinition
 
 set_option linter.style.haveILetI false
 
-private theorem toMathlibPolynomial_injective {R : Type*} [CommRing R] :
-    Function.Injective (toMathlibPolynomial : PolynomialSequence R → Polynomial R) := by
-  intro p q h
-  rw [← fromMathlibPolynomial_toMathlibPolynomial p,
-    ← fromMathlibPolynomial_toMathlibPolynomial q, h]
-
-private theorem toMathlibPolynomial_zero {R : Type*} [CommRing R] :
-    toMathlibPolynomial (0 : PolynomialSequence R) = 0 := by
-  ext n
-  rw [coefficient_toMathlibPolynomial, Polynomial.coeff_zero, coefficient_zero]
-
-private theorem toMathlibPolynomial_add {R : Type*} [CommRing R]
-    (p q : PolynomialSequence R) :
-    toMathlibPolynomial (p + q) = toMathlibPolynomial p + toMathlibPolynomial q := by
-  ext n
-  rw [coefficient_toMathlibPolynomial, Polynomial.coeff_add,
-    coefficient_toMathlibPolynomial, coefficient_toMathlibPolynomial, coefficient_add]
-
-private theorem toMathlibPolynomial_mul {R : Type*} [CommRing R]
-    (p q : PolynomialSequence R) :
-    toMathlibPolynomial (p * q) = toMathlibPolynomial p * toMathlibPolynomial q := by
-  ext n
-  rw [coefficient_toMathlibPolynomial, Polynomial.coeff_mul,
-    Finset.Nat.sum_antidiagonal_eq_sum_range_succ_mk, coefficient_mul]
-  simp only [coefficient_toMathlibPolynomial]
-
 /-- **首一多项式的本库定义**：存在指标 `n`，使第 `n` 项系数等于一，且所有严格高于
 `n` 的系数都为零。这个定义直接读取本库系数序列，不依赖外部首项系数谓词；在零环中也按
 系数等式本身解释，不暗中加入非平凡性假设。
@@ -130,8 +104,8 @@ noncomputable def monicRemainder {R : Type*} [CommRing R]
 theorem monic_division_identity {R : Type*} [CommRing R]
     (p d : PolynomialSequence R) (_hd : Monic d) :
     p = d * monicQuotient p d + monicRemainder p d := by
-  apply toMathlibPolynomial_injective
-  rw [toMathlibPolynomial_add, toMathlibPolynomial_mul]
+  apply toMathlib_injective
+  rw [toMathlib_add, toMathlib_mul]
   simp only [monicQuotient, monicRemainder,
     toMathlibPolynomial_fromMathlibPolynomial]
   rw [add_comm, Polynomial.modByMonic_add_div]
@@ -154,19 +128,19 @@ theorem monic_remainder_degree_lt {R : Type*} [CommRing R] [Nontrivial R]
 theorem monic_remainder_eq_zero_iff_dividesElement {R : Type*} [CommRing R]
     (p d : PolynomialSequence R) (hd : Monic d) :
     monicRemainder p d = 0 ↔ DividesElement d p := by
-  rw [← toMathlibPolynomial_injective.eq_iff, toMathlibPolynomial_zero]
+  rw [← toMathlib_injective.eq_iff, toMathlib_zero]
   simp only [monicRemainder, toMathlibPolynomial_fromMathlibPolynomial]
   rw [Polynomial.modByMonic_eq_zero_iff_dvd ((monic_iff_mathlib_monic d).1 hd)]
   exact (dividesElement_iff_dvd).symm.trans (by
     constructor
     · rintro ⟨q, hq⟩
       refine ⟨fromMathlibPolynomial q, ?_⟩
-      apply toMathlibPolynomial_injective
-      rw [toMathlibPolynomial_mul, toMathlibPolynomial_fromMathlibPolynomial]
+      apply toMathlib_injective
+      rw [toMathlib_mul, toMathlibPolynomial_fromMathlibPolynomial]
       exact hq
     · rintro ⟨q, hq⟩
       exact ⟨toMathlibPolynomial q, by
-        rw [← toMathlibPolynomial_mul]
+        rw [← toMathlib_mul]
         exact congrArg toMathlibPolynomial hq⟩)
 
 /-- **首一带余除法的唯一性**：若 `q,r` 已满足 `p = d*q+r`，且 `r` 的次数严格小于首一除式
@@ -183,7 +157,7 @@ theorem monic_quotient_remainder_unique {R : Type*} [CommRing R] [Nontrivial R]
     calc
       toMathlibPolynomial r + toMathlibPolynomial d * toMathlibPolynomial q =
           toMathlibPolynomial (r + d * q) := by
-            rw [toMathlibPolynomial_add, toMathlibPolynomial_mul]
+            rw [toMathlib_add, toMathlib_mul]
       _ = toMathlibPolynomial p := by rw [add_comm, ← hidentity]
   have hmathDegree :
       (toMathlibPolynomial r).degree < (toMathlibPolynomial d).degree := by
@@ -192,9 +166,9 @@ theorem monic_quotient_remainder_unique {R : Type*} [CommRing R] [Nontrivial R]
     (toMathlibPolynomial q) (toMathlibPolynomial r)
     ((monic_iff_mathlib_monic d).1 hd) ⟨hmathIdentity, hmathDegree⟩
   constructor
-  · apply toMathlibPolynomial_injective
+  · apply toMathlib_injective
     simpa only [monicQuotient, toMathlibPolynomial_fromMathlibPolynomial] using hu.1.symm
-  · apply toMathlibPolynomial_injective
+  · apply toMathlib_injective
     simpa only [monicRemainder, toMathlibPolynomial_fromMathlibPolynomial] using hu.2.symm
 
 /-- **域上任意多项式除法的商**：域中每个非零首项系数都可逆，因此不再要求除式首一。
@@ -247,8 +221,8 @@ private theorem polynomialDegreeMeasure_lt_of_degree_lt {K : Type*} [Field K]
 theorem polynomial_division_identity {K : Type*} [Field K]
     (p d : PolynomialSequence K) (_hd : d ≠ 0) :
     p = d * polynomialQuotient p d + polynomialRemainder p d := by
-  apply toMathlibPolynomial_injective
-  rw [toMathlibPolynomial_add, toMathlibPolynomial_mul]
+  apply toMathlib_injective
+  rw [toMathlib_add, toMathlib_mul]
   simp only [polynomialQuotient, polynomialRemainder,
     toMathlibPolynomial_fromMathlibPolynomial]
   rw [add_comm, EuclideanDomain.mod_add_div]
@@ -266,8 +240,8 @@ theorem polynomial_remainder_measure_lt {K : Type*} [Field K]
   apply Polynomial.degree_mod_lt
   intro hzero
   apply hd
-  apply toMathlibPolynomial_injective
-  rw [hzero, toMathlibPolynomial_zero]
+  apply toMathlib_injective
+  rw [hzero, toMathlib_zero]
 
 /-- **域上本库多项式的 Euclidean 环公理**：整环部分来自本库多项式整环定理，度量采用
 `polynomialDegreeMeasure`，商与余数采用本模块定义；除法恒等式和严格下降共同组成
