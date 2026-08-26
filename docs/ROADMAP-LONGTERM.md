@@ -610,8 +610,8 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-R3b-square 分片 `C¹` 道路同伦不变性 | 已集成（A--F） | shared square-grid、dyadic alignment、indexed subdivision、dyadic integral assembly、raw grid、outer-boundary cancellation 与最终连续相对同伦不变性全部验收 | 最终定理只要求边界道路 PiecewiseC1 和全像受控的标准连续 `Path.Homotopy`；没有恢复全局 relative-`C²` 签名，也没有调用旧最终定理包装 |
 | AT2-C1 覆盖空间定义层 | 已集成 | 直接解释 Mathlib `IsEvenlyCovered` / `IsCoveringMap`，明确其允许空 fiber、教材满射约定须另加假设 | carrier、开乘积邻域、离散 fiber 与基础性质均已冻结 |
 | AT2-C2 道路提升 | 已集成 | 直接复用 Mathlib 道路提升存在唯一性，并提供标准 `Path` 视图与终点 fiber | C1/C2 分文件；没有复制提升算法 |
-| AT2-C3 同伦提升 | `development_open` | 复用 Mathlib 同伦提升，冻结参数空间、初始截面及唯一性量词 | 不得另造 covering carrier 或重写逐片提升算法；形成独立源码与 handoff |
-| AT2-C4 monodromy 与提升判据 | `research_open` | 调查环路提升对 fiber 的作用、提升闭合判据及基本群像条件 | 先提交接口审计；C3 handoff 后自动转 `development_open` |
+| AT2-C3 同伦提升 | 已集成 | 复用 Mathlib 联合连续同伦提升，冻结参数空间、时间零提升及唯一性量词 | 提供 endpoint 与标准 `ContinuousMap.Homotopy` 薄视图；没有重写逐片算法 |
+| AT2-C4 monodromy 与提升判据 | `development_open` | 构造道路／环路提升对 fiber 的 transport，证明同伦不变性、复合与逆向，并建立提升闭合判据 | 可拆 C4a transport 与 C4b criterion；必须真实消费 C2/C3，不得只包装现成最终分类定理 |
 | AT2-C5 覆盖空间分类 | `research_open` | 调查道路连通、局部道路连通、半局部单连通假设下的子群分类路线 | 仅研究签名和 Mathlib 缺口，不得以特殊例子冒充一般分类 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路

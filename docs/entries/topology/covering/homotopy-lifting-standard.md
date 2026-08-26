@@ -3,7 +3,7 @@ id: topology.covering.homotopy-lifting-standard
 family: topology.covering
 variant: unique-cylinder-lift-with-continuous-initial-slice
 kind: theorem
-state: research
+state: verified
 title: 覆盖映射的同伦提升存在唯一性
 summary: 给定参数化同伦及时间零切片的连续提升，构造整个参数柱上的唯一连续提升及其时间一端点映射
 premises: [topology.covering.path-lifting-standard, topology.homotopy.standard]

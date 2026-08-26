@@ -299,6 +299,7 @@ import SandronesLibrary.FunctionalAnalysis.OrthonormalBasis
 import SandronesLibrary.FunctionalAnalysis.UnitaryOperator
 import SandronesLibrary.Topology.CoveringMapStandard
 import SandronesLibrary.Topology.CoveringPathLiftStandard
+import SandronesLibrary.Topology.CoveringHomotopyLiftStandard
 import SandronesLibrary.Probability.Space
 import SandronesLibrary.Probability.Variable
 import SandronesLibrary.Probability.Distribution
