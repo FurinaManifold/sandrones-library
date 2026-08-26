@@ -6,7 +6,7 @@ kind: definition
 state: verified
 title: 复 Banach 代数基础
 summary: 复 Banach 代数的 Mathlib 挂靠、单位化与 Neumann 级数求逆
-premises: [functional-analysis.operator-space]
+premises: [functional-analysis.operator.space]
 mathlib: [NormedRing, NormedAlgebra, CompleteSpace, Unitization, Units.oneSub]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---

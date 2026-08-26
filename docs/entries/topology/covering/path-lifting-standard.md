@@ -3,7 +3,7 @@ id: topology.covering.path-lifting-standard
 family: topology.covering
 variant: unique-continuous-lift-with-prescribed-source-and-path-view
 kind: theorem
-state: research
+state: verified
 title: 覆盖映射的道路提升存在唯一性
 summary: 对覆盖映射、基道路及其起点上方的指定点，给出唯一连续提升，并将其视为终点由提升决定的标准 Path
 premises: [topology.covering.definition-standard]

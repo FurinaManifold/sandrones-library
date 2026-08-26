@@ -13208,6 +13208,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.banach-algebra.foundation",
       "functional-analysis.compact-operator.definition",
       "functional-analysis.dual-operator.definition",
       "functional-analysis.hahn-banach.extension",
@@ -17562,6 +17563,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.fredholm.alternative-final",
       "functional-analysis.fredholm.index-zero"
     ],
     "family": "functional-analysis.fredholm",
@@ -17596,7 +17598,9 @@
     "nl_file": "docs/entries/functional-analysis/fredholm/index-zero.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.fredholm.alternative-final"
+    ],
     "family": "functional-analysis.fredholm",
     "variant": "identity-minus-compact-index-zero",
     "axioms": [
@@ -17605,5 +17609,171 @@
       "propext"
     ],
     "proof_sha": "45ac66a5cac5ccb1"
+  },
+  {
+    "id": "functional-analysis.fredholm.alternative-final",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "恒等减紧算子的 Fredholm 备择",
+    "summary": "由有限维核余核与指数零推出 I-K 单射当且仅当满射",
+    "premises": [
+      "functional-analysis.fredholm.cokernel",
+      "functional-analysis.fredholm.index-zero"
+    ],
+    "mathlib": [
+      "LinearMap.index_of_injective",
+      "LinearMap.index_of_surjective",
+      "Submodule.finrank_eq_zero"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmAlternative.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/alternative-final.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.fredholm",
+    "variant": "identity-minus-compact-injective-iff-surjective",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a42861265f447e40"
+  },
+  {
+    "id": "topology.covering.definition-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "覆盖映射与均匀覆盖邻域",
+    "summary": "解释 Mathlib 覆盖映射的局部离散乘积承载及其满射约定差异",
+    "premises": [],
+    "mathlib": [
+      "IsEvenlyCovered",
+      "IsCoveringMap",
+      "IsLocalHomeomorph"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringMapStandard.lean",
+    "nl_file": "docs/entries/topology/covering/definition-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.covering.path-lifting-standard"
+    ],
+    "family": "topology.covering",
+    "variant": "mathlib-evenly-covered-product-chart-with-optional-surjectivity",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "aa46286a025a4c1c"
+  },
+  {
+    "id": "topology.covering.path-lifting-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "覆盖映射的道路提升存在唯一性",
+    "summary": "给定基道路与起点上方一点，构造唯一连续提升并提供标准 Path 视图",
+    "premises": [
+      "topology.covering.definition-standard"
+    ],
+    "mathlib": [
+      "IsCoveringMap.liftPath",
+      "IsCoveringMap.eq_liftPath_iff'",
+      "Path"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringPathLiftStandard.lean",
+    "nl_file": "docs/entries/topology/covering/path-lifting-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "unique-continuous-lift-with-prescribed-source-and-path-view",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e4ec2d84f8200fb1"
+  },
+  {
+    "id": "functional-analysis.banach-algebra.foundation",
+    "kind": "definition",
+    "state": "verified",
+    "title": "复 Banach 代数基础",
+    "summary": "复 Banach 代数的 Mathlib 挂靠、单位化与 Neumann 级数求逆",
+    "premises": [
+      "functional-analysis.operator.space"
+    ],
+    "mathlib": [
+      "NormedRing",
+      "NormedAlgebra",
+      "Unitization",
+      "hasSum_geom_series_inverse"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/BanachAlgebraFoundation.lean",
+    "nl_file": "docs/entries/functional-analysis/banach-algebra/foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.spectrum.definition"
+    ],
+    "family": "functional-analysis.spectrum",
+    "variant": "complex-unital-and-unitization",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "da01716b0d941d65"
+  },
+  {
+    "id": "functional-analysis.spectrum.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "谱、预解集、预解映射与谱半径",
+    "summary": "复 Banach 代数元素的谱论基本对象及其 Mathlib 可逆性承载",
+    "premises": [
+      "functional-analysis.banach-algebra.foundation"
+    ],
+    "mathlib": [
+      "spectrum",
+      "resolventSet",
+      "resolvent",
+      "spectralRadius",
+      "IsUnit"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/SpectrumDefinition.lean",
+    "nl_file": "docs/entries/functional-analysis/spectrum/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.spectrum",
+    "variant": "complex-banach-algebra",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7d0495d452b6e635"
   }
 ]

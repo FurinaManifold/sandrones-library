@@ -608,9 +608,11 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
 | T4-R3b-path 有限分段 `C¹` 道路 | 已集成 | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；已证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 当前只刻画实际 `Path.trans` 生成的有限 concat tree，未声称与任意实断点定义等价；曲线可积性消费者归复分析独立批次 |
 | T4-R3b-square 分片 `C¹` 道路同伦不变性 | 已集成（A--F） | shared square-grid、dyadic alignment、indexed subdivision、dyadic integral assembly、raw grid、outer-boundary cancellation 与最终连续相对同伦不变性全部验收 | 最终定理只要求边界道路 PiecewiseC1 和全像受控的标准连续 `Path.Homotopy`；没有恢复全局 relative-`C²` 签名，也没有调用旧最终定理包装 |
-| AT2-C1 覆盖空间定义层 | `development_open` | 新建覆盖映射、均匀覆盖邻域的教材解释与 Mathlib 桥；不得改动 R3b 文件 | 与 R3b 并行；公开 carrier 直接复用 Mathlib，经学科闭包与 handoff 后可申请集成 |
-| AT2-C2 道路提升 | `research_open`，C1 handoff 后自动转 `development_open` | 调查现有道路提升存在唯一性接口并冻结端点、基点和提升空间量词 | 不等待 C1 进入 Main，只等待 C1 公开签名在 handoff 中冻结；不得复制一套覆盖映射定义 |
-| AT2-C3 同伦提升 | `research_open` | 只做签名、依赖和 Mathlib 消费者审计 | C2 公开提升接口冻结后自动转 `development_open`；正式源码与 C1/C2 分文件 |
+| AT2-C1 覆盖空间定义层 | 已集成 | 直接解释 Mathlib `IsEvenlyCovered` / `IsCoveringMap`，明确其允许空 fiber、教材满射约定须另加假设 | carrier、开乘积邻域、离散 fiber 与基础性质均已冻结 |
+| AT2-C2 道路提升 | 已集成 | 直接复用 Mathlib 道路提升存在唯一性，并提供标准 `Path` 视图与终点 fiber | C1/C2 分文件；没有复制提升算法 |
+| AT2-C3 同伦提升 | `development_open` | 复用 Mathlib 同伦提升，冻结参数空间、初始截面及唯一性量词 | 不得另造 covering carrier 或重写逐片提升算法；形成独立源码与 handoff |
+| AT2-C4 monodromy 与提升判据 | `research_open` | 调查环路提升对 fiber 的作用、提升闭合判据及基本群像条件 | 先提交接口审计；C3 handoff 后自动转 `development_open` |
+| AT2-C5 覆盖空间分类 | `research_open` | 调查道路连通、局部道路连通、半局部单连通假设下的子群分类路线 | 仅研究签名和 Mathlib 缺口，不得以特殊例子冒充一般分类 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
@@ -801,17 +803,18 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 ✅ | `ContinuousLinearMap.IsFredholm`、`LinearMap.index` |
-| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；对偶紧致、有限维核余核、闭值域与指数零桥 ✅ | 第一、二窗已集成；最终单射／满射备择 `development_open`，不得调用 Mathlib 最终 package 代替教材证明链 |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；对偶紧致、有限维核余核、闭值域、指数零及单射／满射等价 ✅ | 完整证明链已集成；没有调用 Mathlib 最终 package 代替教材证明 |
 | 6b | `functional-analysis.fredholm.cokernel` | `I-K` 的余核有限维 ✅ | 闭值域零化子、Schauder 对偶紧性 |
 | 6c | `functional-analysis.fredholm.index-zero` | `index(I-K)=0` ✅ | 幂链稳定、Fitting 分解、`LinearMap.index_comp` |
+| 6d | `functional-analysis.fredholm.alternative-final` | 由有限维核余核和指数零推出 `I-K` 单射当且仅当满射 ✅ | `index_of_injective`、`index_of_surjective` |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `functional-analysis.banach-algebra.foundation` | 复 Banach 代数、单位化与几何级数求逆 | `NormedRing`、`BanachAlgebra` |
-| 2 | `functional-analysis.spectrum.definition` | 谱、预解集、预解算子与谱半径 | `spectrum`、`resolventSet`、`spectralRadius` |
+| 1 | `functional-analysis.banach-algebra.foundation` | 复 Banach 代数、单位化与几何级数求逆 ✅ | `NormedRing`、`NormedAlgebra`、`Unitization` |
+| 2 | `functional-analysis.spectrum.definition` | 谱、预解集、预解算子与谱半径 ✅ | `spectrum`、`resolventSet`、`spectralRadius` |
 | 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 | spectrum API、Liouville |
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 | compact self-adjoint spectral theorem |
@@ -857,12 +860,12 @@ Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
-F5.6 Fredholm 备择的前两窗已经集成：紧算子的对偶仍紧，`I-K` 的核与余核有限维、值域闭，且
-`index (I-K)=0`。最终单射／满射等价及备择现为 `development_open`，必须复用上述接口且不得调用
-Mathlib `FredholmAlternative` 最终 package 代替教材证明。F5.7 紧扰动／小扰动稳定性同时开放
-`research_open`，只允许先冻结指数与复合接口，不得猜测第二窗尚未稳定的局部 API。
-F6.1 Banach 代数 foundation 以独立文件开放 `development_open`；F6.2 谱与预解集定义层开放
-`research_open`，待 F6.1 handoff 后自动转 `development_open`。F6.3 以后仍按教材依赖门推进；
+F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，`I-K` 的核与余核有限维、值域闭、
+`index (I-K)=0`，并由这些中间接口推出单射当且仅当满射。F5.7 紧扰动／小扰动稳定性开放
+`development_open`；允许按已冻结的指数、复合与紧扰动接口分批开发，不得直接包装最终稳定性定理。
+F6.1 Banach 代数 foundation 与 F6.2 谱／预解集定义层已经集成。F6.3 谱非空、紧致与谱半径公式开放
+`development_open`；F6.4 紧算子谱开放 `research_open`，待 F6.3 handoff 后自动转 `development_open`。
+F6.5--F6.10 仍按教材依赖门推进；
 具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能

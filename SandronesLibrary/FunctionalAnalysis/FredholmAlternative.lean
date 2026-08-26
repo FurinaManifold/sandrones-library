@@ -20,7 +20,7 @@ variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E] [CompleteSpace E
 
 /-- **Fredholm alternative.** Banach 空间上紧算子 `K` 的恒等扰动 `I-K` 单射当且仅当满射。
 
-> **Entry**: functional-analysis.fredholm.alternative
+> **Entry**: functional-analysis.fredholm.alternative-final
 -/
 theorem identitySubCompact_injective_iff_surjective (K : E →L[ℝ] E)
     (hK : IsCompactOperator K) :

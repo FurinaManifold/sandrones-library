@@ -284,6 +284,9 @@ import SandronesLibrary.FunctionalAnalysis.SchauderCompactness
 import SandronesLibrary.FunctionalAnalysis.CompactPerturbationIdentity
 import SandronesLibrary.FunctionalAnalysis.FredholmCokernel
 import SandronesLibrary.FunctionalAnalysis.FredholmIndex
+import SandronesLibrary.FunctionalAnalysis.FredholmAlternative
+import SandronesLibrary.FunctionalAnalysis.BanachAlgebraFoundation
+import SandronesLibrary.FunctionalAnalysis.SpectrumDefinition
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.ClosedRange
 import SandronesLibrary.FunctionalAnalysis.ClosedRangeConsequences
@@ -294,6 +297,8 @@ import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator
 import SandronesLibrary.FunctionalAnalysis.OrthonormalBasis
 import SandronesLibrary.FunctionalAnalysis.UnitaryOperator
+import SandronesLibrary.Topology.CoveringMapStandard
+import SandronesLibrary.Topology.CoveringPathLiftStandard
 import SandronesLibrary.Probability.Space
 import SandronesLibrary.Probability.Variable
 import SandronesLibrary.Probability.Distribution

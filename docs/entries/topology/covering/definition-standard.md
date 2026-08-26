@@ -3,7 +3,7 @@ id: topology.covering.definition-standard
 family: topology.covering
 variant: mathlib-evenly-covered-product-chart-with-optional-surjectivity
 kind: definition
-state: research
+state: verified
 title: 覆盖映射与均匀覆盖邻域
 summary: 直接采用 Mathlib 的均匀覆盖点与覆盖映射谓词，展开离散纤维乘积图，并说明连续、开映射、局部同胚及满射时为商映射
 premises: []

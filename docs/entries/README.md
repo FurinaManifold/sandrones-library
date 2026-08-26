@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **535** 个条目（verified 535，pending 0）。
+共 **540** 个条目（verified 540，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -318,6 +318,10 @@
 
 - ✅ [`theorem.md`](functional-analysis/baire/theorem.md) — Banach 空间上的 Baire 范畴定理
 
+## `functional-analysis.banach-algebra`
+
+- ✅ [`foundation.md`](functional-analysis/banach-algebra/foundation.md) — 复 Banach 代数基础
+
 ## `functional-analysis.bidual`
 
 - ✅ [`reflexive.md`](functional-analysis/bidual/reflexive.md) — 典范双对偶嵌入与自反性
@@ -354,6 +358,7 @@
 ## `functional-analysis.fredholm`
 
 - ✅ [`alternative.md`](functional-analysis/fredholm/alternative.md) — 恒等算子的紧扰动
+- ✅ [`alternative-final.md`](functional-analysis/fredholm/alternative-final.md) — 恒等减紧算子的 Fredholm 备择
 - ✅ [`cokernel.md`](functional-analysis/fredholm/cokernel.md) — 恒等减紧算子的余核有限维
 - ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
 - ✅ [`index-zero.md`](functional-analysis/fredholm/index-zero.md) — 恒等减紧算子的 Fredholm 指数为零
@@ -384,6 +389,10 @@
 ## `functional-analysis.series`
 
 - ✅ [`summable.md`](functional-analysis/series/summable.md) — Banach 空间中绝对可和蕴含可和
+
+## `functional-analysis.spectrum`
+
+- ✅ [`definition.md`](functional-analysis/spectrum/definition.md) — 谱、预解集、预解映射与谱半径
 
 ## `functional-analysis.subspace`
 
@@ -737,6 +746,11 @@
 ## `topology.connectedness`
 
 - ✅ [`path-components-foundation.md`](topology/connectedness/path-components-foundation.md) — 道路连接、道路分支与道路连通
+
+## `topology.covering`
+
+- ✅ [`definition-standard.md`](topology/covering/definition-standard.md) — 覆盖映射与均匀覆盖邻域
+- ✅ [`path-lifting-standard.md`](topology/covering/path-lifting-standard.md) — 覆盖映射的道路提升存在唯一性
 
 ## `topology.foundation`
 
