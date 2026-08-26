@@ -3298,5 +3298,6 @@
 ### `Ideal.exists_forall_sub_mem_ideal`
 - **人话**：有限个两两互素理想允许同时选择一个满足所有指定剩余类的环元素。
 - **谁在用**：`abstract-algebra.ring.crt` 的有限族规范映射满射证明。
-- **本库边界**：只在证明体中把本库集合型理想局部桥接为 Mathlib `Ideal`；公开 CRT 定义与
-  同构签名仍使用本库 `TwoSidedIdealSet`、`quotientRingSet` 和 `RingIsomorphism`。
+- **本库边界**：只在证明体中把本库集合型理想局部桥接为 Mathlib `Ideal`；公开 CRT 定义继续
+  使用本库 `TwoSidedIdealSet` 与 `quotientRingSet`，正式同构返回 `RingEquiv`，历史
+  `RingIsomorphism` 签名保留为薄兼容层。
