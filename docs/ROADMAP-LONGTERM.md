@@ -583,7 +583,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
 | AT1-VK3a 零同伦方格细分 | 已集成 | 一致二维网格、逐格覆盖标签及异标签整条公共边落在交集 | 目标空间只需拓扑结构；接口严格止于方格细分 |
 | T4-I1 通用道路／网格设施归位 | 已集成 | `unitIntervalMeshPoint`、`pathCodRestrict` 与 `Path.correctedLoop`/有限 telescope 已分别移入三个中性模块 | 唯一声明、无 alias 或第二套实现；VK1/VK2/VK3a 消费链保持构建 |
-| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01 已集成；02、03 已开放） | 01 已冻结四边定向、piece 内单格边界词及其 Pushout 像为一；02 开发 common shared-edge，03 开发 switch-edge connector comparison | 复用已集成 VK3a 与 T4-I1；01 不声称全网格抵消；02、03 各自形成独立可构建提交 |
+| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01、02 已集成；03 开发中） | 01 冻结单格边界词及其 Pushout 像为一；02 已建立同标签公共边的 connector-change 精确关系；03 开发 switch-edge 交集比较 | 02 不含交集道路连通或 Pushout 关系；03 独立可构建；01--03 全部集成后自动开放 04、05、06 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |

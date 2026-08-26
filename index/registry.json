@@ -15606,7 +15606,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-cell-boundary.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-common-shared-edge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-single-grid-cell",
     "axioms": [
@@ -15686,5 +15688,39 @@
       "propext"
     ],
     "proof_sha": "1affc8585a187fb0"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-common-shared-edge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 方格中同标签公共边的 connector 比较",
+    "summary": "相邻同标签方格对同一公共边选择不同端点 connector 时，两侧修正边元素由起终点 connector changes 精确联系",
+    "premises": [
+      "topology.fundamental-group.van-kampen-cell-boundary"
+    ],
+    "mathlib": [
+      "Path.cast",
+      "Path.trans",
+      "Path.symm",
+      "FundamentalGroup.fromPath",
+      "IsPathConnected.joinedIn"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenCommonSharedEdge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-common-shared-edge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "same-label-adjacent-grid-cells",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "23fb75ea38a86d2c"
   }
 ]
