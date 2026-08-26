@@ -3,7 +3,7 @@
 - 分支：`codex/world-formula`
 - 事实截止 Main：`3af0be230ac58fe27cdce1576eef972acbbd331c`
 - 章节文件：`docs/world-formula/chapters/00-01-sets-relations-and-maps.md`
-- 状态：`draft`（E1–E4 修订已起草；四处角色视角已按最小 ROLE 证据重写，卡维仍待建 ROLE）
+- 状态：`draft`（E1–E4 修订已起草；五个出场角色均已建立最小 `review` ROLE，等待整章统一文字复验）
 - 作者：World Formula 章节编辑子 Agent
 - 数学审稿人：独立 World Formula 数学审稿人；commit `7bc36b0`，verdict `accepted`
 - 文字审稿人：独立 World Formula 文字审稿人；commit `6700f41`，原 verdict `needs_changes`
@@ -93,10 +93,10 @@ Registry、参考文献库、Entry 或 Lean 源码。
 若人物理解存在争议，应优先保留数学功能并改写场景，不把争议性设定写入来源账。
 
 **当前暂停门**：用户判定旧情景仍有“角色名生硬插入”的问题，并要求先从指定 Wiki 角色／剧情
-文本建立逐角色 ROLE。当前已为纳西妲、莫娜、砂糖和艾尔海森建立最小 `review` ROLE，并重写对应视角：纳西妲以
+文本建立逐角色 ROLE。当前已为纳西妲、莫娜、砂糖、艾尔海森和卡维建立最小 `review` ROLE，并重写对应视角：纳西妲以
 “寻找反例—改变对象数据”推动外延性讨论，莫娜以拒绝不存在的逆函数推动原像讨论，砂糖则由
-“查记录—检查比较链—保留差异备注”推动等价关系与商集边界，艾尔海森以“拆分交付—核对后续用途—保留两层对象”推动关系与函数的区分。
-该双人场景仍等待卡维 ROLE；任何一段都不能沿用原文字 review 的通过结论
+“查记录—检查比较链—保留差异备注”推动等价关系与商集边界；艾尔海森与卡维分别从任务分层和使用价值取舍推动关系与函数的区分。
+任何一段都不能沿用原文字 review 的通过结论
 宣布定稿。ROLE 与场景仍须做人物一致性、来源边界与版权复验。
 
 本轮新增角色材料：
@@ -105,8 +105,9 @@ Registry、参考文献库、Entry 或 Lean 源码。
 - `docs/world-formula/characters/roles/mona.md`：content `1057`，状态 `review`。
 - `docs/world-formula/characters/roles/sucrose.md`：content `1055`，状态 `review`。
 - `docs/world-formula/characters/roles/alhaitham.md`：content `5865`，状态 `review`。
+- `docs/world-formula/characters/roles/kaveh.md`：content `6490`，状态 `review`。
 
-四份 ROLE 只登记官方页面栏目、版本和转述约束，不保存台词或剧情原文；作者不得自行把状态改为
+五份 ROLE 只登记官方页面栏目、版本和转述约束，不保存台词或剧情原文；作者不得自行把状态改为
 `usable`。
 
 砂糖单角色批已由非作者做独立只读复验，局部 verdict 为 `accepted`：复验者核对了 content `1055`、
@@ -117,7 +118,12 @@ version `1787102085` 的角色故事 1、2、4 以及三个配音栏目定位，
 艾尔海森单角色批也已完成非作者只读复验，最终局部 verdict 为 `accepted`。首轮复验发现 ROLE 对角色故事 5
 的两处概括保留了过近的特征性词序，评为 R2 originality；作者改为“核对论证、筛除无关信息、尝试反例”的独立概括后，
 复验者逐句比对 content `5865`、version `1771913439` 并将该 finding 标记为 `resolved`。函数的总性与唯一性、选择规则并非自动存在、
-后续复合的用途、艾尔海森的判断习惯及卡维未建 ROLE 的边界均通过；该结论不验收卡维视角或整章。
+后续复合的用途、艾尔海森的判断习惯及当时卡维尚未建 ROLE 时的克制边界均通过；该结论不验收卡维视角或整章。
+
+卡维单角色批已由另一位非作者只读复验，最终局部 verdict 为 `accepted`。首轮唯一 finding 是 ROLE 证据账将“在竞争要求间取舍”
+全部标成直接转述，遗漏了其中的编辑归纳性质；证据类型改为“原文事实的转述与编辑归纳”后，复验者将该 R2 provenance 标记为
+`resolved`。content `6490`、version `1783527751` 的栏目定位，候选关系与函数总性／唯一性、选择规则不自动存在、双方专业分歧和原创性均通过。
+该结论完成五个角色的最小 ROLE 闭环，但不替代对 E1–E4、纳西妲／莫娜旧复验项及整章结构的统一文字审稿。
 
 独立只读人物复验曾提出三项局部问题：语音证据标题不够精确、纳西妲仍像通用教师、文件范围中的
 “ROLE”措辞有歧义。本轮已分别改为单一语音标题定位、由“拒绝凭身份裁定—让实际记录员执行可
@@ -201,7 +207,7 @@ https://act-api-takumi-static.mihoyo.com/hoyowiki/genshin/wapi/entry_page?entry_
 作者自查不能替代 `REVIEW-PROTOCOL.md` 的独立审核。数学轮已经 `accepted`；本轮返工后仍需：
 
 1. 原文字审稿人复验 E1–E4，确认有序对／笛卡尔积首现、任意族背景分层、像术语和审计声线已经
-   闭环；砂糖、艾尔海森 ROLE 及新版场景已完成非作者局部复验，纳西妲、莫娜仍等待整批文字复验，卡维仍待建 ROLE；
+   闭环；砂糖、艾尔海森、卡维 ROLE 及新版场景已完成非作者局部复验，纳西妲、莫娜仍等待整批文字复验；
 2. Main 核对事实截止提交与当前 Main 的差异、18 个 Entry 状态、citation key、链接和跨章一致性；
 3. F-01 的精确书目定位保持 deferred R3，不得用未核对页码换取表面闭环；
 4. 所有 finding 必须有 `resolved`、`declined with reason` 或 `still blocked` 的处理记录。
@@ -211,7 +217,7 @@ https://act-api-takumi-static.mihoyo.com/hoyowiki/genshin/wapi/entry_page?entry_
 ## 九　验证
 
 仓库当前没有 `scripts/check_docs_links.py` 或其他专用链接检查器，因此实际扫描本批涉及文件中的
-Markdown 链接；当前新增的四个 ROLE 与改写场景没有引入本地 Markdown 链接，也没有链接尚未创建
+Markdown 链接；当前新增的五个 ROLE 与改写场景没有引入本地 Markdown 链接，也没有链接尚未创建
 的后继章节。
 
 另以只读 Registry 检查逐一验证本章 18 个 Entry id：全部存在、`state` 均为 `verified`，对应
