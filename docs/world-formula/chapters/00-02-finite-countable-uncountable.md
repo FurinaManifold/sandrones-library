@@ -1,24 +1,25 @@
 # 第二章　有限、可数与不可数：集合的大小怎样比较
 
-状态：draft（仅完成第 1–4 节；后半章未写）
+状态：draft（已完成第 1–6 节；其余部分未写）
 
-事实截止：Main `7004e15`
+事实截止：Main `e1d5bc0`
 
 前驱章节：[`00-01-sets-relations-and-maps.md`](00-01-sets-relations-and-maps.md)；本章沿用其中的
 集合、函数、单射、满射与双射语言
 
 本稿覆盖条目：`settheory.cardinal.equinumerous`、`settheory.cardinal.comparison`、
-`settheory.cardinal.finite-set`、`settheory.cardinal.countable-def`
+`settheory.cardinal.finite-set`、`settheory.cardinal.countable-def`、
+`settheory.cardinal.countable-rat`、`settheory.cardinal.countable-union`
 
 出版来源：`jech-set-theory-2003`
 
 人物 ROLE：[纳西妲](../characters/roles/nahida.md)、[砂糖](../characters/roles/sucrose.md)；均为截至
 2026-08-26 的 `usable` 版本
 
-数学审稿：`accepted`（记录：
+数学审稿：`accepted`（仅限第 1–4 节；记录：
 [`wf1-02-cardinality-foundations-mathematical-review.md`](../reviews/wf1-02-cardinality-foundations-mathematical-review.md)）
 
-文字审稿：`accepted`（记录：
+文字审稿：`accepted`（仅限第 1–4 节；记录：
 [`wf1-02-cardinality-foundations-editorial-review.md`](../reviews/wf1-02-cardinality-foundations-editorial-review.md)）
 
 Main 一致性验收：`accepted`（仅限已完成的第 1–4 节；记录：
@@ -184,17 +185,73 @@ $\mathbb N\to A$ 只表明 $A$ 至少含有一份自然数大小的子结构，�
 但这一否定没有由本小批四条 Entry 形式化核验，本稿不从“没有最后一个自然数”推导它。从有限枚举到
 可数性的正式桥也不在这四条 Entry 的公开结论中，本稿不把该桥登记成已验收定理。
 
-本小批到此为止：有理数的可数性、可数并、双向嵌入如何升级为等势、幂集为何严格更大以及实数
-不可数均属于尚未写出的后半章，不在本 draft 中作完成性陈述。
+## 五　有理数很稠密，却仍然可数
+
+有理数给“看起来到处都是”与“能否编号”之间制造了一个重要停顿。任取两个不同的有理数，总能在
+它们之间再找到有理数；在通常的实数次序中，有理数因而显得稠密。但稠密谈的是点与点之间还能否
+找到同类对象，可数谈的是全体对象能否无冲突地编码进自然数。这是两个不同的问题。
+
+本章在这里采用的正式结论只有：有理数类型 $\mathbb Q$ 可数。换句话说，存在某个单射
+
+\[
+q:\mathbb Q\longrightarrow\mathbb N.
+\]
+
+“有理数在实数中稠密”只是帮助辨认误区的出版背景，并未由本节消费的 Entry 形式化核验。因此，
+这里可以用稠密直觉反驳“可数对象必定在次序中很稀疏”，却不能把稠密性列成本节已经验收的结果。
+
+为什么可数这个结论并不荒唐？教材中常把一个有理数写成整数分子与非零自然数分母的比。整数可以
+编码，两个自然数形成的格点也可以沿层次或对角方向排入一列；约分造成的重复表示只意味着许多编码
+可能指向同一个有理数，需要选取规范表示或再去重。这幅图解释了为何“由两个整数描述”没有自动越出
+可数范围。
+
+不过，这一编码图景是教材直觉，不是当前 Lean 定理展开的证明步骤。本库条目复用 mathlib 已有的
+`Countable ℚ` 事实来核验结论；正文既不声称实现了上述某一种枚举算法，也不把某个未经写出的配对
+公式冒充形式化证据。
+
+## 六　可数片段的可数并
+
+可数性不只描述单个对象，还允许把一族可数片段合在一起。设指标类型为 $I$，对每个 $i\in I$ 都有
+同一论域中的集合 $S_i$。若满足两项假设：
+
+1. 指标类型 $I$ 可数；
+2. 每一片 $S_i$ 都可数；
+
+那么它们的并集
+
+\[
+\bigcup_{i\in I}S_i
+\]
+
+仍然可数。两个“可数”各自控制一种可能的膨胀：第一项控制片的数量，第二项控制每片内部的元素
+数量。只保留其中一项都不够。即使指标只有一个，只要那一片不可数，并集就不可数；反过来，不可数
+多个单元素集合也可能合成不可数集合，所以“每片很小”不能替代指标可数。
+
+这一定理的编码直觉可以分成两层。一个属于并集的元素 $x$ 至少来自某一片 $S_i$；若第 $i$ 片内部
+又给它一个自然数编号 $m$，便可先把这次出现记成一对
+
+\[
+(i,m).
+\]
+
+可数指标的编号与片内编号组成一个可数网格，再把二元编号编码成一个自然数。若同一个 $x$ 同时属于
+多片，它会有多个“出现位置”；可以先枚举所有出现位置，再忘掉来源，或在构造直接编码时为它选定
+一个来源。重复出现不会制造新的并集元素，但也提醒我们：这幅图不是简单地假定每个元素只属于一片。
+
+当前条目核验的是带上述两个假设的可数并结论，并复用 mathlib 的 `Set.countable_iUnion`。`(i,m)`
+只是说明结论为何合理的教材路线；本章不声称 Lean 证明体逐步实现了这套编码，也不把“可数并”扩大
+成任意指标并。
 
 **本半章的来源与边界。** 等势及其双射刻画来自 `settheory.cardinal.equinumerous`；用单射定义
 “基数不大于”及其自反、传递性质来自 `settheory.cardinal.comparison`；有限枚举和由此得到的有限
 单射界来自 `settheory.cardinal.finite-set`；`Countable A` 与单射 $A\to\mathbb N$ 的等价刻画来自
-`settheory.cardinal.countable-def`。这些已核验事实没有把比较包装成完整的通用序结构，没有给出
-有限性各种接口的完整互换，也没有覆盖尚待后半章书写的结果。
+`settheory.cardinal.countable-def`；有理数可数来自 `settheory.cardinal.countable-rat`；可数指标下
+可数片段之并仍可数来自 `settheory.cardinal.countable-union`。这些已核验事实没有把比较包装成完整
+的通用序结构，没有给出有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 5–6 节尚未
+经过上方所列的数学、文字或 Main 一致性验收。
 
 ---
 
-本稿尚不是完整章节。它只消费元信息列出的四个 verified Entry；“不可数”目前只出现在章名和后续
+本稿尚不是完整章节。它只消费元信息列出的六个 verified Entry；“不可数”目前只出现在章名和后续
 范围说明中，尚未定义或证明任何不可数性结果。完整章末的“本章没有声称什么”、全章来源账、数学
 审稿、文字审稿与 Main 一致性验收，都须待后半章完成后补齐。
