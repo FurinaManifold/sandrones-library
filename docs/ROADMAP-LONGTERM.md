@@ -762,8 +762,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形弱星紧集可度量化、闭球序列紧与收敛子列抽取 ✅ | `WeakDual.metrizable_of_isCompact`、序列紧接口 |
 | 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
 | 7 | `functional-analysis.eberlein-smulian` | 自反性、闭单位球弱紧、弱序列紧与有界序列弱收敛子列四项等价 ✅ | `WeakSpace`、`IsCompact`、`IsSeqCompact` |
-| 8 | `functional-analysis.krein-milman` | 紧凸集、极点与闭凸包 | `extremePoints`、Krein–Milman API |
-| 9 | `functional-analysis.ergodic.mean` | 均值遍历定理的泛函分析入口 | power-bounded operator/ergodic averages |
+| 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 | `development_open`：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，不重证最终定理 |
+| 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据与自反情形 | `development_open`：先做 decomposition；reflexive/projection 批等待前批接口冻结 |
 
 ### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
 
@@ -775,7 +775,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 ✅ | `ContinuousLinearMap.IsFredholm`、`LinearMap.index` |
-| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；先冻结精确承载与所需紧算子桥 | `research_open`；定义层已集成，不得用 Mathlib 最终 package 代替教材证明链 |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；先建立对偶紧致及 `I-K` 的核／闭值域桥 | 第一窗 `development_open`；指数零与最终备择仍 `research_open`，不得调用 Mathlib 最终 package 代替教材证明链 |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
@@ -819,13 +819,19 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
 **F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5 与 F4.7 Eberlein--Šmulian 已集成。F4.8
-Krein--Milman 仍为 `research_open`，等待 Main 审核接口调查后冻结只做教材解释的正式窗口；F4.9
-均值遍历可继续接口调查。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
+Krein--Milman 已开放窄幅 `development_open`：只交付 face／极点／闭凸包的教材定义链解释与必要
+组装使用者，直接复用 Mathlib 最终定理，不建立平行定义也不重证同型结论。F4.9 的
+`mean-ergodic.decomposition` 已开放 `development_open`：冻结 `birkhoffAverage`、幂一致有界量词、
+收敛域、fixed space 与 `closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”；
+`mean-ergodic.reflexive` 与极限投影批等待 decomposition 公开接口通过 Main 审核后解锁。F4.6 与编号
+较后的弱紧致工具仍可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
-F5.6 Fredholm 备择现开放接口研究，负责人可提交无占位原型与定义依赖图；在 Main 冻结签名前不得
-提交最终定理。F6 等待紧算子与
+F5.6 Fredholm 备择的第一开发窗现开放：可正式开发“紧算子的对偶仍紧”以及 `I-K` 核有限维、
+值域闭两个教材桥，不得调用 Mathlib `FredholmAlternative` 最终 package 代替证明。余核有限维、
+`index (I-K)=0` 与单射满射等价仍为 `research_open`，等待第一窗交付并由 Main 冻结紧扰动指数路线；
+具体有限秩积分核归 Examples E11。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。
