@@ -3,12 +3,12 @@
 - 分支：`codex/world-formula`
 - 事实截止 Main：`3af0be230ac58fe27cdce1576eef972acbbd331c`
 - 章节文件：`docs/world-formula/chapters/00-01-sets-relations-and-maps.md`
-- 状态：`draft`（E1–E4 修订已起草；五个出场角色均已建立最小 `review` ROLE，等待整章统一文字复验）
+- 状态：`draft`（数学轮与统一文字轮均 `accepted`；等待 Main 第三轮一致性验收）
 - 作者：World Formula 章节编辑子 Agent
 - 数学审稿人：独立 World Formula 数学审稿人；commit `7bc36b0`，verdict `accepted`
-- 文字审稿人：独立 World Formula 文字审稿人；commit `6700f41`，原 verdict `needs_changes`
-- 当前 verdict：数学轮 `accepted`；E1–E4 已由作者起草处理，但用户要求先建人物 ROLE 再重写
-  场景，故当前逐个补交人物证据与场景供复验；尚未经过 Main 第三轮验收，作者不自批 `accepted`
+- 文字审稿人：第二位独立只读 World Formula 文字审稿人；记录
+  `docs/world-formula/reviews/wf1-01-editorial-recheck.md`，最终 verdict `accepted`
+- 当前 verdict：数学轮 `accepted`，文字轮 `accepted`；章节状态仍为 `draft`，尚未经过 Main 第三轮验收
 
 ## 一　本批范围
 
@@ -22,7 +22,7 @@ proof state 或 API 清单。
 `2283535` 读取并逐项对照 `docs/world-formula/TONE-AND-SCENES.md`；该提交只增加书稿规范，
 不改变本章数学事实截止点。
 
-初稿批只修改章节与 handoff。本轮按两份独立 review 另更新其 Resolution 处理记录，并新增两个
+初稿批只修改章节与 handoff。后续返工已新增五份
 章节人物 ROLE；仍未修改 ROADMAP、Playbook、README、AGENTS、共享治理 ROLE（`docs/roles/`）、
 Registry、参考文献库、Entry 或 Lean 源码。
 
@@ -92,12 +92,11 @@ Registry、参考文献库、Entry 或 Lean 源码。
 替代定义或证明。Main 的文字审稿除通常叙事检查外，还需审查角色认知视角的一致性与版权边界；
 若人物理解存在争议，应优先保留数学功能并改写场景，不把争议性设定写入来源账。
 
-**当前暂停门**：用户判定旧情景仍有“角色名生硬插入”的问题，并要求先从指定 Wiki 角色／剧情
+用户曾判定旧情景有“角色名生硬插入”的问题，并要求先从指定 Wiki 角色／剧情
 文本建立逐角色 ROLE。当前已为纳西妲、莫娜、砂糖、艾尔海森和卡维建立最小 `review` ROLE，并重写对应视角：纳西妲以
 “寻找反例—改变对象数据”推动外延性讨论，莫娜以拒绝不存在的逆函数推动原像讨论，砂糖则由
 “查记录—检查比较链—保留差异备注”推动等价关系与商集边界；艾尔海森与卡维分别从任务分层和使用价值取舍推动关系与函数的区分。
-任何一段都不能沿用原文字 review 的通过结论
-宣布定稿。ROLE 与场景仍须做人物一致性、来源边界与版权复验。
+新版情景没有沿用原文字 review 的旧结论，而是在五份 ROLE 齐备后另行完成统一文字复验。
 
 本轮新增角色材料：
 
@@ -123,7 +122,8 @@ version `1787102085` 的角色故事 1、2、4 以及三个配音栏目定位，
 卡维单角色批已由另一位非作者只读复验，最终局部 verdict 为 `accepted`。首轮唯一 finding 是 ROLE 证据账将“在竞争要求间取舍”
 全部标成直接转述，遗漏了其中的编辑归纳性质；证据类型改为“原文事实的转述与编辑归纳”后，复验者将该 R2 provenance 标记为
 `resolved`。content `6490`、version `1783527751` 的栏目定位，候选关系与函数总性／唯一性、选择规则不自动存在、双方专业分歧和原创性均通过。
-该结论完成五个角色的最小 ROLE 闭环，但不替代对 E1–E4、纳西妲／莫娜旧复验项及整章结构的统一文字审稿。
+该结论完成五个角色的最小 ROLE 闭环。随后的统一文字审稿已另行复验 E1–E4、五个角色与四个情景，最终 verdict 为
+`accepted`；这仍不替代 Main 第三轮。
 
 独立只读人物复验曾提出三项局部问题：语音证据标题不够精确、纳西妲仍像通用教师、文件范围中的
 “ROLE”措辞有歧义。本轮已分别改为单一语音标题定位、由“拒绝凭身份裁定—让实际记录员执行可
@@ -131,17 +131,17 @@ version `1787102085` 的角色故事 1、2、4 以及三个配音栏目定位，
 ROLE。复验者对这三项给出局部 `accepted`；该结论不验收整章、E1–E4、人物 ROLE 的 `usable`
 状态或其余两个人物场景。
 
-### 角色资料抓取器的 Main-side 更新建议
+### 角色资料抓取记录
 
-本 worktree 与 Main worktree 的 `.cache/world-formula/` 均未发现现成角色页面缓存。本轮只读请求了
-纳西妲 `5111` 与莫娜 `1057` 的官方 `entry_page` API 来核对结构，没有把响应写入 Git。Main 当前
-抓取器使用旧 `content/info` 端点；建议后续改用：
+本批通过 `scripts/fetch_miyoushe_wiki.py` 请求官方 `entry_page` API，分别核对纳西妲 `5111`、
+莫娜 `1057`、砂糖 `1055`、艾尔海森 `5865` 和卡维 `6490`。原始响应与提取文本只保存在
+被 `.gitignore` 排除的 `.cache/world-formula/miyoushe/`，没有进入 Git。当前端点为：
 
 ```text
 https://act-api-takumi-static.mihoyo.com/hoyowiki/genshin/wapi/entry_page?entry_page_id=<ID>
 ```
 
-所需字段映射如下；这是 handoff 建议，不在本批修改 Main 脚本：
+本批实际使用的字段映射如下：
 
 | 用途 | JSON 路径／解析办法 |
 |---|---|
@@ -202,17 +202,14 @@ https://act-api-takumi-static.mihoyo.com/hoyowiki/genshin/wapi/entry_page?entry_
     $f[A]$”三层术语，并停用含义易歧的“值域”。
 11. 文字 review E4 指出审计声线打断正文；具体公理审计已集中到 §8，概念段只保留普通数学语言。
 
-## 八　等待独立审稿的边界
+## 八　独立审稿后的剩余边界
 
-作者自查不能替代 `REVIEW-PROTOCOL.md` 的独立审核。数学轮已经 `accepted`；本轮返工后仍需：
+作者自查不能替代 `REVIEW-PROTOCOL.md` 的独立审核。数学轮与统一文字轮已经分别 `accepted`；当前仍需：
 
-1. 原文字审稿人复验 E1–E4，确认有序对／笛卡尔积首现、任意族背景分层、像术语和审计声线已经
-   闭环；砂糖、艾尔海森、卡维 ROLE 及新版场景已完成非作者局部复验，纳西妲、莫娜仍等待整批文字复验；
-2. Main 核对事实截止提交与当前 Main 的差异、18 个 Entry 状态、citation key、链接和跨章一致性；
-3. F-01 的精确书目定位保持 deferred R3，不得用未核对页码换取表面闭环；
-4. 所有 finding 必须有 `resolved`、`declined with reason` 或 `still blocked` 的处理记录。
+1. Main 核对事实截止提交与当前 Main 的差异、18 个 Entry 状态、citation key、链接和跨章一致性；
+2. F-01 的精确书目定位保持 deferred R3，不得用未核对页码换取表面闭环。
 
-在这些步骤完成前，本章保持 `draft`，不得进入 `accepted` 状态，也不得被目录描述成正式验收章节。
+在 Main 第三轮完成前，本章保持 `draft`，不得被目录描述成正式验收章节；五份人物 ROLE 也继续保持 `review`。
 
 ## 九　验证
 

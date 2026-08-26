@@ -24,9 +24,9 @@
 数学审稿：独立数学轮 `accepted`（记录：
 `docs/world-formula/reviews/wf1-01-mathematical-review.md`）
 
-文字审稿：独立文字轮 `needs_changes`；E1–E4 的数学／结构修订已起草，纳西妲、莫娜情景已按
-最小角色 ROLE 重写，其余人物情景仍等待 ROLE，尚未提交独立复验（记录：
-`docs/reviews/world-formula-wf1-01-editorial-review.md`）
+文字审稿：统一独立文字复验 `accepted`；旧 E1–E4 与四个新版情景均已复验，五份
+最小角色 ROLE 已齐备且仍保持 `review`。整章仍等待 Main 第三轮一致性验收（记录：
+`docs/world-formula/reviews/wf1-01-editorial-recheck.md`）
 
 ## 一　本章的问题
 
