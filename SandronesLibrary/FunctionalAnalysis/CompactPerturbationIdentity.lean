@@ -58,7 +58,6 @@ private theorem compactOnIdentitySubCompactKernel_apply (K : E →L[ℝ] E)
 
 在核上 `K` 就是恒等算子；紧性在定义域限制和闭值域限制下保持，因此核上的恒等算子
 是紧算子。Riesz 有限维判据随即给出结论。
-
 -/
 theorem finiteDimensional_kernel_identitySubCompact [CompleteSpace E]
     (K : E →L[ℝ] E) (hK : IsCompactOperator K) :

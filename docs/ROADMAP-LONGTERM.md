@@ -798,7 +798,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 ✅ | `ContinuousLinearMap.IsFredholm`、`LinearMap.index` |
-| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；先建立对偶紧致及 `I-K` 的核／闭值域桥 | 第一窗 `development_open`；指数零与最终备择仍 `research_open`，不得调用 Mathlib 最终 package 代替教材证明链 |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；对偶紧致及 `I-K` 的核／闭值域桥 ✅ | 第一窗已集成；第二窗开放余核有限维与 `index (I-K)=0`，最终单射／满射备择仍 `research_open`；不得调用 Mathlib 最终 package 代替教材证明链 |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
@@ -851,9 +851,10 @@ Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
-F5.6 Fredholm 备择的第一开发窗现开放：可正式开发“紧算子的对偶仍紧”以及 `I-K` 核有限维、
-值域闭两个教材桥，不得调用 Mathlib `FredholmAlternative` 最终 package 代替证明。余核有限维、
-`index (I-K)=0` 与单射满射等价仍为 `research_open`，等待第一窗交付并由 Main 冻结紧扰动指数路线；
+F5.6 Fredholm 备择的第一开发窗已经集成：紧算子的对偶仍紧，且 `I-K` 的核有限维、值域闭。
+第二窗现以窄权限 `development_open`：只开发余核有限维与 `index (I-K)=0`，并须显式复用第一窗的
+Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择仍为 `research_open`，不得调用 Mathlib
+`FredholmAlternative` 最终 package 代替教材证明。第二窗验收后再决定是否开放最终备择；
 具体有限秩积分核归 Examples E11。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能

@@ -109,6 +109,16 @@
 - **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
 - **谁在用**：`functional-analysis.banach-alaoglu`，正式集合写成 `WeakDual.toStrongDual` 下的闭球原像。
 
+### `IsCompactOperator` / `isCompactOperator_iff_image_closedBall_subset_compact`
+
+- **人话**：前者表示有界线性算子把有界集送入相对紧集；后者把它化成闭单位球像包含于某个紧集，
+  适合用有限网或紧子列证明。
+- **谁在用**：`functional-analysis.compact-operator.dual` 在弱星紧单位球上证明对偶算子像范数紧；
+  `functional-analysis.fredholm.alternative` 则把紧算子限制到 `ker(I-K)`，再用紧恒等算子的有限维
+  判据。
+- **本库边界**：本库复用该正式谓词，不建立第二套“紧算子”结构；第一开发窗没有调用 Mathlib
+  的最终 Fredholm alternative package。
+
 ### `WeakDual.metrizable_of_isCompact` / `WeakDual.isSeqCompact_closedBall`
 - **人话**：原空间可分时，弱星紧子集可度量化；连续对偶的范数闭球在弱星拓扑下序列紧。
 - **谁在用**：`functional-analysis.weak.metrizable-separable`；从闭单位球中的任意序列抽取严格递增

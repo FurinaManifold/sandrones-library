@@ -14137,6 +14137,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.compact-operator.dual",
       "functional-analysis.eberlein-smulian",
       "functional-analysis.weak.metrizable-separable"
     ],
@@ -14320,7 +14321,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.closed-range"
+      "functional-analysis.closed-range",
+      "functional-analysis.compact-operator.dual"
     ],
     "family": "functional-analysis.dual-operator",
     "variant": "salamon",
@@ -14682,7 +14684,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.compact-operator.composition"
+      "functional-analysis.compact-operator.composition",
+      "functional-analysis.compact-operator.dual"
     ],
     "family": "functional-analysis.compact-operator",
     "variant": "textbook-unit-ball",
@@ -14724,6 +14727,42 @@
       "propext"
     ],
     "proof_sha": "9e4670a4caa1304f"
+  },
+  {
+    "id": "functional-analysis.compact-operator.dual",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "紧算子的对偶仍紧",
+    "summary": "实 Banach 空间之间紧算子的 Banach 对偶算子仍是紧算子",
+    "premises": [
+      "functional-analysis.dual-operator.definition",
+      "functional-analysis.compact-operator.definition",
+      "functional-analysis.banach-alaoglu"
+    ],
+    "mathlib": [
+      "IsCompactOperator",
+      "WeakDual.isCompact_closedBall",
+      "ContinuousLinearMap.precomp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/SchauderCompactness.lean",
+    "nl_file": "docs/entries/functional-analysis/compact-operator/dual.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.fredholm.alternative"
+    ],
+    "family": "functional-analysis.operator",
+    "variant": "schauder-dual-compactness",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b3f73b8c38e08ee8"
   },
   {
     "id": "topology.fundamental-group.functoriality-standard",
@@ -15290,7 +15329,9 @@
     "nl_file": "docs/entries/functional-analysis/fredholm/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.fredholm.alternative"
+    ],
     "family": "functional-analysis.fredholm",
     "variant": "mathlib-carrier-and-index",
     "proof_sha": "9556e0c26d9ca104",
@@ -15299,6 +15340,39 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "functional-analysis.fredholm.alternative",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "恒等算子的紧扰动",
+    "summary": "紧算子 K 的恒等扰动 I-K 具有有限维核和闭值域",
+    "premises": [
+      "functional-analysis.compact-operator.dual",
+      "functional-analysis.fredholm.definition"
+    ],
+    "mathlib": [
+      "IsCompactOperator",
+      "ContinuousLinearMap.ker",
+      "Submodule.ClosedComplemented"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/CompactPerturbationIdentity.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/alternative.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "identity-minus-compact-first-window",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6dddaadcce280002"
   },
   {
     "id": "functional-analysis.eberlein-smulian",
