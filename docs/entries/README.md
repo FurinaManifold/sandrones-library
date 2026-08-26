@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **478** 个条目（verified 478，pending 0）。
+共 **479** 个条目（verified 479，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -696,6 +696,7 @@
 - ✅ [`path-corrected-loop.md`](topology/fundamental-group/path-corrected-loop.md) — 道路段的基点修正环路与有限望远镜公式
 - ✅ [`product-standard.md`](topology/fundamental-group/product-standard.md) — 积空间的基本群
 - ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
+- ✅ [`van-kampen-cell-boundary.md`](topology/fundamental-group/van-kampen-cell-boundary.md) — van Kampen 方格细分中的单格边界关系
 - ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
 - ✅ [`van-kampen-square-subdivision.md`](topology/fundamental-group/van-kampen-square-subdivision.md) — 二开集覆盖下的有限带标签方格细分
 - ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射

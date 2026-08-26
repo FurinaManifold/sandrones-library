@@ -108,6 +108,7 @@ import SandronesLibrary.Topology.PathCorrectedLoop
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
 import SandronesLibrary.Topology.VanKampenSurjectivity
 import SandronesLibrary.Topology.VanKampenSquareSubdivision
+import SandronesLibrary.Topology.VanKampenHomotopySquareBoundary
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

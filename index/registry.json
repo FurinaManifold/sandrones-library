@@ -15216,7 +15216,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-surjectivity.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-cell-boundary"
+    ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-path-connected-surjectivity",
     "proof_sha": "03abf00eb628b4c0",
@@ -15428,7 +15430,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-square-subdivision.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-cell-boundary"
+    ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-labelled-square-grid",
     "proof_sha": "43376d1297bedf51",
@@ -15571,5 +15575,42 @@
       "propext"
     ],
     "proof_sha": "0eabad580af1173f"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-cell-boundary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 方格细分中的单格边界关系",
+    "summary": "将道路同伦方形的每个细分小格提升到其标签覆盖成员，并证明四条修正边组成的 Pushout 边界词为单位元",
+    "premises": [
+      "topology.fundamental-group.van-kampen-square-subdivision",
+      "topology.fundamental-group.van-kampen-surjectivity"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "Path.trans",
+      "Path.symm",
+      "Path.Homotopy.map",
+      "IsPathConnected.joinedIn",
+      "FundamentalGroup.fromPath",
+      "Monoid.PushoutI.of"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenHomotopySquareBoundary.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-cell-boundary.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-open-cover-single-grid-cell",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "4ca6b936276dacab"
   }
 ]
