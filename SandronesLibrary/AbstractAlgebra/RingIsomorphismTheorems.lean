@@ -8,9 +8,9 @@ import SandronesLibrary.AbstractAlgebra.RingQuotient
 /-!
 # 环同构定理
 
-本模块以普通函数和本库 `RingHomomorphism` 定义环同构，打包双边理想、核与像的教材
-承载，并在本库显式商环 `quotientRingSet` 上证明第一同构定理；公开主接口始终使用
-本库教材定义层。
+本模块从普通函数和本库 `RingHomomorphism` 的逐项教材谓词出发，打包双边理想、核与像，
+并在显式商环 `quotientRingSet` 上证明同构定理。环同构本身以语义一致的 Mathlib
+`RingEquiv` 为正式承载；历史 `RingIsomorphism` 只保留为无损兼容层。
 -/
 
 namespace SandronesLibrary.AbstractAlgebra.Ring
@@ -29,6 +29,54 @@ structure RingIsomorphism (R S : Type*) [Ring R] [Ring S] where
 instance {R S : Type*} [Ring R] [Ring S] :
     CoeFun (RingIsomorphism R S) (fun _ ↦ R → S) :=
   ⟨RingIsomorphism.toFun⟩
+
+/-- 把旧教材兼容载体无损转换为正式环同构 `RingEquiv`。新证明应优先以
+`RingEquiv` 为所有者；本转换只服务旧接口兼容。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+noncomputable def RingIsomorphism.toRingEquiv
+    {R S : Type*} [Ring R] [Ring S] (e : RingIsomorphism R S) : R ≃+* S :=
+  RingEquiv.mk
+    { toFun := e.toFun
+      invFun := e.inverse
+      left_inv := e.left_inverse
+      right_inv := e.right_inverse }
+    e.toFun_is_ringHomomorphism.2.2.2.1
+    e.toFun_is_ringHomomorphism.2.2.1
+
+/-- 把正式 `RingEquiv` 无损退回旧教材兼容载体。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+def RingIsomorphism.ofRingEquiv
+    {R S : Type*} [Ring R] [Ring S] (e : R ≃+* S) : RingIsomorphism R S :=
+  { toFun := e
+    inverse := e.symm
+    left_inverse := e.symm_apply_apply
+    right_inverse := e.apply_symm_apply
+    toFun_is_ringHomomorphism :=
+      ⟨e.map_zero, e.map_one, e.map_add, e.map_mul, e.map_neg⟩
+    inverse_is_ringHomomorphism :=
+      ⟨e.symm.map_zero, e.symm.map_one, e.symm.map_add,
+        e.symm.map_mul, e.symm.map_neg⟩ }
+
+/-- 正式环同构经旧兼容载体往返后保持不变。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+@[simp] theorem RingIsomorphism.toRingEquiv_ofRingEquiv
+    {R S : Type*} [Ring R] [Ring S] (e : R ≃+* S) :
+    (RingIsomorphism.ofRingEquiv e).toRingEquiv = e := by
+  apply RingEquiv.ext
+  intro x
+  rfl
+
+/-- 旧兼容载体经正式环同构往返后保持不变。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+@[simp] theorem RingIsomorphism.ofRingEquiv_toRingEquiv
+    {R S : Type*} [Ring R] [Ring S] (e : RingIsomorphism R S) :
+    RingIsomorphism.ofRingEquiv e.toRingEquiv = e := by
+  cases e
+  rfl
 
 /-- **双边理想的教材承载**：一个环元素集合及其双边理想封闭性证明。
 
@@ -164,14 +212,14 @@ theorem ringHomRangeMap_is_ringHomomorphism {R S : Type*} [Ring R] [Ring S]
   · intro x y; exact Subtype.ext (hf.2.2.2.1 x y)
   · intro x; exact Subtype.ext (hf.2.2.2.2 x)
 
-/-- **环的第一同构定理**：本库显式商环 `R / ker(f)` 与教材像承载同构。
+/-- **环的第一同构定理（正式承载）**：本库显式商环 `R / ker(f)` 与教材像承载同构。
 
 逆函数从像元素选择一个原像；不同选择相差一个核元素，故给出相同商类。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-noncomputable def ringFirstIsomorphism {R S : Type*} [Ring R] [Ring S]
+noncomputable def ringFirstEquiv {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) :
-    RingIsomorphism
+    RingEquiv
       (quotientRingSet (ringHomKernelSet f) (ringHomKernelSet_isTwoSidedIdeal f hf))
       (ringHomRange f hf) := by
   classical
@@ -207,24 +255,37 @@ noncomputable def ringFirstIsomorphism {R S : Type*} [Ring R] [Ring S]
     exact representative_spec y
   have hforward : RingHomomorphism forward :=
     quotientRingSetLift_is_ringHomomorphism K hK g hg hker
-  have hinjective : Function.Injective forward := by
-    intro a b hab
-    simpa [hleft] using congrArg inverse hab
-  have hinverse : RingHomomorphism inverse := by
-    refine ⟨hinjective (by rw [hright, hforward.1]),
-      hinjective (by rw [hright, hforward.2.1]), ?_, ?_, ?_⟩
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.1, hright, hright]
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.2.1, hright, hright]
-    · intro a
-      apply hinjective
-      rw [hright, hforward.2.2.2.2, hright]
-  exact ⟨forward, inverse, hleft, hright, hforward, hinverse⟩
+  exact RingEquiv.mk
+    { toFun := forward
+      invFun := inverse
+      left_inv := hleft
+      right_inv := hright }
+    hforward.2.2.2.1 hforward.2.2.1
 
-/-- 第一同构在投影代表元上的显式公式：`[x]` 被送到像中的 `f(x)`。
+/-- 第一同构定理的旧载体兼容接口；证明由 `ringFirstEquiv` 拥有。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+noncomputable def ringFirstIsomorphism {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) :
+    RingIsomorphism
+      (quotientRingSet (ringHomKernelSet f) (ringHomKernelSet_isTwoSidedIdeal f hf))
+      (ringHomRange f hf) :=
+  RingIsomorphism.ofRingEquiv (ringFirstEquiv f hf)
+
+/-- 正式第一同构在投影代表元上的显式公式：`[x]` 被送到像中的 `f(x)`。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+@[simp] theorem ringFirstEquiv_projection {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) (x : R) :
+    ringFirstEquiv f hf
+      (quotientRingProjection (ringHomKernelSet f)
+        (ringHomKernelSet_isTwoSidedIdeal f hf) x) =
+      ringHomRangeMap f hf x := by
+  unfold ringFirstEquiv
+  dsimp only
+  rfl
+
+/-- 旧第一同构兼容接口的代表元公式。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
 @[simp] theorem ringFirstIsomorphism_projection {R S : Type*} [Ring R] [Ring S]
@@ -233,9 +294,7 @@ noncomputable def ringFirstIsomorphism {R S : Type*} [Ring R] [Ring S]
       (quotientRingProjection (ringHomKernelSet f)
         (ringHomKernelSet_isTwoSidedIdeal f hf) x) =
       ringHomRangeMap f hf x := by
-  unfold ringFirstIsomorphism
-  dsimp only
-  apply quotientRingSetLift_projection
+  exact ringFirstEquiv_projection f hf x
 
 /-! ### 第二阶段：理想的映射、逆映射与商环对应 -/
 
@@ -464,13 +523,13 @@ def quotientIdealCorrespondence {R : Type*} [Ring R]
   · intro I J hIJ
     exact idealComap_mono projection hprojection hIJ
 
-/-- **第三同构定理**：若 `I ≤ J`，则 `(R/I)/(J/I)` 与 `R/J` 环同构；这里 `J/I`
+/-- **第三同构定理（正式承载）**：若 `I ≤ J`，则 `(R/I)/(J/I)` 与 `R/J` 环同构；这里 `J/I`
 由 `J` 沿本库自然商投影的理想像显式构造。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-noncomputable def ringThirdIsomorphism {R : Type*} [Ring R]
+noncomputable def ringThirdEquiv {R : Type*} [Ring R]
     (I J : TwoSidedIdealCarrier R) (hIJ : I ≤ J) :
-    RingIsomorphism
+    RingEquiv
       (quotientRingSet
         (idealMapOfSurjective (quotientRingProjection I.carrier I.isTwoSided)
           (quotientRingProjection_is_ringHomomorphism I.carrier I.isTwoSided)
@@ -549,26 +608,51 @@ noncomputable def ringThirdIsomorphism {R : Type*} [Ring R]
     intro q
     change πJ (representative q) = q
     exact representative_spec q
-  have hinjective : Function.Injective forward := by
-    intro a b hab
-    simpa [hleft] using congrArg inverse hab
   have hforward : RingHomomorphism forward :=
     quotientRingSetLift_is_ringHomomorphism L.carrier L.isTwoSided g hg hLzero
-  have hinverse : RingHomomorphism inverse := by
-    refine ⟨hinjective (by rw [hright, hforward.1]),
-      hinjective (by rw [hright, hforward.2.1]), ?_, ?_, ?_⟩
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.1, hright, hright]
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.2.1, hright, hright]
-    · intro a
-      apply hinjective
-      rw [hright, hforward.2.2.2.2, hright]
-  exact ⟨forward, inverse, hleft, hright, hforward, hinverse⟩
+  exact RingEquiv.mk
+    { toFun := forward
+      invFun := inverse
+      left_inv := hleft
+      right_inv := hright }
+    hforward.2.2.2.1 hforward.2.2.1
 
-/-- 第三同构的公开代表元公式：二重自然投影后应用同构，等于直接模去 `J`。
+/-- 第三同构定理的旧载体兼容接口；证明由 `ringThirdEquiv` 拥有。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+noncomputable def ringThirdIsomorphism {R : Type*} [Ring R]
+    (I J : TwoSidedIdealCarrier R) (hIJ : I ≤ J) :
+    RingIsomorphism
+      (quotientRingSet
+        (idealMapOfSurjective (quotientRingProjection I.carrier I.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism I.carrier I.isTwoSided)
+          (quotientRingProjection_surjective I.carrier I.isTwoSided) J).carrier
+        (idealMapOfSurjective (quotientRingProjection I.carrier I.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism I.carrier I.isTwoSided)
+          (quotientRingProjection_surjective I.carrier I.isTwoSided) J).isTwoSided)
+      (quotientRingSet J.carrier J.isTwoSided) :=
+  RingIsomorphism.ofRingEquiv (ringThirdEquiv I J hIJ)
+
+/-- 正式第三同构的代表元公式：二重自然投影后应用同构，等于直接模去 `J`。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+@[simp] theorem ringThirdEquiv_projection_projection
+    {R : Type*} [Ring R] (I J : TwoSidedIdealCarrier R) (hIJ : I ≤ J) (x : R) :
+    ringThirdEquiv I J hIJ
+      (quotientRingProjection
+        (idealMapOfSurjective (quotientRingProjection I.carrier I.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism I.carrier I.isTwoSided)
+          (quotientRingProjection_surjective I.carrier I.isTwoSided) J).carrier
+        (idealMapOfSurjective (quotientRingProjection I.carrier I.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism I.carrier I.isTwoSided)
+          (quotientRingProjection_surjective I.carrier I.isTwoSided) J).isTwoSided
+        (quotientRingProjection I.carrier I.isTwoSided x)) =
+      quotientRingProjection J.carrier J.isTwoSided x := by
+  unfold ringThirdEquiv
+  dsimp only
+  rfl
+
+/-- 旧第三同构兼容接口的代表元公式。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
 @[simp] theorem ringThirdIsomorphism_projection_projection
@@ -583,9 +667,7 @@ noncomputable def ringThirdIsomorphism {R : Type*} [Ring R]
           (quotientRingProjection_surjective I.carrier I.isTwoSided) J).isTwoSided
         (quotientRingProjection I.carrier I.isTwoSided x)) =
       quotientRingProjection J.carrier J.isTwoSided x := by
-  unfold ringThirdIsomorphism
-  dsimp only
-  rw [quotientRingSetLift_projection, quotientRingSetLift_projection]
+  exact ringThirdEquiv_projection_projection I J hIJ x
 
 /-! ### 第三阶段：第二同构定理 -/
 
@@ -790,92 +872,75 @@ theorem secondIsomorphismCanonicalMap_kernel {R : Type*} [Ring R]
 /-- 本库环同构的复合。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-def ringIsomorphismTrans {R S T : Type*} [Ring R] [Ring S] [Ring T]
-    (e₁ : RingIsomorphism R S) (e₂ : RingIsomorphism S T) : RingIsomorphism R T := by
-  refine ⟨fun x ↦ e₂ (e₁ x), fun z ↦ e₁.inverse (e₂.inverse z), ?_, ?_, ?_, ?_⟩
-  · intro x; rw [e₂.left_inverse, e₁.left_inverse]
-  · intro z; rw [e₁.right_inverse, e₂.right_inverse]
-  · refine ⟨?_, ?_, ?_, ?_, ?_⟩
-    · change e₂ (e₁ 0) = 0
-      rw [e₁.toFun_is_ringHomomorphism.1, e₂.toFun_is_ringHomomorphism.1]
-    · change e₂ (e₁ 1) = 1
-      rw [e₁.toFun_is_ringHomomorphism.2.1, e₂.toFun_is_ringHomomorphism.2.1]
-    · intro x y
-      change e₂ (e₁ (x + y)) = e₂ (e₁ x) + e₂ (e₁ y)
-      rw [e₁.toFun_is_ringHomomorphism.2.2.1,
-        e₂.toFun_is_ringHomomorphism.2.2.1]
-    · intro x y
-      change e₂ (e₁ (x * y)) = e₂ (e₁ x) * e₂ (e₁ y)
-      rw [e₁.toFun_is_ringHomomorphism.2.2.2.1,
-        e₂.toFun_is_ringHomomorphism.2.2.2.1]
-    · intro x
-      change e₂ (e₁ (-x)) = -e₂ (e₁ x)
-      rw [e₁.toFun_is_ringHomomorphism.2.2.2.2,
-        e₂.toFun_is_ringHomomorphism.2.2.2.2]
-  · refine ⟨?_, ?_, ?_, ?_, ?_⟩
-    · change e₁.inverse (e₂.inverse 0) = 0
-      rw [e₂.inverse_is_ringHomomorphism.1, e₁.inverse_is_ringHomomorphism.1]
-    · change e₁.inverse (e₂.inverse 1) = 1
-      rw [e₂.inverse_is_ringHomomorphism.2.1, e₁.inverse_is_ringHomomorphism.2.1]
-    · intro x y
-      change e₁.inverse (e₂.inverse (x + y)) =
-        e₁.inverse (e₂.inverse x) + e₁.inverse (e₂.inverse y)
-      rw [e₂.inverse_is_ringHomomorphism.2.2.1,
-        e₁.inverse_is_ringHomomorphism.2.2.1]
-    · intro x y
-      change e₁.inverse (e₂.inverse (x * y)) =
-        e₁.inverse (e₂.inverse x) * e₁.inverse (e₂.inverse y)
-      rw [e₂.inverse_is_ringHomomorphism.2.2.2.1,
-        e₁.inverse_is_ringHomomorphism.2.2.2.1]
-    · intro x
-      change e₁.inverse (e₂.inverse (-x)) = -e₁.inverse (e₂.inverse x)
-      rw [e₂.inverse_is_ringHomomorphism.2.2.2.2,
-        e₁.inverse_is_ringHomomorphism.2.2.2.2]
+noncomputable def ringIsomorphismTrans {R S T : Type*} [Ring R] [Ring S] [Ring T]
+    (e₁ : RingIsomorphism R S) (e₂ : RingIsomorphism S T) : RingIsomorphism R T :=
+  RingIsomorphism.ofRingEquiv (e₁.toRingEquiv.trans e₂.toRingEquiv)
 
 /-- 满射环同态的教材像承载与整个余域同构。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
+private noncomputable def ringHomRangeEquivOfSurjective
+    {R S : Type*} [Ring R] [Ring S] (f : R → S) (hf : RingHomomorphism f)
+    (hsurj : Function.Surjective f) : RingEquiv (ringHomRange f hf) S := by
+  let inverse : S → ringHomRange f hf := fun y ↦ ⟨y, hsurj y⟩
+  exact RingEquiv.mk
+    { toFun := fun y ↦ y.1
+      invFun := inverse
+      left_inv := fun y ↦ Subtype.ext rfl
+      right_inv := fun _ ↦ rfl }
+    (fun _ _ ↦ rfl) (fun _ _ ↦ rfl)
+
+/-- 满射环同态的教材像承载与整个余域同构；旧载体接口由正式 helper 包装。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
 noncomputable def ringHomRangeIsomorphismOfSurjective
     {R S : Type*} [Ring R] [Ring S] (f : R → S) (hf : RingHomomorphism f)
-    (hsurj : Function.Surjective f) : RingIsomorphism (ringHomRange f hf) S := by
-  let inverse : S → ringHomRange f hf := fun y ↦ ⟨y, hsurj y⟩
-  refine ⟨fun y ↦ y.1, inverse, ?_, ?_, ?_, ?_⟩
-  · intro y; exact Subtype.ext rfl
-  · intro y; rfl
-  · exact ⟨rfl, rfl, (fun _ _ ↦ rfl), (fun _ _ ↦ rfl), (fun _ ↦ rfl)⟩
-  · exact ⟨Subtype.ext rfl, Subtype.ext rfl, (fun _ _ ↦ Subtype.ext rfl),
-      (fun _ _ ↦ Subtype.ext rfl), (fun _ ↦ Subtype.ext rfl)⟩
+    (hsurj : Function.Surjective f) : RingIsomorphism (ringHomRange f hf) S :=
+  RingIsomorphism.ofRingEquiv (ringHomRangeEquivOfSurjective f hf hsurj)
 
 /-- 底层集合相等的双边理想给出本库显式商环之间的规范同构。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-def quotientRingIsomorphismOfEqualIdeals {R : Type*} [Ring R]
+private def quotientRingEquivOfEqualIdeals {R : Type*} [Ring R]
     (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
-    (hEq : I = J) : RingIsomorphism (quotientRingSet I hI) (quotientRingSet J hJ) := by
+    (hEq : I = J) : RingEquiv (quotientRingSet I hI) (quotientRingSet J hJ) := by
   subst J
   have hp : hJ = hI := Subsingleton.elim _ _
   subst hJ
-  exact ⟨id, id, (fun _ ↦ rfl), (fun _ ↦ rfl),
-    ⟨rfl, rfl, (fun _ _ ↦ rfl), (fun _ _ ↦ rfl), (fun _ ↦ rfl)⟩,
-    ⟨rfl, rfl, (fun _ _ ↦ rfl), (fun _ _ ↦ rfl), (fun _ ↦ rfl)⟩⟩
+  exact RingEquiv.refl _
 
-@[simp] theorem quotientRingIsomorphismOfEqualIdeals_projection
+/-- 底层集合相等的双边理想给出显式商环之间的旧载体兼容同构。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+def quotientRingIsomorphismOfEqualIdeals {R : Type*} [Ring R]
+    (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
+    (hEq : I = J) : RingIsomorphism (quotientRingSet I hI) (quotientRingSet J hJ) :=
+  RingIsomorphism.ofRingEquiv (quotientRingEquivOfEqualIdeals I J hI hJ hEq)
+
+private theorem quotientRingEquivOfEqualIdeals_projection
     {R : Type*} [Ring R] (I J : Set R) (hI : TwoSidedIdealSet I)
     (hJ : TwoSidedIdealSet J) (hEq : I = J) (x : R) :
-    quotientRingIsomorphismOfEqualIdeals I J hI hJ hEq
+    quotientRingEquivOfEqualIdeals I J hI hJ hEq
       (quotientRingProjection I hI x) = quotientRingProjection J hJ x := by
   subst J
   have hp : hJ = hI := Subsingleton.elim _ _
   subst hJ
   rfl
 
-/-- **第二同构定理**：对带幺环的子环 `A` 与双边理想 `I`，
+@[simp] theorem quotientRingIsomorphismOfEqualIdeals_projection
+    {R : Type*} [Ring R] (I J : Set R) (hI : TwoSidedIdealSet I)
+    (hJ : TwoSidedIdealSet J) (hEq : I = J) (x : R) :
+    quotientRingIsomorphismOfEqualIdeals I J hI hJ hEq
+      (quotientRingProjection I hI x) = quotientRingProjection J hJ x := by
+  exact quotientRingEquivOfEqualIdeals_projection I J hI hJ hEq x
+
+/-- **第二同构定理（正式承载）**：对带幺环的子环 `A` 与双边理想 `I`，
 `A/(A∩I) ≅ (A+I)/I`。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-noncomputable def ringSecondIsomorphism {R : Type*} [Ring R]
+noncomputable def ringSecondEquiv {R : Type*} [Ring R]
     (A : SubringCarrier R) (I : TwoSidedIdealCarrier R) :
-    RingIsomorphism
+    RingEquiv
       (quotientRingSet (subringIdealIntersection A I).carrier
         (subringIdealIntersection A I).isTwoSided)
       (quotientRingSet (subringIdealInSum A I).carrier
@@ -884,16 +949,45 @@ noncomputable def ringSecondIsomorphism {R : Type*} [Ring R]
   let hf := secondIsomorphismCanonicalMap_is_ringHomomorphism A I
   let hsurj := secondIsomorphismCanonicalMap_surjective A I
   let K := subringIdealIntersection A I
-  let e₀ : RingIsomorphism (quotientRingSet K.carrier K.isTwoSided)
+  let e₀ : RingEquiv (quotientRingSet K.carrier K.isTwoSided)
       (quotientRingSet (ringHomKernelSet f) (ringHomKernelSet_isTwoSidedIdeal f hf)) :=
-    quotientRingIsomorphismOfEqualIdeals K.carrier (ringHomKernelSet f)
+    quotientRingEquivOfEqualIdeals K.carrier (ringHomKernelSet f)
       K.isTwoSided (ringHomKernelSet_isTwoSidedIdeal f hf)
       (secondIsomorphismCanonicalMap_kernel A I).symm
-  let e₁ := ringFirstIsomorphism f hf
-  let e₂ := ringHomRangeIsomorphismOfSurjective f hf hsurj
-  exact ringIsomorphismTrans (ringIsomorphismTrans e₀ e₁) e₂
+  let e₁ := ringFirstEquiv f hf
+  let e₂ := ringHomRangeEquivOfSurjective f hf hsurj
+  exact (e₀.trans e₁).trans e₂
 
-/-- 第二同构的代表元公式：`a` 的左侧商类映到其在 `(A+I)/I` 中的自然商类。
+/-- 第二同构定理的旧载体兼容接口；证明由 `ringSecondEquiv` 拥有。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+noncomputable def ringSecondIsomorphism {R : Type*} [Ring R]
+    (A : SubringCarrier R) (I : TwoSidedIdealCarrier R) :
+    RingIsomorphism
+      (quotientRingSet (subringIdealIntersection A I).carrier
+        (subringIdealIntersection A I).isTwoSided)
+      (quotientRingSet (subringIdealInSum A I).carrier
+        (subringIdealInSum A I).isTwoSided) :=
+  RingIsomorphism.ofRingEquiv (ringSecondEquiv A I)
+
+/-- 正式第二同构的代表元公式：`a` 的左侧商类映到其在 `(A+I)/I` 中的自然商类。
+> **Entry**: abstract-algebra.ring.iso-theorems
+-/
+@[simp] theorem ringSecondEquiv_projection {R : Type*} [Ring R]
+    (A : SubringCarrier R) (I : TwoSidedIdealCarrier R) (a : A) :
+    ringSecondEquiv A I
+      (quotientRingProjection (subringIdealIntersection A I).carrier
+        (subringIdealIntersection A I).isTwoSided a) =
+      quotientRingProjection (subringIdealInSum A I).carrier
+        (subringIdealInSum A I).isTwoSided
+        (subringIdealSumInclusion A I a) := by
+  unfold ringSecondEquiv
+  dsimp only
+  simp only [RingEquiv.trans_apply]
+  rw [quotientRingEquivOfEqualIdeals_projection, ringFirstEquiv_projection]
+  rfl
+
+/-- 旧第二同构兼容接口的代表元公式。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
 @[simp] theorem ringSecondIsomorphism_projection {R : Type*} [Ring R]
@@ -904,13 +998,7 @@ noncomputable def ringSecondIsomorphism {R : Type*} [Ring R]
       quotientRingProjection (subringIdealInSum A I).carrier
         (subringIdealInSum A I).isTwoSided
         (subringIdealSumInclusion A I a) := by
-  unfold ringSecondIsomorphism
-  dsimp only
-  unfold ringIsomorphismTrans
-  dsimp only
-  rw [quotientRingIsomorphismOfEqualIdeals_projection,
-    ringFirstIsomorphism_projection]
-  rfl
+  exact ringSecondEquiv_projection A I a
 
 
 end SandronesLibrary.AbstractAlgebra.Ring
