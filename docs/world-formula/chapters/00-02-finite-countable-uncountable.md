@@ -18,10 +18,11 @@
 数学审稿：`accepted`（记录：
 [`wf1-02-cardinality-foundations-mathematical-review.md`](../reviews/wf1-02-cardinality-foundations-mathematical-review.md)）
 
-文字审稿：`needs_changes`，本次修订后等待复验（记录：
+文字审稿：`accepted`（记录：
 [`wf1-02-cardinality-foundations-editorial-review.md`](../reviews/wf1-02-cardinality-foundations-editorial-review.md)）
 
-Main 一致性验收：待完成
+Main 一致性验收：`accepted`（仅限已完成的第 1–4 节；记录：
+[`wf1-02-cardinality-foundations-main-consistency-review.md`](../reviews/wf1-02-cardinality-foundations-main-consistency-review.md)）
 
 ## 一　同样多，不必先数到最后
 
