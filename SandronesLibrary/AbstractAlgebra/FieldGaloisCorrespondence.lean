@@ -25,8 +25,9 @@ Mathlib 的 `Algebra`、打包中间域、`AlgEquiv`、有限维与固定点工�
 谓词；证明不调用直接给出最终恢复结论的现成接口，以保留教材数值链的
 真实内容。
 
-本模块止于有限 Galois 基本对应。次数—指数、正规子群、限制同态的核与
-像、商群以及 Galois 基本定理的进一步推论不在本文件范围内。
+本模块止于有限 Galois 基本对应，并只额外导出“全自同构群阶等于总次数”
+这一薄数值接口，供后续模块复用已经完成的私有换基。次数—指数、正规子群、
+限制同态的核与像、商群等进一步推论不在本文件内展开。
 
 > **Entry**: abstract-algebra.field.galois-correspondence
 -/
@@ -1455,6 +1456,30 @@ theorem finiteGalois_fixing_card_eq_relativeDegree
         Nat.card {σ : FieldAutomorphismOver e //
           σ ∈ FixingAutomorphismSet e F.carrier} = n :=
   fixing_card_eq_relativeDegree_bridge e hfin hgal F
+
+/-- 有限 Galois 扩张的全部基域自同构数目等于扩张次数。这个数值接口把
+本模块已经验证过的显式自同构与 Mathlib 后端对齐封装起来，使后续的
+次数—指数推论无需重复建立 `GaloisExtension` 到 `IsGalois` 的私有桥。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteGalois_automorphism_card_eq_degree
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (hgal : GaloisExtension e) {d : ℕ}
+    (hd : HasExtensionDegree e d) :
+    Nat.card (FieldAutomorphismOver e) = d := by
+  let _ : Algebra K L := e.toRingHom.toAlgebra
+  let B : Module.Basis (Fin d) K L :=
+    Classical.choice (hasExtensionDegree_mathlibBasis_bridge e d hd)
+  let _ : FiniteDimensional K L := Module.Finite.of_basis B
+  let _ : IsGalois K L :=
+    Classical.choice (galoisExtension_mathlibIsGalois_bridge e hgal)
+  let φ := fieldAutomorphismOver_mathlibAlgEquiv_equiv e
+  calc
+    Nat.card (FieldAutomorphismOver e) = Nat.card (L ≃ₐ[K] L) :=
+      Nat.card_congr φ
+    _ = Module.finrank K L := IsGalois.card_aut_eq_finrank K L
+    _ = d := by simpa [B] using Module.finrank_eq_card_basis B
 
 /-- 有限 Galois 扩张中，中间域及其 fixing 闭包到 `L` 的相对扩张次数
 相同。证明比较两边相同的 fixing 自同构集合基数。

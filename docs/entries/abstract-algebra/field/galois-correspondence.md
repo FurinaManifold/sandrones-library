@@ -56,6 +56,10 @@ E ⊆ FixedFieldSet e H ↔ H ⊆ FixingAutomorphismSet e E.
 Galois 扩张的自同构数目公式，得到一个自然数同时是 fixing 群的基数和
 `HasExtensionDegree (intermediateFieldInclusion F)` 的次数。
 
+`finiteGalois_automorphism_card_eq_degree` 是留给后续推论层的薄数值接口：
+它把全体基域自同构的数目识别为给定的总扩张次数。该接口直接复用本模块
+已有的显式自同构换基、有限维和 `IsGalois` 私有桥，避免下游重复造轮子。
+
 `fixingClosureIntermediateField F` 是先取 fixing 自同构、再取共同固定域所得
 闭包。`F` 与闭包有相同 fixing 集合，因而相对次数相同；结合自然包含和
 “同一有限维数下的包含必为相等”，得到中间域恢复。
@@ -85,4 +89,5 @@ Mathlib 的局部 `Algebra`、打包中间域和子群、`AlgEquiv`、`FiniteDim
 本条目复用 Dummit and Foote, *Abstract Algebra*, Third Edition 的来源键，
 对应 Chapter 14 中有限 Galois 扩张的基本定理及其固定域—子群对应。
 次数—指数公式、正规中间扩张与正规子群、限制同态的核像及商群同构
-留给后续独立条目；本模块不把这些推论混入当前 verified 核心。
+留给后续独立条目；这里新增的全群阶—总次数接口只是证明复用边界，不在
+本条目中展开这些推论。

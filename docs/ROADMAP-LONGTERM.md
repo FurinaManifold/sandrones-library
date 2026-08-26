@@ -460,7 +460,8 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 6 | `abstract-algebra.field.degree` | 扩张次数、塔式公式、有限扩张必代数 | ✅ |
 | 7 | `abstract-algebra.field.splitting` | 分裂域、存在性、有限性与基域上同构唯一性 | ✅ |
 | 8 | `abstract-algebra.field.separable-normal`、`abstract-algebra.field.separable-normal-characterizations` | 可分多项式、可分／正规扩张、根重数与不可约有根刻画 | ✅ |
-| 9 | `abstract-algebra.field.galois-definitions`、`abstract-algebra.field.galois-correspondence` | Galois 扩张、显式基域自同构群、固定域与有限 Galois 基本对应 | ✅；次数—指数和正规子群推论待续 |
+| 9 | `abstract-algebra.field.galois-definitions`、`abstract-algebra.field.galois-correspondence` | Galois 扩张、显式基域自同构群、固定域与有限 Galois 基本对应 | ✅ |
+| 9c | `abstract-algebra.field.galois-consequences` | 子群固定域的相对次数等于子群阶、固定域次数等于子群指数 | ✅；正规子群批待验收，限制同态核像与商群同构待续 |
 
 **当前并行权限（2026-08-25）**：
 
@@ -472,7 +473,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | A3.8 第二批刻画 | 已集成 | 根重数可分刻画、不可约多项式有一根则分裂的正规性刻画 | Main 全库验收完成 |
 | A3.9a Galois 定义层 | 已集成 | Galois 扩张、显式自同构群、固定域及展开性质 | Main 全库验收完成 |
 | A3.9b 基本定理 | 已集成 | 显式中间域—子群反变连接、restriction、群阶—相对次数链与双向恢复 | Main 全库验收完成；具体有限扩张计算归 Examples E6.12 |
-| A3.9c Galois 对应推论 | `development_open` | 次数—指数公式、正规中间扩张—正规子群、限制同态的核像与商群同构 | 复用已集成 A3.9b；二次扩张、有限域和低次多项式计算归 Examples E6.12 |
+| A3.9c Galois 对应推论 | `development_open` | 次数—指数公式已集成；正规中间扩张—正规子群待验收；限制同态的核像与商群同构继续开放 | 复用已集成 A3.9b；二次扩张、有限域和低次多项式计算归 Examples E6.12 |
 
 A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线性无关、张成和基需要给出教材
 定义；Mathlib `Algebra`、`Module`、`Basis` 可作已解释的私有证明后端。A3.7 不必等待 A3.6 审核

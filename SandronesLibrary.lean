@@ -82,6 +82,7 @@ import SandronesLibrary.AbstractAlgebra.FieldSeparableNormal
 import SandronesLibrary.AbstractAlgebra.FieldSeparableNormalCharacterizations
 import SandronesLibrary.AbstractAlgebra.FieldGaloisDefinitions
 import SandronesLibrary.AbstractAlgebra.FieldGaloisCorrespondence
+import SandronesLibrary.AbstractAlgebra.FieldGaloisConsequences
 import SandronesLibrary.Topology.Foundation
 import SandronesLibrary.Topology.MathlibCompatibility
 import SandronesLibrary.Topology.Constructions

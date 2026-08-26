@@ -3444,6 +3444,7 @@
     "added_by": "ingestor-abstractalgebra-A1",
     "added_at": "2026-08-21T09:36:01Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-consequences",
       "abstract-algebra.field.galois-correspondence",
       "abstract-algebra.field.galois-definitions",
       "abstract-algebra.group.coset",
@@ -13956,6 +13957,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-consequences",
       "abstract-algebra.field.galois-correspondence",
       "abstract-algebra.field.separable-normal",
       "abstract-algebra.field.splitting"
@@ -15134,7 +15136,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/galois-correspondence.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.galois-consequences"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "874cb4fbd2113ba6",
@@ -15311,6 +15315,41 @@
     "family": "functional-analysis.weak",
     "variant": "closed-unit-ball-four-way",
     "proof_sha": "4020aee288359503",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.galois-consequences",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有限 Galois 对应的次数与指数公式",
+    "summary": "子群固定域的上下两层扩张次数分别等于子群阶与子群指数",
+    "premises": [
+      "abstract-algebra.field.galois-correspondence",
+      "abstract-algebra.field.degree",
+      "abstract-algebra.group.def"
+    ],
+    "mathlib": [
+      "Subgroup",
+      "Subgroup.index",
+      "Module.Finite.of_injective",
+      "Module.finBasisOfFinrankEq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldGaloisConsequences.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/galois-consequences.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "1c5aa58b854e3651",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
