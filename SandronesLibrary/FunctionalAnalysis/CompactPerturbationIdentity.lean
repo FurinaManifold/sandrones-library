@@ -22,7 +22,10 @@ open Filter Function Set _root_.Topology
 
 variable {E : Type*} [NormedAddCommGroup E] [NormedSpace ℝ E]
 
-/-- `I - K`，作为后续 Fredholm 论证中的具名算子。 -/
+/-- `I - K`，作为后续 Fredholm 论证中的具名算子。
+
+> **Entry**: functional-analysis.fredholm.alternative
+-/
 noncomputable def identitySubCompact (K : E →L[ℝ] E) : E →L[ℝ] E :=
   ContinuousLinearMap.id ℝ E - K
 
@@ -56,7 +59,6 @@ private theorem compactOnIdentitySubCompactKernel_apply (K : E →L[ℝ] E)
 在核上 `K` 就是恒等算子；紧性在定义域限制和闭值域限制下保持，因此核上的恒等算子
 是紧算子。Riesz 有限维判据随即给出结论。
 
-> **Entry**: functional-analysis.compact-perturbation-identity
 -/
 theorem finiteDimensional_kernel_identitySubCompact [CompleteSpace E]
     (K : E →L[ℝ] E) (hK : IsCompactOperator K) :
