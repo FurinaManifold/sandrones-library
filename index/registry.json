@@ -14280,6 +14280,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "topology.fundamental-group.van-kampen-cover-subdivision",
+      "topology.homotopy.path-homotopy-image-control",
       "topology.homotopy.path-homotopy-quotient-standard",
       "topology.homotopy.standard"
     ],
@@ -15612,5 +15613,39 @@
       "propext"
     ],
     "proof_sha": "4ca6b936276dacab"
+  },
+  {
+    "id": "topology.homotopy.path-homotopy-image-control",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "道路同伦的像集控制与有限拼接",
+    "summary": "为仿射同伦、同伦复合、重参数化和有限依赖拼接携带逐点集合成员证书",
+    "premises": [
+      "topology.homotopy.path-homotopy-standard"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "ContinuousMap.Homotopy.affine",
+      "Path.concat",
+      "Path.subpath",
+      "Convex"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathHomotopyImageControl.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-homotopy-image-control.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "image-controlled-relative-composition",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9ea81b8ad0576648"
   }
 ]
