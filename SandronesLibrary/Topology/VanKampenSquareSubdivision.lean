@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
+import SandronesLibrary.Topology.HomotopySquareGrid
 
 /-!
 # 二开集覆盖下的方格细分
@@ -28,16 +29,6 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 第 `(i,j)` 个一致方格中的点；两个局部参数分别沿横、纵方向线性变化。
-
-> **Entry**: topology.fundamental-group.van-kampen-square-subdivision -/
-def unitSquareCellPoint (N : ℕ) (hN : 0 < N) (i j : Fin N)
-    (u v : unitInterval) : unitInterval × unitInterval :=
-  (Set.Icc.convexComb (unitIntervalMeshPoint N hN i.castSucc)
-      (unitIntervalMeshPoint N hN i.succ) u,
-    Set.Icc.convexComb (unitIntervalMeshPoint N hN j.castSucc)
-      (unitIntervalMeshPoint N hN j.succ) v)
-
 private theorem dist_convexComb_left_le (a b u : unitInterval) :
     dist (Set.Icc.convexComb a b u) a ≤ dist b a := by
   rw [Subtype.dist_eq, Subtype.dist_eq, Real.dist_eq, Real.dist_eq]
@@ -49,7 +40,9 @@ private theorem dist_convexComb_left_le (a b u : unitInterval) :
     abs_of_nonneg u.2.1]
   exact mul_le_of_le_one_left (abs_nonneg _) u.2.2
 
-/-- 二开集覆盖下的有限一致方格细分，每个闭方格整体落在一个覆盖成员中。 -/
+/-- 二开集覆盖下的有限一致方格细分，每个闭方格整体落在一个覆盖成员中。
+
+> **Entry**: topology.fundamental-group.van-kampen-square-subdivision -/
 structure BinaryOpenCoverSquareSubdivision (H : C(unitInterval × unitInterval, X))
     (U V : Set X) where
   steps : ℕ

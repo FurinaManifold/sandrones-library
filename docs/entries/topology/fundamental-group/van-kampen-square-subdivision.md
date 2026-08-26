@@ -6,7 +6,7 @@ kind: theorem
 state: verified
 title: 二开集覆盖下的有限带标签方格细分
 summary: 连续方形逐点落在二开集之一时存在有限一致方格细分，每格落在一个覆盖成员且异标签公共边落在交集
-premises: [topology.fundamental-group.van-kampen-cover-subdivision]
+premises: [topology.fundamental-group.van-kampen-cover-subdivision, topology.homotopy.homotopy-square-grid]
 mathlib: [ContinuousMap, Set.Icc.convexComb, lebesgue_number_lemma_of_metric, Prod.dist_eq, Real.exists_nat_pos_inv_lt]
 provenance:
   source_type: book
@@ -49,7 +49,7 @@ theorem BinaryOpenCoverSquareSubdivision.verticalSwitchEdge_mem_intersection ...
 
 # 思维脉络（thinking trace）
 
-沿 `H` 取原像后，对紧致度量空间 `unitInterval × unitInterval` 使用 Lebesgue 数。VK1 已有的
+沿 `H` 取原像后，对紧致度量空间 `unitInterval × unitInterval` 使用 Lebesgue 数。共享网格前提已有的
 `unitIntervalMeshPoint` 给出每轴的 `i/N` 网格点；`unitSquareCellPoint` 用两个逐坐标凸组合参数化
 闭方格。乘积度量公式把方格点到左下角的距离化为两个一维距离的最大值，两者都不超过 `1/N`。
 逐格选择覆盖标签即可组成结构。公共边结论分别把左／右格的横参数取 `1/0`，或下／上格的纵参数
@@ -57,7 +57,7 @@ theorem BinaryOpenCoverSquareSubdivision.verticalSwitchEdge_mem_intersection ...
 
 # 自然语言 ↔ Lean 映射
 
-“第 `(i,j)` 个闭方格中的点”对应 `unitSquareCellPoint`；“有限一致方格细分”对应
+“第 `(i,j)` 个闭方格中的点”复用共享前提 `unitSquareCellPoint`；本条目新增的“有限一致方格细分”对应
 `BinaryOpenCoverSquareSubdivision`，字段 `steps_pos` 保证网格非空，`label` 给出二维 Bool 标签，
 `cell_mem` 记录整格像包含；存在性对应 `exists_binaryOpenCoverSquareSubdivision`；水平和竖直的
 “异标签公共边落在交集”分别对应 `horizontalSwitchEdge_mem_intersection` 与
@@ -65,7 +65,8 @@ theorem BinaryOpenCoverSquareSubdivision.verticalSwitchEdge_mem_intersection ...
 
 # 依赖（人话版）
 
-二维网格沿两轴直接复用 VK1 的 `unitIntervalMeshPoint` 和相邻距离公式。Mathlib `ContinuousMap`
+二维网格沿两轴直接复用共享 `homotopy-square-grid` 条目的 `unitSquareCellPoint`，其底层来自
+`unitIntervalMeshPoint` 和相邻距离公式。Mathlib `ContinuousMap`
 承载连续方形，`Set.Icc.convexComb` 参数化闭格，`lebesgue_number_lemma_of_metric` 只作用于参数方形，
 `Prod.dist_eq` 提供最大乘积度量，`Real.exists_nat_pos_inv_lt` 选择足够细的正整数网格。目标空间 `X`
 只需拓扑结构，并未因证明后端而增加度量假设。
