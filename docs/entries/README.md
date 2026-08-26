@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **497** 个条目（verified 497，pending 0）。
+共 **498** 个条目（verified 498，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -703,6 +703,7 @@
 - ✅ [`van-kampen-dual-path-potential.md`](topology/fundamental-group/van-kampen-dual-path-potential.md) — van Kampen 双标签道路与通用顶点 potential
 - ✅ [`van-kampen-edge-gauge.md`](topology/fundamental-group/van-kampen-edge-gauge.md) — van Kampen 内部边的统一 gauge 与有限望远镜消去
 - ✅ [`van-kampen-framed-grid-boundary.md`](topology/fundamental-group/van-kampen-framed-grid-boundary.md) — van Kampen 网格的 framed 行与外边界关系
+- ✅ [`van-kampen-left-boundary-edge.md`](topology/fundamental-group/van-kampen-left-boundary-edge.md) — van Kampen aligned 左边界细边的双重局部表示
 - ✅ [`van-kampen-letter-block-word.md`](topology/fundamental-group/van-kampen-letter-block-word.md) — van Kampen 字母 block 的细边词恢复
 - ✅ [`van-kampen-letter-word.md`](topology/fundamental-group/van-kampen-letter-word.md) — van Kampen Pushout 字母词与拼接环路
 - ✅ [`van-kampen-mixed-vertex-coherence.md`](topology/fundamental-group/van-kampen-mixed-vertex-coherence.md) — van Kampen 网格混合标签顶点的 transition coherence

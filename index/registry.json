@@ -16249,10 +16249,47 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-path-gauge-comparison.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-left-boundary-edge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "common-and-switch-edge-rebase",
     "proof_sha": "ae62675d60565d21",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-left-boundary-edge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen aligned 左边界细边的双重局部表示",
+    "summary": "将对齐零同伦方格的真实左边界细边分别提升到 cell 与输入字母覆盖成员，构造两侧 connectors 和局部基本群元素，并识别为既有 grid 与 block factors",
+    "premises": [
+      "topology.fundamental-group.van-kampen-path-gauge-comparison"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.cast",
+      "Path.subpath",
+      "FundamentalGroup",
+      "IsPathConnected",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLeftBoundaryEdge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-left-boundary-edge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "aligned-cell-and-letter-local-elements",
+    "proof_sha": "0d2e7ada3608a10d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

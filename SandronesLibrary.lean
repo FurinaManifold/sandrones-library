@@ -127,6 +127,7 @@ import SandronesLibrary.Topology.PathConcatAlignedSubdivision
 import SandronesLibrary.Topology.VanKampenLetterBlockWord
 import SandronesLibrary.Topology.VanKampenDualPathPotential
 import SandronesLibrary.Topology.VanKampenPathGaugeComparison
+import SandronesLibrary.Topology.VanKampenLeftBoundaryEdge
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

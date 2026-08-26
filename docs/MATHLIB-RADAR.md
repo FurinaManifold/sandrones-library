@@ -240,6 +240,14 @@
 - **本库边界**：本库普通函数谓词 `RingHomomorphism` 继续负责逐项展开同态公理；历史
   `RingIsomorphism` 只作双向无损兼容层，不再拥有主证明。
 
+### `TwoSidedIdeal`
+- **人话**：非交换环中的双边理想；它同时对左乘和右乘封闭，交换环的普通理想是其特殊情形。
+- **出处**：Mathlib 的标准双边理想结构，原生提供集合强制转换、序、格以及 `ker`、`map`、`comap`、
+  `span` 等操作。
+- **谁将使用**：`abstract-algebra.ring.iso-theorems` 的 kernel、理想像／逆像和商环理想对应正式核心。
+- **本库边界**：`TwoSidedIdealSet` 继续逐项解释教材判据；历史 `TwoSidedIdealCarrier` 保持兼容
+  wrapper。I1 迁移已开放，第三同构和 `Subring` 迁移仍分别受 I2/I3 门控制。
+
 ### `Associated` / `Irreducible` / `Prime`
 - **人话**：Mathlib 对相伴、不可约元和素元的标准谓词。
 - **出处**：Mathlib 交换幺半群与分解理论。
