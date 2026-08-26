@@ -8,3 +8,4 @@
 .idea/
 .vscode/
 *.tmp
+/.cache/world-formula/
