@@ -32,29 +32,28 @@
 
 ## Public API 与 implementation boundary
 
-Entry mapper 精确映射 Main 冻结的 14 public：两个受约束细分存在性；dyadic scale；breakpoint
-numerator、上界与相邻严格递增；实际 breakpoint；concat breakpoint 取值；dyadic segment、同伦与
-membership；字母 segment membership、覆盖成员内提升及其代表同伦。
+Entry mapper 在学科提交时映射 14 public；Main 集成时根据真实 10b 消费审计，将 dyadic scale 正性、
+breakpoint numerator 末端和 breakpoint 末端三项稳定计算规则提升为公开，最终为 17 public：两个受约束
+细分存在性；dyadic scale 及正性；breakpoint numerator、上界、相邻严格递增与末端；实际 breakpoint
+及末端；concat breakpoint 取值；dyadic segment、同伦与 membership；字母 segment membership、
+覆盖成员内提升及其代表同伦。
 
-Main 冻结口径中的 18 组自然数、半区与 segment 递归 proof helper 均已设为 private。源码另外把
-8 个只供这些证明化简的内部定义／`[simp]` 端点规则也设为 private（half、midpoint、scale 正性、
-numerator/breakpoint 端点和 subtype coercion 计算）；因此名称级公开面仍精确为批准的 14 项，不把
-内部计算规则误暴露成课程 API。
+其余 16 个自然数、半区与 segment 递归 proof helper 保持 private。公开的三条计算规则是 10b 的真实
+共享依赖，不是把全部内部化简规则误暴露成课程 API。
 
 ## 验证
 
 - `lake build SandronesLibrary.Topology.PathConcatDyadicSubdivision`：1761 jobs，通过，零 warning。
-- 10a aggregate：14 项公开 `#check` 全部通过；`n = 1,2,3` 的 numerator 列表分别计算为
+- 10a aggregate：学科提交时 14 项公开 `#check` 全部通过；Main 集成时补验三条稳定计算规则，最终
+  17 项公开接口通过。`n = 1,2,3` 的 numerator 列表分别计算为
   `[0,2]`、`[0,2,4]`、`[0,2,4,8]`，三输入相邻 block 长度为 `[2,2,4]`。
-- Entry mapper 精确映射 14 public；禁用占位、冲突标记、重复道路承载与 `git diff --check` 在提交前
-  复验。
+- Entry mapper 最终映射 17 public；禁用占位、冲突标记、重复道路承载与 `git diff --check` 复验。
 
 ## 下游接口审计
 
-按冻结面收口后，旧研究期 10b 候选不再直接编译，因为它仍引用三个现已 private 的计算 helper：
-`pathConcatDyadicScale_pos`、`pathConcatBreakpoint_last`、
-`pathConcatBreakpointNumerator_last`。这不影响 10a 本体；10b 正式迁移前应从公开定义在 10b 内建立
-局部推论并替换这些引用，不应擅自扩大 10a 的 14 项公开面。其余报错均由这三个未知标识级联产生。
+Main 对旧研究期 10b 候选复核后确认它真实消费 `pathConcatDyadicScale_pos`、
+`pathConcatBreakpoint_last`、`pathConcatBreakpointNumerator_last`；三项已经提升为公开，10b 无需局部
+重复证明。其余 private helper 仍不得跨模块消费。
 
 ## 诚实边界
 

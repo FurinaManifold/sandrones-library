@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **491** 个条目（verified 491，pending 0）。
+共 **492** 个条目（verified 492，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -717,6 +717,7 @@
 - ✅ [`definition-foundation.md`](topology/homotopy/definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`equivalence-standard.md`](topology/homotopy/equivalence-standard.md) — 标准同伦等价与双侧同伦逆
 - ✅ [`path-cod-restrict.md`](topology/homotopy/path-cod-restrict.md) — 道路到子空间的余域限制
+- ✅ [`path-concat-dyadic-subdivision.md`](topology/homotopy/path-concat-dyadic-subdivision.md) — Mathlib Path.concat 的 dyadic 分段
 - ✅ [`path-concatenation-foundation.md`](topology/homotopy/path-concatenation-foundation.md) — 道路拼接的正式承载
 - ✅ [`path-definition-foundation.md`](topology/homotopy/path-definition-foundation.md) — 道路与环路的正式承载
 - ✅ [`path-homotopy-image-control.md`](topology/homotopy/path-homotopy-image-control.md) — 道路同伦的像集控制与有限拼接

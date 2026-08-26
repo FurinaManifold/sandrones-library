@@ -16027,7 +16027,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-letter-word.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.path-concat-dyadic-subdivision"
+    ],
     "family": "topology.fundamental-group",
     "variant": "binary-pushout-letter-word-and-concat-loop",
     "axioms": [
@@ -16036,5 +16038,39 @@
       "propext"
     ],
     "proof_sha": "0d4bfdb6ec95dea4"
+  },
+  {
+    "id": "topology.homotopy.path-concat-dyadic-subdivision",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Mathlib Path.concat 的 dyadic 分段",
+    "summary": "计算左结合 Path.concat 的 dyadic 断点，以共同 dyadic 尺度约束方格细分，并将每个规范子道路与对应输入道路作端点相对同伦",
+    "premises": [
+      "topology.fundamental-group.van-kampen-letter-word"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.concat",
+      "Path.subpath",
+      "Path.Homotopic",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathConcatDyadicSubdivision.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-concat-dyadic-subdivision.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "left-associated-dyadic-breakpoints",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "042ebe889946c249"
   }
 ]

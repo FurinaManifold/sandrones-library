@@ -130,7 +130,7 @@ theorem exists_binaryOpenCoverSquareSubdivision_steps_multiple
 /-- `n` 次有限 `Path.concat` 所有递归二分断点的公共分母。 -/
 def pathConcatDyadicScale (n : ℕ) : ℕ := 2 ^ n
 
-@[simp] private theorem pathConcatDyadicScale_pos (n : ℕ) :
+@[simp] theorem pathConcatDyadicScale_pos (n : ℕ) :
     0 < pathConcatDyadicScale n := by
   simp [pathConcatDyadicScale]
 
@@ -162,7 +162,7 @@ def pathConcatBreakpointNumerator : (n : ℕ) → Fin (n + 1) → ℕ
       rw [Fin.lastCases_castSucc]
       exact ih
 
-@[simp] private theorem pathConcatBreakpointNumerator_last (n : ℕ) :
+@[simp] theorem pathConcatBreakpointNumerator_last (n : ℕ) :
     pathConcatBreakpointNumerator (n + 1) (Fin.last (n + 1)) =
       pathConcatDyadicScale (n + 1) := by
   simp [pathConcatBreakpointNumerator]
@@ -221,7 +221,7 @@ def pathConcatBreakpoint (n : ℕ) (r : Fin (n + 1)) : unitInterval :=
   simp [pathConcatBreakpoint, pathConcatBreakpointNumerator,
     pathConcatDyadicScale]
 
-@[simp] private theorem pathConcatBreakpoint_last (n : ℕ) :
+@[simp] theorem pathConcatBreakpoint_last (n : ℕ) :
     pathConcatBreakpoint (n + 1) (Fin.last (n + 1)) = 1 := by
   ext
   simp [pathConcatBreakpoint, ne_of_gt (pathConcatDyadicScale_pos (n + 1))]
