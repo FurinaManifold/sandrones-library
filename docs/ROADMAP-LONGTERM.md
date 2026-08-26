@@ -583,7 +583,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
 | AT1-VK3a 零同伦方格细分 | 已集成 | 一致二维网格、逐格覆盖标签及异标签整条公共边落在交集 | 目标空间只需拓扑结构；接口严格止于方格细分 |
 | T4-I1 通用道路／网格设施归位 | 已集成 | `unitIntervalMeshPoint`、`pathCodRestrict` 与 `Path.correctedLoop`/有限 telescope 已分别移入三个中性模块 | 唯一声明、无 alias 或第二套实现；VK1/VK2/VK3a 消费链保持构建 |
-| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01--11b 已集成；11c 已开放） | 01 建立单格边界词；02/03 比较同/异标签公共边；04 统一 edge gauge；05/06 用 vertex potential 证明任意标签中央 coherence；07a 建立 framed rows 与有限网格四侧关系；07b 归一横边并证明左右 holonomy 相等；08a/08b 完成二维右锚定；09 建立 letter word 与反序 concat；10a/10b 完成 dyadic 对齐网格；11a 在单个字母覆盖成员中组成细边 corrected word 并恢复原字母；11b 将双标签道路提升到交集并把 connector 差异化为端点 vertex potentials | 11c 建立完整 path gauge comparison；12--15 继续按线性依赖逐批开放 |
+| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01--11c 已集成；12a 已开放） | 01 建立单格边界词；02/03 比较同/异标签公共边；04 统一 edge gauge；05/06 用 vertex potential 证明任意标签中央 coherence；07a 建立 framed rows 与有限网格四侧关系；07b 归一横边并证明左右 holonomy 相等；08a/08b 完成二维右锚定；09 建立 letter word 与反序 concat；10a/10b 完成 dyadic 对齐网格；11a 恢复单字母 block；11b 建立双标签 endpoint potentials；11c 将同标签和异标签的同路局部表示统一成非交换 rebase 公式 | 12a 建立单条左边界细边从 cell 表示到 letter 表示的 transport；12b--15 继续按线性依赖逐批开放 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |

@@ -16213,10 +16213,46 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-dual-path-potential.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-path-gauge-comparison"
+    ],
     "family": "topology.fundamental-group",
     "variant": "intersection-lift-and-endpoint-gauge",
     "proof_sha": "61b615491c92ba21",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-path-gauge-comparison",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 同路局部表示的统一 gauge 比较",
+    "summary": "将方格边与字母边对同一几何道路的同标签和异标签局部表示统一改写成 endpoint vertex potentials 的非交换 rebase 公式",
+    "premises": [
+      "topology.fundamental-group.van-kampen-dual-path-potential"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.cast",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "IsPathConnected"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenPathGaugeComparison.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-path-gauge-comparison.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "common-and-switch-edge-rebase",
+    "proof_sha": "ae62675d60565d21",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
