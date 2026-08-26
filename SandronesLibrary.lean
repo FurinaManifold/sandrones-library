@@ -120,6 +120,7 @@ import SandronesLibrary.Topology.VanKampenFramedGridBoundary
 import SandronesLibrary.Topology.VanKampenNormalizedGridGauge
 import SandronesLibrary.Topology.VanKampenRowAnchoring
 import SandronesLibrary.Topology.VanKampenRightAnchoredGrid
+import SandronesLibrary.Topology.VanKampenLetterWord
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

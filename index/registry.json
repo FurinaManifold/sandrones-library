@@ -15992,7 +15992,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-right-anchored-grid.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-letter-word"
+    ],
     "family": "topology.fundamental-group",
     "variant": "two-dimensional-right-anchor-and-left-holonomy",
     "axioms": [
@@ -16001,5 +16003,38 @@
       "propext"
     ],
     "proof_sha": "25f9cecfee517244"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-letter-word",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen Pushout 字母词与拼接环路",
+    "summary": "将二开集基本群 Pushout 的任意元素表示为有限单侧字母词，为各字母选择环境环路，并按群乘法方向构造反序 Path.concat 环路",
+    "premises": [
+      "topology.fundamental-group.van-kampen-right-anchored-grid"
+    ],
+    "mathlib": [
+      "FundamentalGroup",
+      "Path",
+      "Path.Homotopic.Quotient",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLetterWord.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-letter-word.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-pushout-letter-word-and-concat-loop",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "0d4bfdb6ec95dea4"
   }
 ]
