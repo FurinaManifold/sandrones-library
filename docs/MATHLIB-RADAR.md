@@ -105,6 +105,16 @@
   `fixedFieldRestrictionHom` 仍由本库逐点 restriction 实际构造，并另证 kernel、range 和自然投影公式。
 - **本库边界**：不调用 Mathlib 的最终 Galois 对应同构包装来替代限制同态、核与商映射的教材链。
 
+### `Measure.map` / `variance` / `IndepSet` / `IndepFun`
+
+- **人话**：`Measure.map` 是随机变量的分布，`variance` 是实值变量的普通方差，`IndepSet` 与
+  `IndepFun` 分别承载事件和随机变量的独立性。
+- **谁在用**：概率论 Pr1 的分布、矩与独立性条目直接复用这些正式接口，不建立第二套概率空间、
+  随机变量、分布或独立性 carrier。
+- **必须记住的边界**：Mathlib 为保持 `Measure.map` 全定义，在函数并非 a.e. 可测时返回零测度；
+  普通 `variance` 是扩展方差的 `toReal`，非 `L²` 时也会退化为零。教材定理必须显式保留可测性或
+  `MemLp X 2 μ` 条件，不能把退化约定误读为概率结论。
+
 ### `WeakDual.isClosed_closedBall` / `WeakDual.isCompact_closedBall`
 - **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
 - **谁在用**：`functional-analysis.banach-alaoglu`，正式集合写成 `WeakDual.toStrongDual` 下的闭球原像。

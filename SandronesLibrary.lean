@@ -283,6 +283,14 @@ import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator
 import SandronesLibrary.FunctionalAnalysis.OrthonormalBasis
 import SandronesLibrary.FunctionalAnalysis.UnitaryOperator
+import SandronesLibrary.Probability.Space
+import SandronesLibrary.Probability.Variable
+import SandronesLibrary.Probability.Distribution
+import SandronesLibrary.Probability.Expectation
+import SandronesLibrary.Probability.Moments
+import SandronesLibrary.Probability.IndependenceEvents
+import SandronesLibrary.Probability.IndependenceVariables
+import SandronesLibrary.Probability.Inequalities
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

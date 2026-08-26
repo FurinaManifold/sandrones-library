@@ -111,7 +111,7 @@ WF0 已完成，WF1 持续 `development_open`；WF2/WF3 按各学科已验收资
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | ✅ |
 | G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | 🚧（当前优先门） |
 | G-C | T4 桥完成后，C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | ⏸（等待 G-T4/C） |
-| G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | 🚧 |
+| G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | ✅ |
 | G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
 | G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
 
@@ -868,20 +868,20 @@ Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择仍�
 > 对应 Pr2，收敛方式与经典极限定理对应 Pr3。Markov 过程、Brownian 运动、随机积分和 SDE 按书
 > 后半转入 SP，不在 Pr3 提前展开。
 
-### Pr1 概率空间、随机变量与期望 🚧
+### Pr1 概率空间、随机变量与期望 ✅
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `probability.space.definition` | 概率空间与事件 | `IsProbabilityMeasure` |
-| 2 | `probability.variable.definition` | 随机变量与可测性 | `Measurable` |
-| 3 | `probability.distribution.pushforward` | 分布作为推前测度 | `Measure.map` |
-| 4 | `probability.expectation.definition` | 期望、可积性与线性 | `integral` |
-| 5 | `probability.moments.variance` | 方差与协方差 | variance/covariance |
-| 6 | `probability.independence.events` | 事件与 σ-代数独立 | `IndepEvents`、`Indep` |
-| 7 | `probability.independence.variables` | 随机变量独立与分布乘积 | `IndepFun` |
-| 8 | `probability.inequalities.basic` | Markov、Chebyshev、Jensen | probability inequalities |
+| 1 | `probability.space.definition` | 概率空间与事件 ✅ | `IsProbabilityMeasure` |
+| 2 | `probability.variable.definition` | 随机变量与可测性 ✅ | `Measurable` |
+| 3 | `probability.distribution.pushforward` | 分布作为推前测度 ✅ | `Measure.map` |
+| 4 | `probability.expectation.definition` | 期望、可积性与线性 ✅ | `integral` |
+| 5 | `probability.moments.variance` | 方差与协方差 ✅ | variance/covariance |
+| 6 | `probability.independence.events` | 事件与 σ-代数独立 ✅ | `IndepSet`、`Indep` |
+| 7 | `probability.independence.variables` | 随机变量独立与分布乘积 ✅ | `IndepFun` |
+| 8 | `probability.inequalities.basic` | Markov、Chebyshev、Jensen ✅ | probability inequalities |
 
-### Pr2 条件期望与鞅 🔒（依赖 Pr1）
+### Pr2 条件期望与鞅 🚧（依赖 Pr1）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -891,6 +891,12 @@ Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择仍�
 | 4 | `probability.filtration.definition` | 过滤与适应过程 | `Filtration`、`Adapted` |
 | 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 | `Martingale` |
 | 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 | stopping time |
+
+**Pr2 当前权限**：开放两个互不重叠的第一窗：A 窗开发
+`probability.conditional-expectation.definition`，其通过学科构建并形成 handoff 后，tower 与
+independence 两批按顺序自动放行；B 窗可并行开发 `probability.filtration.definition`。Martingale
+定义等待 A 的定义层和 B 的过滤接口同时稳定；可选停止继续冻结。统计 S1 虽由 G-Pr 解锁，但需先做
+模型／密度与 Radon--Nikodym 接口审计，不得用有限离散样本冒充一般统计实验。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 

@@ -16799,5 +16799,272 @@
       "propext"
     ],
     "proof_sha": "361dd71ca18a62a4"
+  },
+  {
+    "id": "probability.space.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "概率空间与事件",
+    "summary": "用总质量为一的测度承载概率空间，并整理可测事件的基本运算与概率公式",
+    "premises": [],
+    "mathlib": [
+      "IsProbabilityMeasure",
+      "MeasurableSet",
+      "Measure"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Space.lean",
+    "nl_file": "docs/entries/probability/space/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.variable.definition",
+      "probability.independence.events"
+    ],
+    "family": "probability.space",
+    "variant": "measure-typeclass",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "30936f4331b3cb5f"
+  },
+  {
+    "id": "probability.variable.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "随机变量与可测性",
+    "summary": "把随机变量直接承载为可测函数，并给出原像、常值与复合刻画",
+    "premises": [
+      "probability.space.definition"
+    ],
+    "mathlib": [
+      "Measurable",
+      "MeasurableSet"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Variable.lean",
+    "nl_file": "docs/entries/probability/variable/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.distribution.pushforward"
+    ],
+    "family": "probability.variable",
+    "variant": "measurable-function",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "210747b4b44353f2"
+  },
+  {
+    "id": "probability.distribution.pushforward",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "分布作为推前测度",
+    "summary": "把随机变量的分布承载为推前测度，并给出事件公式和常变量计算",
+    "premises": [
+      "probability.variable.definition"
+    ],
+    "mathlib": [
+      "Measure.map",
+      "Measure.map_apply"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Distribution.lean",
+    "nl_file": "docs/entries/probability/distribution/pushforward.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.expectation.definition"
+    ],
+    "family": "probability.distribution",
+    "variant": "pushforward-measure",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b72e0008f8a10078"
+  },
+  {
+    "id": "probability.expectation.definition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "期望与可积性",
+    "summary": "以 Bochner 积分承载期望，以 Integrable 承载有限期望并整理基本线性性质",
+    "premises": [
+      "probability.distribution.pushforward"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral",
+      "Integrable",
+      "MemLp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Expectation.lean",
+    "nl_file": "docs/entries/probability/expectation/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.moments.variance",
+      "probability.independence.variables"
+    ],
+    "family": "probability.expectation",
+    "variant": "bochner-integral",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2248eb536ce59244"
+  },
+  {
+    "id": "probability.moments.variance",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "方差与协方差",
+    "summary": "整理有限二阶矩下的方差协方差公式，并明确普通方差在非 L2 情形的退化边界",
+    "premises": [
+      "probability.expectation.definition"
+    ],
+    "mathlib": [
+      "variance",
+      "evariance",
+      "covariance",
+      "MemLp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Moments.lean",
+    "nl_file": "docs/entries/probability/moments/variance.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.inequalities.basic"
+    ],
+    "family": "probability.moments",
+    "variant": "finite-second-moment",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e0fe5996fd655190"
+  },
+  {
+    "id": "probability.independence.events",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "事件与 sigma 代数独立",
+    "summary": "用 IndepSet 和 Indep 承载事件及 sigma 代数独立并给出乘法公式与对称性",
+    "premises": [
+      "probability.space.definition"
+    ],
+    "mathlib": [
+      "IndepSet",
+      "Indep"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/IndependenceEvents.lean",
+    "nl_file": "docs/entries/probability/independence/events.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.independence.variables"
+    ],
+    "family": "probability.independence",
+    "variant": "events-and-sigma-algebras",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "54ebdc582a3c8ec4"
+  },
+  {
+    "id": "probability.independence.variables",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "随机变量独立",
+    "summary": "用 IndepFun 承载变量独立，给出事件原像、可测复合和乘积期望公式",
+    "premises": [
+      "probability.expectation.definition",
+      "probability.independence.events"
+    ],
+    "mathlib": [
+      "IndepFun",
+      "iIndepFun",
+      "integral_mul_eq_mul_integral"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/IndependenceVariables.lean",
+    "nl_file": "docs/entries/probability/independence/variables.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.independence",
+    "variant": "random-variables",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "820a2a77afa2b9c1"
+  },
+  {
+    "id": "probability.inequalities.basic",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Markov、Chebyshev 与 Jensen 不等式",
+    "summary": "在完整可测、可积和二阶矩条件下整理三条基础概率不等式",
+    "premises": [
+      "probability.moments.variance"
+    ],
+    "mathlib": [
+      "meas_ge_le_lintegral_div",
+      "meas_ge_le_variance_div_sq",
+      "ConvexOn.map_average"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Inequalities.lean",
+    "nl_file": "docs/entries/probability/inequalities/basic.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.inequalities",
+    "variant": "basic-probability-bounds",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b6a26edc12602d31"
   }
 ]
