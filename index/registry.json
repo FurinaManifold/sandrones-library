@@ -15820,7 +15820,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-vertex-potential.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-mixed-vertex-coherence"
+    ],
     "family": "topology.fundamental-group",
     "variant": "connector-cocycle-and-grid-potential",
     "axioms": [
@@ -15829,5 +15831,38 @@
       "propext"
     ],
     "proof_sha": "7d3664d0d8a53c4e"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-mixed-vertex-coherence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 网格混合标签顶点的 transition coherence",
+    "summary": "由统一交集 connector 构造混合中央顶点的四格 potentials，并与全同标签分支合并为任意内部 transition 方格关系",
+    "premises": [
+      "topology.fundamental-group.van-kampen-vertex-potential"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "MonoidHom",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenMixedVertexCoherence.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-mixed-vertex-coherence.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "mixed-grid-vertex-transition-square",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "54e8394a14c56a50"
   }
 ]
