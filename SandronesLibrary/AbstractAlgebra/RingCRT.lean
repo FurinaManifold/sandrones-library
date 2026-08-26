@@ -9,8 +9,9 @@ import SandronesLibrary.AbstractAlgebra.RingIsomorphismTheorems
 # 中国剩余定理
 
 本模块从本库集合型双边理想和显式商环出发，构造二元及有限族中国剩余规范映射，证明其核、
-满射性与最终环同构。有限族满射的证明局部借用 Mathlib 的理想 CRT；公开定义和主定理仍只使用
-本库 `TwoSidedIdealSet`、`quotientRingSet`、`RingHomomorphism` 与 `RingIsomorphism`。
+满射性与最终环同构。有限族满射的证明局部借用 Mathlib 的理想 CRT；主同构以语义一致的
+`RingEquiv` 为正式承载，历史 `RingIsomorphism` 结果只保留为无损兼容层。本库
+`TwoSidedIdealSet`、`quotientRingSet` 与 `RingHomomorphism` 教材定义层保持不变。
 
 > **Entry**: abstract-algebra.ring.crt
 -/
@@ -139,11 +140,11 @@ def chineseRemainderQuotientMap {R : Type*} [Ring R]
       chineseRemainderMap I J hI hJ x := by
   apply quotientRingSetLift_projection
 
-/-- 二元中国剩余定理：互素理想之交的商环同构于两个商环的乘积。 -/
-noncomputable def chineseRemainderIsomorphism {R : Type*} [CommRing R]
+/-- 二元中国剩余定理（正式承载）：互素理想之交的商环同构于两个商环的乘积。 -/
+noncomputable def chineseRemainderEquiv {R : Type*} [CommRing R]
     (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
     (hcomax : ComaximalIdealSets I J) :
-    RingIsomorphism
+    RingEquiv
       (quotientRingSet (I ∩ J) (idealSetIntersection_is_ideal hI hJ))
       (quotientRingSet I hI × quotientRingSet J hJ) := by
   classical
@@ -186,30 +187,41 @@ noncomputable def chineseRemainderIsomorphism {R : Type*} [CommRing R]
     intro q
     apply hinjective
     exact hright (forward q)
-  have hinverse : RingHomomorphism inverse := by
-    refine ⟨hinjective (by rw [hright, hforward.1]),
-      hinjective (by rw [hright, hforward.2.1]), ?_, ?_, ?_⟩
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.1, hright, hright]
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.2.1, hright, hright]
-    · intro a
-      apply hinjective
-      rw [hright, hforward.2.2.2.2, hright]
-  exact ⟨forward, inverse, hleft, hright, hforward, hinverse⟩
+  exact RingEquiv.mk
+    { toFun := forward
+      invFun := inverse
+      left_inv := hleft
+      right_inv := hright }
+    hforward.2.2.2.1 hforward.2.2.1
 
-/-- 中国剩余同构在代表元上就是同时取两个剩余类。 -/
+/-- 二元中国剩余定理的旧载体兼容接口；证明由 `chineseRemainderEquiv` 拥有。 -/
+noncomputable def chineseRemainderIsomorphism {R : Type*} [CommRing R]
+    (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
+    (hcomax : ComaximalIdealSets I J) :
+    RingIsomorphism
+      (quotientRingSet (I ∩ J) (idealSetIntersection_is_ideal hI hJ))
+      (quotientRingSet I hI × quotientRingSet J hJ) :=
+  RingIsomorphism.ofRingEquiv (chineseRemainderEquiv I J hI hJ hcomax)
+
+/-- 正式中国剩余同构在代表元上就是同时取两个剩余类。 -/
+@[simp] theorem chineseRemainderEquiv_projection {R : Type*} [CommRing R]
+    (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
+    (hcomax : ComaximalIdealSets I J) (x : R) :
+    chineseRemainderEquiv I J hI hJ hcomax
+      (quotientRingProjection (I ∩ J) (idealSetIntersection_is_ideal hI hJ) x) =
+      chineseRemainderMap I J hI hJ x := by
+  unfold chineseRemainderEquiv
+  dsimp only
+  rfl
+
+/-- 旧二元中国剩余同构兼容接口的代表元公式。 -/
 @[simp] theorem chineseRemainderIsomorphism_projection {R : Type*} [CommRing R]
     (I J : Set R) (hI : TwoSidedIdealSet I) (hJ : TwoSidedIdealSet J)
     (hcomax : ComaximalIdealSets I J) (x : R) :
     chineseRemainderIsomorphism I J hI hJ hcomax
       (quotientRingProjection (I ∩ J) (idealSetIntersection_is_ideal hI hJ) x) =
       chineseRemainderMap I J hI hJ x := by
-  unfold chineseRemainderIsomorphism
-  dsimp only
-  apply chineseRemainderQuotientMap_projection
+  exact chineseRemainderEquiv_projection I J hI hJ hcomax x
 
 /-! ### 有限族中国剩余定理 -/
 
@@ -333,12 +345,12 @@ def finiteChineseRemainderQuotientMap {R ι : Type*} [Ring R]
       finiteChineseRemainderMap I hI x := by
   apply quotientRingSetLift_projection
 
-/-- 有限中国剩余定理：理想交的商环同构于各商环的有限直积。 -/
-noncomputable def finiteChineseRemainderIsomorphism
+/-- 有限中国剩余定理（正式承载）：理想交的商环同构于各商环的有限直积。 -/
+noncomputable def finiteChineseRemainderEquiv
     {R ι : Type*} [CommRing R] [Finite ι]
     (I : ι → Set R) (hI : ∀ i, TwoSidedIdealSet (I i))
     (hpairwise : PairwiseComaximalIdealSets I) :
-    RingIsomorphism
+    RingEquiv
       (quotientRingSet (finiteIdealIntersection I) (finiteIdealIntersection_is_ideal I hI))
       (∀ i, quotientRingSet (I i) (hI i)) := by
   classical
@@ -380,21 +392,37 @@ noncomputable def finiteChineseRemainderIsomorphism
     intro q
     apply hinjective
     exact hright (forward q)
-  have hinverse : RingHomomorphism inverse := by
-    refine ⟨hinjective (by rw [hright, hforward.1]),
-      hinjective (by rw [hright, hforward.2.1]), ?_, ?_, ?_⟩
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.1, hright, hright]
-    · intro a b
-      apply hinjective
-      rw [hright, hforward.2.2.2.1, hright, hright]
-    · intro a
-      apply hinjective
-      rw [hright, hforward.2.2.2.2, hright]
-  exact ⟨forward, inverse, hleft, hright, hforward, hinverse⟩
+  exact RingEquiv.mk
+    { toFun := forward
+      invFun := inverse
+      left_inv := hleft
+      right_inv := hright }
+    hforward.2.2.2.1 hforward.2.2.1
 
-/-- 有限中国剩余同构在代表元上同时取每个理想的剩余类。 -/
+/-- 有限中国剩余定理的旧载体兼容接口；证明由 `finiteChineseRemainderEquiv` 拥有。 -/
+noncomputable def finiteChineseRemainderIsomorphism
+    {R ι : Type*} [CommRing R] [Finite ι]
+    (I : ι → Set R) (hI : ∀ i, TwoSidedIdealSet (I i))
+    (hpairwise : PairwiseComaximalIdealSets I) :
+    RingIsomorphism
+      (quotientRingSet (finiteIdealIntersection I) (finiteIdealIntersection_is_ideal I hI))
+      (∀ i, quotientRingSet (I i) (hI i)) :=
+  RingIsomorphism.ofRingEquiv (finiteChineseRemainderEquiv I hI hpairwise)
+
+/-- 正式有限中国剩余同构在代表元上同时取每个理想的剩余类。 -/
+@[simp] theorem finiteChineseRemainderEquiv_projection
+    {R ι : Type*} [CommRing R] [Finite ι]
+    (I : ι → Set R) (hI : ∀ i, TwoSidedIdealSet (I i))
+    (hpairwise : PairwiseComaximalIdealSets I) (x : R) :
+    finiteChineseRemainderEquiv I hI hpairwise
+      (quotientRingProjection (finiteIdealIntersection I)
+        (finiteIdealIntersection_is_ideal I hI) x) =
+      finiteChineseRemainderMap I hI x := by
+  unfold finiteChineseRemainderEquiv
+  dsimp only
+  rfl
+
+/-- 旧有限中国剩余同构兼容接口的代表元公式。 -/
 @[simp] theorem finiteChineseRemainderIsomorphism_projection
     {R ι : Type*} [CommRing R] [Finite ι]
     (I : ι → Set R) (hI : ∀ i, TwoSidedIdealSet (I i))
@@ -403,8 +431,6 @@ noncomputable def finiteChineseRemainderIsomorphism
       (quotientRingProjection (finiteIdealIntersection I)
         (finiteIdealIntersection_is_ideal I hI) x) =
       finiteChineseRemainderMap I hI x := by
-  unfold finiteChineseRemainderIsomorphism
-  dsimp only
-  apply finiteChineseRemainderQuotientMap_projection
+  exact finiteChineseRemainderEquiv_projection I hI hpairwise x
 
 end SandronesLibrary.AbstractAlgebra.Ring
