@@ -15750,7 +15750,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-switch-shared-edge.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-edge-gauge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "different-label-adjacent-grid-cells",
     "axioms": [
@@ -15759,5 +15761,38 @@
       "propext"
     ],
     "proof_sha": "b7a9ca530a0b71e5"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-edge-gauge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 内部边的统一 gauge 与有限望远镜消去",
+    "summary": "将同标签和异标签公共边统一成端点重基公式，并严格消去有限边链的全部中间 frame",
+    "premises": [
+      "topology.fundamental-group.van-kampen-switch-shared-edge"
+    ],
+    "mathlib": [
+      "Group",
+      "List.prod",
+      "Fin.dfoldl",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenEdgeGauge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-edge-gauge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "unified-edge-rebasing-finite-telescope",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "cf70fbb88338279f"
   }
 ]
