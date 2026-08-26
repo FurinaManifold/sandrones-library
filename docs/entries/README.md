@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **488** 个条目（verified 488，pending 0）。
+共 **489** 个条目（verified 489，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -703,6 +703,7 @@
 - ✅ [`van-kampen-framed-grid-boundary.md`](topology/fundamental-group/van-kampen-framed-grid-boundary.md) — van Kampen 网格的 framed 行与外边界关系
 - ✅ [`van-kampen-mixed-vertex-coherence.md`](topology/fundamental-group/van-kampen-mixed-vertex-coherence.md) — van Kampen 网格混合标签顶点的 transition coherence
 - ✅ [`van-kampen-normalized-grid-gauge.md`](topology/fundamental-group/van-kampen-normalized-grid-gauge.md) — van Kampen 网格的二维规范化 gauge
+- ✅ [`van-kampen-row-anchoring.md`](topology/fundamental-group/van-kampen-row-anchoring.md) — van Kampen 单行 frames 的右锚定
 - ✅ [`van-kampen-square-subdivision.md`](topology/fundamental-group/van-kampen-square-subdivision.md) — 二开集覆盖下的有限带标签方格细分
 - ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射
 - ✅ [`van-kampen-switch-shared-edge.md`](topology/fundamental-group/van-kampen-switch-shared-edge.md) — van Kampen 方格中异标签公共边的 Pushout 比较

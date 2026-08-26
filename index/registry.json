@@ -15925,7 +15925,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-normalized-grid-gauge.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-row-anchoring"
+    ],
     "family": "topology.fundamental-group",
     "variant": "boundary-potential-and-two-dimensional-gauge",
     "axioms": [
@@ -15934,5 +15936,36 @@
       "propext"
     ],
     "proof_sha": "7d4e161f1d99724b"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-row-anchoring",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 单行 frames 的右锚定",
+    "summary": "通过底部和顶部统一右乘 gauges 保持横边归一化，并把一行最右 frames 锚定到指定值，同时证明归一化 frame 的两端唯一性",
+    "premises": [
+      "topology.fundamental-group.van-kampen-normalized-grid-gauge"
+    ],
+    "mathlib": [
+      "Fin",
+      "Group"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenRowAnchoring.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-row-anchoring.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "uniform-right-gauge-and-frame-uniqueness",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "86a5bccd2c2e2068"
   }
 ]

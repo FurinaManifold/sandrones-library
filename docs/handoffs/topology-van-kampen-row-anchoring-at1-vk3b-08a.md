@@ -42,8 +42,8 @@
 row-prefix 名称。没有第二套 frame structure。前四项纯群/frames 接口无拓扑参数，具体网格实例化只
 需要已有道路连通假设，不增加开性或覆盖全空间条件。
 
-## 验证计划
+## 验证
 
-- 正式 08a 目标零警告构建；未修改 08b 直接消费正式 08a。
-- aggregate 检查 10 public 与两端唯一性；Entry mapper 精确跳过 6 private。
-- 代表性公理、禁用项、唯一声明和 `git diff --check` 在提交前复核。
+- 正式 08a 目标构建通过（1758 jobs，零 warning）；未修改 08b 直接消费正式 08a，Lean 编译通过。
+- public surface 为 10 public / 6 private；Entry mapper 与实际公理由 Main 集成时复核。
+- row-prefix 与禁用项扫描、唯一声明和 `git diff --check` 通过。
