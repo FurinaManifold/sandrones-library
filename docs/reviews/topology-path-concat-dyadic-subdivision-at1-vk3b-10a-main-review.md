@@ -14,7 +14,9 @@
 排除了错误的等长三分参数化。字母 segment 可提升为相应覆盖成员中的道路并保持代表同伦。
 
 学科提交按旧裁决给出 14 public。Main 在真实 10b 消费审计中发现 scale 正性、numerator 末端和
-breakpoint 末端规则有跨模块稳定消费者，直接将三项提升为公开，最终接口为 17 public / 16 private；
+breakpoint 末端规则有跨模块稳定消费者，直接将三项提升为公开。此后 15a 消费审计又确认
+`coe_binaryOpenCoverBasepoint` 是必要的跨模块计算规则；按同目录 amendment，当前最终接口为
+18 public / 15 private；
 其余半区展开、`Path.trans` 递推和索引分类保持 private。这是 Main 对过窄接口裁决的修正，不是数学
 返工。
 

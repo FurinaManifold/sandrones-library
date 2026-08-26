@@ -604,7 +604,7 @@ theorem binaryVanKampenLetterConcatLoop_dyadicSegment_mem_piece
     (binaryVanKampenLetterConcatLoop_segment_mem hxU hxV letters i) t
 
 omit [TopologicalSpace X] in
-@[simp] private theorem coe_binaryOpenCoverBasepoint
+@[simp] theorem coe_binaryOpenCoverBasepoint
     {U V : Set X} {x₀ : X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V) (b : Bool) :
     ((binaryOpenCoverBasepoint hxU hxV b : binaryOpenCoverPiece U V b) : X) = x₀ := by
   cases b <;> rfl
