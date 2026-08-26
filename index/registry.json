@@ -15150,7 +15150,7 @@
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
-    "proof_sha": "171c3adf7082d164",
+    "proof_sha": "75268c39a5766b77",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15958,7 +15958,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-row-anchoring.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-right-anchored-grid"
+    ],
     "family": "topology.fundamental-group",
     "variant": "uniform-right-gauge-and-frame-uniqueness",
     "axioms": [
@@ -15967,5 +15969,37 @@
       "propext"
     ],
     "proof_sha": "86a5bccd2c2e2068"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-right-anchored-grid",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 右锚定网格与左边界消失",
+    "summary": "由中央 coherence 将最右列的竖直 frame 相容逐格向左传播，递归构造二维右锚定 frames，并证明完整左边界 holonomy 为单位元",
+    "premises": [
+      "topology.fundamental-group.van-kampen-row-anchoring"
+    ],
+    "mathlib": [
+      "Fin",
+      "List",
+      "Group"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenRightAnchoredGrid.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-right-anchored-grid.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "two-dimensional-right-anchor-and-left-holonomy",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "25f9cecfee517244"
   }
 ]

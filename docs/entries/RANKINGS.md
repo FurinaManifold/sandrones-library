@@ -10,36 +10,36 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.09 |
-| 2 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.33 |
-| 3 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.06 |
-| 4 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 94.55 |
-| 5 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.86 |
-| 6 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.33 |
-| 7 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 93.24 |
-| 8 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.45 |
-| 9 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 92.41 |
-| 10 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.22 |
-| 11 | `analysis.series.basic` | 数项级数基础 | 92.13 |
-| 12 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.98 |
-| 13 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.54 |
-| 14 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 91.27 |
-| 15 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.14 |
+| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.10 |
+| 2 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.34 |
+| 3 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.07 |
+| 4 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 94.54 |
+| 5 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.85 |
+| 6 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.32 |
+| 7 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 93.25 |
+| 8 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.46 |
+| 9 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 92.42 |
+| 10 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.27 |
+| 11 | `analysis.series.basic` | 数项级数基础 | 92.15 |
+| 12 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.99 |
+| 13 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.56 |
+| 14 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 91.26 |
+| 15 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.16 |
 | 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.72 |
-| 17 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.09 |
-| 18 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.71 |
-| 19 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 88.36 |
-| 20 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.12 |
-| 21 | `linear-algebra.det.mul` | 积的行列式 | 87.90 |
+| 17 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.12 |
+| 18 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.73 |
+| 19 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 88.42 |
+| 20 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.14 |
+| 21 | `linear-algebra.det.mul` | 积的行列式 | 87.87 |
 | 22 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.76 |
-| 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.51 |
-| 24 | `settheory.set.ext` | 外延性原理 | 87.27 |
+| 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.52 |
+| 24 | `settheory.set.ext` | 外延性原理 | 87.28 |
 | 25 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 86.71 |
-| 26 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.52 |
-| 27 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.51 |
-| 28 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 86.45 |
-| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 85.93 |
-| 30 | `topology.space.def` | 拓扑空间与开闭集公理 | 85.84 |
+| 26 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.54 |
+| 27 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.53 |
+| 28 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 86.46 |
+| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 85.95 |
+| 30 | `topology.space.def` | 拓扑空间与开闭集公理 | 85.85 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -55,8 +55,8 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 8 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 3.750 |
 | 9 | `complex-analysis.integral.path` | 复路径与路径积分 | 3.667 |
 | 10 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 3.500 |
-| 11 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 3.333 |
-| 12 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 3.333 |
+| 11 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 3.333 |
+| 12 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 3.333 |
 | 13 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 3.167 |
 | 14 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 3.000 |
 | 15 | `functional-analysis.operator.space` | 算子范数与连续线性算子空间 | 3.000 |
@@ -173,10 +173,10 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 21 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 3 |
 | 22 | `linear-algebra.det.mul` | 积的行列式 | 3 |
 | 23 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 3 |
-| 24 | `abstract-algebra.field.galois-correspondence` | 有限 Galois 基本对应 | 2 |
-| 25 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 2 |
-| 26 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
-| 27 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
-| 28 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 2 |
-| 29 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
-| 30 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
+| 24 | `topology.fundamental-group.van-kampen-row-anchoring` | van Kampen 单行 frames 的右锚定 | 3 |
+| 25 | `abstract-algebra.field.galois-correspondence` | 有限 Galois 基本对应 | 2 |
+| 26 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 2 |
+| 27 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
+| 28 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
+| 29 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 2 |
+| 30 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |

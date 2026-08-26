@@ -1,5 +1,10 @@
 # 抽象代数子群载体 Stage C 兼容层审查 RFC
 
+> **Main 状态（2026-08-26）**：C1 证明所有权倒置已由 `fec8561` 完成并集成；目标模块、
+> Consequences 与 Restriction 两个真实下游、旧／新公开签名和公理均复验通过。C1 同时已经在
+> docstring 与 Entry 中明确四个旧 Set 接口的 compatibility 角色，因此 C2 的文档说明部分完成；
+> Main 决定不添加 deprecation。C3 不开放，默认继续保留薄兼容 wrapper。
+
 ## 结论与权限
 
 本 RFC 基于 `main@594bf45`，影响等级为 **M2 的 Stage C 研究**。Stage B4 已由 Main
