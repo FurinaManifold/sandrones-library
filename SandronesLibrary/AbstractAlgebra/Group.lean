@@ -16,9 +16,10 @@ import Mathlib
 * **abstract-algebra.group.index-two**（指数 2 子群必正规）✅。
 * **abstract-algebra.group.hom**（复合与子群像/单满射判据/显式第一同构定理/同构不变量）✅。
 
-> **语言说明**：Mathlib 的 `Group`/`Subgroup`/`MonoidHom`/`QuotientGroup` 只能作为实现承载，
-> 不能代替本库教材定义。概念首次出现时必须逐项给出公理或集合谓词，再建立到 Mathlib 的桥；
-> 旧公开接口将在定义依赖自底向上的迁移中保留为兼容层。`Module` 仍不得出现在公开签名中。
+> **语言说明**：Mathlib 的 `Subgroup` 是子群的正式语义载体；本文件早期引入的
+> `SubgroupSet` 只保留为集合式判定法的兼容层，并由下方的无损转换桥接入正式载体。
+> `GroupAxioms` 与 `GroupHomomorphism` 仍负责逐项展示教材公理。旧公开接口将在定义依赖
+> 自底向上的迁移中保留为兼容层。`Module` 仍不得出现在公开签名中。
 -/
 
 open scoped BigOperators
@@ -84,20 +85,92 @@ theorem commGroup_has_commutativeGroupAxioms (G : Type*) [CommGroup G] :
     CommutativeGroupAxioms G :=
   ⟨group_has_groupAxioms G, mul_comm⟩
 
+/-- **集合判据到正式子群的直接桥**：把 `H` 对单位元、乘法和逆元的封闭性证明
+直接打包成 `Subgroup G`。所得子群的承载集按定义就是 `H`，因此无需经过存在量词
+或选择一个不透明的见证。
+> **Entry**: abstract-algebra.group.def
+-/
+def SubgroupSet.toSubgroup {G : Type*} [Group G]
+    (H : Set G) (hH : SubgroupSet H) : Subgroup G :=
+  { carrier := H
+    one_mem' := hH.1
+    mul_mem' := fun hx hy => hH.2.1 hx hy
+    inv_mem' := fun hx => hH.2.2 hx }
+
+/-- 直接桥不改变成员关系：在转换后的正式子群中，元素属于关系仍然是 `x ∈ H`。
+> **Entry**: abstract-algebra.group.def
+-/
+@[simp] theorem SubgroupSet.mem_toSubgroup_iff {G : Type*} [Group G]
+    (H : Set G) (hH : SubgroupSet H) (x : G) :
+    x ∈ SubgroupSet.toSubgroup H hH ↔ x ∈ H := by
+  rfl
+
+/-- 直接桥所得正式子群的承载集就是原集合。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem SubgroupSet.coe_toSubgroup {G : Type*} [Group G]
+    (H : Set G) (hH : SubgroupSet H) :
+    ((SubgroupSet.toSubgroup H hH : Subgroup G) : Set G) = H := by
+  rfl
+
+end AbstractAlgebra.Group
+end SandronesLibrary
+
+namespace Subgroup
+
+/-- 任意正式子群的承载集都满足旧的 `SubgroupSet` 封闭性判据。这是从正式载体退回
+集合式判定语言的兼容桥；新接口仍应直接接收 `Subgroup G`。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem subgroupSet {G : Type*} [Group G] (H : Subgroup G) :
+    SandronesLibrary.AbstractAlgebra.Group.SubgroupSet (H : Set G) :=
+  ⟨H.one_mem, (fun {_ _} hx hy => H.mul_mem hx hy),
+    (fun {_} hx => H.inv_mem hx)⟩
+
+end Subgroup
+
+namespace SandronesLibrary
+namespace AbstractAlgebra.Group
+
+open scoped Pointwise
+
+/-- 正式子群取承载集、再由直接桥打包后保持不变。
+> **Entry**: abstract-algebra.group.def
+-/
+@[simp] theorem SubgroupSet.toSubgroup_subgroupSet {G : Type*} [Group G]
+    (H : Subgroup G) :
+    SubgroupSet.toSubgroup (H : Set G) H.subgroupSet = H := by
+  ext x
+  rfl
+
+/-- 直接桥所得子群包含于任意正式子群 `K`，恰当且仅当原集合逐点包含于 `K`。
+这个通用序关系接口表明后续理论可以直接量化 `K : Subgroup G`，不必继续传播
+`Set G` 与额外的 `SubgroupSet` 证明。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem SubgroupSet.toSubgroup_le_iff {G : Type*} [Group G]
+    (H : Set G) (hH : SubgroupSet H) (K : Subgroup G) :
+    SubgroupSet.toSubgroup H hH ≤ K ↔ H ⊆ (K : Set G) := by
+  rfl
+
+/-- 任意正式子群 `K` 包含于直接桥所得子群，恰当且仅当 `K` 的承载集包含于原集合。
+> **Entry**: abstract-algebra.group.def
+-/
+theorem SubgroupSet.le_toSubgroup_iff {G : Type*} [Group G]
+    (H : Set G) (hH : SubgroupSet H) (K : Subgroup G) :
+    K ≤ SubgroupSet.toSubgroup H hH ↔ (K : Set G) ⊆ H := by
+  rfl
+
 /-- 本库子群集合判据与“存在底层集合恰为 `H` 的 Mathlib 子群”完全等价。
 > **Entry**: abstract-algebra.group.def
 -/
 theorem subgroupSet_iff_exists_subgroup {G : Type*} [Group G] (H : Set G) :
     SubgroupSet H ↔ ∃ K : Subgroup G, (K : Set G) = H := by
   constructor
-  · rintro ⟨h1, hmul, hinv⟩
-    let ssg : Subsemigroup G := ⟨H, fun hx hy => hmul hx hy⟩
-    let sm : Submonoid G := ⟨ssg, h1⟩
-    let K : Subgroup G := ⟨sm, fun hx => hinv hx⟩
-    exact ⟨K, rfl⟩
+  · intro hH
+    exact ⟨hH.toSubgroup H, rfl⟩
   · rintro ⟨K, rfl⟩
-    exact ⟨K.one_mem, (fun {_ _} hx hy => K.mul_mem hx hy),
-      (fun {_} hx => K.inv_mem hx)⟩
+    exact K.subgroupSet
 
 /-- 打包的 Mathlib 同态满足本库逐运算群同态谓词。
 > **Entry**: abstract-algebra.group.hom
