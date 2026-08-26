@@ -766,7 +766,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形弱星紧集可度量化、闭球序列紧与收敛子列抽取 ✅ | `WeakDual.metrizable_of_isCompact`、序列紧接口 |
 | 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
 | 7 | `functional-analysis.eberlein-smulian` | 自反性、闭单位球弱紧、弱序列紧与有界序列弱收敛子列四项等价 ✅ | `WeakSpace`、`IsCompact`、`IsSeqCompact` |
-| 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 | `development_open`：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，不重证最终定理 |
+| 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 ✅ | 已集成：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，并明确 Mathlib 极性谓词与教材完整 face 的差异 |
 | 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据与自反情形 | `development_open`：先做 decomposition；reflexive/projection 批等待前批接口冻结 |
 
 ### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
@@ -822,9 +822,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5 与 F4.7 Eberlein--Šmulian 已集成。F4.8
-Krein--Milman 已开放窄幅 `development_open`：只交付 face／极点／闭凸包的教材定义链解释与必要
-组装使用者，直接复用 Mathlib 最终定理，不建立平行定义也不重证同型结论。F4.9 的
+**F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5、F4.7 Eberlein--Šmulian 与 F4.8
+Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 face／极点／闭凸包的教材定义链
+解释与必要组装使用者。F4.9 的
 `mean-ergodic.decomposition` 已开放 `development_open`：冻结 `birkhoffAverage`、幂一致有界量词、
 收敛域、fixed space 与 `closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”；
 `mean-ergodic.reflexive` 与极限投影批等待 decomposition 公开接口通过 Main 审核后解锁。F4.6 与编号

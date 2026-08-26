@@ -13740,6 +13740,7 @@
       "functional-analysis.closed-range",
       "functional-analysis.convex.separation",
       "functional-analysis.hahn-banach.norming-functional",
+      "functional-analysis.krein-milman",
       "functional-analysis.weak-star.banach-dieudonne"
     ],
     "family": "functional-analysis.hahn-banach",
@@ -14067,7 +14068,9 @@
     "nl_file": "docs/entries/functional-analysis/topological-vector-space/foundation.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.krein-milman"
+    ],
     "family": "functional-analysis.topological-vector-space",
     "variant": "salamon",
     "proof_sha": "3812effa6b4746e5",
@@ -16290,6 +16293,40 @@
     "family": "topology.fundamental-group",
     "variant": "aligned-cell-and-letter-local-elements",
     "proof_sha": "0d2e7ada3608a10d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.krein-milman",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Krein--Milman 定理、face 与极点",
+    "summary": "局部凸 Hausdorff 实拓扑向量空间中的非空紧凸集等于其极点集合的闭凸包",
+    "premises": [
+      "functional-analysis.topological-vector-space.foundation",
+      "functional-analysis.hahn-banach.extension"
+    ],
+    "mathlib": [
+      "IsExtreme",
+      "Set.extremePoints",
+      "closedConvexHull",
+      "closure_convexHull_extremePoints"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/KreinMilman.lean",
+    "nl_file": "docs/entries/functional-analysis/krein-milman.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak",
+    "variant": "compact-convex-extreme-points",
+    "proof_sha": "f7ee96cd3d3a384c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

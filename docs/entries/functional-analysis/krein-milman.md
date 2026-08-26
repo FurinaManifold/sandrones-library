@@ -6,7 +6,7 @@ kind: theorem
 state: verified
 title: Krein--Milman 定理、face 与极点
 summary: 局部凸 Hausdorff 实拓扑向量空间中的非空紧凸集等于其极点集合的闭凸包
-premises: [functional-analysis.topological-vector-space.foundation, functional-analysis.hahn-banach.geometric]
+premises: [functional-analysis.topological-vector-space.foundation, functional-analysis.hahn-banach.extension]
 mathlib: [IsExtreme, Set.extremePoints, closedConvexHull, closure_convexHull_extremePoints]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---

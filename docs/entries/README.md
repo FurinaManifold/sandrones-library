@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **498** 个条目（verified 498，pending 0）。
+共 **499** 个条目（verified 499，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -305,6 +305,7 @@
 - ✅ [`closed-range.md`](functional-analysis/closed-range.md) — 闭值域的零化子刻画
 - ✅ [`eberlein-smulian.md`](functional-analysis/eberlein-smulian.md) — Eberlein–Šmulian 闭单位球四项等价
 - ✅ [`inverse-operator.md`](functional-analysis/inverse-operator.md) — Banach 有界逆定理
+- ✅ [`krein-milman.md`](functional-analysis/krein-milman.md) — Krein--Milman 定理、face 与极点
 - ✅ [`open-mapping.md`](functional-analysis/open-mapping.md) — Banach 开映像定理
 
 ## `functional-analysis.baire`

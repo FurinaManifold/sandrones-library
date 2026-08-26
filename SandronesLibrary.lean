@@ -257,6 +257,7 @@ import SandronesLibrary.FunctionalAnalysis.BanachAlaoglu
 import SandronesLibrary.FunctionalAnalysis.WeakStarMetrizable
 import SandronesLibrary.FunctionalAnalysis.BanachDieudonne
 import SandronesLibrary.FunctionalAnalysis.EberleinSmulian
+import SandronesLibrary.FunctionalAnalysis.KreinMilman
 import SandronesLibrary.FunctionalAnalysis.CompactOperator
 import SandronesLibrary.FunctionalAnalysis.CompactOperatorComposition
 import SandronesLibrary.FunctionalAnalysis.DualOperator

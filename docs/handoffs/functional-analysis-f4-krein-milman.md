@@ -26,9 +26,9 @@
 - 正式 Mathlib 承载：`IsExtreme`、`Set.extremePoints`、`Convex`、`IsCompact`、
   `closedConvexHull`、局部凸与 Hausdorff 类型类；均在 Entry 解释。
 - 桥侧接口：无本库特殊定义；四个公开 theorem 只做教材展开与必要组装。
-- 私有证明后端：Mathlib `right_mem_of_mem_openSegment`、
+- 五个公开 theorem；私有证明后端：Mathlib `right_mem_of_mem_openSegment`、
   `closedConvexHull_eq_closure_convexHull` 与最终 Krein--Milman theorem。
-- 越级泄漏：无。
+- 越级泄漏：无；本批没有 private 声明。
 
 ## 数学边界
 
