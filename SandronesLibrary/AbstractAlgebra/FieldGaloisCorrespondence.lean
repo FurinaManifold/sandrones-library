@@ -70,21 +70,24 @@ theorem mem_fixingAutomorphismSet_iff
       ∀ x, x ∈ E → σ.forward x = x :=
   Iff.rfl
 
--- A3.9b-06：固定任意集合的自同构在恒等、复合和逆下封闭。
-private theorem fixingAutomorphismSet_isSubgroup_bridge
+-- A3.9b-06：固定任意集合的自同构直接组成正式子群。
+private noncomputable def fixingAutomorphismSubgroup_bridge
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (E : Set L) :
-    SubgroupSet (FixingAutomorphismSet e E) := by
-  refine ⟨?_, ?_, ?_⟩
-  · intro x hx
-    exact fieldAutomorphismOver_identity_apply x
-  · intro σ τ hσ hτ x hx
-    rw [fieldAutomorphismOver_comp_apply, hτ x hx, hσ x hx]
-  · intro σ hσ x hx
-    change
-      (SandronesLibrary.AbstractAlgebra.FieldSplitting.FieldIsomorphismOver.inverse σ) x = x
-    apply σ.forward.injective
-    rw [σ.right_inverse, hσ x hx]
+    Subgroup (FieldAutomorphismOver e) :=
+  { carrier := FixingAutomorphismSet e E
+    one_mem' := by
+      intro x hx
+      exact fieldAutomorphismOver_identity_apply x
+    mul_mem' := by
+      intro σ τ hσ hτ x hx
+      rw [fieldAutomorphismOver_comp_apply, hτ x hx, hσ x hx]
+    inv_mem' := by
+      intro σ hσ x hx
+      change
+        (SandronesLibrary.AbstractAlgebra.FieldSplitting.FieldIsomorphismOver.inverse σ) x = x
+      apply σ.forward.injective
+      rw [σ.right_inverse, hσ x hx] }
 
 -- A3.9b-07：集合包含关系诱导 fixing 自同构集合的反向包含。
 private theorem fixingAutomorphismSet_antitone_bridge
@@ -95,14 +98,20 @@ private theorem fixingAutomorphismSet_antitone_bridge
   exact hσ x (hEF hx)
 
 /-- 固定给定集合的自同构构成本库 `SubgroupSet` 意义下的子群集合。
+这是从首选正式 fixing 子群 carrier 退回集合式封闭判据的兼容接口；
+正式子群本身不再依赖该旧判定定理构造。
 
 > **Entry**: abstract-algebra.field.galois-correspondence
 -/
 theorem fixingAutomorphismSet_isSubgroup
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (E : Set L) :
-    SubgroupSet (FixingAutomorphismSet e E) :=
-  fixingAutomorphismSet_isSubgroup_bridge e E
+    SubgroupSet (FixingAutomorphismSet e E) := by
+  change SubgroupSet
+    ((fixingAutomorphismSubgroup_bridge e E :
+      Subgroup (FieldAutomorphismOver e)) :
+      Set (FieldAutomorphismOver e))
+  exact (fixingAutomorphismSubgroup_bridge e E).subgroupSet
 
 /-- 固定 `E` 中每个元素的基域自同构所成的 Mathlib 正式子群。
 这是后续课程接口首选的子群承载；底层 carrier 仍是教材定义
@@ -114,9 +123,7 @@ noncomputable def fixingAutomorphismSubgroup
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (E : Set L) :
     Subgroup (FieldAutomorphismOver e) :=
-  SubgroupSet.toSubgroup
-    (FixingAutomorphismSet e E)
-    (fixingAutomorphismSet_isSubgroup e E)
+  fixingAutomorphismSubgroup_bridge e E
 
 /-- fixing 正式子群的成员关系就是逐点固定给定集合。这个展开式允许
 教材证明直接使用元素条件，而无需展开 `Subgroup` 的实现字段。
@@ -794,33 +801,34 @@ private theorem intermediateFieldSet_mathlibIntermediateField_bridge
     · simpa [hx0] using hE.1.1.1
     · exact hE.1.2 hx hx0
 
--- A3.9b-03：本库子群集合可经显式自同构对应承载为 Mathlib 子群。
-private theorem subgroupSet_mathlibSubgroup_bridge
+-- A3.9b-03：正式显式自同构子群可经对应承载为 Mathlib 子群。
+private theorem subgroup_mathlibSubgroup_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L)
-    (H : Set (FieldAutomorphismOver e)) (hH : SubgroupSet H) :
+    (H : Subgroup (FieldAutomorphismOver e)) :
     letI : Algebra K L := e.toRingHom.toAlgebra
     ∃ G : Subgroup (L ≃ₐ[K] L),
       ∃ φ : FieldAutomorphismOver e ≃ (L ≃ₐ[K] L),
-        φ '' H = (G : Set (L ≃ₐ[K] L)) ∧
+        φ '' (H : Set (FieldAutomorphismOver e)) =
+            (G : Set (L ≃ₐ[K] L)) ∧
           ∀ σ x, φ σ x = σ.forward x := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
   let φ := fieldAutomorphismOver_mathlibAlgEquiv_equiv e
   let G : Subgroup (L ≃ₐ[K] L) :=
-    { carrier := φ '' H
+    { carrier := φ '' (H : Set (FieldAutomorphismOver e))
       one_mem' := by
-        refine ⟨1, hH.1, ?_⟩
+        refine ⟨1, H.one_mem, ?_⟩
         apply AlgEquiv.ext
         intro x
         rfl
       mul_mem' := by
         rintro _ _ ⟨σ, hσ, rfl⟩ ⟨τ, hτ, rfl⟩
-        refine ⟨σ * τ, hH.2.1 hσ hτ, ?_⟩
+        refine ⟨σ * τ, H.mul_mem hσ hτ, ?_⟩
         apply AlgEquiv.ext
         intro x
         rfl
       inv_mem' := by
         rintro _ ⟨σ, hσ, rfl⟩
-        refine ⟨σ⁻¹, hH.2.2 hσ, ?_⟩
+        refine ⟨σ⁻¹, H.inv_mem hσ, ?_⟩
         apply AlgEquiv.ext
         intro x
         rfl }
@@ -886,12 +894,15 @@ theorem finiteGalois_mathlibBackend
 private theorem fixedField_fixing_carrier_alignment_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
     letI : Algebra K L := e.toRingHom.toAlgebra
-    ∀ (E : Set L) (H : Set (FieldAutomorphismOver e)),
-      IntermediateFieldSet e E → SubgroupSet H →
-      (E ⊆ FixedFieldSet e H ↔ H ⊆ FixingAutomorphismSet e E) := by
+    ∀ (E : Set L) (H : Subgroup (FieldAutomorphismOver e)),
+      IntermediateFieldSet e E →
+      (E ⊆ FixedFieldSet e (H : Set (FieldAutomorphismOver e)) ↔
+        (H : Set (FieldAutomorphismOver e)) ⊆
+          FixingAutomorphismSet e E) := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
-  exact fun E H (_ : IntermediateFieldSet e E) (_ : SubgroupSet H) =>
-    intermediate_subset_fixedFieldSet_iff E H
+  exact fun E H (_ : IntermediateFieldSet e E) =>
+    intermediate_subset_fixedFieldSet_iff E
+      (H : Set (FieldAutomorphismOver e))
 
 -- A3.9b-N01：任意自同构族的固定域集合打包为显式中间域。
 private noncomputable def fixedFieldExplicitIntermediate_bridge
@@ -1230,11 +1241,12 @@ private theorem intermediate_carrier_eq_of_subset_sameDegree_bridge
 private noncomputable def subgroupSubtype_mathlibSubgroup_equiv_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
     letI : Algebra K L := e.toRingHom.toAlgebra
-    ∀ (H : Set (FieldAutomorphismOver e))
+    ∀ (H : Subgroup (FieldAutomorphismOver e))
       (G : Subgroup (L ≃ₐ[K] L))
       (φ : FieldAutomorphismOver e ≃ (L ≃ₐ[K] L)),
-      φ '' H = (G : Set (L ≃ₐ[K] L)) →
-        {σ : FieldAutomorphismOver e // σ ∈ H} ≃ G := by
+      φ '' (H : Set (FieldAutomorphismOver e)) =
+          (G : Set (L ≃ₐ[K] L)) →
+        H ≃ G := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
   intro H G φ hG
   refine {
@@ -1245,7 +1257,7 @@ private noncomputable def subgroupSubtype_mathlibSubgroup_equiv_bridge
   · change φ σ.val ∈ (G : Set (L ≃ₐ[K] L))
     rw [← hG]
     exact ⟨σ.val, σ.property, rfl⟩
-  · have hg : g.val ∈ φ '' H := by
+  · have hg : g.val ∈ φ '' (H : Set (FieldAutomorphismOver e)) := by
       rw [hG]
       exact g.property
     obtain ⟨σ, hσ, hφσ⟩ := hg
@@ -1264,13 +1276,14 @@ private noncomputable def subgroupSubtype_mathlibSubgroup_equiv_bridge
 private noncomputable def fixingFixedSubtype_mathlib_equiv_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
     letI : Algebra K L := e.toRingHom.toAlgebra
-    ∀ (H : Set (FieldAutomorphismOver e))
+    ∀ (H : Subgroup (FieldAutomorphismOver e))
       (G : Subgroup (L ≃ₐ[K] L))
       (φ : FieldAutomorphismOver e ≃ (L ≃ₐ[K] L))
-      (_hG : φ '' H = (G : Set (L ≃ₐ[K] L)))
+      (_hG : φ '' (H : Set (FieldAutomorphismOver e)) =
+        (G : Set (L ≃ₐ[K] L)))
       (_hφ : ∀ σ x, φ σ x = σ.forward x),
-      {σ : FieldAutomorphismOver e //
-        σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} ≃
+      fixingAutomorphismSubgroup e
+          (FixedFieldSet e (H : Set (FieldAutomorphismOver e))) ≃
           IntermediateField.fixingSubgroup (IntermediateField.fixedField G) := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
   intro H G φ hG hφ
@@ -1281,7 +1294,8 @@ private noncomputable def fixingFixedSubtype_mathlib_equiv_bridge
     right_inv := ?_ }
   · rw [IntermediateField.mem_fixingSubgroup_iff]
     intro x hx
-    have hxours : x ∈ FixedFieldSet e H := by
+    have hxours : x ∈
+        FixedFieldSet e (H : Set (FieldAutomorphismOver e)) := by
       intro ρ hρ
       have hφρ : φ ρ ∈ G := by
         change φ ρ ∈ (G : Set (L ≃ₐ[K] L))
@@ -1296,7 +1310,7 @@ private noncomputable def fixingFixedSubtype_mathlib_equiv_bridge
     have hxMathlib : x ∈ IntermediateField.fixedField G := by
       rw [IntermediateField.mem_fixedField_iff]
       intro q hq
-      have hqimage : q ∈ φ '' H := by
+      have hqimage : q ∈ φ '' (H : Set (FieldAutomorphismOver e)) := by
         rw [hG]
         exact hq
       obtain ⟨ρ, hρ, hφρ⟩ := hqimage
@@ -1337,12 +1351,12 @@ private theorem transport_subtype_card_eq_bridge
 private theorem subgroup_card_eq_fixingFixed_bridge
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
-    (H : Set (FieldAutomorphismOver e)) (hH : SubgroupSet H) :
-    Nat.card {σ : FieldAutomorphismOver e // σ ∈ H} =
-      Nat.card {σ : FieldAutomorphismOver e //
-        σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} := by
+    (H : Subgroup (FieldAutomorphismOver e)) :
+    Nat.card H =
+      Nat.card (fixingAutomorphismSubgroup e
+        (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))) := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
-  obtain ⟨G, φ, hG, hφ⟩ := subgroupSet_mathlibSubgroup_bridge e H hH
+  obtain ⟨G, φ, hG, hφ⟩ := subgroup_mathlibSubgroup_bridge e H
   let _ : FiniteDimensional K L :=
     Classical.choice (finiteFieldExtension_mathlibFiniteDimensional_bridge e hfin)
   let _ : Fintype (L ≃ₐ[K] L) := AlgEquiv.fintype K L
@@ -1356,10 +1370,10 @@ private theorem subgroup_card_eq_fixingFixed_bridge
 private theorem subgroup_and_fixingFixed_finite_bridge
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
-    (H : Set (FieldAutomorphismOver e)) (_hH : SubgroupSet H) :
-    Finite {σ : FieldAutomorphismOver e // σ ∈ H} ∧
-      Finite {σ : FieldAutomorphismOver e //
-        σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} := by
+    (H : Subgroup (FieldAutomorphismOver e)) :
+    Finite H ∧
+      Finite (fixingAutomorphismSubgroup e
+        (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))) := by
   let _ : Algebra K L := e.toRingHom.toAlgebra
   let _ : FiniteDimensional K L :=
     Classical.choice (finiteFieldExtension_mathlibFiniteDimensional_bridge e hfin)
@@ -1496,12 +1510,17 @@ theorem finiteExtension_subgroup_card_eq_fixingFixed
     (H : Set (FieldAutomorphismOver e)) (hH : SubgroupSet H) :
     Nat.card {σ : FieldAutomorphismOver e // σ ∈ H} =
       Nat.card {σ : FieldAutomorphismOver e //
-        σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} :=
-  subgroup_card_eq_fixingFixed_bridge e hfin H hH
+        σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} := by
+  let H' : Subgroup (FieldAutomorphismOver e) := hH.toSubgroup H
+  change Nat.card H' =
+    Nat.card (fixingAutomorphismSubgroup e
+      (FixedFieldSet e (H' : Set (FieldAutomorphismOver e))))
+  exact subgroup_card_eq_fixingFixed_bridge e hfin H'
 
 /-- 有限扩张中，正式自同构子群与其固定域的 fixing 正式子群基数相同。
-这是数值恢复的首选课程接口；证明只把旧集合级已验证结果沿 carrier
-对齐搬运，不重复有限性或群阶计算。
+这是数值恢复的首选课程接口；私有证明核心直接接收正式子群，并通过
+显式自同构与 Mathlib `AlgEquiv` 子群的等价比较基数。旧集合接口反向
+包装本定理，而不再拥有独立证明链。
 
 > **Entry**: abstract-algebra.field.galois-correspondence
 -/
@@ -1512,9 +1531,7 @@ theorem finiteExtension_subgroup_card_eq_fixingFixed_subgroup
     Nat.card H =
       Nat.card (fixingAutomorphismSubgroup e
         (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))) := by
-  simpa [fixingAutomorphismSubgroup] using
-    finiteExtension_subgroup_card_eq_fixingFixed
-      e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
+  exact subgroup_card_eq_fixingFixed_bridge e hfin H
 
 -- A3.9b-14：有限 Galois 扩张中，中间域由其 fixing 自同构集合的固定域恢复。
 private theorem finiteGalois_fixedFieldSet_fixingAutomorphismSet_bridge
@@ -1534,21 +1551,33 @@ private theorem finiteGalois_fixedFieldSet_fixingAutomorphismSet_bridge
       F G hFG n hdegreeF hdegreeG
   exact heq.symm
 
--- A3.9b-15：有限扩张中，自同构子群由其固定域的 fixing 集合恢复。
-private theorem finiteExtension_fixingAutomorphismSet_fixedFieldSet_bridge
+-- A3.9b-15：有限扩张中，正式自同构子群由其固定域恢复。
+private theorem finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet_bridge
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
-    (H : Set (FieldAutomorphismOver e)) (hH : SubgroupSet H) :
-    FixingAutomorphismSet e (FixedFieldSet e H) = H := by
-  let B := FixingAutomorphismSet e (FixedFieldSet e H)
-  have hHB : H ⊆ B := subset_fixingAutomorphismSet_fixedFieldSet e H
-  have hcard : Nat.card {σ : FieldAutomorphismOver e // σ ∈ H} =
-      Nat.card {σ : FieldAutomorphismOver e // σ ∈ B} :=
-    finiteExtension_subgroup_card_eq_fixingFixed e hfin H hH
+    (H : Subgroup (FieldAutomorphismOver e)) :
+    fixingAutomorphismSubgroup e
+      (FixedFieldSet e (H : Set (FieldAutomorphismOver e))) = H := by
+  let B := fixingAutomorphismSubgroup e
+    (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))
+  have hHB : (H : Set (FieldAutomorphismOver e)) ⊆
+      (B : Set (FieldAutomorphismOver e)) := by
+    intro σ hσ
+    change σ ∈ FixingAutomorphismSet e
+      (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))
+    exact subset_fixingAutomorphismSet_fixedFieldSet e
+      (H : Set (FieldAutomorphismOver e)) hσ
+  have hcard : Nat.card H = Nat.card B :=
+    subgroup_card_eq_fixingFixed_bridge e hfin H
   obtain ⟨hfiniteH, hfiniteB⟩ :=
-    subgroup_and_fixingFixed_finite_bridge e hfin H hH
-  exact (finite_set_eq_of_subset_card_eq_bridge
-    H B hHB hfiniteH hfiniteB hcard).symm
+    subgroup_and_fixingFixed_finite_bridge e hfin H
+  have hsets : (H : Set (FieldAutomorphismOver e)) =
+      (B : Set (FieldAutomorphismOver e)) :=
+    finite_set_eq_of_subset_card_eq_bridge
+      (H : Set (FieldAutomorphismOver e))
+      (B : Set (FieldAutomorphismOver e))
+      hHB hfiniteH hfiniteB hcard
+  exact Subgroup.ext (Set.ext_iff.mp hsets.symm)
 
 /-- 有限 Galois 扩张中，每个显式中间域集合都由逐点固定它的全部
 基域自同构的共同固定域严格恢复。
@@ -1573,8 +1602,17 @@ theorem finiteExtension_fixingAutomorphismSet_fixedFieldSet
     {K L : Type*} [Field K] [Field L]
     (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
     (H : Set (FieldAutomorphismOver e)) (hH : SubgroupSet H) :
-    FixingAutomorphismSet e (FixedFieldSet e H) = H :=
-  finiteExtension_fixingAutomorphismSet_fixedFieldSet_bridge e hfin H hH
+    FixingAutomorphismSet e (FixedFieldSet e H) = H := by
+  let H' : Subgroup (FieldAutomorphismOver e) := hH.toSubgroup H
+  have hrecover :=
+    finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet_bridge
+      e hfin H'
+  have hcarrier := congrArg
+    (fun P : Subgroup (FieldAutomorphismOver e) =>
+      (P : Set (FieldAutomorphismOver e))) hrecover
+  rw [fixingAutomorphismSubgroup_carrier,
+    SubgroupSet.coe_toSubgroup H hH] at hcarrier
+  exact hcarrier
 
 /-- 有限扩张中，正式自同构子群由其固定域的 fixing 正式子群严格恢复。
 该定理是 Consequences 与 Restriction 模块应使用的首选恢复接口；旧的
@@ -1588,11 +1626,8 @@ theorem finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet
     (H : Subgroup (FieldAutomorphismOver e)) :
     fixingAutomorphismSubgroup e
       (FixedFieldSet e (H : Set (FieldAutomorphismOver e))) = H := by
-  have hrecover :=
-    finiteExtension_fixingAutomorphismSet_fixedFieldSet
-      e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
-  ext σ
-  exact Set.ext_iff.mp hrecover σ
+  exact finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet_bridge
+    e hfin H
 
 /-- 有限 Galois 扩张中，每个显式中间域由其 fixing 正式子群的固定域
 恢复。该表述保留集合式中间域教材 API，同时把群一侧升级为正式
