@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **486** 个条目（verified 486，pending 0）。
+共 **487** 个条目（verified 487，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -700,6 +700,7 @@
 - ✅ [`van-kampen-common-shared-edge.md`](topology/fundamental-group/van-kampen-common-shared-edge.md) — van Kampen 方格中同标签公共边的 connector 比较
 - ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
 - ✅ [`van-kampen-edge-gauge.md`](topology/fundamental-group/van-kampen-edge-gauge.md) — van Kampen 内部边的统一 gauge 与有限望远镜消去
+- ✅ [`van-kampen-framed-grid-boundary.md`](topology/fundamental-group/van-kampen-framed-grid-boundary.md) — van Kampen 网格的 framed 行与外边界关系
 - ✅ [`van-kampen-mixed-vertex-coherence.md`](topology/fundamental-group/van-kampen-mixed-vertex-coherence.md) — van Kampen 网格混合标签顶点的 transition coherence
 - ✅ [`van-kampen-square-subdivision.md`](topology/fundamental-group/van-kampen-square-subdivision.md) — 二开集覆盖下的有限带标签方格细分
 - ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射

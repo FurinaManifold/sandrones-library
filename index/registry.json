@@ -15855,7 +15855,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-mixed-vertex-coherence.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-framed-grid-boundary"
+    ],
     "family": "topology.fundamental-group",
     "variant": "mixed-grid-vertex-transition-square",
     "axioms": [
@@ -15864,5 +15866,38 @@
       "propext"
     ],
     "proof_sha": "54e8394a14c56a50"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-framed-grid-boundary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 网格的 framed 行与外边界关系",
+    "summary": "以顶点 frames 重基化小格边界，先逐格再逐行消去内部边，得到完整有限网格的非交换四侧边界关系",
+    "premises": [
+      "topology.fundamental-group.van-kampen-mixed-vertex-coherence"
+    ],
+    "mathlib": [
+      "Fin",
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenFramedGridBoundary.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-framed-grid-boundary.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "framed-row-and-grid-perimeter",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8ee0b7903644f8fd"
   }
 ]
