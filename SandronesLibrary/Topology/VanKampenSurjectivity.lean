@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
+import SandronesLibrary.Topology.PathCodRestrict
 import Mathlib.AlgebraicTopology.FundamentalGroupoid.FundamentalGroup
 import Mathlib.GroupTheory.PushoutI
 
@@ -121,14 +122,6 @@ def binaryVanKampenCanonicalMap (U V : Set X) {x₀ : X}
     (binaryOpenCoverPieceMaps U V hxU hxV)
     (binaryOpenCoverIntersectionMapToSpace U V hxU hxV)
     (binaryOpenCoverPieceMaps_compat U V hxU hxV)
-
-def pathCodRestrict {x y : X} (S : Set X) (p : Path x y)
-    (hx : x ∈ S) (hy : y ∈ S) (hp : ∀ t, p t ∈ S) :
-    Path (⟨x, hx⟩ : S) ⟨y, hy⟩ where
-  toFun t := ⟨p t, hp t⟩
-  continuous_toFun := p.continuous.subtype_mk _
-  source' := by ext; exact p.source
-  target' := by ext; exact p.target
 
 def basedPieceLoop {x₀ z w : X} (S : Set X)
     (hx₀ : x₀ ∈ S) (hz : z ∈ S) (hw : w ∈ S)

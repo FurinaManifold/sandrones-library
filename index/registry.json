@@ -12840,6 +12840,7 @@
     "dependedOnBy": [
       "topology.connectedness.path-components-foundation",
       "topology.homotopy.definition-foundation",
+      "topology.homotopy.path-cod-restrict",
       "topology.homotopy.path-concatenation-foundation",
       "topology.homotopy.path-homotopy-standard",
       "topology.homotopy.path-reversal-foundation"
@@ -15499,6 +15500,38 @@
     "family": "topology.homotopy",
     "variant": "uniform-finite-mesh",
     "proof_sha": "4a7939012e271b0b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.path-cod-restrict",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路到子空间的余域限制",
+    "summary": "将值域包含于集合的环境道路提升为该子空间中的道路，并保持底层函数逐点不变",
+    "premises": [
+      "topology.homotopy.path-definition-foundation"
+    ],
+    "mathlib": [
+      "Path",
+      "Set",
+      "Continuous.subtype_mk"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "lean_file": "Topology/PathCodRestrict.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-cod-restrict.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "subtype-codomain-restriction",
+    "proof_sha": "2eeb935144112b78",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
