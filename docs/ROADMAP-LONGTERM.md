@@ -761,7 +761,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 4 | `functional-analysis.banach-alaoglu` | 对偶闭单位球的弱星紧致性 ✅ | `WeakDual.isCompact_closedBall` |
 | 5 | `functional-analysis.weak.metrizable-separable` | 可分情形弱星紧集可度量化、闭球序列紧与收敛子列抽取 ✅ | `WeakDual.metrizable_of_isCompact`、序列紧接口 |
 | 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
-| 7 | `functional-analysis.eberlein-smulian` | 弱紧致与弱序列紧致的等价 | weak compactness API |
+| 7 | `functional-analysis.eberlein-smulian` | 自反性、闭单位球弱紧、弱序列紧与有界序列弱收敛子列四项等价 ✅ | `WeakSpace`、`IsCompact`、`IsSeqCompact` |
 | 8 | `functional-analysis.krein-milman` | 紧凸集、极点与闭凸包 | `extremePoints`、Krein–Milman API |
 | 9 | `functional-analysis.ergodic.mean` | 均值遍历定理的泛函分析入口 | power-bounded operator/ergodic averages |
 
@@ -818,14 +818,14 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4/F5 当前并行权限（2026-08-25）**：F4.1--F4.5 已集成；F4.7 Eberlein--Šmulian 为
-`development_open`，F4.8
-Krein--Milman 为 `research_open`。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
+**F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5 与 F4.7 Eberlein--Šmulian 已集成。F4.8
+Krein--Milman 仍为 `research_open`，等待 Main 审核接口调查后冻结只做教材解释的正式窗口；F4.9
+均值遍历可继续接口调查。F4.6 与编号较后的弱紧致工具可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
 F5.6 Fredholm 备择现开放接口研究，负责人可提交无占位原型与定义依赖图；在 Main 冻结签名前不得
-提交最终定理。F4.7 Eberlein--Šmulian 的 `development_open` 权限继续有效。F6 等待紧算子与
+提交最终定理。F6 等待紧算子与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。

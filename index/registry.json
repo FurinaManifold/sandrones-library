@@ -13919,6 +13919,7 @@
     "dependedOnBy": [
       "functional-analysis.bidual.reflexive-examples",
       "functional-analysis.dual-operator.definition",
+      "functional-analysis.eberlein-smulian",
       "functional-analysis.separable.dual",
       "functional-analysis.weak-star.definition"
     ],
@@ -14126,6 +14127,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.eberlein-smulian",
       "functional-analysis.weak.metrizable-separable"
     ],
     "family": "functional-analysis.banach-alaoglu",
@@ -14196,7 +14198,8 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "functional-analysis.closed-range.double-annihilator",
-      "functional-analysis.closed-range.duality"
+      "functional-analysis.closed-range.duality",
+      "functional-analysis.eberlein-smulian"
     ],
     "family": "functional-analysis.weak-star",
     "variant": "banach-dieudonne-unit-slice",
@@ -15272,6 +15275,42 @@
     "family": "functional-analysis.fredholm",
     "variant": "mathlib-carrier-and-index",
     "proof_sha": "9556e0c26d9ca104",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.eberlein-smulian",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Eberlein–Šmulian 闭单位球四项等价",
+    "summary": "实 Banach 空间自反、闭单位球弱紧、闭单位球弱序列紧与有界序列具有弱收敛子列四者等价",
+    "premises": [
+      "functional-analysis.bidual.reflexive",
+      "functional-analysis.banach-alaoglu",
+      "functional-analysis.weak-star.banach-dieudonne"
+    ],
+    "mathlib": [
+      "WeakSpace",
+      "WeakDual",
+      "NormedSpace.inclusionInDoubleDual",
+      "IsCompact",
+      "IsSeqCompact"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/EberleinSmulian.lean",
+    "nl_file": "docs/entries/functional-analysis/eberlein-smulian.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak",
+    "variant": "closed-unit-ball-four-way",
+    "proof_sha": "4020aee288359503",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

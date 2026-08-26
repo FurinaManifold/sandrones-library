@@ -1,12 +1,12 @@
 # Entries 索引
 
-> 自动生成（2026-08-25）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-08-26）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **470** 个条目（verified 470，pending 0）。
+共 **471** 个条目（verified 471，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -300,6 +300,7 @@
 - ✅ [`banach-steinhaus.md`](functional-analysis/banach-steinhaus.md) — Banach–Steinhaus 一致有界原理
 - ✅ [`closed-graph.md`](functional-analysis/closed-graph.md) — Banach 闭图定理
 - ✅ [`closed-range.md`](functional-analysis/closed-range.md) — 闭值域的零化子刻画
+- ✅ [`eberlein-smulian.md`](functional-analysis/eberlein-smulian.md) — Eberlein–Šmulian 闭单位球四项等价
 - ✅ [`inverse-operator.md`](functional-analysis/inverse-operator.md) — Banach 有界逆定理
 - ✅ [`open-mapping.md`](functional-analysis/open-mapping.md) — Banach 开映像定理
 
