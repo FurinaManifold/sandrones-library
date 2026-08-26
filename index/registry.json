@@ -16100,7 +16100,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-concat-aligned-subdivision.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-letter-block-word"
+    ],
     "family": "topology.fundamental-group",
     "variant": "dyadic-block-grid-alignment",
     "axioms": [
@@ -16109,5 +16111,40 @@
       "propext"
     ],
     "proof_sha": "a17037a37143353b"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-letter-block-word",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 字母 block 的细边词恢复",
+    "summary": "在一个输入字母指定的覆盖成员内连接 aligned block 的细网格顶点，将 connector-corrected 细边组成基本群词，并证明该词恢复原输入字母",
+    "premises": [
+      "topology.fundamental-group.van-kampen-concat-aligned-subdivision"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.subpath",
+      "Path.Homotopic",
+      "FundamentalGroup",
+      "IsPathConnected",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLetterBlockWord.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-letter-block-word.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "aligned-fine-edge-word-recovery",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "bb739c7940a74334"
   }
 ]

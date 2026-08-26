@@ -1,4 +1,20 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
 import SandronesLibrary.Topology.PathConcatAlignedSubdivision
+
+/-!
+# van Kampen 字母 block 的细边词恢复
+
+本文件在单个输入字母指定的覆盖成员中，把 aligned block 的细网格边组成 connector-corrected
+基本群词，并证明该词恢复原字母。它不处理 dual-label 比较、kernel 或最终 van Kampen 同构。
+
+当前条目：
+
+* `topology.fundamental-group.van-kampen-letter-block-word`。
+-/
 
 open Set
 open scoped unitInterval
@@ -9,7 +25,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 第 `i` 个输入字母 dyadic block 的第 `r` 个对齐网格顶点，作为该字母覆盖成员中的点。 -/
+/-- 第 `i` 个输入字母 dyadic block 的第 `r` 个对齐网格顶点，作为该字母覆盖成员中的点。
+> **Entry**: topology.fundamental-group.van-kampen-letter-block-word
+-/
 def binaryVanKampenLetterBlockGridVertex
     {U V : Set X} {x₀ : X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (letters : List (BinaryVanKampenLetter U V hxU hxV))
