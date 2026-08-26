@@ -15502,7 +15502,9 @@
     "nl_file": "docs/entries/topology/homotopy/unit-interval-mesh.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.path-polygonal-approximation"
+    ],
     "family": "topology.homotopy",
     "variant": "uniform-finite-mesh",
     "proof_sha": "4a7939012e271b0b",
@@ -15638,7 +15640,9 @@
     "nl_file": "docs/entries/topology/homotopy/path-homotopy-image-control.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.path-polygonal-approximation"
+    ],
     "family": "topology.homotopy",
     "variant": "image-controlled-relative-composition",
     "axioms": [
@@ -15647,5 +15651,40 @@
       "propext"
     ],
     "proof_sha": "9ea81b8ad0576648"
+  },
+  {
+    "id": "topology.homotopy.path-polygonal-approximation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "开集内道路的相对折线逼近",
+    "summary": "将实赋范空间开集内的连续道路相对端点同伦到同一开集内的有限直线段拼接",
+    "premises": [
+      "topology.homotopy.path-homotopy-image-control",
+      "topology.homotopy.unit-interval-mesh"
+    ],
+    "mathlib": [
+      "Path.segment",
+      "Path.concat",
+      "Path.Homotopy",
+      "IsCompact.exists_cthickening_subset_open",
+      "UniformContinuous"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathPolygonalApproximation.lean",
+    "nl_file": "docs/entries/topology/homotopy/path-polygonal-approximation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "relative-open-set-uniform-mesh-polygonalization",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1affc8585a187fb0"
   }
 ]

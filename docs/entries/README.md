@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **480** 个条目（verified 480，pending 0）。
+共 **481** 个条目（verified 481，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -712,6 +712,7 @@
 - ✅ [`path-homotopy-image-control.md`](topology/homotopy/path-homotopy-image-control.md) — 道路同伦的像集控制与有限拼接
 - ✅ [`path-homotopy-quotient-standard.md`](topology/homotopy/path-homotopy-quotient-standard.md) — 道路同伦商的标准承载
 - ✅ [`path-homotopy-standard.md`](topology/homotopy/path-homotopy-standard.md) — 标准道路同伦与端点固定
+- ✅ [`path-polygonal-approximation.md`](topology/homotopy/path-polygonal-approximation.md) — 开集内道路的相对折线逼近
 - ✅ [`path-reversal-foundation.md`](topology/homotopy/path-reversal-foundation.md) — 逆道路及双重反向的正式承载
 - ✅ [`standard.md`](topology/homotopy/standard.md) — 一般同伦、相对同伦与复合
 - ✅ [`unit-interval-mesh.md`](topology/homotopy/unit-interval-mesh.md) — 单位区间的一致有限网格

@@ -586,7 +586,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01 已集成；02、03 已开放） | 01 已冻结四边定向、piece 内单格边界词及其 Pushout 像为一；02 开发 common shared-edge，03 开发 switch-edge connector comparison | 复用已集成 VK3a 与 T4-I1；01 不声称全网格抵消；02、03 各自形成独立可构建提交 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
-| T4-R3a 开集内相对折线路径逼近 | `development_open` | 通用 `Path.Homotopy` image-control 模块；实赋范空间中把连续路径相对端点同伦到有限直线段拼接 | 先完成 T4-I1 mesh 归位；不得声称同伦光滑或线积分不变 |
+| T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
 | T4-R3b 一般连续／分段 `C¹` 边界正则化 | `research_open` | 在 R3a 上补相对平滑及有限细分积分不变性 | R3a 不等于完整 R3；完成前不得解冻复分析一般连续同伦门 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
