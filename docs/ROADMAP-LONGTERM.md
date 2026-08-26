@@ -602,7 +602,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
 | AT1-VK3a 零同伦方格细分 | 已集成 | 一致二维网格、逐格覆盖标签及异标签整条公共边落在交集 | 目标空间只需拓扑结构；接口严格止于方格细分 |
 | T4-I1 通用道路／网格设施归位 | 已集成 | `unitIntervalMeshPoint`、`pathCodRestrict` 与 `Path.correctedLoop`/有限 telescope 已分别移入三个中性模块 | 唯一声明、无 alias 或第二套实现；VK1/VK2/VK3a 消费链保持构建 |
-| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01--12a 已集成；12b 已开放） | 01 建立单格边界词；02/03 比较同/异标签公共边；04 统一 edge gauge；05/06 用 vertex potential 证明任意标签中央 coherence；07a 建立 framed rows 与有限网格四侧关系；07b 归一横边并证明左右 holonomy 相等；08a/08b 完成二维右锚定；09 建立 letter word 与反序 concat；10a/10b 完成 dyadic 对齐网格；11a 恢复单字母 block；11b 建立双标签 endpoint potentials；11c 统一同路局部表示；12a 建立真实左边界细边、cell/letter 两侧成员性、connectors 与局部因子识别 | 12b 给出 cell-to-letter endpoint transitions、potential 刻画和逐边 factor transport；13--15 继续按线性依赖逐批开放 |
+| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01--14c 已集成） | 12b 已完成 cell-to-letter transport；13a--13c 已完成 block 内与 block 间 cocycle；14a--14c 已完成两层 telescope，并把真实左边界识别为整体 rebased 输入词 | 15a residual gauge 现开放；15b kernel triviality 与 15c canonical map injectivity/final equivalence 采用自动 release train：前一批在学科 worktree 构建并提交完整 handoff 后即可继续，不必等待 Main 再逐批口头授权；共享 Registry/ROADMAP 仍由 Main 集成 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
@@ -786,7 +786,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
 | 7 | `functional-analysis.eberlein-smulian` | 自反性、闭单位球弱紧、弱序列紧与有界序列弱收敛子列四项等价 ✅ | `WeakSpace`、`IsCompact`、`IsSeqCompact` |
 | 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 ✅ | 已集成：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，并明确 Mathlib 极性谓词与教材完整 face 的差异 |
-| 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据与自反情形 | `development_open`：先做 decomposition；reflexive/projection 批等待前批接口冻结 |
+| 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据与自反情形 | decomposition ✅；现同时开放 reflexive convergence 与极限投影两个消费者批次 |
 
 ### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
 
@@ -844,9 +844,10 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 **F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5、F4.7 Eberlein--Šmulian 与 F4.8
 Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 face／极点／闭凸包的教材定义链
 解释与必要组装使用者。F4.9 的
-`mean-ergodic.decomposition` 已开放 `development_open`：冻结 `birkhoffAverage`、幂一致有界量词、
-收敛域、fixed space 与 `closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”；
-`mean-ergodic.reflexive` 与极限投影批等待 decomposition 公开接口通过 Main 审核后解锁。F4.6 与编号
+`mean-ergodic.decomposition` 已集成：冻结 `birkhoffAverage`、幂一致有界量词、收敛域、fixed space 与
+`closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”。现开放两个可并行消费者窗口：
+`mean-ergodic.reflexive` 证明自反空间处处收敛；`mean-ergodic.projection` 构造极限投影并证明
+`ST = TS = S² = S`。两批都必须复用 decomposition 的公开接口，不得重证分解。F4.6 与编号
 较后的弱紧致工具仍可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画

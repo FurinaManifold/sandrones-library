@@ -14,6 +14,8 @@ import SandronesLibrary.Topology.VanKampenLeftBoundaryEdge
 
 本文件不把相邻细边或相邻 blocks 的 transitions 相乘，不执行有限 telescope，也不证明 kernel
 平凡、规范同态单射或最终 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-left-boundary-transport`。
 -/
 
 open Set
@@ -25,7 +27,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 每条真实左边界细边从 cell 标签表示切换到固定 letter 标签表示所需的端点 transitions。 -/
+/-- 每条真实左边界细边从 cell 标签表示切换到固定 letter 标签表示所需的端点 transitions。
+
+> **Entry**: topology.fundamental-group.van-kampen-left-boundary-transport -/
 noncomputable def PathConcatAlignedSquareSubdivision.leftBoundaryCellToLetterTransitions
     {x₀ : X} {U V : Set X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (hUV : IsPathConnected (U ∩ V))

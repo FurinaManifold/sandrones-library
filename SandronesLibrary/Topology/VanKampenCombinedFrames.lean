@@ -14,6 +14,8 @@ grid-cell potentials，并记录 block 首末 letter connectors 送回环境空�
 
 本文件不证明跨 block transition cocycle，不执行有限 telescope，也不证明 kernel 平凡、规范同态
 单射或最终 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-combined-frames`。
 -/
 
 open Set
@@ -25,7 +27,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 相邻细边的逐边 transitions 与二维右锚定 cell frames 合成后，在共享顶点严格相容。 -/
+/-- 相邻细边的逐边 transitions 与二维右锚定 cell frames 合成后，在共享顶点严格相容。
+
+> **Entry**: topology.fundamental-group.van-kampen-combined-frames -/
 theorem PathConcatAlignedSquareSubdivision.combinedLeftBoundaryFrames_adjacent
     {x₀ : X} {U V : Set X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (hUV : IsPathConnected (U ∩ V))

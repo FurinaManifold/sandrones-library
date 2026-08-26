@@ -14,6 +14,8 @@ letter 标签之间的四种相等／不等分支，最终只公开统一的相�
 
 本文件不建立跨 letter block 的接缝相容，不构造 combined frames，不执行有限 telescope，也不证明
 kernel 平凡、规范同态单射或最终 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-left-boundary-cocycle`。
 -/
 
 open Set
@@ -25,7 +27,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 先做内层 connector 变化、再做外层 frame 变化，等于一次使用端点 frame 乘积的 rebase。 -/
+/-- 先做内层 connector 变化、再做外层 frame 变化，等于一次使用端点 frame 乘积的 rebase。
+
+> **Entry**: topology.fundamental-group.van-kampen-left-boundary-cocycle -/
 theorem rebaseEdge_rebaseEdge
     {G : Type*} [Group G]
     (outerStart outerEnd innerStart innerEnd edge : G) :

@@ -14,6 +14,8 @@ combined-frame 相容性消去全部中间 block frames。它同时证明先 fla
 
 本文件不把第二层 letter chain 识别为原输入字母词，不证明完整左边界消失，也不处理 residual gauge、
 kernel、单射或最终 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-global-block-telescope`。
 -/
 
 open Set
@@ -27,8 +29,9 @@ variable {X : Type*} [TopologicalSpace X]
 
 namespace PathConcatAlignedSquareSubdivision
 
-/-- The second-level chain whose factors are the original input letters and whose
-frames are the already telescoped start/end frames of whole letter blocks. -/
+/-- 第二层链以原输入字母为因子，并以各字母 block 已 telescope 后的首末 frame 为边界。
+
+> **Entry**: topology.fundamental-group.van-kampen-global-block-telescope -/
 noncomputable def leftBoundaryLetterBlockChain
     {x₀ : X} {U V : Set X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (hUV : IsPathConnected (U ∩ V))

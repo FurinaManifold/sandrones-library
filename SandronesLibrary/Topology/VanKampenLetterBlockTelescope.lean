@@ -14,6 +14,8 @@ frames 下的 rebase，并利用相邻 combined frames 的严格相容性执行�
 
 本文件不把不同 letter blocks 相乘，不识别完整左边界词，也不证明 residual gauge、kernel 平凡、
 规范同态单射或最终 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-letter-block-telescope`。
 -/
 
 open Set
@@ -27,7 +29,9 @@ variable {X : Type*} [TopologicalSpace X]
 
 namespace PathConcatAlignedSquareSubdivision
 
-/-- 一个输入 block 的第 `s` 条 letter-side 细边因子送入 Pushout 后的元素。 -/
+/-- 一个输入 block 的第 `s` 条 letter-side 细边因子送入 Pushout 后的元素。
+
+> **Entry**: topology.fundamental-group.van-kampen-letter-block-telescope -/
 private def leftBoundaryBlockFactor
     {x₀ : X} {U V : Set X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (hU : IsPathConnected U) (hV : IsPathConnected V)

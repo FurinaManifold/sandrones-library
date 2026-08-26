@@ -14,6 +14,8 @@ import SandronesLibrary.Topology.VanKampenGlobalBlockTelescope
 
 本文件不证明首末 residual frames 相等或可消去，也不证明 kernel 平凡、规范同态单射或最终
 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-rebased-letter-word`。
 -/
 
 open Set
@@ -25,7 +27,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- 将真实最左网格边 transport 到输入道路对应细网格子区间的规范端点。 -/
+/-- 将真实最左网格边 transport 到输入道路对应细网格子区间的规范端点。
+
+> **Entry**: topology.fundamental-group.van-kampen-rebased-letter-word -/
 private def PathConcatAlignedSquareSubdivision.leftBoundarySegmentGridEdge
     {x₀ x₁ : X} {p q : Path x₀ x₁} (Fhom : Path.Homotopy p q)
     {U V : Set X} {n : ℕ}

@@ -14104,6 +14104,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.ergodic.mean",
       "functional-analysis.weak-star.definition"
     ],
     "family": "functional-analysis.weak-topology",
@@ -15224,7 +15225,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.closed-range.duality"
+      "functional-analysis.closed-range.duality",
+      "functional-analysis.ergodic.mean"
     ],
     "family": "functional-analysis.closed-range",
     "variant": "double-annihilator-and-dual-closedness",
@@ -16363,7 +16365,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-left-boundary-edge.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-left-boundary-transport"
+    ],
     "family": "topology.fundamental-group",
     "variant": "aligned-cell-and-letter-local-elements",
     "proof_sha": "0d2e7ada3608a10d",
@@ -16406,5 +16410,287 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-left-boundary-transport",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 左边界逐边搬运",
+    "summary": "比较网格 cell 与输入 letter 的局部边元素并给出 endpoint transition 下的非交换 rebase 公式",
+    "premises": [
+      "topology.fundamental-group.van-kampen-left-boundary-edge"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLeftBoundaryTransport.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-left-boundary-transport.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-left-boundary-cocycle"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "cell-to-letter-endpoint-transport",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "ef5acd0d6a43a3a9"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-left-boundary-cocycle",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 左边界相邻细边的 transition cocycle",
+    "summary": "证明同一 letter block 内相邻左边界细边的 endpoint transitions 满足非交换 cocycle",
+    "premises": [
+      "topology.fundamental-group.van-kampen-left-boundary-transport"
+    ],
+    "mathlib": [
+      "Group",
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLeftBoundaryCocycle.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-left-boundary-cocycle.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-combined-frames"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "adjacent-edge-endpoint-compatibility",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "51748aeb39337f4d"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-combined-frames",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 左边界组合 frames",
+    "summary": "组合逐边 transport 与二维右锚定 frames，并统一内部边的 grid-potential 公式",
+    "premises": [
+      "topology.fundamental-group.van-kampen-left-boundary-cocycle"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Fin",
+      "Group"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenCombinedFrames.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-combined-frames.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-block-boundary-cocycle"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "aligned-block-and-grid-potential-compatibility",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "911d4d0407999cbe"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-block-boundary-cocycle",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 相邻字母 blocks 的边界 cocycle",
+    "summary": "识别相邻 blocks 的公共基点并证明跨 block endpoint transition cocycle",
+    "premises": [
+      "topology.fundamental-group.van-kampen-combined-frames"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenBlockBoundaryCocycle.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-block-boundary-cocycle.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-letter-block-telescope"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "adjacent-letter-block-seam",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "09f2078a9b4787b8"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-letter-block-telescope",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 单字母 block 细边 telescope",
+    "summary": "将单字母 block 的真实细边反序乘积压缩为原字母的一次整体 rebase",
+    "premises": [
+      "topology.fundamental-group.van-kampen-block-boundary-cocycle"
+    ],
+    "mathlib": [
+      "Group",
+      "List",
+      "Fin",
+      "FundamentalGroup",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenLetterBlockTelescope.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-letter-block-telescope.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-global-block-telescope"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "single-letter-fine-edge-telescope",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b62dc53418c52a9c"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-global-block-telescope",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 字母 blocks 全局 telescope",
+    "summary": "组织第二层 edge chain，消去跨 block 中间 frames 并连接 flatten 后的真实细边乘积",
+    "premises": [
+      "topology.fundamental-group.van-kampen-letter-block-telescope"
+    ],
+    "mathlib": [
+      "Group",
+      "List",
+      "Fin",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenGlobalBlockTelescope.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-global-block-telescope.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-rebased-letter-word"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "second-level-letter-block-chain",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b64c2abdb98ae1b1"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-rebased-letter-word",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 真实左边界与 rebased 字母词",
+    "summary": "把真实网格左边界识别为整体 rebased 输入词，并证明该 rebased 词等于一",
+    "premises": [
+      "topology.fundamental-group.van-kampen-global-block-telescope"
+    ],
+    "mathlib": [
+      "Path",
+      "List",
+      "Fin",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Group"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenRebasedLetterWord.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-rebased-letter-word.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "actual-left-boundary-to-input-word",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "605cff600e1b83b3"
+  },
+  {
+    "id": "functional-analysis.ergodic.mean",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "幂有界算子的均值遍历分解",
+    "summary": "幂一致有界 Banach 算子的 Cesaro 平均收敛域是固定点空间与差分像闭包的直和，并由弱收敛子列刻画",
+    "premises": [
+      "functional-analysis.weak-topology.definition",
+      "functional-analysis.closed-range.double-annihilator"
+    ],
+    "mathlib": [
+      "birkhoffAverage",
+      "ContinuousLinearMap",
+      "LinearMap.eqLocus",
+      "Submodule.topologicalClosure"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/MeanErgodicDecomposition.lean",
+    "nl_file": "docs/entries/functional-analysis/ergodic/mean.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak",
+    "variant": "power-bounded-decomposition",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "361dd71ca18a62a4"
   }
 ]

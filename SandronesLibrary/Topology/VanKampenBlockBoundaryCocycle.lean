@@ -14,6 +14,8 @@ connectors 送回环境空间后的逐点相等。
 
 本文件不执行 block 或完整左边界的有限 telescope，也不证明 kernel 平凡、规范同态单射或最终
 van Kampen 同构。
+
+当前条目：`topology.fundamental-group.van-kampen-block-boundary-cocycle`。
 -/
 
 open Set
@@ -25,8 +27,9 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- The ambient endpoint vertex of a block's last left-boundary edge is the
-distinguished basepoint. -/
+/-- 一个 block 最后一条左边界边的环境空间终点就是指定基点。
+
+> **Entry**: topology.fundamental-group.van-kampen-block-boundary-cocycle -/
 theorem PathConcatAlignedSquareSubdivision.leftBoundaryBlockLastVertex_eq_basepoint
     {x₀ : X} {U V : Set X} (hxU : x₀ ∈ U) (hxV : x₀ ∈ V)
     (hU : IsPathConnected U) (hV : IsPathConnected V)

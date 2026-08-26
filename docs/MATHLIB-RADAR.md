@@ -119,6 +119,15 @@
 - **本库边界**：本库复用该正式谓词，不建立第二套“紧算子”结构；第一开发窗没有调用 Mathlib
   的最终 Fredholm alternative package。
 
+### `birkhoffAverage` / `StrongDual`
+
+- **人话**：`birkhoffAverage T n x` 是前 `n` 次迭代的 Cesaro 平均；`StrongDual` 是连续线性泛函空间，
+  可用来逐个测试向量序列的弱收敛。
+- **谁在用**：`functional-analysis.ergodic.mean` 将平均提升为连续线性算子，证明其范数收敛域等于
+  固定点空间与 `closure(range(T-1))` 的直和，并用逐对偶泛函收敛刻画弱收敛子列。
+- **本库边界**：Mathlib 的 Hilbert 空间正交投影版平均遍历定理不承担这里的一般 Banach 空间证明；
+  本库只复用平均公式和弱拓扑承载。
+
 ### `WeakDual.metrizable_of_isCompact` / `WeakDual.isSeqCompact_closedBall`
 - **人话**：原空间可分时，弱星紧子集可度量化；连续对偶的范数闭球在弱星拓扑下序列紧。
 - **谁在用**：`functional-analysis.weak.metrizable-separable`；从闭单位球中的任意序列抽取严格递增
