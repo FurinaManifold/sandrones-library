@@ -15713,7 +15713,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-common-shared-edge.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-switch-shared-edge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "same-label-adjacent-grid-cells",
     "axioms": [
@@ -15722,5 +15724,40 @@
       "propext"
     ],
     "proof_sha": "23fb75ea38a86d2c"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-switch-shared-edge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 方格中异标签公共边的 Pushout 比较",
+    "summary": "将异标签相邻方格的公共边提升到交集，并利用 Pushout 合并关系给出两侧修正边的精确端点 gauge 公式",
+    "premises": [
+      "topology.fundamental-group.van-kampen-common-shared-edge"
+    ],
+    "mathlib": [
+      "Path.map",
+      "Path.cast",
+      "FundamentalGroup.map",
+      "FundamentalGroup.fromPath",
+      "IsPathConnected.joinedIn",
+      "Monoid.PushoutI.of_apply_eq_base"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenSwitchSharedEdge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-switch-shared-edge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "different-label-adjacent-grid-cells",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b7a9ca530a0b71e5"
   }
 ]

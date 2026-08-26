@@ -112,6 +112,7 @@ import SandronesLibrary.Topology.VanKampenSurjectivity
 import SandronesLibrary.Topology.VanKampenSquareSubdivision
 import SandronesLibrary.Topology.VanKampenHomotopySquareBoundary
 import SandronesLibrary.Topology.VanKampenCommonSharedEdge
+import SandronesLibrary.Topology.VanKampenSwitchSharedEdge
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
