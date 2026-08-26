@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **495** 个条目（verified 495，pending 0）。
+共 **496** 个条目（verified 496，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -700,6 +700,7 @@
 - ✅ [`van-kampen-common-shared-edge.md`](topology/fundamental-group/van-kampen-common-shared-edge.md) — van Kampen 方格中同标签公共边的 connector 比较
 - ✅ [`van-kampen-concat-aligned-subdivision.md`](topology/fundamental-group/van-kampen-concat-aligned-subdivision.md) — van Kampen concat 对齐方格细分
 - ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
+- ✅ [`van-kampen-dual-path-potential.md`](topology/fundamental-group/van-kampen-dual-path-potential.md) — van Kampen 双标签道路与通用顶点 potential
 - ✅ [`van-kampen-edge-gauge.md`](topology/fundamental-group/van-kampen-edge-gauge.md) — van Kampen 内部边的统一 gauge 与有限望远镜消去
 - ✅ [`van-kampen-framed-grid-boundary.md`](topology/fundamental-group/van-kampen-framed-grid-boundary.md) — van Kampen 网格的 framed 行与外边界关系
 - ✅ [`van-kampen-letter-block-word.md`](topology/fundamental-group/van-kampen-letter-block-word.md) — van Kampen 字母 block 的细边词恢复
