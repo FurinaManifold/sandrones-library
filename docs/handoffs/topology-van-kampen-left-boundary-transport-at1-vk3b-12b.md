@@ -78,6 +78,9 @@ exit code 0
 - 正式源码逐字迁自已在 `/tmp/sandrones-library/vk3b-12-formal-candidate/` 对 12a 验证的候选，仅补
   标准文件头和模块边界说明；
 - 独立 aggregate import 正式模块并 `#check` 12a/12b 主要消费者，exit code 0；
+- 未修改的 13a 真实消费者
+  `/tmp/sandrones-library/vk3b-13-formal-candidate/SandronesLibrary/Topology/VanKampenLeftBoundaryCocycle.lean`
+  直接对正式 12b 执行 `lake env lean`，exit code 0、无输出；
 - `rg` 计数为 9 public / 4 private；
 - `sorry`、`admit`、新增 `axiom`、carrier/instance/notation 与 `git diff --check` 扫描通过；
 - 目标构建没有 warning。
