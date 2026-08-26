@@ -12803,7 +12803,8 @@
     "dependedOnBy": [
       "topology.homotopy.definition-foundation",
       "topology.homotopy.path-definition-foundation",
-      "topology.homotopy.path-homotopy-standard"
+      "topology.homotopy.path-homotopy-standard",
+      "topology.homotopy.unit-interval-mesh"
     ],
     "proof_sha": "58e0d8981b435a62",
     "axioms": [
@@ -15465,6 +15466,39 @@
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "1bab04a717e0ffb2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.homotopy.unit-interval-mesh",
+    "kind": "definition",
+    "state": "verified",
+    "title": "单位区间的一致有限网格",
+    "summary": "以有限指标表示单位区间的等距网格点，并刻画首末点、相邻单调性和精确间距",
+    "premises": [
+      "topology.foundation.real-line"
+    ],
+    "mathlib": [
+      "unitInterval",
+      "Fin",
+      "Subtype.dist_eq",
+      "Real.dist_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "lean_file": "Topology/UnitIntervalMesh.lean",
+    "nl_file": "docs/entries/topology/homotopy/unit-interval-mesh.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "uniform-finite-mesh",
+    "proof_sha": "4a7939012e271b0b",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

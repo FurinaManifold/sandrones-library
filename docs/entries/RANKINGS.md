@@ -11,35 +11,35 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.13 |
-| 2 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.55 |
-| 3 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.25 |
-| 4 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 94.79 |
+| 2 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 95.50 |
+| 3 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 95.22 |
+| 4 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 94.76 |
 | 5 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.99 |
-| 6 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 93.57 |
-| 7 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.58 |
-| 8 | `analysis.series.basic` | 数项级数基础 | 92.49 |
-| 9 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.46 |
-| 10 | `abstract-algebra.group.def` | 子群判定与基本性质 | 92.39 |
-| 11 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.48 |
-| 12 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 91.45 |
-| 13 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.22 |
-| 14 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 90.93 |
-| 15 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.82 |
-| 16 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.24 |
-| 17 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.77 |
-| 18 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 88.55 |
-| 19 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 88.42 |
-| 20 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.23 |
-| 21 | `linear-algebra.det.mul` | 积的行列式 | 88.08 |
-| 22 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.88 |
-| 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.54 |
-| 24 | `settheory.set.ext` | 外延性原理 | 87.42 |
-| 25 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 86.93 |
-| 26 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.74 |
-| 27 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.64 |
-| 28 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 86.49 |
-| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 85.97 |
-| 30 | `topology.space.def` | 拓扑空间与开闭集公理 | 85.91 |
+| 6 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 93.54 |
+| 7 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.54 |
+| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.43 |
+| 9 | `analysis.series.basic` | 数项级数基础 | 92.40 |
+| 10 | `abstract-algebra.group.def` | 子群判定与基本性质 | 92.30 |
+| 11 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 92.15 |
+| 12 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.44 |
+| 13 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 91.38 |
+| 14 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.19 |
+| 15 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 90.91 |
+| 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.79 |
+| 17 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.18 |
+| 18 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.73 |
+| 19 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 88.47 |
+| 20 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.15 |
+| 21 | `linear-algebra.det.mul` | 积的行列式 | 88.09 |
+| 22 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.86 |
+| 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.46 |
+| 24 | `settheory.set.ext` | 外延性原理 | 87.40 |
+| 25 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 86.91 |
+| 26 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.72 |
+| 27 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.56 |
+| 28 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 86.44 |
+| 29 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 85.90 |
+| 30 | `topology.space.def` | 拓扑空间与开闭集公理 | 85.90 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -89,27 +89,27 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 7 | `analysis.sequence.definition` | 数列收敛的 ε-N 判据 | 13.531 |
 | 8 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 13.312 |
 | 9 | `analysis.continuity.definition` | 连续性定义 | 12.281 |
-| 10 | `real-analysis.measure.def` | 测度公理 | 11.875 |
-| 11 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 11.719 |
-| 12 | `settheory.set.ext` | 外延性原理 | 10.844 |
-| 13 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 9.969 |
-| 14 | `topology.foundation.constructions` | 诱导拓扑、子空间拓扑与积拓扑 | 9.812 |
+| 10 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 12.219 |
+| 11 | `real-analysis.measure.def` | 测度公理 | 11.875 |
+| 12 | `settheory.set.ext` | 外延性原理 | 11.094 |
+| 13 | `topology.foundation.constructions` | 诱导拓扑、子空间拓扑与积拓扑 | 10.312 |
+| 14 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 9.969 |
 | 15 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.688 |
 | 16 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 9.625 |
 | 17 | `functional-analysis.operator.space` | 算子范数与连续线性算子空间 | 9.125 |
 | 18 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
 | 19 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
 | 20 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
-| 21 | `topology.metric.def` | 度量空间与开球 | 8.688 |
-| 22 | `settheory.ordinal.order-type` | 良序与序型 | 8.562 |
-| 23 | `topology.normed-space.banach` | 范数收敛与Banach完备性 | 8.562 |
-| 24 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理 | 8.500 |
-| 25 | `abstract-algebra.group.def` | 子群判定与基本性质 | 8.469 |
-| 26 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 8.375 |
-| 27 | `topology.homotopy.path-definition-foundation` | 道路与环路的正式承载 | 8.375 |
-| 28 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
-| 29 | `functional-analysis.hahn-banach.norming-functional` | 范数化泛函与对偶范数刻画 | 8.062 |
-| 30 | `analysis.series.basic` | 数项级数基础 | 7.906 |
+| 21 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 8.875 |
+| 22 | `topology.metric.def` | 度量空间与开球 | 8.688 |
+| 23 | `settheory.ordinal.order-type` | 良序与序型 | 8.562 |
+| 24 | `topology.normed-space.banach` | 范数收敛与Banach完备性 | 8.562 |
+| 25 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理 | 8.500 |
+| 26 | `abstract-algebra.group.def` | 子群判定与基本性质 | 8.469 |
+| 27 | `abstract-algebra.ring.domain` | 零因子、整环与域 | 8.375 |
+| 28 | `topology.homotopy.path-definition-foundation` | 道路与环路的正式承载 | 8.375 |
+| 29 | `settheory.cardinal.equinumerous` | 等势：用双射比较集合大小 | 8.250 |
+| 30 | `functional-analysis.hahn-banach.norming-functional` | 范数化泛函与对偶范数刻画 | 8.062 |
 
 ## 跨学科桥梁榜
 
@@ -167,16 +167,16 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 15 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 3 |
 | 16 | `linear-algebra.det.mul` | 积的行列式 | 3 |
 | 17 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 3 |
-| 18 | `abstract-algebra.field.galois-correspondence` | 有限 Galois 基本对应 | 2 |
-| 19 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 2 |
-| 20 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
-| 21 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
-| 22 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 2 |
-| 23 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
-| 24 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
-| 25 | `settheory.googology.hereditary-natural-encoding` | 任意自然数的遗传基编码 | 2 |
-| 26 | `settheory.googology.hereditary-natural-encoding-strict-order` | 遗传自然数编码的全局严格保序 | 2 |
-| 27 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
-| 28 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
-| 29 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 2 |
-| 30 | `abstract-algebra.field.separable-normal` | 可分多项式、可分扩张与正规扩张 | 1 |
+| 18 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 3 |
+| 19 | `abstract-algebra.field.galois-correspondence` | 有限 Galois 基本对应 | 2 |
+| 20 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 2 |
+| 21 | `analysis.multivariable.parametrized-curves-surfaces` | 参数曲线与参数曲面 | 2 |
+| 22 | `analysis.multivariable.riemann-box` | 多元 Riemann 盒积分 | 2 |
+| 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 2 |
+| 24 | `analysis.power-series.definition` | 实幂级数的定义与收敛点集 | 2 |
+| 25 | `real-analysis.riemann.def` | 黎曼积分定义 | 2 |
+| 26 | `settheory.googology.hereditary-natural-encoding` | 任意自然数的遗传基编码 | 2 |
+| 27 | `settheory.googology.hereditary-natural-encoding-strict-order` | 遗传自然数编码的全局严格保序 | 2 |
+| 28 | `settheory.ordinal.no-infinite-descent` | 序数无穷下降不可能 | 2 |
+| 29 | `settheory.ordinal.normal-function` | 正规序数函数 | 2 |
+| 30 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 2 |

@@ -582,7 +582,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK1 van Kampen 覆盖细分 | 已集成 | 二开集覆盖下，用 Mathlib `Path.subpath` 封装有限带标签子段及相邻切换点交集性质 | 已冻结有限网格、标签、逐段包含和拼接同伦接口 |
 | AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
 | AT1-VK3a 零同伦方格细分 | 已集成 | 一致二维网格、逐格覆盖标签及异标签整条公共边落在交集 | 目标空间只需拓扑结构；接口严格止于方格细分 |
-| T4-I1 通用道路／网格设施归位 | `development_open` | 将唯一的 `unitIntervalMeshPoint`、`pathCodRestrict`、`Path.correctedLoop`/有限 telescope 声明分别移入中性模块；原消费者改 import | 只准移动唯一声明并补一手展开，不建 alias 或第二套实现；三个独立提交逐个保持 VK1/VK2/VK3a 构建 |
+| T4-I1 通用道路／网格设施归位 | `development_open`（mesh 已集成） | `unitIntervalMeshPoint` 已移入中性模块；继续移动唯一的 `pathCodRestrict`、`Path.correctedLoop`/有限 telescope 声明并让原消费者改 import | 只准移动唯一声明并补一手展开，不建 alias 或第二套实现；独立提交逐个保持 VK1/VK2/VK3a 构建 |
 | AT1-VK3b 单格边界词与内部边抵消 | `development_open`（设施归位后先做 VK3b-01） | 冻结四边定向与单格边界词第一批；后续 connector/potential 分批经 Main 审核解锁 | 复用已集成 VK3a；完成前不发布单射、kernel 消失或同构 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |

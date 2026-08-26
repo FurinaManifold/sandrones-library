@@ -4,6 +4,7 @@ Released under Apache 2.0 license as described in the file LICENSE.
 Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.PathHomotopyStandard
+import SandronesLibrary.Topology.UnitIntervalMesh
 import Mathlib.Topology.Subpath
 import Mathlib.Topology.MetricSpace.Pseudo.Lemmas
 
@@ -37,44 +38,6 @@ variable {X : Type*} [TopologicalSpace X]
 def binaryOpenCoverPiece (U V : Set X) : Bool → Set X
   | false => U
   | true => V
-
-/-- 把单位区间等分成 `N` 段时的第 `i` 个网格点 `i / N`。 -/
-def unitIntervalMeshPoint (N : ℕ) (hN : 0 < N) (i : Fin (N + 1)) : unitInterval :=
-  ⟨(i : ℝ) / (N : ℝ), by
-    constructor
-    · exact div_nonneg (Nat.cast_nonneg _) (Nat.cast_nonneg _)
-    · apply (div_le_one (by exact_mod_cast hN)).2
-      exact_mod_cast Nat.le_of_lt_succ i.isLt⟩
-
-@[simp] theorem unitIntervalMeshPoint_zero (N : ℕ) (hN : 0 < N) :
-    unitIntervalMeshPoint N hN 0 = 0 := by
-  ext
-  simp [unitIntervalMeshPoint]
-
-@[simp] theorem unitIntervalMeshPoint_last (N : ℕ) (hN : 0 < N) :
-    unitIntervalMeshPoint N hN (Fin.last N) = 1 := by
-  ext
-  simp [unitIntervalMeshPoint, ne_of_gt hN]
-
-theorem unitIntervalMeshPoint_castSucc_le_succ
-    (N : ℕ) (hN : 0 < N) (i : Fin N) :
-    unitIntervalMeshPoint N hN i.castSucc ≤ unitIntervalMeshPoint N hN i.succ := by
-  change (i : ℝ) / (N : ℝ) ≤ ((i.val + 1 : ℕ) : ℝ) / (N : ℝ)
-  gcongr
-  exact_mod_cast Nat.le_succ i.val
-
-theorem dist_unitIntervalMeshPoint_castSucc_succ
-    (N : ℕ) (hN : 0 < N) (i : Fin N) :
-    dist (unitIntervalMeshPoint N hN i.castSucc)
-      (unitIntervalMeshPoint N hN i.succ) = (N : ℝ)⁻¹ := by
-  rw [Subtype.dist_eq, Real.dist_eq]
-  change |(i.val : ℝ) / (N : ℝ) - ((i.val + 1 : ℕ) : ℝ) / (N : ℝ)| = (N : ℝ)⁻¹
-  rw [Nat.cast_add, Nat.cast_one]
-  have hN0 : (N : ℝ) ≠ 0 := by exact_mod_cast (ne_of_gt hN)
-  rw [show (i : ℝ) / (N : ℝ) - ((i : ℝ) + 1) / (N : ℝ) = -(N : ℝ)⁻¹ by
-    field_simp
-    ring]
-  rw [abs_neg, abs_of_nonneg (inv_nonneg.mpr (Nat.cast_nonneg N))]
 
 private theorem dist_convexComb_left_le (a b u : unitInterval) :
     dist (Set.Icc.convexComb a b u) a ≤ dist b a := by
