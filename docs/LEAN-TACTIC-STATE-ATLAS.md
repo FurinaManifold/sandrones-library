@@ -718,20 +718,73 @@ refine 中前三个已填字段：q := m / n，r := m % n，最后一项 := Nat.
 
 尖括号按存在量词和嵌套合取的构造器顺序一次填完 witness 与三个证明字段。
 
-## F. 当前库中的真实覆盖缺口
+## F. 从全称假设到有限搜索
 
-下列名称在主指南中有语义说明，但截至本次盘点没有正式 `SandronesLibrary/**/*.lean` 用例，因此不可能
-诚实提供“库内实际使用时”的前后 state。它们不是待证明的 Lean 洞，而是文档实例覆盖缺口。
+### `specialize`
 
-| 名称 | 当前源码状态 | 一般会造成的状态变化 |
-|---|---|---|
-| `specialize` | 无用例 | 把 `h : ∀ x, P x` 就地改成 `h : P a` |
-| `suffices` | 无用例 | 暂以中间命题 `P` 为新目标，并在续块中证明 `P → 原目标` |
-| `apply_fun` | 无用例 | 对等式两边应用函数，必要时产生单射性旁目标 |
-| `aesop` | 无用例；这也符合本库偏好显式证明结构的现状 | 规则搜索可能关闭目标或产生搜索所得子目标 |
+出处：[MVT.lean](../SandronesLibrary/Analysis/MVT.lean#L133)。
 
-此外，`native_decide` 被本库规程禁止用于正式 Entry，所以本页不会制造一个正式源码实例。审阅者看到
-上述缺口时，应理解为“尚无库内证据可展示”，而不是把主指南中的一般语义误报成已经采用的证明风格。
+```text
+执行前：h0 : ∀ x, deriv f x = 0
+        c : ℝ
+        ⊢ f x = f y
+执行 specialize h0 c 后：h0 : deriv f c = 0
+                              ⊢ f x = f y
+```
+
+中值定理已给出某个中间点 `c`；此时不再需要“所有点的导数都为零”的函数形式，而只需它在
+`c` 处的实例。`specialize` 会就地收窄 `h0`，原目标不变；若后面还需要对别的点使用 `h0`，
+就应改用 `have h0c := h0 c` 保留原假设。
+
+### `suffices`
+
+出处：[MVT.lean](../SandronesLibrary/Analysis/MVT.lean#L140)。
+
+```text
+执行前：hdiff : f y - f x = 0
+        ⊢ f x = f y
+执行 suffices f y = f x by exact this.symm 后：
+        ⊢ f y = f x
+```
+
+已有差为零的等式自然导出 `f y = f x`，但定理目标的方向相反。`by exact this.symm` 当场说明
+“只要新命题成立，原目标就由对称性得到”；因而 proof state 只留下这个更顺手的中间命题。
+
+### `apply_fun`
+
+出处：[MVT.lean](../SandronesLibrary/Analysis/MVT.lean#L141)。
+
+```text
+执行前：hdiff : f y - f x = 0
+        ⊢ f y = f x
+执行 apply_fun fun z ↦ z - f x 后：
+        目标 1：⊢ f y - f x = f x - f x
+        目标 2：⊢ Function.Injective (fun z : ℝ ↦ z - f x)
+```
+
+它把等式两边同时减去 `f x`。这不是无条件的等价变形：为了从变形后的等式推回原等式，Lean 明确
+要求“减去固定数”是单射。紧接着 `simpa using hdiff` 关闭目标 1；`intro a b hab; linarith` 关闭
+单射性旁目标。审阅时不能漏看第二个目标。
+
+### `aesop`
+
+出处：[Foundation.lean](../SandronesLibrary/Topology/Foundation.lean#L73)。
+
+```text
+执行前：u : Set X
+        hus : u ⊆ s
+        hu : IsOpen u
+        hxu : x ∈ u
+        ⊢ ∃ v, IsOpen v ∧ x ∈ v ∧ v ⊆ s
+执行 aesop 后：无目标
+```
+
+搜索在这里没有发现新的拓扑学事实：它只选 `v := u`，再把上下文中已有的 `hu`、`hxu`、`hus`
+按合取字段顺序填回。这正是本库允许 `aesop` 的边界：它可以处理有限的逻辑装配，不应隐藏教材级的
+数学论证。
+
+`native_decide` 被本库规程禁止用于正式 Entry，因此它不属于本图谱承诺的正式 tactic 集，也不会为了
+文档覆盖而人为引入源码。
 
 ## G. 审阅时怎样使用本图谱
 

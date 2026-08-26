@@ -130,14 +130,18 @@ theorem is_constant_of_deriv_zero {f : ℝ → ℝ} (hf : Differentiable ℝ f)
     · have hc : ContinuousOn f (Set.Icc x y) := hf.continuous.continuousOn
       have hd : DifferentiableOn ℝ f (Set.Ioo x y) := hf.differentiableOn.mono (Set.subset_univ (s := Set.Ioo x y))
       rcases exists_deriv_eq_slope f hlt hc hd with ⟨c, hcI, hcslope⟩
-      have h0c : deriv f c = 0 := h0 c
-      have hfrac : (f y - f x) / (y - x) = 0 := by rw [← hcslope, h0c]
+      specialize h0 c
+      have hfrac : (f y - f x) / (y - x) = 0 := by rw [← hcslope, h0]
       have hyx : y - x ≠ 0 := by linarith
       have hdiff : f y - f x = 0 := by
         rcases (div_eq_zero_iff.mp hfrac) with h1 | h2
         · exact h1
         · exact False.elim (hyx h2)
-      linarith
+      suffices f y = f x by exact this.symm
+      apply_fun fun z ↦ z - f x
+      · simpa using hdiff
+      · intro a b hab
+        linarith
     · rw [heq]
   · have hyx : y < x := lt_of_not_ge hxy
     have hc : ContinuousOn f (Set.Icc y x) := hf.continuous.continuousOn

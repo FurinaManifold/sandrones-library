@@ -70,7 +70,7 @@ theorem mem_nhds_iff_exists_open [TopologicalSpace X] (x : X) (s : Set X) :
   rw [_root_.mem_nhds_iff]
   constructor
   · rintro ⟨u, hus, hu, hxu⟩
-    exact ⟨u, hu, hxu, hus⟩
+    aesop
   · rintro ⟨u, hu, hxu, hus⟩
     exact ⟨u, hus, hu, hxu⟩
 
