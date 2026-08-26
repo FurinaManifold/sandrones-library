@@ -2,11 +2,12 @@
 
 - fact cutoff: `cfbf141b74ffa283af1d3cf6f94ab3075b17e40e`
 - author commit: `75c42a4a54f7059f515de484e4a5b9aae60733b3`
+- revision commit: `33d4edc3c5e6e1d9eb5bc9e209e2e9ce6f87b1a7`
 - reviewed file: `docs/world-formula/chapters/00-02-finite-countable-uncountable.md`
 - mathematical reviewer: independent World Formula mathematical reviewer
 - editorial reviewer: pending; not covered by this record
 - reviewed at: 2026-08-26
-- mathematical-round verdict: `needs_changes`
+- mathematical-round verdict: `accepted`
 - whole-chapter status: remains `draft`
 
 ## 审核范围与事实链
@@ -52,7 +53,8 @@
 
 ## R1／R2／R3 汇总
 
-- **R1**：1 项开放 finding，即 F-01；涉及存在见证与“必须另造”的量词强度，必须返工。
+- **R1**：初审 1 项 finding，即 F-01；涉及存在见证与“必须另造”的量词强度，已在 revision
+  commit `33d4edc` 关闭。
 - **R2**：未发现开放 finding。链／连通分量图景被准确降格为证明直觉，人物场景也确实给出两个方向
   的单射，不是把一般关系冒充函数或单射。
 - **R3**：未发现需要数学作者返工的 finding。链／分量一句可在后续文字轮做非阻塞术语润色。
@@ -74,11 +76,23 @@
 
 ## Resolution
 
-- F-01: `still blocked`；等待章节作者按上述验收条件修订后进行只读复验。
+- F-01: `resolved` in `33d4edc`。修订删除“`h` 必须另行构造”，改为证明从双向嵌入中“重组或
+  选出”一份双射，并明确说明：若某条输入本来已是双射，结论见证可能恰好就是它；定理既不保证
+  `h=f`，也不保证 `h≠f`。场景中的“另找一张”同步改为中性的“得到一张”，完整满足验收条件。
+
+## Round 2 re-review
+
+只读复验 revision commit `33d4edc` 相对 author commit `75c42a4` 的章节 diff。该修订只改动
+F-01 所在的见证说明与场景对应句，没有改动事实截止、Entry、Lean 源码、两条输入单射的方向、
+Cantor–Bernstein 结论或链／连通分量段落。
+
+修订后的 274–278 行准确区分三件事：输入单射不要求互逆；一般不能直接把一条单射反向当作另一条；
+存在性定理既不要求结论见证沿用输入，也不要求它与输入不同。287–290 行只问能否“得到”完整配对表，
+不再排除特殊情形下复用原表。复查受改段落，没有引入新的 R1、R2 或 R3 finding。
 
 ## Verdict
 
-对 author commit `75c42a4` 的第 7 节数学轮 verdict 为 **`needs_changes`**。双向单射的方向、
-`Equinumerous` 结论、场景中的单射条件、链分量图景地位、事实截止和未覆盖边界均通过；但 F-01
-把“结论不保证沿用输入函数”加强成“见证必须另行构造”，构成开放 R1，不能以文字润色处理。
-本 verdict 只覆盖第 7 节数学第一轮，不修改章节，不代替后续独立文字审稿或 Main 一致性验收。
+对 revision commit `33d4edc` 的第 7 节数学轮最终 verdict 为 **`accepted`**。唯一 R1 finding
+F-01 已 `resolved`，没有开放的 R1、R2 或 R3 finding。双向单射的方向、`Equinumerous` 结论、
+场景中的单射条件、链分量图景地位、事实截止和未覆盖边界均通过。本 verdict 只覆盖第 7 节数学轮，
+不修改章节，不代替后续独立文字审稿或 Main 一致性验收；全章继续保持 `draft`。
