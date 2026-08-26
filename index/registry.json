@@ -15150,7 +15150,7 @@
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
-    "proof_sha": "874cb4fbd2113ba6",
+    "proof_sha": "171c3adf7082d164",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

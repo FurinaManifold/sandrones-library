@@ -25,8 +25,9 @@ Mathlib 的 `Algebra`、打包中间域、`AlgEquiv`、有限维与固定点工�
 谓词；证明不调用直接给出最终恢复结论的现成接口，以保留教材数值链的
 真实内容。
 
-本模块止于有限 Galois 基本对应，并只额外导出“全自同构群阶等于总次数”
-这一薄数值接口，供后续模块复用已经完成的私有换基。次数—指数、正规子群、
+本模块止于有限 Galois 基本对应，并只额外导出“全自同构群阶等于总
+次数”这一薄数值接口，供后续模块复用已经完成的私有换基。
+次数—指数、正规子群、
 限制同态的核与像、商群等进一步推论不在本文件内展开。
 
 > **Entry**: abstract-algebra.field.galois-correspondence
@@ -40,6 +41,12 @@ open SandronesLibrary.AbstractAlgebra.FieldSplitting
 open SandronesLibrary.AbstractAlgebra.FieldSeparableNormal
 open SandronesLibrary.AbstractAlgebra.FieldGaloisDefinitions
 open SandronesLibrary.AbstractAlgebra.Group
+
+noncomputable local instance fieldAutomorphismOverGroup
+    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
+    Group (FieldAutomorphismOver e) := by
+  let h := fieldAutomorphismOver_groupAxioms e
+  exact Group.ofLeftAxioms h.mul_assoc h.one_mul h.inv_mul
 
 /-! ## Fixing 自同构集合 -/
 
@@ -96,6 +103,47 @@ theorem fixingAutomorphismSet_isSubgroup
     (e : FieldEmbedding K L) (E : Set L) :
     SubgroupSet (FixingAutomorphismSet e E) :=
   fixingAutomorphismSet_isSubgroup_bridge e E
+
+/-- 固定 `E` 中每个元素的基域自同构所成的 Mathlib 正式子群。
+这是后续课程接口首选的子群承载；底层 carrier 仍是教材定义
+`FixingAutomorphismSet e E`，因而不引入第二套 fixing 语义。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+noncomputable def fixingAutomorphismSubgroup
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (E : Set L) :
+    Subgroup (FieldAutomorphismOver e) :=
+  SubgroupSet.toSubgroup
+    (FixingAutomorphismSet e E)
+    (fixingAutomorphismSet_isSubgroup e E)
+
+/-- fixing 正式子群的成员关系就是逐点固定给定集合。这个展开式允许
+教材证明直接使用元素条件，而无需展开 `Subgroup` 的实现字段。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+@[simp] theorem mem_fixingAutomorphismSubgroup_iff
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (E : Set L)
+    (σ : FieldAutomorphismOver e) :
+    σ ∈ fixingAutomorphismSubgroup e E ↔
+      ∀ x, x ∈ E → σ.forward x = x := by
+  change σ ∈ FixingAutomorphismSet e E ↔ _
+  exact mem_fixingAutomorphismSet_iff e E σ
+
+/-- fixing 正式子群强制转换回集合后，严格等于原有教材 fixing 集合。
+该等式是旧集合接口与首选正式接口之间的 carrier 兼容桥。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+@[simp] theorem fixingAutomorphismSubgroup_carrier
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (E : Set L) :
+    ((fixingAutomorphismSubgroup e E :
+      Subgroup (FieldAutomorphismOver e)) :
+      Set (FieldAutomorphismOver e)) = FixingAutomorphismSet e E := by
+  rfl
 
 /-- 被要求逐点固定的集合越大，满足条件的基域自同构越少。
 
@@ -1451,6 +1499,23 @@ theorem finiteExtension_subgroup_card_eq_fixingFixed
         σ ∈ FixingAutomorphismSet e (FixedFieldSet e H)} :=
   subgroup_card_eq_fixingFixed_bridge e hfin H hH
 
+/-- 有限扩张中，正式自同构子群与其固定域的 fixing 正式子群基数相同。
+这是数值恢复的首选课程接口；证明只把旧集合级已验证结果沿 carrier
+对齐搬运，不重复有限性或群阶计算。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteExtension_subgroup_card_eq_fixingFixed_subgroup
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
+    (H : Subgroup (FieldAutomorphismOver e)) :
+    Nat.card H =
+      Nat.card (fixingAutomorphismSubgroup e
+        (FixedFieldSet e (H : Set (FieldAutomorphismOver e)))) := by
+  simpa [fixingAutomorphismSubgroup] using
+    finiteExtension_subgroup_card_eq_fixingFixed
+      e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
+
 -- A3.9b-14：有限 Galois 扩张中，中间域由其 fixing 自同构集合的固定域恢复。
 private theorem finiteGalois_fixedFieldSet_fixingAutomorphismSet_bridge
     {K L : Type*} [Field K] [Field L]
@@ -1511,11 +1576,48 @@ theorem finiteExtension_fixingAutomorphismSet_fixedFieldSet
     FixingAutomorphismSet e (FixedFieldSet e H) = H :=
   finiteExtension_fixingAutomorphismSet_fixedFieldSet_bridge e hfin H hH
 
+/-- 有限扩张中，正式自同构子群由其固定域的 fixing 正式子群严格恢复。
+该定理是 Consequences 与 Restriction 模块应使用的首选恢复接口；旧的
+`Set` 加 `SubgroupSet` 版本仅保留作兼容边界。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L) (hfin : FiniteFieldExtension e)
+    (H : Subgroup (FieldAutomorphismOver e)) :
+    fixingAutomorphismSubgroup e
+      (FixedFieldSet e (H : Set (FieldAutomorphismOver e))) = H := by
+  have hrecover :=
+    finiteExtension_fixingAutomorphismSet_fixedFieldSet
+      e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
+  ext σ
+  exact Set.ext_iff.mp hrecover σ
+
+/-- 有限 Galois 扩张中，每个显式中间域由其 fixing 正式子群的固定域
+恢复。该表述保留集合式中间域教材 API，同时把群一侧升级为正式
+`Subgroup` 承载。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteGalois_fixedFieldSet_fixingAutomorphismSubgroup
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L)
+    (hfin : FiniteFieldExtension e) (hgal : GaloisExtension e)
+    (E : Set L) (hE : IntermediateFieldSet e E) :
+    FixedFieldSet e
+      (fixingAutomorphismSubgroup e E :
+        Set (FieldAutomorphismOver e)) = E := by
+  simpa only [fixingAutomorphismSubgroup_carrier] using
+    finiteGalois_fixedFieldSet_fixingAutomorphismSet
+      e hfin hgal E hE
+
 /-! ## 有限 Galois 基本对应 -/
 
-/-- A3.9b-16：有限 Galois 基本对应的最小集合式版本。第一个方向恢复
+/-- A3.9b-16 的集合级 compatibility 汇总。第一个方向恢复
 每个显式中间域；第二个方向恢复每个显式自同构子群，并保留第二方向
-本身只需要有限性的精确数学边界。
+本身只需要有限性的精确数学边界。新课程代码应优先使用下方接受正式
+`Subgroup` 的 `finiteGalois_fundamental_correspondence_subgroup`。
 
 > **Entry**: abstract-algebra.field.galois-correspondence
 -/
@@ -1532,5 +1634,30 @@ theorem finiteGalois_fundamental_correspondence
     exact finiteGalois_fixedFieldSet_fixingAutomorphismSet e hfin hgal E hE
   · intro H hH
     exact finiteExtension_fixingAutomorphismSet_fixedFieldSet e hfin H hH
+
+/-- 有限 Galois 基本对应的首选课程汇总接口。中间域仍使用本库显式集合
+谓词，群一侧则直接量化 Mathlib 正式 `Subgroup`；两个恢复方向分别复用
+上方正式薄接口，不建立第二套基本对应证明链。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteGalois_fundamental_correspondence_subgroup
+    {K L : Type*} [Field K] [Field L]
+    (e : FieldEmbedding K L)
+    (hfin : FiniteFieldExtension e) (hgal : GaloisExtension e) :
+    (∀ E : Set L, IntermediateFieldSet e E →
+      FixedFieldSet e
+        (fixingAutomorphismSubgroup e E :
+          Set (FieldAutomorphismOver e)) = E) ∧
+    (∀ H : Subgroup (FieldAutomorphismOver e),
+      fixingAutomorphismSubgroup e
+        (FixedFieldSet e (H : Set (FieldAutomorphismOver e))) = H) := by
+  constructor
+  · intro E hE
+    exact finiteGalois_fixedFieldSet_fixingAutomorphismSubgroup
+      e hfin hgal E hE
+  · intro H
+    exact finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet
+      e hfin H
 
 end SandronesLibrary.AbstractAlgebra.FieldGaloisCorrespondence

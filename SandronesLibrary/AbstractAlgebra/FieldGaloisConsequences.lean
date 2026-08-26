@@ -78,9 +78,12 @@ theorem finiteGalois_fixedField_relativeDegree_eq_card
   have hfix :
       FixingAutomorphismSet e F.carrier =
         (H : Set (FieldAutomorphismOver e)) := by
-    simpa [F, fixedFieldIntermediateField] using
-      finiteExtension_fixingAutomorphismSet_fixedFieldSet
-        e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
+    have hrecover :=
+      finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet e hfin H
+    have hcarrier := congrArg
+      (fun S : Subgroup (FieldAutomorphismOver e) =>
+        (S : Set (FieldAutomorphismOver e))) hrecover
+    simpa [F, fixedFieldIntermediateField] using hcarrier
   have hcardH : Nat.card H = n := by
     rw [hfix] at hcard
     simpa using hcard

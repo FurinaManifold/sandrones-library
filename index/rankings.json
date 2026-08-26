@@ -509,7 +509,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 71.2657,
+    "score": 71.2343,
     "rank": 111,
     "lean_usage_evidence": []
   },
@@ -557,7 +557,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 78.8598,
+    "score": 78.8285,
     "rank": 69,
     "lean_usage_evidence": []
   },
@@ -2586,7 +2586,7 @@
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
     "score": 76.2552,
-    "rank": 90,
+    "rank": 88,
     "lean_usage_evidence": [
       "未从 Entry docstring 解析到主声明"
     ]
@@ -2996,7 +2996,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.2866,
+    "score": 76.2552,
     "rank": 86,
     "lean_usage_evidence": []
   },
@@ -3624,7 +3624,7 @@
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
     "score": 82.8138,
-    "rank": 43,
+    "rank": 42,
     "lean_usage_evidence": []
   },
   {
@@ -3883,7 +3883,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 78.6088,
+    "score": 78.5774,
     "rank": 71,
     "lean_usage_evidence": []
   },
@@ -3918,7 +3918,7 @@
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
     "score": 90.1464,
-    "rank": 17,
+    "rank": 18,
     "lean_usage_evidence": [
       "LinearAlgebra/MatrixSchur.lean",
       "LinearAlgebra/NormalSpectral.lean",
@@ -4145,7 +4145,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 80.7427,
+    "score": 80.7113,
     "rank": 57,
     "lean_usage_evidence": []
   },
@@ -4392,7 +4392,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 86.454,
+    "score": 86.4226,
     "rank": 27,
     "lean_usage_evidence": [
       "NumberTheory/Elementary/FermatEuler.lean"
@@ -5010,8 +5010,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.2866,
-    "rank": 87,
+    "score": 76.2552,
+    "rank": 89,
     "lean_usage_evidence": []
   },
   {
@@ -5026,7 +5026,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 80.6172,
+    "score": 80.5858,
     "rank": 59,
     "lean_usage_evidence": [
       "SetTheory/ConcretePairingCode.lean"
@@ -5094,7 +5094,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 77.5418,
+    "score": 77.5105,
     "rank": 77,
     "lean_usage_evidence": []
   },
@@ -5110,7 +5110,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 88.0858,
+    "score": 88.0544,
     "rank": 21,
     "lean_usage_evidence": [
       "SetTheory/BusyBeaver.lean"
@@ -5660,7 +5660,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 80.1464,
+    "score": 80.1151,
     "rank": 62,
     "lean_usage_evidence": []
   },
@@ -5726,8 +5726,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 82.8243,
-    "rank": 42,
+    "score": 82.7929,
+    "rank": 43,
     "lean_usage_evidence": [
       "SetTheory/CanonicalGoodsteinState.lean",
       "SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean"
@@ -5827,7 +5827,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 81.7887,
+    "score": 81.7573,
     "rank": 51,
     "lean_usage_evidence": [
       "SetTheory/CanonicalGoodsteinState.lean",
@@ -6732,7 +6732,7 @@
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
     "score": 76.2552,
-    "rank": 89,
+    "rank": 87,
     "lean_usage_evidence": []
   },
   {
@@ -6862,7 +6862,7 @@
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
     "score": 76.6946,
-    "rank": 83,
+    "rank": 82,
     "lean_usage_evidence": []
   },
   {
@@ -6941,7 +6941,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 75.3766,
+    "score": 75.3452,
     "rank": 94,
     "lean_usage_evidence": []
   },
@@ -7135,8 +7135,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 4,
     "lean_usage_log": 2.321928,
-    "score": 89.728,
-    "rank": 18,
+    "score": 90.2615,
+    "rank": 17,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldSeparableNormal.lean",
       "AbstractAlgebra/FieldGaloisConsequences.lean",
@@ -7276,7 +7276,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.6004,
+    "score": 76.569,
     "rank": 85,
     "lean_usage_evidence": []
   },
@@ -7326,8 +7326,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.7259,
-    "rank": 82,
+    "score": 76.6946,
+    "rank": 83,
     "lean_usage_evidence": []
   },
   {
@@ -7440,8 +7440,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.2866,
-    "rank": 88,
+    "score": 76.2552,
+    "rank": 90,
     "lean_usage_evidence": []
   },
   {

@@ -5,7 +5,7 @@ variant: textbook
 kind: theorem
 state: verified
 title: 有限 Galois 基本对应
-summary: 以显式中间域集合和基域自同构子群集合表述有限 Galois 基本定理
+summary: 以显式中间域集合和正式自同构子群表述有限 Galois 基本定理
 premises: [abstract-algebra.field.galois-definitions,
   abstract-algebra.field.degree, abstract-algebra.group.def]
 mathlib: [FieldTheory.IntermediateField.Adjoin.Basic,
@@ -20,15 +20,17 @@ provenance:
 # 动机
 
 有限 Galois 基本定理把扩张中的中间域与 Galois 群的子群反向对应起来。
-本条目采用本库的显式教材 API：中间域用 `IntermediateFieldSet`，子群用
-`SubgroupSet`，自同构用 `FieldAutomorphismOver`，共同固定点与逐点 fixing
-条件都直接写成集合。公开定理因此不要求读者先接受 Mathlib 的打包结构。
+本条目采用本库的显式教材 API：中间域用 `IntermediateFieldSet`，自同构用
+`FieldAutomorphismOver`，共同固定点与逐点 fixing 条件直接写成集合；子群的
+正式承载则使用 Mathlib `Subgroup`。历史 `SubgroupSet` 声明保留为兼容入口，
+新课程代码应使用正式子群接口。
 
 # 集合级 Galois connection
 
 `FixingAutomorphismSet e E` 收集逐点固定 `E` 的全部基域自同构。它对恒等、
-复合和逆封闭，因而满足本库 `SubgroupSet`。固定域与 fixing 集合之间有基本
-等价：
+复合和逆封闭；`fixingAutomorphismSubgroup e E` 在同一个 carrier 上给出正式
+`Subgroup`，成员桥与 carrier 桥保证这里没有第二套 fixing 语义。固定域与
+fixing 集合之间有基本等价：
 
 ```text
 E ⊆ FixedFieldSet e H ↔ H ⊆ FixingAutomorphismSet e E.
@@ -57,7 +59,8 @@ Galois 扩张的自同构数目公式，得到一个自然数同时是 fixing �
 `HasExtensionDegree (intermediateFieldInclusion F)` 的次数。
 
 `finiteGalois_automorphism_card_eq_degree` 是留给后续推论层的薄数值接口：
-它把全体基域自同构的数目识别为给定的总扩张次数。该接口直接复用本模块
+它把全体基域自同构的数目识别为给定的总扩张次数。该接口直接复用
+本模块
 已有的显式自同构换基、有限维和 `IsGalois` 私有桥，避免下游重复造轮子。
 
 `fieldAutomorphismOver_mathlibAlgEquiv_mulEquiv` 进一步保留群乘法，供正规
@@ -70,15 +73,20 @@ Galois 扩张的自同构数目公式，得到一个自然数同时是 fixing �
 
 # 子群恢复与基本对应
 
-对子群集合 `H`，自然包含给出
-`H ⊆ FixingAutomorphismSet e (FixedFieldSet e H)`。证明后端通过固定点作用、
-显式子类型等价和有限基数传递，证明两侧群阶相等；有限集合的包含加
-同基数遂给出子群恢复。这个方向本身只需要扩张有限，不额外需要
-Galois 假设。
+对正式子群 `H`，自然包含给出 `H` 的 carrier 包含于其固定域的 fixing 集合。
+证明后端通过固定点作用、显式子类型等价和有限基数传递，证明两侧群阶
+相等；有限集合的包含加同基数遂给出正式子群恢复。这个方向本身只需要
+扩张有限，不额外需要 Galois 假设。
 
-`finiteGalois_fundamental_correspondence` 汇总两个恢复方向：有限 Galois
-扩张中的每个中间域由其 fixing 群恢复，而每个显式自同构子群由其固定域
-恢复。
+`finiteExtension_subgroup_card_eq_fixingFixed_subgroup` 和
+`finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet` 分别给出正式子群的
+数值恢复与严格恢复；Consequences 和 Restriction 已直接消费后者，不再把
+正式子群降回 `SubgroupSet`。
+
+`finiteGalois_fundamental_correspondence_subgroup` 是首选课程汇总：有限 Galois
+扩张中的每个中间域由其 fixing 正式子群恢复，而每个正式自同构子群由其
+固定域恢复。`finiteGalois_fundamental_correspondence` 及其他集合级恢复定理
+继续保留为 compatibility API，不另建证明链。
 
 # Mathlib 私有边界
 
@@ -91,10 +99,15 @@ Mathlib 的局部 `Algebra`、打包中间域和子群、`AlgEquiv`、`FiniteDim
 可分／正规扩张到 Mathlib 类的转换统一复用 A3.8 公开桥；本模块不再保留
 第二套最小多项式和分裂转换证明。
 
+本次载体迁移只在旧结果外增加薄的 `Subgroup` 接口。新接口的证明沿
+carrier 等式复用已验证集合级结果；没有复制固定点、有限基数或维数
+消去链。
+
 # 教材来源与边界
 
 本条目复用 Dummit and Foote, *Abstract Algebra*, Third Edition 的来源键，
 对应 Chapter 14 中有限 Galois 扩张的基本定理及其固定域—子群对应。
 次数—指数公式、正规中间扩张与正规子群、限制同态的核像及商群同构
-留给后续独立条目；这里新增的全群阶—总次数接口只是证明复用边界，不在
+留给后续独立条目；这里新增的全群阶—总次数接口只是证明复用边界，
+不在
 本条目中展开这些推论。

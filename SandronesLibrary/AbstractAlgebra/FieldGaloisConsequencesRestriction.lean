@@ -139,8 +139,10 @@ private theorem fixedFieldRestrictionHom_ker_bridge
   let F := fixedFieldIntermediateField e H
   have hrecover :
       FixingAutomorphismSet e (FixedFieldSet e (H : Set _)) = (H : Set _) :=
-    finiteExtension_fixingAutomorphismSet_fixedFieldSet
-      e hfin (H : Set (FieldAutomorphismOver e)) H.subgroupSet
+    congrArg
+      (fun S : Subgroup (FieldAutomorphismOver e) =>
+        (S : Set (FieldAutomorphismOver e)))
+      (finiteExtension_fixingAutomorphismSubgroup_fixedFieldSet e hfin H)
   ext σ
   rw [MonoidHom.mem_ker]
   change

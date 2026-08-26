@@ -26,17 +26,17 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 14 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 91.31 |
 | 15 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 91.16 |
 | 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.73 |
-| 17 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.15 |
-| 18 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.73 |
+| 17 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 90.26 |
+| 18 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 90.15 |
 | 19 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 88.37 |
 | 20 | `linear-algebra.det.mul` | 积的行列式 | 88.14 |
-| 21 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.09 |
+| 21 | `settheory.googology.bounded-halting` | 限定步数停机 | 88.05 |
 | 22 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.80 |
 | 23 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 87.47 |
 | 24 | `settheory.set.ext` | 外延性原理 | 87.34 |
 | 25 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 86.74 |
 | 26 | `linear-algebra.vector-space.def` | 向量空间定义 | 86.55 |
-| 27 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.45 |
+| 27 | `number-theory.elementary.congruence` | 同余与剩余环 | 86.42 |
 | 28 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 86.41 |
 | 29 | `topology.space.def` | 拓扑空间与开闭集公理 | 85.86 |
 | 30 | `analysis.trigonometric.double-half` | 三角函数倍角与降幂公式 | 85.86 |
