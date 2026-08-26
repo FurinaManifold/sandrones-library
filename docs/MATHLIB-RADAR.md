@@ -163,6 +163,9 @@
   同态；`lift_of` 计算规范同态在两侧生成元上的值。
 - **谁在用**：`topology.fundamental-group.van-kampen-surjectivity` 直接构造二开集覆盖成员基本群到
   环境基本群的规范同态，并把有限修正环路词提升为其原像；本库没有重造自由积或推送商。
+- **后续消费者**：`topology.fundamental-group.van-kampen-theorem` 证明该规范同态的 kernel 平凡，
+  再用 `MulEquiv.ofBijective` 与既有满射组装最终群同构；Mathlib 只承载 Pushout 和双射到等价的桥，
+  不提供被本库直接包装的最终 van Kampen 定理。
 
 ### `ContinuousMap.Homotopy` / `ContinuousMap.HomotopyRel` / `ContinuousMap.Homotopy.comp`
 - **人话**：承载连续映射间的一般变形、相对集合全程固定的变形，以及同一时间参数下的映射复合。

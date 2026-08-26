@@ -15263,7 +15263,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "topology.fundamental-group.van-kampen-cell-boundary"
+      "topology.fundamental-group.van-kampen-cell-boundary",
+      "topology.fundamental-group.van-kampen-theorem"
     ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-path-connected-surjectivity",
@@ -16649,7 +16650,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-rebased-letter-word.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-residual-gauge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "actual-left-boundary-to-input-word",
     "axioms": [
@@ -16658,6 +16661,110 @@
       "propext"
     ],
     "proof_sha": "605cff600e1b83b3"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-residual-gauge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 边界余规范消去",
+    "summary": "沿同伦方形下、右、上边传播 potential 归一化后的 cell frame，从而识别左边界首末余规范",
+    "premises": [
+      "topology.fundamental-group.van-kampen-rebased-letter-word"
+    ],
+    "mathlib": [
+      "Group",
+      "Fin",
+      "FundamentalGroup",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenResidualGauge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-residual-gauge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-kernel-word"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "boundary-residual-propagation",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a0b07473adb06577"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-kernel-word",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen kernel 字母词消去",
+    "summary": "从全局首末 frame 相等和 rebased 词为一推出非空零伦字母词本身为一",
+    "premises": [
+      "topology.fundamental-group.van-kampen-residual-gauge"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "Fin"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenKernelWord.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-kernel-word.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-theorem"
+    ],
+    "family": "topology.fundamental-group",
+    "variant": "nonempty-kernel-letter-word",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "79616171cbafaeea"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-theorem",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二开集 Seifert--van Kampen 定理",
+    "summary": "道路连通开二覆盖且交集道路连通时，合并自由积到整体基本群的规范同态给出群同构",
+    "premises": [
+      "topology.fundamental-group.van-kampen-kernel-word",
+      "topology.fundamental-group.van-kampen-surjectivity"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "Monoid.PushoutI",
+      "MulEquiv.ofBijective"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenTheorem.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-theorem.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-open-cover-path-connected",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c89c6e175ced39a8"
   },
   {
     "id": "functional-analysis.ergodic.mean",

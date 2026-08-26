@@ -602,12 +602,12 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT1-VK2 规范同态与满射 | 已集成 | 用 VK1 数据建立逐段基点修正环路词，并证明 `Monoid.PushoutI` 规范同态满射 | Main 全库验收完成；没有声称单射或同构 |
 | AT1-VK3a 零同伦方格细分 | 已集成 | 一致二维网格、逐格覆盖标签及异标签整条公共边落在交集 | 目标空间只需拓扑结构；接口严格止于方格细分 |
 | T4-I1 通用道路／网格设施归位 | 已集成 | `unitIntervalMeshPoint`、`pathCodRestrict` 与 `Path.correctedLoop`/有限 telescope 已分别移入三个中性模块 | 唯一声明、无 alias 或第二套实现；VK1/VK2/VK3a 消费链保持构建 |
-| AT1-VK3b 单格边界词与内部边抵消 | `development_open`（VK3b-01--14c 已集成） | 12b 已完成 cell-to-letter transport；13a--13c 已完成 block 内与 block 间 cocycle；14a--14c 已完成两层 telescope，并把真实左边界识别为整体 rebased 输入词 | 15a residual gauge 现开放；15b kernel triviality 与 15c canonical map injectivity/final equivalence 采用自动 release train：前一批在学科 worktree 构建并提交完整 handoff 后即可继续，不必等待 Main 再逐批口头授权；共享 Registry/ROADMAP 仍由 Main 集成 |
+| AT1-VK3b 单格边界词与内部边抵消 | 已集成（VK3b-01--15c） | 已完成逐边 transport、block 内外 cocycle、两层 telescope、residual gauge 消去、kernel triviality，并组装二开集 Seifert--van Kampen 群同构 | 完成的是道路连通开二覆盖且交集道路连通的版本；many-set、groupoid、非连通交集与自然性另列后续路线 |
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
 | T4-R3b-path 有限分段 `C¹` 道路 | 已集成 | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；已证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 当前只刻画实际 `Path.trans` 生成的有限 concat tree，未声称与任意实断点定义等价；曲线可积性消费者归复分析独立批次 |
-| T4-R3b-square 同伦方形正则化 | `research_open`（全局 relative-`C²` 签名已否决） | 只研究分片 `C²` 小方格与内部边有限抵消，或局部原函数／Goursat 网格路线；若先平滑边界，必须独立证明边界替换保持积分 | 已编译必要条件表明：全局 `C²` 方形若严格固定边界，则边界参数化本身必须 `C²`；一般 `Path.PiecewiseC1` 允许折点，故不可能满足该签名。R3a 与 R2 collar 均不能补足这一缺口；完成可行替代路线前复分析门保持冻结 |
+| T4-R3b-square 分片 `C¹` 道路同伦不变性 | `development_open`（局部原函数／dyadic grid 路线） | 先迁移通用 square-grid foundation；随后 A `PiecewiseC1DyadicAlignment`、B `IndexedOpenCoverSquareSubdivision`、D `FiniteRawOpenPathGrid` 可并行；C/E/F 保持 `ComplexAnalysis` namespace | 精确授权当前拓扑负责人迁移这条跨学科六批链；A/B/D 与 C 可按依赖并行，E 等待 C+D，F 等待 A+B+E。每批独立提交与 handoff；禁止恢复已否决的全局 relative-`C²` 签名 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。

@@ -1,4 +1,16 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
 import SandronesLibrary.Topology.VanKampenRebasedLetterWord
+
+/-!
+# van Kampen 余规范消去
+
+本文件比较顶点 potential 与边界 frame 的相对误差，并沿同伦方形的下、右、上三边传播这一余规范。
+结论把完整左边界 telescope 的首末残余 frame 联系起来；本文件尚不证明 kernel 平凡或最终同构。
+-/
 
 open Set
 open scoped unitInterval
@@ -15,11 +27,8 @@ private theorem coe_binaryOpenCoverBasepoint_for_residualGauge
     ((binaryOpenCoverBasepoint hxU hxV b : binaryOpenCoverPiece U V b) : X) = x₀ := by
   cases b <;> rfl
 
-/-- If an edge transition is the ratio of two vertex potentials and the
-corresponding frames are compatible with that transition, then the residual
-right gauge `potential⁻¹ * frame` is unchanged across the edge.  This is the
-algebraic propagation step used to compare the two endpoint frames of the
-van Kampen left-boundary telescope.
+/-- 若边 transition 是两端 potential 的比，而两端 frame 与该 transition 相容，则右余规范
+`potential⁻¹ * frame` 穿过这条边保持不变。这是比较左边界 telescope 两端 frame 的代数传播步骤。
 
 > **Entry**: topology.fundamental-group.van-kampen-residual-gauge -/
 theorem potentialNormalizedFrame_eq_of_compatible
@@ -32,8 +41,7 @@ theorem potentialNormalizedFrame_eq_of_compatible
   rw [hframe, htransition]
   simp [transitionFromPotentials, mul_assoc]
 
-/-- If the same edge is normalized to one by both a potential pair and a frame
-pair, their residual right gauges agree at the two endpoints.
+/-- 若同一条边分别被一对 potential 和一对 frame 换基为单位元，则两端的右余规范相等。
 
 > **Entry**: topology.fundamental-group.van-kampen-residual-gauge -/
 theorem potentialNormalizedFrame_eq_of_two_rebases
@@ -383,8 +391,7 @@ private theorem transitionFromPotentials_mul_frame
       targetPotential * (cellPotential⁻¹ * frame) := by
   simp [transitionFromPotentials, mul_assoc]
 
-/-- Consequently two combined frames agree whenever their target potentials
-agree and their potential-normalized cell frames agree.
+/-- 若目标 potential 相等，且按 cell potential 归一化后的 frame 相等，则两组 combined frame 相等。
 
 > **Entry**: topology.fundamental-group.van-kampen-residual-gauge -/
 theorem combinedFrame_eq_of_target_and_normalized
@@ -811,8 +818,7 @@ private theorem BinaryOpenCoverSquareSubdivision.topResidualGauge_first_eq_last
   exact hleft.trans
     (D.topResidualGauge_inside Fhom hxU hxV hUV hU hV last)
 
-/-- Bottom, right, and top telescopes compose to identify the residual cell
-gauge at the lower-left and upper-left corners of the complete square.
+/-- 依次组合下边、右边和上边的 telescope，证明整个方形左下角与左上角的 cell 余规范相等。
 
 > **Entry**: topology.fundamental-group.van-kampen-residual-gauge -/
 theorem BinaryOpenCoverSquareSubdivision.leftResidualGauge_bottom_eq_top

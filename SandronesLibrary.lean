@@ -135,6 +135,9 @@ import SandronesLibrary.Topology.VanKampenBlockBoundaryCocycle
 import SandronesLibrary.Topology.VanKampenLetterBlockTelescope
 import SandronesLibrary.Topology.VanKampenGlobalBlockTelescope
 import SandronesLibrary.Topology.VanKampenRebasedLetterWord
+import SandronesLibrary.Topology.VanKampenResidualGauge
+import SandronesLibrary.Topology.VanKampenKernelWord
+import SandronesLibrary.Topology.VanKampenTheorem
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space

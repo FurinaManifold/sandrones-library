@@ -1,4 +1,16 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
 import SandronesLibrary.Topology.VanKampenResidualGauge
+
+/-!
+# van Kampen kernel 字母词
+
+本文件用余规范消去证明全局首末 frame 相等，进而从整体 rebased 字母词为一恢复原字母词为一。
+它处理规范同态 kernel 的核心非空词情形，并给出最终单射证明所需的常 connector 桥。
+-/
 
 open Set
 open scoped unitInterval
@@ -9,8 +21,7 @@ namespace SandronesLibrary.Topology
 
 variable {X : Type*} [TopologicalSpace X]
 
-/-- For a nonempty word, the second-level block chain ends at the combined
-frame of the last fine edge of the last block.
+/-- 对非空字母词，第二层 block chain 的终点是最后一个 block 最后一条细边的 combined frame。
 
 > **Entry**: topology.fundamental-group.van-kampen-kernel-word -/
 theorem PathConcatAlignedSquareSubdivision.leftBoundaryLetterBlockChain_end
@@ -44,10 +55,8 @@ theorem PathConcatAlignedSquareSubdivision.leftBoundaryLetterBlockChain_end
   unfold PathConcatAlignedSquareSubdivision.leftBoundaryLetterBlockChain
   exact edgeChainEnd_ofFn_of_pos _ hn _ _ _
 
-/-- The global start and finish frames of the nonempty left-boundary word are
-equal.  The proof separates the common letter-side basepoint potential from
-the cell residual gauge propagated around the other three sides of the
-homotopy square.
+/-- 非空左边界词的全局起点 frame 与终点 frame 相等。证明把公共的 letter-side 基点 potential 与
+沿同伦方形其余三边传播的 cell 余规范分开比较。
 
 > **Entry**: topology.fundamental-group.van-kampen-kernel-word -/
 theorem PathConcatAlignedSquareSubdivision.leftBoundaryGlobalCombinedFrames_eq
@@ -220,8 +229,7 @@ theorem PathConcatAlignedSquareSubdivision.leftBoundaryGlobalCombinedFrames_eq
     unfold BinaryOpenCoverSquareSubdivision.gridCellBasepointPotential at hnormalized
     simpa [first, last, z₀] using hnormalized
 
-/-- A nonempty Pushout letter word whose ambient concat loop is null-homotopic
-is already the unit of the Pushout.
+/-- 若非空 Pushout 字母词对应的环境拼接环路零伦，则该字母词已经是 Pushout 的单位元。
 
 > **Entry**: topology.fundamental-group.van-kampen-kernel-word -/
 theorem PathConcatAlignedSquareSubdivision.letterWord_eq_one_of_homotopy_of_nonempty
@@ -259,8 +267,7 @@ theorem PathConcatAlignedSquareSubdivision.letterWord_eq_one_of_homotopy_of_none
   dsimp only [start, firstBlock, firstLengthPos] at hconjugated
   simpa [rebaseEdge, mul_assoc] using hconjugated
 
-/-- Constant endpoint connectors do not change the fundamental-group class of
-a loop.  This is the bridge used by the final canonical-map computation.
+/-- 两端使用常 connector 不改变环路的基本群类；这是最终规范同态计算使用的桥。
 
 > **Entry**: topology.fundamental-group.van-kampen-kernel-word -/
 @[simp] theorem fundamentalGroup_fromPath_correctedLoop_refl

@@ -1,4 +1,16 @@
+/-
+Copyright (c) 2026 Sandrone's Library contributors. All rights reserved.
+Released under Apache 2.0 license as described in the file LICENSE.
+Authors: Sandrone's Library contributors
+-/
 import SandronesLibrary.Topology.VanKampenKernelWord
+
+/-!
+# 二开集 Seifert--van Kampen 定理
+
+本文件把前序字母词与 kernel 消去链组装成规范同态的单射性，再与已证明的满射性合成群同构。
+结论适用于道路连通开二覆盖且交集道路连通的版本，不声称多开集或非连通交集推广。
+-/
 
 open Set
 open scoped unitInterval
@@ -100,9 +112,8 @@ theorem exists_binaryVanKampenKernelConcatLoopHomotopy
   rw [← binaryVanKampenCanonicalMap_letterWord_eq_concatLoop hxU hxV letters,
     hletters, ha]
 
-/-- Every element in the kernel of the binary van Kampen canonical map is the
-unit.  The empty letter word is immediate; a nonempty word is handled by an
-aligned square subdivision of its null-homotopy.
+/-- 二元 van Kampen 规范同态 kernel 中的每个元素都是单位元。空字母词直接处理；非空词通过其
+零伦的对齐方格细分归约到前序 kernel 字母词定理。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 theorem binaryVanKampenCanonicalMap_eq_one_imp
@@ -133,7 +144,7 @@ theorem binaryVanKampenCanonicalMap_eq_one_imp
       (A.letterWord_eq_one_of_homotopy_of_nonempty
         hxU hxV hUV hU hV letters Fhom hn)
 
-/-- Injectivity half of the binary Seifert--van Kampen theorem.
+/-- 二元 Seifert--van Kampen 定理的单射部分。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 theorem injective_binaryVanKampenCanonicalMap
@@ -149,9 +160,8 @@ theorem injective_binaryVanKampenCanonicalMap
     U V hxU hxV hUopen hVopen hcover hU hV hUV a,
     fun ha => by simp [ha]⟩
 
-/-- Binary Seifert--van Kampen: for a path-connected open two-set cover with
-path-connected intersection, the canonical amalgamated free-product map is a
-group isomorphism.
+/-- 二元 Seifert--van Kampen 定理：若两个道路连通开集覆盖全空间且交集道路连通，则从合并自由积
+到整体基本群的规范映射是群同构。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 noncomputable def binaryVanKampenCanonicalEquiv
@@ -167,8 +177,7 @@ noncomputable def binaryVanKampenCanonicalEquiv
      Path.surjective_binaryVanKampenCanonicalMap
       U V hxU hxV hUopen hVopen hcover hU hV hUV⟩
 
-/-- The forward homomorphism of the binary van Kampen equivalence is exactly
-the canonical map induced by the two inclusions into the ambient space.
+/-- 二元 van Kampen 等价的正向同态正是由两个覆盖成员包含到环境空间所诱导的规范映射。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 theorem binaryVanKampenCanonicalEquiv_toMonoidHom
@@ -180,7 +189,7 @@ theorem binaryVanKampenCanonicalEquiv_toMonoidHom
       binaryVanKampenCanonicalMap U V hxU hxV :=
   rfl
 
-/-- Applying the binary van Kampen equivalence is applying its canonical map.
+/-- 计算二元 van Kampen 等价的正向作用，等同于计算其规范映射。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 @[simp] theorem binaryVanKampenCanonicalEquiv_apply
@@ -193,8 +202,7 @@ theorem binaryVanKampenCanonicalEquiv_toMonoidHom
       binaryVanKampenCanonicalMap U V hxU hxV a :=
   rfl
 
-/-- On a generator from either member of the cover, the binary van Kampen
-equivalence is the map on fundamental groups induced by that inclusion.
+/-- 对来自任一覆盖成员的生成元，二元 van Kampen 等价等于该包含映射诱导的基本群同态。
 
 > **Entry**: topology.fundamental-group.van-kampen-theorem -/
 @[simp] theorem binaryVanKampenCanonicalEquiv_of
