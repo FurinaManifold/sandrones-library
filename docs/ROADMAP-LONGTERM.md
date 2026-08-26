@@ -32,7 +32,7 @@
 |---|---|---|---|
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 AN-MV🚧 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
-| **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3🚧 | 等价关系/商集 |
+| **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3✅ | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
@@ -448,7 +448,7 @@ L7 的 Moore–Penrose 伪逆和数值稳定性若超出 Horn–Johnson 当前�
 | 8 | `abstract-algebra.ring.crt` | 中国剩余定理、互素理想与有限直积 | ✅ |
 | 9 | `abstract-algebra.ring.localization` | 分式域与局部化的构造及泛性质 | ✅ |
 
-### A3 多项式与域扩张 🚧
+### A3 多项式与域扩张 ✅
 
 | # | 条目 | 内容 | 状态 |
 |---|---|---|---|
