@@ -25,6 +25,15 @@
 Main 一致性验收：`accepted`（仅限已完成的第 1–4 节；记录：
 [`wf1-02-cardinality-foundations-main-consistency-review.md`](../reviews/wf1-02-cardinality-foundations-main-consistency-review.md)）
 
+第 5–6 节数学审稿：`accepted`（记录：
+[`wf1-02-countable-applications-mathematical-review.md`](../reviews/wf1-02-countable-applications-mathematical-review.md)）
+
+第 5–6 节文字审稿：`accepted_main_docs`（记录：
+[`wf1-02-countable-applications-editorial-review.md`](../reviews/wf1-02-countable-applications-editorial-review.md)）
+
+第 5–6 节 Main 一致性验收：`accepted`（记录：
+[`wf1-02-countable-applications-main-consistency-review.md`](../reviews/wf1-02-countable-applications-main-consistency-review.md)）
+
 ## 一　同样多，不必先数到最后
 
 面对两个有限集合，我们很容易先给两边各做一份有限的完整编号，再比较编号长度。然而，这个办法把
@@ -239,18 +248,20 @@ q:\mathbb Q\longrightarrow\mathbb N.
 没有假定每个元素只属于一片。
 
 这里有一条不应藏起来的基础边界：“每一片存在某个编码”本身并没有同时交付一整族已选定的编码，
-为所有片统一选编码、为并集元素统一选来源都涉及选择。当前经典形式化允许这些选择；本 Entry 的公理
-账也确实含 `Classical.choice`。Lean 定理复用 mathlib 的可数并结果 `Set.countable_iUnion`；`(i,m)`
-只负责解释结论为何合理，本章不声称给出了一套无需选择的显式统一枚举算法，也不把“可数并”扩大成
-任意指标并。
+为所有片统一选编码、为并集元素统一选来源都涉及选择。本章采用经典集合论背景，允许完成这些选择；
+`(i,m)` 只负责解释结论为何合理，并不声称给出一套无需选择的显式统一枚举算法，也不把“可数并”
+扩大成任意指标并。
 
 **本半章的来源与边界。** 等势及其双射刻画来自 `settheory.cardinal.equinumerous`；用单射定义
 “基数不大于”及其自反、传递性质来自 `settheory.cardinal.comparison`；有限枚举和由此得到的有限
 单射界来自 `settheory.cardinal.finite-set`；`Countable A` 与单射 $A\to\mathbb N$ 的等价刻画来自
 `settheory.cardinal.countable-def`；有理数可数来自 `settheory.cardinal.countable-rat`；可数指标下
 可数片段之并仍可数来自 `settheory.cardinal.countable-union`。这些已核验事实没有把比较包装成完整
-的通用序结构，没有给出有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 5–6 节尚未
-经过上方所列的数学、文字或 Main 一致性验收。
+的通用序结构，没有给出有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 5–6 节已经
+完成独立数学、文字与 Main 一致性验收，但这些验收不覆盖仍未书写的后续部分。
+
+实现层追溯集中记在这里：有理数条目复用 Mathlib 的 `Countable ℚ`；可数并条目复用
+`Set.countable_iUnion`，其公理审计包含 `Classical.choice`，与正文所披露的统一选取边界一致。
 
 ---
 
