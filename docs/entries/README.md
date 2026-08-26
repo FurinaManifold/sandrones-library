@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **472** 个条目（verified 472，pending 0）。
+共 **473** 个条目（verified 473，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -15,6 +15,7 @@
 - ✅ [`galois-consequences.md`](abstract-algebra/field/galois-consequences.md) — 有限 Galois 对应的次数与指数公式
 - ✅ [`galois-correspondence.md`](abstract-algebra/field/galois-correspondence.md) — 有限 Galois 基本对应
 - ✅ [`galois-definitions.md`](abstract-algebra/field/galois-definitions.md) — Galois 扩张、显式自同构群与固定域
+- ✅ [`galois-normality.md`](abstract-algebra/field/galois-normality.md) — Galois 对应中的正规子群与正规中间扩张
 - ✅ [`separable-normal.md`](abstract-algebra/field/separable-normal.md) — 可分多项式、可分扩张与正规扩张
 - ✅ [`separable-normal-characterizations.md`](abstract-algebra/field/separable-normal-characterizations.md) — 可分性与正规性的根论刻画
 - ✅ [`splitting.md`](abstract-algebra/field/splitting.md) — 多项式的分裂域、存在性与唯一到同构

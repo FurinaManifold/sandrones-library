@@ -52,7 +52,7 @@ provenance:
 - 一个显式扩张有限且正规，当且仅当它是某个非零多项式的分裂域。
 - 有限基域上的每个显式有限扩张都是可分扩张。
 
-# Lean 承载与私有桥
+# Lean 承载与复用桥
 
 | 教材对象 | 公开承载 | 私有验证后端 |
 |---|---|---|
@@ -65,8 +65,10 @@ provenance:
 | 有限基域可分性 | `[Finite K]` | 完美域实例 |
 
 公开声明只使用域、显式 `FieldEmbedding`、正式 `Polynomial` 以及 A3.5--A3.7 教材谓词。
-Mathlib 的 `Algebra`、整性、有限维、可分扩张类、正规扩张类、分裂域类和完美域只在私有
-证明后端出现。私有桥首先验证局部 `algebraMap` 等于指定嵌入，再识别显式求值和最小多项式。
+Mathlib 的 `Algebra`、整性、有限维、可分扩张类、正规扩张类、分裂域类和完美域主要服务
+证明后端。`separableExtension_iff_mathlibIsSeparable` 与
+`normalExtension_iff_mathlibNormal` 是跨模块正式复用桥：它们集中封装局部
+`algebraMap`、显式求值和最小多项式的对齐，上层不得重复这条转换链。
 
 # 证明结构
 

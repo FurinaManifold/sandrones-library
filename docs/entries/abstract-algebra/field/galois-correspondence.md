@@ -60,6 +60,10 @@ Galois 扩张的自同构数目公式，得到一个自然数同时是 fixing �
 它把全体基域自同构的数目识别为给定的总扩张次数。该接口直接复用本模块
 已有的显式自同构换基、有限维和 `IsGalois` 私有桥，避免下游重复造轮子。
 
+`fieldAutomorphismOver_mathlibAlgEquiv_mulEquiv` 进一步保留群乘法，供正规
+子群和商群推论复用；`finiteGalois_mathlibBackend` 一次性提供有限维与
+`IsGalois` 证明对象。二者是明确的桥接口，不改变教材公开对象。
+
 `fixingClosureIntermediateField F` 是先取 fixing 自同构、再取共同固定域所得
 闭包。`F` 与闭包有相同 fixing 集合，因而相对次数相同；结合自然包含和
 “同一有限维数下的包含必为相等”，得到中间域恢复。
@@ -83,6 +87,9 @@ Mathlib 的局部 `Algebra`、打包中间域和子群、`AlgEquiv`、`FiniteDim
 证明体。公开声明不暴露这些承载。证明刻意重建 restriction、换基与数值
 消去链，不调用直接返回最终中间域恢复、子群恢复或完整对应的便捷
 定理。
+
+可分／正规扩张到 Mathlib 类的转换统一复用 A3.8 公开桥；本模块不再保留
+第二套最小多项式和分裂转换证明。
 
 # 教材来源与边界
 

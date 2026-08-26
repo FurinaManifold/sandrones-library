@@ -205,6 +205,28 @@ private theorem normalExtension_iff_mathlib {K L : Type*}
       subst p
       simpa [PolynomialSplitsIn, algebraMap_eq_embedding e] using (hn' x).2
 
+/-- 本库显式可分扩张谓词与由同一域嵌入诱导的 Mathlib 可分扩张类完全等价。
+这是跨模块复用的正式桥；后续证明不应再次展开最小多项式转换链。
+
+> **Entry**: abstract-algebra.field.separable-normal
+-/
+theorem separableExtension_iff_mathlibIsSeparable {K L : Type*}
+    [Field K] [Field L] (e : FieldEmbedding K L) :
+    letI : Algebra K L := e.toRingHom.toAlgebra
+    SeparableExtension e ↔ Algebra.IsSeparable K L :=
+  separableExtension_iff_mathlib e
+
+/-- 本库显式正规扩张谓词与由同一域嵌入诱导的 Mathlib `Normal` 类完全等价。
+该桥集中封装代数性、最小多项式和分裂语义的对齐，避免上层模块重复证明。
+
+> **Entry**: abstract-algebra.field.separable-normal
+-/
+theorem normalExtension_iff_mathlibNormal {K L : Type*}
+    [Field K] [Field L] (e : FieldEmbedding K L) :
+    letI : Algebra K L := e.toRingHom.toAlgebra
+    NormalExtension e ↔ Normal K L :=
+  normalExtension_iff_mathlib e
+
 -- A3.8-09：A3.6 显式有限域基产生 Mathlib 有限维实例。
 private theorem finiteFieldExtension_to_finiteDimensional {K L : Type*}
     [Field K] [Field L] (e : FieldEmbedding K L) :

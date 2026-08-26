@@ -705,6 +705,25 @@ private theorem fieldAutomorphismOver_mathlibAlgEquiv_bridge
   let _ : Algebra K L := e.toRingHom.toAlgebra
   exact ⟨fieldAutomorphismOver_mathlibAlgEquiv_equiv e⟩
 
+/-- 显式基域自同构群与由同一嵌入诱导的 Mathlib `AlgEquiv` 群乘法等价。
+这是正规子群、限制同态和商群推论共用的正式桥；后续模块不应再次构造
+相同的正逆映射。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+noncomputable def fieldAutomorphismOver_mathlibAlgEquiv_mulEquiv
+    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
+    letI : Algebra K L := e.toRingHom.toAlgebra
+    FieldAutomorphismOver e ≃* (L ≃ₐ[K] L) := by
+  let _ : Algebra K L := e.toRingHom.toAlgebra
+  refine
+    { toEquiv := fieldAutomorphismOver_mathlibAlgEquiv_equiv e
+      map_mul' := ?_ }
+  intro σ τ
+  apply AlgEquiv.ext
+  intro x
+  rfl
+
 -- A3.9b-02：显式中间域集合可承载为具有相同底层集合的 Mathlib 中间域。
 private theorem intermediateFieldSet_mathlibIntermediateField_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L)
@@ -791,124 +810,6 @@ private theorem finiteFieldExtension_mathlibFiniteDimensional_bridge
   exact ⟨Module.Finite.of_basis B⟩
 
 -- A3.9b-08：显式 Galois 条件在局部 Algebra 后端给出 Mathlib IsGalois 实例。
-private theorem galois_algebraMap_eq_embedding
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
-    @algebraMap K L _ _ e.toRingHom.toAlgebra = e.toRingHom := by
-  exact RingHom.algebraMap_toAlgebra e.toRingHom
-
-private theorem galois_aeval_eq_evaluateOver
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L)
-    (p : Polynomial K) (x : L) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    Polynomial.aeval x p = evaluateOver e p x := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  rw [Polynomial.aeval_def, galois_algebraMap_eq_embedding]
-  rfl
-
-private theorem galois_algebraicElement_iff_isIntegral
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) (x : L) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    AlgebraicElement e x ↔ IsIntegral K x := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  constructor
-  · rintro ⟨p, hp, hev⟩
-    apply IsAlgebraic.isIntegral
-    refine ⟨p, hp, ?_⟩
-    rwa [galois_aeval_eq_evaluateOver e]
-  · rintro ⟨p, hpmonic, hev⟩
-    refine ⟨p, hpmonic.ne_zero, ?_⟩
-    rwa [← galois_aeval_eq_evaluateOver e]
-
-private theorem galois_minimalPolynomialOf_iff_minpoly
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) (x : L)
-    (ha : AlgebraicElement e x) (p : Polynomial K) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    MinimalPolynomialOf e x p ↔ p = minpoly K x := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  have hxint : IsIntegral K x :=
-    (galois_algebraicElement_iff_isIntegral e x).mp ha
-  have hmin : MinimalPolynomialOf e x (minpoly K x) := by
-    refine ⟨minpoly.monic hxint, ?_, ?_⟩
-    · rw [← galois_aeval_eq_evaluateOver e]
-      exact minpoly.aeval K x
-    · intro q hq
-      apply minpoly.dvd K x
-      rwa [galois_aeval_eq_evaluateOver e]
-  constructor
-  · intro hp
-    exact minimalPolynomialOf_unique e hp hmin
-  · rintro rfl
-    exact hmin
-
-private theorem galois_separablePolynomial_iff_mathlib
-    {K : Type*} [Field K] (p : Polynomial K) :
-    SeparablePolynomial p ↔ p.Separable := by
-  simpa [SeparablePolynomial] using (Polynomial.separable_def' p).symm
-
-private theorem galois_separableElement_iff_mathlib
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) (x : L) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    SeparableElement e x ↔ IsSeparable K x := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  constructor
-  · rintro ⟨p, hpmin, hpsep⟩
-    have ha : AlgebraicElement e x :=
-      ⟨p, hpmin.1.ne_zero, hpmin.2.1⟩
-    have hp_eq : p = minpoly K x :=
-      (galois_minimalPolynomialOf_iff_minpoly e x ha p).mp hpmin
-    rw [IsSeparable, ← hp_eq]
-    exact (galois_separablePolynomial_iff_mathlib p).mp hpsep
-  · intro hx
-    have ha : AlgebraicElement e x :=
-      (galois_algebraicElement_iff_isIntegral e x).mpr hx.isIntegral
-    refine ⟨minpoly K x, ?_, ?_⟩
-    · exact (galois_minimalPolynomialOf_iff_minpoly
-        e x ha (minpoly K x)).mpr rfl
-    · exact (galois_separablePolynomial_iff_mathlib (minpoly K x)).mpr hx
-
-private theorem galois_separableExtension_iff_mathlib
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    SeparableExtension e ↔ Algebra.IsSeparable K L := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  constructor
-  · intro h
-    exact ⟨fun x => (galois_separableElement_iff_mathlib e x).mp (h x)⟩
-  · intro h x
-    exact (galois_separableElement_iff_mathlib e x).mpr (h.isSeparable' x)
-
-private theorem galois_normalExtension_iff_mathlib
-    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
-    letI : Algebra K L := e.toRingHom.toAlgebra
-    NormalExtension e ↔ Normal K L := by
-  let _ : Algebra K L := e.toRingHom.toAlgebra
-  constructor
-  · rintro ⟨halg, hsplits⟩
-    apply normal_iff.mpr
-    intro x
-    have ha : AlgebraicElement e x := halg x
-    have hxint : IsIntegral K x :=
-      (galois_algebraicElement_iff_isIntegral e x).mp ha
-    refine ⟨hxint, ?_⟩
-    have hmin : MinimalPolynomialOf e x (minpoly K x) :=
-      (galois_minimalPolynomialOf_iff_minpoly
-        e x ha (minpoly K x)).mpr rfl
-    simpa [PolynomialSplitsIn, galois_algebraMap_eq_embedding e] using
-      hsplits x (minpoly K x) hmin
-  · intro hn
-    have hn' := normal_iff.mp hn
-    constructor
-    · intro x
-      exact (galois_algebraicElement_iff_isIntegral e x).mpr (hn' x).1
-    · intro x p hp
-      have ha : AlgebraicElement e x :=
-        (galois_algebraicElement_iff_isIntegral e x).mpr (hn' x).1
-      have hp_eq : p = minpoly K x :=
-        (galois_minimalPolynomialOf_iff_minpoly e x ha p).mp hp
-      subst p
-      simpa [PolynomialSplitsIn, galois_algebraMap_eq_embedding e] using
-        (hn' x).2
-
 private theorem galoisExtension_mathlibIsGalois_bridge
     {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L) :
     letI : Algebra K L := e.toRingHom.toAlgebra
@@ -916,8 +817,22 @@ private theorem galoisExtension_mathlibIsGalois_bridge
   let _ : Algebra K L := e.toRingHom.toAlgebra
   rintro ⟨hsep, hnormal⟩
   exact ⟨isGalois_iff.mpr
-    ⟨(galois_separableExtension_iff_mathlib e).mp hsep,
-      (galois_normalExtension_iff_mathlib e).mp hnormal⟩⟩
+    ⟨(separableExtension_iff_mathlibIsSeparable e).mp hsep,
+      (normalExtension_iff_mathlibNormal e).mp hnormal⟩⟩
+
+/-- 本库有限 Galois 假设可一次性安装为 Mathlib 的有限维和 `IsGalois`
+证明对象。该后端包只供后续证明局部使用，不改变公开教材谓词。
+
+> **Entry**: abstract-algebra.field.galois-correspondence
+-/
+theorem finiteGalois_mathlibBackend
+    {K L : Type*} [Field K] [Field L] (e : FieldEmbedding K L)
+    (hfin : FiniteFieldExtension e) (hgal : GaloisExtension e) :
+    letI : Algebra K L := e.toRingHom.toAlgebra
+    Nonempty (FiniteDimensional K L) ∧ Nonempty (IsGalois K L) := by
+  let _ : Algebra K L := e.toRingHom.toAlgebra
+  exact ⟨finiteFieldExtension_mathlibFiniteDimensional_bridge e hfin,
+    galoisExtension_mathlibIsGalois_bridge e hgal⟩
 
 -- A3.9b-09：Mathlib 固定域与 fixing 子群经载体转换后对齐本库两个集合。
 private theorem fixedField_fixing_carrier_alignment_bridge

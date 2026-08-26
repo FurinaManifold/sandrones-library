@@ -13998,6 +13998,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "abstract-algebra.field.galois-normality",
       "abstract-algebra.field.separable-normal-characterizations"
     ],
     "family": "abstract-algebra.field",
@@ -15137,7 +15138,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "abstract-algebra.field.galois-consequences"
+      "abstract-algebra.field.galois-consequences",
+      "abstract-algebra.field.galois-normality"
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
@@ -15346,10 +15348,47 @@
     "nl_file": "docs/entries/abstract-algebra/field/galois-consequences.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.galois-normality"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "1c5aa58b854e3651",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.galois-normality",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Galois 对应中的正规子群与正规中间扩张",
+    "summary": "有限 Galois 扩张中子群正规当且仅当其固定域对基域正规或 Galois",
+    "premises": [
+      "abstract-algebra.field.galois-consequences",
+      "abstract-algebra.field.galois-correspondence",
+      "abstract-algebra.field.separable-normal"
+    ],
+    "mathlib": [
+      "Subgroup.Normal",
+      "IntermediateField.fixedField",
+      "IsGalois.of_fixedField_normal_subgroup",
+      "IsGalois.fixingSubgroup_normal_of_isGalois"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldGaloisConsequencesNormality.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/galois-normality.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "2769f463599a21f7",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
