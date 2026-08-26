@@ -15785,7 +15785,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-edge-gauge.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-vertex-potential"
+    ],
     "family": "topology.fundamental-group",
     "variant": "unified-edge-rebasing-finite-telescope",
     "axioms": [
@@ -15794,5 +15796,38 @@
       "propext"
     ],
     "proof_sha": "cf70fbb88338279f"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-vertex-potential",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 网格顶点的 connector potential",
+    "summary": "将同一点 connector 变化写成群 cocycle，以顶点 potential 的比值统一边 transition 并证明同标签中央 coherence",
+    "premises": [
+      "topology.fundamental-group.van-kampen-edge-gauge"
+    ],
+    "mathlib": [
+      "Path",
+      "FundamentalGroup",
+      "MonoidHom",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenVertexPotential.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-vertex-potential.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "connector-cocycle-and-grid-potential",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7d3664d0d8a53c4e"
   }
 ]

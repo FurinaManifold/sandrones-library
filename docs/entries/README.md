@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **484** 个条目（verified 484，pending 0）。
+共 **485** 个条目（verified 485，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -703,6 +703,7 @@
 - ✅ [`van-kampen-square-subdivision.md`](topology/fundamental-group/van-kampen-square-subdivision.md) — 二开集覆盖下的有限带标签方格细分
 - ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射
 - ✅ [`van-kampen-switch-shared-edge.md`](topology/fundamental-group/van-kampen-switch-shared-edge.md) — van Kampen 方格中异标签公共边的 Pushout 比较
+- ✅ [`van-kampen-vertex-potential.md`](topology/fundamental-group/van-kampen-vertex-potential.md) — van Kampen 网格顶点的 connector potential
 
 ## `topology.homotopy`
 

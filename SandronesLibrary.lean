@@ -114,6 +114,7 @@ import SandronesLibrary.Topology.VanKampenHomotopySquareBoundary
 import SandronesLibrary.Topology.VanKampenCommonSharedEdge
 import SandronesLibrary.Topology.VanKampenSwitchSharedEdge
 import SandronesLibrary.Topology.VanKampenEdgeGauge
+import SandronesLibrary.Topology.VanKampenVertexPotential
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
