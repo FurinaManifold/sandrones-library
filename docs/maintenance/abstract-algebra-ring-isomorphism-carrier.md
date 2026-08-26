@@ -72,6 +72,10 @@ Registry、RADAR 和生成索引属于 Main 共有文件，学科维护分支不
 
 ## 分阶段迁移
 
+当前状态（Main 2026-08-26）：**R1 已集成并验收，R2 已开放**。正式第一、第二、第三同构定理现由
+`RingEquiv` 核心拥有证明，旧 `RingIsomorphism` 名称保持为薄兼容包装；`RingCRT.lean` 在 R1 后已
+独立复验通过。R2 只迁移 CRT 的两个主同构结果，不得顺带改写理想或商环承载。
+
 ### R1：双轨桥与正式核心
 
 在 `RingIsomorphismTheorems.lean` 中加入上述双向桥和往返恒等式。新增直接返回
@@ -79,7 +83,7 @@ Registry、RADAR 和生成索引属于 Main 共有文件，学科维护分支不
 转移到正式核心。旧名称与旧返回类型保持不变，只作为
 `RingIsomorphism.ofRingEquiv` 的 compatibility wrapper，不复制原证明。
 
-这一阶段不删除旧结构，不改变 CRT，也不修改共享文件。回滚点是独立的 R1 提交。
+这一阶段不删除旧结构，不改变 CRT。已由 Main 集成；回滚点是独立的 R1 提交。
 
 ### R2：同学科下游
 

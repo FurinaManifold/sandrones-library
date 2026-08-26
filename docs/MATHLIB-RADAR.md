@@ -233,6 +233,13 @@
 - **出处**：Lean/Mathlib 的商类型基础设施。
 - **谁在用**：`abstract-algebra.ring.iso-theorems`；只作实现后端，不代替教材商环定义。
 
+### `RingEquiv`（记号 `R ≃+* S`）
+- **人话**：同时保持加法、乘法和单位元的双射，正是教材中的环同构。
+- **出处**：Mathlib 的标准环同构结构。
+- **谁在用**：`abstract-algebra.ring.iso-theorems` 的第一、第二、第三同构正式核心。
+- **本库边界**：本库普通函数谓词 `RingHomomorphism` 继续负责逐项展开同态公理；历史
+  `RingIsomorphism` 只作双向无损兼容层，不再拥有主证明。
+
 ### `Associated` / `Irreducible` / `Prime`
 - **人话**：Mathlib 对相伴、不可约元和素元的标准谓词。
 - **出处**：Mathlib 交换幺半群与分解理论。

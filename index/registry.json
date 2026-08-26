@@ -2218,7 +2218,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2252,7 +2252,7 @@
     ],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2282,7 +2282,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2313,7 +2313,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2345,7 +2345,7 @@
     ],
     "family": "analysis.mvt",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2381,7 +2381,7 @@
     ],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2411,7 +2411,7 @@
     "dependedOnBy": [],
     "family": "analysis.mvt",
     "variant": "rudin",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3336,7 +3336,7 @@
     "dependedOnBy": [],
     "family": "analysis",
     "variant": "ecnu",
-    "proof_sha": "d3b0e462ec1b1f25",
+    "proof_sha": "43b4b15d5e16959c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -3451,7 +3451,7 @@
       "abstract-algebra.group.cyclic",
       "abstract-algebra.group.normal"
     ],
-    "proof_sha": "b2919948fd20ade9"
+    "proof_sha": "cb450e49039a6879"
   },
   {
     "id": "abstract-algebra.group.coset",
@@ -3491,7 +3491,7 @@
       "abstract-algebra.group.cyclic",
       "abstract-algebra.group.index-two"
     ],
-    "proof_sha": "b2919948fd20ade9"
+    "proof_sha": "cb450e49039a6879"
   },
   {
     "id": "abstract-algebra.group.normal",
@@ -3530,7 +3530,7 @@
     "dependedOnBy": [
       "abstract-algebra.group.hom"
     ],
-    "proof_sha": "b2919948fd20ade9"
+    "proof_sha": "cb450e49039a6879"
   },
   {
     "id": "abstract-algebra.group.hom",
@@ -3571,7 +3571,7 @@
     "dependedOnBy": [
       "abstract-algebra.group.iso-theorems"
     ],
-    "proof_sha": "b2919948fd20ade9"
+    "proof_sha": "cb450e49039a6879"
   },
   {
     "id": "abstract-algebra.group.index-two",
@@ -3601,7 +3601,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "b2919948fd20ade9"
+    "proof_sha": "cb450e49039a6879"
   },
   {
     "id": "abstract-algebra.ring.def",
@@ -5237,7 +5237,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "d3b0e462ec1b1f25"
+    "proof_sha": "43b4b15d5e16959c"
   },
   {
     "id": "analysis.special-functions.log",
@@ -12604,7 +12604,7 @@
       "topology.homotopy.path-definition-foundation",
       "topology.homotopy.standard"
     ],
-    "proof_sha": "107e349f1d171d7c",
+    "proof_sha": "18cd1061ceb84067",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -12713,14 +12713,15 @@
     "kind": "theorem",
     "state": "verified",
     "title": "环的同构定理",
-    "summary": "用本库显式商环证明第一、第二、第三同构定理及商环理想对应定理",
+    "summary": "以 RingEquiv 正式承载本库显式商环的第一、第二、第三同构定理及商环理想对应，并保留旧 RingIsomorphism 薄兼容层",
     "premises": [
       "abstract-algebra.ring.def",
       "abstract-algebra.ring.ideal",
       "abstract-algebra.ring.quotient"
     ],
     "mathlib": [
-      "Quotient"
+      "Quotient",
+      "RingEquiv"
     ],
     "provenance": {
       "source_type": "book",
@@ -12733,7 +12734,7 @@
     "dependedOnBy": [
       "abstract-algebra.ring.crt"
     ],
-    "proof_sha": "4a89d53c29f83e62",
+    "proof_sha": "da10f62e5d956ba8",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -14006,7 +14007,7 @@
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
-    "proof_sha": "612f8997326282c8",
+    "proof_sha": "c1e6f63e7a4c358c",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -14923,7 +14924,7 @@
     ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-labelled-subpaths",
-    "proof_sha": "01b5849d6e4d3450",
+    "proof_sha": "61c7718154245a8d",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15222,7 +15223,7 @@
     ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-path-connected-surjectivity",
-    "proof_sha": "03abf00eb628b4c0",
+    "proof_sha": "e26bcb9d0283bdb5",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15363,7 +15364,7 @@
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
-    "proof_sha": "1c5aa58b854e3651",
+    "proof_sha": "aa81934b4d54eb57",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15472,7 +15473,7 @@
     "dependedOnBy": [],
     "family": "abstract-algebra.field",
     "variant": "textbook",
-    "proof_sha": "1bab04a717e0ffb2",
+    "proof_sha": "e4dc46f329a3f7cf",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -16063,7 +16064,9 @@
     "nl_file": "docs/entries/topology/homotopy/path-concat-dyadic-subdivision.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-concat-aligned-subdivision"
+    ],
     "family": "topology.homotopy",
     "variant": "left-associated-dyadic-breakpoints",
     "axioms": [
@@ -16072,5 +16075,39 @@
       "propext"
     ],
     "proof_sha": "042ebe889946c249"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-concat-aligned-subdivision",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen concat 对齐方格细分",
+    "summary": "将 Path.concat 的 dyadic blocks 嵌入统一方格网格，证明局部细边完整覆盖全局边，并构造保留字母覆盖成员性的 aligned subdivision certificate",
+    "premises": [
+      "topology.homotopy.path-concat-dyadic-subdivision"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.subpath",
+      "Path.Homotopic",
+      "Fin",
+      "List"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathConcatAlignedSubdivision.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-concat-aligned-subdivision.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "dyadic-block-grid-alignment",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a17037a37143353b"
   }
 ]
