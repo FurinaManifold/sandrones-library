@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **541** 个条目（verified 541，pending 0）。
+共 **543** 个条目（verified 543，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -751,6 +751,8 @@
 
 - ✅ [`definition-standard.md`](topology/covering/definition-standard.md) — 覆盖映射与均匀覆盖邻域
 - ✅ [`homotopy-lifting-standard.md`](topology/covering/homotopy-lifting-standard.md) — 覆盖映射的同伦提升存在唯一性
+- ✅ [`lifting-criterion-standard.md`](topology/covering/lifting-criterion-standard.md) — 覆盖映射的提升判据
+- ✅ [`monodromy-standard.md`](topology/covering/monodromy-standard.md) — 覆盖映射的 monodromy
 - ✅ [`path-lifting-standard.md`](topology/covering/path-lifting-standard.md) — 覆盖映射的道路提升存在唯一性
 
 ## `topology.foundation`

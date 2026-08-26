@@ -14794,6 +14794,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.covering.lifting-criterion-standard",
       "topology.fundamental-group.invariance-standard"
     ],
     "family": "topology.fundamental-group",
@@ -17802,7 +17803,9 @@
     "nl_file": "docs/entries/topology/covering/homotopy-lifting-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.covering.monodromy-standard"
+    ],
     "family": "topology.covering",
     "variant": "unique-cylinder-lift-with-continuous-initial-slice",
     "axioms": [
@@ -17811,5 +17814,73 @@
       "propext"
     ],
     "proof_sha": "c66444852f68a7a2"
+  },
+  {
+    "id": "topology.covering.monodromy-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "覆盖映射的 monodromy",
+    "summary": "将道路同伦类的 fiber transport 识别为标准道路提升终点，并以 monodromy 不动点刻画环路提升闭合",
+    "premises": [
+      "topology.covering.homotopy-lifting-standard"
+    ],
+    "mathlib": [
+      "IsCoveringMap.monodromy",
+      "IsCoveringMap.monodromy_trans_apply",
+      "IsCoveringMap.monodromyPerm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringMonodromyStandard.lean",
+    "nl_file": "docs/entries/topology/covering/monodromy-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.covering.lifting-criterion-standard"
+    ],
+    "family": "topology.covering",
+    "variant": "path-class-fiber-transport-and-closed-lift-fixed-point",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2233df2f0b0b44f0"
+  },
+  {
+    "id": "topology.covering.lifting-criterion-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "覆盖映射的提升判据",
+    "summary": "对道路连通且局部道路连通的定义域，以基本群像包含刻画保持指定基点的连续提升存在唯一性",
+    "premises": [
+      "topology.covering.monodromy-standard",
+      "topology.fundamental-group.functoriality-standard"
+    ],
+    "mathlib": [
+      "IsCoveringMap.existsUnique_continuousMap_lifts_of_range_le",
+      "FundamentalGroup.map",
+      "FundamentalGroup.mapOfEq",
+      "Path.Homotopic.Quotient.map_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringLiftingCriterionStandard.lean",
+    "nl_file": "docs/entries/topology/covering/lifting-criterion-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "based-continuous-lift-iff-fundamental-group-image-inclusion",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c4e8ec97384c6b13"
   }
 ]

@@ -3,7 +3,7 @@ id: topology.covering.lifting-criterion-standard
 family: topology.covering
 variant: based-continuous-lift-iff-fundamental-group-image-inclusion
 kind: theorem
-state: research
+state: verified
 title: 覆盖映射的提升判据
 summary: 对道路连通且局部道路连通的定义域，以基本群像包含刻画保持指定基点的连续提升存在唯一性
 premises: [topology.covering.monodromy-standard, topology.fundamental-group.functoriality-standard]

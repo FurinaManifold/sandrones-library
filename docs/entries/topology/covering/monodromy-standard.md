@@ -3,7 +3,7 @@ id: topology.covering.monodromy-standard
 family: topology.covering
 variant: path-class-fiber-transport-and-closed-lift-fixed-point
 kind: theorem
-state: research
+state: verified
 title: 覆盖映射的 monodromy
 summary: 将道路同伦类的 fiber transport 识别为标准道路提升终点，并以 monodromy 不动点刻画环路提升闭合
 premises: [topology.covering.homotopy-lifting-standard]

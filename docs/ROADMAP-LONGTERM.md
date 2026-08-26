@@ -611,8 +611,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C1 覆盖空间定义层 | 已集成 | 直接解释 Mathlib `IsEvenlyCovered` / `IsCoveringMap`，明确其允许空 fiber、教材满射约定须另加假设 | carrier、开乘积邻域、离散 fiber 与基础性质均已冻结 |
 | AT2-C2 道路提升 | 已集成 | 直接复用 Mathlib 道路提升存在唯一性，并提供标准 `Path` 视图与终点 fiber | C1/C2 分文件；没有复制提升算法 |
 | AT2-C3 同伦提升 | 已集成 | 复用 Mathlib 联合连续同伦提升，冻结参数空间、时间零提升及唯一性量词 | 提供 endpoint 与标准 `ContinuousMap.Homotopy` 薄视图；没有重写逐片算法 |
-| AT2-C4 monodromy 与提升判据 | `development_open` | 构造道路／环路提升对 fiber 的 transport，证明同伦不变性、复合与逆向，并建立提升闭合判据 | 可拆 C4a transport 与 C4b criterion；必须真实消费 C2/C3，不得只包装现成最终分类定理 |
-| AT2-C5 覆盖空间分类 | `research_open` | 调查道路连通、局部道路连通、半局部单连通假设下的子群分类路线 | 仅研究签名和 Mathlib 缺口，不得以特殊例子冒充一般分类 |
+| AT2-C4 monodromy 与提升判据 | 已集成（C4a/C4b） | 标准提升终点与 monodromy、闭合提升与固定点、已有提升的必要像包含及完整存在唯一判据 | 真实消费 C2/C3；C4c simply-connected 薄别名不单独建 Entry，等待真实消费者 |
+| AT2-C5a 半局部单连通定义层 | `research_open` | 比较点邻域／基本群像两种教材签名，并审计与 `LocallyContractibleSpace` 层级的关系 | 先在临时文件验证等价候选；签名复验后才可申请正式源码，禁止混同 semilocally contractible |
+| AT2-C5b--C5g 覆盖分类施工 | 冻结，C5a handoff 后分步开放 | 道路类商、覆盖图、子群恢复、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
