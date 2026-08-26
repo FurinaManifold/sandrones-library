@@ -36,6 +36,15 @@ Main 一致性验收：`accepted`（仅限已完成的第 1–4 节；记录：
 第 5–6 节 Main 一致性验收：`accepted`（记录：
 [`wf1-02-countable-applications-main-consistency-review.md`](../reviews/wf1-02-countable-applications-main-consistency-review.md)）
 
+第 7 节数学审稿：`accepted`（记录：
+[`wf1-02-cantor-bernstein-mathematical-review.md`](../reviews/wf1-02-cantor-bernstein-mathematical-review.md)）
+
+第 7 节文字审稿：`accepted_main_docs`（记录：
+[`wf1-02-cantor-bernstein-editorial-review.md`](../reviews/wf1-02-cantor-bernstein-editorial-review.md)）
+
+第 7 节 Main 一致性验收：`accepted`（记录：
+[`wf1-02-cantor-bernstein-main-consistency-review.md`](../reviews/wf1-02-cantor-bernstein-main-consistency-review.md)）
+
 ## 一　同样多，不必先数到最后
 
 面对两个有限集合，我们很容易先给两边各做一份有限的完整编号，再比较编号长度。然而，这个办法把
@@ -296,11 +305,8 @@ $h=f$，也不保证 $h\ne f$，更不把结论写成类型 $A$ 与 $B$ 字面�
 沿一个分量查看，可以按照它有端点、向两侧无限延伸或形成环等典型情形，在整个分量内一致采用
 $f$ 的方向，或采用 $g$ 边的反方向。这样选出的局部配对不重不漏；不同分量没有共同点，因而这些
 局部配对可以合成全局双射。这段话只说明“重组或选出”为何可能，不是完整形式证明，也不声称穷尽
-技术上的分量分类。链／分量图景仍只是出版背景直觉；当前 Lean 定理在后端复用
-`Embedding.schroeder_bernstein` 来取得所需双射。
-
-本节消费 `settheory.cardinal.cantor-bernstein`，其直接前驱是本章已经使用的等势与单射比较。第 7 节
-尚未经过上方列出的数学、文字或 Main 一致性验收。
+技术上的分量分类。链／分量图景仍只是出版背景直觉；当前形式化核验的是定理的存在性结论，并没有
+把这幅图景新增为本库中的显式构造。
 
 **本半章的来源与边界。** 等势及其双射刻画来自 `settheory.cardinal.equinumerous`；用单射定义
 “基数不大于”及其自反、传递性质来自 `settheory.cardinal.comparison`；有限枚举和由此得到的有限
@@ -309,7 +315,7 @@ $f$ 的方向，或采用 $g$ 边的反方向。这样选出的局部配对不�
 可数片段之并仍可数来自 `settheory.cardinal.countable-union`；双向单射推出另有双射来自
 `settheory.cardinal.cantor-bernstein`。这些已核验事实没有把比较包装成完整的通用序结构，没有给出
 有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 1–6 节已经完成独立数学、文字与 Main
-一致性验收；第 7 节尚待三轮验收。
+一致性验收；第 7 节也已完成独立数学、文字与 Main 一致性验收。以上结论均只覆盖已经写出的切片。
 
 实现层追溯集中记在这里：有理数条目复用 Mathlib 的 `Countable ℚ`；可数并条目复用
 `Set.countable_iUnion`，其公理审计包含 `Classical.choice`，与正文所披露的统一选取边界一致；
