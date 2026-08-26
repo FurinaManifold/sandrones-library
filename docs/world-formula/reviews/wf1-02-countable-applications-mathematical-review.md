@@ -2,11 +2,12 @@
 
 - fact cutoff: `e1d5bc0`
 - author commit: `b38823d0d89667b91259d86fbadf20679dffedcf`
+- revision commit: `24e35abff645359f1444efa840c7bba01c34676a`
 - reviewed file: `docs/world-formula/chapters/00-02-finite-countable-uncountable.md`
 - mathematical reviewer: independent World Formula mathematical reviewer
 - editorial reviewer: pending; not covered by this record
 - reviewed at: 2026-08-26
-- mathematical-round verdict: `needs_changes`
+- mathematical-round verdict: `accepted`
 - whole-chapter status: remains `draft`
 
 ## 审核范围与事实链
@@ -64,11 +65,25 @@ Registry 与文档均登记 `Classical.choice` 公理依赖。
 
 ## Resolution
 
-- F-01: `still blocked`；等待章节作者在第 6 节补足经典选择／统一编码族的边界后只读复验。
+- F-01: `resolved` in `24e35ab`。修订稿先把片内编码族和每个并集元素的来源明确写成“选定”的
+  数据，随后单列基础边界：逐片存在编码不等于已同时交付统一编码族；统一选择编码和来源都涉及选择；
+  当前经典形式化允许该步骤，Entry 公理账含 `Classical.choice`。正文又明确否认给出了无需选择的
+  显式统一枚举算法，满足原 finding 的全部验收条件。
+
+## Round 2 re-review
+
+只读复验 revision commit `24e35ab` 相对初审 author commit `b38823d` 的章节 diff。该修订只改动
+第 6 节原 finding 所在的编码直觉和边界段落，没有改动两条 Entry、Lean 源码、事实截止、可数并的
+定理量词或第 5 节内容。
+
+修订后的论证层级清楚区分：Lean 定理仍只断言在 `[Countable ι]` 与
+`∀ i, (s i).Countable` 下并集可数；`(i,m)` 仍只是解释性路线；统一片内编码与来源不是从 `hs`
+直接读出的数据，而是在当前经典背景中作出的选择。`Classical.choice` 的实际公理依赖已被正文准确
+披露，也没有把一般集合论中的可数并写成无需选择的显式算法。复查相邻段落，没有引入新的 R1、R2
+或 R3 finding。
 
 ## Verdict
 
-对 author commit `b38823d` 的第 5–6 节数学轮 verdict 为 **`needs_changes`**。有理数可数、稠密性
-背景边界、可数并的完整量词以及 `(i,m)` 仅作思路等主体内容均正确；但 F-01 是协议明确要求检查的
-假设遗漏，且会把依赖 `Classical.choice` 的统一选择步骤误读成由逐片可数性直接给出的显式数据，故在
-修订并复验前不能判为 `accepted`。本 verdict 只覆盖第 5–6 节，不改变第 1–4 节既有验收结论。
+对 revision commit `24e35ab` 的第 5–6 节数学轮最终 verdict 为 **`accepted`**。唯一 R1 finding
+F-01 已 `resolved`，没有开放的 R1、R2 或 R3 finding。本 verdict 只覆盖第 5–6 节，不改变第 1–4 节
+既有验收结论，也不代替后续独立文字审稿或 Main 一致性验收；全章继续保持 `draft`。
