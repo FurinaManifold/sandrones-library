@@ -303,6 +303,9 @@
 > - 本书执行 `docs/roles/WORLD-FORMULA-EDITOR-ROLE.md`，书稿根目录为 `docs/world-formula/`。它沿
 >   Registry/Entry 的真实依赖路径综合全库知识，定位为大型数学参考书，而不是有完整习题体系的
 >   授课教材。
+> - 各章在适合教材闲谈的位置加入原创提瓦特人物情景，用来提出问题、暴露误解或连接观点；情景
+>   必须服务数学、与证明边界分明，并遵守 `docs/world-formula/TONE-AND-SCENES.md`，不得复制
+>   原作文本或伪造官方设定。
 > - 书稿是 Lean 源码、verified Registry、Entry、合规出版来源和 ROADMAP 的**只读消费者**。
 >   verified 事实、出版背景、research candidate 与 future plan 必须显式分栏；不得把计划写成成果，
 >   也不得为了叙事顺畅要求原学科改定理或伪造桥。

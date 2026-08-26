@@ -136,6 +136,7 @@ scripts/                        生成、审计和脚手架工具
 | [`docs/roles/SUBJECT-MAINTENANCE-ROLE.md`](docs/roles/SUBJECT-MAINTENANCE-ROLE.md) | 已完成学科的兼容迁移规程 |
 | [`docs/roles/WORLD-FORMULA-EDITOR-ROLE.md`](docs/roles/WORLD-FORMULA-EDITOR-ROLE.md) | 《水仙十字的世界式》常驻主编、来源和交付职责 |
 | [`docs/world-formula/README.md`](docs/world-formula/README.md) | 书稿定位、卷册骨架、事实地位与章节约定 |
+| [`docs/world-formula/TONE-AND-SCENES.md`](docs/world-formula/TONE-AND-SCENES.md) | 提瓦特闲谈、人物视角、类比边界与原创性规范 |
 | [`docs/world-formula/REVIEW-PROTOCOL.md`](docs/world-formula/REVIEW-PROTOCOL.md) | 纯文本逐断言数学审核、结构审核与 Main 验收协议 |
 
 ## 保证边界
