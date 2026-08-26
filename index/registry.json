@@ -15680,7 +15680,9 @@
     "nl_file": "docs/entries/topology/homotopy/path-polygonal-approximation.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.homotopy.piecewise-c1-path"
+    ],
     "family": "topology.homotopy",
     "variant": "relative-open-set-uniform-mesh-polygonalization",
     "axioms": [
@@ -16146,5 +16148,41 @@
       "propext"
     ],
     "proof_sha": "bb739c7940a74334"
+  },
+  {
+    "id": "topology.homotopy.piecewise-c1-path",
+    "kind": "definition",
+    "state": "verified",
+    "title": "分段 C1 道路及开集内正则替换",
+    "summary": "将分段 C1 性定义为 Mathlib 道路上由整体 C1、拼接和端点 cast 生成的归纳命题，并证明常道路、线段、反向、有限 concat 与折线替换的闭合性",
+    "premises": [
+      "topology.homotopy.path-polygonal-approximation"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.trans",
+      "Path.cast",
+      "Path.symm",
+      "ContDiffOn",
+      "IsOpen",
+      "NormedSpace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PiecewiseC1Path.lean",
+    "nl_file": "docs/entries/topology/homotopy/piecewise-c1-path.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.homotopy",
+    "variant": "inductive-concat-closure",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "deffece54e6d92d4"
   }
 ]

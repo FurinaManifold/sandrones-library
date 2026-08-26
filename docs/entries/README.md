@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **494** 个条目（verified 494，pending 0）。
+共 **495** 个条目（verified 495，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -727,6 +727,7 @@
 - ✅ [`path-homotopy-standard.md`](topology/homotopy/path-homotopy-standard.md) — 标准道路同伦与端点固定
 - ✅ [`path-polygonal-approximation.md`](topology/homotopy/path-polygonal-approximation.md) — 开集内道路的相对折线逼近
 - ✅ [`path-reversal-foundation.md`](topology/homotopy/path-reversal-foundation.md) — 逆道路及双重反向的正式承载
+- ✅ [`piecewise-c1-path.md`](topology/homotopy/piecewise-c1-path.md) — 分段 C1 道路及开集内正则替换
 - ✅ [`standard.md`](topology/homotopy/standard.md) — 一般同伦、相对同伦与复合
 - ✅ [`unit-interval-mesh.md`](topology/homotopy/unit-interval-mesh.md) — 单位区间的一致有限网格
 

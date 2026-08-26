@@ -107,6 +107,7 @@ import SandronesLibrary.Topology.PathCodRestrict
 import SandronesLibrary.Topology.PathCorrectedLoop
 import SandronesLibrary.Topology.PathHomotopyImageControl
 import SandronesLibrary.Topology.PathPolygonalApproximation
+import SandronesLibrary.Topology.PiecewiseC1Path
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
 import SandronesLibrary.Topology.VanKampenSurjectivity
 import SandronesLibrary.Topology.VanKampenSquareSubdivision

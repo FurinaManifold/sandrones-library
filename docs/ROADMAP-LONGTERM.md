@@ -587,7 +587,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-R1 开域统一余量 | 无独立 Entry | 直接使用紧致同伦像在开域中的统一加厚余量 | `IsCompact.exists_cthickening_subset_open` 已精确承载；只作为 R2 证明步骤 |
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
-| T4-R3b-path 有限分段 `C¹` 道路 | `development_open` | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 不得采用“道路严格等于统一有限 concat”的旧结构候选；拓扑只交付路径正则性，不在此批证明积分或同伦积分不变性 |
+| T4-R3b-path 有限分段 `C¹` 道路 | 已集成 | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；已证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 当前只刻画实际 `Path.trans` 生成的有限 concat tree，未声称与任意实断点定义等价；曲线可积性消费者归复分析独立批次 |
 | T4-R3b-square 同伦方形正则化 | `research_open` | 研究相对方形逼近、分片 `C²` Poincaré 与有限抵消，或等价的解析细分路线 | R3a 连续同伦和 R2 collar 各自不足以推出任意边界的全局 `C²` 同伦；完成前复分析一般连续同伦门保持冻结 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
