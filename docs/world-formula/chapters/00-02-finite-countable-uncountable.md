@@ -1,20 +1,22 @@
 # 第二章　有限、可数与不可数：集合的大小怎样比较
 
-状态：draft（已完成第 1–6 节；其余部分未写）
+状态：draft（已完成第 1–7 节；其余部分未写）
 
-事实截止：Main `e1d5bc0`
+事实截止：Main `cfbf141`
 
 前驱章节：[`00-01-sets-relations-and-maps.md`](00-01-sets-relations-and-maps.md)；本章沿用其中的
 集合、函数、单射、满射与双射语言
 
 本稿覆盖条目：`settheory.cardinal.equinumerous`、`settheory.cardinal.comparison`、
 `settheory.cardinal.finite-set`、`settheory.cardinal.countable-def`、
-`settheory.cardinal.countable-rat`、`settheory.cardinal.countable-union`
+`settheory.cardinal.countable-rat`、`settheory.cardinal.countable-union`、
+`settheory.cardinal.cantor-bernstein`
 
 出版来源：`jech-set-theory-2003`
 
-人物 ROLE：[纳西妲](../characters/roles/nahida.md)、[砂糖](../characters/roles/sucrose.md)；均为截至
-2026-08-26 的 `usable` 版本
+人物 ROLE：[纳西妲](../characters/roles/nahida.md)、[砂糖](../characters/roles/sucrose.md)、
+[艾尔海森](../characters/roles/alhaitham.md)、[卡维](../characters/roles/kaveh.md)；均为截至 2026-08-26
+的 `usable` 版本
 
 数学审稿：`accepted`（仅限第 1–4 节；记录：
 [`wf1-02-cardinality-foundations-mathematical-review.md`](../reviews/wf1-02-cardinality-foundations-mathematical-review.md)）
@@ -252,19 +254,63 @@ q:\mathbb Q\longrightarrow\mathbb N.
 `(i,m)` 只负责解释结论为何合理，并不声称给出一套无需选择的显式统一枚举算法，也不把“可数并”
 扩大成任意指标并。
 
+## 七　双向都放得下，便能重新配成一样多
+
+第二节留下了一个有意不填的缺口。现在设有两个类型 $A,B$，并分别找到单射
+
+\[
+f:A\longrightarrow B,
+\qquad
+g:B\longrightarrow A.
+\]
+
+两条单射说明 $A$ 能无冲突地放进 $B$，同时 $B$ 也能无冲突地放进 $A$。Cantor–Bernstein 定理
+断言：在这两个条件下，存在一个双射
+
+\[
+h:A\longrightarrow B.
+\]
+
+这里最容易被一句“双向嵌入所以一样大”遮住的，是 $h$ 必须**另行构造**。输入的 $f$ 与 $g$ 可以
+按照完全不同的规则得到，并不要求互为逆；通常也不能把其中一条倒过来就当成另一条。定理只保证某个
+双射存在，不保证 $h=f$，更不把结论写成类型 $A$ 与 $B$ 字面相等。它得到的是本章第一节定义的
+等势。
+
+> **提瓦特闲谈：两张安置表不是彼此的背面**
+>
+> 卡维手里有一张从场地到设计档案的安置表：每块场地都配到一份满足采光与安全底线的档案，而且没有
+> 两块场地挤用同一份。另一张表由艾尔海森按资料调阅和人员通行的约束整理，方向从设计档案回到场地，
+> 同样没有冲突。两张表覆盖的判断标准不同；卡维逐项检查后拒绝把第一张表的反向关系冒充施工方案，
+> 因为它未必为每份档案给出唯一场地，也没有经过第二张表采用的约束。
+>
+> 艾尔海森保留了两张原表，而没有争辩哪张才是“正确答案”。他另开一页，把问题抽去采光、通行与
+> 调阅细节：已有的是两个方向的单射，现在要问能否另找一张不重不漏的配对表。定理回答这个抽象问题，
+> 却不替施工决定新配对是否满足原来的专业条件。卡维因此要求把新表标为“数量配对”，并与可执行的
+> 施工安置分开归档；两人的表各自保留了它原本要负责的信息。
+
+一种常见的出版背景图像，是把 $A$ 与 $B$ 放在两侧，画出 $f$ 与 $g$ 的边，再沿这些边形成的链、环
+和其他连通分量决定每一部分采用哪个方向的配对。它帮助解释为什么最后的双射可能不同于两条输入
+单射，也帮助看见“重新配对”发生在哪里。但这幅链／分量图景只承担证明直觉，本章没有把它写成新的
+形式化构造。当前 Lean 定理在后端复用 `Embedding.schroeder_bernstein` 来取得所需双射。
+
+本节消费 `settheory.cardinal.cantor-bernstein`，其直接前驱是本章已经使用的等势与单射比较。第 7 节
+尚未经过上方列出的数学、文字或 Main 一致性验收。
+
 **本半章的来源与边界。** 等势及其双射刻画来自 `settheory.cardinal.equinumerous`；用单射定义
 “基数不大于”及其自反、传递性质来自 `settheory.cardinal.comparison`；有限枚举和由此得到的有限
 单射界来自 `settheory.cardinal.finite-set`；`Countable A` 与单射 $A\to\mathbb N$ 的等价刻画来自
 `settheory.cardinal.countable-def`；有理数可数来自 `settheory.cardinal.countable-rat`；可数指标下
-可数片段之并仍可数来自 `settheory.cardinal.countable-union`。这些已核验事实没有把比较包装成完整
-的通用序结构，没有给出有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 5–6 节已经
-完成独立数学、文字与 Main 一致性验收，但这些验收不覆盖仍未书写的后续部分。
+可数片段之并仍可数来自 `settheory.cardinal.countable-union`；双向单射推出另有双射来自
+`settheory.cardinal.cantor-bernstein`。这些已核验事实没有把比较包装成完整的通用序结构，没有给出
+有限性各种接口的完整互换，也没有覆盖尚待书写的其余结果。第 1–6 节已经完成独立数学、文字与 Main
+一致性验收；第 7 节尚待三轮验收。
 
 实现层追溯集中记在这里：有理数条目复用 Mathlib 的 `Countable ℚ`；可数并条目复用
-`Set.countable_iUnion`，其公理审计包含 `Classical.choice`，与正文所披露的统一选取边界一致。
+`Set.countable_iUnion`，其公理审计包含 `Classical.choice`，与正文所披露的统一选取边界一致；
+Cantor–Bernstein 条目在证明后端复用 `Embedding.schroeder_bernstein`。
 
 ---
 
-本稿尚不是完整章节。它只消费元信息列出的六个 verified Entry；“不可数”目前只出现在章名和后续
+本稿尚不是完整章节。它只消费元信息列出的七个 verified Entry；“不可数”目前只出现在章名和后续
 范围说明中，尚未定义或证明任何不可数性结果。完整章末的“本章没有声称什么”、全章来源账、数学
 审稿、文字审稿与 Main 一致性验收，都须待后半章完成后补齐。
