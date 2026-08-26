@@ -5,6 +5,7 @@ Authors: Sandrone's Library contributors
 -/
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
 import SandronesLibrary.Topology.PathCodRestrict
+import SandronesLibrary.Topology.PathCorrectedLoop
 import Mathlib.AlgebraicTopology.FundamentalGroupoid.FundamentalGroup
 import Mathlib.GroupTheory.PushoutI
 
@@ -322,62 +323,6 @@ def BinaryOpenCoverSubdivision.segmentPieceLoop {x₀ : X} {p : Path x₀ x₀}
     FundamentalGroup (binaryOpenCoverPiece U V (D.label i))
       (binaryOpenCoverBasepoint hxU hxV (D.label i)) :=
   D.segmentPieceLoopOfLabel C hxU hxV i (D.label i) rfl
-
-def correctedLoop {x₀ z w : X}
-    (left : Path x₀ z) (segment : Path z w) (right : Path x₀ w) : Path x₀ x₀ :=
-  left.trans (segment.trans right.symm)
-
-theorem correctedLoop_product {x₀ z w v : X}
-    (left : Path x₀ z) (first : Path z w) (middle : Path x₀ w)
-    (second : Path w v) (right : Path x₀ v) :
-    FundamentalGroup.fromPath ⟦correctedLoop middle second right⟧ *
-        FundamentalGroup.fromPath ⟦correctedLoop left first middle⟧ =
-      FundamentalGroup.fromPath ⟦correctedLoop left (first.trans second) right⟧ := by
-  rw [FundamentalGroup.mul_def]
-  unfold FundamentalGroup.fromPath FundamentalGroup.fromArrow
-  change Path.Homotopic.Quotient.trans
-      (Path.Homotopic.Quotient.mk (correctedLoop left first middle))
-      (Path.Homotopic.Quotient.mk (correctedLoop middle second right)) =
-    Path.Homotopic.Quotient.mk (correctedLoop left (first.trans second) right)
-  unfold correctedLoop
-  simp only [Path.Homotopic.Quotient.mk_trans, Path.Homotopic.Quotient.mk_symm]
-  simp only [Path.Homotopic.Quotient.trans_assoc]
-  rw [← Path.Homotopic.Quotient.trans_assoc
-    (Path.Homotopic.Quotient.mk middle).symm (Path.Homotopic.Quotient.mk middle)]
-  simp
-
-def correctedLoopWord {x₀ : X} {n : ℕ} (q : Fin (n + 1) → X)
-    (F : (i : Fin n) → Path (q i.castSucc) (q i.succ))
-    (connector : (i : Fin (n + 1)) → Path x₀ (q i)) : FundamentalGroup X x₀ :=
-  Fin.dfoldl n (fun _ => FundamentalGroup X x₀)
-    (fun i acc => FundamentalGroup.fromPath
-      ⟦correctedLoop (connector i.castSucc) (F i) (connector i.succ)⟧ * acc) 1
-
-theorem correctedLoopWord_eq_concat {x₀ : X} {n : ℕ} (q : Fin (n + 1) → X)
-    (F : (i : Fin n) → Path (q i.castSucc) (q i.succ))
-    (connector : (i : Fin (n + 1)) → Path x₀ (q i)) :
-    correctedLoopWord q F connector =
-      FundamentalGroup.fromPath
-        ⟦correctedLoop (connector 0) (Path.concat q F) (connector (Fin.last n))⟧ := by
-  induction n with
-  | zero =>
-      simp only [correctedLoopWord, Fin.dfoldl_zero, Path.concat_zero]
-      rw [FundamentalGroup.one_def]
-      unfold correctedLoop FundamentalGroup.fromPath FundamentalGroup.fromArrow
-      simp
-  | succ n ih =>
-      rw [correctedLoopWord, Fin.dfoldl_succ_last]
-      rw [Path.concat_succ]
-      change FundamentalGroup.fromPath
-          ⟦correctedLoop (connector (Fin.last n).castSucc) (F (Fin.last n))
-            (connector (Fin.last (n + 1)))⟧ *
-          correctedLoopWord (q ∘ Fin.castSucc) (fun i => F i.castSucc)
-            (fun i => connector i.castSucc) = _
-      rw [ih]
-      exact correctedLoop_product (connector 0)
-        (Path.concat (q ∘ Fin.castSucc) (fun i => F i.castSucc))
-        (connector (Fin.last n).castSucc) (F (Fin.last n))
-        (connector (Fin.last (n + 1)))
 
 theorem map_reverseDfoldl {M N : Type*} [Monoid M] [Monoid N]
     (φ : M →* N) {n : ℕ} (a : Fin n → M) :

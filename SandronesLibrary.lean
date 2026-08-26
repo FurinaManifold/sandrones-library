@@ -104,6 +104,7 @@ import SandronesLibrary.Topology.FundamentalGroupProductStandard
 import SandronesLibrary.Topology.BoundaryCollarHomotopySmoothing
 import SandronesLibrary.Topology.UnitIntervalMesh
 import SandronesLibrary.Topology.PathCodRestrict
+import SandronesLibrary.Topology.PathCorrectedLoop
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
 import SandronesLibrary.Topology.VanKampenSurjectivity
 import SandronesLibrary.Topology.VanKampenSquareSubdivision

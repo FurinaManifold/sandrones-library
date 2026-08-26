@@ -14533,7 +14533,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "topology.fundamental-group.operations-standard"
+      "topology.fundamental-group.operations-standard",
+      "topology.fundamental-group.path-corrected-loop"
     ],
     "family": "topology.fundamental-group",
     "variant": "groupoid-endomorphism-carrier",
@@ -15537,5 +15538,38 @@
       "Quot.sound",
       "propext"
     ]
+  },
+  {
+    "id": "topology.fundamental-group.path-corrected-loop",
+    "kind": "definition",
+    "state": "verified",
+    "title": "道路段的基点修正环路与有限望远镜公式",
+    "summary": "用端点连接道路闭合道路段，并把有限修正环路乘积化为整条拼接道路的修正环路",
+    "premises": [
+      "topology.fundamental-group.carrier-standard"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.concat",
+      "FundamentalGroup.fromPath",
+      "Fin.dfoldl"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/PathCorrectedLoop.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/path-corrected-loop.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "connector-corrected-loop-telescope",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "0eabad580af1173f"
   }
 ]
