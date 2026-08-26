@@ -125,6 +125,7 @@ scripts/                        生成、审计和脚手架工具
 | [`docs/ROADMAP-examples.md`](docs/ROADMAP-examples.md) | 计算例、正例和反例覆盖账本 |
 | [`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md) | 跨学科证明工作流、Mathlib 复用规则和多 Codex 协作协议（不保存课程规划） |
 | [`docs/LEAN-TACTIC-REVIEW-GUIDE.md`](docs/LEAN-TACTIC-REVIEW-GUIDE.md) | 面向人类审阅者的 tactic、占位符、自动化边界与逐行阅读指南 |
+| [`docs/LEAN-TACTIC-STATE-ATLAS.md`](docs/LEAN-TACTIC-STATE-ATLAS.md) | 每种 tactic 在本库真实证明中的执行前后 proof state 与人话解释 |
 | [`docs/INGESTION_PROTOCOL.md`](docs/INGESTION_PROTOCOL.md) | 新 Entry 的纳入流程 |
 | [`docs/SCHEMA.md`](docs/SCHEMA.md) | Registry 和课程文档字段契约 |
 | [`docs/MATHLIB-RADAR.md`](docs/MATHLIB-RADAR.md) | 重要 Mathlib API 的人话说明和使用者 |
