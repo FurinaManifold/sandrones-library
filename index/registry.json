@@ -14913,6 +14913,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-square-subdivision",
       "topology.fundamental-group.van-kampen-surjectivity"
     ],
     "family": "topology.fundamental-group",
@@ -15389,6 +15390,40 @@
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "2769f463599a21f7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-square-subdivision",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "二开集覆盖下的有限带标签方格细分",
+    "summary": "连续方形逐点落在二开集之一时存在有限一致方格细分，每格落在一个覆盖成员且异标签公共边落在交集",
+    "premises": [
+      "topology.fundamental-group.van-kampen-cover-subdivision"
+    ],
+    "mathlib": [
+      "ContinuousMap",
+      "Set.Icc.convexComb",
+      "lebesgue_number_lemma_of_metric",
+      "Prod.dist_eq",
+      "Real.exists_nat_pos_inv_lt"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenSquareSubdivision.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-square-subdivision.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "binary-open-cover-labelled-square-grid",
+    "proof_sha": "43376d1297bedf51",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

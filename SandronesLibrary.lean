@@ -103,6 +103,7 @@ import SandronesLibrary.Topology.FundamentalGroupProductStandard
 import SandronesLibrary.Topology.BoundaryCollarHomotopySmoothing
 import SandronesLibrary.Topology.VanKampenCoverSubdivision
 import SandronesLibrary.Topology.VanKampenSurjectivity
+import SandronesLibrary.Topology.VanKampenSquareSubdivision
 import SandronesLibrary.Topology.PathConnected
 import SandronesLibrary.Topology.Homotopy
 import SandronesLibrary.Topology.Space
