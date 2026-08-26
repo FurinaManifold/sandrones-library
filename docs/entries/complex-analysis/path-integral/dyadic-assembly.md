@@ -3,7 +3,7 @@ id: complex-analysis.path-integral.dyadic-assembly
 family: complex-analysis.path-integral
 variant: piecewise-c1-admissibility-and-dyadic-leaf-sum-assembly
 kind: theorem
-state: research
+state: verified
 title: 分段 C1 道路的可积性桥与 dyadic 积分组装
 summary: 将分段 C1 道路在连续被积函数和像集控制下转为 admissible path，并从 dyadic 小段可积性与外边界有限和恢复整条道路积分相等
 premises: [topology.homotopy.piecewise-c1-path, topology.homotopy.unit-interval-mesh, complex-analysis.cauchy.primitive-from-path-independence-foundation]

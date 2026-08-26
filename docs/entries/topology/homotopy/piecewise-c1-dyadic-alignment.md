@@ -4,7 +4,7 @@ family: topology.homotopy
 variant: midpoint-concat-tree-dyadic-depth-certificate
 kind: theorem
 title: 分段 C1 道路的 dyadic 对齐证书
-state: research
+state: verified
 summary: 为既有分段 C1 道路的中点拼接树给出可共同加细的 dyadic 深度证书，并证明每个对齐网格小段及同伦方形外边的分段 C1 性
 premises: [topology.homotopy.piecewise-c1-path, topology.homotopy.homotopy-square-grid]
 mathlib: [Path, Path.subpath, Path.trans, Path.cast, ContDiffOn, Set.Icc.convexComb]

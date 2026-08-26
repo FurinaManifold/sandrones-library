@@ -3,7 +3,7 @@ id: topology.homotopy.finite-raw-open-path-grid
 family: topology.homotopy
 variant: finite-square-grid-with-open-cell-incidence-and-regular-outer-boundary
 kind: definition
-state: research
+state: verified
 title: 有限开集道路原始方格
 summary: 在任意实赋范线性空间中记录有限方格顶点、逐格开集、统一定向原始边、四侧 incidence 与外边分段 C1 证书
 premises: [topology.homotopy.piecewise-c1-path, topology.homotopy.homotopy-square-grid]

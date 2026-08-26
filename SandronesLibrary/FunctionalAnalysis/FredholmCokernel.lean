@@ -15,6 +15,8 @@ import Mathlib.LinearAlgebra.Dual.Lemmas
 其在对偶算子核上的取值泛函；闭值域定理识别它的核，而 Schauder 定理保证目标有限维。
 
 这里不调用 Mathlib 的最终 Fredholm alternative。
+
+> **Entry**: functional-analysis.fredholm.cokernel
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
@@ -55,10 +57,7 @@ theorem dualOperator_identitySubCompact (K : E →L[ℝ] E) :
   ext f x
   simp [dualOperator_apply, identitySubCompact_apply]
 
-/-- 紧算子 `K` 的恒等扰动 `I-K` 具有有限维余核。
-
-> **Entry**: functional-analysis.fredholm.alternative
--/
+/-- 紧算子 `K` 的恒等扰动 `I-K` 具有有限维余核。 -/
 theorem finiteDimensional_cokernel_identitySubCompact (K : E →L[ℝ] E)
     (hK : IsCompactOperator K) :
     FiniteDimensional ℝ (E ⧸ (identitySubCompact K).range) := by

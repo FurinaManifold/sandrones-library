@@ -1,8 +1,8 @@
 # 第一章　集合、关系与函数：数学对象如何获得共同语言
 
-状态：draft
+状态：accepted
 
-事实截止：Main `3af0be230ac58fe27cdce1576eef972acbbd331c`
+事实截止：Main `d38b6b0`
 
 前驱章节：无；本章是卷零的概念首现章
 
@@ -25,8 +25,11 @@
 `docs/world-formula/reviews/wf1-01-mathematical-review.md`）
 
 文字审稿：统一独立文字复验 `accepted`；旧 E1–E4 与四个新版情景均已复验，五份
-最小角色 ROLE 已齐备且仍保持 `review`。整章仍等待 Main 第三轮一致性验收（记录：
+最小角色 ROLE 已齐备并经 Main 提升为 `usable`（记录：
 `docs/world-formula/reviews/wf1-01-editorial-recheck.md`）
+
+Main 一致性验收：`accepted`（记录：
+`docs/world-formula/reviews/wf1-01-main-consistency-review.md`）
 
 ## 一　本章的问题
 

@@ -11634,7 +11634,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "complex-analysis.cauchy.admissible-path-connectivity-foundation"
+      "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+      "complex-analysis.path-integral.dyadic-assembly"
     ],
     "family": "complex-analysis.cauchy",
     "variant": "endpoint-independent-integrals",
@@ -11643,7 +11644,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "935bfe067633bcc0"
+    "proof_sha": "f71bd7aa42c119a0"
   },
   {
     "id": "complex-analysis.cauchy.admissible-path-connectivity-foundation",
@@ -14286,6 +14287,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "topology.fundamental-group.van-kampen-cover-subdivision",
+      "topology.homotopy.homotopy-square-grid",
       "topology.homotopy.path-homotopy-image-control",
       "topology.homotopy.path-homotopy-quotient-standard",
       "topology.homotopy.standard"
@@ -14754,7 +14756,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.fredholm.alternative"
+      "functional-analysis.fredholm.alternative",
+      "functional-analysis.fredholm.cokernel"
     ],
     "family": "functional-analysis.operator",
     "variant": "schauder-dual-compactness",
@@ -15151,7 +15154,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.closed-range.double-annihilator"
+      "functional-analysis.closed-range.double-annihilator",
+      "functional-analysis.fredholm.cokernel"
     ],
     "family": "functional-analysis",
     "variant": "closed-range-annihilator-criterion",
@@ -15367,7 +15371,9 @@
     "nl_file": "docs/entries/functional-analysis/fredholm/alternative.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.fredholm.cokernel"
+    ],
     "family": "functional-analysis.operator",
     "variant": "identity-minus-compact-first-window",
     "axioms": [
@@ -15375,7 +15381,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "6dddaadcce280002"
+    "proof_sha": "f42c1dbc400994c1"
   },
   {
     "id": "functional-analysis.eberlein-smulian",
@@ -15403,7 +15409,9 @@
     "nl_file": "docs/entries/functional-analysis/eberlein-smulian.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.ergodic.mean.reflexive"
+    ],
     "family": "functional-analysis.weak",
     "variant": "closed-unit-ball-four-way",
     "proof_sha": "4020aee288359503",
@@ -15584,6 +15592,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.path-integral.dyadic-assembly",
+      "topology.homotopy.homotopy-square-grid",
       "topology.homotopy.path-polygonal-approximation"
     ],
     "family": "topology.homotopy",
@@ -16257,7 +16267,11 @@
     "nl_file": "docs/entries/topology/homotopy/piecewise-c1-path.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "complex-analysis.path-integral.dyadic-assembly",
+      "topology.homotopy.finite-raw-open-path-grid",
+      "topology.homotopy.piecewise-c1-dyadic-alignment"
+    ],
     "family": "topology.homotopy",
     "variant": "inductive-concat-closure",
     "axioms": [
@@ -16790,7 +16804,9 @@
     "nl_file": "docs/entries/functional-analysis/ergodic/mean.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.ergodic.mean.reflexive"
+    ],
     "family": "functional-analysis.weak",
     "variant": "power-bounded-decomposition",
     "axioms": [
@@ -16821,8 +16837,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "probability.variable.definition",
-      "probability.independence.events"
+      "probability.independence.events",
+      "probability.variable.definition"
     ],
     "family": "probability.space",
     "variant": "measure-typeclass",
@@ -16855,7 +16871,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "probability.distribution.pushforward"
+      "probability.distribution.pushforward",
+      "probability.filtration.definition"
     ],
     "family": "probability.variable",
     "variant": "measurable-function",
@@ -16922,8 +16939,9 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "probability.moments.variance",
-      "probability.independence.variables"
+      "probability.conditional-expectation.definition",
+      "probability.independence.variables",
+      "probability.moments.variance"
     ],
     "family": "probability.expectation",
     "variant": "bochner-integral",
@@ -17025,7 +17043,9 @@
     "nl_file": "docs/entries/probability/independence/variables.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.conditional-expectation.independence"
+    ],
     "family": "probability.independence",
     "variant": "random-variables",
     "axioms": [
@@ -17066,5 +17086,524 @@
       "propext"
     ],
     "proof_sha": "b6a26edc12602d31"
+  },
+  {
+    "id": "probability.conditional-expectation.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "条件期望的定义与刻画",
+    "summary": "以子 sigma 代数可测性和集合积分恒等式刻画 Banach 空间值条件期望",
+    "premises": [
+      "probability.expectation.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.condExp",
+      "MeasureTheory.setIntegral_condExp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/ConditionalExpectation.lean",
+    "nl_file": "docs/entries/probability/conditional-expectation/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "probability.conditional-expectation.independence",
+      "probability.conditional-expectation.tower"
+    ],
+    "family": "probability.conditional-expectation",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a200d885cb4f1bcf"
+  },
+  {
+    "id": "probability.conditional-expectation.tower",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "条件期望的塔式性质",
+    "summary": "沿嵌套 sigma 代数重复条件化等于直接向较粗信息条件化",
+    "premises": [
+      "probability.conditional-expectation.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.condExp_condExp_of_le"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/ConditionalExpectationTower.lean",
+    "nl_file": "docs/entries/probability/conditional-expectation/tower.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.conditional-expectation",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "60e4f0ca492aebb5"
+  },
+  {
+    "id": "probability.conditional-expectation.independence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "独立时条件期望退化为期望",
+    "summary": "与条件信息独立的随机变量在条件化后仍只有常数期望",
+    "premises": [
+      "probability.conditional-expectation.definition",
+      "probability.independence.variables"
+    ],
+    "mathlib": [
+      "MeasureTheory.condExp_indep_eq",
+      "ProbabilityTheory.IndepFun"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/ConditionalExpectationIndependence.lean",
+    "nl_file": "docs/entries/probability/conditional-expectation/independence.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.conditional-expectation",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "431e1fca505ba055"
+  },
+  {
+    "id": "probability.filtration.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "过滤与适应过程",
+    "summary": "以递增子 sigma 代数族表示信息流并定义过程的适应性",
+    "premises": [
+      "probability.variable.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.Filtration",
+      "MeasureTheory.Adapted"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Filtration.lean",
+    "nl_file": "docs/entries/probability/filtration/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.filtration",
+    "variant": "textbook",
+    "axioms": [
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e6bb29682bcafcdc"
+  },
+  {
+    "id": "topology.homotopy.homotopy-square-grid",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "道路同伦方形与一致网格边",
+    "summary": "将端点相对道路同伦表示为连续参数方形，并冻结一致网格顶点、小格和有向边的公共接口",
+    "premises": [
+      "topology.homotopy.path-homotopy-standard",
+      "topology.homotopy.unit-interval-mesh"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "Path",
+      "ContinuousMap",
+      "Set.Icc.convexComb"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/HomotopySquareGrid.lean",
+    "nl_file": "docs/entries/topology/homotopy/homotopy-square-grid.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "topology.homotopy.finite-raw-open-path-grid",
+      "topology.homotopy.indexed-open-cover-square-subdivision",
+      "topology.homotopy.piecewise-c1-dyadic-alignment"
+    ],
+    "family": "topology.homotopy",
+    "variant": "endpoint-relative-homotopy-uniform-square-grid",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9af4bf86cbdb7a56"
+  },
+  {
+    "id": "topology.homotopy.piecewise-c1-dyadic-alignment",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "分段 C1 道路的 dyadic 对齐证书",
+    "summary": "为分段 C1 拼接树给出共同 dyadic 深度，并证明对齐小段和同伦方形外边的正则性",
+    "premises": [
+      "topology.homotopy.piecewise-c1-path",
+      "topology.homotopy.homotopy-square-grid"
+    ],
+    "mathlib": [
+      "Path",
+      "Path.subpath",
+      "Path.trans",
+      "Path.cast",
+      "ContDiffOn"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "lean_file": "Topology/PiecewiseC1DyadicAlignment.lean",
+    "nl_file": "docs/entries/topology/homotopy/piecewise-c1-dyadic-alignment.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.path-integral.piecewise-c1-homotopy-invariance"
+    ],
+    "family": "topology.homotopy",
+    "variant": "midpoint-concat-tree-dyadic-depth-certificate",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "fd6a87884267c410"
+  },
+  {
+    "id": "topology.homotopy.indexed-open-cover-square-subdivision",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "indexed 开覆盖下的 dyadic 方格细分",
+    "summary": "对任意指标开覆盖构造达到指定最低深度的 dyadic 网格及逐格从属标签",
+    "premises": [
+      "topology.homotopy.homotopy-square-grid"
+    ],
+    "mathlib": [
+      "ContinuousMap",
+      "IsOpen",
+      "lebesgue_number_lemma_of_metric"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "lean_file": "Topology/IndexedOpenCoverSquareSubdivision.lean",
+    "nl_file": "docs/entries/topology/homotopy/indexed-open-cover-square-subdivision.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.path-integral.piecewise-c1-homotopy-invariance"
+    ],
+    "family": "topology.homotopy",
+    "variant": "indexed-open-cover-dyadic-square-grid-with-minimum-depth",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "bae69c7745a27eac"
+  },
+  {
+    "id": "topology.homotopy.finite-raw-open-path-grid",
+    "kind": "definition",
+    "state": "verified",
+    "title": "有限开集道路原始方格",
+    "summary": "记录有限方格顶点、逐格开集、有向原始边、incidence 与外边分段 C1 证书",
+    "premises": [
+      "topology.homotopy.piecewise-c1-path",
+      "topology.homotopy.homotopy-square-grid"
+    ],
+    "mathlib": [
+      "Path",
+      "Set.range",
+      "IsOpen",
+      "Fin",
+      "NormedSpace"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "lean_file": "Topology/FiniteRawOpenPathGrid.lean",
+    "nl_file": "docs/entries/topology/homotopy/finite-raw-open-path-grid.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.path-integral.finite-raw-grid-boundary"
+    ],
+    "family": "topology.homotopy",
+    "variant": "finite-square-grid-with-open-cell-incidence-and-regular-outer-boundary",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9c91ae161236e11f"
+  },
+  {
+    "id": "complex-analysis.path-integral.dyadic-assembly",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "分段 C1 道路的可积性桥与 dyadic 积分组装",
+    "summary": "连接分段 C1 与 admissible path，并由 dyadic 小段有限和恢复整条道路积分等式",
+    "premises": [
+      "topology.homotopy.piecewise-c1-path",
+      "topology.homotopy.unit-interval-mesh",
+      "complex-analysis.cauchy.primitive-from-path-independence-foundation"
+    ],
+    "mathlib": [
+      "Path.subpath",
+      "PathIntegrable",
+      "ContinuousOn",
+      "Finset.sum"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "lean_file": "ComplexAnalysis/DyadicPathIntegralAssembly.lean",
+    "nl_file": "docs/entries/complex-analysis/path-integral/dyadic-assembly.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.path-integral.finite-raw-grid-boundary"
+    ],
+    "family": "complex-analysis.path-integral",
+    "variant": "piecewise-c1-admissibility-and-dyadic-leaf-sum-assembly",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "f776f8bcce518651"
+  },
+  {
+    "id": "complex-analysis.path-integral.finite-raw-grid-boundary",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "局部原函数方格的外边界消去",
+    "summary": "用公共边正则替换、逐格局部原函数和有限 telescope 证明 raw grid 外边界积分为零",
+    "premises": [
+      "topology.homotopy.finite-raw-open-path-grid",
+      "complex-analysis.path-integral.dyadic-assembly"
+    ],
+    "mathlib": [
+      "Complex.IsExactOn",
+      "Path.symm",
+      "Finset.sum",
+      "Classical.choose"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "lean_file": "ComplexAnalysis/FiniteRawOpenPathGridBoundary.lean",
+    "nl_file": "docs/entries/complex-analysis/path-integral/finite-raw-grid-boundary.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "complex-analysis.path-integral.piecewise-c1-homotopy-invariance"
+    ],
+    "family": "complex-analysis.path-integral",
+    "variant": "cellwise-local-primitives-common-edge-regularization",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1c6956049b2fb544"
+  },
+  {
+    "id": "functional-analysis.ergodic.mean.reflexive",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "自反空间上的均值遍历收敛",
+    "summary": "自反 Banach 空间中幂一致有界算子的 Cesaro 平均在每个向量上范数收敛",
+    "premises": [
+      "functional-analysis.ergodic.mean",
+      "functional-analysis.eberlein-smulian"
+    ],
+    "mathlib": [
+      "Bornology.IsBounded",
+      "IsSeqCompact",
+      "NormedSpace.inclusionInDoubleDual"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/MeanErgodicReflexive.lean",
+    "nl_file": "docs/entries/functional-analysis/ergodic/mean/reflexive.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.ergodic.mean.projection"
+    ],
+    "family": "functional-analysis.weak",
+    "variant": "reflexive-everywhere-convergence",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "fc054856ac56215c"
+  },
+  {
+    "id": "functional-analysis.ergodic.mean.projection",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "均值遍历极限投影",
+    "summary": "自反 Banach 空间上幂一致有界算子的 Cesaro 极限构成连续线性投影并满足 ST=TS=S2=S",
+    "premises": [
+      "functional-analysis.ergodic.mean.reflexive"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap",
+      "LinearMap.mkContinuous",
+      "Filter.Tendsto"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/MeanErgodicProjection.lean",
+    "nl_file": "docs/entries/functional-analysis/ergodic/mean/projection.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.weak",
+    "variant": "reflexive-limit-projection",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d0fbf93a980f0775"
+  },
+  {
+    "id": "complex-analysis.path-integral.piecewise-c1-homotopy-invariance",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "分段 C1 边界的连续相对同伦积分不变性",
+    "summary": "在同伦全像受控时证明全纯函数沿两条 PiecewiseC1 边界道路的积分相等，并推出零同伦闭路积分为零",
+    "premises": [
+      "complex-analysis.path-integral.finite-raw-grid-boundary",
+      "topology.homotopy.piecewise-c1-dyadic-alignment",
+      "topology.homotopy.indexed-open-cover-square-subdivision"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "Path",
+      "IsOpen",
+      "DifferentiableOn",
+      "Complex.IsExactOn",
+      "Metric.ball"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "lean_file": "ComplexAnalysis/PiecewiseC1HomotopyInvariance.lean",
+    "nl_file": "docs/entries/complex-analysis/path-integral/piecewise-c1-homotopy-invariance.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "complex-analysis.path-integral",
+    "variant": "continuous-endpoint-relative-homotopy-piecewise-c1-boundary",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "46a3adfa19d4a8e4"
+  },
+  {
+    "id": "functional-analysis.fredholm.cokernel",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "恒等减紧算子的余核有限维",
+    "summary": "由闭值域零化子刻画和 Schauder 对偶紧性证明 I-K 的余核有限维",
+    "premises": [
+      "functional-analysis.fredholm.alternative",
+      "functional-analysis.compact-operator.dual",
+      "functional-analysis.closed-range"
+    ],
+    "mathlib": [
+      "Module.Dual",
+      "LinearMap.quotKerEquivRange",
+      "Submodule.Quotient",
+      "FiniteDimensional"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmCokernel.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/cokernel.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.fredholm.index-zero"
+    ],
+    "family": "functional-analysis.fredholm",
+    "variant": "identity-minus-compact-finite-cokernel",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "a0b86ccca56babb9"
+  },
+  {
+    "id": "functional-analysis.fredholm.index-zero",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "恒等减紧算子的 Fredholm 指数为零",
+    "summary": "由幂核和值域稳定、Fitting 分解及指数复合可加性证明 index(I-K)=0",
+    "premises": [
+      "functional-analysis.fredholm.cokernel"
+    ],
+    "mathlib": [
+      "LinearMap.index",
+      "LinearMap.index_comp",
+      "Submodule.quotientEquivOfIsCompl",
+      "LinearMap.ker"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmIndex.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/index-zero.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.fredholm",
+    "variant": "identity-minus-compact-index-zero",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "45ac66a5cac5ccb1"
   }
 ]

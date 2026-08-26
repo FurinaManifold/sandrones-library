@@ -12,6 +12,8 @@ import Mathlib.LinearAlgebra.Projection
 本文件证明 `I-K` 的指数为零。证明不调用 Mathlib 的最终 Fredholm alternative：紧性先迫使
 幂核链稳定；对偶算子上的同一结论与闭值域零化子定理迫使幂值域链稳定。由此得到一个
 Fitting 分解，证明某个正幂指数为零，再用指数对复合的可加性回到 `I-K`。
+
+> **Entry**: functional-analysis.fredholm.index-zero
 -/
 
 namespace SandronesLibrary.FunctionalAnalysis
@@ -290,10 +292,7 @@ private theorem index_pow_identitySubCompact (K : E →L[ℝ] E)
       push_cast
       ring
 
-/-- 紧算子 `K` 的恒等扰动 `I-K` 的 Fredholm 指数为零。
-
-> **Entry**: functional-analysis.fredholm.alternative
--/
+/-- 紧算子 `K` 的恒等扰动 `I-K` 的 Fredholm 指数为零。 -/
 theorem index_identitySubCompact_eq_zero (K : E →L[ℝ] E)
     (hK : IsCompactOperator K) :
     (identitySubCompact K).toLinearMap.index = 0 := by

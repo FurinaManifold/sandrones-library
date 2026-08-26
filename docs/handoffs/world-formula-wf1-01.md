@@ -1,14 +1,14 @@
 # Handoff：World Formula WF1-01
 
 - 分支：`codex/world-formula`
-- 事实截止 Main：`3af0be230ac58fe27cdce1576eef972acbbd331c`
+- 事实截止 Main：初稿 `3af0be230ac58fe27cdce1576eef972acbbd331c`；Main 第三轮复核至 `d38b6b0`
 - 章节文件：`docs/world-formula/chapters/00-01-sets-relations-and-maps.md`
-- 状态：`draft`（数学轮与统一文字轮均 `accepted`；等待 Main 第三轮一致性验收）
+- 状态：`accepted`（数学轮、统一文字轮与 Main 第三轮均通过）
 - 作者：World Formula 章节编辑子 Agent
 - 数学审稿人：独立 World Formula 数学审稿人；commit `7bc36b0`，verdict `accepted`
 - 文字审稿人：第二位独立只读 World Formula 文字审稿人；记录
   `docs/world-formula/reviews/wf1-01-editorial-recheck.md`，最终 verdict `accepted`
-- 当前 verdict：数学轮 `accepted`，文字轮 `accepted`；章节状态仍为 `draft`，尚未经过 Main 第三轮验收
+- 当前 verdict：数学轮 `accepted`，文字轮 `accepted`，Main 第三轮 `accepted`
 
 ## 一　本批范围
 
@@ -202,14 +202,11 @@ https://act-api-takumi-static.mihoyo.com/hoyowiki/genshin/wapi/entry_page?entry_
     $f[A]$”三层术语，并停用含义易歧的“值域”。
 11. 文字 review E4 指出审计声线打断正文；具体公理审计已集中到 §8，概念段只保留普通数学语言。
 
-## 八　独立审稿后的剩余边界
+## 八　验收后的剩余边界
 
-作者自查不能替代 `REVIEW-PROTOCOL.md` 的独立审核。数学轮与统一文字轮已经分别 `accepted`；当前仍需：
-
-1. Main 核对事实截止提交与当前 Main 的差异、18 个 Entry 状态、citation key、链接和跨章一致性；
-2. F-01 的精确书目定位保持 deferred R3，不得用未核对页码换取表面闭环。
-
-在 Main 第三轮完成前，本章保持 `draft`，不得被目录描述成正式验收章节；五份人物 ROLE 也继续保持 `review`。
+作者自查不能替代 `REVIEW-PROTOCOL.md` 的独立审核。数学轮、统一文字轮与 Main 第三轮已经分别
+`accepted`。F-01 的精确书目定位继续保持 deferred R3，不得用未核对页码换取表面闭环；它不阻塞
+章节验收。五份人物 ROLE 经来源、角色一致性、原创性和整章消费者复验后提升为 `usable`。
 
 ## 九　验证
 

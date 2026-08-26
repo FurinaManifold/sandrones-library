@@ -31,3 +31,8 @@
 
 这不是僵硬的九段模板；作者可以为了叙事调整小节，但九类信息不能缺失。正文保持纯自然语言和
 通常数学记号，不插入 Lean 代码、tactic 或 proof state。
+
+## 已验收章节
+
+- [`00-01-sets-relations-and-maps.md`](00-01-sets-relations-and-maps.md)：集合、关系与函数；数学轮、
+  统一文字轮和 Main 一致性轮均 `accepted`。

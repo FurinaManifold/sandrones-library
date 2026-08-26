@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **520** 个条目（verified 520，pending 0）。
+共 **535** 个条目（verified 535，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -282,6 +282,12 @@
 - ✅ [`path.md`](complex-analysis/integral/path.md) — 复路径与路径积分
 - ✅ [`reparametrization.md`](complex-analysis/integral/reparametrization.md) — 路径反向、拼接与参数空间换元
 
+## `complex-analysis.path-integral`
+
+- ✅ [`dyadic-assembly.md`](complex-analysis/path-integral/dyadic-assembly.md) — 分段 C1 道路的可积性桥与 dyadic 积分组装
+- ✅ [`finite-raw-grid-boundary.md`](complex-analysis/path-integral/finite-raw-grid-boundary.md) — 局部原函数方格的外边界消去
+- ✅ [`piecewise-c1-homotopy-invariance.md`](complex-analysis/path-integral/piecewise-c1-homotopy-invariance.md) — 分段 C1 边界的连续相对同伦积分不变性
+
 ## `complex-analysis.residue`
 
 - ✅ [`circle-foundation.md`](complex-analysis/residue/circle-foundation.md) — 圆周正规化残数基础
@@ -340,10 +346,17 @@
 
 - ✅ [`mean.md`](functional-analysis/ergodic/mean.md) — 幂有界算子的均值遍历分解
 
+## `functional-analysis.ergodic.mean`
+
+- ✅ [`projection.md`](functional-analysis/ergodic/mean/projection.md) — 均值遍历极限投影
+- ✅ [`reflexive.md`](functional-analysis/ergodic/mean/reflexive.md) — 自反空间上的均值遍历收敛
+
 ## `functional-analysis.fredholm`
 
 - ✅ [`alternative.md`](functional-analysis/fredholm/alternative.md) — 恒等算子的紧扰动
+- ✅ [`cokernel.md`](functional-analysis/fredholm/cokernel.md) — 恒等减紧算子的余核有限维
 - ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
+- ✅ [`index-zero.md`](functional-analysis/fredholm/index-zero.md) — 恒等减紧算子的 Fredholm 指数为零
 
 ## `functional-analysis.hahn-banach`
 
@@ -481,6 +494,12 @@
 - ✅ [`quadratic-residues.md`](number-theory/elementary/quadratic-residues.md) — 二次剩余、Legendre/Jacobi 符号与 Gauss 引理
 - ✅ [`totient.md`](number-theory/elementary/totient.md) — Euler φ 函数
 
+## `probability.conditional-expectation`
+
+- ✅ [`definition.md`](probability/conditional-expectation/definition.md) — 条件期望的定义与刻画
+- ✅ [`independence.md`](probability/conditional-expectation/independence.md) — 独立时条件期望退化为期望
+- ✅ [`tower.md`](probability/conditional-expectation/tower.md) — 条件期望的塔式性质
+
 ## `probability.distribution`
 
 - ✅ [`pushforward.md`](probability/distribution/pushforward.md) — 分布作为推前测度
@@ -488,6 +507,10 @@
 ## `probability.expectation`
 
 - ✅ [`definition.md`](probability/expectation/definition.md) — 期望与可积性
+
+## `probability.filtration`
+
+- ✅ [`definition.md`](probability/filtration/definition.md) — 过滤与适应过程
 
 ## `probability.independence`
 
@@ -767,6 +790,9 @@
 - ✅ [`boundary-collar-smoothing.md`](topology/homotopy/boundary-collar-smoothing.md) — 边界 collar 条件下的道路同伦相对平滑化
 - ✅ [`definition-foundation.md`](topology/homotopy/definition-foundation.md) — 同伦与相对端点道路同伦
 - ✅ [`equivalence-standard.md`](topology/homotopy/equivalence-standard.md) — 标准同伦等价与双侧同伦逆
+- ✅ [`finite-raw-open-path-grid.md`](topology/homotopy/finite-raw-open-path-grid.md) — 有限开集道路原始方格
+- ✅ [`homotopy-square-grid.md`](topology/homotopy/homotopy-square-grid.md) — 道路同伦方形与一致网格边
+- ✅ [`indexed-open-cover-square-subdivision.md`](topology/homotopy/indexed-open-cover-square-subdivision.md) — indexed 开覆盖下的 dyadic 方格细分
 - ✅ [`path-cod-restrict.md`](topology/homotopy/path-cod-restrict.md) — 道路到子空间的余域限制
 - ✅ [`path-concat-dyadic-subdivision.md`](topology/homotopy/path-concat-dyadic-subdivision.md) — Mathlib Path.concat 的 dyadic 分段
 - ✅ [`path-concatenation-foundation.md`](topology/homotopy/path-concatenation-foundation.md) — 道路拼接的正式承载
@@ -776,6 +802,7 @@
 - ✅ [`path-homotopy-standard.md`](topology/homotopy/path-homotopy-standard.md) — 标准道路同伦与端点固定
 - ✅ [`path-polygonal-approximation.md`](topology/homotopy/path-polygonal-approximation.md) — 开集内道路的相对折线逼近
 - ✅ [`path-reversal-foundation.md`](topology/homotopy/path-reversal-foundation.md) — 逆道路及双重反向的正式承载
+- ✅ [`piecewise-c1-dyadic-alignment.md`](topology/homotopy/piecewise-c1-dyadic-alignment.md) — 分段 C1 道路的 dyadic 对齐证书
 - ✅ [`piecewise-c1-path.md`](topology/homotopy/piecewise-c1-path.md) — 分段 C1 道路及开集内正则替换
 - ✅ [`standard.md`](topology/homotopy/standard.md) — 一般同伦、相对同伦与复合
 - ✅ [`unit-interval-mesh.md`](topology/homotopy/unit-interval-mesh.md) — 单位区间的一致有限网格

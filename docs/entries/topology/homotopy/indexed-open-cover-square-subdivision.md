@@ -3,7 +3,7 @@ id: topology.homotopy.indexed-open-cover-square-subdivision
 family: topology.homotopy
 variant: indexed-open-cover-dyadic-square-grid-with-minimum-depth
 kind: theorem
-state: research
+state: verified
 title: indexed 开覆盖下的 dyadic 方格细分
 summary: 对被任意指标开覆盖逐点覆盖的连续方形，构造指数不低于指定深度的统一 dyadic 网格及逐格从属标签
 premises: [topology.homotopy.homotopy-square-grid]

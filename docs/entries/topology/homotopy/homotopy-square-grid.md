@@ -3,7 +3,7 @@ id: topology.homotopy.homotopy-square-grid
 family: topology.homotopy
 variant: endpoint-relative-homotopy-uniform-square-grid
 kind: theorem
-state: research
+state: verified
 title: 道路同伦方形与一致网格边
 summary: 将端点相对道路同伦表示为连续参数方形，并定义一致网格的顶点、小格参数化和有向边及其四侧计算规则
 premises: [topology.homotopy.path-homotopy-standard, topology.homotopy.unit-interval-mesh]

@@ -607,7 +607,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
 | T4-R3b-path 有限分段 `C¹` 道路 | 已集成 | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；已证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 当前只刻画实际 `Path.trans` 生成的有限 concat tree，未声称与任意实断点定义等价；曲线可积性消费者归复分析独立批次 |
-| T4-R3b-square 分片 `C¹` 道路同伦不变性 | `development_open`（局部原函数／dyadic grid 路线） | square-grid foundation、A `PiecewiseC1DyadicAlignment`、B `IndexedOpenCoverSquareSubdivision`、C primitive import、D `FiniteRawOpenPathGrid` 均可建立独立正式提交；C/E/F 保持 `ComplexAnalysis` namespace | 当前拓扑负责人拥有整条跨学科六批链的迁移权；A/B/C/D 不再等待逐批 Main 许可，E 在 C+D handoff 后自动转 `development_open`，F 在 A+B+E handoff 后自动转 `integration_open`。每批独立提交与 handoff；禁止恢复已否决的全局 relative-`C²` 签名 |
+| T4-R3b-square 分片 `C¹` 道路同伦不变性 | 已集成（A--F） | shared square-grid、dyadic alignment、indexed subdivision、dyadic integral assembly、raw grid、outer-boundary cancellation 与最终连续相对同伦不变性全部验收 | 最终定理只要求边界道路 PiecewiseC1 和全像受控的标准连续 `Path.Homotopy`；没有恢复全局 relative-`C²` 签名，也没有调用旧最终定理包装 |
 | AT2-C1 覆盖空间定义层 | `development_open` | 新建覆盖映射、均匀覆盖邻域的教材解释与 Mathlib 桥；不得改动 R3b 文件 | 与 R3b 并行；公开 carrier 直接复用 Mathlib，经学科闭包与 handoff 后可申请集成 |
 | AT2-C2 道路提升 | `research_open`，C1 handoff 后自动转 `development_open` | 调查现有道路提升存在唯一性接口并冻结端点、基点和提升空间量词 | 不等待 C1 进入 Main，只等待 C1 公开签名在 handoff 中冻结；不得复制一套覆盖映射定义 |
 | AT2-C3 同伦提升 | `research_open` | 只做签名、依赖和 Mathlib 消费者审计 | C2 公开提升接口冻结后自动转 `development_open`；正式源码与 C1/C2 分文件 |
@@ -789,7 +789,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 6 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 定理及弱星闭性判据 ✅ | `WeakDual`、Banach–Alaoglu、`ZeroAtInfty`、Hahn–Banach |
 | 7 | `functional-analysis.eberlein-smulian` | 自反性、闭单位球弱紧、弱序列紧与有界序列弱收敛子列四项等价 ✅ | `WeakSpace`、`IsCompact`、`IsSeqCompact` |
 | 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 ✅ | 已集成：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，并明确 Mathlib 极性谓词与教材完整 face 的差异 |
-| 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据与自反情形 | decomposition ✅；现同时开放 reflexive convergence 与极限投影两个消费者批次 |
+| 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据、自反情形与极限投影 ✅ | decomposition、reflexive convergence、`ST=TS=S²=S` 均已集成 |
 
 ### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
 
@@ -801,7 +801,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.compact-operator.definition` | 紧算子的单位球像刻画、有限维域上的一般紧性定理与恒等算子判据 ✅；具体算子计算归 Examples E11.7 | compact operator API |
 | 4 | `functional-analysis.compact-operator.composition` | 紧算子理想性质、复合稳定性与范数极限闭性 ✅ | compact composition API |
 | 5 | `functional-analysis.fredholm.definition` | Fredholm 算子、核与余核有限维、指数 ✅ | `ContinuousLinearMap.IsFredholm`、`LinearMap.index` |
-| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；对偶紧致及 `I-K` 的核／闭值域桥 ✅ | 第一窗已集成；第二窗开放余核有限维与 `index (I-K)=0`，最终单射／满射备择仍 `research_open`；不得调用 Mathlib 最终 package 代替教材证明链 |
+| 6 | `functional-analysis.fredholm.alternative` | 恒等减紧算子的 Fredholm 备择；对偶紧致、有限维核余核、闭值域与指数零桥 ✅ | 第一、二窗已集成；最终单射／满射备择 `development_open`，不得调用 Mathlib 最终 package 代替教材证明链 |
+| 6b | `functional-analysis.fredholm.cokernel` | `I-K` 的余核有限维 ✅ | 闭值域零化子、Schauder 对偶紧性 |
+| 6c | `functional-analysis.fredholm.index-zero` | `index(I-K)=0` ✅ | 幂链稳定、Fitting 分解、`LinearMap.index_comp` |
 | 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
@@ -848,18 +850,16 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 face／极点／闭凸包的教材定义链
 解释与必要组装使用者。F4.9 的
 `mean-ergodic.decomposition` 已集成：冻结 `birkhoffAverage`、幂一致有界量词、收敛域、fixed space 与
-`closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”。现开放两个可并行消费者窗口：
-`mean-ergodic.reflexive` 证明自反空间处处收敛；`mean-ergodic.projection` 构造极限投影并证明
-`ST = TS = S² = S`。两批都必须复用 decomposition 的公开接口，不得重证分解。F4.6 与编号
+`closure(range(T-1))`，完成直和分解和“弱收敛子列 iff 范数收敛”。两个消费者也已集成：
+`mean-ergodic.reflexive` 证明自反空间处处收敛，`mean-ergodic.projection` 构造极限投影并证明
+`ST = TS = S² = S`；两批均真实复用了 decomposition 的公开接口。F4.6 与编号
 较后的弱紧致工具仍可先做接口调查。F5.3--F5.4
 紧算子定义、单位球像刻画、有限维域上的一般紧性定理、复合与范数极限闭性已经集成；具体有限秩
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
-F5.6 Fredholm 备择的第一开发窗已经集成：紧算子的对偶仍紧，且 `I-K` 的核有限维、值域闭。
-第二窗为 `development_open`：开发余核有限维与 `index (I-K)=0`，并须显式复用第一窗的
-Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择现为独立 `research_open`，第二窗 handoff
-冻结公开签名后自动转 `development_open`，不必再等待一次 Main 许可，但不得调用 Mathlib
-`FredholmAlternative` 最终 package 代替教材证明。F5.7 紧扰动／小扰动稳定性同时开放
+F5.6 Fredholm 备择的前两窗已经集成：紧算子的对偶仍紧，`I-K` 的核与余核有限维、值域闭，且
+`index (I-K)=0`。最终单射／满射等价及备择现为 `development_open`，必须复用上述接口且不得调用
+Mathlib `FredholmAlternative` 最终 package 代替教材证明。F5.7 紧扰动／小扰动稳定性同时开放
 `research_open`，只允许先冻结指数与复合接口，不得猜测第二窗尚未稳定的局部 API。
 F6.1 Banach 代数 foundation 以独立文件开放 `development_open`；F6.2 谱与预解集定义层开放
 `research_open`，待 F6.1 handoff 后自动转 `development_open`。F6.3 以后仍按教材依赖门推进；
@@ -892,18 +892,23 @@ F6.1 Banach 代数 foundation 以独立文件开放 `development_open`；F6.2 �
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `probability.conditional-expectation.definition` | 条件期望定义与存在 | `condExp` |
-| 2 | `probability.conditional-expectation.tower` | 塔式性质 | `condExp_condExp` |
-| 3 | `probability.conditional-expectation.independence` | 独立时条件期望退化 | condExp independence |
-| 4 | `probability.filtration.definition` | 过滤与适应过程 | `Filtration`、`Adapted` |
+| 1 | `probability.conditional-expectation.definition` | 条件期望定义与存在 ✅ | `condExp` |
+| 2 | `probability.conditional-expectation.tower` | 塔式性质 ✅ | `condExp_condExp` |
+| 3 | `probability.conditional-expectation.independence` | 独立时条件期望退化 ✅ | condExp independence |
+| 4 | `probability.filtration.definition` | 过滤与适应过程 ✅ | `Filtration`、`Adapted` |
 | 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 | `Martingale` |
 | 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 | stopping time |
 
-**Pr2 当前权限**：开放两个互不重叠的第一窗：A 窗开发
-`probability.conditional-expectation.definition`，其通过学科构建并形成 handoff 后，tower 与
-independence 两批按顺序自动放行；B 窗可并行开发 `probability.filtration.definition`。Martingale
-定义等待 A 的定义层和 B 的过滤接口同时稳定；可选停止继续冻结。统计 S1 虽由 G-Pr 解锁，但需先做
-模型／密度与 Radon--Nikodym 接口审计，不得用有限离散样本冒充一般统计实验。
+**Pr2 当前权限**：条件期望 definition、tower、independence 与 filtration 已集成。Martingale 定义
+现为 `development_open`，必须直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`
+并解释条件期望、过滤和可积性量词；有界停时可选停止为 `research_open`，在 martingale handoff
+冻结接口后自动转 `development_open`。Pr3 `probability.convergence.modes` 可并行做
+`research_open` 接口审计，但大数律与 CLT 仍等待 Pr2 核心完成。
+
+统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
+采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 现为
+`development_open`；支配模型／density 为 `research_open`，待 model handoff 后自动转
+`development_open`。一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 

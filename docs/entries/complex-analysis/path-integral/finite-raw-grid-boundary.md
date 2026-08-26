@@ -3,7 +3,7 @@ id: complex-analysis.path-integral.finite-raw-grid-boundary
 family: complex-analysis.path-integral
 variant: cellwise-local-primitives-common-edge-regularization
 kind: theorem
-state: research
+state: verified
 title: 局部原函数方格的外边界消去
 summary: 为有限 raw grid 的内部公共边选择交集内分段 C1 替换，用逐格局部原函数证明格边界积分为零，并经有限 telescope 得到整体外边界积分和为零
 premises: [topology.homotopy.finite-raw-open-path-grid, complex-analysis.path-integral.dyadic-assembly]

@@ -3,7 +3,7 @@ id: complex-analysis.path-integral.piecewise-c1-homotopy-invariance
 family: complex-analysis.path-integral
 variant: continuous-endpoint-relative-homotopy-piecewise-c1-boundary
 kind: theorem
-state: research
+state: verified
 title: 分段 C1 边界的连续相对同伦积分不变性
 summary: 对开集内全像受控的连续端点相对道路同伦，证明全纯函数沿两条分段 C1 边界道路的积分相等，并推出零同伦闭路积分为零
 premises: [complex-analysis.path-integral.finite-raw-grid-boundary, topology.homotopy.piecewise-c1-dyadic-alignment, topology.homotopy.indexed-open-cover-square-subdivision]
