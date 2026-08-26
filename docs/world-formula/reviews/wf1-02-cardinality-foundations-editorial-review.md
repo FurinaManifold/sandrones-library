@@ -2,13 +2,14 @@
 
 - fact cutoff: `7004e154355e65e10533fe3f80281f8671e7147b`
 - author commit: `3fb0887f776767e0135c961870345c6f4a068fba`
-- revision basis: `dae9b2f`
+- initial review basis: `dae9b2f`
+- revision commit: `093022f`
 - reviewed artifact: `docs/world-formula/chapters/00-02-finite-countable-uncountable.md`
 - mathematical review: `docs/world-formula/reviews/wf1-02-cardinality-foundations-mathematical-review.md` (`accepted` at `2090fc0`)
 - character evidence: `docs/world-formula/characters/roles/{nahida,sucrose}.md`；并通读五份 `usable` ROLE
 - editorial reviewer: independent read-only World Formula editorial and character reviewer
 - reviewed at: 2026-08-26
-- editorial-round verdict: `needs_changes`
+- editorial-round verdict: `accepted`
 - whole-chapter status: remains `draft`；本轮只审核已完成的第 1–4 节
 
 ## 审核范围与总评
@@ -117,14 +118,41 @@
 
 ## Resolution
 
-- E1: `still blocked`；须先建立集合与类型的读者桥并统一对象叙述。
-- E2: `still blocked`；须重写场景中的真实处境和两位人物独立判断分工。
-- E3: `still blocked`；非阻塞 R3，集中核验状态与来源账即可。
-- E4: `still blocked`；非阻塞 R3，同步状态并修复相对链接即可。
+- E1: `resolved` in `093022f`。第 32–34 行在首次等势定义前说明“类型”是待比较对象的元素载体，
+  具体集合通过其成员所成的类型进入讨论，并约定 $A,B,C$ 的对象层级；§二同步改称“对象”，显式
+  $A\subseteq B$ 时才回到集合包含。§三空集承载与这项总约定一致，不再是迟到的局部补丁。
+- E2: `resolved` in `093022f`。第 55–62 行由砂糖自己翻查来源记录、分开重编标签与建立双射两项
+  任务，逐项勾销以检查不重不漏，又主动发现保存温度和反应记录没有被配对保存。她不再是等待纳西妲
+  纠正的学生。第 64–67 行纳西妲独立追问“数实物还是数档案页”的对象选择问题，砂糖据此保留两张
+  表；两人的判断标准相邻而不重复，也没有一人故意犯错供另一人讲解。场景仍紧接双射定义，之后由
+  第 69–72 行自然抽象出载体与结构保持边界，插入位置和退场均不生硬。
+- E3: `resolved` in `093022f`。四个节末重复的“本节核验来源”已删除，正文重新形成连续的概念递进；
+  §四只保留一次与读者理解直接相关的“已有概念之等价刻画”说明。四个 Entry、各自核验结论与未覆盖
+  边界集中在第 189–193 行，审计声线明显弱化而事实追溯完整保留。
+- E4: `resolved` in `093022f`。第 18–22 行已同步数学轮 `accepted`、文字轮待复验状态并链接两份
+  review；第 15 行的两份人物 ROLE 也改为 Markdown 链接。从章节所在目录解析
+  `../characters/roles/{nahida,sucrose}.md` 与
+  `../reviews/wf1-02-cardinality-foundations-{mathematical-review,editorial-review}.md`，四个目标均存在。
+  Main 仍明确为待完成，全章状态仍诚实保持只完成第 1–4 节的 `draft`。
+
+## Revision re-review
+
+本轮只读复验 `093022f` 相对初审提交 `37d55a7` 的章节 diff。修订提交只改目标章节，没有改动 Lean、
+Entry、Registry、人物 ROLE、数学 review 或事实截止。除 E1–E4 的目标段落外，原先通过的术语首现、
+函数方向、类比边界、半章范围和出版背景地位均保持不变。
+
+人物专项复验确认，砂糖现在完整承担“查记录—建立配对—检查结构丢失”的研究链，纳西妲补入的是
+不同层面的对象选择，而非替她完成或批改同一判断。两人的动作由搬运、记录表和档案副本推动，未出现
+普通教师问答或角色标签式分工。场景后的普通数学段落能够直接接住“所选载体”和“额外结构”，因此
+人物段落与正文边界自然。
+
+链接专项复验以章节文件 `docs/world-formula/chapters/00-02-finite-countable-uncountable.md` 为基准，
+逐一解析四个 `../` 相对目标，均为现存文件。来源专项复验确认四个 Entry id 未因集中排版而丢失，
+对应的等势、比较、有限枚举与可数刻画仍可逐项追溯；弱化的是重复接口声线，不是事实边界。
 
 ## Verdict
 
-本轮发现两项 R2 structural finding，故 editorial-round verdict 为 **`needs_changes`**。这不是对已
-通过数学轮的否定，也不是要求提前补写后半章：返工范围只限于已完成前四节的对象承载说明、人物
-场景和两项编辑整理。章节应继续保持 `draft（仅完成第 1–4 节）`；完成 E1–E4 后须由独立文字审阅者
-按当前正文逐项复验，Main 第三轮仍不得省略。
+对 revision commit `093022f` 的复验中，E1–E4 均为 **`resolved`**，未发现新的 R1、R2 或 R3
+finding，故 editorial-round 最终 verdict 为 **`accepted`**。该结论只批准当前第 1–4 节的文字与
+人物轮，不把尚未书写的后半章视为完成，也不代替 Main 第三轮一致性验收；章节继续保持
+`draft（仅完成第 1–4 节）` 是准确状态。
