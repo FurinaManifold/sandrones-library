@@ -15890,7 +15890,9 @@
     "nl_file": "docs/entries/topology/fundamental-group/van-kampen-framed-grid-boundary.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.fundamental-group.van-kampen-normalized-grid-gauge"
+    ],
     "family": "topology.fundamental-group",
     "variant": "framed-row-and-grid-perimeter",
     "axioms": [
@@ -15899,5 +15901,38 @@
       "propext"
     ],
     "proof_sha": "8ee0b7903644f8fd"
+  },
+  {
+    "id": "topology.fundamental-group.van-kampen-normalized-grid-gauge",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "van Kampen 网格的二维规范化 gauge",
+    "summary": "以同伦方形边界的基点 potentials 归一化逐格横边，并沿竖直 transitions 传播 frames，证明完整网格左右 holonomy 相等",
+    "premises": [
+      "topology.fundamental-group.van-kampen-framed-grid-boundary"
+    ],
+    "mathlib": [
+      "Path.Homotopy",
+      "Fin",
+      "FundamentalGroup",
+      "Monoid.PushoutI"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/VanKampenNormalizedGridGauge.lean",
+    "nl_file": "docs/entries/topology/fundamental-group/van-kampen-normalized-grid-gauge.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.fundamental-group",
+    "variant": "boundary-potential-and-two-dimensional-gauge",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7d4e161f1d99724b"
   }
 ]

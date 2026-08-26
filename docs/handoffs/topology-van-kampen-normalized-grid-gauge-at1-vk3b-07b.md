@@ -54,5 +54,8 @@ prefix/full-row words 消去；二维完整行状态；以及 Main 点名的通�
 
 - 收缩研究候选直接消费正式 07a 并完整编译。
 - 该候选 `.olean` 下，未修改 08a 与 08b 依次完整编译；08 源码 prefix-name 搜索为零。
-- 正式目标构建、aggregate、Entry mapper、代表性公理、禁用项和 `git diff --check` 在提交前复核。
+- 正式目标构建、Entry mapper、代表性公理、禁用项和 `git diff --check` 在提交前复核。
+- Main 复验确认原临时 `VK3b07Aggregate.lean` 仍检查 07a 后来转为 private 的
+  `FocusedBoundary.attachRight`，因此该临时 aggregate 不是本批通过证据；正式模块与未修改 08a
+  的直接消费构建才是本批接口验证依据。
 - 验证产生的临时 07b/08a `.olean` 已精确清理。
