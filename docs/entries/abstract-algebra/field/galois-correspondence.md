@@ -88,12 +88,19 @@ Galois 扩张的自同构数目公式，得到一个自然数同时是 fixing �
 固定域恢复。`finiteGalois_fundamental_correspondence` 及其他集合级恢复定理
 继续保留为 compatibility API，不另建证明链。
 
-# Mathlib 私有边界
+# Mathlib 后端边界
 
-Mathlib 的局部 `Algebra`、打包中间域和子群、`AlgEquiv`、`FiniteDimensional`、
-`IsGalois`、`FixedPoints.toAlgHomEquiv` 及相关有限基数工具只出现在私有桥或
-证明体。公开声明不暴露这些承载。证明刻意重建 restriction、换基与数值
-消去链，不调用直接返回最终中间域恢复、子群恢复或完整对应的便捷
+教材层的有限扩张和 Galois 条件始终由本库 `FiniteFieldExtension` 与
+`GaloisExtension` 表述。绝大多数 Mathlib `Algebra`、打包中间域和子群、
+`AlgEquiv`、`FiniteDimensional`、`IsGalois`、`FixedPoints.toAlgHomEquiv` 及有限
+基数工具只出现在私有桥或证明体。
+
+唯一需要单独披露的公开例外是 `finiteGalois_mathlibBackend`：它不是新的教材
+概念或第二套扩张承载，而是把上述两个本库谓词一次性转换为
+`Nonempty (FiniteDimensional K L)` 与 `Nonempty (IsGalois K L)` 的具名后端桥。
+正规性和 restriction 两个下游模块共有三个证明体消费者；保留一个公开桥可
+避免在三个文件中复制同一实例构造。课程级上层定理的公开签名均不出现这两个
+Mathlib 类。证明仍不调用直接返回最终中间域恢复、子群恢复或完整对应的便捷
 定理。
 
 可分／正规扩张到 Mathlib 类的转换统一复用 A3.8 公开桥；本模块不再保留
