@@ -90,6 +90,8 @@ Main 共享文件包括：
 - 正式 `SandronesLibrary/` 文件不允许 `sorry`、`admit`、`sorryAx`、`native_decide`。
 - 一次只编译一个最小模块/引理链，通过后再扩大到依赖闭包。
 - 命名先查 Mathlib 冲突；证明意图与 tactic 映射见 Playbook，不在本文件复制所有技巧。
+- 面向人类审阅者解释证明时，以 `docs/LEAN-TACTIC-REVIEW-GUIDE.md` 为共同术语表；审核报告应说明
+  tactic 前后的数学目标，不只罗列 tactic 名称。
 
 正式 Entry 最低交付：Lean 声明和 Entry docstring、可审核的教材文档、准确依赖和
 Mathlib 列表、真实验证、以及不强于 Lean 陈述的 summary。
