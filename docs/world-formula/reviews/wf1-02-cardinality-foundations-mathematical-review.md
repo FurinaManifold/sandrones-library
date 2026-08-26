@@ -2,11 +2,12 @@
 
 - fact cutoff: `7004e154355e65e10533fe3f80281f8671e7147b`
 - author commit: `3fb0887f776767e0135c961870345c6f4a068fba`
+- revision commit: `2090fc0466320d644da408b33751bfd144ac6833`
 - reviewed file: `docs/world-formula/chapters/00-02-finite-countable-uncountable.md`
 - mathematical reviewer: independent World Formula mathematical reviewer
 - editorial reviewer: pending; not covered by this record
 - reviewed at: 2026-08-26
-- mathematical-round verdict: `changes_required`（对应仓库统一 verdict `needs_changes`）
+- mathematical-round verdict: `accepted`
 - whole-chapter status: remains `draft`
 
 ## 审核范围与事实链
@@ -84,14 +85,32 @@ Entry 文档路径可解析。作者提交相对事实截止只新增本章草�
 
 ## Resolution
 
-- F-01: `still blocked`；需章节作者修改论证或补足出版背景及次序前提。
-- F-02: `still blocked`；需章节作者区分具体例与已形式化 Entry 的地位。
-- F-03: `still blocked`；需章节作者修正对象层级。
-- F-04: `still blocked`；需章节作者补正式承载边界。
+- F-01: `resolved` in `2090fc0`。§一开头改为“尚未找到有限枚举时不能预设有限性”；§四不再使用
+  “集合没有最后一个元素”。`ℕ` 非有限被明确标为通常集合论出版背景，并明确否认由“没有最后一个
+  自然数”或本小批四 Entry 推导。原先遗漏的次序结构和形式化地位问题均已消除。
+- F-02: `resolved` in `2090fc0`。正文显式定义偶数集合
+  `E = {m ∈ ℕ : m 为偶数}`，说明 `n ↦ 2n` 可直接检查为 `ℕ → E` 的双射，并明确标作出版背景标准例、
+  不是本节 Entry 新核验的独立结论。
+- F-03: `resolved` in `2090fc0`。正文先称 `Fin 0` 为标准空类型，再把空集按成员类型承载，明确说明
+  类型与集合没有被直接视为同一对象。
+- F-04: `resolved` in `2090fc0`。正文准确披露 `Countable A` 是 mathlib 已有的 Prop-valued typeclass，
+  并说明本 Entry 给出可操作等价刻画而非新定义。
+
+## Round 2 re-review
+
+只读复验 revision commit `2090fc0` 相对作者原提交 `3fb0887` 的章节 diff。该提交只修改目标章节，
+逐项处理 F-01 至 F-04；没有改动事实截止、四个 Entry、Lean 源码或出版来源。修订后：
+
+- 有限枚举动机不再依赖未定义的“最后一个元素”；
+- `ℕ` 与偶数的具体双射具有明确对象、直接检查地位与非 Lean 核验边界；
+- `Fin 0` 的空类型承载与空集成员类型得到区分；
+- `Countable` 的 typeclass 地位和 Entry 的“等价刻画”角色得到披露。
+
+复查其余受改段落，函数方向、量词、Cantor–Bernstein 缺口、有限单射界方向与人物场景边界均保持
+原审核通过状态，未发现新的 R1、R2 或 R3 finding。
 
 ## Verdict
 
-本轮逐断言数学审核为 **`changes_required`**（仓库协议等价状态：`needs_changes`）。四个核心定义、
-函数方向、比较的已覆盖性质、`Fin n` 枚举以及 `Countable A` 的 iff 本身均与 Lean 一致；但 F-01、
-F-02 属 R1，F-03、F-04 属 R2，不能以文字润色或 Main 版式整理代替返工。该 verdict 只针对数学
-第一轮；独立文字审稿与 Main 一致性验收仍未完成。
+对 revision commit `2090fc0` 的复验 verdict 为 **`accepted`**。F-01 至 F-04 全部 `resolved`，且
+未发现新的 R1、R2 或 R3 finding。该 verdict 完成数学第一轮及其返工复验；章节仍为 draft，独立
+文字审稿与 Main 一致性验收仍未完成。
