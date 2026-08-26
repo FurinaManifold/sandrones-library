@@ -298,6 +298,22 @@
 > 尚未完成的教材解释层或已经声明的语义边界；原学科若已把 Mathlib 接口解释并验收为正式承载，
 > Examples 应直接复用。
 
+> **10.2 常驻自然语言综合书稿《水仙十字的世界式》**
+>
+> - 本书执行 `docs/roles/WORLD-FORMULA-EDITOR-ROLE.md`，书稿根目录为 `docs/world-formula/`。它沿
+>   Registry/Entry 的真实依赖路径综合全库知识，定位为大型数学参考书，而不是有完整习题体系的
+>   授课教材。
+> - 书稿是 Lean 源码、verified Registry、Entry、合规出版来源和 ROADMAP 的**只读消费者**。
+>   verified 事实、出版背景、research candidate 与 future plan 必须显式分栏；不得把计划写成成果，
+>   也不得为了叙事顺畅要求原学科改定理或伪造桥。
+> - 章节编辑只写 `docs/world-formula/` 和自己的 handoff；跨章目录、ROLE、ROADMAP、Playbook、
+>   README/AGENTS 由 Main 维护。术语首次完整定义只允许一个权威位置，其他章节链接回指。
+> - 纯文本没有编译器兜底。每批必须由非作者完成逐断言数学审核，再由另一名审阅者完成结构与
+>   出版编辑审核；Main 最后核对事实截止 commit、状态、来源、链接和处理记录。详细协议见
+>   `docs/world-formula/REVIEW-PROTOCOL.md`。
+> - 审核严重度分为 R1 factual、R2 structural、R3 editorial。R1/R2 必须返工；只有 R3 时由主编
+>   或 Main 直接修正，不把纯版式问题伪装成数学返工。
+
 > **5 次试错法**：同一证明试错 ≥ 5 次 ⟹ 停止盲试，拆成子 todo（带 sorry 框架），逐个解决。
 
 > **用途**：把"用 Lean 表达数学推理"的实战经验沉淀为可检索知识。

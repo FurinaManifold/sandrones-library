@@ -41,6 +41,7 @@ Playbook 只规定跨学科工作方法；不得在其中另建课程批次。�
 - 新学科或新批次开发：`docs/roles/SUBJECT-MAINTAINER-ROLE.md`；
 - 已完成学科的定义调整和兼容迁移：`docs/roles/SUBJECT-MAINTENANCE-ROLE.md`；
 - 计算例、正例与反例巡视：`docs/roles/EXAMPLES-MAINTAINER-ROLE.md`。
+- 常驻自然语言综合书稿《水仙十字的世界式》：`docs/roles/WORLD-FORMULA-EDITOR-ROLE.md`。
 
 用户指定角色后直接从仓库发现状态，不要让用户填 maintainer、commit、worktree、
 handoff 或验证命令表格。只有两个数学语义分支无法从仓库判定时，才问一个最小问题。
@@ -61,6 +62,7 @@ Main 共享文件包括：
 - `reference.bib`；
 - `docs/entries/README.md`、`docs/entries/RANKINGS.md`；
 - `docs/MATHLIB-RADAR.md`、`docs/ROADMAP-*.md`、`docs/LEAN-PLAYBOOK.md`；
+- `docs/world-formula/` 的总目录、跨章规范和 Main-side 最终审稿记录；
 - `README.md`、`AGENTS.md` 及 Main-side 审计/生成工具。
 
 学科 handoff 只提供这些文件的更新建议，不长期维护自己的分叉版本。

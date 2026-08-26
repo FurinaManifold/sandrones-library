@@ -91,6 +91,7 @@ docs/entries/                   逐 Entry 教材文档
 docs/handoffs/                  学科批次交付记录
 docs/reviews/                   已纳入 Git 的 Main 审核闭环
 docs/roles/                     Main、学科、维护和 Examples ROLE
+docs/world-formula/             常驻自然语言综合书稿《水仙十字的世界式》
 index/registry.json             Entry 事实与依赖元数据
 index/rankings.json             可重建排行数据
 reference.bib                   参考文献唯一维护点
@@ -112,6 +113,7 @@ scripts/                        生成、审计和脚手架工具
 - 学科负责人开发定理、定义和可审核的课程文档初稿；
 - Main 负责共享 imports、Registry、文献、RADAR、ROADMAP、Examples 巡视、审核归档与全库构建；
 - 已完成学科的公开接口调整必须按维护 ROLE 先做影响审计，再分桥、迁移和退役三阶段完成。
+- 《水仙十字的世界式》主编只消费已验收资产，按独立数学审稿与出版编辑审稿组织跨学科书稿。
 
 完整规程见 [`AGENTS.md`](AGENTS.md) 和
 [`docs/LEAN-PLAYBOOK.md`](docs/LEAN-PLAYBOOK.md)。自动化工具不代替数学审核；
@@ -132,6 +134,9 @@ scripts/                        生成、审计和脚手架工具
 | [`docs/roles/MAIN-ROLE.md`](docs/roles/MAIN-ROLE.md) | Main 审核与集成职责 |
 | [`docs/roles/SUBJECT-MAINTAINER-ROLE.md`](docs/roles/SUBJECT-MAINTAINER-ROLE.md) | 学科开发职责 |
 | [`docs/roles/SUBJECT-MAINTENANCE-ROLE.md`](docs/roles/SUBJECT-MAINTENANCE-ROLE.md) | 已完成学科的兼容迁移规程 |
+| [`docs/roles/WORLD-FORMULA-EDITOR-ROLE.md`](docs/roles/WORLD-FORMULA-EDITOR-ROLE.md) | 《水仙十字的世界式》常驻主编、来源和交付职责 |
+| [`docs/world-formula/README.md`](docs/world-formula/README.md) | 书稿定位、卷册骨架、事实地位与章节约定 |
+| [`docs/world-formula/REVIEW-PROTOCOL.md`](docs/world-formula/REVIEW-PROTOCOL.md) | 纯文本逐断言数学审核、结构审核与 Main 验收协议 |
 
 ## 保证边界
 

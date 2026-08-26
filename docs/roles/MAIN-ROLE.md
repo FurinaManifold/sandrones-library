@@ -32,6 +32,8 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 
 - 维护共有文件：`SandronesLibrary.lean`、`index/registry.json`、`docs/entries/README.md`、
   `docs/MATHLIB-RADAR.md`、`docs/ROADMAP-LONGTERM.md`、`docs/LEAN-PLAYBOOK.md`。
+- 维护《水仙十字的世界式》的总目录、事实截止点和最终审稿门；书稿是 Registry/Entry 的消费者，
+  不得反向成为课程完成状态或数学事实的来源。
 - 根据 ROADMAP 的依赖门和波次安排后续学科；避免多个负责人领取相同文件。
 - 对每条活跃关键路线至少维持一个 `integration_open` 窗口和一个所有权不冲突的
   `development_open` 或 `research_open` 后续窗口。不得把“尚不可集成”等同于“禁止开发”；
@@ -50,6 +52,8 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 - 维护迁移由 main 控制阶段门：先接收新定义与桥，再分批接收下游迁移，最后在旧 API 使用归零后
   单独接收退役提交；不得把三阶段压成一次不可回滚的合并。
 - 一次接收 1–3 个互不冲突的 handoff，统一更新共有文件并作独立集成提交。
+- 接收纯文本书稿时，先核对逐断言数学审稿，再核对跨章一致性与出版编辑审稿；没有 Lean 修改也
+  不能降低审核强度。只有目录、链接、版式等 R3 问题由 Main 直接修，事实或结构问题退回主编。
 
 ## 文档与规范归属
 
