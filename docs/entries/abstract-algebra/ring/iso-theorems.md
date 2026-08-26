@@ -44,16 +44,22 @@ provenance:
 - `RingEquiv`／`R ≃+* S`：环同构的正式公开承载，与上述教材定义语义一致。
 - `RingIsomorphism`：历史兼容载体；`toRingEquiv`、`ofRingEquiv` 及两个往返恒等式证明它
   与正式承载无损等价。新证明不再由这个平行结构拥有。
-- `TwoSidedIdealCarrier`、`ringHomKernelSet`、`ringHomKernel`：双边理想与核承载。
+- `TwoSidedIdealCarrier.toTwoSidedIdeal`、`ofTwoSidedIdeal`：旧教材载体与正式
+  `TwoSidedIdeal` 的无损双向桥；carrier 等式和两个往返定理保持成员语义。
+- `ringHomKernel`：旧签名保留，正式证明所有权落在 `TwoSidedIdeal.ker`。
 - `ringHomRange`、`ringHomRangeMap`：由存在原像刻画的像及规范映射。
 - `quotientRingSetRing`、`ringHomRangeRing`：从教材公理打包的标准环结构。
 - `ringFirstEquiv`：`quotientRingSet (ker f) ≃+* ringHomRange f` 的正式核心。
 - `ringFirstEquiv_projection`：正式同构把代表元类 `[x]` 送到像中的 `f(x)`。
 - `ringFirstIsomorphism`、`ringFirstIsomorphism_projection`：旧签名的薄兼容包装。
 - `twoSidedIdealContained`：双边理想的显式集合包含序。
-- `idealComap`、`idealMapOfSurjective`：同态逆像与满射同态像。
+- `idealComap`、`idealMapOfSurjective`：旧签名分别薄包装 `TwoSidedIdeal.comap` 与
+  `TwoSidedIdeal.map`；满射直接像与正式 map 的 span 等式由两向包含显式证明。
 - `quotientIdealComapMap_membership`、`quotientIdealMapComap_membership`：两个方向的成员公式。
-- `QuotientIdealOrderEquivalence`、`quotientIdealCorrespondence`：教材理想保序对应。
+- `quotientIdealOrderIso`：正式商理想对应核心，正向为 `TwoSidedIdeal.map`，逆向为
+  `TwoSidedIdeal.comap`，返回标准 `OrderIso`。
+- `QuotientIdealOrderEquivalence`、`quotientIdealCorrespondence`：旧签名薄兼容包装；
+  `toOrderIso`、`ofOrderIso` 及两个往返定理排除第二条证明链。
 - `SubringCarrier`、`subringIdealIntersection`、`subringIdealSum`：子环、`A∩I` 与 `A+I`。
 - `secondIsomorphismCanonicalMap` 及其核、满射定理：第二同构的规范映射数据。
 - `ringSecondEquiv`、`ringSecondEquiv_projection`：第二同构正式核心及代表元公式。
@@ -77,7 +83,8 @@ provenance:
 
 | 数学语言 | Lean 接口 |
 |---|---|
-| 双边理想承载 | `TwoSidedIdealCarrier R` |
+| 双边理想正式承载 | `TwoSidedIdeal R` |
+| 旧双边理想兼容载体 | `TwoSidedIdealCarrier R`，经双向桥无损转换 |
 | `ker(f)` | `ringHomKernelSet f` |
 | `im(f)` | `ringHomRange f hf` |
 | `R/ker(f)` | `quotientRingSet (ringHomKernelSet f) ...` |
@@ -86,7 +93,8 @@ provenance:
 | `[x] ↦ f(x)` | `ringFirstEquiv_projection f hf x` |
 | 理想逆像 | `idealComap f hf J` |
 | 满射下理想像 | `idealMapOfSurjective f hf hsurj I` |
-| 商环理想对应 | `quotientIdealCorrespondence K` |
+| 商环理想正式保序同构 | `quotientIdealOrderIso K` |
+| 商环理想旧兼容接口 | `quotientIdealCorrespondence K` |
 | 子环 `A` | `SubringCarrier R` |
 | `A∩I` | `subringIdealIntersection A I` |
 | `A+I` | `subringIdealSum A I` |

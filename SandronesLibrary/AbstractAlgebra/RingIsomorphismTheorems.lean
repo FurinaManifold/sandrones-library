@@ -91,6 +91,56 @@ instance {R : Type*} [Ring R] : SetLike (TwoSidedIdealCarrier R) R where
   coe := TwoSidedIdealCarrier.carrier
   coe_injective := by intro I J h; cases I; cases J; simp_all
 
+/-- 旧双边理想载体无损转换为正式 `TwoSidedIdeal`。 -/
+def TwoSidedIdealCarrier.toTwoSidedIdeal {R : Type*} [Ring R]
+    (I : TwoSidedIdealCarrier R) : TwoSidedIdeal R :=
+  TwoSidedIdeal.mk' I.carrier I.isTwoSided.1.1
+    (fun {_ _} hx hy => I.isTwoSided.1.2.1 hx hy)
+    (fun {_} hx => I.isTwoSided.1.2.2.1 hx)
+    (fun {_ _} hx => I.isTwoSided.1.2.2.2 _ hx)
+    (fun {_ _} hx => I.isTwoSided.2.2.2.2 _ hx)
+
+/-- 正式 `TwoSidedIdeal` 无损退回旧兼容载体。 -/
+def TwoSidedIdealCarrier.ofTwoSidedIdeal {R : Type*} [Ring R]
+    (I : TwoSidedIdeal R) : TwoSidedIdealCarrier R :=
+  { carrier := I
+    isTwoSided :=
+      ⟨⟨I.zero_mem, (fun _ _ => I.add_mem), (fun _ => I.neg_mem),
+          (fun _ _ h => I.mul_mem_left _ _ h)⟩,
+        ⟨I.zero_mem, (fun _ _ => I.add_mem), (fun _ => I.neg_mem),
+          (fun _ _ h => I.mul_mem_right _ _ h)⟩⟩ }
+
+@[simp] theorem TwoSidedIdealCarrier.coe_toTwoSidedIdeal
+    {R : Type*} [Ring R] (I : TwoSidedIdealCarrier R) :
+    (I.toTwoSidedIdeal : Set R) = I.carrier := by
+  unfold TwoSidedIdealCarrier.toTwoSidedIdeal
+  apply TwoSidedIdeal.coe_mk'
+
+@[simp] theorem TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal
+    {R : Type*} [Ring R] (I : TwoSidedIdeal R) :
+    (TwoSidedIdealCarrier.ofTwoSidedIdeal I).toTwoSidedIdeal = I := by
+  apply TwoSidedIdeal.ext
+  intro x
+  simp [TwoSidedIdealCarrier.toTwoSidedIdeal,
+    TwoSidedIdealCarrier.ofTwoSidedIdeal, TwoSidedIdeal.mem_mk']
+
+@[simp] theorem TwoSidedIdealCarrier.ofTwoSidedIdeal_toTwoSidedIdeal
+    {R : Type*} [Ring R] (I : TwoSidedIdealCarrier R) :
+    TwoSidedIdealCarrier.ofTwoSidedIdeal I.toTwoSidedIdeal = I := by
+  apply SetLike.coe_injective
+  ext x
+  simp [TwoSidedIdealCarrier.toTwoSidedIdeal,
+    TwoSidedIdealCarrier.ofTwoSidedIdeal]
+
+/-- 把普通函数上的教材 `RingHomomorphism` 谓词打包为正式 `RingHom`。 -/
+def ringHomOfRingHomomorphism {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) : R →+* S where
+  toFun := f
+  map_one' := hf.2.1
+  map_mul' := hf.2.2.2.1
+  map_zero' := hf.1
+  map_add' := hf.2.2.1
+
 set_option warn.classDefReducibility false in
 /-- 从已证明的 `quotientRingSet_ringAxioms` 打包本库商集的标准 `Ring` 实例。
 > **Entry**: abstract-algebra.ring.iso-theorems
@@ -139,7 +189,15 @@ theorem ringHomKernelSet_isTwoSidedIdeal {R S : Type*} [Ring R] [Ring S]
 -/
 def ringHomKernel {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) : TwoSidedIdealCarrier R :=
-  ⟨ringHomKernelSet f, ringHomKernelSet_isTwoSidedIdeal f hf⟩
+  TwoSidedIdealCarrier.ofTwoSidedIdeal
+    (TwoSidedIdeal.ker (ringHomOfRingHomomorphism f hf))
+
+/-- 旧核载体转换后正是正式 `TwoSidedIdeal.ker`。 -/
+@[simp] theorem ringHomKernel_toTwoSidedIdeal {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) :
+    (ringHomKernel f hf).toTwoSidedIdeal =
+      TwoSidedIdeal.ker (ringHomOfRingHomomorphism f hf) := by
+  apply TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal
 
 /-- **环同态的像**：由“存在原像”刻画的教材子类型。
 > **Entry**: abstract-algebra.ring.iso-theorems
@@ -315,46 +373,35 @@ instance {R : Type*} [Ring R] : PartialOrder (TwoSidedIdealCarrier R) := by
     apply SetLike.coe_injective
     exact Set.Subset.antisymm hIJ hJI
 
+/-- 旧、正式双边理想载体之间的保序等价。 -/
+def TwoSidedIdealCarrier.orderIso {R : Type*} [Ring R] :
+    TwoSidedIdealCarrier R ≃o TwoSidedIdeal R where
+  toFun := TwoSidedIdealCarrier.toTwoSidedIdeal
+  invFun := TwoSidedIdealCarrier.ofTwoSidedIdeal
+  left_inv := TwoSidedIdealCarrier.ofTwoSidedIdeal_toTwoSidedIdeal
+  right_inv := TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal
+  map_rel_iff' := by
+    intro I J
+    simp only [TwoSidedIdeal.le_iff]
+    change (I.toTwoSidedIdeal : Set R) ⊆ (J.toTwoSidedIdeal : Set R) ↔
+      (I : Set R) ⊆ J
+    rw [I.coe_toTwoSidedIdeal, J.coe_toTwoSidedIdeal]
+    rfl
+
 /-- 环同态下理想的逆像；不要求同态满射。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
 def idealComap {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) (J : TwoSidedIdealCarrier S) :
-    TwoSidedIdealCarrier R := by
-  refine ⟨{x | f x ∈ J}, ?_⟩
-  constructor
-  · refine ⟨?_, ?_, ?_, ?_⟩
-    · change f 0 ∈ J
-      rw [hf.1]
-      exact J.isTwoSided.1.1
-    · intro x y hx hy
-      change f (x + y) ∈ J
-      rw [hf.2.2.1]
-      exact J.isTwoSided.1.2.1 hx hy
-    · intro x hx
-      change f (-x) ∈ J
-      rw [hf.2.2.2.2]
-      exact J.isTwoSided.1.2.2.1 hx
-    · intro r x hx
-      change f (r * x) ∈ J
-      rw [hf.2.2.2.1]
-      exact J.isTwoSided.1.2.2.2 (f r) hx
-  · refine ⟨?_, ?_, ?_, ?_⟩
-    · change f 0 ∈ J
-      rw [hf.1]
-      exact J.isTwoSided.2.1
-    · intro x y hx hy
-      change f (x + y) ∈ J
-      rw [hf.2.2.1]
-      exact J.isTwoSided.2.2.1 hx hy
-    · intro x hx
-      change f (-x) ∈ J
-      rw [hf.2.2.2.2]
-      exact J.isTwoSided.2.2.2.1 hx
-    · intro r x hx
-      change f (x * r) ∈ J
-      rw [hf.2.2.2.1]
-      exact J.isTwoSided.2.2.2.2 (f r) hx
+    TwoSidedIdealCarrier R :=
+  TwoSidedIdealCarrier.ofTwoSidedIdeal
+    (TwoSidedIdeal.comap (ringHomOfRingHomomorphism f hf) J.toTwoSidedIdeal)
+
+@[simp] theorem idealComap_toTwoSidedIdeal {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) (J : TwoSidedIdealCarrier S) :
+    (idealComap f hf J).toTwoSidedIdeal =
+      TwoSidedIdeal.comap (ringHomOfRingHomomorphism f hf) J.toTwoSidedIdeal := by
+  apply TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal
 
 /-- 元素属于理想逆像，当且仅当其函数值属于目标理想。
 > **Entry**: abstract-algebra.ring.iso-theorems
@@ -362,12 +409,17 @@ def idealComap {R S : Type*} [Ring R] [Ring S]
 @[simp] theorem mem_idealComap_iff {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) (J : TwoSidedIdealCarrier S) (x : R) :
     x ∈ idealComap f hf J ↔ f x ∈ J := by
+  change x ∈ (TwoSidedIdeal.comap (ringHomOfRingHomomorphism f hf)
+    J.toTwoSidedIdeal) ↔ f x ∈ J
+  rw [TwoSidedIdeal.mem_comap]
+  change f x ∈ (J.toTwoSidedIdeal : Set S) ↔ f x ∈ (J : Set S)
+  rw [J.coe_toTwoSidedIdeal]
   rfl
 
 /-- 满射环同态下理想的像；满射性用于把目标环乘子提升回源环。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
-def idealMapOfSurjective {R S : Type*} [Ring R] [Ring S]
+private def idealMapDirectOfSurjective {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) (hsurj : Function.Surjective f)
     (I : TwoSidedIdealCarrier R) : TwoSidedIdealCarrier S := by
   refine ⟨{y | ∃ x : R, x ∈ I ∧ f x = y}, ?_⟩
@@ -389,6 +441,48 @@ def idealMapOfSurjective {R S : Type*} [Ring R] [Ring S]
       obtain ⟨r, rfl⟩ := hsurj s
       exact ⟨x * r, I.isTwoSided.2.2.2.2 r hx, hf.2.2.2.1 x r⟩
 
+private theorem idealMapDirect_toTwoSidedIdeal
+    {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) (hsurj : Function.Surjective f)
+    (I : TwoSidedIdealCarrier R) :
+    (idealMapDirectOfSurjective f hf hsurj I).toTwoSidedIdeal =
+      TwoSidedIdeal.map (ringHomOfRingHomomorphism f hf) I.toTwoSidedIdeal := by
+  apply le_antisymm
+  · intro y hy
+    have hyCarrier : y ∈ (idealMapDirectOfSurjective f hf hsurj I).carrier := by
+      change y ∈ ((idealMapDirectOfSurjective f hf hsurj I).toTwoSidedIdeal : Set S) at hy
+      rw [TwoSidedIdealCarrier.coe_toTwoSidedIdeal] at hy
+      exact hy
+    obtain ⟨x, hx, rfl⟩ := hyCarrier
+    apply TwoSidedIdeal.subset_span
+    exact ⟨x, by
+      rw [I.coe_toTwoSidedIdeal]
+      exact hx, rfl⟩
+  · apply (TwoSidedIdeal.span_le).2
+    rintro y ⟨x, hx, rfl⟩
+    have hxCarrier : x ∈ I.carrier := by
+      change x ∈ (I.toTwoSidedIdeal : Set R) at hx
+      rw [I.coe_toTwoSidedIdeal] at hx
+      exact hx
+    change f x ∈ ((idealMapDirectOfSurjective f hf hsurj I).toTwoSidedIdeal : Set S)
+    rw [TwoSidedIdealCarrier.coe_toTwoSidedIdeal]
+    exact ⟨x, hxCarrier, rfl⟩
+
+/-- 满射环同态下理想的像；正式所有权落在 `TwoSidedIdeal.map`。 -/
+def idealMapOfSurjective {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) (_hsurj : Function.Surjective f)
+    (I : TwoSidedIdealCarrier R) : TwoSidedIdealCarrier S :=
+  TwoSidedIdealCarrier.ofTwoSidedIdeal
+    (TwoSidedIdeal.map (ringHomOfRingHomomorphism f hf) I.toTwoSidedIdeal)
+
+@[simp] theorem idealMapOfSurjective_toTwoSidedIdeal
+    {R S : Type*} [Ring R] [Ring S]
+    (f : R → S) (hf : RingHomomorphism f) (hsurj : Function.Surjective f)
+    (I : TwoSidedIdealCarrier R) :
+    (idealMapOfSurjective f hf hsurj I).toTwoSidedIdeal =
+      TwoSidedIdeal.map (ringHomOfRingHomomorphism f hf) I.toTwoSidedIdeal := by
+  apply TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal
+
 /-- 元素属于满射理想像的存在原像刻画。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
@@ -396,6 +490,11 @@ def idealMapOfSurjective {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) (hsurj : Function.Surjective f)
     (I : TwoSidedIdealCarrier R) (y : S) :
     y ∈ idealMapOfSurjective f hf hsurj I ↔ ∃ x : R, x ∈ I ∧ f x = y := by
+  change y ∈ TwoSidedIdeal.map (ringHomOfRingHomomorphism f hf)
+    I.toTwoSidedIdeal ↔ ∃ x : R, x ∈ I ∧ f x = y
+  rw [← idealMapDirect_toTwoSidedIdeal f hf hsurj I]
+  change y ∈ ((idealMapDirectOfSurjective f hf hsurj I).toTwoSidedIdeal : Set S) ↔ _
+  rw [TwoSidedIdealCarrier.coe_toTwoSidedIdeal]
   rfl
 
 /-- 理想逆像保持包含关系。
@@ -413,9 +512,11 @@ theorem idealComap_mono {R S : Type*} [Ring R] [Ring S]
 theorem idealMapOfSurjective_mono {R S : Type*} [Ring R] [Ring S]
     (f : R → S) (hf : RingHomomorphism f) (hsurj : Function.Surjective f) :
     Monotone (idealMapOfSurjective f hf hsurj) := by
-  intro I J hIJ y
-  rintro ⟨x, hx, rfl⟩
-  exact ⟨x, hIJ hx, rfl⟩
+  intro I J hIJ y hy
+  obtain ⟨x, hx, rfl⟩ :=
+    (mem_idealMapOfSurjective_iff f hf hsurj I y).1 hy
+  exact (mem_idealMapOfSurjective_iff f hf hsurj J (f x)).2
+    ⟨x, hIJ hx, rfl⟩
 
 /-- 本库商投影是满射：每个商类都有代表元。
 > **Entry**: abstract-algebra.ring.iso-theorems
@@ -465,10 +566,10 @@ theorem quotientIdealMapComap_membership {R : Type*} [Ring R]
   rw [mem_idealMapOfSurjective_iff]
   constructor
   · rintro ⟨x, hx, rfl⟩
-    exact hx
+    exact (mem_idealComap_iff _ _ _ _).mp hx
   · intro hq
     obtain ⟨x, rfl⟩ := quotientRingProjection_surjective K.carrier K.isTwoSided q
-    exact ⟨x, hq, rfl⟩
+    exact ⟨x, (mem_idealComap_iff _ _ _ _).2 hq, rfl⟩
 
 /-- **商环理想对应的保序等价数据**：包含 `K` 的原环双边理想与 `R/K` 的双边理想
 之间有互逆且双向保序的映射。
@@ -485,43 +586,230 @@ structure QuotientIdealOrderEquivalence (R : Type*) [Ring R]
   monotone_toFun : Monotone toFun
   monotone_inverse : Monotone inverse
 
+private theorem quotientTwoSidedIdeal_comap_map_membership
+    {R : Type*} [Ring R] (K : TwoSidedIdealCarrier R)
+    (I : TwoSidedIdeal R) (hKI : K.toTwoSidedIdeal ≤ I) (x : R) :
+    x ∈ TwoSidedIdeal.comap
+        (ringHomOfRingHomomorphism
+          (quotientRingProjection K.carrier K.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided))
+        (TwoSidedIdeal.map
+          (ringHomOfRingHomomorphism
+            (quotientRingProjection K.carrier K.isTwoSided)
+            (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)) I) ↔
+      x ∈ I := by
+  let Iold := TwoSidedIdealCarrier.ofTwoSidedIdeal I
+  have hKIold : K ≤ Iold := by
+    intro y hy
+    apply hKI
+    change y ∈ (K.toTwoSidedIdeal : Set R)
+    rw [K.coe_toTwoSidedIdeal]
+    exact hy
+  have hIold : Iold.toTwoSidedIdeal = I :=
+    TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal I
+  rw [← hIold]
+  rw [← idealMapOfSurjective_toTwoSidedIdeal
+    (quotientRingProjection K.carrier K.isTwoSided)
+    (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)
+    (quotientRingProjection_surjective K.carrier K.isTwoSided) Iold]
+  rw [← idealComap_toTwoSidedIdeal
+    (quotientRingProjection K.carrier K.isTwoSided)
+    (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)]
+  change x ∈ ((idealComap
+      (quotientRingProjection K.carrier K.isTwoSided)
+      (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)
+      (idealMapOfSurjective
+        (quotientRingProjection K.carrier K.isTwoSided)
+        (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)
+        (quotientRingProjection_surjective K.carrier K.isTwoSided) Iold)).toTwoSidedIdeal : Set R) ↔
+    x ∈ (Iold.toTwoSidedIdeal : Set R)
+  rw [TwoSidedIdealCarrier.coe_toTwoSidedIdeal,
+    TwoSidedIdealCarrier.coe_toTwoSidedIdeal]
+  exact quotientIdealComapMap_membership K Iold hKIold x
+
+private theorem quotientTwoSidedIdeal_map_comap_membership
+    {R : Type*} [Ring R] (K : TwoSidedIdealCarrier R)
+    (J : TwoSidedIdeal (quotientRingSet K.carrier K.isTwoSided))
+    (q : quotientRingSet K.carrier K.isTwoSided) :
+    q ∈ TwoSidedIdeal.map
+        (ringHomOfRingHomomorphism
+          (quotientRingProjection K.carrier K.isTwoSided)
+          (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided))
+        (TwoSidedIdeal.comap
+          (ringHomOfRingHomomorphism
+            (quotientRingProjection K.carrier K.isTwoSided)
+            (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)) J) ↔
+      q ∈ J := by
+  let Jold := TwoSidedIdealCarrier.ofTwoSidedIdeal J
+  have hJold : Jold.toTwoSidedIdeal = J :=
+    TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal J
+  rw [← hJold]
+  rw [← idealComap_toTwoSidedIdeal
+    (quotientRingProjection K.carrier K.isTwoSided)
+    (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided) Jold]
+  rw [← idealMapOfSurjective_toTwoSidedIdeal
+    (quotientRingProjection K.carrier K.isTwoSided)
+    (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)
+    (quotientRingProjection_surjective K.carrier K.isTwoSided)]
+  change q ∈ ((idealMapOfSurjective
+      (quotientRingProjection K.carrier K.isTwoSided)
+      (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided)
+      (quotientRingProjection_surjective K.carrier K.isTwoSided)
+      (idealComap
+        (quotientRingProjection K.carrier K.isTwoSided)
+        (quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided) Jold)).toTwoSidedIdeal :
+      Set (quotientRingSet K.carrier K.isTwoSided)) ↔
+    q ∈ (Jold.toTwoSidedIdeal : Set (quotientRingSet K.carrier K.isTwoSided))
+  rw [TwoSidedIdealCarrier.coe_toTwoSidedIdeal,
+    TwoSidedIdealCarrier.coe_toTwoSidedIdeal]
+  exact quotientIdealMapComap_membership K Jold q
+
+/-- 商投影下正式双边理想的对应定理：包含 `K` 的 `TwoSidedIdeal R` 与
+商环的 `TwoSidedIdeal` 保序同构。定义的正、逆方向分别就是
+`TwoSidedIdeal.map` 与 `TwoSidedIdeal.comap`。 -/
+def quotientIdealOrderIso {R : Type*} [Ring R]
+    (K : TwoSidedIdealCarrier R) :
+    {I : TwoSidedIdeal R // K.toTwoSidedIdeal ≤ I} ≃o
+      TwoSidedIdeal (quotientRingSet K.carrier K.isTwoSided) := by
+  let projection := quotientRingProjection K.carrier K.isTwoSided
+  let hprojection := quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided
+  let projectionHom := ringHomOfRingHomomorphism projection hprojection
+  let hsurj := quotientRingProjection_surjective K.carrier K.isTwoSided
+  let forward : {I : TwoSidedIdeal R // K.toTwoSidedIdeal ≤ I} →
+      TwoSidedIdeal (quotientRingSet K.carrier K.isTwoSided) :=
+    fun I ↦ TwoSidedIdeal.map projectionHom I.1
+  let backward : TwoSidedIdeal (quotientRingSet K.carrier K.isTwoSided) →
+      {I : TwoSidedIdeal R // K.toTwoSidedIdeal ≤ I} := fun J ↦
+    ⟨TwoSidedIdeal.comap projectionHom J, by
+      intro x hx
+      have hzero : projection x = 0 := by
+        change x ∈ {z : R | quotientRingProjection K.carrier K.isTwoSided z = 0}
+        rw [quotientRingProjection_kernel K.carrier K.isTwoSided]
+        change x ∈ (K.toTwoSidedIdeal : Set R) at hx
+        rw [K.coe_toTwoSidedIdeal] at hx
+        exact hx
+      change projection x ∈ J
+      rw [hzero]
+      exact J.zero_mem⟩
+  refine
+    { toFun := forward
+      invFun := backward
+      left_inv := ?_
+      right_inv := ?_
+      map_rel_iff' := ?_ }
+  · intro I
+    apply Subtype.ext
+    apply TwoSidedIdeal.ext
+    intro x
+    exact quotientTwoSidedIdeal_comap_map_membership K I.1 I.2 x
+  · intro J
+    apply TwoSidedIdeal.ext
+    intro q
+    exact quotientTwoSidedIdeal_map_comap_membership K J q
+  · intro I J
+    constructor
+    · intro h x hx
+      apply (quotientTwoSidedIdeal_comap_map_membership K J.1 J.2 x).1
+      apply (TwoSidedIdeal.mem_comap projectionHom).2
+      apply h
+      exact (TwoSidedIdeal.mem_comap projectionHom).1
+        ((quotientTwoSidedIdeal_comap_map_membership K I.1 I.2 x).2 hx)
+    · intro h
+      exact TwoSidedIdeal.map_mono projectionHom h
+
+/-- 旧商理想对应数据无损转为标准 `OrderIso`。 -/
+def QuotientIdealOrderEquivalence.toOrderIso
+    {R : Type*} [Ring R] {K : TwoSidedIdealCarrier R}
+    (e : QuotientIdealOrderEquivalence R K) :
+    {I : TwoSidedIdealCarrier R // K ≤ I} ≃o
+      TwoSidedIdealCarrier (quotientRingSet K.carrier K.isTwoSided) := by
+  exact
+    { toEquiv :=
+        { toFun := e.toFun
+          invFun := e.inverse
+          left_inv := e.left_inverse
+          right_inv := e.right_inverse }
+      map_rel_iff' := by
+        intro I J
+        constructor
+        · intro h
+          change e.toFun I ≤ e.toFun J at h
+          have hh := e.monotone_inverse h
+          rw [e.left_inverse I, e.left_inverse J] at hh
+          exact hh
+        · intro h
+          change e.toFun I ≤ e.toFun J
+          exact e.monotone_toFun h }
+
+/-- 标准 `OrderIso` 无损退回旧商理想对应数据。 -/
+def QuotientIdealOrderEquivalence.ofOrderIso
+    {R : Type*} [Ring R] {K : TwoSidedIdealCarrier R}
+    (e : {I : TwoSidedIdealCarrier R // K ≤ I} ≃o
+      TwoSidedIdealCarrier (quotientRingSet K.carrier K.isTwoSided)) :
+    QuotientIdealOrderEquivalence R K where
+  toFun := e
+  inverse := e.symm
+  left_inverse := e.symm_apply_apply
+  right_inverse := e.apply_symm_apply
+  monotone_toFun := e.monotone
+  monotone_inverse := e.symm.monotone
+
+@[simp] theorem QuotientIdealOrderEquivalence.toOrderIso_ofOrderIso
+    {R : Type*} [Ring R] {K : TwoSidedIdealCarrier R}
+    (e : {I : TwoSidedIdealCarrier R // K ≤ I} ≃o
+      TwoSidedIdealCarrier (quotientRingSet K.carrier K.isTwoSided)) :
+    (QuotientIdealOrderEquivalence.ofOrderIso e).toOrderIso = e := by
+  apply OrderIso.ext
+  rfl
+
+@[simp] theorem QuotientIdealOrderEquivalence.ofOrderIso_toOrderIso
+    {R : Type*} [Ring R] {K : TwoSidedIdealCarrier R}
+    (e : QuotientIdealOrderEquivalence R K) :
+    QuotientIdealOrderEquivalence.ofOrderIso e.toOrderIso = e := by
+  cases e
+  rfl
+
+private def quotientIdealCarrierSubtypeOrderIso {R : Type*} [Ring R]
+    (K : TwoSidedIdealCarrier R) :
+    {I : TwoSidedIdealCarrier R // K ≤ I} ≃o
+      {I : TwoSidedIdeal R // K.toTwoSidedIdeal ≤ I} where
+  toFun := fun I ↦ ⟨I.1.toTwoSidedIdeal, by
+    intro x hx
+    have hxCarrier : x ∈ K := by
+      change x ∈ (K.toTwoSidedIdeal : Set R) at hx
+      rw [K.coe_toTwoSidedIdeal] at hx
+      exact hx
+    change x ∈ (I.1.toTwoSidedIdeal : Set R)
+    rw [I.1.coe_toTwoSidedIdeal]
+    exact I.2 hxCarrier⟩
+  invFun := fun I ↦ ⟨TwoSidedIdealCarrier.ofTwoSidedIdeal I.1, by
+    intro x hx
+    apply I.2
+    change x ∈ (K.toTwoSidedIdeal : Set R)
+    rw [K.coe_toTwoSidedIdeal]
+    exact hx⟩
+  left_inv := by
+    intro I
+    apply Subtype.ext
+    exact TwoSidedIdealCarrier.ofTwoSidedIdeal_toTwoSidedIdeal I.1
+  right_inv := by
+    intro I
+    apply Subtype.ext
+    exact TwoSidedIdealCarrier.toTwoSidedIdeal_ofTwoSidedIdeal I.1
+  map_rel_iff' := by
+    intro I J
+    change I.1.toTwoSidedIdeal ≤ J.1.toTwoSidedIdeal ↔ I.1 ≤ J.1
+    exact TwoSidedIdealCarrier.orderIso.le_iff_le
+
 /-- **理想对应定理**：包含 `K` 的双边理想与商环 `R/K` 的双边理想保序对应。
 > **Entry**: abstract-algebra.ring.iso-theorems
 -/
 def quotientIdealCorrespondence {R : Type*} [Ring R]
     (K : TwoSidedIdealCarrier R) :
-    QuotientIdealOrderEquivalence R K := by
-  let projection := quotientRingProjection K.carrier K.isTwoSided
-  let hprojection := quotientRingProjection_is_ringHomomorphism K.carrier K.isTwoSided
-  let hsurj := quotientRingProjection_surjective K.carrier K.isTwoSided
-  let forward : {I : TwoSidedIdealCarrier R // K ≤ I} →
-      TwoSidedIdealCarrier (quotientRingSet K.carrier K.isTwoSided) :=
-    fun I ↦ idealMapOfSurjective projection hprojection hsurj I.1
-  let backward : TwoSidedIdealCarrier (quotientRingSet K.carrier K.isTwoSided) →
-      {I : TwoSidedIdealCarrier R // K ≤ I} := fun J ↦
-    ⟨idealComap projection hprojection J, by
-      intro x hx
-      change projection x ∈ J
-      have hzero : projection x = 0 := by
-        change x ∈ {z : R | quotientRingProjection K.carrier K.isTwoSided z = 0}
-        rw [quotientRingProjection_kernel K.carrier K.isTwoSided]
-        exact hx
-      rw [hzero]
-      exact J.isTwoSided.1.1⟩
-  refine ⟨forward, backward, ?_, ?_, ?_, ?_⟩
-  · intro I
-    apply Subtype.ext
-    apply SetLike.coe_injective
-    ext x
-    exact quotientIdealComapMap_membership K I.1 I.2 x
-  · intro J
-    apply SetLike.coe_injective
-    ext q
-    exact quotientIdealMapComap_membership K J q
-  · intro I J hIJ
-    exact idealMapOfSurjective_mono projection hprojection hsurj hIJ
-  · intro I J hIJ
-    exact idealComap_mono projection hprojection hIJ
+    QuotientIdealOrderEquivalence R K :=
+  QuotientIdealOrderEquivalence.ofOrderIso
+    ((quotientIdealCarrierSubtypeOrderIso K).trans
+      ((quotientIdealOrderIso K).trans TwoSidedIdealCarrier.orderIso.symm))
 
 /-- **第三同构定理（正式承载）**：若 `I ≤ J`，则 `(R/I)/(J/I)` 与 `R/J` 环同构；这里 `J/I`
 由 `J` 沿本库自然商投影的理想像显式构造。
@@ -557,6 +845,7 @@ noncomputable def ringThirdEquiv {R : Type*} [Ring R]
     (quotientRingProjection_surjective I.carrier I.isTwoSided) J
   have hLzero : ∀ q, q ∈ L → g q = 0 := by
     intro q hq
+    rw [mem_idealMapOfSurjective_iff] at hq
     obtain ⟨x, hx, rfl⟩ := hq
     change πJ x = 0
     change x ∈ {z : R | quotientRingProjection J.carrier J.isTwoSided z = 0}
