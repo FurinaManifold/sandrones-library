@@ -607,7 +607,10 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | T4-R2 边界 collar 相对平滑化 | 已集成 | 全局连续延拓在四边闭集邻域已 `C²` 时，相对四边平滑并返回标准 `Path.Homotopy` | 已保留延拓、collar、开域像和双重 `IccExtend` 正则性前提；不推出 R3 |
 | T4-R3a 开集内相对折线路径逼近 | 已集成 | `Path.Homotopy` 像集控制层；实赋范空间中把连续道路相对端点同伦到同一开集内的有限直线段拼接 | 完整同伦像和折线像均有开集内证书；不声称同伦光滑或线积分不变 |
 | T4-R3b-path 有限分段 `C¹` 道路 | 已集成 | 以 Mathlib `Path` 上的归纳命题 `Path.PiecewiseC1` 承载整体 `C¹`、拼接和端点 cast；已证明常道路、线段、反向、有限 concat、`meshPolygonal` 及开集内替换 | 当前只刻画实际 `Path.trans` 生成的有限 concat tree，未声称与任意实断点定义等价；曲线可积性消费者归复分析独立批次 |
-| T4-R3b-square 分片 `C¹` 道路同伦不变性 | `development_open`（局部原函数／dyadic grid 路线） | 先迁移通用 square-grid foundation；随后 A `PiecewiseC1DyadicAlignment`、B `IndexedOpenCoverSquareSubdivision`、D `FiniteRawOpenPathGrid` 可并行；C/E/F 保持 `ComplexAnalysis` namespace | 精确授权当前拓扑负责人迁移这条跨学科六批链；A/B/D 与 C 可按依赖并行，E 等待 C+D，F 等待 A+B+E。每批独立提交与 handoff；禁止恢复已否决的全局 relative-`C²` 签名 |
+| T4-R3b-square 分片 `C¹` 道路同伦不变性 | `development_open`（局部原函数／dyadic grid 路线） | square-grid foundation、A `PiecewiseC1DyadicAlignment`、B `IndexedOpenCoverSquareSubdivision`、C primitive import、D `FiniteRawOpenPathGrid` 均可建立独立正式提交；C/E/F 保持 `ComplexAnalysis` namespace | 当前拓扑负责人拥有整条跨学科六批链的迁移权；A/B/C/D 不再等待逐批 Main 许可，E 在 C+D handoff 后自动转 `development_open`，F 在 A+B+E handoff 后自动转 `integration_open`。每批独立提交与 handoff；禁止恢复已否决的全局 relative-`C²` 签名 |
+| AT2-C1 覆盖空间定义层 | `development_open` | 新建覆盖映射、均匀覆盖邻域的教材解释与 Mathlib 桥；不得改动 R3b 文件 | 与 R3b 并行；公开 carrier 直接复用 Mathlib，经学科闭包与 handoff 后可申请集成 |
+| AT2-C2 道路提升 | `research_open`，C1 handoff 后自动转 `development_open` | 调查现有道路提升存在唯一性接口并冻结端点、基点和提升空间量词 | 不等待 C1 进入 Main，只等待 C1 公开签名在 handoff 中冻结；不得复制一套覆盖映射定义 |
+| AT2-C3 同伦提升 | `research_open` | 只做签名、依赖和 Mathlib 消费者审计 | C2 公开提升接口冻结后自动转 `development_open`；正式源码与 C1/C2 分文件 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
@@ -853,10 +856,14 @@ Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
 F5.6 Fredholm 备择的第一开发窗已经集成：紧算子的对偶仍紧，且 `I-K` 的核有限维、值域闭。
-第二窗现以窄权限 `development_open`：只开发余核有限维与 `index (I-K)=0`，并须显式复用第一窗的
-Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择仍为 `research_open`，不得调用 Mathlib
-`FredholmAlternative` 最终 package 代替教材证明。第二窗验收后再决定是否开放最终备择；
-具体有限秩积分核归 Examples E11。F6 等待紧算子与
+第二窗为 `development_open`：开发余核有限维与 `index (I-K)=0`，并须显式复用第一窗的
+Schauder 对偶紧性和闭值域链；单射／满射等价及最终备择现为独立 `research_open`，第二窗 handoff
+冻结公开签名后自动转 `development_open`，不必再等待一次 Main 许可，但不得调用 Mathlib
+`FredholmAlternative` 最终 package 代替教材证明。F5.7 紧扰动／小扰动稳定性同时开放
+`research_open`，只允许先冻结指数与复合接口，不得猜测第二窗尚未稳定的局部 API。
+F6.1 Banach 代数 foundation 以独立文件开放 `development_open`；F6.2 谱与预解集定义层开放
+`research_open`，待 F6.1 handoff 后自动转 `development_open`。F6.3 以后仍按教材依赖门推进；
+具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
 复分析 C1，F7/F8 严格顺序
 解锁。若 Mathlib 尚无成熟的无界算子、Fredholm 或半群承载，只能先登记 foundation/bridge，不能
 用若干已有强定理包装成整章“完成”。
