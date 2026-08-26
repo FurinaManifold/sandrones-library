@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **499** 个条目（verified 499，pending 0）。
+共 **520** 个条目（verified 520，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -326,6 +326,7 @@
 
 - ✅ [`composition.md`](functional-analysis/compact-operator/composition.md) — 紧算子的理想性质与范数极限
 - ✅ [`definition.md`](functional-analysis/compact-operator/definition.md) — 紧算子与单位球像刻画
+- ✅ [`dual.md`](functional-analysis/compact-operator/dual.md) — 紧算子的对偶仍紧
 
 ## `functional-analysis.convex`
 
@@ -335,8 +336,13 @@
 
 - ✅ [`definition.md`](functional-analysis/dual-operator/definition.md) — 连续线性算子的对偶算子
 
+## `functional-analysis.ergodic`
+
+- ✅ [`mean.md`](functional-analysis/ergodic/mean.md) — 幂有界算子的均值遍历分解
+
 ## `functional-analysis.fredholm`
 
+- ✅ [`alternative.md`](functional-analysis/fredholm/alternative.md) — 恒等算子的紧扰动
 - ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
 
 ## `functional-analysis.hahn-banach`
@@ -474,6 +480,35 @@
 - ✅ [`quadratic-reciprocity.md`](number-theory/elementary/quadratic-reciprocity.md) — Legendre/Jacobi 二次互反律
 - ✅ [`quadratic-residues.md`](number-theory/elementary/quadratic-residues.md) — 二次剩余、Legendre/Jacobi 符号与 Gauss 引理
 - ✅ [`totient.md`](number-theory/elementary/totient.md) — Euler φ 函数
+
+## `probability.distribution`
+
+- ✅ [`pushforward.md`](probability/distribution/pushforward.md) — 分布作为推前测度
+
+## `probability.expectation`
+
+- ✅ [`definition.md`](probability/expectation/definition.md) — 期望与可积性
+
+## `probability.independence`
+
+- ✅ [`events.md`](probability/independence/events.md) — 事件与 sigma 代数独立
+- ✅ [`variables.md`](probability/independence/variables.md) — 随机变量独立
+
+## `probability.inequalities`
+
+- ✅ [`basic.md`](probability/inequalities/basic.md) — Markov、Chebyshev 与 Jensen 不等式
+
+## `probability.moments`
+
+- ✅ [`variance.md`](probability/moments/variance.md) — 方差与协方差
+
+## `probability.space`
+
+- ✅ [`definition.md`](probability/space/definition.md) — 概率空间与事件
+
+## `probability.variable`
+
+- ✅ [`definition.md`](probability/variable/definition.md) — 随机变量与可测性
 
 ## `real-analysis`
 
@@ -697,24 +732,34 @@
 - ✅ [`path-corrected-loop.md`](topology/fundamental-group/path-corrected-loop.md) — 道路段的基点修正环路与有限望远镜公式
 - ✅ [`product-standard.md`](topology/fundamental-group/product-standard.md) — 积空间的基本群
 - ✅ [`triviality-standard.md`](topology/fundamental-group/triviality-standard.md) — 单连通与可缩空间的平凡基本群
+- ✅ [`van-kampen-block-boundary-cocycle.md`](topology/fundamental-group/van-kampen-block-boundary-cocycle.md) — van Kampen 相邻字母 blocks 的边界 cocycle
 - ✅ [`van-kampen-cell-boundary.md`](topology/fundamental-group/van-kampen-cell-boundary.md) — van Kampen 方格细分中的单格边界关系
+- ✅ [`van-kampen-combined-frames.md`](topology/fundamental-group/van-kampen-combined-frames.md) — van Kampen 左边界组合 frames
 - ✅ [`van-kampen-common-shared-edge.md`](topology/fundamental-group/van-kampen-common-shared-edge.md) — van Kampen 方格中同标签公共边的 connector 比较
 - ✅ [`van-kampen-concat-aligned-subdivision.md`](topology/fundamental-group/van-kampen-concat-aligned-subdivision.md) — van Kampen concat 对齐方格细分
 - ✅ [`van-kampen-cover-subdivision.md`](topology/fundamental-group/van-kampen-cover-subdivision.md) — 二开集覆盖下的有限带标签道路细分
 - ✅ [`van-kampen-dual-path-potential.md`](topology/fundamental-group/van-kampen-dual-path-potential.md) — van Kampen 双标签道路与通用顶点 potential
 - ✅ [`van-kampen-edge-gauge.md`](topology/fundamental-group/van-kampen-edge-gauge.md) — van Kampen 内部边的统一 gauge 与有限望远镜消去
 - ✅ [`van-kampen-framed-grid-boundary.md`](topology/fundamental-group/van-kampen-framed-grid-boundary.md) — van Kampen 网格的 framed 行与外边界关系
+- ✅ [`van-kampen-global-block-telescope.md`](topology/fundamental-group/van-kampen-global-block-telescope.md) — van Kampen 字母 blocks 全局 telescope
+- ✅ [`van-kampen-kernel-word.md`](topology/fundamental-group/van-kampen-kernel-word.md) — van Kampen kernel 字母词消去
+- ✅ [`van-kampen-left-boundary-cocycle.md`](topology/fundamental-group/van-kampen-left-boundary-cocycle.md) — van Kampen 左边界相邻细边的 transition cocycle
 - ✅ [`van-kampen-left-boundary-edge.md`](topology/fundamental-group/van-kampen-left-boundary-edge.md) — van Kampen aligned 左边界细边的双重局部表示
+- ✅ [`van-kampen-left-boundary-transport.md`](topology/fundamental-group/van-kampen-left-boundary-transport.md) — van Kampen 左边界逐边搬运
+- ✅ [`van-kampen-letter-block-telescope.md`](topology/fundamental-group/van-kampen-letter-block-telescope.md) — van Kampen 单字母 block 细边 telescope
 - ✅ [`van-kampen-letter-block-word.md`](topology/fundamental-group/van-kampen-letter-block-word.md) — van Kampen 字母 block 的细边词恢复
 - ✅ [`van-kampen-letter-word.md`](topology/fundamental-group/van-kampen-letter-word.md) — van Kampen Pushout 字母词与拼接环路
 - ✅ [`van-kampen-mixed-vertex-coherence.md`](topology/fundamental-group/van-kampen-mixed-vertex-coherence.md) — van Kampen 网格混合标签顶点的 transition coherence
 - ✅ [`van-kampen-normalized-grid-gauge.md`](topology/fundamental-group/van-kampen-normalized-grid-gauge.md) — van Kampen 网格的二维规范化 gauge
 - ✅ [`van-kampen-path-gauge-comparison.md`](topology/fundamental-group/van-kampen-path-gauge-comparison.md) — van Kampen 同路局部表示的统一 gauge 比较
+- ✅ [`van-kampen-rebased-letter-word.md`](topology/fundamental-group/van-kampen-rebased-letter-word.md) — van Kampen 真实左边界与 rebased 字母词
+- ✅ [`van-kampen-residual-gauge.md`](topology/fundamental-group/van-kampen-residual-gauge.md) — van Kampen 边界余规范消去
 - ✅ [`van-kampen-right-anchored-grid.md`](topology/fundamental-group/van-kampen-right-anchored-grid.md) — van Kampen 右锚定网格与左边界消失
 - ✅ [`van-kampen-row-anchoring.md`](topology/fundamental-group/van-kampen-row-anchoring.md) — van Kampen 单行 frames 的右锚定
 - ✅ [`van-kampen-square-subdivision.md`](topology/fundamental-group/van-kampen-square-subdivision.md) — 二开集覆盖下的有限带标签方格细分
 - ✅ [`van-kampen-surjectivity.md`](topology/fundamental-group/van-kampen-surjectivity.md) — 二开集 van Kampen 规范同态的满射
 - ✅ [`van-kampen-switch-shared-edge.md`](topology/fundamental-group/van-kampen-switch-shared-edge.md) — van Kampen 方格中异标签公共边的 Pushout 比较
+- ✅ [`van-kampen-theorem.md`](topology/fundamental-group/van-kampen-theorem.md) — 二开集 Seifert--van Kampen 定理
 - ✅ [`van-kampen-vertex-potential.md`](topology/fundamental-group/van-kampen-vertex-potential.md) — van Kampen 网格顶点的 connector potential
 
 ## `topology.homotopy`
