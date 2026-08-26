@@ -13999,6 +13999,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "abstract-algebra.field.galois-normality",
+      "abstract-algebra.field.galois-restriction",
       "abstract-algebra.field.separable-normal-characterizations"
     ],
     "family": "abstract-algebra.field",
@@ -15140,7 +15141,8 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "abstract-algebra.field.galois-consequences",
-      "abstract-algebra.field.galois-normality"
+      "abstract-algebra.field.galois-normality",
+      "abstract-algebra.field.galois-restriction"
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
@@ -15350,7 +15352,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "abstract-algebra.field.galois-normality"
+      "abstract-algebra.field.galois-normality",
+      "abstract-algebra.field.galois-restriction"
     ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
@@ -15386,7 +15389,9 @@
     "nl_file": "docs/entries/abstract-algebra/field/galois-normality.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "abstract-algebra.field.galois-restriction"
+    ],
     "family": "abstract-algebra.field",
     "variant": "textbook",
     "proof_sha": "2769f463599a21f7",
@@ -15424,6 +15429,42 @@
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-labelled-square-grid",
     "proof_sha": "43376d1297bedf51",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "abstract-algebra.field.galois-restriction",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Galois 对应中的限制同态、核与商群",
+    "summary": "正规子群固定域上的限制同态满射，其核为原子群并诱导标准商群同构",
+    "premises": [
+      "abstract-algebra.field.galois-normality",
+      "abstract-algebra.field.galois-correspondence",
+      "abstract-algebra.field.galois-consequences",
+      "abstract-algebra.field.separable-normal"
+    ],
+    "mathlib": [
+      "Subgroup.Normal",
+      "AlgEquiv.restrictNormalHom_surjective",
+      "QuotientGroup.quotientKerEquivOfSurjective",
+      "QuotientGroup.quotientMulEquivOfEq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "dummit-foote-abstract-algebra-2004"
+    },
+    "lean_file": "AbstractAlgebra/FieldGaloisConsequencesRestriction.lean",
+    "nl_file": "docs/entries/abstract-algebra/field/galois-restriction.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-26T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "abstract-algebra.field",
+    "variant": "textbook",
+    "proof_sha": "1bab04a717e0ffb2",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

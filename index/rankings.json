@@ -11,8 +11,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 75.7537,
-    "rank": 91,
+    "score": 75.5508,
+    "rank": 92,
     "lean_usage_evidence": []
   },
   {
@@ -27,7 +27,7 @@
     "cross_subject_impact": 2.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 87.4098,
+    "score": 87.4153,
     "rank": 24,
     "lean_usage_evidence": []
   },
@@ -43,8 +43,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 451,
+    "score": 25.5508,
+    "rank": 452,
     "lean_usage_evidence": []
   },
   {
@@ -59,8 +59,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 430,
+    "score": 25.5508,
+    "rank": 431,
     "lean_usage_evidence": []
   },
   {
@@ -75,8 +75,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 432,
+    "score": 25.5508,
+    "rank": 433,
     "lean_usage_evidence": []
   },
   {
@@ -91,8 +91,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 454,
+    "score": 25.5508,
+    "rank": 455,
     "lean_usage_evidence": []
   },
   {
@@ -107,8 +107,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 452,
+    "score": 25.5508,
+    "rank": 453,
     "lean_usage_evidence": []
   },
   {
@@ -123,8 +123,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 447,
+    "score": 25.5508,
+    "rank": 448,
     "lean_usage_evidence": []
   },
   {
@@ -139,8 +139,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 429,
+    "score": 25.5508,
+    "rank": 430,
     "lean_usage_evidence": []
   },
   {
@@ -155,8 +155,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 281,
+    "score": 34.9576,
+    "rank": 282,
     "lean_usage_evidence": [
       "Topology/Constructions.lean"
     ]
@@ -173,8 +173,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 212,
+    "score": 56.1864,
+    "rank": 204,
     "lean_usage_evidence": []
   },
   {
@@ -189,8 +189,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 213,
+    "score": 56.1864,
+    "rank": 205,
     "lean_usage_evidence": []
   },
   {
@@ -205,8 +205,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 420,
+    "score": 25.5508,
+    "rank": 421,
     "lean_usage_evidence": []
   },
   {
@@ -221,8 +221,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 421,
+    "score": 25.5508,
+    "rank": 422,
     "lean_usage_evidence": []
   },
   {
@@ -237,8 +237,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 425,
+    "score": 25.5508,
+    "rank": 426,
     "lean_usage_evidence": []
   },
   {
@@ -253,8 +253,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 422,
+    "score": 25.5508,
+    "rank": 423,
     "lean_usage_evidence": []
   },
   {
@@ -269,8 +269,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 449,
+    "score": 25.5508,
+    "rank": 450,
     "lean_usage_evidence": []
   },
   {
@@ -285,8 +285,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 448,
+    "score": 25.5508,
+    "rank": 449,
     "lean_usage_evidence": []
   },
   {
@@ -301,8 +301,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 450,
+    "score": 25.5508,
+    "rank": 451,
     "lean_usage_evidence": []
   },
   {
@@ -317,8 +317,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 431,
+    "score": 25.5508,
+    "rank": 432,
     "lean_usage_evidence": []
   },
   {
@@ -333,8 +333,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 77.7601,
-    "rank": 73,
+    "score": 77.6801,
+    "rank": 74,
     "lean_usage_evidence": []
   },
   {
@@ -349,8 +349,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 339,
+    "score": 25.5508,
+    "rank": 340,
     "lean_usage_evidence": []
   },
   {
@@ -365,8 +365,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 340,
+    "score": 25.5508,
+    "rank": 341,
     "lean_usage_evidence": []
   },
   {
@@ -381,8 +381,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 79.4161,
-    "rank": 65,
+    "score": 79.3326,
+    "rank": 66,
     "lean_usage_evidence": []
   },
   {
@@ -397,7 +397,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 66.0403,
+    "score": 65.8369,
     "rank": 139,
     "lean_usage_evidence": []
   },
@@ -413,8 +413,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 341,
+    "score": 25.5508,
+    "rank": 342,
     "lean_usage_evidence": []
   },
   {
@@ -429,8 +429,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 232,
+    "score": 50.8475,
+    "rank": 233,
     "lean_usage_evidence": []
   },
   {
@@ -445,7 +445,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 85.4352,
+    "score": 85.4025,
     "rank": 31,
     "lean_usage_evidence": []
   },
@@ -461,8 +461,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 349,
+    "score": 25.5508,
+    "rank": 350,
     "lean_usage_evidence": []
   },
   {
@@ -477,8 +477,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 70.0212,
-    "rank": 116,
+    "score": 69.8941,
+    "rank": 117,
     "lean_usage_evidence": []
   },
   {
@@ -493,8 +493,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 347,
+    "score": 25.5508,
+    "rank": 348,
     "lean_usage_evidence": []
   },
   {
@@ -509,8 +509,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 71.4225,
-    "rank": 109,
+    "score": 71.3347,
+    "rank": 111,
     "lean_usage_evidence": []
   },
   {
@@ -525,8 +525,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.9193,
-    "rank": 102,
+    "score": 72.6907,
+    "rank": 104,
     "lean_usage_evidence": []
   },
   {
@@ -541,8 +541,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 53.5456,
-    "rank": 220,
+    "score": 53.4852,
+    "rank": 221,
     "lean_usage_evidence": []
   },
   {
@@ -557,8 +557,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 79.0658,
-    "rank": 67,
+    "score": 78.9513,
+    "rank": 69,
     "lean_usage_evidence": []
   },
   {
@@ -573,8 +573,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 233,
+    "score": 50.8475,
+    "rank": 234,
     "lean_usage_evidence": []
   },
   {
@@ -589,8 +589,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 228,
+    "score": 50.8475,
+    "rank": 229,
     "lean_usage_evidence": []
   },
   {
@@ -605,8 +605,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 227,
+    "score": 50.8475,
+    "rank": 228,
     "lean_usage_evidence": []
   },
   {
@@ -621,8 +621,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 226,
+    "score": 50.8475,
+    "rank": 227,
     "lean_usage_evidence": []
   },
   {
@@ -637,8 +637,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 299,
+    "score": 25.5508,
+    "rank": 300,
     "lean_usage_evidence": []
   },
   {
@@ -653,8 +653,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 297,
+    "score": 25.5508,
+    "rank": 298,
     "lean_usage_evidence": []
   },
   {
@@ -669,8 +669,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 298,
+    "score": 25.5508,
+    "rank": 299,
     "lean_usage_evidence": []
   },
   {
@@ -685,8 +685,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 296,
+    "score": 25.5508,
+    "rank": 297,
     "lean_usage_evidence": []
   },
   {
@@ -701,8 +701,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 294,
+    "score": 25.5508,
+    "rank": 295,
     "lean_usage_evidence": []
   },
   {
@@ -717,8 +717,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 295,
+    "score": 25.5508,
+    "rank": 296,
     "lean_usage_evidence": []
   },
   {
@@ -733,8 +733,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.1359,
-    "rank": 90,
+    "score": 76.0275,
+    "rank": 91,
     "lean_usage_evidence": []
   },
   {
@@ -749,8 +749,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 317,
+    "score": 25.5508,
+    "rank": 318,
     "lean_usage_evidence": []
   },
   {
@@ -765,8 +765,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 321,
+    "score": 25.5508,
+    "rank": 322,
     "lean_usage_evidence": []
   },
   {
@@ -781,8 +781,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 325,
+    "score": 25.5508,
+    "rank": 326,
     "lean_usage_evidence": []
   },
   {
@@ -797,8 +797,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 316,
+    "score": 25.5508,
+    "rank": 317,
     "lean_usage_evidence": []
   },
   {
@@ -813,8 +813,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 313,
+    "score": 25.5508,
+    "rank": 314,
     "lean_usage_evidence": []
   },
   {
@@ -829,8 +829,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 324,
+    "score": 25.5508,
+    "rank": 325,
     "lean_usage_evidence": []
   },
   {
@@ -845,8 +845,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 323,
+    "score": 25.5508,
+    "rank": 324,
     "lean_usage_evidence": []
   },
   {
@@ -861,8 +861,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 319,
+    "score": 25.5508,
+    "rank": 320,
     "lean_usage_evidence": []
   },
   {
@@ -877,8 +877,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 318,
+    "score": 25.5508,
+    "rank": 319,
     "lean_usage_evidence": []
   },
   {
@@ -893,8 +893,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 322,
+    "score": 25.5508,
+    "rank": 323,
     "lean_usage_evidence": []
   },
   {
@@ -909,8 +909,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 320,
+    "score": 25.5508,
+    "rank": 321,
     "lean_usage_evidence": []
   },
   {
@@ -925,8 +925,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 314,
+    "score": 25.5508,
+    "rank": 315,
     "lean_usage_evidence": []
   },
   {
@@ -941,8 +941,8 @@
     "cross_subject_impact": 1.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 83.6306,
-    "rank": 37,
+    "score": 83.6441,
+    "rank": 38,
     "lean_usage_evidence": []
   },
   {
@@ -957,8 +957,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 304,
+    "score": 25.5508,
+    "rank": 305,
     "lean_usage_evidence": []
   },
   {
@@ -973,8 +973,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 306,
+    "score": 25.5508,
+    "rank": 307,
     "lean_usage_evidence": []
   },
   {
@@ -989,8 +989,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 275,
+    "score": 34.9576,
+    "rank": 276,
     "lean_usage_evidence": [
       "FunctionalAnalysis/TopologicalVectorSpace.lean"
     ]
@@ -1007,8 +1007,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 307,
+    "score": 25.5508,
+    "rank": 308,
     "lean_usage_evidence": []
   },
   {
@@ -1023,8 +1023,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 305,
+    "score": 25.5508,
+    "rank": 306,
     "lean_usage_evidence": []
   },
   {
@@ -1039,8 +1039,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 303,
+    "score": 25.5508,
+    "rank": 304,
     "lean_usage_evidence": []
   },
   {
@@ -1055,7 +1055,7 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 48.1953,
+    "score": 48.1462,
     "rank": 256,
     "lean_usage_evidence": []
   },
@@ -1071,8 +1071,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 57.6221,
-    "rank": 191,
+    "score": 57.553,
+    "rank": 192,
     "lean_usage_evidence": [
       "RealAnalysis/RiemannAlgebra.lean"
     ]
@@ -1089,7 +1089,7 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 73.7367,
+    "score": 73.7076,
     "rank": 100,
     "lean_usage_evidence": []
   },
@@ -1105,8 +1105,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 59.087,
-    "rank": 184,
+    "score": 58.9195,
+    "rank": 185,
     "lean_usage_evidence": []
   },
   {
@@ -1121,8 +1121,8 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.8577,
-    "rank": 51,
+    "score": 81.875,
+    "rank": 50,
     "lean_usage_evidence": []
   },
   {
@@ -1137,8 +1137,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 308,
+    "score": 25.5508,
+    "rank": 309,
     "lean_usage_evidence": []
   },
   {
@@ -1153,8 +1153,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 312,
+    "score": 25.5508,
+    "rank": 313,
     "lean_usage_evidence": []
   },
   {
@@ -1169,8 +1169,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 310,
+    "score": 25.5508,
+    "rank": 311,
     "lean_usage_evidence": []
   },
   {
@@ -1185,8 +1185,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 309,
+    "score": 25.5508,
+    "rank": 310,
     "lean_usage_evidence": []
   },
   {
@@ -1201,8 +1201,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 84.5435,
-    "rank": 34,
+    "score": 84.5127,
+    "rank": 35,
     "lean_usage_evidence": []
   },
   {
@@ -1217,8 +1217,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 336,
+    "score": 25.5508,
+    "rank": 337,
     "lean_usage_evidence": []
   },
   {
@@ -1233,7 +1233,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 87.5796,
+    "score": 87.5424,
     "rank": 23,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldGaloisConsequences.lean",
@@ -1252,8 +1252,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 333,
+    "score": 25.5508,
+    "rank": 334,
     "lean_usage_evidence": []
   },
   {
@@ -1268,8 +1268,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 335,
+    "score": 25.5508,
+    "rank": 336,
     "lean_usage_evidence": []
   },
   {
@@ -1284,8 +1284,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 231,
+    "score": 50.8475,
+    "rank": 232,
     "lean_usage_evidence": []
   },
   {
@@ -1300,8 +1300,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 70.0212,
-    "rank": 115,
+    "score": 69.8941,
+    "rank": 116,
     "lean_usage_evidence": []
   },
   {
@@ -1316,8 +1316,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 334,
+    "score": 25.5508,
+    "rank": 335,
     "lean_usage_evidence": []
   },
   {
@@ -1332,7 +1332,7 @@
     "cross_subject_impact": 3.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 86.7304,
+    "score": 86.7373,
     "rank": 26,
     "lean_usage_evidence": []
   },
@@ -1348,8 +1348,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 280,
+    "score": 34.9576,
+    "rank": 281,
     "lean_usage_evidence": [
       "LinearAlgebra/Jordan.lean"
     ]
@@ -1366,8 +1366,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 242,
+    "score": 50.8475,
+    "rank": 243,
     "lean_usage_evidence": []
   },
   {
@@ -1382,8 +1382,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 205,
+    "score": 56.1864,
+    "rank": 211,
     "lean_usage_evidence": [
       "未从 Entry docstring 解析到主声明"
     ]
@@ -1400,8 +1400,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 395,
+    "score": 25.5508,
+    "rank": 396,
     "lean_usage_evidence": []
   },
   {
@@ -1416,8 +1416,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 393,
+    "score": 25.5508,
+    "rank": 394,
     "lean_usage_evidence": []
   },
   {
@@ -1432,8 +1432,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 394,
+    "score": 25.5508,
+    "rank": 395,
     "lean_usage_evidence": []
   },
   {
@@ -1448,7 +1448,7 @@
     "cross_subject_impact": 1.5,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 88.1423,
+    "score": 88.0826,
     "rank": 21,
     "lean_usage_evidence": [
       "LinearAlgebra/MatrixDecomposition.lean",
@@ -1468,8 +1468,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 388,
+    "score": 25.5508,
+    "rank": 389,
     "lean_usage_evidence": []
   },
   {
@@ -1484,8 +1484,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 387,
+    "score": 25.5508,
+    "rank": 388,
     "lean_usage_evidence": []
   },
   {
@@ -1500,8 +1500,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 279,
+    "score": 34.9576,
+    "rank": 280,
     "lean_usage_evidence": [
       "LinearAlgebra/MatrixElimination.lean"
     ]
@@ -1518,8 +1518,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 240,
+    "score": 50.8475,
+    "rank": 241,
     "lean_usage_evidence": []
   },
   {
@@ -1534,8 +1534,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 260,
+    "score": 46.8432,
+    "rank": 261,
     "lean_usage_evidence": []
   },
   {
@@ -1550,8 +1550,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 392,
+    "score": 25.5508,
+    "rank": 393,
     "lean_usage_evidence": []
   },
   {
@@ -1566,7 +1566,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 65.4989,
+    "score": 65.3284,
     "rank": 144,
     "lean_usage_evidence": []
   },
@@ -1582,8 +1582,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 400,
+    "score": 25.5508,
+    "rank": 401,
     "lean_usage_evidence": []
   },
   {
@@ -1598,8 +1598,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 10,
     "lean_usage_log": 3.459432,
-    "score": 37.0064,
-    "rank": 271,
+    "score": 36.9703,
+    "rank": 272,
     "lean_usage_evidence": [
       "LinearAlgebra/Jordan.lean",
       "LinearAlgebra/JordanDecomposition.lean",
@@ -1625,8 +1625,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 390,
+    "score": 25.5508,
+    "rank": 391,
     "lean_usage_evidence": []
   },
   {
@@ -1641,8 +1641,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 239,
+    "score": 50.8475,
+    "rank": 240,
     "lean_usage_evidence": []
   },
   {
@@ -1657,8 +1657,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 391,
+    "score": 25.5508,
+    "rank": 392,
     "lean_usage_evidence": []
   },
   {
@@ -1673,8 +1673,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 385,
+    "score": 25.5508,
+    "rank": 386,
     "lean_usage_evidence": []
   },
   {
@@ -1689,8 +1689,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 386,
+    "score": 25.5508,
+    "rank": 387,
     "lean_usage_evidence": []
   },
   {
@@ -1705,8 +1705,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 396,
+    "score": 25.5508,
+    "rank": 397,
     "lean_usage_evidence": []
   },
   {
@@ -1721,8 +1721,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 342,
+    "score": 25.5508,
+    "rank": 343,
     "lean_usage_evidence": []
   },
   {
@@ -1737,8 +1737,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 348,
+    "score": 25.5508,
+    "rank": 349,
     "lean_usage_evidence": []
   },
   {
@@ -1753,8 +1753,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 346,
+    "score": 25.5508,
+    "rank": 347,
     "lean_usage_evidence": []
   },
   {
@@ -1769,8 +1769,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 344,
+    "score": 25.5508,
+    "rank": 345,
     "lean_usage_evidence": []
   },
   {
@@ -1785,8 +1785,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 343,
+    "score": 25.5508,
+    "rank": 344,
     "lean_usage_evidence": []
   },
   {
@@ -1801,8 +1801,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 345,
+    "score": 25.5508,
+    "rank": 346,
     "lean_usage_evidence": []
   },
   {
@@ -1817,8 +1817,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 315,
+    "score": 25.5508,
+    "rank": 316,
     "lean_usage_evidence": []
   },
   {
@@ -1833,8 +1833,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 332,
+    "score": 25.5508,
+    "rank": 333,
     "lean_usage_evidence": []
   },
   {
@@ -1849,8 +1849,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 229,
+    "score": 50.8475,
+    "rank": 230,
     "lean_usage_evidence": []
   },
   {
@@ -1865,8 +1865,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 389,
+    "score": 25.5508,
+    "rank": 390,
     "lean_usage_evidence": []
   },
   {
@@ -1875,13 +1875,13 @@
     "eligible": true,
     "direct_users": 6,
     "weighted_direct": 2.5,
-    "transitive_users": 13,
-    "transitive_impact": 7.96875,
+    "transitive_users": 14,
+    "transitive_impact": 8.46875,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 92.1868,
+    "score": 92.3941,
     "rank": 10,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldGaloisDefinitions.lean"
@@ -1899,8 +1899,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4374,
-    "rank": 145,
+    "score": 64.2585,
+    "rank": 146,
     "lean_usage_evidence": []
   },
   {
@@ -1915,8 +1915,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 58.259,
-    "rank": 186,
+    "score": 58.1568,
+    "rank": 187,
     "lean_usage_evidence": []
   },
   {
@@ -1931,7 +1931,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6093,
+    "score": 63.4958,
     "rank": 153,
     "lean_usage_evidence": []
   },
@@ -1947,8 +1947,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 285,
+    "score": 25.5508,
+    "rank": 286,
     "lean_usage_evidence": []
   },
   {
@@ -1957,13 +1957,13 @@
     "eligible": true,
     "direct_users": 6,
     "weighted_direct": 2.5,
-    "transitive_users": 26,
-    "transitive_impact": 14.5,
+    "transitive_users": 27,
+    "transitive_impact": 14.75,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 94.8408,
+    "score": 94.7881,
     "rank": 4,
     "lean_usage_evidence": [
       "AbstractAlgebra/RingQuotient.lean",
@@ -1982,7 +1982,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 93.62,
+    "score": 93.5699,
     "rank": 6,
     "lean_usage_evidence": [
       "AbstractAlgebra/RingPrimeIdeal.lean"
@@ -1994,13 +1994,13 @@
     "eligible": true,
     "direct_users": 5,
     "weighted_direct": 2.0,
-    "transitive_users": 20,
-    "transitive_impact": 8.34375,
+    "transitive_users": 21,
+    "transitive_impact": 8.375,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.9958,
+    "score": 81.9386,
     "rank": 48,
     "lean_usage_evidence": []
   },
@@ -2016,8 +2016,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 289,
+    "score": 25.5508,
+    "rank": 290,
     "lean_usage_evidence": []
   },
   {
@@ -2026,14 +2026,14 @@
     "eligible": true,
     "direct_users": 4,
     "weighted_direct": 3.5,
-    "transitive_users": 14,
-    "transitive_impact": 5.6875,
+    "transitive_users": 15,
+    "transitive_impact": 5.75,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 91.2951,
-    "rank": 12,
+    "score": 91.2182,
+    "rank": 13,
     "lean_usage_evidence": [
       "AbstractAlgebra/PolynomialDivision.lean"
     ]
@@ -2044,14 +2044,14 @@
     "eligible": true,
     "direct_users": 1,
     "weighted_direct": 1.0,
-    "transitive_users": 10,
-    "transitive_impact": 3.375,
+    "transitive_users": 11,
+    "transitive_impact": 3.5,
     "subject_reach": 1,
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 70.1168,
-    "rank": 114,
+    "score": 70.3178,
+    "rank": 115,
     "lean_usage_evidence": []
   },
   {
@@ -2066,8 +2066,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 287,
+    "score": 25.5508,
+    "rank": 288,
     "lean_usage_evidence": []
   },
   {
@@ -2082,7 +2082,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 85.9448,
+    "score": 85.911,
     "rank": 30,
     "lean_usage_evidence": []
   },
@@ -2098,8 +2098,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 471,
+    "score": 25.5508,
+    "rank": 472,
     "lean_usage_evidence": []
   },
   {
@@ -2114,8 +2114,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 79.4161,
-    "rank": 66,
+    "score": 79.3326,
+    "rank": 67,
     "lean_usage_evidence": []
   },
   {
@@ -2130,8 +2130,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 470,
+    "score": 25.5508,
+    "rank": 471,
     "lean_usage_evidence": []
   },
   {
@@ -2146,8 +2146,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 472,
+    "score": 25.5508,
+    "rank": 473,
     "lean_usage_evidence": []
   },
   {
@@ -2162,8 +2162,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 469,
+    "score": 25.5508,
+    "rank": 470,
     "lean_usage_evidence": []
   },
   {
@@ -2178,7 +2178,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.8259,
+    "score": 61.6525,
     "rank": 169,
     "lean_usage_evidence": []
   },
@@ -2194,8 +2194,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 456,
+    "score": 25.5508,
+    "rank": 457,
     "lean_usage_evidence": []
   },
   {
@@ -2210,8 +2210,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 457,
+    "score": 25.5508,
+    "rank": 458,
     "lean_usage_evidence": []
   },
   {
@@ -2226,8 +2226,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4374,
-    "rank": 149,
+    "score": 64.2585,
+    "rank": 150,
     "lean_usage_evidence": []
   },
   {
@@ -2242,8 +2242,8 @@
     "cross_subject_impact": 1.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 74.8089,
-    "rank": 94,
+    "score": 74.7775,
+    "rank": 95,
     "lean_usage_evidence": []
   },
   {
@@ -2258,8 +2258,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 467,
+    "score": 25.5508,
+    "rank": 468,
     "lean_usage_evidence": []
   },
   {
@@ -2274,8 +2274,8 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 78.1953,
-    "rank": 71,
+    "score": 78.1568,
+    "rank": 72,
     "lean_usage_evidence": []
   },
   {
@@ -2290,8 +2290,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 466,
+    "score": 25.5508,
+    "rank": 467,
     "lean_usage_evidence": []
   },
   {
@@ -2306,8 +2306,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 468,
+    "score": 25.5508,
+    "rank": 469,
     "lean_usage_evidence": []
   },
   {
@@ -2322,8 +2322,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 455,
+    "score": 25.5508,
+    "rank": 456,
     "lean_usage_evidence": []
   },
   {
@@ -2338,8 +2338,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 458,
+    "score": 25.5508,
+    "rank": 459,
     "lean_usage_evidence": []
   },
   {
@@ -2354,8 +2354,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 80.3397,
-    "rank": 59,
+    "score": 80.3178,
+    "rank": 60,
     "lean_usage_evidence": []
   },
   {
@@ -2370,8 +2370,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.6964,
-    "rank": 43,
+    "score": 82.6695,
+    "rank": 44,
     "lean_usage_evidence": []
   },
   {
@@ -2386,8 +2386,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 60.966,
-    "rank": 177,
+    "score": 60.8581,
+    "rank": 178,
     "lean_usage_evidence": []
   },
   {
@@ -2402,8 +2402,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 60.7856,
-    "rank": 178,
+    "score": 60.625,
+    "rank": 179,
     "lean_usage_evidence": []
   },
   {
@@ -2418,8 +2418,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.6518,
-    "rank": 125,
+    "score": 68.6229,
+    "rank": 123,
     "lean_usage_evidence": []
   },
   {
@@ -2434,7 +2434,7 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 87.8769,
+    "score": 87.8814,
     "rank": 22,
     "lean_usage_evidence": []
   },
@@ -2450,8 +2450,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 413,
+    "score": 25.5508,
+    "rank": 414,
     "lean_usage_evidence": []
   },
   {
@@ -2466,8 +2466,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 412,
+    "score": 25.5508,
+    "rank": 413,
     "lean_usage_evidence": []
   },
   {
@@ -2482,8 +2482,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 60.1699,
-    "rank": 182,
+    "score": 60.0,
+    "rank": 183,
     "lean_usage_evidence": []
   },
   {
@@ -2498,7 +2498,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 67.983,
+    "score": 67.8072,
     "rank": 129,
     "lean_usage_evidence": [
       "RealAnalysis/RiemannIntegralBridge.lean"
@@ -2516,7 +2516,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 67.983,
+    "score": 67.8072,
     "rank": 130,
     "lean_usage_evidence": [
       "RealAnalysis/RiemannIntegralBridge.lean"
@@ -2534,8 +2534,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.569,
-    "rank": 104,
+    "score": 72.4047,
+    "rank": 106,
     "lean_usage_evidence": []
   },
   {
@@ -2550,8 +2550,8 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 90.8174,
-    "rank": 14,
+    "score": 90.8157,
+    "rank": 15,
     "lean_usage_evidence": [
       "RealAnalysis/RiemannIntegralBridge.lean",
       "RealAnalysis/RiemannCriterion.lean"
@@ -2569,8 +2569,8 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 74.1826,
-    "rank": 97,
+    "score": 74.1208,
+    "rank": 98,
     "lean_usage_evidence": []
   },
   {
@@ -2585,8 +2585,8 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.2845,
-    "rank": 89,
+    "score": 76.1864,
+    "rank": 90,
     "lean_usage_evidence": [
       "未从 Entry docstring 解析到主声明"
     ]
@@ -2603,7 +2603,7 @@
     "cross_subject_impact": 1.75,
     "lean_usage_files": 4,
     "lean_usage_log": 2.321928,
-    "score": 92.6539,
+    "score": 92.5847,
     "rank": 7,
     "lean_usage_evidence": [
       "Analysis/NormalDomain.lean",
@@ -2624,8 +2624,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 245,
+    "score": 50.8475,
+    "rank": 246,
     "lean_usage_evidence": []
   },
   {
@@ -2640,7 +2640,7 @@
     "cross_subject_impact": 1.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 86.9214,
+    "score": 86.928,
     "rank": 25,
     "lean_usage_evidence": []
   },
@@ -2656,7 +2656,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 79.0658,
+    "score": 79.0466,
     "rank": 68,
     "lean_usage_evidence": []
   },
@@ -2672,8 +2672,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 53.5456,
-    "rank": 219,
+    "score": 53.4852,
+    "rank": 220,
     "lean_usage_evidence": []
   },
   {
@@ -2688,8 +2688,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 311,
+    "score": 25.5508,
+    "rank": 312,
     "lean_usage_evidence": []
   },
   {
@@ -2704,8 +2704,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 337,
+    "score": 25.5508,
+    "rank": 338,
     "lean_usage_evidence": []
   },
   {
@@ -2720,8 +2720,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.0594,
-    "rank": 106,
+    "score": 71.8962,
+    "rank": 108,
     "lean_usage_evidence": []
   },
   {
@@ -2736,7 +2736,7 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 48.1953,
+    "score": 48.1462,
     "rank": 257,
     "lean_usage_evidence": []
   },
@@ -2752,8 +2752,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.2187,
-    "rank": 105,
+    "score": 72.1186,
+    "rank": 107,
     "lean_usage_evidence": []
   },
   {
@@ -2768,8 +2768,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.2951,
-    "rank": 53,
+    "score": 81.2712,
+    "rank": 54,
     "lean_usage_evidence": []
   },
   {
@@ -2784,8 +2784,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.189,
-    "rank": 176,
+    "score": 61.0805,
+    "rank": 177,
     "lean_usage_evidence": []
   },
   {
@@ -2800,7 +2800,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 67.8238,
+    "score": 67.6695,
     "rank": 131,
     "lean_usage_evidence": []
   },
@@ -2816,8 +2816,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.9321,
-    "rank": 78,
+    "score": 76.8856,
+    "rank": 79,
     "lean_usage_evidence": []
   },
   {
@@ -2832,7 +2832,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 86.0085,
+    "score": 85.9746,
     "rank": 29,
     "lean_usage_evidence": [
       "Analysis/CoordinateIntegrals.lean"
@@ -2850,8 +2850,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 259,
+    "score": 46.8432,
+    "rank": 260,
     "lean_usage_evidence": []
   },
   {
@@ -2866,8 +2866,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 357,
+    "score": 25.5508,
+    "rank": 358,
     "lean_usage_evidence": []
   },
   {
@@ -2882,8 +2882,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 356,
+    "score": 25.5508,
+    "rank": 357,
     "lean_usage_evidence": []
   },
   {
@@ -2898,8 +2898,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 358,
+    "score": 25.5508,
+    "rank": 359,
     "lean_usage_evidence": []
   },
   {
@@ -2914,8 +2914,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 355,
+    "score": 25.5508,
+    "rank": 356,
     "lean_usage_evidence": []
   },
   {
@@ -2930,8 +2930,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 301,
+    "score": 25.5508,
+    "rank": 302,
     "lean_usage_evidence": []
   },
   {
@@ -2946,7 +2946,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 92.5372,
+    "score": 92.4894,
     "rank": 8,
     "lean_usage_evidence": [
       "Analysis/PowerSeries.lean"
@@ -2964,8 +2964,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.2314,
-    "rank": 54,
+    "score": 81.2076,
+    "rank": 55,
     "lean_usage_evidence": []
   },
   {
@@ -2980,8 +2980,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 73.7473,
-    "rank": 99,
+    "score": 73.5487,
+    "rank": 102,
     "lean_usage_evidence": []
   },
   {
@@ -2996,8 +2996,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.4862,
-    "rank": 84,
+    "score": 76.4089,
+    "rank": 85,
     "lean_usage_evidence": []
   },
   {
@@ -3012,8 +3012,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 351,
+    "score": 25.5508,
+    "rank": 352,
     "lean_usage_evidence": []
   },
   {
@@ -3028,8 +3028,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 352,
+    "score": 25.5508,
+    "rank": 353,
     "lean_usage_evidence": []
   },
   {
@@ -3044,7 +3044,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 69.034,
+    "score": 68.9195,
     "rank": 121,
     "lean_usage_evidence": [
       "Analysis/PowerSeries.lean"
@@ -3062,8 +3062,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 70.8493,
-    "rank": 113,
+    "score": 70.7203,
+    "rank": 114,
     "lean_usage_evidence": []
   },
   {
@@ -3078,8 +3078,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 234,
+    "score": 50.8475,
+    "rank": 235,
     "lean_usage_evidence": []
   },
   {
@@ -3094,8 +3094,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 350,
+    "score": 25.5508,
+    "rank": 351,
     "lean_usage_evidence": []
   },
   {
@@ -3110,8 +3110,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 69.5541,
-    "rank": 118,
+    "score": 69.4386,
+    "rank": 119,
     "lean_usage_evidence": [
       "SetTheory/HydraOneLevelDescent.lean",
       "SetTheory/HydraOrdinalAssignment.lean"
@@ -3129,8 +3129,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4161,
-    "rank": 150,
+    "score": 64.2797,
+    "rank": 145,
     "lean_usage_evidence": []
   },
   {
@@ -3145,8 +3145,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 338,
+    "score": 25.5508,
+    "rank": 339,
     "lean_usage_evidence": []
   },
   {
@@ -3161,7 +3161,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.155,
+    "score": 61.928,
     "rank": 166,
     "lean_usage_evidence": []
   },
@@ -3177,8 +3177,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 353,
+    "score": 25.5508,
+    "rank": 354,
     "lean_usage_evidence": []
   },
   {
@@ -3193,7 +3193,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.1104,
+    "score": 67.9343,
     "rank": 126,
     "lean_usage_evidence": []
   },
@@ -3209,8 +3209,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 300,
+    "score": 25.5508,
+    "rank": 301,
     "lean_usage_evidence": []
   },
   {
@@ -3225,8 +3225,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 302,
+    "score": 25.5508,
+    "rank": 303,
     "lean_usage_evidence": []
   },
   {
@@ -3241,8 +3241,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.0934,
-    "rank": 269,
+    "score": 46.0169,
+    "rank": 270,
     "lean_usage_evidence": []
   },
   {
@@ -3257,8 +3257,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 415,
+    "score": 25.5508,
+    "rank": 416,
     "lean_usage_evidence": []
   },
   {
@@ -3273,8 +3273,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 414,
+    "score": 25.5508,
+    "rank": 415,
     "lean_usage_evidence": []
   },
   {
@@ -3289,8 +3289,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.3482,
-    "rank": 196,
+    "score": 56.2182,
+    "rank": 197,
     "lean_usage_evidence": []
   },
   {
@@ -3305,8 +3305,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.0934,
-    "rank": 270,
+    "score": 46.0169,
+    "rank": 271,
     "lean_usage_evidence": []
   },
   {
@@ -3321,8 +3321,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 327,
+    "score": 25.5508,
+    "rank": 328,
     "lean_usage_evidence": []
   },
   {
@@ -3337,8 +3337,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 258,
+    "score": 46.8432,
+    "rank": 259,
     "lean_usage_evidence": []
   },
   {
@@ -3353,8 +3353,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 293,
+    "score": 25.5508,
+    "rank": 294,
     "lean_usage_evidence": []
   },
   {
@@ -3369,8 +3369,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 453,
+    "score": 25.5508,
+    "rank": 454,
     "lean_usage_evidence": []
   },
   {
@@ -3385,8 +3385,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 55.7749,
-    "rank": 215,
+    "score": 55.5826,
+    "rank": 216,
     "lean_usage_evidence": []
   },
   {
@@ -3401,8 +3401,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.1253,
-    "rank": 214,
+    "score": 55.9958,
+    "rank": 215,
     "lean_usage_evidence": []
   },
   {
@@ -3417,7 +3417,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 66.0722,
+    "score": 65.9534,
     "rank": 138,
     "lean_usage_evidence": []
   },
@@ -3433,8 +3433,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 77.3461,
-    "rank": 75,
+    "score": 77.2352,
+    "rank": 77,
     "lean_usage_evidence": []
   },
   {
@@ -3449,8 +3449,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 52.2399,
-    "rank": 224,
+    "score": 52.1822,
+    "rank": 225,
     "lean_usage_evidence": []
   },
   {
@@ -3465,7 +3465,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.3779,
+    "score": 62.1822,
     "rank": 165,
     "lean_usage_evidence": []
   },
@@ -3481,8 +3481,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.7473,
-    "rank": 123,
+    "score": 68.6017,
+    "rank": 124,
     "lean_usage_evidence": []
   },
   {
@@ -3497,8 +3497,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 326,
+    "score": 25.5508,
+    "rank": 327,
     "lean_usage_evidence": []
   },
   {
@@ -3513,7 +3513,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
+    "score": 56.1864,
     "rank": 198,
     "lean_usage_evidence": [
       "主声明短名 minkowski 有碰撞，未计入文本调用数"
@@ -3531,8 +3531,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 410,
+    "score": 25.5508,
+    "rank": 411,
     "lean_usage_evidence": []
   },
   {
@@ -3547,8 +3547,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 244,
+    "score": 50.8475,
+    "rank": 245,
     "lean_usage_evidence": [
       "主声明短名 minkowski 有碰撞，未计入文本调用数"
     ]
@@ -3565,8 +3565,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 411,
+    "score": 25.5508,
+    "rank": 412,
     "lean_usage_evidence": []
   },
   {
@@ -3581,7 +3581,7 @@
     "cross_subject_impact": 2.75,
     "lean_usage_files": 9,
     "lean_usage_log": 3.321928,
-    "score": 99.1507,
+    "score": 99.1314,
     "rank": 1,
     "lean_usage_evidence": [
       "FunctionalAnalysis/Operator.lean",
@@ -3607,7 +3607,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.8429,
+    "score": 68.75,
     "rank": 122,
     "lean_usage_evidence": []
   },
@@ -3623,8 +3623,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 83.1741,
-    "rank": 39,
+    "score": 83.1462,
+    "rank": 40,
     "lean_usage_evidence": []
   },
   {
@@ -3639,8 +3639,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 80.6582,
-    "rank": 57,
+    "score": 80.6356,
+    "rank": 58,
     "lean_usage_evidence": []
   },
   {
@@ -3655,8 +3655,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 330,
+    "score": 25.5508,
+    "rank": 331,
     "lean_usage_evidence": []
   },
   {
@@ -3671,8 +3671,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 65.7219,
-    "rank": 142,
+    "score": 65.6462,
+    "rank": 141,
     "lean_usage_evidence": []
   },
   {
@@ -3687,8 +3687,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 331,
+    "score": 25.5508,
+    "rank": 332,
     "lean_usage_evidence": []
   },
   {
@@ -3703,8 +3703,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 75.3079,
-    "rank": 93,
+    "score": 75.2013,
+    "rank": 94,
     "lean_usage_evidence": []
   },
   {
@@ -3719,8 +3719,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 398,
+    "score": 25.5508,
+    "rank": 399,
     "lean_usage_evidence": []
   },
   {
@@ -3735,7 +3735,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
+    "score": 56.1864,
     "rank": 199,
     "lean_usage_evidence": []
   },
@@ -3751,8 +3751,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 230,
+    "score": 50.8475,
+    "rank": 231,
     "lean_usage_evidence": []
   },
   {
@@ -3767,8 +3767,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 329,
+    "score": 25.5508,
+    "rank": 330,
     "lean_usage_evidence": []
   },
   {
@@ -3783,8 +3783,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 54.5011,
-    "rank": 218,
+    "score": 54.4386,
+    "rank": 219,
     "lean_usage_evidence": []
   },
   {
@@ -3799,7 +3799,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.6348,
+    "score": 61.5254,
     "rank": 171,
     "lean_usage_evidence": []
   },
@@ -3815,7 +3815,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 63.9278,
+    "score": 63.8453,
     "rank": 151,
     "lean_usage_evidence": [
       "Analysis/DifferentialForms.lean"
@@ -3833,8 +3833,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 200,
+    "score": 56.1864,
+    "rank": 207,
     "lean_usage_evidence": []
   },
   {
@@ -3849,8 +3849,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 276,
+    "score": 34.9576,
+    "rank": 277,
     "lean_usage_evidence": [
       "Examples/GaussStokes.lean"
     ]
@@ -3867,8 +3867,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 328,
+    "score": 25.5508,
+    "rank": 329,
     "lean_usage_evidence": []
   },
   {
@@ -3883,8 +3883,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 78.8429,
-    "rank": 69,
+    "score": 78.697,
+    "rank": 70,
     "lean_usage_evidence": []
   },
   {
@@ -3899,8 +3899,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 60.3609,
-    "rank": 179,
+    "score": 60.2542,
+    "rank": 180,
     "lean_usage_evidence": [
       "LinearAlgebra/NormalMatrix.lean"
     ]
@@ -3917,7 +3917,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 90.3503,
+    "score": 90.2436,
     "rank": 16,
     "lean_usage_evidence": [
       "LinearAlgebra/MatrixSchur.lean",
@@ -3937,8 +3937,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 397,
+    "score": 25.5508,
+    "rank": 398,
     "lean_usage_evidence": []
   },
   {
@@ -3953,8 +3953,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 241,
+    "score": 50.8475,
+    "rank": 242,
     "lean_usage_evidence": []
   },
   {
@@ -3969,8 +3969,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 399,
+    "score": 25.5508,
+    "rank": 400,
     "lean_usage_evidence": []
   },
   {
@@ -3985,8 +3985,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 284,
+    "score": 25.5508,
+    "rank": 285,
     "lean_usage_evidence": []
   },
   {
@@ -4001,7 +4001,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6093,
+    "score": 63.4958,
     "rank": 154,
     "lean_usage_evidence": []
   },
@@ -4017,7 +4017,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.0679,
+    "score": 62.9555,
     "rank": 160,
     "lean_usage_evidence": []
   },
@@ -4033,7 +4033,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.3227,
+    "score": 63.2097,
     "rank": 158,
     "lean_usage_evidence": []
   },
@@ -4049,7 +4049,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.5902,
+    "score": 62.4788,
     "rank": 162,
     "lean_usage_evidence": []
   },
@@ -4065,7 +4065,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.6348,
+    "score": 61.5254,
     "rank": 170,
     "lean_usage_evidence": []
   },
@@ -4081,8 +4081,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 197,
+    "score": 56.1864,
+    "rank": 206,
     "lean_usage_evidence": []
   },
   {
@@ -4097,8 +4097,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 283,
+    "score": 25.5508,
+    "rank": 284,
     "lean_usage_evidence": []
   },
   {
@@ -4113,8 +4113,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.1868,
-    "rank": 46,
+    "score": 82.161,
+    "rank": 47,
     "lean_usage_evidence": []
   },
   {
@@ -4129,7 +4129,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.6348,
+    "score": 61.5254,
     "rank": 173,
     "lean_usage_evidence": []
   },
@@ -4145,8 +4145,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.0403,
-    "rank": 55,
+    "score": 81.0487,
+    "rank": 56,
     "lean_usage_evidence": []
   },
   {
@@ -4161,8 +4161,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.8684,
-    "rank": 81,
+    "score": 76.7903,
+    "rank": 82,
     "lean_usage_evidence": []
   },
   {
@@ -4177,8 +4177,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 74.5117,
-    "rank": 96,
+    "score": 74.4386,
+    "rank": 97,
     "lean_usage_evidence": []
   },
   {
@@ -4193,8 +4193,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 10,
     "lean_usage_log": 3.459432,
-    "score": 84.3737,
-    "rank": 35,
+    "score": 84.2691,
+    "rank": 36,
     "lean_usage_evidence": [
       "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
       "SetTheory/HydraOneLevelDescent.lean",
@@ -4220,8 +4220,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 9,
     "lean_usage_log": 3.321928,
-    "score": 77.7707,
-    "rank": 72,
+    "score": 77.5953,
+    "rank": 76,
     "lean_usage_evidence": [
       "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
       "SetTheory/HydraOneLevelDescent.lean",
@@ -4246,7 +4246,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 11,
     "lean_usage_log": 3.584963,
-    "score": 95.5839,
+    "score": 95.5508,
     "rank": 2,
     "lean_usage_evidence": [
       "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
@@ -4274,8 +4274,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 53.1953,
-    "rank": 223,
+    "score": 53.1356,
+    "rank": 224,
     "lean_usage_evidence": []
   },
   {
@@ -4290,8 +4290,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 67.2824,
-    "rank": 133,
+    "score": 67.161,
+    "rank": 132,
     "lean_usage_evidence": []
   },
   {
@@ -4306,7 +4306,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.6348,
+    "score": 61.5254,
     "rank": 174,
     "lean_usage_evidence": []
   },
@@ -4322,8 +4322,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 57.4416,
-    "rank": 193,
+    "score": 57.3729,
+    "rank": 194,
     "lean_usage_evidence": [
       "SetTheory/GoodsteinHereditaryExponentBorrow.lean",
       "SetTheory/HydraRightmostSpineDescent.lean"
@@ -4341,8 +4341,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 266,
+    "score": 46.8432,
+    "rank": 267,
     "lean_usage_evidence": []
   },
   {
@@ -4357,8 +4357,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 446,
+    "score": 25.5508,
+    "rank": 447,
     "lean_usage_evidence": []
   },
   {
@@ -4373,8 +4373,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 79.7452,
-    "rank": 63,
+    "score": 79.5445,
+    "rank": 65,
     "lean_usage_evidence": [
       "SetTheory/HydraCertifiedPlayTermination.lean",
       "SetTheory/HydraCertifiedStepWellFounded.lean"
@@ -4392,7 +4392,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 86.7091,
+    "score": 86.6419,
     "rank": 27,
     "lean_usage_evidence": [
       "NumberTheory/Elementary/FermatEuler.lean"
@@ -4410,7 +4410,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.0679,
+    "score": 62.9555,
     "rank": 161,
     "lean_usage_evidence": []
   },
@@ -4426,8 +4426,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 53.1953,
-    "rank": 222,
+    "score": 53.1356,
+    "rank": 223,
     "lean_usage_evidence": []
   },
   {
@@ -4442,8 +4442,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 206,
+    "score": 56.1864,
+    "rank": 201,
     "lean_usage_evidence": []
   },
   {
@@ -4458,8 +4458,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 243,
+    "score": 50.8475,
+    "rank": 244,
     "lean_usage_evidence": []
   },
   {
@@ -4474,8 +4474,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 404,
+    "score": 25.5508,
+    "rank": 405,
     "lean_usage_evidence": []
   },
   {
@@ -4490,8 +4490,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 207,
+    "score": 56.1864,
+    "rank": 212,
     "lean_usage_evidence": []
   },
   {
@@ -4506,8 +4506,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 408,
+    "score": 25.5508,
+    "rank": 409,
     "lean_usage_evidence": []
   },
   {
@@ -4522,8 +4522,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 65.7113,
-    "rank": 143,
+    "score": 65.5932,
+    "rank": 142,
     "lean_usage_evidence": [
       "NumberTheory/Elementary/QuadraticReciprocity.lean"
     ]
@@ -4540,8 +4540,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 409,
+    "score": 25.5508,
+    "rank": 410,
     "lean_usage_evidence": []
   },
   {
@@ -4556,8 +4556,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4374,
-    "rank": 147,
+    "score": 64.2585,
+    "rank": 148,
     "lean_usage_evidence": []
   },
   {
@@ -4572,8 +4572,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 402,
+    "score": 25.5508,
+    "rank": 403,
     "lean_usage_evidence": [
       "未从 Entry docstring 解析到主声明"
     ]
@@ -4590,8 +4590,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 401,
+    "score": 25.5508,
+    "rank": 402,
     "lean_usage_evidence": []
   },
   {
@@ -4606,8 +4606,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 403,
+    "score": 25.5508,
+    "rank": 404,
     "lean_usage_evidence": []
   },
   {
@@ -4622,8 +4622,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 405,
+    "score": 25.5508,
+    "rank": 406,
     "lean_usage_evidence": []
   },
   {
@@ -4638,8 +4638,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 71.7091,
-    "rank": 108,
+    "score": 71.589,
+    "rank": 109,
     "lean_usage_evidence": [
       "主声明短名 PellSolution 有碰撞，未计入文本调用数"
     ]
@@ -4656,8 +4656,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 406,
+    "score": 25.5508,
+    "rank": 407,
     "lean_usage_evidence": [
       "主声明短名 PellSolution 有碰撞，未计入文本调用数"
     ]
@@ -4674,8 +4674,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 261,
+    "score": 46.8432,
+    "rank": 262,
     "lean_usage_evidence": []
   },
   {
@@ -4690,8 +4690,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 407,
+    "score": 25.5508,
+    "rank": 408,
     "lean_usage_evidence": []
   },
   {
@@ -4706,8 +4706,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 262,
+    "score": 46.8432,
+    "rank": 263,
     "lean_usage_evidence": []
   },
   {
@@ -4722,8 +4722,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 59.087,
-    "rank": 185,
+    "score": 58.9195,
+    "rank": 186,
     "lean_usage_evidence": []
   },
   {
@@ -4738,8 +4738,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 263,
+    "score": 46.8432,
+    "rank": 264,
     "lean_usage_evidence": []
   },
   {
@@ -4754,8 +4754,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 416,
+    "score": 25.5508,
+    "rank": 417,
     "lean_usage_evidence": []
   },
   {
@@ -4770,8 +4770,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 417,
+    "score": 25.5508,
+    "rank": 418,
     "lean_usage_evidence": []
   },
   {
@@ -4786,8 +4786,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 246,
+    "score": 50.8475,
+    "rank": 247,
     "lean_usage_evidence": []
   },
   {
@@ -4802,8 +4802,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 418,
+    "score": 25.5508,
+    "rank": 419,
     "lean_usage_evidence": []
   },
   {
@@ -4818,7 +4818,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.8259,
+    "score": 61.6525,
     "rank": 168,
     "lean_usage_evidence": []
   },
@@ -4834,8 +4834,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 419,
+    "score": 25.5508,
+    "rank": 420,
     "lean_usage_evidence": []
   },
   {
@@ -4850,8 +4850,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 83.3015,
-    "rank": 38,
+    "score": 83.2097,
+    "rank": 39,
     "lean_usage_evidence": []
   },
   {
@@ -4866,8 +4866,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 52.2399,
-    "rank": 225,
+    "score": 52.1822,
+    "rank": 226,
     "lean_usage_evidence": []
   },
   {
@@ -4882,8 +4882,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.2951,
-    "rank": 175,
+    "score": 61.1017,
+    "rank": 176,
     "lean_usage_evidence": []
   },
   {
@@ -4898,8 +4898,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 423,
+    "score": 25.5508,
+    "rank": 424,
     "lean_usage_evidence": []
   },
   {
@@ -4914,8 +4914,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 264,
+    "score": 46.8432,
+    "rank": 265,
     "lean_usage_evidence": []
   },
   {
@@ -4930,8 +4930,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 424,
+    "score": 25.5508,
+    "rank": 425,
     "lean_usage_evidence": []
   },
   {
@@ -4946,8 +4946,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 427,
+    "score": 25.5508,
+    "rank": 428,
     "lean_usage_evidence": []
   },
   {
@@ -4962,8 +4962,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 428,
+    "score": 25.5508,
+    "rank": 429,
     "lean_usage_evidence": []
   },
   {
@@ -4978,8 +4978,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 265,
+    "score": 46.8432,
+    "rank": 266,
     "lean_usage_evidence": []
   },
   {
@@ -4994,8 +4994,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 248,
+    "score": 50.8475,
+    "rank": 249,
     "lean_usage_evidence": []
   },
   {
@@ -5010,8 +5010,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.4862,
-    "rank": 85,
+    "score": 76.4089,
+    "rank": 86,
     "lean_usage_evidence": []
   },
   {
@@ -5026,8 +5026,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 80.8493,
-    "rank": 56,
+    "score": 80.7415,
+    "rank": 57,
     "lean_usage_evidence": [
       "SetTheory/ConcretePairingCode.lean"
     ]
@@ -5044,8 +5044,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 59.7558,
-    "rank": 183,
+    "score": 59.5233,
+    "rank": 184,
     "lean_usage_evidence": []
   },
   {
@@ -5060,8 +5060,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 76.9321,
-    "rank": 79,
+    "score": 76.6737,
+    "rank": 84,
     "lean_usage_evidence": [
       "SetTheory/ComputabilityDiagonal.lean"
     ]
@@ -5078,8 +5078,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 433,
+    "score": 25.5508,
+    "rank": 434,
     "lean_usage_evidence": []
   },
   {
@@ -5094,8 +5094,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 77.6008,
-    "rank": 74,
+    "score": 77.6165,
+    "rank": 75,
     "lean_usage_evidence": []
   },
   {
@@ -5110,7 +5110,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 88.397,
+    "score": 88.2309,
     "rank": 20,
     "lean_usage_evidence": [
       "SetTheory/BusyBeaver.lean"
@@ -5128,8 +5128,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 78.7792,
-    "rank": 70,
+    "score": 78.5487,
+    "rank": 71,
     "lean_usage_evidence": [
       "SetTheory/BusyBeaver.lean"
     ]
@@ -5146,8 +5146,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 434,
+    "score": 25.5508,
+    "rank": 435,
     "lean_usage_evidence": []
   },
   {
@@ -5162,8 +5162,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.7473,
-    "rank": 124,
+    "score": 68.6017,
+    "rank": 125,
     "lean_usage_evidence": []
   },
   {
@@ -5178,8 +5178,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 71.8047,
-    "rank": 107,
+    "score": 71.589,
+    "rank": 110,
     "lean_usage_evidence": [
       "SetTheory/BusyBeaverConvergence.lean"
     ]
@@ -5196,8 +5196,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 208,
+    "score": 56.1864,
+    "rank": 213,
     "lean_usage_evidence": []
   },
   {
@@ -5212,8 +5212,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 436,
+    "score": 25.5508,
+    "rank": 437,
     "lean_usage_evidence": []
   },
   {
@@ -5228,8 +5228,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 437,
+    "score": 25.5508,
+    "rank": 438,
     "lean_usage_evidence": []
   },
   {
@@ -5244,8 +5244,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4374,
-    "rank": 148,
+    "score": 64.2585,
+    "rank": 149,
     "lean_usage_evidence": []
   },
   {
@@ -5260,8 +5260,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 57.2399,
-    "rank": 194,
+    "score": 57.1398,
+    "rank": 195,
     "lean_usage_evidence": []
   },
   {
@@ -5276,8 +5276,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 209,
+    "score": 56.1864,
+    "rank": 202,
     "lean_usage_evidence": []
   },
   {
@@ -5292,8 +5292,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 69.8938,
-    "rank": 117,
+    "score": 69.7669,
+    "rank": 118,
     "lean_usage_evidence": []
   },
   {
@@ -5308,8 +5308,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 249,
+    "score": 50.8475,
+    "rank": 250,
     "lean_usage_evidence": []
   },
   {
@@ -5324,8 +5324,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 438,
+    "score": 25.5508,
+    "rank": 439,
     "lean_usage_evidence": []
   },
   {
@@ -5340,8 +5340,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.0276,
-    "rank": 47,
+    "score": 81.9386,
+    "rank": 49,
     "lean_usage_evidence": []
   },
   {
@@ -5356,8 +5356,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 57.9724,
-    "rank": 187,
+    "score": 57.8708,
+    "rank": 188,
     "lean_usage_evidence": []
   },
   {
@@ -5372,8 +5372,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 57.7176,
-    "rank": 188,
+    "score": 57.6165,
+    "rank": 189,
     "lean_usage_evidence": []
   },
   {
@@ -5388,8 +5388,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 250,
+    "score": 50.8475,
+    "rank": 251,
     "lean_usage_evidence": []
   },
   {
@@ -5404,8 +5404,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 440,
+    "score": 25.5508,
+    "rank": 441,
     "lean_usage_evidence": []
   },
   {
@@ -5420,8 +5420,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.9193,
-    "rank": 101,
+    "score": 72.7225,
+    "rank": 103,
     "lean_usage_evidence": []
   },
   {
@@ -5436,8 +5436,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 441,
+    "score": 25.5508,
+    "rank": 442,
     "lean_usage_evidence": []
   },
   {
@@ -5452,8 +5452,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 442,
+    "score": 25.5508,
+    "rank": 443,
     "lean_usage_evidence": []
   },
   {
@@ -5468,8 +5468,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.3779,
-    "rank": 44,
+    "score": 82.3517,
+    "rank": 45,
     "lean_usage_evidence": []
   },
   {
@@ -5484,7 +5484,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.5902,
+    "score": 62.4788,
     "rank": 164,
     "lean_usage_evidence": []
   },
@@ -5500,8 +5500,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 67.3461,
-    "rank": 132,
+    "score": 67.1081,
+    "rank": 133,
     "lean_usage_evidence": []
   },
   {
@@ -5516,7 +5516,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6093,
+    "score": 63.4958,
     "rank": 155,
     "lean_usage_evidence": []
   },
@@ -5532,7 +5532,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6093,
+    "score": 63.4958,
     "rank": 156,
     "lean_usage_evidence": []
   },
@@ -5548,7 +5548,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.3227,
+    "score": 63.2097,
     "rank": 159,
     "lean_usage_evidence": []
   },
@@ -5564,8 +5564,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 57.7176,
-    "rank": 189,
+    "score": 57.6165,
+    "rank": 190,
     "lean_usage_evidence": []
   },
   {
@@ -5580,8 +5580,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 444,
+    "score": 25.5508,
+    "rank": 445,
     "lean_usage_evidence": []
   },
   {
@@ -5596,7 +5596,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6093,
+    "score": 63.4958,
     "rank": 157,
     "lean_usage_evidence": []
   },
@@ -5612,8 +5612,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 211,
+    "score": 56.1864,
+    "rank": 203,
     "lean_usage_evidence": []
   },
   {
@@ -5628,8 +5628,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 252,
+    "score": 50.8475,
+    "rank": 253,
     "lean_usage_evidence": []
   },
   {
@@ -5644,8 +5644,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 65.7856,
-    "rank": 141,
+    "score": 65.5826,
+    "rank": 143,
     "lean_usage_evidence": []
   },
   {
@@ -5660,8 +5660,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 80.3079,
-    "rank": 60,
+    "score": 80.3178,
+    "rank": 61,
     "lean_usage_evidence": []
   },
   {
@@ -5676,8 +5676,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 445,
+    "score": 25.5508,
+    "rank": 446,
     "lean_usage_evidence": []
   },
   {
@@ -5692,8 +5692,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.7091,
-    "rank": 52,
+    "score": 81.6843,
+    "rank": 53,
     "lean_usage_evidence": []
   },
   {
@@ -5708,8 +5708,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 71.0616,
-    "rank": 110,
+    "score": 70.9322,
+    "rank": 112,
     "lean_usage_evidence": [
       "SetTheory/BusyBeaverTimeHaltingBound.lean"
     ]
@@ -5726,8 +5726,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 83.0573,
-    "rank": 40,
+    "score": 82.9449,
+    "rank": 41,
     "lean_usage_evidence": [
       "SetTheory/CanonicalGoodsteinState.lean",
       "SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean"
@@ -5745,8 +5745,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 71.0616,
-    "rank": 111,
+    "score": 70.9322,
+    "rank": 113,
     "lean_usage_evidence": [
       "SetTheory/HydraCertifiedStrategyTermination.lean"
     ]
@@ -5763,8 +5763,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 366,
+    "score": 25.5508,
+    "rank": 367,
     "lean_usage_evidence": []
   },
   {
@@ -5779,8 +5779,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 359,
+    "score": 25.5508,
+    "rank": 360,
     "lean_usage_evidence": []
   },
   {
@@ -5795,7 +5795,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.155,
+    "score": 61.928,
     "rank": 167,
     "lean_usage_evidence": []
   },
@@ -5811,8 +5811,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 210,
+    "score": 56.1864,
+    "rank": 214,
     "lean_usage_evidence": []
   },
   {
@@ -5827,8 +5827,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 81.9745,
-    "rank": 49,
+    "score": 81.8644,
+    "rank": 51,
     "lean_usage_evidence": [
       "SetTheory/CanonicalGoodsteinState.lean",
       "SetTheory/HereditaryNatPowerRank.lean"
@@ -5846,8 +5846,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 60.3609,
-    "rank": 180,
+    "score": 60.2542,
+    "rank": 181,
     "lean_usage_evidence": [
       "SetTheory/BinaryMachineCodeHalting.lean"
     ]
@@ -5864,7 +5864,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 94.0446,
+    "score": 93.9936,
     "rank": 5,
     "lean_usage_evidence": [
       "ComplexAnalysis/HomotopyInvariance.lean",
@@ -5884,8 +5884,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 277,
+    "score": 34.9576,
+    "rank": 278,
     "lean_usage_evidence": [
       "ComplexAnalysis/PrimitiveFromPathIntegral.lean"
     ]
@@ -5902,8 +5902,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 76.38,
-    "rank": 87,
+    "score": 76.2394,
+    "rank": 88,
     "lean_usage_evidence": [
       "ComplexAnalysis/Taylor.lean"
     ]
@@ -5920,8 +5920,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 54.5011,
-    "rank": 217,
+    "score": 54.4386,
+    "rank": 218,
     "lean_usage_evidence": []
   },
   {
@@ -5936,8 +5936,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 53.5456,
-    "rank": 221,
+    "score": 53.4852,
+    "rank": 222,
     "lean_usage_evidence": []
   },
   {
@@ -5952,8 +5952,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 235,
+    "score": 50.8475,
+    "rank": 236,
     "lean_usage_evidence": []
   },
   {
@@ -5968,8 +5968,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 360,
+    "score": 25.5508,
+    "rank": 361,
     "lean_usage_evidence": []
   },
   {
@@ -5984,8 +5984,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 362,
+    "score": 25.5508,
+    "rank": 363,
     "lean_usage_evidence": []
   },
   {
@@ -6000,8 +6000,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 361,
+    "score": 25.5508,
+    "rank": 362,
     "lean_usage_evidence": []
   },
   {
@@ -6016,7 +6016,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 88.5881,
+    "score": 88.5487,
     "rank": 18,
     "lean_usage_evidence": [
       "ComplexAnalysis/Residue.lean"
@@ -6034,8 +6034,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 367,
+    "score": 25.5508,
+    "rank": 368,
     "lean_usage_evidence": []
   },
   {
@@ -6050,8 +6050,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 368,
+    "score": 25.5508,
+    "rank": 369,
     "lean_usage_evidence": []
   },
   {
@@ -6066,7 +6066,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 66.5711,
+    "score": 66.4513,
     "rank": 135,
     "lean_usage_evidence": []
   },
@@ -6082,8 +6082,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 370,
+    "score": 25.5508,
+    "rank": 371,
     "lean_usage_evidence": []
   },
   {
@@ -6098,8 +6098,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 369,
+    "score": 25.5508,
+    "rank": 370,
     "lean_usage_evidence": []
   },
   {
@@ -6114,8 +6114,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 364,
+    "score": 25.5508,
+    "rank": 365,
     "lean_usage_evidence": []
   },
   {
@@ -6130,8 +6130,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 236,
+    "score": 50.8475,
+    "rank": 237,
     "lean_usage_evidence": []
   },
   {
@@ -6146,8 +6146,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 57.6221,
-    "rank": 192,
+    "score": 57.553,
+    "rank": 193,
     "lean_usage_evidence": [
       "ComplexAnalysis/Taylor.lean"
     ]
@@ -6164,8 +6164,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 365,
+    "score": 25.5508,
+    "rank": 366,
     "lean_usage_evidence": []
   },
   {
@@ -6180,8 +6180,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 363,
+    "score": 25.5508,
+    "rank": 364,
     "lean_usage_evidence": []
   },
   {
@@ -6196,7 +6196,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 95.3079,
+    "score": 95.2542,
     "rank": 3,
     "lean_usage_evidence": [
       "ComplexAnalysis/CauchyRiemann.lean"
@@ -6214,8 +6214,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 371,
+    "score": 25.5508,
+    "rank": 372,
     "lean_usage_evidence": []
   },
   {
@@ -6230,8 +6230,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 354,
+    "score": 25.5508,
+    "rank": 355,
     "lean_usage_evidence": []
   },
   {
@@ -6246,8 +6246,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 383,
+    "score": 25.5508,
+    "rank": 384,
     "lean_usage_evidence": []
   },
   {
@@ -6262,8 +6262,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 204,
+    "score": 56.1864,
+    "rank": 210,
     "lean_usage_evidence": []
   },
   {
@@ -6278,8 +6278,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 384,
+    "score": 25.5508,
+    "rank": 385,
     "lean_usage_evidence": []
   },
   {
@@ -6294,8 +6294,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 73.9066,
-    "rank": 98,
+    "score": 73.7818,
+    "rank": 99,
     "lean_usage_evidence": []
   },
   {
@@ -6310,7 +6310,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 62.5902,
+    "score": 62.4788,
     "rank": 163,
     "lean_usage_evidence": []
   },
@@ -6326,7 +6326,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 61.6348,
+    "score": 61.5254,
     "rank": 172,
     "lean_usage_evidence": [
       "主声明短名 operatorNorm_nonneg 有碰撞，未计入文本调用数"
@@ -6344,8 +6344,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 247,
+    "score": 50.8475,
+    "rank": 248,
     "lean_usage_evidence": []
   },
   {
@@ -6360,8 +6360,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 443,
+    "score": 25.5508,
+    "rank": 444,
     "lean_usage_evidence": []
   },
   {
@@ -6376,8 +6376,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 60.3609,
-    "rank": 181,
+    "score": 60.2542,
+    "rank": 182,
     "lean_usage_evidence": [
       "SetTheory/GoodsteinHereditaryPowerExponentBorrow.lean"
     ]
@@ -6394,8 +6394,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 80.5096,
-    "rank": 58,
+    "score": 80.3072,
+    "rank": 62,
     "lean_usage_evidence": [
       "AbstractAlgebra/RingCRT.lean",
       "AbstractAlgebra/RingIsomorphismTheorems.lean",
@@ -6414,8 +6414,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 292,
+    "score": 25.5508,
+    "rank": 293,
     "lean_usage_evidence": []
   },
   {
@@ -6430,8 +6430,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 84.9894,
-    "rank": 33,
+    "score": 84.9576,
+    "rank": 32,
     "lean_usage_evidence": []
   },
   {
@@ -6464,8 +6464,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.3142,
-    "rank": 45,
+    "score": 82.2881,
+    "rank": 46,
     "lean_usage_evidence": []
   },
   {
@@ -6480,8 +6480,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 251,
+    "score": 50.8475,
+    "rank": 252,
     "lean_usage_evidence": []
   },
   {
@@ -6496,8 +6496,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 57.6221,
-    "rank": 190,
+    "score": 57.553,
+    "rank": 191,
     "lean_usage_evidence": [
       "AbstractAlgebra/RingCRT.lean"
     ]
@@ -6508,14 +6508,14 @@
     "eligible": true,
     "direct_users": 4,
     "weighted_direct": 1.666667,
-    "transitive_users": 18,
-    "transitive_impact": 6.84375,
+    "transitive_users": 19,
+    "transitive_impact": 6.875,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 91.4968,
-    "rank": 11,
+    "score": 91.4513,
+    "rank": 12,
     "lean_usage_evidence": [
       "AbstractAlgebra/PolynomialDivision.lean",
       "AbstractAlgebra/RingPIDUFD.lean",
@@ -6534,7 +6534,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 88.4607,
+    "score": 88.4216,
     "rank": 19,
     "lean_usage_evidence": [
       "Topology/MathlibCompatibility.lean"
@@ -6552,8 +6552,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 81.9321,
-    "rank": 50,
+    "score": 81.8114,
+    "rank": 52,
     "lean_usage_evidence": []
   },
   {
@@ -6568,8 +6568,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 268,
+    "score": 46.8432,
+    "rank": 269,
     "lean_usage_evidence": []
   },
   {
@@ -6584,8 +6584,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 46.8896,
-    "rank": 267,
+    "score": 46.8432,
+    "rank": 268,
     "lean_usage_evidence": []
   },
   {
@@ -6600,8 +6600,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 64.4374,
-    "rank": 146,
+    "score": 64.2585,
+    "rank": 147,
     "lean_usage_evidence": []
   },
   {
@@ -6616,8 +6616,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 291,
+    "score": 25.5508,
+    "rank": 292,
     "lean_usage_evidence": []
   },
   {
@@ -6632,8 +6632,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 288,
+    "score": 25.5508,
+    "rank": 289,
     "lean_usage_evidence": []
   },
   {
@@ -6648,8 +6648,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 459,
+    "score": 25.5508,
+    "rank": 460,
     "lean_usage_evidence": []
   },
   {
@@ -6664,8 +6664,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 9,
     "lean_usage_log": 3.321928,
-    "score": 36.9002,
-    "rank": 272,
+    "score": 36.8432,
+    "rank": 273,
     "lean_usage_evidence": [
       "ComplexAnalysis/HomotopyInvariance.lean",
       "ComplexAnalysis/CauchyTheorem.lean",
@@ -6690,8 +6690,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 36.1359,
-    "rank": 274,
+    "score": 36.0805,
+    "rank": 275,
     "lean_usage_evidence": [
       "Analysis/JordanRiemannBridge.lean",
       "Analysis/NormalDomain.lean"
@@ -6709,8 +6709,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 36.1359,
-    "rank": 273,
+    "score": 36.0805,
+    "rank": 274,
     "lean_usage_evidence": [
       "Analysis/SecondKindIntegrals.lean",
       "Analysis/FirstKindIntegrals.lean"
@@ -6728,8 +6728,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.2951,
-    "rank": 88,
+    "score": 76.2182,
+    "rank": 89,
     "lean_usage_evidence": []
   },
   {
@@ -6744,8 +6744,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 379,
+    "score": 25.5508,
+    "rank": 380,
     "lean_usage_evidence": []
   },
   {
@@ -6760,8 +6760,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 84.0977,
-    "rank": 36,
+    "score": 84.0678,
+    "rank": 37,
     "lean_usage_evidence": [
       "主声明短名 operatorNorm_nonneg 有碰撞，未计入文本调用数"
     ]
@@ -6778,8 +6778,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 381,
+    "score": 25.5508,
+    "rank": 382,
     "lean_usage_evidence": []
   },
   {
@@ -6794,7 +6794,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.1104,
+    "score": 67.9343,
     "rank": 128,
     "lean_usage_evidence": []
   },
@@ -6826,8 +6826,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 286,
+    "score": 25.5508,
+    "rank": 287,
     "lean_usage_evidence": []
   },
   {
@@ -6836,14 +6836,14 @@
     "eligible": true,
     "direct_users": 2,
     "weighted_direct": 1.0,
-    "transitive_users": 9,
-    "transitive_impact": 4.75,
+    "transitive_users": 10,
+    "transitive_impact": 5.0,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 74.5754,
-    "rank": 95,
+    "score": 74.6928,
+    "rank": 96,
     "lean_usage_evidence": []
   },
   {
@@ -6858,8 +6858,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.9639,
-    "rank": 77,
+    "score": 76.8538,
+    "rank": 80,
     "lean_usage_evidence": []
   },
   {
@@ -6874,8 +6874,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 372,
+    "score": 25.5508,
+    "rank": 373,
     "lean_usage_evidence": []
   },
   {
@@ -6890,7 +6890,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 69.1507,
+    "score": 69.0254,
     "rank": 120,
     "lean_usage_evidence": []
   },
@@ -6906,8 +6906,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 374,
+    "score": 25.5508,
+    "rank": 375,
     "lean_usage_evidence": []
   },
   {
@@ -6922,8 +6922,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 378,
+    "score": 25.5508,
+    "rank": 379,
     "lean_usage_evidence": []
   },
   {
@@ -6938,8 +6938,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 75.5626,
-    "rank": 92,
+    "score": 75.4873,
+    "rank": 93,
     "lean_usage_evidence": []
   },
   {
@@ -6954,7 +6954,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 68.1104,
+    "score": 67.9343,
     "rank": 127,
     "lean_usage_evidence": []
   },
@@ -6970,8 +6970,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 237,
+    "score": 50.8475,
+    "rank": 238,
     "lean_usage_evidence": []
   },
   {
@@ -6986,8 +6986,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 238,
+    "score": 50.8475,
+    "rank": 239,
     "lean_usage_evidence": []
   },
   {
@@ -7002,8 +7002,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 377,
+    "score": 25.5508,
+    "rank": 378,
     "lean_usage_evidence": []
   },
   {
@@ -7018,8 +7018,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.7282,
-    "rank": 42,
+    "score": 82.7013,
+    "rank": 43,
     "lean_usage_evidence": []
   },
   {
@@ -7034,8 +7034,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 82.8238,
-    "rank": 41,
+    "score": 82.7331,
+    "rank": 42,
     "lean_usage_evidence": []
   },
   {
@@ -7050,7 +7050,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 65.9448,
+    "score": 65.8051,
     "rank": 140,
     "lean_usage_evidence": []
   },
@@ -7066,8 +7066,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 5,
     "lean_usage_log": 2.584963,
-    "score": 85.0955,
-    "rank": 32,
+    "score": 84.9258,
+    "rank": 33,
     "lean_usage_evidence": [
       "FunctionalAnalysis/ClosedRange.lean",
       "FunctionalAnalysis/SeparableDual.lean",
@@ -7082,20 +7082,21 @@
     "eligible": true,
     "direct_users": 3,
     "weighted_direct": 1.833333,
-    "transitive_users": 8,
-    "transitive_impact": 5.5,
+    "transitive_users": 9,
+    "transitive_impact": 6.0,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
-    "lean_usage_files": 8,
-    "lean_usage_log": 3.169925,
-    "score": 90.7749,
-    "rank": 15,
+    "lean_usage_files": 9,
+    "lean_usage_log": 3.321928,
+    "score": 91.4831,
+    "rank": 11,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldDegree.lean",
       "AbstractAlgebra/FieldSeparableNormal.lean",
       "AbstractAlgebra/FieldGaloisConsequences.lean",
       "AbstractAlgebra/FieldGaloisConsequencesNormality.lean",
       "AbstractAlgebra/FieldGaloisCorrespondence.lean",
+      "AbstractAlgebra/FieldGaloisConsequencesRestriction.lean",
       "AbstractAlgebra/FieldGaloisDefinitions.lean",
       "AbstractAlgebra/FieldSplitting.lean",
       "AbstractAlgebra/FieldSeparableNormalCharacterizations.lean"
@@ -7113,7 +7114,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 92.5053,
+    "score": 92.4576,
     "rank": 9,
     "lean_usage_evidence": [
       "FunctionalAnalysis/EberleinSmulian.lean"
@@ -7125,13 +7126,13 @@
     "eligible": true,
     "direct_users": 4,
     "weighted_direct": 1.5,
-    "transitive_users": 7,
-    "transitive_impact": 5.5,
+    "transitive_users": 8,
+    "transitive_impact": 6.0,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 4,
     "lean_usage_log": 2.321928,
-    "score": 89.6815,
+    "score": 89.7669,
     "rank": 17,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldSeparableNormal.lean",
@@ -7144,16 +7145,16 @@
     "id": "abstract-algebra.field.separable-normal",
     "title": "可分多项式、可分扩张与正规扩张",
     "eligible": true,
-    "direct_users": 2,
-    "weighted_direct": 0.833333,
-    "transitive_users": 5,
-    "transitive_impact": 2.875,
+    "direct_users": 3,
+    "weighted_direct": 1.083333,
+    "transitive_users": 6,
+    "transitive_impact": 3.875,
     "subject_reach": 1,
-    "cross_subject_impact": 0.75,
+    "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 76.5499,
-    "rank": 83,
+    "score": 84.8305,
+    "rank": 34,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldSeparableNormalCharacterizations.lean"
     ]
@@ -7170,8 +7171,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 380,
+    "score": 25.5508,
+    "rank": 381,
     "lean_usage_evidence": []
   },
   {
@@ -7186,8 +7187,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 382,
+    "score": 25.5508,
+    "rank": 383,
     "lean_usage_evidence": []
   },
   {
@@ -7202,7 +7203,7 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 63.6518,
+    "score": 63.5169,
     "rank": 152,
     "lean_usage_evidence": []
   },
@@ -7218,8 +7219,8 @@
     "cross_subject_impact": 0.75,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 77.1231,
-    "rank": 76,
+    "score": 76.928,
+    "rank": 78,
     "lean_usage_evidence": [
       "FunctionalAnalysis/EberleinSmulian.lean"
     ]
@@ -7236,7 +7237,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 66.0722,
+    "score": 65.9534,
     "rank": 137,
     "lean_usage_evidence": []
   },
@@ -7252,7 +7253,7 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 3,
     "lean_usage_log": 2.0,
-    "score": 86.6242,
+    "score": 86.4936,
     "rank": 28,
     "lean_usage_evidence": [
       "FunctionalAnalysis/ClosedRangeDuality.lean",
@@ -7272,8 +7273,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.7728,
-    "rank": 82,
+    "score": 76.7267,
+    "rank": 83,
     "lean_usage_evidence": []
   },
   {
@@ -7288,8 +7289,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 90.9766,
-    "rank": 13,
+    "score": 90.9322,
+    "rank": 14,
     "lean_usage_evidence": [
       "Topology/PathHomotopyQuotientStandard.lean"
     ]
@@ -7306,8 +7307,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 54.9788,
-    "rank": 216,
+    "score": 54.9153,
+    "rank": 217,
     "lean_usage_evidence": []
   },
   {
@@ -7322,8 +7323,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.9321,
-    "rank": 80,
+    "score": 76.8538,
+    "rank": 81,
     "lean_usage_evidence": []
   },
   {
@@ -7338,8 +7339,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 465,
+    "score": 25.5508,
+    "rank": 466,
     "lean_usage_evidence": []
   },
   {
@@ -7354,8 +7355,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 373,
+    "score": 25.5508,
+    "rank": 374,
     "lean_usage_evidence": []
   },
   {
@@ -7364,14 +7365,14 @@
     "eligible": true,
     "direct_users": 2,
     "weighted_direct": 0.666667,
-    "transitive_users": 6,
-    "transitive_impact": 3.75,
+    "transitive_users": 7,
+    "transitive_impact": 4.25,
     "subject_reach": 1,
     "cross_subject_impact": 1.0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 80.1168,
-    "rank": 61,
+    "score": 80.6038,
+    "rank": 59,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldSeparableNormal.lean"
     ]
@@ -7388,8 +7389,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 79.8938,
-    "rank": 62,
+    "score": 79.8729,
+    "rank": 63,
     "lean_usage_evidence": []
   },
   {
@@ -7404,8 +7405,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 72.6327,
-    "rank": 103,
+    "score": 72.5,
+    "rank": 105,
     "lean_usage_evidence": []
   },
   {
@@ -7420,7 +7421,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 66.2527,
+    "score": 66.1335,
     "rank": 136,
     "lean_usage_evidence": []
   },
@@ -7436,8 +7437,8 @@
     "cross_subject_impact": 1.0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 76.4862,
-    "rank": 86,
+    "score": 76.4089,
+    "rank": 87,
     "lean_usage_evidence": []
   },
   {
@@ -7446,14 +7447,14 @@
     "eligible": true,
     "direct_users": 1,
     "weighted_direct": 0.333333,
-    "transitive_users": 4,
-    "transitive_impact": 2.0,
+    "transitive_users": 5,
+    "transitive_impact": 2.25,
     "subject_reach": 1,
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.3482,
-    "rank": 195,
+    "score": 57.0445,
+    "rank": 196,
     "lean_usage_evidence": []
   },
   {
@@ -7468,8 +7469,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 203,
+    "score": 56.1864,
+    "rank": 209,
     "lean_usage_evidence": []
   },
   {
@@ -7484,8 +7485,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 35.0106,
-    "rank": 278,
+    "score": 34.9576,
+    "rank": 279,
     "lean_usage_evidence": [
       "FunctionalAnalysis/CompactOperator.lean"
     ]
@@ -7502,8 +7503,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 253,
+    "score": 50.8475,
+    "rank": 254,
     "lean_usage_evidence": []
   },
   {
@@ -7518,8 +7519,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 461,
+    "score": 25.5508,
+    "rank": 462,
     "lean_usage_evidence": []
   },
   {
@@ -7534,8 +7535,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 50.9342,
-    "rank": 254,
+    "score": 50.8475,
+    "rank": 255,
     "lean_usage_evidence": []
   },
   {
@@ -7550,8 +7551,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 460,
+    "score": 25.5508,
+    "rank": 461,
     "lean_usage_evidence": []
   },
   {
@@ -7566,8 +7567,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 462,
+    "score": 25.5508,
+    "rank": 463,
     "lean_usage_evidence": []
   },
   {
@@ -7582,7 +7583,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 2,
     "lean_usage_log": 1.584963,
-    "score": 79.7028,
+    "score": 79.5551,
     "rank": 64,
     "lean_usage_evidence": [
       "Topology/VanKampenSquareSubdivision.lean",
@@ -7595,18 +7596,19 @@
     "eligible": true,
     "direct_users": 1,
     "weighted_direct": 0.333333,
-    "transitive_users": 3,
-    "transitive_impact": 2.0,
+    "transitive_users": 4,
+    "transitive_impact": 2.5,
     "subject_reach": 1,
-    "cross_subject_impact": 0.75,
-    "lean_usage_files": 3,
-    "lean_usage_log": 2.0,
-    "score": 69.4904,
-    "rank": 119,
+    "cross_subject_impact": 1.0,
+    "lean_usage_files": 4,
+    "lean_usage_log": 2.321928,
+    "score": 73.6864,
+    "rank": 101,
     "lean_usage_evidence": [
       "AbstractAlgebra/FieldGaloisConsequences.lean",
       "AbstractAlgebra/FieldGaloisConsequencesNormality.lean",
-      "AbstractAlgebra/FieldGaloisCorrespondence.lean"
+      "AbstractAlgebra/FieldGaloisCorrespondence.lean",
+      "AbstractAlgebra/FieldGaloisConsequencesRestriction.lean"
     ]
   },
   {
@@ -7621,8 +7623,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 439,
+    "score": 25.5508,
+    "rank": 440,
     "lean_usage_evidence": []
   },
   {
@@ -7637,8 +7639,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 435,
+    "score": 25.5508,
+    "rank": 436,
     "lean_usage_evidence": []
   },
   {
@@ -7653,8 +7655,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 426,
+    "score": 25.5508,
+    "rank": 427,
     "lean_usage_evidence": []
   },
   {
@@ -7669,8 +7671,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 290,
+    "score": 25.5508,
+    "rank": 291,
     "lean_usage_evidence": []
   },
   {
@@ -7685,7 +7687,7 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 1,
     "lean_usage_log": 1.0,
-    "score": 66.6667,
+    "score": 66.5466,
     "rank": 134,
     "lean_usage_evidence": [
       "FunctionalAnalysis/ClosedRangeConsequences.lean"
@@ -7695,18 +7697,19 @@
     "id": "abstract-algebra.field.galois-correspondence",
     "title": "有限 Galois 基本对应",
     "eligible": true,
-    "direct_users": 2,
-    "weighted_direct": 0.666667,
-    "transitive_users": 2,
-    "transitive_impact": 2.0,
+    "direct_users": 3,
+    "weighted_direct": 0.916667,
+    "transitive_users": 3,
+    "transitive_impact": 3.0,
     "subject_reach": 1,
-    "cross_subject_impact": 0.5,
-    "lean_usage_files": 1,
-    "lean_usage_log": 1.0,
-    "score": 70.9342,
-    "rank": 112,
+    "cross_subject_impact": 0.75,
+    "lean_usage_files": 2,
+    "lean_usage_log": 1.584963,
+    "score": 78.1144,
+    "rank": 73,
     "lean_usage_evidence": [
-      "AbstractAlgebra/FieldGaloisConsequences.lean"
+      "AbstractAlgebra/FieldGaloisConsequences.lean",
+      "AbstractAlgebra/FieldGaloisConsequencesRestriction.lean"
     ]
   },
   {
@@ -7721,8 +7724,8 @@
     "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 201,
+    "score": 56.1864,
+    "rank": 200,
     "lean_usage_evidence": []
   },
   {
@@ -7737,8 +7740,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 464,
+    "score": 25.5508,
+    "rank": 465,
     "lean_usage_evidence": []
   },
   {
@@ -7753,8 +7756,8 @@
     "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 56.2845,
-    "rank": 202,
+    "score": 56.1864,
+    "rank": 208,
     "lean_usage_evidence": []
   },
   {
@@ -7769,8 +7772,8 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 376,
+    "score": 25.5508,
+    "rank": 377,
     "lean_usage_evidence": []
   },
   {
@@ -7785,40 +7788,40 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 375,
+    "score": 25.5508,
+    "rank": 376,
     "lean_usage_evidence": []
   },
   {
     "id": "abstract-algebra.field.galois-consequences",
     "title": "有限 Galois 对应的次数与指数公式",
     "eligible": true,
-    "direct_users": 1,
-    "weighted_direct": 0.333333,
-    "transitive_users": 1,
-    "transitive_impact": 1.0,
+    "direct_users": 2,
+    "weighted_direct": 0.583333,
+    "transitive_users": 2,
+    "transitive_impact": 2.0,
     "subject_reach": 1,
-    "cross_subject_impact": 0.25,
+    "cross_subject_impact": 0.5,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 48.1953,
-    "rank": 255,
+    "score": 61.1758,
+    "rank": 175,
     "lean_usage_evidence": []
   },
   {
     "id": "abstract-algebra.field.galois-normality",
     "title": "Galois 对应中的正规子群与正规中间扩张",
     "eligible": true,
-    "direct_users": 0,
-    "weighted_direct": 0.0,
-    "transitive_users": 0,
-    "transitive_impact": 0,
-    "subject_reach": 0,
-    "cross_subject_impact": 0,
+    "direct_users": 1,
+    "weighted_direct": 0.25,
+    "transitive_users": 1,
+    "transitive_impact": 1.0,
+    "subject_reach": 1,
+    "cross_subject_impact": 0.25,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 282,
+    "score": 46.8432,
+    "rank": 258,
     "lean_usage_evidence": []
   },
   {
@@ -7833,8 +7836,24 @@
     "cross_subject_impact": 0,
     "lean_usage_files": 0,
     "lean_usage_log": 0.0,
-    "score": 25.5839,
-    "rank": 463,
+    "score": 25.5508,
+    "rank": 464,
+    "lean_usage_evidence": []
+  },
+  {
+    "id": "abstract-algebra.field.galois-restriction",
+    "title": "Galois 对应中的限制同态、核与商群",
+    "eligible": true,
+    "direct_users": 0,
+    "weighted_direct": 0.0,
+    "transitive_users": 0,
+    "transitive_impact": 0,
+    "subject_reach": 0,
+    "cross_subject_impact": 0,
+    "lean_usage_files": 0,
+    "lean_usage_log": 0.0,
+    "score": 25.5508,
+    "rank": 283,
     "lean_usage_evidence": []
   }
 ]

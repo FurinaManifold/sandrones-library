@@ -94,8 +94,16 @@
   自同构写成相对该中间域的代数自同构。组合后可比较显式 fixing 群和相对 Galois 群的基数。
 - **出处**：Mathlib 的固定点域与 Galois 理论接口。
 - **谁在用**：`abstract-algebra.field.galois-correspondence` 的私有换基和基数证明；公开 API 仍使用
-  本库 `FieldAutomorphismOver`、`IntermediateFieldSet`、`SubgroupSet` 和显式 restriction。
+  本库 `FieldAutomorphismOver`、`IntermediateFieldSet`、正式 `Subgroup` 和显式 restriction；
+  `SubgroupSet` 只保留为旧定义层的兼容桥，不是新增课程接口的公开 carrier。
 - **本库边界**：未调用直接给出中间域恢复、子群恢复或完整中间域—子群等价的最终接口。
+
+### `AlgEquiv.restrictNormalHom_surjective` / `QuotientGroup.quotientKerEquivOfSurjective`
+- **人话**：前者说明有限 Galois 塔中正规中间扩张的自同构可以提升到顶层；后者把满射群同态按核
+  取商后识别为目标群。
+- **谁在用**：`abstract-algebra.field.galois-restriction` 的私有满射桥与第一同构定理后端。公开
+  `fixedFieldRestrictionHom` 仍由本库逐点 restriction 实际构造，并另证 kernel、range 和自然投影公式。
+- **本库边界**：不调用 Mathlib 的最终 Galois 对应同构包装来替代限制同态、核与商映射的教材链。
 
 ### `WeakDual.isClosed_closedBall` / `WeakDual.isCompact_closedBall`
 - **人话**：把连续对偶的范数闭球视为弱星空间中的集合，并断言其闭性与紧致性；这不是范数拓扑紧致。
