@@ -1,11 +1,11 @@
 ---
 id: functional-analysis.fredholm.alternative
 family: functional-analysis.operator
-variant: identity-minus-compact-index
+variant: identity-minus-compact
 kind: theorem
 state: verified
 title: 恒等算子的紧扰动
-summary: 紧算子 K 的恒等扰动 I-K 具有有限维核、有限维余核、闭值域且指数为零
+summary: 紧算子 K 的恒等扰动 I-K 具有有限维核余核、闭值域、指数零，并满足单射满射备择
 premises: [functional-analysis.compact-operator.dual, functional-analysis.fredholm.definition]
 mathlib: [IsCompactOperator, ContinuousLinearMap.ker, Submodule.ClosedComplemented]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
@@ -49,6 +49,12 @@ Salamon Lemma 4.3.9（Main Fredholm Lemma）证明：若有紧算子辅助控制
 `E = ker((I-K)^N) ⊕ range((I-K)^N)`，所以该幂指数为零；指数对复合可加，故
 `N · index(I-K)=0`，从而 `index(I-K)=0`。
 
+# 最终备择
+
+若 `I-K` 单射，则核维数为零；结合指数零，余核维数也为零。余核已经有限维，所以商空间平凡，
+即值域为全空间。反之，若 `I-K` 满射，则余核维数为零；指数零迫使有限维核维数为零，故核平凡。
+因此 `I-K` 单射当且仅当满射。这一步只消费前两窗公开接口，不重新运行紧性或闭值域证明。
+
 # Lean 对照
 
 - `identitySubCompact`、`identitySubCompact_apply`：`I-K` 的具名承载与元素展开；
@@ -57,10 +63,12 @@ Salamon Lemma 4.3.9（Main Fredholm Lemma）证明：若有紧算子辅助控制
 - `evaluationOnDualKernel_ker_eq_range`：余核与对偶核配对的核识别；
 - `finiteDimensional_cokernel_identitySubCompact`：有限维余核；
 - `compactPowerRemainder_isCompactOperator`：幂仍是恒等减紧算子；
-- `index_identitySubCompact_eq_zero`：指数为零。
+- `index_identitySubCompact_eq_zero`：指数为零；
+- `identitySubCompact_injective_iff_surjective`：最终单射／满射备择；
+- `identitySubCompact_ker_eq_bot_iff_range_eq_top`：核与值域的子空间形式。
 
 # 边界
 
-本条不证明单射与满射等价、预解集二择一或积分核实例。尤其没有导入或调用
-`Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative` 的最终 package；最终单射／满射
-备择按 Main 协议在本窗 handoff 冻结接口后自动转入下一开发窗。
+本条不进一步包装预解集二择一、非零谱点必为特征值或积分核实例。尤其没有导入或调用
+`Mathlib.Analysis.Normed.Operator.Compact.FredholmAlternative` 的最终 package。一般 Fredholm
+算子的紧扰动／小扰动稳定性仍属于 F5.7，不由这个特殊备择静默代替。
