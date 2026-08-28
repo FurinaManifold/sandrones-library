@@ -17645,7 +17645,9 @@
     "nl_file": "docs/entries/functional-analysis/fredholm/alternative-final.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.compact-spectrum"
+    ],
     "family": "functional-analysis.fredholm",
     "variant": "identity-minus-compact-injective-iff-surjective",
     "axioms": [
@@ -18055,7 +18057,9 @@
     "nl_file": "docs/entries/functional-analysis/spectrum/nonempty-compact.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.compact-spectrum"
+    ],
     "family": "functional-analysis.spectrum",
     "variant": "complex-banach-algebra",
     "axioms": [
@@ -18195,5 +18199,38 @@
       "propext"
     ],
     "proof_sha": "79f566a39b73eb06"
+  },
+  {
+    "id": "functional-analysis.compact-spectrum",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "紧算子的非零谱、有限重数与零聚点边界",
+    "summary": "非零谱点等于特征值，广义特征空间有限维，且互异谱点序列只能趋于零",
+    "premises": [
+      "functional-analysis.spectrum.nonempty-compact",
+      "functional-analysis.fredholm.alternative-final"
+    ],
+    "mathlib": [
+      "IsCompactOperator.hasEigenvalue_iff_mem_spectrum",
+      "Module.End.genEigenspace",
+      "isCompactOperator_id_iff_finiteDimensional"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/CompactSpectrum.lean",
+    "nl_file": "docs/entries/functional-analysis/compact-spectrum.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.compact-spectrum",
+    "variant": "complex-banach-space",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "ba4ceb966be6735c"
   }
 ]

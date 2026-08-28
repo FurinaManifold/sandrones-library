@@ -8,7 +8,7 @@ title: 紧算子的非零谱、有限重数与零聚点边界
 summary: 非零谱点等于特征值，广义特征空间有限维，且互异谱点序列只能趋于零
 premises: [functional-analysis.spectrum.nonempty-compact, functional-analysis.fredholm.alternative-final]
 mathlib: [IsCompactOperator.hasEigenvalue_iff_mem_spectrum, Module.End.genEigenspace, isCompactOperator_id_iff_finiteDimensional]
-provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018-theorem-5.2.8"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 紧算子的谱
