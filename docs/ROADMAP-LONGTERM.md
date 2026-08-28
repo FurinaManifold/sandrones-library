@@ -109,8 +109,8 @@ WF0 已完成，WF1 持续 `development_open`；WF2/WF3 按各学科已验收资
 |---|---|---|---|
 | G-A2 | A2.2–A2.9 的理想、整除、PID/UFD、CRT、局部化完成 | A3 深层、N2.1–N2.3 | ✅ |
 | G-A3 | 域扩张、次数、分裂域、可分/正规扩张完成 | Galois、N2 数域主线 | ✅ |
-| G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | 🚧（当前优先门） |
-| G-C | T4 桥完成后，C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | ⏸（等待 G-T4/C） |
+| G-T4/C | 本库道路同伦、相对端点同伦、同伦等价与基本群接口完成，并补连续同伦到复路径积分所需的正则化桥 | 恢复 C2 一般同伦不变、单连通域原函数，再推进 C3 | ✅ |
+| G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧（T4 桥已满足，继续完成 C2/C3） |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | ✅ |
 | G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
 | G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
@@ -677,10 +677,11 @@ a.e. 结论写成逐点结论。
 实积分计算例归 Examples；它是残数定理的使用者，不作为 C3 理论完成门。已有 foundation 条目按
 上述顺序吸收，不再平行生长一条“Mathlib 可用什么就做什么”的路线。
 
-C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基础条目进入 main。当前研发暂停：
-一般同伦不变、单连通域原函数及其后续 Laurent／残数路线依赖 T4 中尚未完成的本库同伦、同伦等价、
-基本群和连续同伦正则化接口。原复分析负责人已转入 T4；只有 G-T4/C 经 Main 验收后才恢复 C2/C3。
-已有一般三角形 Goursat 等已提交成果继续保留，未完成内容不得借 Mathlib 拓扑结构直接冒充本库课程层。
+C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基础条目进入 main。G-T4/C 现已满足：
+本库已经具有标准道路同伦、同伦等价、基本群，以及连续相对同伦下分段 `C¹` 边界路径积分不变性的
+完整桥。复分析研发恢复，但仍须按“连续同伦不变 → 单连通域原函数 → Laurent／残数”的教材依赖
+推进；未完成内容不得借 Mathlib 最终强定理直接冒充本库课程层。有限 cycle、绕数与 Banach 值路径
+积分先开独立接口调查，为残数定理和泛函分析 Dunford 演算共同提供中性基础设施。
 
 ### C1 复微分与全纯函数 ✅
 
@@ -693,14 +694,14 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 5 | `complex-analysis.holomorphic.power-series` | 幂级数圆内全纯与逐项求导 ✅ | `PowerSeries`、`HasSum` |
 | 6 | `complex-analysis.holomorphic.elementary` | exp、sin、cos、局部 log ✅ | `Complex.exp/sin/cos/log` |
 
-### C2 复积分与 Cauchy 理论 ⏸（依赖 C1 与 G-T4/C）
+### C2 复积分与 Cauchy 理论 🚧（G-T4/C 已满足）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `complex-analysis.integral.path` | 分段光滑路径与复路径积分 ✅ | `PathIntegral` |
 | 2 | `complex-analysis.integral.reparametrization` | 底层换元、反向、拼接 ✅；一般 `Path.reparam` 待补 | path integral invariance |
 | 3 | `complex-analysis.cauchy.triangle` | 任意开集内的局部三角形 Cauchy--Goursat 定理 ✅ | 凸三角形上的相对原函数接口 |
-| 4 | `complex-analysis.cauchy.homotopy` | 同伦不变与单连通域版本 | winding/homotopy |
+| 4 | `complex-analysis.cauchy.homotopy` | 连续相对同伦下分段 `C¹` 路径积分不变性 ✅；单连通域原函数版本待收口 | `complex-analysis.path-integral.piecewise-c1-homotopy-invariance` |
 | 5 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 ✅ | circle integral API |
 | 6 | `complex-analysis.cauchy.derivatives` | 高阶导数公式与 Cauchy 估计 ✅ | iterated derivative |
 | 7 | `complex-analysis.liouville` | Liouville 与 FTA 的分析证明 ✅ | Cauchy estimate |
@@ -709,6 +710,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 10 | `complex-analysis.cauchy.smooth-homotopy-foundation` | 给定 C² 相对端点同伦时路径积分不变 ✅（foundation） | `ContinuousMap.Homotopy`、`ContDiffOn` |
 | 11 | `complex-analysis.cauchy.primitive-from-path-independence-foundation` | 由 admissible 道路积分无关构造原函数 ✅（foundation） | `HasDerivAt`、短线段积分 |
 | 12 | `complex-analysis.cauchy.admissible-path-connectivity-foundation` | 开连通域内从基点到各点存在有限分段正则道路 ✅（foundation） | `IsPreconnected`、`Path.trans` |
+| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（`research_open`） | finite formal sums、winding、Bochner path integral |
 
 ### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 
