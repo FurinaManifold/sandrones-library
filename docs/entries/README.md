@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **558** 个条目（verified 558，pending 0）。
+共 **559** 个条目（verified 559，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -753,6 +753,7 @@
 
 ## `statistics.estimator`
 
+- ✅ [`bias-variance.md`](statistics/estimator/bias-variance.md) — 平方损失的偏差—方差分解
 - ✅ [`definition.md`](statistics/estimator/definition.md) — 统计量、随机化估计量与风险
 
 ## `statistics.model`

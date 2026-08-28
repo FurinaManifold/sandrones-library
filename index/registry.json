@@ -16988,7 +16988,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "probability.inequalities.basic"
+      "probability.inequalities.basic",
+      "statistics.estimator.bias-variance"
     ],
     "family": "probability.moments",
     "variant": "finite-second-moment",
@@ -18166,7 +18167,9 @@
     "nl_file": "docs/entries/statistics/estimator/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "statistics.estimator.bias-variance"
+    ],
     "family": "statistics.estimator",
     "variant": "textbook",
     "axioms": [
@@ -18415,5 +18418,38 @@
       "propext"
     ],
     "proof_sha": "c717ab4c6359ce74"
+  },
+  {
+    "id": "statistics.estimator.bias-variance",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "平方损失的偏差—方差分解",
+    "summary": "将实值估计量的均方风险精确分解为输出方差与偏差平方",
+    "premises": [
+      "statistics.estimator.definition",
+      "probability.moments.variance"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.variance_eq_sub",
+      "MeasureTheory.memLp_two_iff_integrable_sq",
+      "MeasureTheory.ofReal_integral_eq_lintegral_ofReal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "schervish-theory-statistics-1995"
+    },
+    "lean_file": "Statistics/BiasVariance.lean",
+    "nl_file": "docs/entries/statistics/estimator/bias-variance.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.estimator",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "2458b95b6b917bfc"
   }
 ]
