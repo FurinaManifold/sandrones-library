@@ -919,10 +919,11 @@ Chebyshev 证明链；强大数律、特征函数和 CLT 继续冻结。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
-模型与联合可测 density 已集成。`statistics.estimator.definition` 的接口审计也已集成，现为
-`development_open`：单一 `Statistics/Estimator.lean` 以 Markov kernel 为随机化估计量主 carrier，
-可测函数经 deterministic kernel 接入；损失和风险复用 `avgRisk`／`bayesRisk` 等正式接口。偏差—
-方差、MLE、Fisher 信息与一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
+模型与联合可测 density 已集成。`statistics.estimator.definition` 也已集成：以 Markov kernel 为
+随机化估计量主 carrier，可测函数经 deterministic kernel 接入；损失和风险复用
+`avgRisk`／`bayesRisk` 等正式接口。偏差—方差分解现为 `research_open`，仅调查实值估计量的二阶矩、
+偏差、方差与平方损失风险之间的准确接口；相合性、MLE、Fisher 信息与一般估计定理继续冻结，不得用
+有限离散样本冒充一般统计实验。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 
@@ -947,8 +948,8 @@ Chebyshev 证明链；强大数律、特征函数和 CLT 继续冻结。
 |---|---|---|---|
 | 1 | `statistics.model.definition` | 统计模型、样本与参数族 ✅ | 测度族/概率核 |
 | 1b | `statistics.model.density` | 支配模型与联合可测 Radon--Nikodym 密度 ✅ | `Kernel.rnDeriv` |
-| 2 | `statistics.estimator.definition` | 统计量、估计量与风险（`development_open`） | 可测映射、Markov kernel、风险积分 |
-| 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 | Pr1 方差 |
+| 2 | `statistics.estimator.definition` | 统计量、估计量与风险 ✅ | 可测映射、Markov kernel、风险积分 |
+| 3 | `statistics.estimator.bias-variance` | 偏差—方差分解（`research_open`） | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 相合性与收敛模式 | Pr3 |
 | 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口 | conditional law |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |

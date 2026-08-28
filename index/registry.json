@@ -18027,6 +18027,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
+      "statistics.estimator.definition",
       "statistics.model.density"
     ],
     "family": "statistics.model",
@@ -18137,6 +18138,39 @@
       "propext"
     ],
     "proof_sha": "d73f2374fa081b35"
+  },
+  {
+    "id": "statistics.estimator.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "统计量、随机化估计量与风险",
+    "summary": "用可测函数和 Markov kernel 统一确定性与随机化估计，并展开逐参数、平均与 Bayes 风险",
+    "premises": [
+      "statistics.model.definition"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.Kernel.deterministic",
+      "ProbabilityTheory.avgRisk",
+      "ProbabilityTheory.bayesRisk",
+      "ProbabilityTheory.IsBayesEstimator"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "schervish-theory-statistics-1995"
+    },
+    "lean_file": "Statistics/Estimator.lean",
+    "nl_file": "docs/entries/statistics/estimator/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.estimator",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "4330105feb33d153"
   },
   {
     "id": "topology.covering.subgroup-path-class-standard",
