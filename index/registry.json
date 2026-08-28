@@ -16917,6 +16917,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "probability.characteristic-function",
       "probability.convergence.modes",
       "probability.expectation.definition"
     ],
@@ -17058,6 +17059,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "probability.characteristic-function",
       "probability.conditional-expectation.independence"
     ],
     "family": "probability.independence",
@@ -18601,5 +18603,39 @@
       "propext"
     ],
     "proof_sha": "b94444d294cc0bb4"
+  },
+  {
+    "id": "probability.characteristic-function",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "实值随机变量的特征函数",
+    "summary": "展开实值随机变量的特征函数并证明基本性质、独立和公式及分布唯一性",
+    "premises": [
+      "probability.distribution.pushforward",
+      "probability.independence.variables"
+    ],
+    "mathlib": [
+      "MeasureTheory.charFun",
+      "MeasureTheory.charFun_apply_real",
+      "ProbabilityTheory.IndepFun.charFun_map_fun_add_eq_mul",
+      "MeasureTheory.Measure.ext_of_charFun"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/CharacteristicFunction.lean",
+    "nl_file": "docs/entries/probability/characteristic-function.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.characteristic-function",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "5a091713506415c0"
   }
 ]

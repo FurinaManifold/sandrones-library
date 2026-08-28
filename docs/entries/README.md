@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **563** 个条目（verified 563，pending 0）。
+共 **564** 个条目（verified 564，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -512,6 +512,10 @@
 - ✅ [`quadratic-reciprocity.md`](number-theory/elementary/quadratic-reciprocity.md) — Legendre/Jacobi 二次互反律
 - ✅ [`quadratic-residues.md`](number-theory/elementary/quadratic-residues.md) — 二次剩余、Legendre/Jacobi 符号与 Gauss 引理
 - ✅ [`totient.md`](number-theory/elementary/totient.md) — Euler φ 函数
+
+## `probability`
+
+- ✅ [`characteristic-function.md`](probability/characteristic-function.md) — 实值随机变量的特征函数
 
 ## `probability.conditional-expectation`
 

@@ -329,6 +329,7 @@ import SandronesLibrary.Probability.OptionalStopping
 import SandronesLibrary.Probability.Convergence
 import SandronesLibrary.Probability.WeakLaw
 import SandronesLibrary.Probability.StrongLaw
+import SandronesLibrary.Probability.CharacteristicFunction
 import SandronesLibrary.Statistics.Model
 import SandronesLibrary.Statistics.Density
 import SandronesLibrary.Statistics.Estimator
