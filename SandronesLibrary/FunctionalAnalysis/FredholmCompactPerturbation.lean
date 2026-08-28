@@ -25,7 +25,7 @@ variable {E F : Type*}
   [NormedAddCommGroup F] [NormedSpace ℝ F] [CompleteSpace F]
 
 /-- 有限秩连续线性映射是紧算子。证明经其有限维值域分解。 -/
-private theorem isCompactOperator_of_hasFiniteRange {X Y : Type*}
+theorem isCompactOperator_of_hasFiniteRange_clm {X Y : Type*}
     [NormedAddCommGroup X] [NormedSpace ℝ X]
     [NormedAddCommGroup Y] [NormedSpace ℝ Y]
     (R : X →L[ℝ] Y) (hR : R.toLinearMap.HasFiniteRange) :
@@ -83,7 +83,7 @@ theorem ContinuousLinearMap.IsFredholm.add_compact {T : E →L[ℝ] F}
       (LinearMap.FiniteRangeSetoid.equiv_iff_hasFiniteRange.mp hS.2.equiv).neg
   have hfiniteCompact :
       IsCompactOperator (ContinuousLinearMap.id ℝ F - T.comp S) :=
-    isCompactOperator_of_hasFiniteRange _ hfinite
+    isCompactOperator_of_hasFiniteRange_clm _ hfinite
   have hKS : IsCompactOperator (K.comp S) := IsCompactOperator.comp_right hK S
   have hC : IsCompactOperator C := by
     have heq : C = (ContinuousLinearMap.id ℝ F - T.comp S) - K.comp S := by
@@ -121,7 +121,7 @@ theorem fredholmIndex_add_compact {T : E →L[ℝ] F}
     simpa only [neg_sub] using
       (LinearMap.FiniteRangeSetoid.equiv_iff_hasFiniteRange.mp hS.2.equiv).neg
   have hC₀ : IsCompactOperator C₀ :=
-    isCompactOperator_of_hasFiniteRange _ hfinite₀
+    isCompactOperator_of_hasFiniteRange_clm _ hfinite₀
   have hC₁ : IsCompactOperator C₁ := by
     have hKS : IsCompactOperator (K.comp S) := IsCompactOperator.comp_right hK S
     have heq : C₁ = C₀ - K.comp S := by
