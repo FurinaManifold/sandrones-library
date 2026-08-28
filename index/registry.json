@@ -18316,7 +18316,8 @@
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
       "probability.law-large-numbers.strong",
-      "probability.law-large-numbers.weak"
+      "probability.law-large-numbers.weak",
+      "statistics.estimator.consistency"
     ],
     "family": "probability.convergence",
     "variant": "textbook",
@@ -18523,7 +18524,9 @@
     "nl_file": "docs/entries/statistics/estimator/bias-variance.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "statistics.estimator.consistency"
+    ],
     "family": "statistics.estimator",
     "variant": "textbook",
     "axioms": [
@@ -18532,6 +18535,38 @@
       "propext"
     ],
     "proof_sha": "2458b95b6b917bfc"
+  },
+  {
+    "id": "statistics.estimator.consistency",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "估计量的逐参数相合性",
+    "summary": "用依测度收敛展开逐参数相合，并证明均方收敛蕴含概率相合",
+    "premises": [
+      "statistics.estimator.bias-variance",
+      "probability.convergence.modes"
+    ],
+    "mathlib": [
+      "MeasureTheory.TendstoInMeasure",
+      "MeasureTheory.eLpNorm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "schervish-theory-statistics-1995"
+    },
+    "lean_file": "Statistics/Consistency.lean",
+    "nl_file": "docs/entries/statistics/estimator/consistency.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.estimator",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "74491f1f36b65c73"
   },
   {
     "id": "probability.law-large-numbers.strong",

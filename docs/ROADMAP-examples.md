@@ -148,6 +148,18 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 低次多项式零点计数均由 Examples 负责人领取。历史理论目录中的已验证实积分 Entry 作为可复用
 资产保留，新增题目不得继续写入 `ComplexAnalysis/**`。
 
+## E9P 概率论与统计推断
+
+| 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
+|---|---|---|---|---|
+| E9P.1 概率空间与随机变量 | `examples.probability.foundations` | 有限样本空间、Bernoulli／离散分布、推前分布与期望 | 可测函数条件不能省略；概率质量函数不能冒充一般测度 | Pr1 |
+| E9P.2 独立性、矩与方差 | `examples.probability.independence-moments` | 独立 Bernoulli 和、均值、方差与协方差计算 | 不相关不等于独立；有限期望不自动给有限方差 | Pr1 |
+| E9P.3 条件期望与鞅 | `examples.probability.conditional-martingale` | 有限分割条件期望、简单随机游走鞅与有界停时 | 条件期望是 a.e. 等价类；无界停时不能直接套有界可选停止 | Pr2 |
+| E9P.4 收敛与大数律 | `examples.probability.convergence-lln` | 样本均值的概率／几乎必然收敛及收敛模式比较 | 概率收敛不自动推出几乎必然收敛；弱大数律不等于强大数律 | Pr3 |
+| E9P.5 特征函数 | `examples.probability.characteristic-functions` | Bernoulli、正态及独立和的特征函数计算 | 只写形式积分不等于满足可测性；连续性不需要矩条件 | Pr3.4 |
+| E9P.6 统计模型、风险与偏差—方差 | `examples.statistics.estimators` | Bernoulli 模型样本均值、平方损失风险与偏差—方差分解 | 无偏不等于风险最小；随机化估计量需要明确 kernel | S1.1-S1.3 |
+| E9P.7 相合性 | `examples.statistics.consistency` | 共同样本轨道上的样本均值，展示 `L²` 误差趋零推出逐参数概率相合 | 逐参数相合不等于一致相合；不同样本空间无 coupling 时不能直接用 `TendstoInMeasure` | S1.4 |
+
 ## E10 初等数论
 
 | 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |

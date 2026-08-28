@@ -333,6 +333,7 @@ import SandronesLibrary.Statistics.Model
 import SandronesLibrary.Statistics.Density
 import SandronesLibrary.Statistics.Estimator
 import SandronesLibrary.Statistics.BiasVariance
+import SandronesLibrary.Statistics.Consistency
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

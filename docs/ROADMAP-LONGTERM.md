@@ -952,7 +952,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 > *Linear Regression Analysis* 第二版（`seber-lee-linear-regression-2003`）。似然和密度必须
 > 等待 RN 接口，不能用有限样本公式冒充一般统计实验已经定义。
 
-### S1 参数估计 🔒（依赖 Pr1）
+### S1 参数估计 🚧（依赖 Pr1）
 
 | # | 条目 id | 内容 | 主要实现接口 |
 |---|---|---|---|
@@ -960,8 +960,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 1b | `statistics.model.density` | 支配模型与联合可测 Radon--Nikodym 密度 ✅ | `Kernel.rnDeriv` |
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 ✅ | 可测映射、Markov kernel、风险积分 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 ✅ | Pr1 方差 |
-| 4 | `statistics.estimator.consistency` | 相合性与收敛模式（`development_open`） | Pr3 |
-| 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口 | conditional law |
+| 4 | `statistics.estimator.consistency` | 共同观测空间上的逐参数相合与 `L²` 充分条件 ✅ | Pr3、`TendstoInMeasure` |
+| 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口（`research_open`） | conditional law、factorization criterion |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |
 | 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
 | 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |
