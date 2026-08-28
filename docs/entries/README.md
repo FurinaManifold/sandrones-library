@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **559** 个条目（verified 559，pending 0）。
+共 **560** 个条目（verified 560，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -542,6 +542,7 @@
 
 ## `probability.law-large-numbers`
 
+- ✅ [`strong.md`](probability/law-large-numbers/strong.md) — 强大数律
 - ✅ [`weak.md`](probability/law-large-numbers/weak.md) — 弱大数律
 
 ## `probability.martingale`

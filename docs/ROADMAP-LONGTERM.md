@@ -920,8 +920,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 过滤和可积性量词；有界停时可选停止也已集成，严格止于 `ℕ` 指标、实值与确定常数一致有界版本。Pr3
 `probability.convergence.modes` 已集成，完成四种教材展开、经典单向蕴含、a.s. 子列与连续映射
 消费者。弱大数律已经沿 iid、同分布、二阶矩、有限和方差与 Chebyshev 夹逼证明链完成并集成。
-强大数律的两两独立／iid 双层签名、一阶可积条件、a.e. 收敛 carrier 与 Etemadi 截断证明地图已经
-冻结，现为 `development_open`；特征函数和 CLT 继续冻结。
+强大数律已经以两两独立／iid 双层接口和一阶可积条件完成，Entry 完整解释 Etemadi 截断证明地图。
+特征函数现为 `research_open`，只调查定义、基本连续性、乘积公式与分布唯一性接口；CLT 继续冻结。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
@@ -938,8 +938,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 |---|---|---|---|
 | 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛 ✅ | convergence APIs |
 | 2 | `probability.law-large-numbers.weak` | 弱大数律 ✅ | iid variance bounds |
-| 3 | `probability.law-large-numbers.strong` | 强大数律（`development_open`） | Etemadi truncation、a.e. convergence |
-| 4 | `probability.characteristic-function` | 特征函数与分布唯一性 | charFun |
+| 3 | `probability.law-large-numbers.strong` | 强大数律 ✅ | Etemadi truncation、a.e. convergence |
+| 4 | `probability.characteristic-function` | 特征函数与分布唯一性（`research_open`） | charFun |
 | 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |
 
 ## 10. Phase 9 — 统计推断（S1-S2）

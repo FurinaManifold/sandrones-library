@@ -18237,6 +18237,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
+      "probability.law-large-numbers.strong",
       "probability.law-large-numbers.weak"
     ],
     "family": "probability.convergence",
@@ -18376,7 +18377,9 @@
     "nl_file": "docs/entries/probability/law-large-numbers/weak.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.law-large-numbers.strong"
+    ],
     "family": "probability.law-large-numbers",
     "variant": "textbook",
     "axioms": [
@@ -18451,5 +18454,39 @@
       "propext"
     ],
     "proof_sha": "2458b95b6b917bfc"
+  },
+  {
+    "id": "probability.law-large-numbers.strong",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "强大数律",
+    "summary": "由 Etemadi 截断证明得到一阶可积、两两独立同分布样本均值的几乎必然收敛",
+    "premises": [
+      "probability.law-large-numbers.weak",
+      "probability.convergence.modes"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.strong_law_aux1",
+      "ProbabilityTheory.strong_law_aux7",
+      "ProbabilityTheory.strong_law_ae_real",
+      "ProbabilityTheory.iIndepFun"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/StrongLaw.lean",
+    "nl_file": "docs/entries/probability/law-large-numbers/strong.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.law-large-numbers",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "b94444d294cc0bb4"
   }
 ]
