@@ -946,8 +946,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 2 | `probability.law-large-numbers.weak` | 弱大数律 ✅ | iid variance bounds |
 | 3 | `probability.law-large-numbers.strong` | 强大数律 ✅ | Etemadi truncation、a.e. convergence |
 | 4 | `probability.characteristic-function` | 实值特征函数、基本性质、独立和乘积与分布唯一性 ✅ | `charFun (μ.map X)`、`Measure.ext_of_charFun` |
-| 4b | `probability.characteristic-function.levy-continuity-foundation` | Lévy 连续性与归一化独立和接口调查（`research_open`） | charFun convergence、Gaussian normalization |
-| 5 | `probability.central-limit-theorem` | iid 中心极限定理（冻结，等待 4b handoff） | CLT |
+| 4b1 | `probability.characteristic-function.levy-continuity` | 已知目标概率测度版 Lévy 连续性接口（`development_open`） | `ProbabilityMeasure.tendsto_iff_tendsto_charFun`；解释任意点态极限仍需零点连续性与紧性 |
+| 4b2 | `probability.clt.characteristic-foundation` | iid 归一化和特征函数幂公式、二阶 Taylor 极限与标准正态弱收敛（`development_open`） | 不调用 Mathlib 最终 CLT；首版限中心零、二阶矩一 |
+| 5 | `probability.central-limit-theorem` | 一般 iid 中心极限定理（`research_open`） | 调查任意均值方差的中心化标准化、退化方差边界与随机变量分布收敛桥 |
 
 ## 10. Phase 9 — 统计推断（S1-S2）
 
