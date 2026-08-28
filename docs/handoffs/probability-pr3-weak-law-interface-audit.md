@@ -6,6 +6,8 @@
 - 本批只在 `/tmp/WeakLawFramework.lean` 冻结签名与证明链；不新增正式概率论模块、Entry 或 verified
   声明。
 - 临时文件编译结果仅有一个预期的 `sorry` warning，没有接口或类型错误。
+- 接口冻结后又在 `/tmp/WeakLawHelpers.lean` 完成了整条可执行证明：六个下层引理与最终 WLLN 均已
+  消除 `sorry` 并通过 `lake env lean`；当前仅有一个临时 section 变量未使用的 linter 提示。
 
 建议正式定理采用独立同分布的实值随机变量序列、二阶矩有限假设和从 `0` 开始的 `Finset.range n`
 样本和，并以 `TendstoInMeasure` 陈述概率收敛。证明必须走方差可加性与 Chebyshev，不调用更强的
@@ -65,6 +67,10 @@ theorem weakLaw_of_iid_finiteVariance
    由常数乘 `1/n` 控制并趋于零。
 6. 用夹逼得到每个阈值的 `μ.real` 偏差概率趋零，再通过
    `convergesInProbability_iff_measureReal_dist` 得到 `TendstoInMeasure`。
+
+上述六步已在 `/tmp/WeakLawHelpers.lean` 逐项组装并完整通过。实现还验证了两个容易写错的接口
+细节：函数值有限和需先与函数空间中的 `Finset.sum` 做外延转换，Chebyshev 的 `ENNReal` 上界需在
+确认 `ofReal` 非无穷后用 `ENNReal.toReal_mono` 转成 `Measure.real` 的实数夹逼。
 
 ## 边界与拒绝的捷径
 
