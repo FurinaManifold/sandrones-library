@@ -929,8 +929,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 随机化估计量主 carrier，可测函数经 deterministic kernel 接入；损失和风险复用
 `avgRisk`／`bayesRisk` 等正式接口。偏差—方差分解现为 `research_open`，仅调查实值估计量的二阶矩、
 偏差—方差分解已经沿 Markov estimator 输出律完成一般概率测度的均方误差恒等式及 ENNReal 风险
-消费者并集成。相合性现为 `research_open`，只调查估计量序列／样本量 carrier、逐参数与一致相合的
-量词及概率收敛接口；MLE、Fisher 信息与一般估计定理继续冻结。
+消费者并集成。相合性的共同观测空间估计量序列、逐参数／一致相合量词与 `L² →` 概率充分条件已
+完成审计，现为 `development_open`；MLE、Fisher 信息与一般估计定理继续冻结。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 
@@ -957,7 +957,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 1b | `statistics.model.density` | 支配模型与联合可测 Radon--Nikodym 密度 ✅ | `Kernel.rnDeriv` |
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 ✅ | 可测映射、Markov kernel、风险积分 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 ✅ | Pr1 方差 |
-| 4 | `statistics.estimator.consistency` | 相合性与收敛模式（`research_open`） | Pr3 |
+| 4 | `statistics.estimator.consistency` | 相合性与收敛模式（`development_open`） | Pr3 |
 | 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口 | conditional law |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |
 | 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
