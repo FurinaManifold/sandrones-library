@@ -615,7 +615,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C5a 半局部单连通定义层 | 已集成 | 以开邻域 inclusion 的基本群像为唯一主定义；全局性质为 Prop-valued class，loops 仅作 iff 展开 | 两个强假设桥是普通 theorem，未注册 instance；没有混同 semilocally contractible |
 | AT2-C5b 道路类商承载 | 已集成 | dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；没有偷带教材差环路 iff、拓扑或连续性 |
 | AT2-C5c 覆盖 chart 与拓扑构造 | 已集成 | canonical chart generator topology、离散 fiber transition、chart homeomorphism 与 `IsCoveringMap` | 首版固定道路连通 base；明确不是 generic quotient topology，并转换到实际投影 fiber |
-| AT2-C5d 从 pointed covering 恢复子群 | `development_open` | 道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | range 为主定义；只做恢复与等价不变性，不声称分类双射 |
+| AT2-C5d 从 pointed covering 恢复子群 | `development_open` | 道路连通底空间上的道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | base 与 total 都保留 `PathConnectedSpace`；range 为主定义；只做恢复与等价不变性，不声称分类双射 |
 | AT2-C5e--C5g 覆盖分类后续 | 冻结，C5d handoff 后分步开放 | 构造—恢复互逆、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
@@ -827,7 +827,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 ✅ | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 ✅ | compact self-adjoint spectral theorem |
 | 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词、交集见证与代数正例 ✅ | spectrum neighborhood、DifferentiableOn |
-| 6b | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
+| 6b1 | `functional-analysis.functional-calculus.resolvent-integrand` | 预解恒等式、预解函数全纯性与 Dunford 被积函数（`development_open`） | `resolvent`、`resolventSet`、Banach-valued differentiability；不引入 cycle |
+| 6b2 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
 | 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
 | 9 | `functional-analysis.spectral-measure.bounded` | 投影值测度、循环向量与有界正规算子谱定理 | spectral measure/integral API |
@@ -876,10 +877,11 @@ F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，
 F6.1 Banach 代数 foundation、F6.2 谱／预解集定义层与 F6.3 谱非空、紧致及谱半径公式已经集成。
 F6.4 紧算子谱与 F6.5 紧自伴谱定理已经集成；F6.5 组装实特征值、特征空间正交、闭线性张成稠密
 及非零特征空间有限维，并保持显式无限维 `HilbertBasis` 为消费者驱动的后续窗口。F6.6 全纯函数
-演算的谱邻域谓词子窗现为 `development_open`，只建立一般复 Banach 代数上的
-`HolomorphicOnNhdSpectrum`、见证缩小／交集规则及常数、恒等、多项式和基本代数正例，不定义
-`f(a)`。完整 Dunford 演算保持 `research_open`；有限 cycle、绕数与选择无关性的基础 carrier 归复分析
-所有，泛函分析只消费，不得另造第二套。连续函数演算和谱测度继续冻结。F6.4 未纳入的幂核最终稳定、
+演算的谱邻域谓词子窗已经集成。为避免泛函分析因复分析 cycle carrier 尚未交付而停工，独立开放
+F6b1：只发展预解恒等式、预解函数在预解集上的全纯性，以及 `f z • resolvent a z` 的 Banach 值
+全纯／连续被积函数接口；不得定义 cycle、路径积分或 `f(a)`。完整 Dunford 演算保持 `research_open`；
+有限 cycle、绕数与选择无关性的基础 carrier 归复分析所有，泛函分析只消费，不得另造第二套。
+连续函数演算和谱测度继续冻结。F6.4 未纳入的幂核最终稳定、
 Fitting 分解与谱投影留给后续独立窗口，不塞回紧算子谱 Entry。
 F6.5--F6.10 仍按教材依赖门推进；
 具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
@@ -962,7 +964,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 ✅ | 可测映射、Markov kernel、风险积分 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 ✅ | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 共同观测空间上的逐参数相合与 `L²` 充分条件 ✅ | Pr3、`TendstoInMeasure` |
-| 5 | `statistics.sufficiency.definition` | 充分统计量与因子分解入口（`research_open`） | conditional law、factorization criterion |
+| 5 | `statistics.sufficiency.definition` | 充分统计量与重构入口（`development_open`） | 以共同正规条件核定义充分性；Blackwell 重构为后续刻画；首批只做定义、重构桥与有限离散消费者，一般 Neyman--Fisher 定理继续研究 |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |
 | 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
 | 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |
