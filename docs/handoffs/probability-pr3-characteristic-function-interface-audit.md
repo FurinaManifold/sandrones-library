@@ -2,7 +2,7 @@
 
 ## 权限与结论
 
-- gate：`probability.characteristic-function` 当前为 `research_open`。
+- 调查时 gate：`research_open`；Main 复验后已提升为 `development_open`。
 - 本批只在 `/tmp/CharacteristicFunctionAudit.lean` 调查实值／向量值 carrier、基本性质、独立和乘积
 公式与分布唯一性；没有新增正式模块、Entry 或 verified 声明。
 - 临时文件完整证明实值随机变量特征函数在零点取一、连续性、独立和乘积公式及“同分布 iff 特征
@@ -118,7 +118,7 @@ Mathlib 已有特征函数的矩导数／Taylor 展开以及 Lévy 连续性定�
 
 ## 后续门建议
 
-若 Main 接受实值 `charFun (μ.map X)` carrier 与唯一性边界，可将
-`probability.characteristic-function` 转为 `development_open`，正式文件建议为
+Main 已接受实值 `charFun (μ.map X)` carrier 与唯一性边界，并将
+`probability.characteristic-function` 转为 `development_open`。正式文件建议为
 `SandronesLibrary/Probability/CharacteristicFunction.lean`。CLT 继续冻结，待本条目验收后再单独
 调查 Lévy 连续性与归一化和接口。
