@@ -18,15 +18,17 @@ open Set
 
 variable {A : Type*} [NormedRing A] [NormedAlgebra ℂ A]
 
-/-- `f` 在 `a` 的谱的某个开邻域上全纯。
+/-- `f` 在复 Banach 代数元素 `a` 的谱的某个开邻域上全纯。
 
-该定义保留教材中的存在量词：调用者不必指定一个全局固定的邻域。定义本身不需要完备性；正式
-Dunford 函数演算将在复 Banach 代数（即另有 `[CompleteSpace A]`）上消费它。
+该定义保留教材中的存在量词：调用者不必指定一个全局固定的邻域。显式的
+`[CompleteSpace A]` 参数把 carrier 冻结为 Main 指定的复 Banach 代数。
 
 > **Entry**: functional-analysis.functional-calculus.holomorphic-neighborhood
 -/
-def HolomorphicOnNhdSpectrum (a : A) (f : ℂ → ℂ) : Prop :=
+def HolomorphicOnNhdSpectrum (a : A) (f : ℂ → ℂ) [CompleteSpace A] : Prop :=
   ∃ U : Set ℂ, IsOpen U ∧ spectrum ℂ a ⊆ U ∧ DifferentiableOn ℂ f U
+
+variable [CompleteSpace A]
 
 /-- 一个显式的开谱邻域及其上的全纯性给出 `HolomorphicOnNhdSpectrum`。 -/
 theorem holomorphicOnNhdSpectrum_of_open {a : A} {f : ℂ → ℂ} {U : Set ℂ}

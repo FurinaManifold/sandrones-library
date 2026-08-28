@@ -13,7 +13,7 @@ provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 
 # 为什么需要谱邻域
 
-设 `A` 是复赋范代数，`a : A`。教材中的全纯函数演算并不接收一个只定义在 `spectrum ℂ a` 上的
+设 `A` 是复 Banach 代数，`a : A`。教材中的全纯函数演算并不接收一个只定义在 `spectrum ℂ a` 上的
 函数，也不要求函数在整个复平面全纯；它要求存在开集 `U`，使
 
 `spectrum ℂ a ⊆ U`
@@ -25,8 +25,8 @@ provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ∃ U : Set ℂ, IsOpen U ∧ spectrum ℂ a ⊆ U ∧ DifferentiableOn ℂ f U
 ```
 
-定义本身只描述输入条件，因此在任意复赋范代数上都有意义。未来的 Dunford 积分还需要
-`[CompleteSpace A]`，即复 Banach 代数；本条没有提前定义该积分。
+定义以显式 `[CompleteSpace A]` 参数固定复 Banach 代数 carrier；本条仍只描述输入条件，没有提前
+定义 Dunford 积分。
 
 # 见证规则
 

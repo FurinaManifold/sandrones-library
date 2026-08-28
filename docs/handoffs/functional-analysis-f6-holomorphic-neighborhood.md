@@ -17,8 +17,9 @@
 
 ## 实现说明
 
-定义准确保留 `∃ U, IsOpen U ∧ spectrum ℂ a ⊆ U ∧ DifferentiableOn ℂ f U`。定义只描述函数演算
-输入，因此不人为要求完备性；未来定义 Dunford 积分的消费者仍须在 `[CompleteSpace A]` 下工作。
+定义在显式 `[CompleteSpace A]` 下准确保留
+`∃ U, IsOpen U ∧ spectrum ℂ a ⊆ U ∧ DifferentiableOn ℂ f U`，严格采用 Main 冻结的复 Banach
+代数 carrier。
 
 加法与乘法先用 `exists_inter` 取得共同开谱邻域，再消费 Mathlib 的 `DifferentiableOn.add/mul`，
 没有把不同见证邻域静默视为同一个集合。常数、恒等与多项式使用全平面作为见证。
