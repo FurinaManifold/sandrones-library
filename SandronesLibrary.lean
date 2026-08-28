@@ -320,6 +320,7 @@ import SandronesLibrary.Probability.Filtration
 import SandronesLibrary.Probability.Martingale
 import SandronesLibrary.Probability.OptionalStopping
 import SandronesLibrary.Statistics.Model
+import SandronesLibrary.Statistics.Density
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

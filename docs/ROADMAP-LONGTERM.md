@@ -915,7 +915,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
-模型／density 现为 `development_open`。一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
+模型与联合可测 density 已集成。`statistics.estimator.definition` 现为 `research_open`：先审计
+估计量的可测映射 carrier、损失函数、逐参数风险与 Mathlib `avgRisk`／`bayesRisk` 接口，提交签名
+handoff 后再决定正式开发。一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 
@@ -939,6 +941,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | # | 条目 id | 内容 | 主要实现接口 |
 |---|---|---|---|
 | 1 | `statistics.model.definition` | 统计模型、样本与参数族 ✅ | 测度族/概率核 |
+| 1b | `statistics.model.density` | 支配模型与联合可测 Radon--Nikodym 密度 ✅ | `Kernel.rnDeriv` |
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 | 可测映射、期望 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 相合性与收敛模式 | Pr3 |

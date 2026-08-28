@@ -18016,7 +18016,9 @@
     "nl_file": "docs/entries/statistics/model/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "statistics.model.density"
+    ],
     "family": "statistics.model",
     "variant": "textbook",
     "axioms": [
@@ -18091,5 +18093,37 @@
       "propext"
     ],
     "proof_sha": "6cc5b643b9763a4d"
+  },
+  {
+    "id": "statistics.model.density",
+    "kind": "definition",
+    "state": "verified",
+    "title": "支配统计模型与联合可测密度",
+    "summary": "用概率核的 Radon–Nikodym 导数统一承载参数化模型的联合可测似然",
+    "premises": [
+      "statistics.model.definition"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.Kernel.rnDeriv",
+      "ProbabilityTheory.Kernel.measurable_rnDeriv",
+      "ProbabilityTheory.Kernel.withDensity_rnDeriv_eq"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "lehmann-casella-theory-of-point-estimation-1998"
+    },
+    "lean_file": "Statistics/Density.lean",
+    "nl_file": "docs/entries/statistics/model/density.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.model",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d73f2374fa081b35"
   }
 ]

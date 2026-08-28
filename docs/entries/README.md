@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **549** 个条目（verified 549，pending 0）。
+共 **550** 个条目（verified 550，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -742,6 +742,7 @@
 ## `statistics.model`
 
 - ✅ [`definition.md`](statistics/model/definition.md) — 统计模型
+- ✅ [`density.md`](statistics/model/density.md) — 支配统计模型与联合可测密度
 
 ## `topology`
 
