@@ -14724,7 +14724,9 @@
     "nl_file": "docs/entries/functional-analysis/compact-operator/composition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.fredholm.stability-compact"
+    ],
     "family": "functional-analysis.compact-operator",
     "variant": "operator-ideal",
     "axioms": [
@@ -17646,7 +17648,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.compact-spectrum"
+      "functional-analysis.compact-spectrum",
+      "functional-analysis.fredholm.stability-compact"
     ],
     "family": "functional-analysis.fredholm",
     "variant": "identity-minus-compact-injective-iff-surjective",
@@ -17955,7 +17958,9 @@
     "nl_file": "docs/entries/functional-analysis/fredholm/stability.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.fredholm.stability-compact"
+    ],
     "family": "functional-analysis.operator",
     "variant": "composition-first-window",
     "axioms": [
@@ -18232,5 +18237,39 @@
       "propext"
     ],
     "proof_sha": "ba4ceb966be6735c"
+  },
+  {
+    "id": "functional-analysis.fredholm.stability-compact",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Fredholm 算子的紧扰动稳定性",
+    "summary": "Fredholm 算子加上紧算子仍为 Fredholm，且指数保持不变",
+    "premises": [
+      "functional-analysis.fredholm.stability",
+      "functional-analysis.fredholm.alternative-final",
+      "functional-analysis.compact-operator.composition"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.IsFredholm",
+      "LinearMap.IsQuasiInverse",
+      "LinearMap.FiniteRangeSetoid"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmCompactPerturbation.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/stability-compact.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "compact-perturbation",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e88914c6df65fa33"
   }
 ]

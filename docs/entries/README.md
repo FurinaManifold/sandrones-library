@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **553** 个条目（verified 553，pending 0）。
+共 **554** 个条目（verified 554，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -364,6 +364,7 @@
 - ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
 - ✅ [`index-zero.md`](functional-analysis/fredholm/index-zero.md) — 恒等减紧算子的 Fredholm 指数为零
 - ✅ [`stability.md`](functional-analysis/fredholm/stability.md) — Fredholm 算子的稳定性
+- ✅ [`stability-compact.md`](functional-analysis/fredholm/stability-compact.md) — Fredholm 算子的紧扰动稳定性
 
 ## `functional-analysis.hahn-banach`
 

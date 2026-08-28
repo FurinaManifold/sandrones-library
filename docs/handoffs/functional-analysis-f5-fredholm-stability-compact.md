@@ -3,12 +3,12 @@
 - 分支：`codex/functional-analysis-restart`
 - Main 同步提交：`6d83d73`
 - 权限：`main-fredholm-composition-accepted-next-open.md` / `development_open`
-- Entry：`functional-analysis.fredholm.stability`
+- Entry：`functional-analysis.fredholm.stability-compact`
 
 ## 文件与接口
 
 - `SandronesLibrary/FunctionalAnalysis/FredholmCompactPerturbation.lean`
-- 更新 `docs/entries/functional-analysis/fredholm/stability.md`
+- `docs/entries/functional-analysis/fredholm/stability-compact.md`
 - `ContinuousLinearMap.IsFredholm.add_compact`
 - `fredholmIndex_add_compact`
 

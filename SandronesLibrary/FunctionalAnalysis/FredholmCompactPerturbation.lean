@@ -68,7 +68,7 @@ private theorem identitySubCompact_isFredholm (K : E →L[ℝ] E)
 omit [CompleteSpace E] in
 /-- Fredholm 算子在紧扰动下保持 Fredholm 性。
 
-> **Entry**: functional-analysis.fredholm.stability
+> **Entry**: functional-analysis.fredholm.stability-compact
 -/
 theorem ContinuousLinearMap.IsFredholm.add_compact {T : E →L[ℝ] F}
     (hT : T.IsFredholm) {K : E →L[ℝ] F} (hK : IsCompactOperator K) :

@@ -810,7 +810,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 6b | `functional-analysis.fredholm.cokernel` | `I-K` 的余核有限维 ✅ | 闭值域零化子、Schauder 对偶紧性 |
 | 6c | `functional-analysis.fredholm.index-zero` | `index(I-K)=0` ✅ | 幂链稳定、Fitting 分解、`LinearMap.index_comp` |
 | 6d | `functional-analysis.fredholm.alternative-final` | 由有限维核余核和指数零推出 `I-K` 单射当且仅当满射 ✅ | `index_of_injective`、`index_of_surjective` |
-| 7 | `functional-analysis.fredholm.stability` | 复合稳定性与指数可加性 ✅；紧扰动和小扰动稳定性分后续窗口 | Fredholm stability API |
+| 7 | `functional-analysis.fredholm.stability` | 复合稳定性与指数可加性 ✅ | Fredholm composition API |
+| 7b | `functional-analysis.fredholm.stability-compact` | 紧扰动保持 Fredholm 性与指数不变 ✅ | quasi-inverse、compact ideal |
+| 7c | `functional-analysis.fredholm.stability-small` | 小范数扰动稳定性（`development_open`） | openness/block decomposition |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
 
@@ -865,9 +867,8 @@ Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
 F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，`I-K` 的核与余核有限维、值域闭、
 `index (I-K)=0`，并由这些中间接口推出单射当且仅当满射。F5.7 的复合稳定性与指数可加性已经
-集成；紧扰动窗口为 `development_open`，小扰动窗口为 `research_open`，并在紧扰动 handoff 后自动转
-`development_open`。两个窗口必须使用独立文件并真实消费已冻结的指数、复合与紧扰动接口，不得直接
-包装最终稳定性定理。
+集成；紧扰动稳定性与指数不变也已集成。小扰动窗口现为 `development_open`，必须使用独立文件并
+真实消费已冻结的指数、复合与紧扰动接口，不得直接包装最终稳定性定理。
 F6.1 Banach 代数 foundation、F6.2 谱／预解集定义层与 F6.3 谱非空、紧致及谱半径公式已经集成。
 F6.4 紧算子谱已经集成；F6.5 紧自伴谱定理维持 `research_open`，须先调查 Hilbert／自伴承载、
 正交特征分解与已有 Mathlib 谱定理的精确边界，再提交签名 handoff。F6.4 未纳入的幂核最终稳定、
