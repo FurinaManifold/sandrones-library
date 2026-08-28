@@ -12148,7 +12148,8 @@
       "complex-analysis.holomorphic.power-series",
       "complex-analysis.integral.path",
       "complex-analysis.series.taylor",
-      "complex-analysis.singularity.classification-foundation"
+      "complex-analysis.singularity.classification-foundation",
+      "functional-analysis.functional-calculus.holomorphic-neighborhood"
     ],
     "family": "complex-analysis.holomorphic",
     "variant": "textbook",
@@ -12735,7 +12736,7 @@
     "dependedOnBy": [
       "abstract-algebra.ring.crt"
     ],
-    "proof_sha": "da10f62e5d956ba8",
+    "proof_sha": "f47378d6218ab5ce",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15534,7 +15535,7 @@
     ],
     "family": "topology.fundamental-group",
     "variant": "binary-open-cover-labelled-square-grid",
-    "proof_sha": "43376d1297bedf51",
+    "proof_sha": "c3b68235a686e4f4",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -15716,7 +15717,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "4ca6b936276dacab"
+    "proof_sha": "f7138c6566d502e9"
   },
   {
     "id": "topology.homotopy.path-homotopy-image-control",
@@ -18069,7 +18070,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.compact-spectrum"
+      "functional-analysis.compact-spectrum",
+      "functional-analysis.functional-calculus.holomorphic-neighborhood"
     ],
     "family": "functional-analysis.spectrum",
     "variant": "complex-banach-algebra",
@@ -18079,6 +18081,39 @@
       "propext"
     ],
     "proof_sha": "1ba3aec4556e4574"
+  },
+  {
+    "id": "functional-analysis.functional-calculus.holomorphic-neighborhood",
+    "kind": "definition",
+    "state": "verified",
+    "title": "谱邻域上的全纯函数",
+    "summary": "用包含谱的开集及其上的复可微性承载全纯函数演算的输入条件",
+    "premises": [
+      "functional-analysis.spectrum.nonempty-compact",
+      "complex-analysis.holomorphic.definition"
+    ],
+    "mathlib": [
+      "spectrum",
+      "IsOpen",
+      "DifferentiableOn"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/HolomorphicNeighborhood.lean",
+    "nl_file": "docs/entries/functional-analysis/functional-calculus/holomorphic-neighborhood.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "spectrum-neighborhood",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c10d5ca62a182d50"
   },
   {
     "id": "probability.martingale.optional-stopping-entry",

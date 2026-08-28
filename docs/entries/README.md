@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **560** 个条目（verified 560，pending 0）。
+共 **561** 个条目（verified 561，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -366,6 +366,10 @@
 - ✅ [`stability.md`](functional-analysis/fredholm/stability.md) — Fredholm 算子的稳定性
 - ✅ [`stability-compact.md`](functional-analysis/fredholm/stability-compact.md) — Fredholm 算子的紧扰动稳定性
 - ✅ [`stability-small.md`](functional-analysis/fredholm/stability-small.md) — Fredholm 算子的小扰动稳定性
+
+## `functional-analysis.functional-calculus`
+
+- ✅ [`holomorphic-neighborhood.md`](functional-analysis/functional-calculus/holomorphic-neighborhood.md) — 谱邻域上的全纯函数
 
 ## `functional-analysis.hahn-banach`
 

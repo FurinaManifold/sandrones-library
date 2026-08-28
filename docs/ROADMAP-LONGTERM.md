@@ -823,7 +823,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 ✅ | spectrum API、Liouville |
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 ✅ | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 ✅ | compact self-adjoint spectral theorem |
-| 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词与代数正例（`development_open`） | spectrum neighborhood、DifferentiableOn |
+| 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词、交集见证与代数正例 ✅ | spectrum neighborhood、DifferentiableOn |
 | 6b | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
 | 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
@@ -939,7 +939,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛 ✅ | convergence APIs |
 | 2 | `probability.law-large-numbers.weak` | 弱大数律 ✅ | iid variance bounds |
 | 3 | `probability.law-large-numbers.strong` | 强大数律 ✅ | Etemadi truncation、a.e. convergence |
-| 4 | `probability.characteristic-function` | 特征函数与分布唯一性（`research_open`） | charFun |
+| 4 | `probability.characteristic-function` | 实值特征函数、基本性质、独立和乘积与分布唯一性（`development_open`） | `charFun (μ.map X)`、`Measure.ext_of_charFun` |
 | 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |
 
 ## 10. Phase 9 — 统计推断（S1-S2）
