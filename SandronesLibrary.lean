@@ -287,6 +287,7 @@ import SandronesLibrary.FunctionalAnalysis.FredholmIndex
 import SandronesLibrary.FunctionalAnalysis.FredholmAlternative
 import SandronesLibrary.FunctionalAnalysis.BanachAlgebraFoundation
 import SandronesLibrary.FunctionalAnalysis.SpectrumDefinition
+import SandronesLibrary.FunctionalAnalysis.SpectrumNonemptyCompact
 import SandronesLibrary.FunctionalAnalysis.DualOperator
 import SandronesLibrary.FunctionalAnalysis.ClosedRange
 import SandronesLibrary.FunctionalAnalysis.ClosedRangeConsequences
@@ -316,6 +317,8 @@ import SandronesLibrary.Probability.ConditionalExpectation
 import SandronesLibrary.Probability.ConditionalExpectationTower
 import SandronesLibrary.Probability.ConditionalExpectationIndependence
 import SandronesLibrary.Probability.Filtration
+import SandronesLibrary.Probability.Martingale
+import SandronesLibrary.Statistics.Model
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

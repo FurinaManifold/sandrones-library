@@ -16843,7 +16843,8 @@
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
       "probability.independence.events",
-      "probability.variable.definition"
+      "probability.variable.definition",
+      "statistics.model.definition"
     ],
     "family": "probability.space",
     "variant": "measure-typeclass",
@@ -17146,7 +17147,9 @@
     "nl_file": "docs/entries/probability/conditional-expectation/tower.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.martingale.definition"
+    ],
     "family": "probability.conditional-expectation",
     "variant": "textbook",
     "axioms": [
@@ -17209,7 +17212,9 @@
     "nl_file": "docs/entries/probability/filtration/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.martingale.definition"
+    ],
     "family": "probability.filtration",
     "variant": "textbook",
     "axioms": [
@@ -17772,7 +17777,9 @@
     "nl_file": "docs/entries/functional-analysis/spectrum/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.spectrum.nonempty-compact"
+    ],
     "family": "functional-analysis.spectrum",
     "variant": "complex-banach-algebra",
     "axioms": [
@@ -17952,5 +17959,103 @@
       "propext"
     ],
     "proof_sha": "e8dab17b63803934"
+  },
+  {
+    "id": "probability.martingale.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "鞅、上鞅与下鞅",
+    "summary": "以适应性和条件期望的时间一致性刻画公平、上偏与下偏过程",
+    "premises": [
+      "probability.conditional-expectation.tower",
+      "probability.filtration.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.Martingale",
+      "MeasureTheory.Supermartingale",
+      "MeasureTheory.Submartingale"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Martingale.lean",
+    "nl_file": "docs/entries/probability/martingale/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.martingale",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "3b917be19a96af56"
+  },
+  {
+    "id": "statistics.model.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "统计模型",
+    "summary": "以概率核承载随参数可测的一族样本分布",
+    "premises": [
+      "probability.space.definition"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.Kernel",
+      "ProbabilityTheory.IsMarkovKernel"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "lehmann-casella-theory-of-point-estimation-1998"
+    },
+    "lean_file": "Statistics/Model.lean",
+    "nl_file": "docs/entries/statistics/model/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.model",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6554882ccf923b8d"
+  },
+  {
+    "id": "functional-analysis.spectrum.nonempty-compact",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复 Banach 代数的谱非空、紧致与谱半径公式",
+    "summary": "非零复 Banach 代数中谱的非空紧致性、范数界、半径取到与 Gelfand 公式",
+    "premises": [
+      "functional-analysis.spectrum.definition"
+    ],
+    "mathlib": [
+      "spectrum.nonempty",
+      "spectrum.isCompact",
+      "spectrum.norm_le_norm_of_mem",
+      "spectrum.exists_nnnorm_eq_spectralRadius",
+      "spectrum.gelfand_formula"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/SpectrumNonemptyCompact.lean",
+    "nl_file": "docs/entries/functional-analysis/spectrum/nonempty-compact.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.spectrum",
+    "variant": "complex-banach-algebra",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "1ba3aec4556e4574"
   }
 ]

@@ -817,7 +817,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 |---|---|---|---|
 | 1 | `functional-analysis.banach-algebra.foundation` | 复 Banach 代数、单位化与几何级数求逆 ✅ | `NormedRing`、`NormedAlgebra`、`Unitization` |
 | 2 | `functional-analysis.spectrum.definition` | 谱、预解集、预解算子与谱半径 ✅ | `spectrum`、`resolventSet`、`spectralRadius` |
-| 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 | spectrum API、Liouville |
+| 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 ✅ | spectrum API、Liouville |
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 | compact self-adjoint spectral theorem |
 | 6 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分与全纯函数演算、谱映射定理 | holomorphic functional calculus |
@@ -867,8 +867,9 @@ F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，
 集成；紧扰动窗口为 `development_open`，小扰动窗口为 `research_open`，并在紧扰动 handoff 后自动转
 `development_open`。两个窗口必须使用独立文件并真实消费已冻结的指数、复合与紧扰动接口，不得直接
 包装最终稳定性定理。
-F6.1 Banach 代数 foundation 与 F6.2 谱／预解集定义层已经集成。F6.3 谱非空、紧致与谱半径公式开放
-`development_open`；F6.4 紧算子谱开放 `research_open`，待 F6.3 handoff 后自动转 `development_open`。
+F6.1 Banach 代数 foundation、F6.2 谱／预解集定义层与 F6.3 谱非空、紧致及谱半径公式已经集成。
+F6.4 紧算子谱现为 `development_open`；F6.5 紧自伴谱定理维持 `research_open`，待 F6.4 handoff 后
+再由 Main 审核是否转为正式开发。
 F6.5--F6.10 仍按教材依赖门推进；
 具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
 复分析 C1，F7/F8 严格顺序
@@ -903,19 +904,18 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 2 | `probability.conditional-expectation.tower` | 塔式性质 ✅ | `condExp_condExp` |
 | 3 | `probability.conditional-expectation.independence` | 独立时条件期望退化 ✅ | condExp independence |
 | 4 | `probability.filtration.definition` | 过滤与适应过程 ✅ | `Filtration`、`Adapted` |
-| 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 | `Martingale` |
+| 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 ✅ | `Martingale` |
 | 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 | stopping time |
 
-**Pr2 当前权限**：条件期望 definition、tower、independence 与 filtration 已集成。Martingale 定义
-现为 `development_open`，必须直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`
-并解释条件期望、过滤和可积性量词；有界停时可选停止为 `research_open`，在 martingale handoff
-冻结接口后自动转 `development_open`。Pr3 `probability.convergence.modes` 可并行做
+**Pr2 当前权限**：条件期望 definition、tower、independence、filtration 与 martingale 定义层已集成；
+定义层直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`，并已解释条件期望、
+过滤和可积性量词。有界停时可选停止现为 `development_open`。Pr3
+`probability.convergence.modes` 可并行做
 `research_open` 接口审计，但大数律与 CLT 仍等待 Pr2 核心完成。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
-采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 现为
-`development_open`；支配模型／density 为 `research_open`，待 model handoff 后自动转
-`development_open`。一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
+采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
+模型／density 现为 `development_open`。一般估计定理继续冻结，不得用有限离散样本冒充一般统计实验。
 
 ### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
 
@@ -938,7 +938,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 
 | # | 条目 id | 内容 | 主要实现接口 |
 |---|---|---|---|
-| 1 | `statistics.model.definition` | 统计模型、样本与参数族 | 测度族/概率核 |
+| 1 | `statistics.model.definition` | 统计模型、样本与参数族 ✅ | 测度族/概率核 |
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 | 可测映射、期望 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 相合性与收敛模式 | Pr3 |

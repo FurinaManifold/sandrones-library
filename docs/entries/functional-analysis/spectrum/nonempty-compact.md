@@ -8,7 +8,7 @@ title: 复 Banach 代数的谱非空、紧致与谱半径公式
 summary: 非零复 Banach 代数中谱的非空紧致性、范数界、半径取到与 Gelfand 公式
 premises: [functional-analysis.spectrum.definition]
 mathlib: [spectrum.nonempty, spectrum.isCompact, spectrum.norm_le_norm_of_mem, spectrum.exists_nnnorm_eq_spectralRadius, spectrum.gelfand_formula]
-provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018-theorem-5.2.7"}
+provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
 # 谱半径定理

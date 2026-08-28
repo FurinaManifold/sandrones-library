@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **545** 个条目（verified 545，pending 0）。
+共 **548** 个条目（verified 548，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -394,6 +394,7 @@
 ## `functional-analysis.spectrum`
 
 - ✅ [`definition.md`](functional-analysis/spectrum/definition.md) — 谱、预解集、预解映射与谱半径
+- ✅ [`nonempty-compact.md`](functional-analysis/spectrum/nonempty-compact.md) — 复 Banach 代数的谱非空、紧致与谱半径公式
 
 ## `functional-analysis.subspace`
 
@@ -530,6 +531,10 @@
 ## `probability.inequalities`
 
 - ✅ [`basic.md`](probability/inequalities/basic.md) — Markov、Chebyshev 与 Jensen 不等式
+
+## `probability.martingale`
+
+- ✅ [`definition.md`](probability/martingale/definition.md) — 鞅、上鞅与下鞅
 
 ## `probability.moments`
 
@@ -732,6 +737,10 @@
 ## `settheory.zorn`
 
 - ✅ [`zorn.md`](settheory/zorn/zorn.md) — Zorn 引理
+
+## `statistics.model`
+
+- ✅ [`definition.md`](statistics/model/definition.md) — 统计模型
 
 ## `topology`
 
