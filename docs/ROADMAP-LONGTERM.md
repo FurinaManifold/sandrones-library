@@ -1133,7 +1133,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 > 维护的网站，故不进入 `reference.bib`，Registry 的 `provenance.ref` 也不得填写 Stacks URL。
 > 每个 CA/HA/AG handoff 可另列“Stacks tags consulted”，但不得以某个最终 Tag 代替教材证明链。
 
-### 13.1 交换代数（CA1–CA6）🔒
+### 13.1 交换代数（CA1–CA6）🚧
 
 > 家族前缀 `commutative-algebra.*`。课程门：A2 的理想、商环、整除、局部化完成；CA5 另需 A3。
 > 主教材为 Atiyah–Macdonald, *Introduction to Commutative Algebra*
@@ -1144,7 +1144,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥 | A2/L1 |
+| CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥（`research_open`） | A2/L1 ✅ |
 | CA1 | `commutative-algebra.module.generated` | 子集生成子模及最小性 | CA1.definition |
 | CA1 | `commutative-algebra.module.quotient` | 商模、自然投影与商映射泛性质 | CA1.definition |
 | CA1 | `commutative-algebra.module.isomorphism-theorems` | 模的三大同构定理 | CA1.quotient |
