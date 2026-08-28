@@ -823,7 +823,8 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 ✅ | spectrum API、Liouville |
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 ✅ | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 ✅ | compact self-adjoint spectral theorem |
-| 6 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分与全纯函数演算、谱映射定理（`research_open`） | holomorphic functional calculus |
+| 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词与代数正例（`development_open`） | spectrum neighborhood、DifferentiableOn |
+| 6b | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
 | 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
 | 9 | `functional-analysis.spectral-measure.bounded` | 投影值测度、循环向量与有界正规算子谱定理 | spectral measure/integral API |
@@ -872,8 +873,10 @@ F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，
 F6.1 Banach 代数 foundation、F6.2 谱／预解集定义层与 F6.3 谱非空、紧致及谱半径公式已经集成。
 F6.4 紧算子谱与 F6.5 紧自伴谱定理已经集成；F6.5 组装实特征值、特征空间正交、闭线性张成稠密
 及非零特征空间有限维，并保持显式无限维 `HilbertBasis` 为消费者驱动的后续窗口。F6.6 全纯函数
-演算现为 `research_open`，只调查 Mathlib 的 Dunford／holomorphic functional calculus carrier、
-定义域邻域量词、代数同态性质与谱映射边界；连续函数演算和谱测度继续冻结。F6.4 未纳入的幂核最终稳定、
+演算的谱邻域谓词子窗现为 `development_open`，只建立一般复 Banach 代数上的
+`HolomorphicOnNhdSpectrum`、见证缩小／交集规则及常数、恒等、多项式和基本代数正例，不定义
+`f(a)`。完整 Dunford 演算保持 `research_open`；有限 cycle、绕数与选择无关性的基础 carrier 归复分析
+所有，泛函分析只消费，不得另造第二套。连续函数演算和谱测度继续冻结。F6.4 未纳入的幂核最终稳定、
 Fitting 分解与谱投影留给后续独立窗口，不塞回紧算子谱 Entry。
 F6.5--F6.10 仍按教材依赖门推进；
 具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
