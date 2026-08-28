@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **564** 个条目（verified 564，pending 0）。
+共 **565** 个条目（verified 565，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -793,6 +793,7 @@
 - ✅ [`lifting-criterion-standard.md`](topology/covering/lifting-criterion-standard.md) — 覆盖映射的提升判据
 - ✅ [`monodromy-standard.md`](topology/covering/monodromy-standard.md) — 覆盖映射的 monodromy
 - ✅ [`path-lifting-standard.md`](topology/covering/path-lifting-standard.md) — 覆盖映射的道路提升存在唯一性
+- ✅ [`pointed-recovered-subgroup.md`](topology/covering/pointed-recovered-subgroup.md) — 从 pointed connected covering 恢复子群
 - ✅ [`semilocally-simply-connected-standard.md`](topology/covering/semilocally-simply-connected-standard.md) — 半局部单连通空间
 - ✅ [`subgroup-canonical-chart-standard.md`](topology/covering/subgroup-canonical-chart-standard.md) — 子群道路类商的 canonical covering topology
 - ✅ [`subgroup-path-class-standard.md`](topology/covering/subgroup-path-class-standard.md) — 子群对应覆盖的道路类承载

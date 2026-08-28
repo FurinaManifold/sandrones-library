@@ -312,6 +312,7 @@ import SandronesLibrary.Topology.CoveringLiftingCriterionStandard
 import SandronesLibrary.Topology.SemilocallySimplyConnectedStandard
 import SandronesLibrary.Topology.CoveringSubgroupPathClassStandard
 import SandronesLibrary.Topology.CoveringSubgroupCanonicalChartStandard
+import SandronesLibrary.Topology.CoveringSubgroupRecoveryStandard
 import SandronesLibrary.Probability.Space
 import SandronesLibrary.Probability.Variable
 import SandronesLibrary.Probability.Distribution

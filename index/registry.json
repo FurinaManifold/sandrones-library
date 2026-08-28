@@ -14800,6 +14800,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "topology.covering.lifting-criterion-standard",
+      "topology.covering.pointed-recovered-subgroup",
       "topology.covering.semilocally-simply-connected-standard",
       "topology.fundamental-group.invariance-standard"
     ],
@@ -17689,6 +17690,7 @@
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
       "topology.covering.path-lifting-standard",
+      "topology.covering.pointed-recovered-subgroup",
       "topology.covering.subgroup-canonical-chart-standard"
     ],
     "family": "topology.covering",
@@ -18292,6 +18294,41 @@
       "propext"
     ],
     "proof_sha": "6593733560a0290f"
+  },
+  {
+    "id": "topology.covering.pointed-recovered-subgroup",
+    "kind": "definition",
+    "state": "verified",
+    "title": "从 pointed connected covering 恢复子群",
+    "summary": "把 covering 投影诱导的基本群同态之像作为对应子群，并证明 pointed-cover 等价保持它",
+    "premises": [
+      "topology.covering.definition-standard",
+      "topology.fundamental-group.functoriality-standard"
+    ],
+    "mathlib": [
+      "PathConnectedSpace",
+      "IsCoveringMap",
+      "FundamentalGroup.mapOfEq",
+      "MonoidHom.range",
+      "Homeomorph"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringSubgroupRecoveryStandard.lean",
+    "nl_file": "docs/entries/topology/covering/pointed-recovered-subgroup.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "pointed-connected-recovery",
+    "proof_sha": "d372cfc942acda2c",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   },
   {
     "id": "probability.convergence.modes",

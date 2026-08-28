@@ -615,8 +615,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C5a 半局部单连通定义层 | 已集成 | 以开邻域 inclusion 的基本群像为唯一主定义；全局性质为 Prop-valued class，loops 仅作 iff 展开 | 两个强假设桥是普通 theorem，未注册 instance；没有混同 semilocally contractible |
 | AT2-C5b 道路类商承载 | 已集成 | dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；没有偷带教材差环路 iff、拓扑或连续性 |
 | AT2-C5c 覆盖 chart 与拓扑构造 | 已集成 | canonical chart generator topology、离散 fiber transition、chart homeomorphism 与 `IsCoveringMap` | 首版固定道路连通 base；明确不是 generic quotient topology，并转换到实际投影 fiber |
-| AT2-C5d 从 pointed covering 恢复子群 | `development_open` | 道路连通底空间上的道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | base 与 total 都保留 `PathConnectedSpace`；range 为主定义；只做恢复与等价不变性，不声称分类双射 |
-| AT2-C5e--C5g 覆盖分类后续 | 冻结，C5d handoff 后分步开放 | 构造—恢复互逆、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
+| AT2-C5d 从 pointed covering 恢复子群 | 已集成 | 道路连通底空间上的道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | base 与 total 都保留 `PathConnectedSpace`；range 为主定义；只做恢复与等价不变性，不声称分类双射 |
+| AT2-C5e 构造—恢复方向 | `research_open` | 证明 C5c 子群道路类 cover 的 total space 道路连通，打包为 `PointedCovering`，再恢复原子群 | 先核验 canonical lift point 与 range 等式；不得顺手声称任意 covering 的反向互逆 |
+| AT2-C5f--C5g 覆盖分类后续 | 冻结，C5e handoff 后分步开放 | 任意 pointed cover 的恢复—构造方向、unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
