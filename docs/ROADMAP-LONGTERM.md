@@ -905,11 +905,11 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 3 | `probability.conditional-expectation.independence` | 独立时条件期望退化 ✅ | condExp independence |
 | 4 | `probability.filtration.definition` | 过滤与适应过程 ✅ | `Filtration`、`Adapted` |
 | 5 | `probability.martingale.definition` | 鞅、下鞅、上鞅 ✅ | `Martingale` |
-| 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 | stopping time |
+| 6 | `probability.martingale.optional-stopping-entry` | 有界停时可选停止 ✅ | stopping time |
 
 **Pr2 当前权限**：条件期望 definition、tower、independence、filtration 与 martingale 定义层已集成；
 定义层直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`，并已解释条件期望、
-过滤和可积性量词。有界停时可选停止现为 `development_open`。Pr3
+过滤和可积性量词；有界停时可选停止也已集成，严格止于 `ℕ` 指标、实值与确定常数一致有界版本。Pr3
 `probability.convergence.modes` 可并行做
 `research_open` 接口审计，但大数律与 CLT 仍等待 Pr2 核心完成。
 

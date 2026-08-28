@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **548** 个条目（verified 548，pending 0）。
+共 **549** 个条目（verified 549，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -535,6 +535,7 @@
 ## `probability.martingale`
 
 - ✅ [`definition.md`](probability/martingale/definition.md) — 鞅、上鞅与下鞅
+- ✅ [`optional-stopping-entry.md`](probability/martingale/optional-stopping-entry.md) — 有界停时的可选停止定理
 
 ## `probability.moments`
 

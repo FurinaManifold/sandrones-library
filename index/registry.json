@@ -17983,7 +17983,9 @@
     "nl_file": "docs/entries/probability/martingale/definition.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.martingale.optional-stopping-entry"
+    ],
     "family": "probability.martingale",
     "variant": "textbook",
     "axioms": [
@@ -18057,5 +18059,37 @@
       "propext"
     ],
     "proof_sha": "1ba3aec4556e4574"
+  },
+  {
+    "id": "probability.martingale.optional-stopping-entry",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "有界停时的可选停止定理",
+    "summary": "一致有界停时不改变离散时间实值鞅的期望",
+    "premises": [
+      "probability.martingale.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.IsStoppingTime",
+      "MeasureTheory.stoppedValue",
+      "MeasureTheory.Submartingale.expected_stoppedValue_mono"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/OptionalStopping.lean",
+    "nl_file": "docs/entries/probability/martingale/optional-stopping-entry.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.martingale",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6cc5b643b9763a4d"
   }
 ]
