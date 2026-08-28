@@ -17686,7 +17686,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
-      "topology.covering.path-lifting-standard"
+      "topology.covering.path-lifting-standard",
+      "topology.covering.subgroup-canonical-chart-standard"
     ],
     "family": "topology.covering",
     "variant": "mathlib-evenly-covered-product-chart-with-optional-surjectivity",
@@ -17931,7 +17932,9 @@
     "nl_file": "docs/entries/topology/covering/semilocally-simply-connected-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.covering.subgroup-canonical-chart-standard"
+    ],
     "family": "topology.covering",
     "variant": "open-neighborhood-inclusion-with-trivial-fundamental-group-image",
     "axioms": [
@@ -18238,7 +18241,9 @@
     "nl_file": "docs/entries/topology/covering/subgroup-path-class-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.covering.subgroup-canonical-chart-standard"
+    ],
     "family": "topology.covering",
     "variant": "subgroup-orbit-carrier",
     "axioms": [
@@ -18247,6 +18252,44 @@
       "propext"
     ],
     "proof_sha": "67e09a2c812bc3b1"
+  },
+  {
+    "id": "topology.covering.subgroup-canonical-chart-standard",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "子群道路类商的 canonical covering topology",
+    "summary": "用小邻域的道路类乘离散 fiber 图生成拓扑，并证明终点投影是覆盖映射",
+    "premises": [
+      "topology.covering.subgroup-path-class-standard",
+      "topology.covering.semilocally-simply-connected-standard",
+      "topology.covering.definition-standard"
+    ],
+    "mathlib": [
+      "PathConnectedSpace",
+      "LocallyPathConnectedSpace",
+      "IsCoveringMap",
+      "IsEvenlyCovered",
+      "WithDiscreteTopology",
+      "TopologicalSpace.generateFrom",
+      "IsLocallyConstant"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringSubgroupCanonicalChartStandard.lean",
+    "nl_file": "docs/entries/topology/covering/subgroup-canonical-chart-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "subgroup-canonical-atlas",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "6593733560a0290f"
   },
   {
     "id": "probability.convergence.modes",
