@@ -16878,6 +16878,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "probability.convergence.modes",
       "probability.distribution.pushforward",
       "probability.filtration.definition"
     ],
@@ -16912,6 +16913,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "probability.convergence.modes",
       "probability.expectation.definition"
     ],
     "family": "probability.distribution",
@@ -18160,5 +18162,38 @@
       "propext"
     ],
     "proof_sha": "67e09a2c812bc3b1"
+  },
+  {
+    "id": "probability.convergence.modes",
+    "kind": "definition",
+    "state": "verified",
+    "title": "随机变量的四种收敛模式",
+    "summary": "比较几乎必然、概率、Lp 与分布收敛并建立标准单向蕴含链",
+    "premises": [
+      "probability.variable.definition",
+      "probability.distribution.pushforward"
+    ],
+    "mathlib": [
+      "MeasureTheory.TendstoInMeasure",
+      "MeasureTheory.TendstoInDistribution",
+      "MeasureTheory.eLpNorm"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/Convergence.lean",
+    "nl_file": "docs/entries/probability/convergence/modes.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.convergence",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "79f566a39b73eb06"
   }
 ]

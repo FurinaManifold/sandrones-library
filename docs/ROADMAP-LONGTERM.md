@@ -911,9 +911,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 **Pr2 当前权限**：条件期望 definition、tower、independence、filtration 与 martingale 定义层已集成；
 定义层直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`，并已解释条件期望、
 过滤和可积性量词；有界停时可选停止也已集成，严格止于 `ℕ` 指标、实值与确定常数一致有界版本。Pr3
-`probability.convergence.modes` 的接口审计已经集成，现为 `development_open`；只允许在单一
-`Probability/Convergence.lean` 中整理四种教材展开、经典单向蕴含、a.s. 子列与连续映射消费者。
-弱大数律与 CLT 仍等待本 Entry 正式 handoff。
+`probability.convergence.modes` 已集成，完成四种教材展开、经典单向蕴含、a.s. 子列与连续映射
+消费者。弱大数律现为 `research_open`，只调查 iid／独立同分布 carrier、样本均值、方差假设与
+Chebyshev 证明链；强大数律、特征函数和 CLT 继续冻结。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
@@ -925,8 +925,8 @@ handoff 后再决定正式开发。一般估计定理继续冻结，不得用有
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛（`development_open`） | convergence APIs |
-| 2 | `probability.law-large-numbers.weak` | 弱大数律 | iid variance bounds |
+| 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛 ✅ | convergence APIs |
+| 2 | `probability.law-large-numbers.weak` | 弱大数律（`research_open`） | iid variance bounds |
 | 3 | `probability.law-large-numbers.strong` | 强大数律 | SLLN |
 | 4 | `probability.characteristic-function` | 特征函数与分布唯一性 | charFun |
 | 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |

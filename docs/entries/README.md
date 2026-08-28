@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **551** 个条目（verified 551，pending 0）。
+共 **552** 个条目（verified 552，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -510,6 +510,10 @@
 - ✅ [`definition.md`](probability/conditional-expectation/definition.md) — 条件期望的定义与刻画
 - ✅ [`independence.md`](probability/conditional-expectation/independence.md) — 独立时条件期望退化为期望
 - ✅ [`tower.md`](probability/conditional-expectation/tower.md) — 条件期望的塔式性质
+
+## `probability.convergence`
+
+- ✅ [`modes.md`](probability/convergence/modes.md) — 随机变量的四种收敛模式
 
 ## `probability.distribution`
 
