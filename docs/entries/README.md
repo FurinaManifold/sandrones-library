@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **557** 个条目（verified 557，pending 0）。
+共 **558** 个条目（verified 558，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -375,6 +375,7 @@
 ## `functional-analysis.hilbert`
 
 - ✅ [`adjoint.md`](functional-analysis/hilbert/adjoint.md) — Hilbert 空间上有界算子的伴随
+- ✅ [`compact-selfadjoint-spectral.md`](functional-analysis/hilbert/compact-selfadjoint-spectral.md) — 紧自伴算子的正交特征分解
 - ✅ [`orthonormal-basis.md`](functional-analysis/hilbert/orthonormal-basis.md) — Hilbert 基、Fourier 展开与 Parseval 恒等式
 - ✅ [`projection.md`](functional-analysis/hilbert/projection.md) — Hilbert 空间正交投影
 - ✅ [`riesz.md`](functional-analysis/hilbert/riesz.md) — Fréchet–Riesz 表示定理

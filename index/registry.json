@@ -13639,6 +13639,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "functional-analysis.hilbert.compact-selfadjoint-spectral",
       "functional-analysis.hilbert.unitary"
     ],
     "family": "functional-analysis.hilbert",
@@ -18267,7 +18268,9 @@
     "nl_file": "docs/entries/functional-analysis/compact-spectrum.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.hilbert.compact-selfadjoint-spectral"
+    ],
     "family": "functional-analysis.compact-spectrum",
     "variant": "complex-banach-space",
     "axioms": [
@@ -18379,5 +18382,38 @@
       "propext"
     ],
     "proof_sha": "00e064cb474513b8"
+  },
+  {
+    "id": "functional-analysis.hilbert.compact-selfadjoint-spectral",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "紧自伴算子的正交特征分解",
+    "summary": "紧自伴算子的特征值为实，特征空间正交且闭线性张成稠密",
+    "premises": [
+      "functional-analysis.compact-spectrum",
+      "functional-analysis.hilbert.adjoint"
+    ],
+    "mathlib": [
+      "IsCompactOperator",
+      "LinearMap.IsSymmetric",
+      "ContinuousLinearMap.orthogonalComplement_iSup_eigenspaces_eq_bot"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/CompactSelfAdjointSpectrum.lean",
+    "nl_file": "docs/entries/functional-analysis/hilbert/compact-selfadjoint-spectral.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "compact-selfadjoint",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "c717ab4c6359ce74"
   }
 ]
