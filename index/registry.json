@@ -17088,7 +17088,9 @@
     "nl_file": "docs/entries/probability/inequalities/basic.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.law-large-numbers.weak"
+    ],
     "family": "probability.inequalities",
     "variant": "basic-probability-bounds",
     "axioms": [
@@ -18230,7 +18232,9 @@
     "nl_file": "docs/entries/probability/convergence/modes.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.law-large-numbers.weak"
+    ],
     "family": "probability.convergence",
     "variant": "textbook",
     "axioms": [
@@ -18341,5 +18345,39 @@
       "propext"
     ],
     "proof_sha": "599442ef489937e3"
+  },
+  {
+    "id": "probability.law-large-numbers.weak",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "弱大数律",
+    "summary": "用独立和方差可加性与 Chebyshev 不等式证明二次可积 iid 样本均值依概率收敛",
+    "premises": [
+      "probability.convergence.modes",
+      "probability.inequalities.basic"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.iIndepFun",
+      "ProbabilityTheory.IdentDistrib",
+      "ProbabilityTheory.IndepFun.variance_sum",
+      "MeasureTheory.TendstoInMeasure"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/WeakLaw.lean",
+    "nl_file": "docs/entries/probability/law-large-numbers/weak.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.law-large-numbers",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "00e064cb474513b8"
   }
 ]

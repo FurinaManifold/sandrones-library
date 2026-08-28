@@ -916,9 +916,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 定义层直接复用 `MeasureTheory.Martingale`／`Submartingale`／`Supermartingale`，并已解释条件期望、
 过滤和可积性量词；有界停时可选停止也已集成，严格止于 `ℕ` 指标、实值与确定常数一致有界版本。Pr3
 `probability.convergence.modes` 已集成，完成四种教材展开、经典单向蕴含、a.s. 子列与连续映射
-消费者。弱大数律的 iid、同分布、二阶矩、样本均值、方差可加与 Chebyshev 证明链已完成接口审计，
-现为 `development_open`，正式文件固定为 `Probability/WeakLaw.lean`；强大数律、特征函数和 CLT
-继续冻结。
+消费者。弱大数律已经沿 iid、同分布、二阶矩、有限和方差与 Chebyshev 夹逼证明链完成并集成。
+强大数律现为 `research_open`，只调查 Mathlib 的 iid／可积性 carrier、a.e. 收敛结论及是否能保留
+教材截断证明骨架；特征函数和 CLT 继续冻结。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
@@ -933,8 +933,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
 | 1 | `probability.convergence.modes` | a.s./概率/Lp/分布收敛 ✅ | convergence APIs |
-| 2 | `probability.law-large-numbers.weak` | 弱大数律（`development_open`） | iid variance bounds |
-| 3 | `probability.law-large-numbers.strong` | 强大数律 | SLLN |
+| 2 | `probability.law-large-numbers.weak` | 弱大数律 ✅ | iid variance bounds |
+| 3 | `probability.law-large-numbers.strong` | 强大数律（`research_open`） | SLLN |
 | 4 | `probability.characteristic-function` | 特征函数与分布唯一性 | charFun |
 | 5 | `probability.central-limit-theorem` | iid 中心极限定理 | CLT |
 

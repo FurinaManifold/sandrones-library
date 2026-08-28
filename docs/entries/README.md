@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **556** 个条目（verified 556，pending 0）。
+共 **557** 个条目（verified 557，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -538,6 +538,10 @@
 ## `probability.inequalities`
 
 - ✅ [`basic.md`](probability/inequalities/basic.md) — Markov、Chebyshev 与 Jensen 不等式
+
+## `probability.law-large-numbers`
+
+- ✅ [`weak.md`](probability/law-large-numbers/weak.md) — 弱大数律
 
 ## `probability.martingale`
 

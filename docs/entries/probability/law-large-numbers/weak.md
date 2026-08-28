@@ -6,11 +6,11 @@ kind: theorem
 state: verified
 title: 弱大数律
 summary: 用独立和方差可加性与 Chebyshev 不等式证明二次可积 iid 样本均值依概率收敛
-premises: [probability.convergence.modes, probability.inequalities.chebyshev]
+premises: [probability.convergence.modes, probability.inequalities.basic]
 mathlib: [ProbabilityTheory.iIndepFun, ProbabilityTheory.IdentDistrib, ProbabilityTheory.IndepFun.variance_sum, MeasureTheory.TendstoInMeasure]
 provenance:
   source_type: book
-  ref: "durrett-probability-theory-and-examples-2019"
+  ref: "kallenberg-modern-probability-2021"
 ---
 
 # 定理
