@@ -16,7 +16,7 @@ Playbook 或自动生成文件。
 正式面严格是 Main 批准的 dependent endpoint based-path carrier、`prepend`、反作用律、orbit relation、
 refl/symm/trans、等价关系、setoid、quotient carrier、endpoint equality 与 endpoint projection。
 
-未迁入 `/tmp/CoveringSubgroupPathClassDifferenceBridge.lean` 中完成的教材差环路 iff；没有 topology
+未迁入 `/tmp/CoveringSubgroupPathClassDifferenceBridge.lean` 中尚在草拟的教材差环路 iff；没有 topology
 instance、continuity、local chart 或 covering-map 结论。C5c 继续冻结。
 
 ## Concept inventory

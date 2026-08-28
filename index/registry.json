@@ -14506,6 +14506,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "topology.covering.subgroup-path-class-standard",
       "topology.fundamental-group.circle-standard",
       "topology.fundamental-group.functoriality-standard",
       "topology.fundamental-group.product-standard",
@@ -18125,5 +18126,39 @@
       "propext"
     ],
     "proof_sha": "d73f2374fa081b35"
+  },
+  {
+    "id": "topology.covering.subgroup-path-class-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "子群对应覆盖的道路类承载",
+    "summary": "把从固定基点出发的道路同伦类按子群环路的起点拼接作用取轨道商，并定义端点投影",
+    "premises": [
+      "topology.fundamental-group.operations-standard"
+    ],
+    "mathlib": [
+      "Path.Homotopic.Quotient",
+      "FundamentalGroup",
+      "Subgroup",
+      "Setoid",
+      "Quotient"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/CoveringSubgroupPathClassStandard.lean",
+    "nl_file": "docs/entries/topology/covering/subgroup-path-class-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "subgroup-orbit-carrier",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "67e09a2c812bc3b1"
   }
 ]

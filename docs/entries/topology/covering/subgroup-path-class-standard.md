@@ -3,7 +3,7 @@ id: topology.covering.subgroup-path-class-standard
 family: topology.covering
 variant: subgroup-orbit-carrier
 kind: definition
-state: review
+state: verified
 title: 子群对应覆盖的道路类承载
 summary: 把从固定基点出发的道路同伦类按子群环路的起点拼接作用取轨道商，并定义端点投影
 premises: [topology.fundamental-group.operations-standard]

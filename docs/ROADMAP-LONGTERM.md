@@ -613,8 +613,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C3 同伦提升 | 已集成 | 复用 Mathlib 联合连续同伦提升，冻结参数空间、时间零提升及唯一性量词 | 提供 endpoint 与标准 `ContinuousMap.Homotopy` 薄视图；没有重写逐片算法 |
 | AT2-C4 monodromy 与提升判据 | 已集成（C4a/C4b） | 标准提升终点与 monodromy、闭合提升与固定点、已有提升的必要像包含及完整存在唯一判据 | 真实消费 C2/C3；C4c simply-connected 薄别名不单独建 Entry，等待真实消费者 |
 | AT2-C5a 半局部单连通定义层 | 已集成 | 以开邻域 inclusion 的基本群像为唯一主定义；全局性质为 Prop-valued class，loops 仅作 iff 展开 | 两个强假设桥是普通 theorem，未注册 instance；没有混同 semilocally contractible |
-| AT2-C5b 道路类商承载 | `development_open` | 正式迁移 dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；教材差环路 iff、拓扑、连续性与 covering chart 不在本批 |
-| AT2-C5c--C5g 覆盖分类施工 | 冻结，C5b handoff 后分步开放 | 覆盖图、子群恢复、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
+| AT2-C5b 道路类商承载 | 已集成 | dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；没有偷带教材差环路 iff、拓扑或连续性 |
+| AT2-C5c 覆盖 chart 与拓扑接口调查 | `research_open` | 只在 `/tmp` 调查小开邻域上的 canonical lift chart、拓扑承载、投影连续性与 `IsCoveringMap` 签名 | 不得直接给商注册未经验证的 quotient topology；提交设计 handoff 后再开放正式开发 |
+| AT2-C5d--C5g 覆盖分类施工 | 冻结，C5c handoff 后分步开放 | 子群恢复、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
