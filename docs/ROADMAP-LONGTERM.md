@@ -822,7 +822,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 2 | `functional-analysis.spectrum.definition` | 谱、预解集、预解算子与谱半径 ✅ | `spectrum`、`resolventSet`、`spectralRadius` |
 | 3 | `functional-analysis.spectrum.nonempty-compact` | 复 Banach 代数中谱非空紧致及谱半径公式 ✅ | spectrum API、Liouville |
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 ✅ | compact operator spectrum |
-| 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 | compact self-adjoint spectral theorem |
+| 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解（`development_open`） | compact self-adjoint spectral theorem |
 | 6 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分与全纯函数演算、谱映射定理 | holomorphic functional calculus |
 | 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
@@ -870,8 +870,10 @@ F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，
 集成；紧扰动稳定性与指数不变也已集成。小扰动稳定性与指数局部常值现已通过 Neumann 可逆项、
 紧扰动稳定性、拟逆消去与复合指数公式完成并集成，F5.7 三个独立 Entry 至此闭合。
 F6.1 Banach 代数 foundation、F6.2 谱／预解集定义层与 F6.3 谱非空、紧致及谱半径公式已经集成。
-F6.4 紧算子谱已经集成；F6.5 紧自伴谱定理维持 `research_open`，须先调查 Hilbert／自伴承载、
-正交特征分解与已有 Mathlib 谱定理的精确边界，再提交签名 handoff。F6.4 未纳入的幂核最终稳定、
+F6.4 紧算子谱已经集成；F6.5 紧自伴谱定理的 carrier 与 Mathlib 边界已冻结，现为
+`development_open`：第一批只组装实特征值、特征空间正交、全部特征空间张成稠密及非零特征空间
+有限维，并可加入自伴广义特征空间退化的窄幅引理；显式无限维 `HilbertBasis`、一般正规算子、
+函数演算和谱测度继续冻结。F6.4 未纳入的幂核最终稳定、
 Fitting 分解与谱投影留给后续独立窗口，不塞回紧算子谱 Entry。
 F6.5--F6.10 仍按教材依赖门推进；
 具体有限秩积分核归 Examples E11。F6.3 以后等待紧算子消费者与
