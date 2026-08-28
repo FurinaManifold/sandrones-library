@@ -3,7 +3,7 @@ id: topology.covering.semilocally-simply-connected-standard
 family: topology.covering
 variant: open-neighborhood-inclusion-with-trivial-fundamental-group-image
 kind: definition
-state: research
+state: verified
 title: 半局部单连通空间
 summary: 每一点具有一个开邻域，使该邻域 inclusion 诱导的基本群同态之像为底群，并给出小环路展开及强假设桥
 premises: [topology.covering.lifting-criterion-standard, topology.fundamental-group.functoriality-standard]

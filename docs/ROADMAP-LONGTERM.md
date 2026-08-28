@@ -612,8 +612,9 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C2 道路提升 | 已集成 | 直接复用 Mathlib 道路提升存在唯一性，并提供标准 `Path` 视图与终点 fiber | C1/C2 分文件；没有复制提升算法 |
 | AT2-C3 同伦提升 | 已集成 | 复用 Mathlib 联合连续同伦提升，冻结参数空间、时间零提升及唯一性量词 | 提供 endpoint 与标准 `ContinuousMap.Homotopy` 薄视图；没有重写逐片算法 |
 | AT2-C4 monodromy 与提升判据 | 已集成（C4a/C4b） | 标准提升终点与 monodromy、闭合提升与固定点、已有提升的必要像包含及完整存在唯一判据 | 真实消费 C2/C3；C4c simply-connected 薄别名不单独建 Entry，等待真实消费者 |
-| AT2-C5a 半局部单连通定义层 | `development_open` | 以开邻域 inclusion 的基本群像为唯一主定义；全局性质为 Prop-valued class，loops 仅作 iff 展开 | 两个强假设桥先作普通 theorem，不注册 instance；禁止混同 semilocally contractible |
-| AT2-C5b--C5g 覆盖分类施工 | 冻结，C5a handoff 后分步开放 | 道路类商、覆盖图、子群恢复、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
+| AT2-C5a 半局部单连通定义层 | 已集成 | 以开邻域 inclusion 的基本群像为唯一主定义；全局性质为 Prop-valued class，loops 仅作 iff 展开 | 两个强假设桥是普通 theorem，未注册 instance；没有混同 semilocally contractible |
+| AT2-C5b 道路类商承载调查 | `research_open` | 只在 `/tmp` 调查 carrier、等价关系、商映射与预期定理签名，提交 handoff | 正式源码仍冻结；不得把研究草图登记成 Entry |
+| AT2-C5c--C5g 覆盖分类施工 | 冻结，C5b handoff 后分步开放 | 覆盖图、子群恢复、pointed/unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
 等式，必须在标准道路同伦承载上陈述；不得从旧同伦施工复制结论来绕过新接口。
@@ -808,7 +809,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 6b | `functional-analysis.fredholm.cokernel` | `I-K` 的余核有限维 ✅ | 闭值域零化子、Schauder 对偶紧性 |
 | 6c | `functional-analysis.fredholm.index-zero` | `index(I-K)=0` ✅ | 幂链稳定、Fitting 分解、`LinearMap.index_comp` |
 | 6d | `functional-analysis.fredholm.alternative-final` | 由有限维核余核和指数零推出 `I-K` 单射当且仅当满射 ✅ | `index_of_injective`、`index_of_surjective` |
-| 7 | `functional-analysis.fredholm.stability` | 复合、紧扰动和小扰动下的指数稳定性 | Fredholm stability API |
+| 7 | `functional-analysis.fredholm.stability` | 复合稳定性与指数可加性 ✅；紧扰动和小扰动稳定性分后续窗口 | Fredholm stability API |
 
 ### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
 
@@ -862,8 +863,10 @@ Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 
 或对角算子实例归 Examples E11.7。F5.2 第一批零化子刻画
 已集成；对偶值域范数闭的逆向与原／对偶四项闭值域等价已经完成。F5.5 Fredholm 定义层也已集成。
 F5.6 Fredholm 备择的完整证明链已经集成：紧算子的对偶仍紧，`I-K` 的核与余核有限维、值域闭、
-`index (I-K)=0`，并由这些中间接口推出单射当且仅当满射。F5.7 紧扰动／小扰动稳定性开放
-`development_open`；允许按已冻结的指数、复合与紧扰动接口分批开发，不得直接包装最终稳定性定理。
+`index (I-K)=0`，并由这些中间接口推出单射当且仅当满射。F5.7 的复合稳定性与指数可加性已经
+集成；紧扰动窗口为 `development_open`，小扰动窗口为 `research_open`，并在紧扰动 handoff 后自动转
+`development_open`。两个窗口必须使用独立文件并真实消费已冻结的指数、复合与紧扰动接口，不得直接
+包装最终稳定性定理。
 F6.1 Banach 代数 foundation 与 F6.2 谱／预解集定义层已经集成。F6.3 谱非空、紧致与谱半径公式开放
 `development_open`；F6.4 紧算子谱开放 `research_open`，待 F6.3 handoff 后自动转 `development_open`。
 F6.5--F6.10 仍按教材依赖门推进；

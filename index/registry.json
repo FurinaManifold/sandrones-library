@@ -14795,6 +14795,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "topology.covering.lifting-criterion-standard",
+      "topology.covering.semilocally-simply-connected-standard",
       "topology.fundamental-group.invariance-standard"
     ],
     "family": "topology.fundamental-group",
@@ -15340,7 +15341,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
-      "functional-analysis.fredholm.alternative"
+      "functional-analysis.fredholm.alternative",
+      "functional-analysis.fredholm.stability"
     ],
     "family": "functional-analysis.fredholm",
     "variant": "mathlib-carrier-and-index",
@@ -17873,7 +17875,9 @@
     "nl_file": "docs/entries/topology/covering/lifting-criterion-standard.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.covering.semilocally-simply-connected-standard"
+    ],
     "family": "topology.covering",
     "variant": "based-continuous-lift-iff-fundamental-group-image-inclusion",
     "axioms": [
@@ -17882,5 +17886,71 @@
       "propext"
     ],
     "proof_sha": "c4e8ec97384c6b13"
+  },
+  {
+    "id": "topology.covering.semilocally-simply-connected-standard",
+    "kind": "definition",
+    "state": "verified",
+    "title": "半局部单连通空间",
+    "summary": "每一点具有开邻域，使该邻域 inclusion 诱导的基本群同态之像平凡，并给出小环路展开及强假设桥",
+    "premises": [
+      "topology.covering.lifting-criterion-standard",
+      "topology.fundamental-group.functoriality-standard"
+    ],
+    "mathlib": [
+      "FundamentalGroup.map",
+      "StronglyLocallyContractibleSpace",
+      "SimplyConnectedSpace",
+      "Path.Homotopic.Quotient.map_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "hatcher-algebraic-topology-2002"
+    },
+    "lean_file": "Topology/SemilocallySimplyConnectedStandard.lean",
+    "nl_file": "docs/entries/topology/covering/semilocally-simply-connected-standard.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "topology.covering",
+    "variant": "open-neighborhood-inclusion-with-trivial-fundamental-group-image",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "4dbdc0600d3a2638"
+  },
+  {
+    "id": "functional-analysis.fredholm.stability",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Fredholm 算子的稳定性",
+    "summary": "Fredholm 算子的复合稳定性与指数可加性",
+    "premises": [
+      "functional-analysis.fredholm.definition"
+    ],
+    "mathlib": [
+      "ContinuousLinearMap.IsFredholm",
+      "LinearMap.IsQuasiInverse",
+      "LinearMap.index_comp"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "lean_file": "FunctionalAnalysis/FredholmComposition.lean",
+    "nl_file": "docs/entries/functional-analysis/fredholm/stability.md",
+    "added_by": "main-integration",
+    "added_at": "2026-08-28T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis.operator",
+    "variant": "composition-first-window",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "e8dab17b63803934"
   }
 ]

@@ -1,12 +1,12 @@
 # Entries 索引
 
-> 自动生成（2026-08-26）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-08-28）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **543** 个条目（verified 543，pending 0）。
+共 **545** 个条目（verified 545，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -362,6 +362,7 @@
 - ✅ [`cokernel.md`](functional-analysis/fredholm/cokernel.md) — 恒等减紧算子的余核有限维
 - ✅ [`definition.md`](functional-analysis/fredholm/definition.md) — Fredholm 算子与指数
 - ✅ [`index-zero.md`](functional-analysis/fredholm/index-zero.md) — 恒等减紧算子的 Fredholm 指数为零
+- ✅ [`stability.md`](functional-analysis/fredholm/stability.md) — Fredholm 算子的稳定性
 
 ## `functional-analysis.hahn-banach`
 
@@ -754,6 +755,7 @@
 - ✅ [`lifting-criterion-standard.md`](topology/covering/lifting-criterion-standard.md) — 覆盖映射的提升判据
 - ✅ [`monodromy-standard.md`](topology/covering/monodromy-standard.md) — 覆盖映射的 monodromy
 - ✅ [`path-lifting-standard.md`](topology/covering/path-lifting-standard.md) — 覆盖映射的道路提升存在唯一性
+- ✅ [`semilocally-simply-connected-standard.md`](topology/covering/semilocally-simply-connected-standard.md) — 半局部单连通空间
 
 ## `topology.foundation`
 

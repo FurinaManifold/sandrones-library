@@ -292,6 +292,7 @@ import SandronesLibrary.FunctionalAnalysis.ClosedRange
 import SandronesLibrary.FunctionalAnalysis.ClosedRangeConsequences
 import SandronesLibrary.FunctionalAnalysis.ClosedRangeDuality
 import SandronesLibrary.FunctionalAnalysis.FredholmDefinition
+import SandronesLibrary.FunctionalAnalysis.FredholmComposition
 import SandronesLibrary.FunctionalAnalysis.HilbertProjection
 import SandronesLibrary.FunctionalAnalysis.RieszRepresentation
 import SandronesLibrary.FunctionalAnalysis.AdjointOperator
@@ -302,6 +303,7 @@ import SandronesLibrary.Topology.CoveringPathLiftStandard
 import SandronesLibrary.Topology.CoveringHomotopyLiftStandard
 import SandronesLibrary.Topology.CoveringMonodromyStandard
 import SandronesLibrary.Topology.CoveringLiftingCriterionStandard
+import SandronesLibrary.Topology.SemilocallySimplyConnectedStandard
 import SandronesLibrary.Probability.Space
 import SandronesLibrary.Probability.Variable
 import SandronesLibrary.Probability.Distribution
