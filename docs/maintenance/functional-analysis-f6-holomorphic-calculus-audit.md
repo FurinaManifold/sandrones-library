@@ -73,8 +73,10 @@ def HolomorphicOnNhdSpectrum (a : A) (f : ℂ → ℂ) : Prop :=
 
 - F6.1--F6.3 已给复 Banach 代数、谱、预解集与谱非空紧致；它们满足代数侧前置；
 - 复分析 C1 已给全纯定义与代数／复合规则；
-- C2 已有圆周 Cauchy 公式和若干路径积分 foundation，但 ROADMAP 的一般同伦不变／任意 cycle
-  路线仍未收口。教材所需的有限 cycle 绕数与选择无关性不能由单个圆周 Cauchy 公式替代；
+- C2 已有圆周 Cauchy 公式，`PiecewiseC1HomotopyInvariance.lean` 也已给连续相对同伦下的标量
+  `pathIntegral` 不变性；但现有 `pathIntegral` 的值域固定为 `ℂ`，并且没有有限 cycle／winding
+  carrier。教材所需的算子值有限 cycle 积分与选择无关性不能由标量道路同伦或单个圆周公式直接
+  替代；
 - F6.4/F6.5 与 Dunford 定义无直接依赖；谱投影消费者必须留在后续窗口。
 
 ## 建议的开发拆窗
