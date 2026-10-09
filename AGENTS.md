@@ -5,9 +5,9 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 快照（2026-10-09）：565 个 verified Entry、694 条直接依赖边、
-73 条合规 BibTeX 出版来源、563 个正式参排条目。全库构建结论不在此保存历史 jobs 数，
-以最近一次 Main 验收或现场 `lake build` 为准。
+当前 Main 验收快照（`7776190`，2026-10-09）：565 个 verified Entry、694 条直接依赖边、
+73 条合规 BibTeX 出版来源、563 个正式参排条目；主工作树完整 `lake build` 以 9050 jobs
+通过，仅重放既有 linter warnings。
 
 这些数字是快照，不是开工依据。每次接手必须现场检查：
 
@@ -17,6 +17,9 @@ git status --short
 git worktree list --porcelain
 git log --oneline -10
 ```
+
+快照只能由 Main 在生成器、公理审计、`audit.py`、`git diff --check` 和完整 `lake build`
+全部通过后更新，并必须绑定该次共享状态提交；学科局部构建、历史 handoff 或聊天报告不能刷新本段。
 
 权威事实源：
 
@@ -30,6 +33,7 @@ git log --oneline -10
 | 当前角色职责 | `docs/roles/*-ROLE.md` |
 | 返工期间的 Main 意见 | 仓库父目录 `review-inbox/<subject>/` |
 | 已闭环审核 | `docs/reviews/` |
+| 最近一次 Main 验收快照 | 本节绑定的 commit；如与现场 HEAD 不同，重新运行验收而非沿用数字 |
 
 ## 2. 开工前必读与角色选择
 
