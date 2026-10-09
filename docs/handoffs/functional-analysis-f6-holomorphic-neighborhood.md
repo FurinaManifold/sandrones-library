@@ -4,6 +4,9 @@
 - 权限：`main-f66-neighborhood-foundation-development-open.md` / `development_open`
 - Entry：`functional-analysis.functional-calculus.holomorphic-neighborhood`
 - 前置 Main：`9670fa6`
+- 学科提交：`efda4de`；Banach carrier 修正：`25e8950`
+- Main 接收：`f1cc927`、`7caca86`
+- 最终状态：`accepted`
 
 ## 文件与接口
 
@@ -28,3 +31,9 @@
 
 没有定义 `f(a)`、germ quotient、Dunford integral、cycle、winding、代数同态、谱映射或复合定理；
 也没有调用 C*-连续函数演算 `cfc`。完整 F6.6 继续保持 `research_open`，cycle foundation 仍归复分析。
+
+## 后续窗口
+
+谱邻域基础已经进入 Main。后续拆分为 `functional-analysis.functional-calculus.resolvent-integrand`
+（F6b1，`development_open`）与完整 Dunford 演算（F6b2，`research_open`）；F6b1 不得引入 cycle、
+路径积分或 `f(a)`，F6b2 继续等待复分析的中性 finite-cycle / winding carrier。

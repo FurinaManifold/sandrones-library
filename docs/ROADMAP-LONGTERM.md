@@ -33,15 +33,15 @@
 | **Phase 1 分析线** | `analysis.*` | M1✅ M2✅ M3✅ M4✅ M5✅ AN3🔒 AN-MV🚧 | — |
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3✅ | 等价关系/商集 |
-| **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（复分析负责人转入） | 集合论 + 分析线直观 |
+| **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（同伦桥已完成，覆盖分类继续） | 集合论 + 分析线直观 |
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1–RA-F6🚧 | T3 + M 系列 |
-| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2-C3⏸（等待 T4） | R2 T3 M4 T4 |
-| **Phase 7 泛函分析** | `functional-analysis.*` | F1-F3✅ F4🚧 F5-F8🔒 | L5 T3 R4 C1 |
-| **Phase 8 概率论** | `probability.*` | Pr1🚧 Pr2-Pr3🔒 | R4 |
-| **Phase 9 统计推断** | `statistics.*` | S1-S2🔒 | Pr1/Pr3 |
+| **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2🚧 C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
+| **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
+| **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2-Pr3🚧 | R4 |
+| **Phase 9 统计推断** | `statistics.*` | S1🚧 S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
-| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础58项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 各学科独立路线🔒 | 各自课程门达标 |
+| **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
+| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1🚧；其余按各自路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧 E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
 | **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🚧 WF2–WF3🔒/滚动开放 | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
 
@@ -118,18 +118,18 @@ WF0 已完成，WF1 持续 `development_open`；WF2/WF3 按各学科已验收资
 依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
 必须已有本库教材定义、显式实现桥、课程文档和 verified Registry 条目。
 
-#### Wave A：现在立即并行（五名学科负责人）
+#### Wave A：启动波次（当前均已完成）
 
 | 优先级 | 学科 staging | 负责人总目标 | 建议子 Agent 切分 | 出口条件 |
 |---|---|---|---|---|
-| P0 | A2 环论 | 补齐 A2.2–A2.9，打开 G-A2 | A2-I 理想和同构定理；A2-D 整除/Euclidean/PID/UFD；A2-C CRT/局部化 | 8 个课程入口完整；A3/N2 可只依赖本库 A2 API |
-| P0 | T4 拓扑学 | 补齐同伦课程层并打开 G-T4/C | T4-H 道路与相对端点同伦；T4-E 同伦等价；T4-F 基本群；T4-R 正则化桥 | 复分析负责人转岗；桥完成前 C2/C3 暂停 |
-| P1 | F1 泛函基础 | 赋范空间、连续线性映射、Banach 基础 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | 不提前引用开映射/闭图定理 |
-| P1 | Pr1 概率基础 | 概率空间、随机变量、分布、期望、独立性 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | 打开 G-Pr，且所有概率概念先有本库定义层 |
+| P0 | A2 环论 | ✅ 已完成 A2.2–A2.9，G-A2 已打开 | A2-I 理想和同构定理；A2-D 整除/Euclidean/PID/UFD；A2-C CRT/局部化 | 课程入口已完整；A3/N2 可依赖本库 A2 API |
+| P0 | T4 拓扑学 | ✅ G-T4/C 所需同伦与正则化桥已完成 | T4-H 道路与相对端点同伦；T4-E 同伦等价；T4-F 基本群；T4-R 正则化桥 | C2 已恢复开发；T4/AT 后续见本章实时窗口 |
+| P1 | F1 泛函基础 | ✅ 已完成 | F1-N 赋范/Banach 定义；F1-L 连续线性算子；F1-S 级数与完备性 | F2-F6 已按章节继续推进 |
+| P1 | Pr1 概率基础 | ✅ 已完成，G-Pr 已打开 | Pr1-M 概率测度；Pr1-R 随机变量/分布；Pr1-E 期望/独立 | Pr2、Pr3 与 S1 已进入后续窗口 |
 | P1 | ST2/ST3 基础集成 | ST2 基数基础与 ST3 递归/增长/可计算性定义层 | 62 个新增 verified 条目 | ✅ 已进入 main；纵深路线转入下一波 |
 
-Wave A 的学科负责人应先提交 1 页设计说明，冻结公开定义和文件分片；main 确认没有跨学科签名冲突后，
-子 Agent 才进入证明阶段。A2 和 T4 是关键路径，main 优先审核它们的 handoff。
+Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当前权限以各课程章节中的
+`development_open` / `research_open` 标记和最新 review-inbox 为准。
 
 #### Wave B：依赖满足即可启动，不必等待 Wave A 全部结束
 
@@ -786,7 +786,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 强定理而不能交付章节的定义、关键展开和真实下游，应标为 foundation/bridge。handoff 还须明确
 标量域、完备性、可分／自反条件、算子类别、拓扑和收敛方式。
 
-### F4 弱拓扑、弱星拓扑与弱紧性 🚧（Salamon Chapter 3；依赖 F2/T1/T2）
+### F4 弱拓扑、弱星拓扑与弱紧性 ✅（Salamon Chapter 3；已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -800,7 +800,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 8 | `functional-analysis.krein-milman` | 紧凸集、face、极点与闭凸包的教材解释 ✅ | 已集成：复用 `IsExtreme`、`extremePoints` 与 Krein–Milman API，并明确 Mathlib 极性谓词与教材完整 face 的差异 |
 | 9 | `functional-analysis.ergodic.mean` | power-bounded Banach 算子的均值遍历分解、弱子列判据、自反情形与极限投影 ✅ | decomposition、reflexive convergence、`ST=TS=S²=S` 均已集成 |
 
-### F5 对偶算子、紧算子与 Fredholm 理论 🔒（Salamon Chapter 4；依赖 F2/F4）
+### F5 对偶算子、紧算子与 Fredholm 理论 ✅（Salamon Chapter 4；已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -818,7 +818,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7b | `functional-analysis.fredholm.stability-compact` | 紧扰动保持 Fredholm 性与指数不变 ✅ | quasi-inverse、compact ideal |
 | 7c | `functional-analysis.fredholm.stability-small` | 小范数扰动稳定性与指数局部常值 ✅ | Neumann inverse、quasi-inverse、index composition |
 
-### F6 Banach 代数与有界算子谱理论 🔒（Salamon Chapter 5；依赖 F3/F5/C1）
+### F6 Banach 代数与有界算子谱理论 🚧（Salamon Chapter 5；F6.1--F6.6a 已完成）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -860,7 +860,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 7 | `functional-analysis.bochner-measurable` | Banach 值强可测函数、Bochner 积分与基本收敛定理 | `StronglyMeasurable`、Bochner integral |
 | 8 | `functional-analysis.evolution.inhomogeneous` | 非齐次抽象 Cauchy 问题、变常公式、温和解与经典解 | semigroup integral/Duhamel |
 
-**F4/F5 当前并行权限（2026-08-26）**：F4.1--F4.5、F4.7 Eberlein--Šmulian 与 F4.8
+**F4/F5/F6 当前状态（2026-10-09）**：F4.1--F4.5、F4.7 Eberlein--Šmulian 与 F4.8
 Krein--Milman 已集成；F4.8 直接复用 Mathlib 最终定理，但已补齐 face／极点／闭凸包的教材定义链
 解释与必要组装使用者。F4.9 的
 `mean-ergodic.decomposition` 已集成：冻结 `birkhoffAverage`、幂一致有界量词、收敛域、fixed space 与
