@@ -1,0 +1,58 @@
+ContinuousLinearMap.{u_1, u_2, u_3, u_4} {R : Type u_1} {S : Type u_2} [Semiring R] [Semiring S] (σ : R →+* S)
+  (M : Type u_3) [TopologicalSpace M] [AddCommMonoid M] (M₂ : Type u_4) [TopologicalSpace M₂] [AddCommMonoid M₂]
+  [Module R M] [Module S M₂] : Type (max u_3 u_4)
+SandronesLibrary.Topology.NormedSpace.BanachSpace.{u_1} (E : Type u_1) [NormedAddCommGroup E] [NormedLinearSpace ℝ E] :
+  Prop
+Metric.dense_iff.{u} {α : Type u} [PseudoMetricSpace α] {s : Set α} :
+  Dense s ↔ ∀ (x : α), ∀ r > 0, (Metric.ball x r ∩ s).Nonempty
+IsGδ.iInter_of_isOpen.{u_1, u_4} {X : Type u_1} {ι' : Sort u_4} [TopologicalSpace X] [Countable ι'] {f : ι' → Set X}
+  (hf : ∀ (i : ι'), IsOpen (f i)) : IsGδ (⋂ i, f i)
+Metric.cauchySeq_iff.{u, v} {α : Type u} {β : Type v} [PseudoMetricSpace α] [Nonempty β] [SemilatticeSup β]
+  {u : β → α} : CauchySeq u ↔ ∀ ε > 0, ∃ N, ∀ m ≥ N, ∀ n ≥ N, dist (u m) (u n) < ε
+cauchySeq_tendsto_of_complete.{u, v} {α : Type u} {β : Type v} [uniformSpace : UniformSpace α] [Preorder β]
+  [CompleteSpace α] {u : β → α} (H : CauchySeq u) : ∃ x, Tendsto u atTop (𝓝 x)
+SandronesLibrary.FunctionalAnalysis.unbounded_on_tail_of_unbounded.{u_2} {F : Type u_2} [NormedAddCommGroup F]
+  {a : ℕ → F} (h : ∀ (C : ℝ), ∃ q, C < ‖a q‖) (C : ℝ) (N : ℕ) : ∃ q, N ≤ q ∧ C < ‖a q‖
+SandronesLibrary.FunctionalAnalysis.isOpen_norm_exceeds_set.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] {F : Type u_2} [NormedAddCommGroup F] [NormedLinearSpace ℝ F] (g : ℕ → E →L[ℝ] F) (C : ℝ) :
+  IsOpen {x | ∃ q, C < ‖(g q) x‖}
+SandronesLibrary.FunctionalAnalysis.dense_norm_exceeds_set_of_unbounded.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] {F : Type u_2} [NormedAddCommGroup F] [NormedLinearSpace ℝ F] {g : ℕ → E →L[ℝ] F}
+  (h : ∃ z, ∀ (C : ℝ), ∃ q, C < ‖(g q) z‖) (C : ℝ) : Dense {x | ∃ q, C < ‖(g q) x‖}
+SandronesLibrary.FunctionalAnalysis.condensation_dense_Gδ.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p}
+  (h : ∀ (p : ℕ), ∃ z, ∀ (C : ℝ), ∃ q, C < ‖(g p q) z‖) :
+  Dense {x | ∀ (p : ℕ) (C : ℝ), ∃ q, C < ‖(g p q) x‖} ∧ IsGδ {x | ∀ (p : ℕ) (C : ℝ), ∃ q, C < ‖(g p q) x‖}
+SandronesLibrary.FunctionalAnalysis.condensation_exists.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p}
+  (h : ∀ (p : ℕ), ∃ z, ∀ (C : ℝ), ∃ q, C < ‖(g p q) z‖) : ∃ x, ∀ (p : ℕ) (C : ℝ) (N : ℕ), ∃ q, N ≤ q ∧ C < ‖(g p q) x‖
+SandronesLibrary.FunctionalAnalysis.condensation_of_unbounded_operatorNorm.{u_1, u_2} {E : Type u_1}
+  [NormedAddCommGroup E] [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p} (h : ∀ (p : ℕ) (C : ℝ), ∃ q, C < ‖g p q‖) :
+  ∃ x, ∀ (p : ℕ) (C : ℝ) (N : ℕ), ∃ q, N ≤ q ∧ C < ‖(g p q) x‖
+SandronesLibrary.FunctionalAnalysis.isClosed_cauchy_points_of_operatorNorm_bound.{u_1, u_2} {E : Type u_1}
+  [NormedAddCommGroup E] [NormedLinearSpace ℝ E] {F : Type u_2} [NormedAddCommGroup F] [NormedLinearSpace ℝ F]
+  {g : ℕ → E →L[ℝ] F} {C : ℝ} (hC : 0 ≤ C) (h : ∀ (q : ℕ), ‖g q‖ ≤ C) : IsClosed {x | CauchySeq fun q => (g q) x}
+SandronesLibrary.FunctionalAnalysis.dense_open_nonCauchy_points_of_operatorNorm_bound.{u_1, u_2} {E : Type u_1}
+  [NormedAddCommGroup E] [NormedLinearSpace ℝ E] {F : Type u_2} [NormedAddCommGroup F] [NormedLinearSpace ℝ F]
+  {g : ℕ → E →L[ℝ] F} {C : ℝ} (hC : 0 ≤ C) (h : ∀ (q : ℕ), ‖g q‖ ≤ C) (hz : ∃ z, ¬CauchySeq fun q => (g q) z) :
+  Dense {x | ¬CauchySeq fun q => (g q) x} ∧ IsOpen {x | ¬CauchySeq fun q => (g q) x}
+SandronesLibrary.FunctionalAnalysis.exists_dense_Gδ_nonCauchy_points.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] {F : Type u_2} [NormedAddCommGroup F] [NormedLinearSpace ℝ F] [BanachSpace E]
+  {g : ℕ → E →L[ℝ] F} (hz : ∃ z, ¬CauchySeq fun q => (g q) z) :
+  ∃ S, Dense S ∧ IsGδ S ∧ S ⊆ {x | ¬CauchySeq fun q => (g q) x}
+SandronesLibrary.FunctionalAnalysis.condensation_divergence_dense.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p}
+  (h : ∀ (p : ℕ), ∃ z, ¬CauchySeq fun q => (g p q) z) : Dense {x | ∀ (p : ℕ), ¬CauchySeq fun q => (g p q) x}
+SandronesLibrary.FunctionalAnalysis.condensation_divergence_exists.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p}
+  (h : ∀ (p : ℕ), ∃ z, ¬CauchySeq fun q => (g p q) z) : ∃ x, ∀ (p : ℕ), ¬CauchySeq fun q => (g p q) x
+SandronesLibrary.FunctionalAnalysis.condensation_nonconvergence_exists.{u_1, u_2} {E : Type u_1} [NormedAddCommGroup E]
+  [NormedLinearSpace ℝ E] [BanachSpace E] {F : ℕ → Type u_2} [(p : ℕ) → NormedAddCommGroup (F p)]
+  [(p : ℕ) → NormedLinearSpace ℝ (F p)] [∀ (p : ℕ), BanachSpace (F p)] {g : (p : ℕ) → ℕ → E →L[ℝ] F p}
+  (h : ∀ (p : ℕ), ∃ z, ¬∃ y, Tendsto (fun q => (g p q) z) atTop (𝓝 y)) :
+  ∃ x, ∀ (p : ℕ), ¬∃ y, Tendsto (fun q => (g p q) x) atTop (𝓝 y)

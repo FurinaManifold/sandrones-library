@@ -1,0 +1,15 @@
+{
+  "start_timestamp": "2026-10-10T12:10:02.279Z",
+  "baseline": {
+    "timestamp": "2026-10-10T12:01:56.772Z",
+    "usage": {
+      "input_tokens": 9456235,
+      "cached_input_tokens": 9093760,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 84885,
+      "reasoning_output_tokens": 23254,
+      "total_tokens": 9541120
+    }
+  },
+  "session_id": "01a12582-3b16-7162-a0f4-cb6cf73dfa96"
+}

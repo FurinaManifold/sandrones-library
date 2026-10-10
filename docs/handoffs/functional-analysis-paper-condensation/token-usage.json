@@ -1,0 +1,23 @@
+{
+  "start_timestamp": "2026-10-10T12:10:02.279Z",
+  "cutoff_timestamp": "2026-10-10T12:34:26.443Z",
+  "method": "post-request cumulative counters minus pre-request cumulative counters",
+  "usage": {
+    "input_tokens": 4296132,
+    "cached_input_tokens": 3992960,
+    "cache_write_input_tokens": 0,
+    "output_tokens": 43746,
+    "reasoning_output_tokens": 13778,
+    "total_tokens": 4339878
+  },
+  "uncached_input_tokens": 303172,
+  "uncached_input_plus_output_tokens": 346918,
+  "token_counter_events_observed": 48,
+  "scope": "this root request through the logged cutoff; no child agents",
+  "notes": [
+    "input_tokens includes cached_input_tokens; do not add the cache a second time",
+    "reasoning_output_tokens is a subset of output_tokens; do not add it a second time",
+    "repeated previous conversation context contributes to input and cache counts",
+    "the final reply and any operations after the cutoff are outside this receipt"
+  ]
+}

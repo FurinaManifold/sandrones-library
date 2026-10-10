@@ -1,0 +1,100 @@
+{
+  "checked_at": "2026-10-10T12:38:26.003392+00:00",
+  "result": "passed",
+  "scope": "two paper modules and their transitive import closure",
+  "paper_reference": "banach-steinhaus-condensation-1927",
+  "source_results": [
+    "section 2 Theorem I",
+    "section 2 Theorem II"
+  ],
+  "public_declarations": 12,
+  "entry_declarations": {
+    "functional-analysis.condensation": [
+      "SandronesLibrary.FunctionalAnalysis.unbounded_on_tail_of_unbounded",
+      "SandronesLibrary.FunctionalAnalysis.isOpen_norm_exceeds_set",
+      "SandronesLibrary.FunctionalAnalysis.dense_norm_exceeds_set_of_unbounded",
+      "SandronesLibrary.FunctionalAnalysis.condensation_dense_Gδ",
+      "SandronesLibrary.FunctionalAnalysis.condensation_exists",
+      "SandronesLibrary.FunctionalAnalysis.condensation_of_unbounded_operatorNorm"
+    ],
+    "functional-analysis.condensation.divergence": [
+      "SandronesLibrary.FunctionalAnalysis.isClosed_cauchy_points_of_operatorNorm_bound",
+      "SandronesLibrary.FunctionalAnalysis.dense_open_nonCauchy_points_of_operatorNorm_bound",
+      "SandronesLibrary.FunctionalAnalysis.exists_dense_Gδ_nonCauchy_points",
+      "SandronesLibrary.FunctionalAnalysis.condensation_divergence_dense",
+      "SandronesLibrary.FunctionalAnalysis.condensation_divergence_exists",
+      "SandronesLibrary.FunctionalAnalysis.condensation_nonconvergence_exists"
+    ]
+  },
+  "axioms_by_declaration": {
+    "SandronesLibrary.FunctionalAnalysis.unbounded_on_tail_of_unbounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.isOpen_norm_exceeds_set": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.dense_norm_exceeds_set_of_unbounded": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_dense_Gδ": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_of_unbounded_operatorNorm": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.isClosed_cauchy_points_of_operatorNorm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.dense_open_nonCauchy_points_of_operatorNorm_bound": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.exists_dense_Gδ_nonCauchy_points": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_divergence_dense": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_divergence_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ],
+    "SandronesLibrary.FunctionalAnalysis.condensation_nonconvergence_exists": [
+      "propext",
+      "Classical.choice",
+      "Quot.sound"
+    ]
+  },
+  "semantic_examples": [
+    "growing scalar operators",
+    "bounded alternating scalar operators"
+  ],
+  "main_registry_registration": {
+    "functional-analysis.condensation": "pending Main integration",
+    "functional-analysis.condensation.divergence": "pending Main integration"
+  },
+  "full_repository_build": false
+}
