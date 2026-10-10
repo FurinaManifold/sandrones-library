@@ -1,18 +1,18 @@
 {
   "start_timestamp": "2026-10-10T12:10:02.279Z",
-  "cutoff_timestamp": "2026-10-10T12:34:26.443Z",
+  "cutoff_timestamp": "2026-10-10T12:39:57.734Z",
   "method": "post-request cumulative counters minus pre-request cumulative counters",
   "usage": {
-    "input_tokens": 4296132,
-    "cached_input_tokens": 3992960,
+    "input_tokens": 4796745,
+    "cached_input_tokens": 4480384,
     "cache_write_input_tokens": 0,
-    "output_tokens": 43746,
-    "reasoning_output_tokens": 13778,
-    "total_tokens": 4339878
+    "output_tokens": 54035,
+    "reasoning_output_tokens": 18432,
+    "total_tokens": 4850780
   },
-  "uncached_input_tokens": 303172,
-  "uncached_input_plus_output_tokens": 346918,
-  "token_counter_events_observed": 48,
+  "uncached_input_tokens": 316361,
+  "uncached_input_plus_output_tokens": 370396,
+  "token_counter_events_observed": 52,
   "scope": "this root request through the logged cutoff; no child agents",
   "notes": [
     "input_tokens includes cached_input_tokens; do not add the cache a second time",

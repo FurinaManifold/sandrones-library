@@ -3,6 +3,7 @@
 ## 开工冻结（2026-10-10）
 
 - 基线：Main `b2cd090c9208283ccd3c2f3740bcece3e3f0d6ea`。
+- 数学实现、教材文档与完整验收包提交：`0e8706f`；后续计量提交仅补充 token 截止记录。
 - 独立 worktree：`/home/pisquare/czt/sandrones-library-condensation`；分支
   `codex/functional-analysis-paper-condensation`。
 - 来源：Banach and Steinhaus, *Sur le principe de la condensation de singularités*,
@@ -90,7 +91,7 @@ Mathlib 的计数交、度量球、有限和和有序域算术是证明后端；
 
 公开声明总数目标 3–6。`CauchySeq` 按 `Metric.cauchySeq_iff` 展开为双尾距离小于
 任意正数；`Tendsto` 按值域中的极限展开。值域完备只用于不收敛与非 Cauchy 的等价转写。
-私有 Cauchy 点子空间将以 `Submodule` 承载，解释为 Cauchy 性在加法和实数倍下保持；
+私有 Cauchy 点子空间以 `Submodule` 承载，解释为 Cauchy 性在加法和实数倍下保持；
 它仅用于证明后端，不成为新增公开对象。最终范围扩展为 §2 两个核心定理，§3 应用另属后续批次。
 
 ## 第二批概念及公开签名审阅
