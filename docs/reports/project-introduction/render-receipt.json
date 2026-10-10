@@ -1,0 +1,18 @@
+{
+  "artifact": "project-introduction.pdf",
+  "pages": 10,
+  "sha256": "1bdf3b6f2aa7d2fee05f66113822ed788d900b519ce7a7a33cb237222a1fc62f",
+  "source_sha256": "2557173917aceff88b89b70814e067a3fb08bc61fa776fbfdc0dd57a257e1e6c",
+  "input_sha256": {
+    "project-introduction.md": "2557173917aceff88b89b70814e067a3fb08bc61fa776fbfdc0dd57a257e1e6c",
+    "report-template.tex": "1ce3f56248a58f02f1fefa96bc6f4769b0964241feabd1361249ff35c0df6145",
+    "inline-code.lua": "e1d2bbe06f431e58bb270a0ae85975c63fb0de3c1122a9092988cde62293cb58",
+    "workflow.svg": "f869cefabfeee7cfb2723ab40e80d6ad3f21aa2eb90d05fea993c15a18ebe99f",
+    "build_report.py": "cb0728b5f110a4799833b4ab2e9e15e2f4bb0524454129a50c119bec742ff81c"
+  },
+  "checks": {
+    "page_count": "pass",
+    "chapter_per_page": "pass",
+    "printable_text_bounds": "pass"
+  }
+}

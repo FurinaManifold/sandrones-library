@@ -1,0 +1,8 @@
+import SandronesLibrary.Analysis.Sequence
+open SandronesLibrary.Analysis.Sequence
+#check SequenceConvergesTo
+#check sequenceConvergesTo_iff_epsilon_N
+#check sequenceConvergesTo_iff_tendsto
+#check sequenceConvergesTo_unique
+#print axioms sequenceConvergesTo_iff_tendsto
+#print axioms sequenceConvergesTo_unique

@@ -1,0 +1,100 @@
+{
+  "fact_cutoff_main_commit": "b2cd090c9208283ccd3c2f3740bcece3e3f0d6ea",
+  "inspection_date": "2026-10-10",
+  "registry": {
+    "entries": 565,
+    "verified": 565,
+    "direct_textbook_dependency_edges": 694,
+    "lean_files": 317,
+    "bibtex_sources": 73
+  },
+  "file_fingerprint_mismatches": [
+    "linear-algebra.vector-space.dimension",
+    "real-analysis.riemann.cont-integrable"
+  ],
+  "checks": [
+    {
+      "command": "python3 scripts/audit.py",
+      "cwd": "/home/pisquare/czt/sandrones-library",
+      "exit_code": 0,
+      "scope": "structural registry audit; not semantic equivalence",
+      "log": "evidence/audit.log"
+    },
+    {
+      "command": "lake build SandronesLibrary.Analysis.Sequence",
+      "cwd": "/home/pisquare/czt/sandrones-library",
+      "exit_code": 0,
+      "scope": "target module and dependency closure; not full library",
+      "warnings": "existing linter warnings replayed",
+      "log": "evidence/sequence-build.log"
+    },
+    {
+      "command": "python3 scripts/check_axioms.py analysis.sequence.definition --full",
+      "cwd": "/home/pisquare/czt/sandrones-library",
+      "exit_code": 0,
+      "scope": "one Entry, forced probe of seven associated declarations",
+      "log": "evidence/sequence-axioms.log"
+    },
+    {
+      "command": "lake env lean /tmp/sandrones-library/project-introduction/probe.lean",
+      "cwd": "/home/pisquare/czt/sandrones-library",
+      "exit_code": 0,
+      "scope": "four public interfaces, bridge and consumer axiom queries",
+      "log": "evidence/probe.log"
+    }
+  ],
+  "full_library_acceptance_rerun": false,
+  "existing_mathematical_sources_modified": false,
+  "eckart_young_full_text_reviewed": false,
+  "paper_formalization_started": false,
+  "external_sources": [
+    {
+      "title": "The Type System",
+      "url": "https://lean-lang.org/doc/reference/latest/The-Type-System/"
+    },
+    {
+      "title": "Tactics",
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/Tactics/"
+    },
+    {
+      "title": "Axioms and Computation",
+      "url": "https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/"
+    },
+    {
+      "title": "Eckart and Young 1936 publisher metadata and abstract",
+      "url": "https://www.cambridge.org/core/journals/psychometrika/article/approximation-of-one-matrix-by-another-of-lower-rank/B29672E1EDD0FA1B7611D4DFAFC321B3"
+    }
+  ],
+  "source_sha256": {
+    "README.md": "08d747aa4de6371e9f7349430685d161e2eaf10fc1ff08a36ad9fb8509d27264",
+    "AGENTS.md": "b4b42423296d7d6efa114239a74c92f948cab19eb75357c62ac0a55ae44ab1b7",
+    "docs/LEAN-PLAYBOOK.md": "42aa96dd4ed87336a8579430e4f859db50f192d25f1943e9ac2ef802f100d581",
+    "docs/ROADMAP-LONGTERM.md": "5e7633c45ecd4038b28f85f48792627f63db73fed7bdc45435af7506ce75fd7f",
+    "docs/SCHEMA.md": "dc3ac068e286297272e2806d36a8b4544895b7b684299233e8361bf4386fb82f",
+    "docs/INGESTION_PROTOCOL.md": "d1c19323a9b14d29490ddf33cd3423f1d6c3ca72885e5aa90ae36e837303503a",
+    "docs/world-formula/REVIEW-PROTOCOL.md": "69ec013fe0541d4ec771e370df71e80940a29c5178f008a4dd639a3041b55f6e",
+    "docs/roles/MAIN-ROLE.md": "042a9bb35339ed6b3b51916cc5f247680181171629096721753a00ff811567f4",
+    "docs/roles/SUBJECT-MAINTAINER-ROLE.md": "90c4db764ba189661559e7f3490fb20b74493c28823603f4a63da9e42bdbebff",
+    "docs/roles/SUBJECT-MAINTENANCE-ROLE.md": "874dc2c38e718f29292898c0e3db6db6ae2e0003f6cbc3e8a242eb379c2689d0",
+    "docs/LEAN-TACTIC-REVIEW-GUIDE.md": "002d4d0765e0cf149097b4980f1353aa39c90126a024143700be9466e216dbfe",
+    "docs/LEAN-TACTIC-STATE-ATLAS.md": "d28c32116a55cde8c401d99b197d33298e51447b0d0a37ec86e556022dd81a15",
+    "scripts/audit.py": "d21eb2f4969be38ca51cb250669aba3d256408ce1f1e0bdc92bddee46576cb98",
+    "scripts/check_axioms.py": "10393e80a713450aa14a047519bb7e8fce3ee8b108735fd60efef31383aba347",
+    "scripts/update_dependency_graph.py": "765d0efe34ce057545d06b95c186915710e51fe03c10742a998a178e923bfb31",
+    "SandronesLibrary/Analysis/Sequence.lean": "f6bacbaae99bed97f95d2d2777a8d176a03d047cb37ea836bd506ec9f5e5b312",
+    "docs/entries/analysis/sequence/definition.md": "d362ac60f7b93906c098cf0edd8460e55cb75e14b61a45538edd75ddce2e20c4",
+    "SandronesLibrary/LinearAlgebra/MatrixSVD.lean": "2cde06fbe6d014a651fa6e266b121370b292739eb861f517c39d3b1f084e4fdd",
+    "docs/entries/linear-algebra/decomposition/svd.md": "902825c2e96f8f8a37f69c41653cdc3c9589cd32132953f9171379b6928a2809",
+    "index/registry.json": "cea0b2c340962e15209b0f51d2da485187543606792c968b10e5ec5ec6936343",
+    "reference.bib": "bc6a3cb0c767db50c0c5b7b914a6bbbfd86062b9bd376598a585ccce301ae894",
+    "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
+    "lakefile.toml": "1127aaa0940b4285fa66f7fdf1f5469db11d69965d217001bab066fd239b3463",
+    "lake-manifest.json": "ddea1efd140f912077cf3d68588e1098e3e055b2e7f5e8a859e3ad53b7df7908"
+  },
+  "log_sha256": {
+    "audit.log": "ebc914a5c31ac727a1abc77398d30c49b7ba0fa66fc0a939f203c4b287b243ae",
+    "probe.log": "39418ebfe46e39f66a94fd978f39ee0dd9a67b506c34c58ed9c736a804b1afcf",
+    "sequence-axioms.log": "bb5cf09271b39d0af949404cabaaf9aa0eff46f14b2ebf0e63c431e9ecfa2cb0",
+    "sequence-build.log": "81c4d793320f8737e3cfcba7189a148a5b8c876a37b0373dc17bc879abe83c1b"
+  }
+}

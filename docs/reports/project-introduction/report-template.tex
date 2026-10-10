@@ -1,0 +1,54 @@
+\documentclass[11pt,a4paper,UTF8]{ctexart}
+\usepackage[left=21mm,right=21mm,top=19mm,bottom=20mm,headheight=14pt,headsep=6mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{TeX Gyre Pagella}
+\setsansfont{TeX Gyre Heros}
+\setmonofont{Noto Sans Math}[Scale=0.88]
+\setCJKmainfont{Noto Serif CJK SC}
+\setCJKsansfont{Noto Sans CJK SC}
+\setCJKmonofont{Noto Sans CJK SC}
+\usepackage{unicode-math}
+\setmathfont{Latin Modern Math}
+\usepackage{amsmath,graphicx,booktabs,longtable,array,calc}
+\usepackage{xcolor,fancyvrb,fvextra,framed,enumitem,setspace,fancyhdr,etoolbox,seqsplit}
+\definecolor{ink}{HTML}{18334D}
+\definecolor{accent}{HTML}{256D86}
+\definecolor{shadecolor}{HTML}{F2F5F8}
+\definecolor{rulecolor}{HTML}{D8E1E8}
+\usepackage[unicode=true,hypertexnames=false,colorlinks=true,linkcolor=accent,urlcolor=accent]{hyperref}
+\hypersetup{pdftitle={Sandrone's Library：项目介绍与论文形式化验证工作流},pdfauthor={项目文档研究},pdfsubject={自然语言与 Lean 的对应验证及 Multi-agent 工程流程}}
+\urlstyle{same}
+\setstretch{1.16}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{5pt plus 1pt minus 1pt}
+\setlength{\emergencystretch}{4em}
+\setlength{\tabcolsep}{5pt}
+\renewcommand{\arraystretch}{1.13}
+\setlist{nosep,leftmargin=1.6em,topsep=3pt}
+\ctexset{section={format=\Large\sffamily\bfseries\color{ink},numbering=false,beforeskip=0pt,afterskip=11pt},subsection={format=\normalsize\sffamily\bfseries\color{accent},numbering=false,beforeskip=7pt,afterskip=4pt}}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\sffamily\color{ink}Sandrone's Library}
+\fancyhead[R]{\small\sffamily\color{accent}项目介绍与论文形式化验证}
+\fancyfoot[L]{\scriptsize\sffamily\color{gray}事实截止：Main b2cd090　｜　2026-10-10}
+\fancyfoot[R]{\small\sffamily\thepage\ / 10}
+\renewcommand{\headrulewidth}{0.4pt}
+\renewcommand{\footrulewidth}{0pt}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+$if(highlighting-macros)$
+$highlighting-macros$
+$endif$
+\renewenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines=true,breakanywhere=true,fontsize=\small,commandchars=\\\{\}}
+\AtBeginEnvironment{longtable}{\small}
+\setlength{\LTpre}{4pt}
+\setlength{\LTpost}{5pt}
+\makeatletter
+\def\fps@figure{H}
+\makeatother
+\usepackage{float}
+\usepackage[font=small,labelformat=empty,skip=3pt]{caption}
+\newcounter{none}
+\begin{document}
+$body$
+\end{document}

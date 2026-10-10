@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1400" height="224" viewBox="0 0 1400 224">
+  <defs>
+    <marker id="arrow" markerWidth="9" markerHeight="9" refX="8" refY="4.5" orient="auto"><path d="M0 0 L9 4.5 L0 9" fill="#256d86"/></marker>
+    <style>text{font-family:'Noto Sans CJK SC',sans-serif;fill:#18334d} .title{font-size:25px;font-weight:600} .detail{font-size:22px} .note{font-size:20px;fill:#256d86}</style>
+  </defs>
+  <rect x="2" y="2" width="1396" height="220" rx="12" fill="#f2f5f8" stroke="#d8e1e8"/>
+  <rect x="24" y="32" width="280" height="120" rx="10" fill="white" stroke="#8cb2c2"/>
+  <text x="164" y="70" text-anchor="middle" class="title">论文负责人 · 定义 Agent</text>
+  <text x="164" y="107" text-anchor="middle" class="detail">冻结声明、承载与签名</text>
+  <rect x="360" y="32" width="280" height="120" rx="10" fill="white" stroke="#8cb2c2"/>
+  <text x="500" y="70" text-anchor="middle" class="title">证明 Agent A / B</text>
+  <text x="500" y="107" text-anchor="middle" class="detail">独立 worktree · 并行引理</text>
+  <rect x="696" y="32" width="320" height="120" rx="10" fill="white" stroke="#8cb2c2"/>
+  <text x="856" y="70" text-anchor="middle" class="title">学科负责人 · 独立审阅者</text>
+  <text x="856" y="107" text-anchor="middle" class="detail">联合导入、语义复验、handoff</text>
+  <rect x="1072" y="32" width="304" height="120" rx="10" fill="#18334d"/>
+  <text x="1224" y="70" text-anchor="middle" class="title" style="fill:white">Main 单一集成者</text>
+  <text x="1224" y="107" text-anchor="middle" class="detail" style="fill:white">共享状态、审计、全库构建</text>
+  <path d="M310 92 H350 M646 92 H686 M1022 92 H1062" fill="none" stroke="#256d86" stroke-width="3" marker-end="url(#arrow)"/>
+  <text x="700" y="195" text-anchor="middle" class="note">每次交接绑定具体提交与验证证据；语义或签名改变时，相关任务与审核必须复验。</text>
+</svg>

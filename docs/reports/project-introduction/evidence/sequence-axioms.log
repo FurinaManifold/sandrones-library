@@ -1,0 +1,10 @@
+[INFO] 需实际审计 1 条 / 1 条，按 1 个 lean 文件批量验证
+审计:   0%|          | 0/1 [00:00<?, ?文件/s]审计 Sequence:   0%|          | 0/1 [00:00<?, ?文件/s]审计 Sequence: 100%|██████████| 1/1 [00:02<00:00,  2.59s/文件]审计 Sequence: 100%|██████████| 1/1 [00:02<00:00,  2.59s/文件]
+    SandronesLibrary.Analysis.Sequence.SequenceConvergesTo: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.SequenceConvergent: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_iff_epsilon_N: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.tendsto_iff_epsilon_N: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_iff_tendsto: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.sequenceConvergent_iff_exists_tendsto: ['propext', 'Classical.choice', 'Quot.sound']
+    SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_unique: ['propext', 'Classical.choice', 'Quot.sound']
+[OK]   analysis.sequence.definition: axioms 一致 (['Classical.choice', 'Quot.sound', 'propext'])

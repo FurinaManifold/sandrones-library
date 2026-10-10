@@ -1,0 +1,13 @@
+SandronesLibrary.Analysis.Sequence.SequenceConvergesTo (u : ℕ → ℝ) (l : ℝ) : Prop
+SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_iff_epsilon_N {u : ℕ → ℝ} {l : ℝ} :
+  SequenceConvergesTo u l ↔ ∀ ε > 0, ∃ N, ∀ n ≥ N, |u n - l| < ε
+SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_iff_tendsto {u : ℕ → ℝ} {l : ℝ} :
+  SequenceConvergesTo u l ↔ Filter.Tendsto u Filter.atTop (nhds l)
+SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_unique {u : ℕ → ℝ} {a b : ℝ} (ha : SequenceConvergesTo u a)
+  (hb : SequenceConvergesTo u b) : a = b
+'SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_iff_tendsto' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]
+'SandronesLibrary.Analysis.Sequence.sequenceConvergesTo_unique' depends on axioms: [propext,
+ Classical.choice,
+ Quot.sound]

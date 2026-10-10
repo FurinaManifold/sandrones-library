@@ -1,0 +1,30 @@
+⚠ [8706/8706] Replayed SandronesLibrary.Analysis.Sequence
+warning: SandronesLibrary/Analysis/Sequence.lean:8:0: The module doc-string for a file should be the first command after the imports.
+Please, add a module doc-string before `open Filter Topology`.
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+warning: SandronesLibrary/Analysis/Sequence.lean:8:0: The module doc-string for a file should be the first command after the imports.
+Please, add a module doc-string before `/-!# Analysis / Sequence —— 数列极限基础条目
+
+本文件当前条目：
+
+* **analysis.sequence.definition**（收敛的定义/ε-N 判据）：本库谓词
+  `SequenceConvergesTo u l` 定义为：对每个 ε>0 存在 N，使得从第 N 项起
+  |u n − l| < ε；并证明它等价于 `Tendsto u atTop (𝓝 l)`。
+* **analysis.sequence.unique**（极限唯一）：同一个序列若有极限则极限唯一。
+* **analysis.sequence.bounded**（收敛必有界）：收敛序列的值域既有上界也有下界。
+* **analysis.sequence.squeeze**（夹逼定理）：两边夹住且同趋于 l，中间也趋于 l。
+* **analysis.sequence.monotone-convergence**（单调有界收敛）：单调递增且值域有上界
+  的序列收敛，且极限恰为其值域的上确界。
+* **analysis.sequence.subsequence**（子序列）：收敛序列的任何子列收敛到同一极限。
+* **analysis.sequence.bolzano-weierstrass**（波尔查诺-魏尔斯特拉斯）：有界实数列必有收敛子列。
+* **analysis.sequence.cauchy**（Cauchy 收敛准则/完备性）：本库以双指标 ε-N 条件定义
+  `SequenceIsCauchy`，桥接 Mathlib 的 `CauchySeq`，并证明实数列收敛 ⟺ 是 Cauchy 列。
+* **analysis.sequence.liminf-limsup**（上/下极限）：liminf ≤ limsup，且相等 ⟺ 收敛。
+* **analysis.sequence.add/sub/mul/div/const-mul**（极限四则运算）。
+* **analysis.sequence.le**（极限保序）。
+-/
+`.
+
+Note: This linter can be disabled with `set_option linter.style.header false`
+Build completed successfully (8706 jobs).
