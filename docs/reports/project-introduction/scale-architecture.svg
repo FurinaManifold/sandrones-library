@@ -51,5 +51,5 @@
 <text x="653" y="496" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#AE5547" text-anchor="middle">跨学科接口反馈／返工</text>
 <text x="22" y="494" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#697C8B" text-anchor="start">现行基础：每负责人管理 2–3 worker</text>
 <text x="22" y="523" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="700" fill="#1E3445" text-anchor="start">扩展示例：100 × 3 = 300 证明 worker；负责人／审核者／CI 另计</text>
-<text x="22" y="550" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#697C8B" text-anchor="start">实线：验收包上行；虚线：控制与反馈。架构尚未实现，吞吐尚未测量。</text>
+<text x="22" y="550" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="400" fill="#697C8B" text-anchor="start">实线：验收包上行；虚线：控制与反馈。按审核容量与队列等待分级扩容。</text>
 </svg>

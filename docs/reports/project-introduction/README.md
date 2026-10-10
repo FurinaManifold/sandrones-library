@@ -2,11 +2,11 @@
 
 成稿：[10 页 PDF](project-introduction.pdf)；可编辑正文：[Markdown](project-introduction.md)。
 
-本文面向数学研究者与项目审阅者，介绍 DESIGN 的知识组织理念、Playbook 的证明拆解方法、ROADMAP 的课程与论文路线，以及 Tactic 指南的人类审阅方法。重点回答同名著名定理的接口约定、自然语言与 Lean 的对应验证、论文形式化，以及数百 Agent 的分层发展架构。
+本文面向数学研究者与项目审阅者，介绍 DESIGN 的知识组织理念、Playbook 的证明拆解方法、ROADMAP 的课程与论文路线，以及 Tactic 指南的人类审阅方法。重点回答同名著名定理的接口约定、自然语言与 Lean 的对应验证、论文形式化、数百 Agent 的分层发展架构，以及万级条目的精准定理检索计划。
 
 技术细节移至 [复现与审计附件](reproduction.md)，现场记录保存于 [research-evidence.json](research-evidence.json)。事实截止于 Main `b2cd090c9208283ccd3c2f3740bcece3e3f0d6ea`。
 
-正文将当前实现、现场发现和建议扩展分别标明。论文案例是设计示范：本次未启动其正式证明，也未读取原论文全文。实际执行了结构审计、ε–N 案例定向构建、公开接口探测及单 Entry 强制公理复验；没有重新执行 Main 全库验收或修改既有数学条目。详见 [研究证据记录](research-evidence.json) 及 [验证日志](evidence/)。
+第 10 页给出“论文数学任务 → 多视图候选召回 → 前提与桥核对 → Lean 试调用 → 证明 Agent”的检索方案，并说明索引维护、无命中处理和评价指标。各项验证与来源记录见 [研究证据记录](research-evidence.json) 及 [验证日志](evidence/)。
 
 重新生成 PDF：
 

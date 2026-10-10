@@ -1,18 +1,18 @@
 {
   "artifact": "project-introduction.pdf",
   "pages": 10,
-  "sha256": "7dcd52cae5363771d50e98bc52fee704a01c74e3fc678c0a2f487b0f640a203d",
-  "source_sha256": "b5deff7ca7ff65497972e4fd116f09255f1de8b13e10404352d47b6033abf26d",
+  "sha256": "64d9996a0f493184bd7a030d0aaf38df8c87b82c408a9f26c04db5c98d230ec6",
+  "source_sha256": "e74be083f219e2138f7eb02244e5173bd28fcf6cf7443d1e7820e8208c320e97",
   "input_sha256": {
-    "project-introduction.md": "b5deff7ca7ff65497972e4fd116f09255f1de8b13e10404352d47b6033abf26d",
+    "project-introduction.md": "e74be083f219e2138f7eb02244e5173bd28fcf6cf7443d1e7820e8208c320e97",
     "report-template.tex": "bbf40b70eab95bb4b74a56754276dd95ff9b32e993a84ad12f5bdf38b54294d3",
     "inline-code.lua": "e1d2bbe06f431e58bb270a0ae85975c63fb0de3c1122a9092988cde62293cb58",
     "build_report.py": "d581ed7a25717f2ee18de629384fd1ff6a8d8aae525d7e02926de1621666010f",
-    "draw_figures.py": "7679ab3a5a35140f9facab5c1f7381c6a379dfce7b18438f339786bdca9b4246",
+    "draw_figures.py": "51c472432113121f50d0c6c476b71370ce6536ad04fc2ddd769dcf5d21170083",
     "figure-manifest.json": "b1900f69ee17e3bfc13b201bd9c48e1a030652a87bafb8090f3dcede4b2c1def",
     "theorem-contract.svg": "b7c6457645a74b7ad44818e42020d5c1deb7bf8decedd26fa820befdd8803189",
     "workflow.svg": "e413159b474998f531456b579ba9e1f06505e7e1aedf2023d815ab3990d50b04",
-    "scale-architecture.svg": "80a19be3186ea78d328d21b5e5b9c034d677bc219e5641d981b0d1d0598adfdc"
+    "scale-architecture.svg": "8442e7df84fb94b0405db7309f0f8d17122526c50ee1f85fad04cbf278e5ce7c"
   },
   "figures": [
     {
@@ -20,7 +20,7 @@
       "minimum_embedded_font_pt": 9.52,
       "sha256": {
         "svg": "b7c6457645a74b7ad44818e42020d5c1deb7bf8decedd26fa820befdd8803189",
-        "pdf": "8f521fc794ac9251b6424d01b2a81204bd6814d769f8fcaae549c032f9b926b7",
+        "pdf": "226d40f0d6fcbbb9e266d642059e3a933777be13f3625e958fd19b9d6d40cd93",
         "png": "faa82075a72b634141de4eaa4610f649aa912d86a97d01f0cc7da5dc37fba88c"
       },
       "checks": {
@@ -33,7 +33,7 @@
       "minimum_embedded_font_pt": 9.52,
       "sha256": {
         "svg": "e413159b474998f531456b579ba9e1f06505e7e1aedf2023d815ab3990d50b04",
-        "pdf": "f9dd0c7a05e54851220c73835ce25420dc1e0e58db79181490bc74a25ef62df7",
+        "pdf": "da111fb61bca125c5753ecf5a342cb613634b1a0ea773ce152f153635f609cd6",
         "png": "ff6410954b4143f0e56090483e6bb32bec19dd8a42cdff18d0ec20c14e8f430d"
       },
       "checks": {
@@ -45,9 +45,9 @@
       "stem": "scale-architecture",
       "minimum_embedded_font_pt": 9.52,
       "sha256": {
-        "svg": "80a19be3186ea78d328d21b5e5b9c034d677bc219e5641d981b0d1d0598adfdc",
-        "pdf": "eb6f9bce3b3f4242d4c8aa19748a7e34618f6518e6bc429fbfcd1b1d2dfa0b04",
-        "png": "c15f9c64f0caa914d639eb0c17cb3a96d3ef450a828f800038400b8afcb05216"
+        "svg": "8442e7df84fb94b0405db7309f0f8d17122526c50ee1f85fad04cbf278e5ce7c",
+        "pdf": "b1835661cdfbc3ea4428ece83490be3c7083269e63ec8c80bb41f4534564b201",
+        "png": "fd82438de9b8dbc3bacf9f4c468adb198b0447995453342aa27d8e17a2f11fe6"
       },
       "checks": {
         "text_bounds": "pass",

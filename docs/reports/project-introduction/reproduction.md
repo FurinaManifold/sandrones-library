@@ -61,12 +61,14 @@ lake build
 - **S1–S3：** `README.md`；`AGENTS.md`；`docs/LEAN-PLAYBOOK.md`。
 - **S4–S6：** `docs/INGESTION_PROTOCOL.md`；`docs/ROADMAP-LONGTERM.md` §1、§15.3；`docs/SCHEMA.md`。
 - **S7：** `SandronesLibrary/Analysis/Sequence.lean` 第 35–99 行与对应 Entry 文档。
-- **S8–S9：** `docs/world-formula/REVIEW-PROTOCOL.md`；`docs/roles/MAIN-ROLE.md`、`SUBJECT-MAINTAINER-ROLE.md`、`SUBJECT-MAINTENANCE-ROLE.md`。
+- **S9：** `docs/roles/MAIN-ROLE.md`、`SUBJECT-MAINTAINER-ROLE.md`、`SUBJECT-MAINTENANCE-ROLE.md`。
 - **S10–S11：** `scripts/audit.py`、`check_axioms.py`、`update_dependency_graph.py`；`SandronesLibrary/LinearAlgebra/MatrixSVD.lean` 与 SVD Entry 文档。人类证明审阅另见 `docs/LEAN-TACTIC-REVIEW-GUIDE.md` 及 `LEAN-TACTIC-STATE-ATLAS.md`。
 - **S12：** `SandronesLibrary/FunctionalAnalysis/HahnBanach.lean` 与 `docs/entries/functional-analysis/hahn-banach/extension.md`。三种声明及等范数到不增范数的推论以源码为准。
+- **S13–S15：** `docs/DESIGN.md`；`docs/LEAN-TACTIC-REVIEW-GUIDE.md` 与 `docs/LEAN-TACTIC-STATE-ATLAS.md`；`docs/MATHLIB-RADAR.md`、`docs/entries/README.md` 与 `scripts/gen_entries_index.py`。
 
 **外部一手资料（2026-10-10 检索）。**
 
 - **E1–E3：** Lean 官方 [The Type System](https://lean-lang.org/doc/reference/latest/The-Type-System/)、[Tactics](https://lean-lang.org/theorem_proving_in_lean4/Tactics/)、[Axioms and Computation](https://lean-lang.org/theorem_proving_in_lean4/Axioms-and-Computation/)。用于说明证明项、策略和公理边界。
 - **E4：** Eckart & Young (1936), *Psychometrika* 1(3):211–218，[出版者条目](https://www.cambridge.org/core/journals/psychometrika/article/approximation-of-one-matrix-by-another-of-lower-rank/B29672E1EDD0FA1B7611D4DFAFC321B3)，DOI 10.1007/BF02288367。仅核验书目信息与摘要，未将其视为原文全文审核。
 - **E5–E6：** Mathlib 社区 [Contributing to mathlib](https://leanprover-community.github.io/contribute/index.html)，支持专家分散审核和独立依赖仓库的实践参考；GitHub 官方 [Managing a merge queue](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue)，支持基于最新目标分支的候选组检查。本文的扩展架构是设计推导，非这些来源的性能结论。
+- **E7：** [Loogle 源码与使用说明](https://github.com/nomeata/loogle)及[查询语法](https://github.com/nomeata/loogle/blob/master/blurb.html)，支持按名称、常量、类型模式及结论形状搜索的工具参考。检索服务的多视图融合、定理卡片和评价流程为本文计划。

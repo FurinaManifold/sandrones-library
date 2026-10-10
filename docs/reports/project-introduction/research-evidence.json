@@ -71,6 +71,10 @@
     {
       "title": "GitHub merge queue: candidate checks against latest target and queued changes",
       "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue"
+    },
+    {
+      "title": "Loogle original source and type-pattern search documentation",
+      "url": "https://github.com/nomeata/loogle"
     }
   ],
   "source_sha256": {
@@ -80,7 +84,6 @@
     "docs/ROADMAP-LONGTERM.md": "5e7633c45ecd4038b28f85f48792627f63db73fed7bdc45435af7506ce75fd7f",
     "docs/SCHEMA.md": "dc3ac068e286297272e2806d36a8b4544895b7b684299233e8361bf4386fb82f",
     "docs/INGESTION_PROTOCOL.md": "d1c19323a9b14d29490ddf33cd3423f1d6c3ca72885e5aa90ae36e837303503a",
-    "docs/world-formula/REVIEW-PROTOCOL.md": "69ec013fe0541d4ec771e370df71e80940a29c5178f008a4dd639a3041b55f6e",
     "docs/roles/MAIN-ROLE.md": "042a9bb35339ed6b3b51916cc5f247680181171629096721753a00ff811567f4",
     "docs/roles/SUBJECT-MAINTAINER-ROLE.md": "90c4db764ba189661559e7f3490fb20b74493c28823603f4a63da9e42bdbebff",
     "docs/roles/SUBJECT-MAINTENANCE-ROLE.md": "874dc2c38e718f29292898c0e3db6db6ae2e0003f6cbc3e8a242eb379c2689d0",
@@ -100,7 +103,10 @@
     "lake-manifest.json": "ddea1efd140f912077cf3d68588e1098e3e055b2e7f5e8a859e3ad53b7df7908",
     "docs/DESIGN.md": "5c2bc777eb9e3f43662a85f87ceeaca0736e4e65634bd7332e1b5cae7cbcc5c2",
     "SandronesLibrary/FunctionalAnalysis/HahnBanach.lean": "ab6581e9366b7c7c8a5a749a51695e5ebee8cb7e2335ecc2d615d32c6564b180",
-    "docs/entries/functional-analysis/hahn-banach/extension.md": "3826773d02a7a5d939b897b9ec5ac5cb056035d505d6a2438cf95c5a824a4b12"
+    "docs/entries/functional-analysis/hahn-banach/extension.md": "3826773d02a7a5d939b897b9ec5ac5cb056035d505d6a2438cf95c5a824a4b12",
+    "docs/MATHLIB-RADAR.md": "bf343b30dd4f2997874aa772d211c7fa4daa27438db8e35df8dd97589686257a",
+    "docs/entries/README.md": "50a2d859cf779c50452212ec7d0e00dc1a93330dc2d3530a8f471f0f065e9246",
+    "scripts/gen_entries_index.py": "c38c5da6c2ddfe7900853daff6a95436c3d7d765d5897b2169124a267d19716e"
   },
   "log_sha256": {
     "audit.log": "ebc914a5c31ac727a1abc77398d30c49b7ba0fa66fc0a939f203c4b287b243ae",
@@ -115,12 +121,14 @@
       "ROADMAP curriculum prerequisites and paper scope",
       "Tactic guide and source-based state atlas",
       "named theorem version contracts",
-      "proposed hierarchical 300 proof worker architecture"
+      "proposed hierarchical 300 proof worker architecture",
+      "ten-thousand-entry retrieval: task cards, text/type/graph indices, candidate applicability and Lean call probes"
     ],
     "technical_details": "reproduction.md",
     "diagrams": "figure-manifest.json",
     "scale_architecture_implemented": false,
     "scale_throughput_measured": false,
-    "hahn_banach_review": "read actual three declarations, Entry document and norm-equality to norm-bound proof; no separate fresh build claim"
+    "hahn_banach_review": "read actual three declarations, Entry document and norm-equality to norm-bound proof; no separate fresh build claim",
+    "theorem_retrieval_implemented": false
   }
 }

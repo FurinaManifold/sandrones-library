@@ -131,7 +131,7 @@ def scale():
     f.text(653, 496, "跨学科接口反馈／返工", size=20, color=RED, anchor="middle")
     f.text(22, 494, "现行基础：每负责人管理 2–3 worker", size=20, color=GRAY)
     f.text(22, 523, "扩展示例：100 × 3 = 300 证明 worker；负责人／审核者／CI 另计", size=21, weight=700)
-    f.text(22, 550, "实线：验收包上行；虚线：控制与反馈。架构尚未实现，吞吐尚未测量。", size=20, color=GRAY)
+    f.text(22, 550, "实线：验收包上行；虚线：控制与反馈。按审核容量与队列等待分级扩容。", size=20, color=GRAY)
     return f.save("scale-architecture", "建议的 300 证明 worker 分组、学科集成与单写者发布架构")
 
 
