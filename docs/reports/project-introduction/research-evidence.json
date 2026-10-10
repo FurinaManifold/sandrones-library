@@ -63,6 +63,14 @@
     {
       "title": "Eckart and Young 1936 publisher metadata and abstract",
       "url": "https://www.cambridge.org/core/journals/psychometrika/article/approximation-of-one-matrix-by-another-of-lower-rank/B29672E1EDD0FA1B7611D4DFAFC321B3"
+    },
+    {
+      "title": "Mathlib contribution guide: distributed expertise and standalone dependency repositories",
+      "url": "https://leanprover-community.github.io/contribute/index.html"
+    },
+    {
+      "title": "GitHub merge queue: candidate checks against latest target and queued changes",
+      "url": "https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/configuring-pull-request-merges/managing-a-merge-queue"
     }
   ],
   "source_sha256": {
@@ -89,12 +97,30 @@
     "reference.bib": "bc6a3cb0c767db50c0c5b7b914a6bbbfd86062b9bd376598a585ccce301ae894",
     "lean-toolchain": "302cd63c54178885b89e669f33b38f12f4dd7ae7e5cac537b3203e3768d8fb2b",
     "lakefile.toml": "1127aaa0940b4285fa66f7fdf1f5469db11d69965d217001bab066fd239b3463",
-    "lake-manifest.json": "ddea1efd140f912077cf3d68588e1098e3e055b2e7f5e8a859e3ad53b7df7908"
+    "lake-manifest.json": "ddea1efd140f912077cf3d68588e1098e3e055b2e7f5e8a859e3ad53b7df7908",
+    "docs/DESIGN.md": "5c2bc777eb9e3f43662a85f87ceeaca0736e4e65634bd7332e1b5cae7cbcc5c2",
+    "SandronesLibrary/FunctionalAnalysis/HahnBanach.lean": "ab6581e9366b7c7c8a5a749a51695e5ebee8cb7e2335ecc2d615d32c6564b180",
+    "docs/entries/functional-analysis/hahn-banach/extension.md": "3826773d02a7a5d939b897b9ec5ac5cb056035d505d6a2438cf95c5a824a4b12"
   },
   "log_sha256": {
     "audit.log": "ebc914a5c31ac727a1abc77398d30c49b7ba0fa66fc0a939f203c4b287b243ae",
     "probe.log": "39418ebfe46e39f66a94fd978f39ee0dd9a67b506c34c58ed9c736a804b1afcf",
     "sequence-axioms.log": "bb5cf09271b39d0af949404cabaaf9aa0eff46f14b2ebf0e63c431e9ecfa2cb0",
     "sequence-build.log": "81c4d793320f8737e3cfcba7189a148a5b8c876a37b0373dc17bc879abe83c1b"
+  },
+  "human_reader_revision": {
+    "focus": [
+      "DESIGN learning-path organization",
+      "Playbook proof scaffolding and reusable experience",
+      "ROADMAP curriculum prerequisites and paper scope",
+      "Tactic guide and source-based state atlas",
+      "named theorem version contracts",
+      "proposed hierarchical 300 proof worker architecture"
+    ],
+    "technical_details": "reproduction.md",
+    "diagrams": "figure-manifest.json",
+    "scale_architecture_implemented": false,
+    "scale_throughput_measured": false,
+    "hahn_banach_review": "read actual three declarations, Entry document and norm-equality to norm-bound proof; no separate fresh build claim"
   }
 }

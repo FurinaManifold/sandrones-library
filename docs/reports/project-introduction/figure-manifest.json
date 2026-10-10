@@ -1,0 +1,29 @@
+{
+  "generator": "draw_figures.py",
+  "figures": [
+    {
+      "stem": "theorem-contract",
+      "description": "现有 Hahn–Banach 接口及建议的版本契约方法",
+      "canvas_width_px": 1000,
+      "canvas_height_px": 410,
+      "min_label_font_px": 20,
+      "report_width_mm": 168
+    },
+    {
+      "stem": "workflow",
+      "description": "建议的论文级语义、证明与覆盖三门闭环",
+      "canvas_width_px": 1000,
+      "canvas_height_px": 396,
+      "min_label_font_px": 20,
+      "report_width_mm": 168
+    },
+    {
+      "stem": "scale-architecture",
+      "description": "建议的 300 证明 worker 分组、学科集成与单写者发布架构",
+      "canvas_width_px": 1000,
+      "canvas_height_px": 562,
+      "min_label_font_px": 20,
+      "report_width_mm": 168
+    }
+  ]
+}

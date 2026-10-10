@@ -1,15 +1,60 @@
 {
   "artifact": "project-introduction.pdf",
   "pages": 10,
-  "sha256": "1bdf3b6f2aa7d2fee05f66113822ed788d900b519ce7a7a33cb237222a1fc62f",
-  "source_sha256": "2557173917aceff88b89b70814e067a3fb08bc61fa776fbfdc0dd57a257e1e6c",
+  "sha256": "7dcd52cae5363771d50e98bc52fee704a01c74e3fc678c0a2f487b0f640a203d",
+  "source_sha256": "b5deff7ca7ff65497972e4fd116f09255f1de8b13e10404352d47b6033abf26d",
   "input_sha256": {
-    "project-introduction.md": "2557173917aceff88b89b70814e067a3fb08bc61fa776fbfdc0dd57a257e1e6c",
-    "report-template.tex": "1ce3f56248a58f02f1fefa96bc6f4769b0964241feabd1361249ff35c0df6145",
+    "project-introduction.md": "b5deff7ca7ff65497972e4fd116f09255f1de8b13e10404352d47b6033abf26d",
+    "report-template.tex": "bbf40b70eab95bb4b74a56754276dd95ff9b32e993a84ad12f5bdf38b54294d3",
     "inline-code.lua": "e1d2bbe06f431e58bb270a0ae85975c63fb0de3c1122a9092988cde62293cb58",
-    "workflow.svg": "f869cefabfeee7cfb2723ab40e80d6ad3f21aa2eb90d05fea993c15a18ebe99f",
-    "build_report.py": "cb0728b5f110a4799833b4ab2e9e15e2f4bb0524454129a50c119bec742ff81c"
+    "build_report.py": "d581ed7a25717f2ee18de629384fd1ff6a8d8aae525d7e02926de1621666010f",
+    "draw_figures.py": "7679ab3a5a35140f9facab5c1f7381c6a379dfce7b18438f339786bdca9b4246",
+    "figure-manifest.json": "b1900f69ee17e3bfc13b201bd9c48e1a030652a87bafb8090f3dcede4b2c1def",
+    "theorem-contract.svg": "b7c6457645a74b7ad44818e42020d5c1deb7bf8decedd26fa820befdd8803189",
+    "workflow.svg": "e413159b474998f531456b579ba9e1f06505e7e1aedf2023d815ab3990d50b04",
+    "scale-architecture.svg": "80a19be3186ea78d328d21b5e5b9c034d677bc219e5641d981b0d1d0598adfdc"
   },
+  "figures": [
+    {
+      "stem": "theorem-contract",
+      "minimum_embedded_font_pt": 9.52,
+      "sha256": {
+        "svg": "b7c6457645a74b7ad44818e42020d5c1deb7bf8decedd26fa820befdd8803189",
+        "pdf": "8f521fc794ac9251b6424d01b2a81204bd6814d769f8fcaae549c032f9b926b7",
+        "png": "faa82075a72b634141de4eaa4610f649aa912d86a97d01f0cc7da5dc37fba88c"
+      },
+      "checks": {
+        "text_bounds": "pass",
+        "minimum_embedded_font": "pass"
+      }
+    },
+    {
+      "stem": "workflow",
+      "minimum_embedded_font_pt": 9.52,
+      "sha256": {
+        "svg": "e413159b474998f531456b579ba9e1f06505e7e1aedf2023d815ab3990d50b04",
+        "pdf": "f9dd0c7a05e54851220c73835ce25420dc1e0e58db79181490bc74a25ef62df7",
+        "png": "ff6410954b4143f0e56090483e6bb32bec19dd8a42cdff18d0ec20c14e8f430d"
+      },
+      "checks": {
+        "text_bounds": "pass",
+        "minimum_embedded_font": "pass"
+      }
+    },
+    {
+      "stem": "scale-architecture",
+      "minimum_embedded_font_pt": 9.52,
+      "sha256": {
+        "svg": "80a19be3186ea78d328d21b5e5b9c034d677bc219e5641d981b0d1d0598adfdc",
+        "pdf": "eb6f9bce3b3f4242d4c8aa19748a7e34618f6518e6bc429fbfcd1b1d2dfa0b04",
+        "png": "c15f9c64f0caa914d639eb0c17cb3a96d3ef450a828f800038400b8afcb05216"
+      },
+      "checks": {
+        "text_bounds": "pass",
+        "minimum_embedded_font": "pass"
+      }
+    }
+  ],
   "checks": {
     "page_count": "pass",
     "chapter_per_page": "pass",
