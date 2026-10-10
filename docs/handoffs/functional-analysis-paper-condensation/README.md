@@ -14,7 +14,7 @@
 
 原文的双数列用 `p` 标记行、`q` 标记列。
 关键区别是把 `∀ p, ∃ x` 转成 `∃ x, ∀ p`；名字“Banach–Steinhaus”本身不能确定这个接口。
-本次以 [一手重印](https://kielich.amu.edu.pl/Stefan_Banach/pdf/oeuvres2/366.pdf)
+本次以 [库内论文 PDF](banach-steinhaus-1927.pdf)（[一手重印来源](https://kielich.amu.edu.pl/Stefan_Banach/pdf/oeuvres2/366.pdf)）
 的 §2 定理 I、II（重印 pp. 369–370）为目标，定义见 p. 366，证明辅助引理见 pp. 367–368。
 原文 §3 的正交级数应用另列后续批次。
 

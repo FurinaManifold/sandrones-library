@@ -10,6 +10,7 @@
   Fundamenta Mathematicae 9 (1927), 50–61；现有文献键
   `banach-steinhaus-condensation-1927`。
 - 一手扫描：[Banach Œuvres II 重印](https://kielich.amu.edu.pl/Stefan_Banach/pdf/oeuvres2/366.pdf)。
+  [库内 PDF](functional-analysis-paper-condensation/banach-steinhaus-1927.pdf) 保留下载扫描件的原始字节，共 10 页。
   重印 p. 366 是定义，pp. 367–368 是辅助引理，p. 369 是 §2 定理 I 与 II；
   p. 370 起是 §3 正交级数应用。
 - 最终完成 §2 定理 I 与 II：每行各有无界点时存在公共无界点；每行各有非 Cauchy 点时
