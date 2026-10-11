@@ -1,0 +1,261 @@
+{
+  "schema_version": 2,
+  "diagram_type": "workflow",
+  "meta": {
+    "title": "一篇论文的形式化：分工、审核与集成",
+    "locale": "zh-CN",
+    "output": "paper-workflow.html",
+    "repository": {
+      "url": "https://github.com/FurinaManifold/sandrones-library.git",
+      "revision": "b2cd090c9208283ccd3c2f3740bcece3e3f0d6ea",
+      "link_mode": "local-only"
+    },
+    "legend": {
+      "mode": "hidden"
+    },
+    "translations": {
+      "viewer.kind.backend": "证明任务",
+      "viewer.kind.security": "验证与审核",
+      "viewer.kind.database": "知识与交付",
+      "viewer.kind.frontend": "数学接口",
+      "viewer.kind.external": "论文输入"
+    }
+  },
+  "lanes": [
+    {
+      "id": "intake",
+      "label": "原文与数学接口"
+    },
+    {
+      "id": "proof",
+      "label": "证明工作单元"
+    },
+    {
+      "id": "integration",
+      "label": "分层审核与集成"
+    },
+    {
+      "id": "release",
+      "label": "库内发布"
+    }
+  ],
+  "mainPath": [
+    "paper",
+    "contract",
+    "retrieval",
+    "scaffold",
+    "workers",
+    "compile",
+    "maintainer",
+    "main",
+    "release"
+  ],
+  "nodes": [
+    {
+      "id": "paper",
+      "lane": "intake",
+      "col": 0,
+      "type": "external",
+      "label": "论文原文",
+      "sublabel": "冻结目标定理和原文位置",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/INGESTION_PROTOCOL.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "contract",
+      "lane": "intake",
+      "col": 1,
+      "type": "frontend",
+      "label": "数学接口",
+      "sublabel": "对象、前提、量词与版本",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/INGESTION_PROTOCOL.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "retrieval",
+      "lane": "intake",
+      "col": 2,
+      "type": "database",
+      "label": "前置定理检索",
+      "sublabel": "检查精确接口与定义承载",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/DESIGN.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "scaffold",
+      "lane": "proof",
+      "col": 2,
+      "type": "backend",
+      "label": "拆分证明 DAG",
+      "sublabel": "先检验下层签名能否组装",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/LEAN-PLAYBOOK.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "workers",
+      "lane": "proof",
+      "col": 3,
+      "type": "backend",
+      "label": "证明工作单元",
+      "sublabel": "隔离分支与文件所有权",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/LEAN-PLAYBOOK.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "compile",
+      "lane": "proof",
+      "col": 4,
+      "type": "security",
+      "label": "编译与接口检查",
+      "sublabel": "局部闭包、量词、公理",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/LEAN-PLAYBOOK.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "maintainer",
+      "lane": "integration",
+      "col": 4,
+      "type": "security",
+      "label": "学科负责人",
+      "sublabel": "数学审核与联合导入",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/LEAN-PLAYBOOK.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "main",
+      "lane": "integration",
+      "col": 5,
+      "type": "security",
+      "label": "Main 集成",
+      "sublabel": "语义审核与共享数据重建",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/roles/MAIN-ROLE.md",
+          "label": "工作规程"
+        }
+      ]
+    },
+    {
+      "id": "release",
+      "lane": "release",
+      "col": 5,
+      "type": "database",
+      "label": "验收发布",
+      "sublabel": "全库构建与人类说明",
+      "width": 156,
+      "sources": [
+        {
+          "path": "docs/roles/MAIN-ROLE.md",
+          "label": "工作规程"
+        }
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "id": "flow_0",
+      "from": "paper",
+      "to": "contract"
+    },
+    {
+      "id": "flow_1",
+      "from": "contract",
+      "to": "retrieval"
+    },
+    {
+      "id": "flow_2",
+      "from": "retrieval",
+      "to": "scaffold"
+    },
+    {
+      "id": "flow_3",
+      "from": "scaffold",
+      "to": "workers"
+    },
+    {
+      "id": "flow_4",
+      "from": "workers",
+      "to": "compile"
+    },
+    {
+      "id": "flow_5",
+      "from": "compile",
+      "to": "maintainer"
+    },
+    {
+      "id": "flow_6",
+      "from": "maintainer",
+      "to": "main"
+    },
+    {
+      "id": "flow_7",
+      "from": "main",
+      "to": "release"
+    },
+    {
+      "id": "rework",
+      "from": "compile",
+      "to": "workers",
+      "label": "失败返工",
+      "variant": "security",
+      "role": "error",
+      "route": "up-channel"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "依据现有规程绘制",
+      "items": [
+        "工作单元交给学科负责人；Main 接收学科交付包。",
+        "源码编译检查形式命题；人类审核核对原文与 Lean 的对象、前提和量词。",
+        "这是工作方法图。节点不表示当前任务的实时运行状态。"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "扩展到数百 Agent 的设计",
+      "items": [
+        "在学科负责人与 Main 之间增加分区集成与机器验证队列。",
+        "稳定接口先冻结；CI 按影响闭包验证；Main 消费验证后的批次摘要与冲突。",
+        "上述队列与分区集成是待实现方案，Archify 可展示其流程。"
+      ]
+    }
+  ]
+}

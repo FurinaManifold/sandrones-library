@@ -1,0 +1,50 @@
+{
+  "kind": "synthetic vertical chain",
+  "quality": "standard",
+  "includes": "CLI schema validation, routing and HTML render",
+  "excludes": "browser load and interactions, real Registry DAG layout, concurrency",
+  "node_version": "v22.22.0",
+  "platform": "Linux-7.0.0-38-generic-x86_64-with-glibc2.39",
+  "processor": "x86_64",
+  "cpu_logical": 24,
+  "timeout_seconds": 15,
+  "archify_revision": "58ab0b98d2d0def8e49dced705c7b566936723ec",
+  "runs": [
+    {
+      "nodes": 100,
+      "edges": 99,
+      "status": "completed",
+      "seconds": 0.131,
+      "returncode": 0,
+      "html_bytes": 879611,
+      "diagnostic": "/tmp/archify-chain-l3dlsb04/chain.html\n"
+    },
+    {
+      "nodes": 565,
+      "edges": 564,
+      "status": "completed",
+      "seconds": 0.331,
+      "returncode": 0,
+      "html_bytes": 1548743,
+      "diagnostic": "/tmp/archify-chain-l3dlsb04/chain.html\n"
+    },
+    {
+      "nodes": 1000,
+      "edges": 999,
+      "status": "completed",
+      "seconds": 0.7,
+      "returncode": 0,
+      "html_bytes": 2174709,
+      "diagnostic": "/tmp/archify-chain-l3dlsb04/chain.html\n"
+    },
+    {
+      "nodes": 10000,
+      "edges": 9999,
+      "status": "timeout",
+      "seconds": 15.026,
+      "returncode": -9,
+      "html_bytes": null,
+      "diagnostic": ""
+    }
+  ]
+}

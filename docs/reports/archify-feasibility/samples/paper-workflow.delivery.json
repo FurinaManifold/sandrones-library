@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "b9e0a0f2-a04f-4011-9cb1-decce94e0040",
+  "status": "current",
+  "command": "deliver",
+  "type": "workflow",
+  "input": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.json",
+  "output": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.html",
+  "specification": {
+    "sha256": "5ad9afbc960a8b25c6bd133d20989bb8116da385d1080cac04dcf7029046af3d",
+    "bytes": 5854
+  },
+  "artifact": {
+    "sha256": "6bd56218308eb360036bfaf822bd80dfc01eaae15b95cff16c528374375d1284",
+    "bytes": 755895
+  }
+}

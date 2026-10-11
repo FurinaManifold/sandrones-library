@@ -1,0 +1,211 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "architecture",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-dependencies.json",
+    "sha256": "11ef10056bbd8a6e1913a19e9d80d388083670171df82da755c96962c276c222",
+    "bytes": 5789
+  },
+  "artifact": {
+    "path": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-dependencies.html",
+    "sha256": "fb57a03f69af64afcce69d8a4ad1cb4aa9c035e298c3fcb9b8379e3b0472c34d",
+    "bytes": 754090
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/checks-dependencies/paper-dependencies.finalize.json",
+    "summaryReceipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/checks-dependencies/paper-dependencies.finalize-summary.json",
+    "browserCheckReceipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/checks-dependencies/paper-dependencies.browser-check.json"
+  },
+  "update": {
+    "status": "unavailable",
+    "installedVersion": null,
+    "availableVersion": null,
+    "releaseNotes": null,
+    "checkedAt": null,
+    "source": null,
+    "noticeRequired": false,
+    "noticeText": null,
+    "reason": "disabled"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1355,
+  "visualReviewRecommendation": {
+    "action": "inspect-route-readability",
+    "signals": {
+      "resolvedCrossovers": 4,
+      "routesOverSuggestedBends": 4
+    },
+    "reason": "Automated gates passed, but crossings or detours still need perceptual review before claiming visual quality.",
+    "affectedRoutes": {
+      "crossings": [
+        {
+          "left": {
+            "from": "entry_functional-analysis_baire_theorem",
+            "to": "entry_functional-analysis_banach-steinhaus",
+            "label": "",
+            "collectionIndex": 0,
+            "artifactIndex": 1
+          },
+          "right": {
+            "from": "entry_functional-analysis_baire_theorem",
+            "to": "entry_functional-analysis_condensation",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "point": [
+            307,
+            81
+          ],
+          "sharedNode": "entry_functional-analysis_baire_theorem"
+        },
+        {
+          "left": {
+            "from": "entry_functional-analysis_operator_space",
+            "to": "entry_functional-analysis_condensation",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "from": "entry_functional-analysis_baire_theorem",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "point": [
+            586,
+            218
+          ]
+        },
+        {
+          "left": {
+            "from": "entry_functional-analysis_operator_space",
+            "to": "entry_functional-analysis_condensation",
+            "label": "",
+            "collectionIndex": 2,
+            "artifactIndex": 3
+          },
+          "right": {
+            "from": "entry_functional-analysis_banach-steinhaus",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            586,
+            195
+          ]
+        },
+        {
+          "left": {
+            "from": "entry_functional-analysis_condensation",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 4,
+            "artifactIndex": 5
+          },
+          "right": {
+            "from": "entry_functional-analysis_banach-steinhaus",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 6,
+            "artifactIndex": 7
+          },
+          "point": [
+            1001,
+            195
+          ],
+          "sharedNode": "entry_functional-analysis_condensation_divergence"
+        }
+      ],
+      "detours": [
+        {
+          "relationship": {
+            "from": "entry_functional-analysis_baire_theorem",
+            "to": "entry_functional-analysis_condensation",
+            "label": "",
+            "collectionIndex": 1,
+            "artifactIndex": 2
+          },
+          "bends": 4,
+          "stretch": 1.182,
+          "directCorridorBlockers": [
+            {
+              "id": "entry_functional-analysis_banach-steinhaus",
+              "label": "一致有界原理",
+              "box": [
+                310,
+                50,
+                210,
+                90
+              ]
+            }
+          ]
+        },
+        {
+          "relationship": {
+            "from": "entry_functional-analysis_banach-steinhaus",
+            "to": "entry_functional-analysis_condensation",
+            "label": "",
+            "collectionIndex": 3,
+            "artifactIndex": 4
+          },
+          "bends": 4,
+          "stretch": 1.33
+        },
+        {
+          "relationship": {
+            "from": "entry_functional-analysis_baire_theorem",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 5,
+            "artifactIndex": 6
+          },
+          "bends": 4,
+          "stretch": 1
+        },
+        {
+          "relationship": {
+            "from": "entry_functional-analysis_operator_space",
+            "to": "entry_functional-analysis_condensation_divergence",
+            "label": "",
+            "collectionIndex": 7,
+            "artifactIndex": 8
+          },
+          "bends": 4,
+          "stretch": 1.079
+        }
+      ],
+      "truncated": false
+    },
+    "hints": [
+      "entry_functional-analysis_baire_theorem → entry_functional-analysis_banach-steinhaus and entry_functional-analysis_baire_theorem → entry_functional-analysis_condensation cross next to entry_functional-analysis_baire_theorem: move node entry_functional-analysis_banach-steinhaus or entry_functional-analysis_condensation so the two reach entry_functional-analysis_baire_theorem from different sides (for example one level with it, one directly above or below it).",
+      "entry_functional-analysis_operator_space → entry_functional-analysis_condensation crosses entry_functional-analysis_baire_theorem → entry_functional-analysis_condensation_divergence: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "entry_functional-analysis_operator_space → entry_functional-analysis_condensation crosses entry_functional-analysis_banach-steinhaus → entry_functional-analysis_condensation_divergence: move the node of whichever is a branch, return, or second entrance to the other side of the main path, so that relationship runs through an empty corridor.",
+      "entry_functional-analysis_condensation → entry_functional-analysis_condensation_divergence and entry_functional-analysis_banach-steinhaus → entry_functional-analysis_condensation_divergence cross next to entry_functional-analysis_condensation_divergence: move node entry_functional-analysis_condensation or entry_functional-analysis_banach-steinhaus so the two reach entry_functional-analysis_condensation_divergence from different sides (for example one level with it, one directly above or below it).",
+      "entry_functional-analysis_banach-steinhaus → entry_functional-analysis_condensation needs 4 bends: move node entry_functional-analysis_banach-steinhaus or entry_functional-analysis_condensation so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "entry_functional-analysis_baire_theorem → entry_functional-analysis_condensation_divergence needs 4 bends: move node entry_functional-analysis_baire_theorem or entry_functional-analysis_condensation_divergence so they share a row or column with matching centers, or sit diagonally with a clear corner.",
+      "entry_functional-analysis_operator_space → entry_functional-analysis_condensation_divergence needs 4 bends: move node entry_functional-analysis_operator_space or entry_functional-analysis_condensation_divergence so they share a row or column with matching centers, or sit diagonally with a clear corner."
+    ],
+    "repair": "Trace these relationships at the desktop viewport. For Architecture, use references/architecture-layout-repair.md: reflow a blocked main path or tangled connected scene, and repair an isolated defect locally only when the surrounding composition is accepted. Preserve all semantic content and user-fixed geometry. Rerun finalize once after the edit."
+  }
+}

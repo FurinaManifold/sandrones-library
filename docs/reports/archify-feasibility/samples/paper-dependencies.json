@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "diagram_type": "architecture",
+  "meta": {
+    "title": "Banach–Steinhaus 1927：论文与已有库的关系",
+    "locale": "zh-CN",
+    "output": "paper-dependencies.html",
+    "repository": {
+      "url": "https://github.com/FurinaManifold/sandrones-library.git",
+      "revision": "27f33e9f1720c114c03f0f72bb099f62266c1639",
+      "link_mode": "local-only"
+    },
+    "legend": {
+      "mode": "hidden"
+    },
+    "translations": {
+      "viewer.kind.backend": "定理／数学接口"
+    }
+  },
+  "components": [
+    {
+      "id": "entry_functional-analysis_baire_theorem",
+      "type": "backend",
+      "icon": "none",
+      "label": "Baire 范畴定理",
+      "sublabel": "可数稠密开集的交仍稠密",
+      "tag": "Main 已登记",
+      "pos": [
+        40,
+        50
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "sources": [
+        {
+          "path": "SandronesLibrary/FunctionalAnalysis/Baire.lean",
+          "label": "Lean 定义与证明"
+        },
+        {
+          "path": "docs/entries/functional-analysis/baire/theorem.md",
+          "label": "自然语言与接口对照"
+        }
+      ]
+    },
+    {
+      "id": "entry_functional-analysis_banach-steinhaus",
+      "type": "backend",
+      "icon": "none",
+      "label": "一致有界原理",
+      "sublabel": "点态有界 → 范数一致有界",
+      "tag": "Main 已登记",
+      "pos": [
+        310,
+        50
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "sources": [
+        {
+          "path": "SandronesLibrary/FunctionalAnalysis/BanachSteinhaus.lean",
+          "label": "Lean 定义与证明"
+        },
+        {
+          "path": "docs/entries/functional-analysis/banach-steinhaus.md",
+          "label": "自然语言与接口对照"
+        }
+      ]
+    },
+    {
+      "id": "entry_functional-analysis_operator_space",
+      "type": "backend",
+      "icon": "none",
+      "label": "连续线性算子空间",
+      "sublabel": "连续线性映射与算子范数",
+      "tag": "Main 已登记",
+      "pos": [
+        310,
+        250
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "sources": [
+        {
+          "path": "SandronesLibrary/FunctionalAnalysis/OperatorSpace.lean",
+          "label": "Lean 定义与证明"
+        },
+        {
+          "path": "docs/entries/functional-analysis/operator/space.md",
+          "label": "自然语言与接口对照"
+        }
+      ]
+    },
+    {
+      "id": "entry_functional-analysis_condensation",
+      "type": "backend",
+      "icon": "none",
+      "label": "奇点凝聚 I（待集成）",
+      "sublabel": "逐行无界 → 公共无界点",
+      "tag": "待 Main 集成",
+      "pos": [
+        610,
+        50
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "sources": [
+        {
+          "path": "SandronesLibrary/FunctionalAnalysis/Condensation.lean",
+          "label": "Lean 定义与证明"
+        },
+        {
+          "path": "docs/entries/functional-analysis/condensation.md",
+          "label": "自然语言与接口对照"
+        }
+      ]
+    },
+    {
+      "id": "entry_functional-analysis_condensation_divergence",
+      "type": "backend",
+      "icon": "none",
+      "label": "同时发散 II（待集成）",
+      "sublabel": "逐行非 Cauchy → 公共点",
+      "tag": "待 Main 集成",
+      "pos": [
+        910,
+        250
+      ],
+      "size": [
+        210,
+        90
+      ],
+      "sources": [
+        {
+          "path": "SandronesLibrary/FunctionalAnalysis/CondensationDivergence.lean",
+          "label": "Lean 定义与证明"
+        },
+        {
+          "path": "docs/entries/functional-analysis/condensation/divergence.md",
+          "label": "自然语言与接口对照"
+        }
+      ]
+    }
+  ],
+  "connections": [
+    {
+      "from": "entry_functional-analysis_baire_theorem",
+      "to": "entry_functional-analysis_banach-steinhaus"
+    },
+    {
+      "from": "entry_functional-analysis_baire_theorem",
+      "to": "entry_functional-analysis_condensation"
+    },
+    {
+      "from": "entry_functional-analysis_operator_space",
+      "to": "entry_functional-analysis_condensation"
+    },
+    {
+      "from": "entry_functional-analysis_banach-steinhaus",
+      "to": "entry_functional-analysis_condensation"
+    },
+    {
+      "from": "entry_functional-analysis_condensation",
+      "to": "entry_functional-analysis_condensation_divergence"
+    },
+    {
+      "from": "entry_functional-analysis_baire_theorem",
+      "to": "entry_functional-analysis_condensation_divergence"
+    },
+    {
+      "from": "entry_functional-analysis_banach-steinhaus",
+      "to": "entry_functional-analysis_condensation_divergence"
+    },
+    {
+      "from": "entry_functional-analysis_operator_space",
+      "to": "entry_functional-analysis_condensation_divergence"
+    }
+  ],
+  "cards": [
+    {
+      "dot": "emerald",
+      "title": "箭头：前置 Entry → 使用者",
+      "items": [
+        "从 Registry 和本篇论文的 registry-proposal 自动提取声明依赖。",
+        "本图保留这五个 Entry 之间的全部八条边；下层依赖未展开。",
+        "Main 的三个已有条目与两个 staging 论文条目分别标明状态。"
+      ]
+    },
+    {
+      "dot": "cyan",
+      "title": "同一著名名称下的不同数学接口",
+      "items": [
+        "一致有界原理：点态有界 → 算子范数一致有界。",
+        "定理 I：∀ p, ∃ z, 输出无界 → ∃ x, ∀ p, 每个尾段超过任意阈值。",
+        "定理 II 的非 Cauchy 版本只要求定义域完备；不收敛版本还要求每行值域完备。",
+        "完整前提、量词和 Lean 声明通过节点的源码与教材证据入口核对。"
+      ]
+    }
+  ]
+}

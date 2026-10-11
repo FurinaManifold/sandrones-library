@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "receiptId": "0707101e-da90-4865-b407-54187ba0bf6e",
+  "status": "current",
+  "command": "deliver",
+  "type": "architecture",
+  "input": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-dependencies.json",
+  "output": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-dependencies.html",
+  "specification": {
+    "sha256": "11ef10056bbd8a6e1913a19e9d80d388083670171df82da755c96962c276c222",
+    "bytes": 5789
+  },
+  "artifact": {
+    "sha256": "fb57a03f69af64afcce69d8a4ad1cb4aa9c035e298c3fcb9b8379e3b0472c34d",
+    "bytes": 754090
+  }
+}

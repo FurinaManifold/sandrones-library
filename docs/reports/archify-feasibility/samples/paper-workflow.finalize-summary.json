@@ -1,0 +1,48 @@
+{
+  "schemaVersion": 1,
+  "ok": true,
+  "command": "finalize",
+  "status": "pass",
+  "type": "workflow",
+  "quality": "showcase",
+  "specification": {
+    "path": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.json",
+    "sha256": "5ad9afbc960a8b25c6bd133d20989bb8116da385d1080cac04dcf7029046af3d",
+    "bytes": 5854
+  },
+  "artifact": {
+    "path": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.html",
+    "sha256": "6bd56218308eb360036bfaf822bd80dfc01eaae15b95cff16c528374375d1284",
+    "bytes": 755895
+  },
+  "gates": {
+    "validate": "pass",
+    "deliver": "pass",
+    "check": "pass",
+    "browser-check": "pass"
+  },
+  "diagnostics": [],
+  "diagnosticSummary": {
+    "total": 0,
+    "shown": 0,
+    "truncated": false
+  },
+  "evidence": {
+    "receipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.finalize.json",
+    "summaryReceipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.finalize-summary.json",
+    "browserCheckReceipt": "/home/pisquare/czt/sandrones-library-archify/docs/reports/archify-feasibility/samples/paper-workflow.browser-check.json"
+  },
+  "update": {
+    "status": "unavailable",
+    "installedVersion": null,
+    "availableVersion": null,
+    "releaseNotes": null,
+    "checkedAt": null,
+    "source": null,
+    "noticeRequired": false,
+    "noticeText": null,
+    "reason": "disabled"
+  },
+  "visualReview": "not-requested",
+  "durationMs": 1564
+}

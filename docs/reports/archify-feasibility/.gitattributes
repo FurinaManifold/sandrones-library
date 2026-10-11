@@ -1,0 +1,4 @@
+# Keep upstream export bytes intact so Archify delivery receipts remain valid.
+# Only generated HTML/SVG retain exporter whitespace; authored files use normal checks.
+samples/*.html whitespace=-blank-at-eol linguist-generated=true
+samples/*.svg whitespace=-blank-at-eol linguist-generated=true

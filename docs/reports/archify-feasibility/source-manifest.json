@@ -1,0 +1,15 @@
+{
+  "project_registry_entries": 565,
+  "project_registry_direct_edges": 694,
+  "registry_states": [
+    "verified"
+  ],
+  "project_branch": "main",
+  "project_revision": "b2cd090c9208283ccd3c2f3740bcece3e3f0d6ea",
+  "paper_branch": "codex/functional-analysis-paper-condensation",
+  "paper_revision": "27f33e9f1720c114c03f0f72bb099f62266c1639",
+  "archify_repository": "https://github.com/tt-a1i/archify",
+  "archify_revision": "58ab0b98d2d0def8e49dced705c7b566936723ec",
+  "archify_package_version": "3.0.1",
+  "evaluation_date": "2026-10-11"
+}

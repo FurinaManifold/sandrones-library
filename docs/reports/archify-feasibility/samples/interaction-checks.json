@@ -1,0 +1,45 @@
+{
+  "viewport": [
+    1440,
+    1050
+  ],
+  "device_scale_factor": 1,
+  "runs": [
+    {
+      "artifact": "paper-dependencies.html",
+      "nodes": 5,
+      "semantic_edges": 8,
+      "search_奇点凝聚": 1,
+      "search_Condensation.lean": 1,
+      "interface_status": "待 Main 集成",
+      "upstream": {
+        "direction": "upstream",
+        "originId": "entry_functional-analysis_condensation",
+        "nodeIds": [
+          "entry_functional-analysis_condensation",
+          "entry_functional-analysis_baire_theorem",
+          "entry_functional-analysis_operator_space",
+          "entry_functional-analysis_banach-steinhaus"
+        ],
+        "edgeKeys": [
+          "0",
+          "1",
+          "2",
+          "3"
+        ],
+        "maxDepth": 1
+      },
+      "http_requests": [],
+      "page_errors": [],
+      "svg_bytes": 145445
+    },
+    {
+      "artifact": "paper-workflow.html",
+      "nodes": 9,
+      "semantic_edges": 9,
+      "http_requests": [],
+      "page_errors": [],
+      "svg_bytes": 147878
+    }
+  ]
+}
