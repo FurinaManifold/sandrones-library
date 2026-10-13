@@ -1,0 +1,80 @@
+{
+  "schema": "sandrones-release-receipt/1",
+  "checked_at": "2026-10-13T07:24:34Z",
+  "branch": "main",
+  "head": "3595fd8bb2eed1c8fe1d0a833406a0750a0b7553",
+  "candidate_dirty_before": false,
+  "packages": [
+    {
+      "subject": "real-analysis-wave-r1",
+      "head": "76b0238764cec868e6206b6d1bbb9c23020728a8",
+      "verdict": "pass",
+      "unmerged": 0
+    }
+  ],
+  "steps": [
+    {
+      "step": "extract_registry_references",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "文献引用验证通过：Registry 共 603 条，未生成 @misc。"
+    },
+    {
+      "step": "update_dependency_graph",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "依赖图已重建：745 条直接边，更新 0 个反向缓存。"
+    },
+    {
+      "step": "gen_entries_index",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "已生成 docs/entries/README.md（603 条目）"
+    },
+    {
+      "step": "gen_entry_rankings",
+      "exit": 0,
+      "seconds": 12.0,
+      "tail": "已生成 index/rankings.json 和 docs/entries/RANKINGS.md；参排 601 条。"
+    },
+    {
+      "step": "lake_build",
+      "exit": 0,
+      "seconds": 2.5,
+      "tail": "  omit [NormedLinearSpace ℝ E] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nBuild completed successfully (9064 jobs)."
+    },
+    {
+      "step": "check_axioms_fix",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 603 条目增量跳过（603 条）。--full 强制全量。"
+    },
+    {
+      "step": "check_axioms",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 603 条目增量跳过（603 条）。--full 强制全量。"
+    },
+    {
+      "step": "audit",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "审计通过：603 个条目 OK"
+    },
+    {
+      "step": "diff_check",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": ""
+    },
+    {
+      "step": "lake_build_final",
+      "exit": 0,
+      "seconds": 2.4,
+      "tail": "  omit [NormedLinearSpace ℝ E] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nBuild completed successfully (9064 jobs)."
+    }
+  ],
+  "derived_state_files": [],
+  "exceptions": [],
+  "verdict": "pass"
+}
