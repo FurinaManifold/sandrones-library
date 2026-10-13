@@ -17,5 +17,10 @@ Examples 负责人持续巡视各学科的重要教材知识点。每个重要�
 - `SphericalMoments.lean`：均匀球体的重心与转动惯量；
 - `GreenRegions.lean`：三角形、圆盘等具体区域上的 Green 公式。
 - `GaussStokes.lean`：单位立方体上的 Gauss 公式与水平单位正方形上的 Stokes 公式。
+- `MeasureDerivative.lean`：RA-F2 测度导数具体例（Entry `examples.real-analysis.measure-derivative`）。
+- `CentralLimit.lean`：一般 CLT 的正态坐标乘积空间实例（Entry `examples.probability.clt`）。
+- `TopologySpaces.lean`：内部／闭包／边界的实直线计算例（Entry `examples.topology.spaces`）。
 
-上述既有模块目前是待转正资产：能够编译不等于已经完成 Examples Entry、课程文档与覆盖映射。
+上述 `CoordinateIntegrals`／`SphericalMoments`／`GreenRegions`／`GaussStokes` 目前仍是待转正
+资产：能够编译不等于已经完成 Examples Entry、课程文档与覆盖映射（见 `docs/ROADMAP-examples.md`
+E0.2–E0.4）。
