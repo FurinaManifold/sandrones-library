@@ -204,7 +204,49 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|
 | D2 | `d914d30`（3 文件：模块 + Entry 草稿 + handoff） | `accepted`（`docs/reviews/functional-analysis-f66b1-resolvent-integrand-main-review.md`） | `7daa627` | ✅ 已进入 Main（Registry 571 条、全库 9056 jobs） |
 | D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | `79fd7c2` | ✅ 已进入 Main（Registry 575 条、全库 9060 jobs） |
-| D1 | 现场交付 `docs/handoffs/complex-analysis-cycle-foundation.md`（`research_open`：只交冻结提案与 `/tmp` 原型，不交正式源码） | 待审 | — | ⏳ 进行中；Main 已就冻结问题给出临时裁决（绕数值域 ℂ 而非 ℤ、三文件三 id 且 id 不得跨文件、保留旧 `pathIntegral` 并新增泛化、量词排除 `trace`），正式冻结待原型齐备 |
+| D1 | 现场交付 `docs/handoffs/complex-analysis-cycle-foundation.md`（219 行；`research_open`：只交冻结提案与 `/tmp` 原型，不交正式源码） | **未裁决完成**：主设计问题已给倾向性裁决（见 D-1b），正式签名冻结待 §6 原型核验 | — | ⏳ 进行中；截至本轮负责人**尚未提交**（handoff 仍是 untracked），§5／§6 仍为占位。Main 已书面要求其先落盘再补原型 |
+
+**D-1b D1 的 Main 倾向性裁决（2026-10-13，**尚未构成正式签名冻结**）**
+
+D1 是 `research_open` 窗口，出口是"签名冻结提案 + 无占位 `/tmp` 原型 + D2 接口契约"，**不产生可
+集成交付**。Main 对其 §9 提出的九个开放问题裁决如下；这些是方向决定，只有在 D1 把 §6 原型与
+`#check` 记录内联进 handoff、Main 核验过编译器输出后，才能写成正式冻结并把权限转为
+`development_open`。**不得把本节读成"签名已冻结"。**
+
+| # | 决策项 | Main 裁决 | 依据 |
+|---|---|---|---|
+| 1 | cycle carrier 表示 | 用 `Cycle := ClosedPath →₀ ℤ`，`ClosedPath := Σ a : ℂ, Path a a` | 本版 Mathlib 把 `Finsupp.support` 存为结构字段，故无需 `DecidableEq`；而 `Path a a` 没有 `DecidableEq`，这决定了备选 `structure` 方案更差 |
+| 2 | 绕数值域 | **ℂ**，不是 ℤ。整值性 `n(γ,w) ∈ ℤ` 单列为未证明的桥位 | 若公开签名定成 ℤ 就比 Lean 结论强；D1 未证整值性 |
+| 3 | 归一化符号 | `(2 * π * I)⁻¹ * ∫` | 数值等价，少一次除法归约 |
+| 4 | "集合外绕数为零"量词 | **采用教材"cycle 在 U 内"约定**，并把 `Cycle.SupportedIn γ U` **合取进谓词**：`IsNullHomologousIn γ U := SupportedIn γ U ∧ ∀ w, w ∉ U → windingNumber γ w = 0` | D1 用反例证明旧 trace 排除量词**对加法不封闭**（见下）；合取项同时消除 `w ∈ trace γ` 处 `windingNumber` 取 junk 值的隐患，且加法仍无条件成立（`trace_add_subset` + `windingNumber_add`） |
+| 5 | 既有 `pathIntegral` 的处理 | **保留旧 API**，新增 `banachPathIntegral` 并给出 `F = ℂ` 对照定理 | AGENTS §10 的 M1 级（新增教材定义或桥，旧 API 保留）；M2 迁移须先做影响审计，本批不做 |
+| 6 | Entry 切分 | **3 个文件 3 个 id**：`complex-analysis.integral.{banach-path-foundation, finite-cycle-foundation, winding-number-foundation}` | 一个 Entry 一个文件；D1 自己指出若只给一个 id 则三文件必须合并——该判断正确，按此执行 |
+| 7 | 谓词 vs 结构字段 | `Cycle.PiecewiseC1`／`SupportedIn`／`Integrable` 作独立谓词 | 便于与既有 `Path.PiecewiseC1`／`PathIntegrable` 组合 |
+| 8 | `Cycle.trace` 是否排除端点 | 只取像的并，不额外排除端点 | D1 方案 |
+
+**裁决 4 的修正史（必须保留）**：Main 最初裁决"保留 trace 排除项"。D1 以反例驳回：取闭路 `c`、
+点 `w ∈ range c`、以 `w` 为圆心的小圆 `c'`，令 `γ := single c 1 + single c' 1`、`δ := single c (-1)`，
+则 `γ + δ = single c' 1`，`trace (γ+δ)` 不含 `w` 而 `windingNumber (γ+δ) w = 1 ≠ 0`；同时两个前提
+在 `w` 处都因 `w ∈ trace c` 而空真。**反例成立**（Main 已独立复核）：失败点正是
+`trace (γ+δ) ⊆ trace γ ∪ trace δ` 的反向包含被对消破坏。旧量词不只是"更弱"，而是坏在没有结构
+性质上——加法定理要带 `htr : γ.trace ∪ δ.trace ⊆ (γ+δ).trace`，在实际使用中几乎无法自然满足。
+因此 Main **撤回**原裁决并改为上表第 4 项。**无论哪种量词，本批都未证明它与教材"同调"定义的完全
+等价**，该诚实边界保留。
+
+**D1 的其余已确认结论**（Main 已独立复核其中一部分）：
+
+- Mathlib v4.33.0 **没有** `Complex.windingNumber`（整树 `grep -rin winding` 零命中），也**没有**
+  复分析 `residue`；整值性与残数定理仍是 `research_open`。
+- `curveIntegral` 对余域 `F` 已泛化（`curveIntegral (ω : E → E →L[𝕜] F) (γ : Path a b) : F`），
+  可作为 Banach 值路径积分的**语义一致 Mathlib 正式承载**；公共 carrier 归复分析，D2 只消费。
+- Round 4 R3 的 `inductive` 审计盲区已关闭：D1 与 Main 各自独立跑 `map_entry_to_decl` 得到同一
+  结论（Main 侧记录见 `docs/reviews/complex-analysis-c2-c3-next-main-review.md` 的 Round 6）。
+- D1 列出的**仍存在**的审计器盲区（`instance`／`notation`／`class abbrev`／`deriving`／`where`
+  辅助声明、跨行 attribute）接受为 Main-side 集成门，本批原型未引入这些形态。
+
+**D1 未完成边界（不得当成已交付）**：§5 概念六列表与 §6 无占位原型尚未内联；负责人未提交任何
+commit；与该量词相关的教材"同调"完全等价未证明。
+
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
 `0b2ae8c` 无唯一净增量——前者净新增仅为已被取代的 `docs/ROADMAP-math-analysis.md` 与
@@ -885,7 +927,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 10 | `complex-analysis.cauchy.smooth-homotopy-foundation` | 给定 C² 相对端点同伦时路径积分不变 ✅（foundation） | `ContinuousMap.Homotopy`、`ContDiffOn` |
 | 11 | `complex-analysis.cauchy.primitive-from-path-independence-foundation` | 由 admissible 道路积分无关构造原函数 ✅（foundation） | `HasDerivAt`、短线段积分 |
 | 12 | `complex-analysis.cauchy.admissible-path-connectivity-foundation` | 开连通域内从基点到各点存在有限分段正则道路 ✅（foundation） | `IsPreconnected`、`Path.trans` |
-| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（`research_open`） | finite formal sums、winding、Bochner path integral |
+| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（`research_open`；Main 倾向性冻结裁决见 §Wave D 的 D-1b，**尚未正式冻结**） | finite formal sums、winding、Bochner path integral |
 
 ### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 
