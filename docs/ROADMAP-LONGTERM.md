@@ -582,7 +582,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-topology | 拓扑学 | T4🚧 | `Topology/`、`docs/entries/topology/` |
 | R-real | 实分析 | RA-F2–RA-F6🚧 | `RealAnalysis/`、`docs/entries/real-analysis/` |
 | R-complex | 复分析 | C2🚧（C3⏸） | `ComplexAnalysis/`、`docs/entries/complex-analysis/` |
-| R-functional | 泛函分析 | F6🚧（F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
+| R-functional | 泛函分析 | F6🚧（F6.7 ✅ 已集成；F6.6b2 仍 research_open；F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
 | R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
 | R-statistics | 统计推断 | S1🚧（S1 第 7 条 ✅ 已集成；S2🔒） | `Statistics/`、`docs/entries/statistics/` |
 | R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
@@ -1275,7 +1275,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词、交集见证与代数正例 ✅ | spectrum neighborhood、DifferentiableOn |
 | 6b1 | `functional-analysis.functional-calculus.resolvent-integrand` | 预解恒等式、预解函数全纯性与 Dunford 被积函数 ✅ | `resolvent`、`resolventSet`、Banach-valued differentiability；不引入 cycle |
 | 6b2 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
-| 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
+| 7 | `functional-analysis.operator.selfadjoint-positive-normal` | ✅ 有界自伴、正、酉与正规算子的关系（Wave R1；`正 ⟹ 自伴 ⟹ 正规`、`酉 ⟹ 正规`、幂等自伴 ⟺ 正规）。**边界**：未触及正规算子谱定理、连续函数演算与谱测度 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |
 | 9 | `functional-analysis.spectral-measure.bounded` | 投影值测度、循环向量与有界正规算子谱定理 | spectral measure/integral API |
 | 10 | `functional-analysis.gelfand-spectrum.entry` | 交换 Banach 代数极大理想空间与 Gelfand 变换入口 | character/Gelfand spectrum API |

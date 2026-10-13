@@ -13689,7 +13689,8 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "functional-analysis.hilbert.compact-selfadjoint-spectral",
-      "functional-analysis.hilbert.unitary"
+      "functional-analysis.hilbert.unitary",
+      "functional-analysis.operator.selfadjoint-positive-normal"
     ],
     "family": "functional-analysis.hilbert",
     "variant": "salamon",
@@ -13757,7 +13758,9 @@
     "nl_file": "docs/entries/functional-analysis/hilbert/unitary.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.operator.selfadjoint-positive-normal"
+    ],
     "family": "functional-analysis.hilbert",
     "variant": "salamon",
     "axioms": [
@@ -20606,6 +20609,49 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T09:00:59Z",
     "proof_sha": "d141ffb2a07e6498",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "functional-analysis.operator.selfadjoint-positive-normal",
+    "kind": "theorem",
+    "title": "有界自伴、正、正规与酉算子的关系",
+    "summary": "在完备内积空间上以 Mathlib 的 IsSelfAdjoint、ContinuousLinearMap.IsPositive、IsStarNormal 与 unitary 子群为正式承载，证明「正 ⟹ 自伴 ⟹ 正规」「酉 ⟹ 正规」以及幂等算子自伴当且仅当正规的关系链与各项展开刻画；未触及谱定理与函数演算",
+    "family": "functional-analysis.operator",
+    "variant": "selfadjoint-positive-normal",
+    "premises": [
+      "functional-analysis.hilbert.adjoint",
+      "functional-analysis.hilbert.unitary"
+    ],
+    "mathlib": [
+      "IsSelfAdjoint",
+      "ContinuousLinearMap.IsPositive",
+      "IsStarNormal",
+      "unitary",
+      "ContinuousLinearMap.star_eq_adjoint",
+      "ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric",
+      "ContinuousLinearMap.isPositive_iff'",
+      "ContinuousLinearMap.isStarNormal_iff_norm_eq_adjoint",
+      "IsStarNormal.ker_adjoint_eq_ker",
+      "IsStarNormal.orthogonal_range",
+      "isStarNormal_of_mem_unitary",
+      "Unitary.star_eq_inv",
+      "Unitary.linearIsometryEquiv",
+      "IsIdempotentElem.isSelfAdjoint_iff_isStarNormal"
+    ],
+    "lean_file": "FunctionalAnalysis/SelfAdjointPositiveNormal.lean",
+    "nl_file": "docs/entries/functional-analysis/operator/selfadjoint-positive-normal.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "buehler-salamon-functional-analysis-2018"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:03:43Z",
+    "proof_sha": "1801d1cb33e658c7",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

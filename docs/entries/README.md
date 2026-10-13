@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **617** 个条目（verified 617，pending 0）。
+共 **618** 个条目（verified 618，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -424,6 +424,7 @@
 
 - ✅ [`bounded-iff.md`](functional-analysis/operator/bounded-iff.md) — 线性算子有界与连续等价
 - ✅ [`continuous-linear-map.md`](functional-analysis/operator/continuous-linear-map.md) — 连续线性算子
+- ✅ [`selfadjoint-positive-normal.md`](functional-analysis/operator/selfadjoint-positive-normal.md) — 有界自伴、正、正规与酉算子的关系
 - ✅ [`space.md`](functional-analysis/operator/space.md) — 算子范数与连续线性算子空间
 
 ## `functional-analysis.separable`

@@ -3,7 +3,7 @@ id: functional-analysis.operator.selfadjoint-positive-normal
 family: functional-analysis.operator
 variant: selfadjoint-positive-normal
 kind: theorem
-state: staging
+state: verified
 title: 有界自伴、正、正规与酉算子的关系
 summary: 在完备内积空间上以 Mathlib 的 IsSelfAdjoint、ContinuousLinearMap.IsPositive、IsStarNormal 与 unitary 子群为正式承载，证明“正 ⟹ 自伴 ⟹ 正规”“酉 ⟹ 正规”以及幂等算子自伴当且仅当正规的关系链与各项展开刻画
 premises: [functional-analysis.hilbert.adjoint, functional-analysis.hilbert.unitary]

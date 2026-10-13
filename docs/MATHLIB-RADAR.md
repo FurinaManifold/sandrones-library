@@ -3614,3 +3614,27 @@
   `ν`-a.e. 量词定义；订单与换参数不变性、有限参数显式可测存在性）。**边界**：谓词不含
   `∀θ, Pθ ≪ ν` 支配字段，非支配模型（`ν = 0`）下退化；未证可测选择（任意样本空间的可测 argmax），
   MLE 的相合性／渐近正态性／渐近有效性均未证。
+
+## 泛函分析：自伴／正／正规／酉算子关系（F6.7，Wave R1）
+
+### `IsSelfAdjoint` / `ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric` / `ContinuousLinearMap.star_eq_adjoint`
+- **人话**：有界算子的 `IsSelfAdjoint a` 表示 `a` 等于其伴随；对 Hilbert 空间算子
+  `isSelfAdjoint_iff_isSymmetric` 给出与对称性（实内积）的等价刻画，`star_eq_adjoint` 把抽象
+  `star` 与具体 `adjoint` 对齐。
+- **出处**：Mathlib 的 `Analysis.InnerProductSpace.Adjoint` 与 `star` 接口。
+- **谁在用**：`functional-analysis.operator.selfadjoint-positive-normal`（关系链的正式承载层）。
+
+### `ContinuousLinearMap.IsPositive` / `ContinuousLinearMap.isPositive_iff'`
+- **人话**：`IsPositive a` 表示 `a` 是正算子（`∀ x, 0 ≤ re ⟪a x, x⟫`）；`isPositive_iff'` 给出
+  与该内积条件的等价刻画。
+- **出处**：Mathlib 的 `Analysis.InnerProductSpace.Positive`。
+- **谁在用**：`functional-analysis.operator.selfadjoint-positive-normal`（「正 ⟹ 自伴」）。
+
+### `IsStarNormal` / `IsStarNormal.ker_adjoint_eq_ker` / `IsStarNormal.orthogonal_range` / `isStarNormal_of_mem_unitary`
+- **人话**：`IsStarNormal a` 是正规性（`a * star a = star a * a`）；`isStarNormal_iff_norm_eq_adjoint`
+  给出与范数等式 `‖a x‖ = ‖a⋆ x‖` 的等价，`ker_adjoint_eq_ker` 与 `orthogonal_range` 说明正规
+  算子的核与伴随核一致、值域与核正交；`isStarNormal_of_mem_unitary` 说明酉算子正规。
+- **出处**：Mathlib 的 `Analysis.CStarAlgebra` 正规元接口。
+- **谁在用**：`functional-analysis.operator.selfadjoint-positive-normal`（正规性刻画与
+  「正规 ⟹ 核与伴随核一致」的单向蕴含，反向不成立已在文档注明）。**边界**：正规算子谱定理、
+  连续函数演算（F6.8）、谱测度（F6.9）与 Gelfand 理论（F6.10）均未触及。
