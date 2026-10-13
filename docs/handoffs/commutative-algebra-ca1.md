@@ -160,11 +160,30 @@ python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-libra
     --base 4bfa280 --subject commutative-algebra
 ```
 
-输出（原文抄录，提交后回填）：
+输出（原文抄录，源码/文档/轨迹/handoff 初稿提交 `3c9d096`；本回填提交只改 handoff 文本）：
 
 ```
-（见本文件所在提交之后的回填段落）
+学科验收包 commutative-algebra  (codex/commutative-algebra @ 3c9d09635)
+  基线 4bfa280｜提交 5｜改动文件 7
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 27 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对
+
+  verdict: pass
 ```
+
+`--json` 细节：`exceptions: []`；逐 Entry 声明数 `commutative-algebra.module.definition` = 11，
+`in_registry: false`（待 Main 登记），`lean_files` 只有一个文件；
+`traces: {"status": "present", "records": 27, "invalid": []}`；
+`packs: {"pack_ids": ["commutative-algebra-CA1-commutative-algebra.module.definition",
+"commutative-algebra-CA1-commutative-algebra.module.definition"],
+"referenced_by_traces": ["commutative-algebra-CA1-commutative-algebra.module.definition"],
+"missing_for_referenced": [], "invalid": []}`——注意 `pack_ids` 里同一个 id 出现两次，
+即 §13 第 1/2 条的 pack_id 粒度问题在验收包里可见（机械门不报错，但 join key 不再唯一）。
 
 ## 9. 子 Agent 所有权与退回
 
