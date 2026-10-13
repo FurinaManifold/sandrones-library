@@ -40,7 +40,7 @@ END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
 # `instance` 必须在内：命名实例（如 `instance quotientRingSetAdd : Add ...`）是很多条目的
 # **核心载体**，只审计同一文件里后面的定理会把"核心定义未被审计"这件事藏起来——这正是
 # `AdmissiblePath`（`inductive`）那次返工的同一类故障。匿名实例（`instance : Foo := ...`）
-# 没有可从源码稳定引用的名字，这里**故意不匹配**，其盲区由 report_anonymous_instances 显式报出，
+# 没有可从源码稳定引用的名字，这里**故意不匹配**，其盲区由 report_blindspots 显式报出，
 # 不静默跳过。
 DECL_RE = re.compile(
     r"^(?:(?:@\[[^\]]+\])\s+)*"
