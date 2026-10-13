@@ -41,7 +41,7 @@ universal cover（冻结的 C5f–C5g）。
 | 1 | `030605b` | `docs(topology): AT2-C5e construction-recovery RFC (research_open)` |
 | 2 | `01c7675` | `docs(topology): Wave R1 handoff for AT2-C5e research window` |
 
-（记录本 handoff 现场输出的提交为 HEAD，其自身哈希见 §4 的 `git log`。）
+（记录本 handoff 现场输出与 Main 基线变化的后续文档提交为 HEAD，其自身哈希见 §4 的 `git log`。）
 
 本窗不修改任何 Main 共享文件，也不修改 `SandronesLibrary/Topology/`、`docs/entries/topology/`。
 
@@ -286,3 +286,16 @@ end SandronesLibrary.Topology
 - **不可依赖（尚未冻结）**：`initSegMap` 的连续性、`pathConnectedSpace_coveringSubgroupPathClass`、
   `subgroupPointedCovering`、`recoveredSubgroup_subgroupPointedCovering`——它们仍是 `sorry`
   占位，下一窗须重证或沿用前先重新编译。
+
+## 10. Main 基线变化（本窗期间）
+
+- 本窗按 Wave R1 指令以 `49acfa0` 为基线开工。
+- 交付前现场核对发现 Main 主工作树已前进到 `42b8784 docs(main): disk-driven window concurrency
+  (>=5G floor) after space was freed`（仅改 `docs/ROADMAP-LONGTERM.md` 的 Wave R 资源纪律：
+  并发窗口数改由磁盘决定，硬门从 3G 改为 ≥ 5G）。**未改动任何学科权限**：拓扑 AT2-C5e
+  仍为 `research_open`。
+- 本窗**不 rebase** 到 `42b8784`：本交付是 `research_open` 只读研究包，
+  且父窗口/ROLE 指定 `subject_package.py --base 49acfa0`；rebase 会把 Main 共享文件
+  `docs/ROADMAP-LONGTERM.md` 带入本分支 diff，反而违反学科所有权。下一窗（无论返工或转
+  `development_open`）开工前必须按 AGENTS §9 同步最新 Main，并在新 handoff 记录所同步的
+  Main commit 与方式。
