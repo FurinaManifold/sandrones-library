@@ -26,6 +26,10 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set Filter
 open scoped _root_.Topology
 
+/-- Rudin 9.32 常秩定理所用的欧氏空间记号。
+
+> **Entry**: analysis.multivariable.constant-rank-theorem
+-/
 abbrev Euc (n : ℕ) := EuclideanSpace ℝ (Fin n)
 
 variable {n m r : ℕ}

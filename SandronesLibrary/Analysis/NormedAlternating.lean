@@ -22,7 +22,10 @@ namespace SandronesLibrary.Analysis.NormedAlternating
 
 universe u
 
-/-- 连续交替映射空间的规范范数模型。底层数据与原类型完全相同。 -/
+/-- 连续交替映射空间的规范范数模型。底层数据与原类型完全相同。
+
+> **Entry**: analysis.multivariable.normed-alternating
+-/
 def NormalizedAlternatingSpace (E : Type u)
     [NormedAddCommGroup E] [NormedSpace ℝ E] (k : ℕ) :=
   E [⋀^Fin k]→L[ℝ] ℝ

@@ -15,7 +15,10 @@ import Mathlib
 
 namespace SandronesLibrary.Analysis.Complex
 
-/-- 由实部 `x` 与虚部 `y` 构成复数 `x + yi`。 -/
+/-- 由实部 `x` 与虚部 `y` 构成复数 `x + yi`。
+
+> **Entry**: analysis.complex.definition
+-/
 def mk (x y : ℝ) : ℂ := ⟨x, y⟩
 
 /-- 两个复数相等当且仅当实部、虚部分别相等。 -/

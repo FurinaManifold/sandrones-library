@@ -17,7 +17,10 @@ namespace SandronesLibrary.Analysis.Complex
 
 open Polynomial
 
-/-- 代数学基本定理：每个非常数复系数多项式至少有一个复根。 -/
+/-- 代数学基本定理：每个非常数复系数多项式至少有一个复根。
+
+> **Entry**: analysis.complex.fundamental-theorem-algebra
+-/
 theorem fundamental_theorem_of_algebra {p : ℂ[X]} (hp : 0 < p.degree) :
     ∃ z : ℂ, p.eval z = 0 := by
   obtain ⟨z, hz⟩ := _root_.Complex.exists_root hp

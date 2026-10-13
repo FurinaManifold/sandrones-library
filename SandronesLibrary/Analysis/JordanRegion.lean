@@ -23,7 +23,10 @@ open scoped ENNReal
 
 abbrev JordanEuc (n : ℕ) := Fin n → ℝ
 
-/-- 教材中的 Jordan 可测有界区域：区域有界且边界的 `n` 维体积为零。 -/
+/-- 教材中的 Jordan 可测有界区域：区域有界且边界的 `n` 维体积为零。
+
+> **Entry**: analysis.multivariable.jordan-region
+-/
 def IsJordanMeasurable {n : ℕ} (s : Set (JordanEuc n)) : Prop :=
   Bornology.IsBounded s ∧ volume (frontier s) = 0
 

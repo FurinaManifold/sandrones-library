@@ -22,7 +22,10 @@ namespace SandronesLibrary.Analysis.Multivariable
 
 open Set MeasureTheory Real
 
-/-- 教材中的二维极坐标映射 `(r,θ) ↦ (r cos θ,r sin θ)`。 -/
+/-- 教材中的二维极坐标映射 `(r,θ) ↦ (r cos θ,r sin θ)`。
+
+> **Entry**: analysis.multivariable.coordinate-integrals
+-/
 def polarMap (p : ℝ × ℝ) : ℝ × ℝ :=
   (p.1 * cos p.2, p.1 * sin p.2)
 

@@ -24,7 +24,10 @@ open Set MeasureTheory
 open BoxIntegral
 open SandronesLibrary.RealAnalysis.Riemann
 
-/-- `x`-型正常区域：`a ≤ x ≤ b` 且 `lower x ≤ y ≤ upper x`。 -/
+/-- `x`-型正常区域：`a ≤ x ≤ b` 且 `lower x ≤ y ≤ upper x`。
+
+> **Entry**: analysis.multivariable.normal-domain
+-/
 def xNormalDomain (a b : ℝ) (lower upper : ℝ → ℝ) : Set (ℝ × ℝ) :=
   {p | p.1 ∈ Icc a b ∧ p.2 ∈ Icc (lower p.1) (upper p.1)}
 

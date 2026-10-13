@@ -22,7 +22,10 @@ namespace SandronesLibrary.Analysis.Multivariable
 open Set MeasureTheory
 open scoped Interval
 
-/-- 闭矩形 `[a,b] × [c,d]`。 -/
+/-- 闭矩形 `[a,b] × [c,d]`。
+
+> **Entry**: analysis.multivariable.rectangle-integral
+-/
 def closedRectangle (a b c d : ℝ) : Set (ℝ × ℝ) := Icc a b ×ˢ Icc c d
 
 /-- 闭矩形上的二重积分，底层采用两个 Lebesgue 测度的乘积测度。 -/

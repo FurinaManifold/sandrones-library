@@ -25,7 +25,10 @@ open BoxIntegral
 Lebesgue 积分。
 
 这个定理是后续放宽积分区域要求的核心接口；Jordan 边界零测只是产生“几乎处处
-连续”的一种充分条件。 -/
+连续”的一种充分条件。
+
+> **Entry**: analysis.multivariable.jordan-riemann-bridge
+-/
 theorem hasRiemannBoxIntegral_indicator_eq_setIntegral_of_aeContinuous {n : ℕ}
     {s : Set (JordanEuc n)} {f : JordanEuc n → ℝ}
     (hs : NullMeasurableSet s volume) (I : RiemannBox n)

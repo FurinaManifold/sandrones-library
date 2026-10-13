@@ -25,7 +25,10 @@ open Set MeasureTheory
 open scoped ENNReal
 
 /-- 映射 `φ` 沿区域 `s` 的 Jacobian 绝对值，即
-`|det (Dφ|s)(x)|`。边界点使用区域内 Fréchet 导数 `fderivWithin`。 -/
+`|det (Dφ|s)(x)|`。边界点使用区域内 Fréchet 导数 `fderivWithin`。
+
+> **Entry**: analysis.multivariable.change-variables
+-/
 def absJacobianWithin {n : ℕ} (φ : JordanEuc n → JordanEuc n)
     (s : Set (JordanEuc n)) (x : JordanEuc n) : ℝ :=
   |(fderivWithin ℝ φ s x).det|
