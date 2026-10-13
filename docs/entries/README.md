@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **575** 个条目（verified 575，pending 0）。
+共 **599** 个条目（verified 599，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -80,6 +80,11 @@
 - ✅ [`nested-intervals-to-finite-cover.md`](analysis/completeness/equivalence-cycle/nested-intervals-to-finite-cover.md) — 闭区间套 ⟹ 有限覆盖
 - ✅ [`sup-to-mct.md`](analysis/completeness/equivalence-cycle/sup-to-mct.md) — 确界 ⟹ 单调收敛
 
+## `analysis.complex`
+
+- ✅ [`definition.md`](analysis/complex/definition.md) — 复数的定义与基本运算
+- ✅ [`fundamental-theorem-algebra.md`](analysis/complex/fundamental-theorem-algebra.md) — 代数学基本定理
+
 ## `analysis.constants`
 
 - ✅ [`e-definition.md`](analysis/constants/e-definition.md) — 自然常数 e 的定义与基本范围
@@ -110,6 +115,7 @@
 - ✅ [`chain-rule.md`](analysis/derivative/chain-rule.md) — 链式法则
 - ✅ [`const.md`](analysis/derivative/const.md) — 常数/线性函数导数
 - ✅ [`const-mul.md`](analysis/derivative/const-mul.md) — 常数数乘导数
+- ✅ [`definition.md`](analysis/derivative/definition.md) — 一元导数的差商极限定义
 - ✅ [`div.md`](analysis/derivative/div.md) — 商导数
 - ✅ [`inverse-function.md`](analysis/derivative/inverse-function.md) — 反函数求导
 - ✅ [`mul.md`](analysis/derivative/mul.md) — 积的导数（Leibniz）
@@ -150,6 +156,9 @@
 
 ## `analysis.multivariable`
 
+- ✅ [`change-variables.md`](analysis/multivariable/change-variables.md) — 多重积分换元与 Jacobian 公式
+- ✅ [`constant-rank-theorem.md`](analysis/multivariable/constant-rank-theorem.md) — Rudin 一般常秩定理
+- ✅ [`coordinate-integrals.md`](analysis/multivariable/coordinate-integrals.md) — 坐标积分：极坐标与柱坐标
 - ✅ [`coordinates.md`](analysis/multivariable/coordinates.md) — 坐标偏导与Jacobian矩阵
 - ✅ [`differential-forms.md`](analysis/multivariable/differential-forms.md) — 微分形式、外微分与连续楔积
 - ✅ [`first-kind-integrals.md`](analysis/multivariable/first-kind-integrals.md) — 第一型曲线积分与曲面积分
@@ -160,7 +169,12 @@
 - ✅ [`hessian-taylor.md`](analysis/multivariable/hessian-taylor.md) — Hessian与多元Taylor公式
 - ✅ [`implicit-function.md`](analysis/multivariable/implicit-function.md) — 多元隐函数定理
 - ✅ [`inverse-function.md`](analysis/multivariable/inverse-function.md) — 多元反函数定理
+- ✅ [`jordan-region.md`](analysis/multivariable/jordan-region.md) — Jordan 可测区域
+- ✅ [`jordan-riemann-bridge.md`](analysis/multivariable/jordan-riemann-bridge.md) — Jordan 区域 Riemann–Lebesgue 积分桥
+- ✅ [`normal-domain.md`](analysis/multivariable/normal-domain.md) — x/y 型正常区域的变限累次积分
+- ✅ [`normed-alternating.md`](analysis/multivariable/normed-alternating.md) — 赋范交错空间
 - ✅ [`parametrized-curves-surfaces.md`](analysis/multivariable/parametrized-curves-surfaces.md) — 参数曲线与参数曲面
+- ✅ [`rectangle-integral.md`](analysis/multivariable/rectangle-integral.md) — Lebesgue 闭矩形二重积分与 Fubini 教材接口
 - ✅ [`riemann-box.md`](analysis/multivariable/riemann-box.md) — 多元 Riemann 盒积分
 - ✅ [`second-kind-integrals.md`](analysis/multivariable/second-kind-integrals.md) — 第二型曲线积分与曲面积分
 
@@ -438,9 +452,14 @@
 - ✅ [`spectral-quadratic.md`](linear-algebra/spectral-quadratic.md) — 实谱定理、二次型与惯性定律
 - ✅ [`tensor-exterior.md`](linear-algebra/tensor-exterior.md) — 对偶空间、张量积与外代数
 
+## `linear-algebra.coordinates`
+
+- ✅ [`change-basis.md`](linear-algebra/coordinates/change-basis.md) — 坐标与换基公式
+
 ## `linear-algebra.decomposition`
 
 - ✅ [`cholesky.md`](linear-algebra/decomposition/cholesky.md) — Cholesky 分解
+- ✅ [`lu.md`](linear-algebra/decomposition/lu.md) — LU 与 LDU 分解
 - ✅ [`polar.md`](linear-algebra/decomposition/polar.md) — 极分解
 - ✅ [`pseudoinverse.md`](linear-algebra/decomposition/pseudoinverse.md) — Moore–Penrose 伪逆
 - ✅ [`qr.md`](linear-algebra/decomposition/qr.md) — QR 分解
@@ -460,12 +479,23 @@
 
 - ✅ [`charpoly.md`](linear-algebra/eigen/charpoly.md) — 特征多项式
 - ✅ [`charpoly-root.md`](linear-algebra/eigen/charpoly-root.md) — 特征值是特征多项式的根
+- ✅ [`diagonalization.md`](linear-algebra/eigen/diagonalization.md) — 特征基、重数与最小多项式
 - ✅ [`independent.md`](linear-algebra/eigen/independent.md) — 不同特征值对应特征向量线性无关
+- ✅ [`jordan.md`](linear-algebra/eigen/jordan.md) — 广义特征空间与 Jordan 链
+- ✅ [`jordan-block.md`](linear-algebra/eigen/jordan-block.md) — Jordan 链基的块对角矩阵
+- ✅ [`jordan-decomposition.md`](linear-algebra/eigen/jordan-decomposition.md) — 幂零 Jordan 链分解
+- ✅ [`jordan-normal-form.md`](linear-algebra/eigen/jordan-normal-form.md) — Jordan 标准基存在性
+- ✅ [`jordan-similarity.md`](linear-algebra/eigen/jordan-similarity.md) — 矩阵的 Jordan 相似标准型
+- ✅ [`jordan-uniqueness.md`](linear-algebra/eigen/jordan-uniqueness.md) — Jordan 标准形的唯一性
 - ✅ [`similar-charpoly.md`](linear-algebra/eigen/similar-charpoly.md) — 相似保持行列式/特征多项式
 - ✅ [`similar-diagonal.md`](linear-algebra/eigen/similar-diagonal.md) — 相似与对角化
 - ✅ [`spectrum.md`](linear-algebra/eigen/spectrum.md) — 谱
 - ✅ [`value.md`](linear-algebra/eigen/value.md) — 特征值
 - ✅ [`vector.md`](linear-algebra/eigen/vector.md) — 特征向量
+
+## `linear-algebra.elimination`
+
+- ✅ [`row-reduction.md`](linear-algebra/elimination/row-reduction.md) — 初等行变换与高斯消元
 
 ## `linear-algebra.maps`
 
@@ -476,6 +506,7 @@
 
 ## `linear-algebra.matrix`
 
+- ✅ [`hermitian.md`](linear-algebra/matrix/hermitian.md) — Hermitian、斜 Hermitian 与正规矩阵
 - ✅ [`normal.md`](linear-algebra/matrix/normal.md) — 正规、Hermitian与斜Hermitian矩阵
 - ✅ [`orthogonal-unitary.md`](linear-algebra/matrix/orthogonal-unitary.md) — 正交矩阵与酉矩阵
 - ✅ [`skew-symmetric.md`](linear-algebra/matrix/skew-symmetric.md) — 反对称矩阵
@@ -494,6 +525,7 @@
 - ✅ [`independent.md`](linear-algebra/vector-space/independent.md) — 线性无关
 - ✅ [`span.md`](linear-algebra/vector-space/span.md) — 生成子空间
 - ✅ [`subspace.md`](linear-algebra/vector-space/subspace.md) — 子空间
+- ✅ [`sum-quotient.md`](linear-algebra/vector-space/sum-quotient.md) — 子空间和、直和与商空间维数
 
 ## `number-theory.elementary`
 
@@ -915,6 +947,7 @@
 
 ## `topology.space`
 
+- ✅ [`closure.md`](topology/space/closure.md) — 内部、闭包与边界
 - ✅ [`connected.md`](topology/space/connected.md) — 连通集
 - ✅ [`continuous.md`](topology/space/continuous.md) — 连续映射
 - ✅ [`def.md`](topology/space/def.md) — 拓扑空间与开闭集公理

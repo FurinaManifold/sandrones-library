@@ -3,7 +3,7 @@ id: analysis.multivariable.green-gauss-stokes
 kind: theorem
 state: verified
 title: "Green、Gauss与Stokes公式"
-premises: ["analysis.multivariable.second-kind-integrals"]
+premises: ["analysis.multivariable.second-kind-integrals", "analysis.multivariable.normal-domain"]
 mathlib: ["MeasureTheory.integral2_divergence_prod_of_hasFDerivAt",
   "MeasureTheory.integral_divergence_of_hasFDerivAt_off_countable",
   "HasFDerivAt.neg", "intervalIntegral.integral_neg",

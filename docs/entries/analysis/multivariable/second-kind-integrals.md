@@ -3,7 +3,7 @@ id: analysis.multivariable.second-kind-integrals
 kind: theorem
 state: verified
 title: "第二型曲线积分与曲面积分"
-premises: ["analysis.multivariable.differential-forms"]
+premises: ["analysis.multivariable.differential-forms", "analysis.multivariable.rectangle-integral", "analysis.multivariable.parametrized-curves-surfaces"]
 mathlib: ["AlternatingMap.map_smul_univ", "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg",
   "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonpos",
   "intervalIntegral.integral_deriv_eq_sub", "intervalIntegral.integral_add",

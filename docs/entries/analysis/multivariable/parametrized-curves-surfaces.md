@@ -2,6 +2,7 @@
 id: analysis.multivariable.parametrized-curves-surfaces
 title: "参数曲线与参数曲面"
 status: in-progress
+premises: ["analysis.multivariable.rectangle-integral"]
 mathlib: ["HasDerivAt.smul_const", "intervalIntegral.integral_const", "HasDerivAt.scomp",
   "intervalIntegral.integral_comp_mul_deriv_of_deriv_nonneg", "Fintype.linearIndependent_iff",
   "Submodule.mem_span_pair"]

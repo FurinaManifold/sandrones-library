@@ -2444,7 +2444,7 @@
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "cfcb0219e1ceffaf",
+    "proof_sha": "d3ed16fafa7e9b68",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2472,7 +2472,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "cfcb0219e1ceffaf",
+    "proof_sha": "d3ed16fafa7e9b68",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2498,11 +2498,12 @@
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:44:24Z",
     "dependedOnBy": [
+      "linear-algebra.coordinates.change-basis",
       "linear-algebra.symplectic.basis"
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "cfcb0219e1ceffaf",
+    "proof_sha": "d3ed16fafa7e9b68",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2514,7 +2515,7 @@
     "kind": "theorem",
     "state": "verified",
     "title": "维数",
-    "summary": "dim V=0 当且仅当 V 是平凡空间；dim 与秩（基数）在有限维一致",
+    "summary": "有限维时 dim V=0 当且仅当 V 是平凡空间；dim 与秩（基数）一致",
     "premises": [],
     "mathlib": [
       "Module.finrank_eq_rank",
@@ -2529,11 +2530,12 @@
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:51:18Z",
     "dependedOnBy": [
-      "linear-algebra.maps.rank-nullity"
+      "linear-algebra.maps.rank-nullity",
+      "linear-algebra.vector-space.sum-quotient"
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "56ab6cfe20365847",
+    "proof_sha": "d3ed16fafa7e9b68",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2850,6 +2852,7 @@
     "added_at": "2026-08-21T06:09:28Z",
     "dependedOnBy": [
       "linear-algebra.eigen.charpoly-root",
+      "linear-algebra.eigen.diagonalization",
       "linear-algebra.eigen.similar-diagonal"
     ],
     "family": "linear-algebra.eigen",
@@ -2877,7 +2880,9 @@
     "nl_file": "docs/entries/linear-algebra/vector-space/subspace.md",
     "added_by": "ingestor-linalg-L1b",
     "added_at": "2026-08-21T06:24:01Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "linear-algebra.vector-space.sum-quotient"
+    ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
     "proof_sha": "5364b5a65ef7c384",
@@ -3815,8 +3820,14 @@
       "Polynomial.irreducible_X_sub_C",
       "Polynomial.irreducible_X",
       "Polynomial.irreducible_of_degree_eq_one",
-      "Polynomial.modByMonic_eq_zero_iff_dvd",
-      "Polynomial.degree_modByMonic_lt"
+      "Polynomial.isPrimitive_iff_isUnit_of_C_dvd",
+      "Polynomial.isPrimitive_iff_content_eq_one",
+      "Polynomial.eq_C_content_mul_primPart",
+      "Polynomial.content_mul",
+      "Polynomial.IsPrimitive.Int.irreducible_iff_irreducible_map_cast",
+      "Polynomial.aeval",
+      "num_dvd_of_is_root",
+      "den_dvd_of_is_root"
     ],
     "lean_file": "AbstractAlgebra/PolynomialIrreducibility.lean",
     "nl_file": "docs/entries/abstract-algebra/poly/irreducible.md",
@@ -3867,7 +3878,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "2a3cd9affcb4efe3"
+    "proof_sha": "ce8d693297041a75"
   },
   {
     "id": "topology.space.def",
@@ -3904,6 +3915,7 @@
       "topology.metric.cauchy-complete",
       "topology.metric.def",
       "topology.separations",
+      "topology.space.closure",
       "topology.space.continuous",
       "topology.space.neighborhood"
     ],
@@ -3936,7 +3948,9 @@
     ],
     "added_by": "ingestor-topology-T1",
     "added_at": "2026-08-21T10:33:56Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "topology.space.closure"
+    ],
     "proof_sha": "8f07729dfc967e60"
   },
   {
@@ -4892,7 +4906,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "e0fa568509d7ede1"
+    "proof_sha": "a97122eae51c7071"
   },
   {
     "id": "analysis.continuity.uniform-compact",
@@ -4963,10 +4977,11 @@
       "real-analysis.riemann.lebesgue-criterion"
     ],
     "axioms": [
-      "propext",
-      "Quot.sound"
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
     ],
-    "proof_sha": "d009211681b6070a"
+    "proof_sha": "a97122eae51c7071"
   },
   {
     "id": "real-analysis.riemann.eq-lebesgue",
@@ -4997,6 +5012,7 @@
     "added_by": "ingestor-selfderived",
     "added_at": "2026-08-21T15:26:03Z",
     "dependedOnBy": [
+      "analysis.multivariable.normal-domain",
       "analysis.mvt.taylor-integral-remainder",
       "real-analysis.riemann.algebra",
       "real-analysis.riemann.ftc",
@@ -5007,7 +5023,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "e0fa568509d7ede1"
+    "proof_sha": "a97122eae51c7071"
   },
   {
     "id": "real-analysis.riemann.lebesgue-criterion",
@@ -7557,7 +7573,9 @@
     "title": "第二型曲线积分与曲面积分",
     "summary": "微分形式沿有向参数曲线和参数曲面的积分、保向换参数不变性及恰当形式端点公式",
     "premises": [
-      "analysis.multivariable.differential-forms"
+      "analysis.multivariable.differential-forms",
+      "analysis.multivariable.rectangle-integral",
+      "analysis.multivariable.parametrized-curves-surfaces"
     ],
     "mathlib": [
       "AlternatingMap.map_smul_univ",
@@ -7593,7 +7611,8 @@
     "title": "Green、Gauss与Stokes公式",
     "summary": "从矩形Green公式开始统一区域内部导数与有向边界积分",
     "premises": [
-      "analysis.multivariable.second-kind-integrals"
+      "analysis.multivariable.second-kind-integrals",
+      "analysis.multivariable.normal-domain"
     ],
     "mathlib": [
       "MeasureTheory.integral2_divergence_prod_of_hasFDerivAt",
@@ -7743,6 +7762,7 @@
     "added_at": "2026-08-23T09:57:44Z",
     "dependedOnBy": [
       "linear-algebra.decomposition.qr",
+      "linear-algebra.matrix.hermitian",
       "linear-algebra.matrix.normal",
       "linear-algebra.matrix.symplectic"
     ],
@@ -7758,10 +7778,11 @@
     "kind": "theorem",
     "state": "verified",
     "title": "正规、Hermitian与斜Hermitian矩阵",
-    "summary": "三类复矩阵、Hermitian-斜Hermitian分解及一般正规矩阵酉谱定理",
+    "summary": "一般复正规矩阵可被酉矩阵对角化",
     "premises": [
       "linear-algebra.matrix.orthogonal-unitary",
-      "linear-algebra.spectral-quadratic"
+      "linear-algebra.spectral-quadratic",
+      "linear-algebra.matrix.hermitian"
     ],
     "mathlib": [
       "Matrix.IsHermitian.spectral_theorem",
@@ -13084,7 +13105,10 @@
     "nl_file": "docs/entries/analysis/multivariable/riemann-box.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.jordan-riemann-bridge",
+      "analysis.multivariable.normal-domain"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -13098,7 +13122,9 @@
     "state": "verified",
     "title": "参数曲线与参数曲面",
     "summary": "以函数为数据载体并用独立谓词表达曲线与曲面的正则性",
-    "premises": [],
+    "premises": [
+      "analysis.multivariable.rectangle-integral"
+    ],
     "mathlib": [
       "deriv",
       "fderiv"
@@ -13111,7 +13137,9 @@
     "nl_file": "docs/entries/analysis/multivariable/parametrized-curves-surfaces.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.multivariable.second-kind-integrals"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -13307,7 +13335,13 @@
     "mathlib": [
       "Polynomial.ext",
       "Polynomial.dvd_iff_isRoot",
-      "Polynomial.isUnit_iff"
+      "Polynomial.isUnit_iff",
+      "Irreducible.isUnit_or_isUnit",
+      "Polynomial.irreducible_X_sub_C",
+      "Polynomial.irreducible_X",
+      "Polynomial.irreducible_of_degree_eq_one",
+      "Polynomial.modByMonic_eq_zero_iff_dvd",
+      "Polynomial.degree_modByMonic_lt"
     ],
     "provenance": {
       "source_type": "library",
@@ -13325,7 +13359,7 @@
       "Quot.sound",
       "propext"
     ],
-    "proof_sha": "2a3cd9affcb4efe3"
+    "proof_sha": "ce8d693297041a75"
   },
   {
     "id": "abstract-algebra.poly.division",
@@ -19085,5 +19119,784 @@
       "propext"
     ],
     "proof_sha": "9fdee75c6bb964f9"
+  },
+  {
+    "id": "linear-algebra.coordinates.change-basis",
+    "kind": "theorem",
+    "title": "坐标与换基公式",
+    "summary": "过渡矩阵变换向量坐标，并以相似变换联系同一线性算子的两组矩阵",
+    "family": "linear-algebra.coordinates",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.vector-space.basis"
+    ],
+    "mathlib": [
+      "Module.Basis.toMatrix_mulVec_repr",
+      "basis_toMatrix_mul_linearMap_toMatrix_mul_basis_toMatrix"
+    ],
+    "lean_file": "LinearAlgebra/Coordinates.lean",
+    "nl_file": "docs/entries/linear-algebra/coordinates/change-basis.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "axler-linear-algebra-2015"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.diagonalization"
+    ],
+    "proof_sha": "0bde3c926bf13e80"
+  },
+  {
+    "id": "linear-algebra.eigen.diagonalization",
+    "kind": "theorem",
+    "title": "特征基、重数与最小多项式",
+    "summary": "对角化的特征基判据、几何/代数重数不等式、Cayley-Hamilton 定理与最小多项式",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.coordinates.change-basis",
+      "linear-algebra.eigen.charpoly"
+    ],
+    "mathlib": [
+      "LinearMap.finrank_eigenspace_le",
+      "LinearMap.aeval_self_charpoly",
+      "LinearMap.minpoly_dvd_charpoly"
+    ],
+    "lean_file": "LinearAlgebra/Diagonalization.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/diagonalization.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "axler-linear-algebra-2015"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan"
+    ],
+    "proof_sha": "f4f11617bab6568d"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan",
+    "kind": "theorem",
+    "title": "广义特征空间与 Jordan 链",
+    "summary": "广义特征空间及其层级、Jordan 链与 Jordan 块的教材基础",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.diagonalization"
+    ],
+    "mathlib": [],
+    "lean_file": "LinearAlgebra/Jordan.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan-decomposition"
+    ],
+    "proof_sha": "737502f1e0a1f951"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan-decomposition",
+    "kind": "theorem",
+    "title": "幂零 Jordan 链分解",
+    "summary": "不变子空间上以像空间归纳构造幂零算子的完整 Jordan 链基",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.jordan"
+    ],
+    "mathlib": [],
+    "lean_file": "LinearAlgebra/JordanDecomposition.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan-decomposition.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan-block"
+    ],
+    "proof_sha": "11c0846b6bd9e81f"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan-block",
+    "kind": "theorem",
+    "title": "Jordan 链基的块对角矩阵",
+    "summary": "Jordan 链族基下算子矩阵等于相应 Jordan 块的块对角矩阵",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.jordan-decomposition"
+    ],
+    "mathlib": [
+      "Matrix.blockDiagonal'"
+    ],
+    "lean_file": "LinearAlgebra/JordanMatrix.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan-block.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan-normal-form"
+    ],
+    "proof_sha": "60b59ca39cd35fb4"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan-normal-form",
+    "kind": "theorem",
+    "title": "Jordan 标准基存在性",
+    "summary": "代数闭域上有限维算子的 Jordan 标准基存在性",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.jordan-block"
+    ],
+    "mathlib": [
+      "Module.End.maxGenEigenspace",
+      "DirectSum.IsInternal.collectedBasis"
+    ],
+    "lean_file": "LinearAlgebra/JordanNormalForm.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan-normal-form.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan-similarity"
+    ],
+    "proof_sha": "b7f78724c1ab5634"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan-similarity",
+    "kind": "theorem",
+    "title": "矩阵的 Jordan 相似标准型",
+    "summary": "代数闭域上每个方阵相似于 Jordan 标准矩阵；复方阵为其特例",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.jordan-normal-form"
+    ],
+    "mathlib": [
+      "LinearMap.toMatrix'_toLin'",
+      "Matrix.reindex"
+    ],
+    "lean_file": "LinearAlgebra/JordanSimilarity.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan-similarity.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.eigen.jordan-uniqueness"
+    ],
+    "proof_sha": "679734070f6176fd"
+  },
+  {
+    "id": "linear-algebra.eigen.jordan-uniqueness",
+    "kind": "theorem",
+    "title": "Jordan 标准形的唯一性",
+    "summary": "广义核维数序列恢复每种 Jordan 块的重数，标准形在块重编号下唯一",
+    "family": "linear-algebra.eigen",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.eigen.jordan-similarity"
+    ],
+    "mathlib": [],
+    "lean_file": "LinearAlgebra/JordanUniqueness.lean",
+    "nl_file": "docs/entries/linear-algebra/eigen/jordan-uniqueness.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [],
+    "proof_sha": "b58f7a12097c791a"
+  },
+  {
+    "id": "linear-algebra.vector-space.sum-quotient",
+    "kind": "theorem",
+    "title": "子空间和、直和与商空间维数",
+    "summary": "子空间和与交的维数公式、直和维数公式及商空间维数公式",
+    "family": "linear-algebra.vector-space",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.vector-space.subspace",
+      "linear-algebra.vector-space.dimension"
+    ],
+    "mathlib": [
+      "Submodule.finrank_sup_add_finrank_inf_eq",
+      "Submodule.finrank_quotient_add_finrank"
+    ],
+    "lean_file": "LinearAlgebra/SubspaceSumQuotient.lean",
+    "nl_file": "docs/entries/linear-algebra/vector-space/sum-quotient.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "axler-linear-algebra-2015"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [],
+    "proof_sha": "1130f6dafc423410"
+  },
+  {
+    "id": "linear-algebra.matrix.hermitian",
+    "kind": "theorem",
+    "title": "Hermitian、斜 Hermitian 与正规矩阵",
+    "summary": "三类复矩阵的定义、Hermitian-斜Hermitian 分解与 Hermitian 矩阵的酉对角化",
+    "family": "linear-algebra.matrix",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.matrix.orthogonal-unitary"
+    ],
+    "mathlib": [
+      "Matrix.IsHermitian.spectral_theorem",
+      "Matrix.IsHermitian.eigenvectorUnitary",
+      "Matrix.conjTranspose_add",
+      "Matrix.conjTranspose_sub"
+    ],
+    "lean_file": "LinearAlgebra/NormalMatrix.lean",
+    "nl_file": "docs/entries/linear-algebra/matrix/hermitian.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.matrix.normal"
+    ],
+    "proof_sha": "4ff926abe0dce2ae"
+  },
+  {
+    "id": "linear-algebra.decomposition.lu",
+    "kind": "theorem",
+    "title": "LU 与 LDU 分解",
+    "summary": "LU/LDU/PLU 主元分解的存在性与唯一性、无换行主元条件与块分解",
+    "family": "linear-algebra.decomposition",
+    "variant": "textbook",
+    "premises": [
+      "linear-algebra.elimination.row-reduction"
+    ],
+    "mathlib": [
+      "Matrix.fromBlocks",
+      "Matrix.fromBlocks_eq_of_invertible₁₁",
+      "Matrix.IsLowerTriangular",
+      "Matrix.IsUpperTriangular",
+      "Matrix.det"
+    ],
+    "lean_file": "LinearAlgebra/MatrixDecomposition.lean",
+    "nl_file": "docs/entries/linear-algebra/decomposition/lu.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [],
+    "proof_sha": "d0e78fb276563ee1"
+  },
+  {
+    "id": "linear-algebra.elimination.row-reduction",
+    "kind": "theorem",
+    "title": "初等行变换与高斯消元",
+    "summary": "初等行变换、行等价、行阶梯形存在性与秩等于主元个数",
+    "family": "linear-algebra.elimination",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "Matrix.swap",
+      "Matrix.transvection",
+      "Matrix.IsRowEchelon",
+      "Matrix.rank_mul_eq_right_of_det_ne_zero"
+    ],
+    "lean_file": "LinearAlgebra/MatrixElimination.lean",
+    "nl_file": "docs/entries/linear-algebra/elimination/row-reduction.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "horn-johnson-matrix-analysis-2013"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [
+      "linear-algebra.decomposition.lu"
+    ],
+    "proof_sha": "6a5085ddc197837e"
+  },
+  {
+    "id": "topology.space.closure",
+    "kind": "theorem",
+    "title": "内部、闭包与边界",
+    "summary": "内部、闭包与边界（frontier）的相互刻画与基本恒等式",
+    "family": "topology.space",
+    "variant": "munkres",
+    "premises": [
+      "topology.space.def",
+      "topology.space.neighborhood"
+    ],
+    "mathlib": [
+      "interior",
+      "closure",
+      "frontier",
+      "mem_closure_iff",
+      "closure_union",
+      "closure_eq_iff_isClosed",
+      "interior_eq_iff_isOpen",
+      "closure_eq_compl_interior_compl",
+      "frontier_eq_closure_inter_closure",
+      "closure_eq_interior_union_frontier",
+      "closure_eq_self_union_frontier"
+    ],
+    "lean_file": "Topology/Closure.lean",
+    "nl_file": "docs/entries/topology/space/closure.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:28:36Z",
+    "dependedOnBy": [],
+    "proof_sha": "69578ee57d990df0"
+  },
+  {
+    "id": "analysis.derivative.definition",
+    "kind": "definition",
+    "title": "一元导数的差商极限定义",
+    "summary": "HasDerivativeAtTextbook 以去心差商极限定义导数值，并与 HasDerivAt 等价",
+    "family": "analysis.derivative",
+    "variant": "ecnu",
+    "premises": [],
+    "mathlib": [
+      "slope_def_field",
+      "hasDerivAt_iff_tendsto_slope",
+      "HasDerivAt"
+    ],
+    "lean_file": "Analysis/Derivative.lean",
+    "nl_file": "docs/entries/analysis/derivative/definition.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ecnu-mathematical-analysis-5"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "876da68ff556530b"
+  },
+  {
+    "id": "analysis.complex.definition",
+    "kind": "definition",
+    "title": "复数的定义与基本运算",
+    "summary": "复数的定义与基本运算",
+    "family": "analysis.complex",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "Complex",
+      "Complex.ext_iff",
+      "Complex.normSq",
+      "Complex.sq_norm"
+    ],
+    "lean_file": "Analysis/Complex.lean",
+    "nl_file": "docs/entries/analysis/complex/definition.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "b8dcf17e084dd2ec"
+  },
+  {
+    "id": "analysis.complex.fundamental-theorem-algebra",
+    "kind": "theorem",
+    "title": "代数学基本定理",
+    "summary": "代数学基本定理",
+    "family": "analysis.complex",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "Complex.exists_root",
+      "IsAlgClosed.of_exists_root",
+      "IsAlgClosed.splits",
+      "Polynomial.Splits.eq_prod_roots"
+    ],
+    "lean_file": "Analysis/FundamentalTheoremAlgebra.lean",
+    "nl_file": "docs/entries/analysis/complex/fundamental-theorem-algebra.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "3a6cd122e865eb9b"
+  },
+  {
+    "id": "analysis.multivariable.rectangle-integral",
+    "kind": "theorem",
+    "title": "Lebesgue 闭矩形二重积分与 Fubini 教材接口",
+    "summary": "Lebesgue 闭矩形二重积分与 Fubini 教材接口",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "MeasureTheory.setIntegral_prod",
+      "MeasureTheory.intervalIntegral_intervalIntegral_swap"
+    ],
+    "lean_file": "Analysis/MultivariableIntegration.lean",
+    "nl_file": "docs/entries/analysis/multivariable/rectangle-integral.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [
+      "analysis.multivariable.parametrized-curves-surfaces",
+      "analysis.multivariable.second-kind-integrals"
+    ],
+    "proof_sha": "a35d8efa2284a440"
+  },
+  {
+    "id": "analysis.multivariable.jordan-region",
+    "kind": "definition",
+    "title": "Jordan 可测区域",
+    "summary": "Jordan 可测区域",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "nullMeasurableSet_of_null_frontier",
+      "closure_ae_eq_of_null_frontier"
+    ],
+    "lean_file": "Analysis/JordanRegion.lean",
+    "nl_file": "docs/entries/analysis/multivariable/jordan-region.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [
+      "analysis.multivariable.change-variables",
+      "analysis.multivariable.jordan-riemann-bridge",
+      "analysis.multivariable.normal-domain"
+    ],
+    "proof_sha": "a41f35d9f9f16100"
+  },
+  {
+    "id": "analysis.multivariable.jordan-riemann-bridge",
+    "kind": "theorem",
+    "title": "Jordan 区域 Riemann–Lebesgue 积分桥",
+    "summary": "Jordan 区域 Riemann–Lebesgue 积分桥",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.jordan-region",
+      "analysis.multivariable.riemann-box"
+    ],
+    "mathlib": [
+      "AEContinuous.hasBoxIntegral",
+      "integral_indicator₀"
+    ],
+    "lean_file": "Analysis/JordanRiemannBridge.lean",
+    "nl_file": "docs/entries/analysis/multivariable/jordan-riemann-bridge.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [
+      "analysis.multivariable.normal-domain"
+    ],
+    "proof_sha": "d6b77a72bb99aa41"
+  },
+  {
+    "id": "analysis.multivariable.normal-domain",
+    "kind": "theorem",
+    "title": "x/y 型正常区域的变限累次积分",
+    "summary": "x/y 型正常区域的变限累次积分",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.jordan-region",
+      "analysis.multivariable.jordan-riemann-bridge",
+      "analysis.multivariable.riemann-box",
+      "real-analysis.riemann.eq-lebesgue"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral_prod",
+      "MeasureTheory.integral_indicator",
+      "MeasureTheory.volume_preserving_finTwoArrow"
+    ],
+    "lean_file": "Analysis/NormalDomain.lean",
+    "nl_file": "docs/entries/analysis/multivariable/normal-domain.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [
+      "analysis.multivariable.green-gauss-stokes"
+    ],
+    "proof_sha": "1eeff580a18f1da4"
+  },
+  {
+    "id": "analysis.multivariable.change-variables",
+    "kind": "theorem",
+    "title": "多重积分换元与 Jacobian 公式",
+    "summary": "多重积分换元与 Jacobian 公式",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.jordan-region"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul",
+      "MeasureTheory.integrableOn_image_iff_integrableOn_abs_det_fderiv_smul"
+    ],
+    "lean_file": "Analysis/ChangeOfVariables.lean",
+    "nl_file": "docs/entries/analysis/multivariable/change-variables.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [
+      "analysis.multivariable.coordinate-integrals"
+    ],
+    "proof_sha": "efc1b234451089e7"
+  },
+  {
+    "id": "analysis.multivariable.coordinate-integrals",
+    "kind": "theorem",
+    "title": "坐标积分：极坐标与柱坐标",
+    "summary": "坐标积分：极坐标与柱坐标",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.change-variables"
+    ],
+    "mathlib": [
+      "integral_comp_polarCoord_symm",
+      "hasFDerivAt_polarCoord_symm",
+      "det_fderivPolarCoordSymm"
+    ],
+    "lean_file": "Analysis/CoordinateIntegrals.lean",
+    "nl_file": "docs/entries/analysis/multivariable/coordinate-integrals.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "b6f7662b65ff1026"
+  },
+  {
+    "id": "analysis.multivariable.constant-rank-theorem",
+    "kind": "theorem",
+    "title": "Rudin 一般常秩定理",
+    "summary": "Rudin 一般常秩定理",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "ContDiffAt.toOpenPartialHomeomorph"
+    ],
+    "lean_file": "Analysis/ConstantRank.lean",
+    "nl_file": "docs/entries/analysis/multivariable/constant-rank-theorem.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "2ed04e0d70a85780"
+  },
+  {
+    "id": "analysis.multivariable.normed-alternating",
+    "kind": "definition",
+    "title": "赋范交错空间",
+    "summary": "赋范交错空间",
+    "family": "analysis.multivariable",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "ContinuousAlternatingMap",
+      "ContinuousLinearMap.id"
+    ],
+    "lean_file": "Analysis/NormedAlternating.lean",
+    "nl_file": "docs/entries/analysis/multivariable/normed-alternating.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-e-integration",
+    "added_at": "2026-10-13T05:30:19Z",
+    "dependedOnBy": [],
+    "proof_sha": "7c7835e4dafc0f92"
   }
 ]

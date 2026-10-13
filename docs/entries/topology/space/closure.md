@@ -1,6 +1,6 @@
 ---
 id: topology.space.closure
-kind: theorem-family
+kind: theorem
 state: verified
 title: "内部、闭包与边界"
 premises: ["topology.space.def", "topology.space.neighborhood"]

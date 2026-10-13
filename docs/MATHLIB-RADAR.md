@@ -2120,7 +2120,7 @@
 - **人话**：可测集合上的 Bochner 集合积分等于该集合示性函数在全空间的积分，是在
   Fubini 前后展开和收回区域限制的标准桥梁。
 - **出处**：`Mathlib/MeasureTheory/Integral/Bochner/Set.lean`。
-- **谁在用**：`analysis.multivariable.x-normal-domain`。
+- **谁在用**：`analysis.multivariable.normal-domain`。
 - **坑**：该版本需要 `MeasurableSet`；集合仅零可测时应使用 `integral_indicator₀`。
   重写方向经常相反，集合积分展开为示性函数时通常使用 `.symm`。
 
@@ -2128,7 +2128,7 @@
 - **人话**：坐标等价 `(Fin 2 → ℝ) ≃ ℝ × ℝ` 保持 Lebesgue 体积，因此盒积分使用的
   二维向量坐标可以无 Jacobian 因子地改写为 Fubini 使用的积坐标。
 - **出处**：`Mathlib/MeasureTheory/Constructions/Pi.lean`。
-- **谁在用**：`analysis.multivariable.x-normal-domain`。
+- **谁在用**：`analysis.multivariable.normal-domain`。
 - **坑**：单有类型等价不保证积分不变；必须使用其 `MeasurePreserving` 证明，并配合
   `MeasurableEmbedding` 调用 `integral_comp`。
 
@@ -2646,7 +2646,7 @@
 
 ### `Matrix.IsHermitian.spectral_theorem`
 - **人话**：有限 Hermitian 方阵可由酉矩阵对角化，且对角元来自实特征值。
-- **谁在用**：`linear-algebra.matrix.normal` 的 Hermitian 酉对角化。
+- **谁在用**：`linear-algebra.matrix.hermitian` 的 Hermitian 酉对角化（`linear-algebra.matrix.normal` 的一般正规酉谱定理经 `NormalMatrix.lean` 复用）。
 
 ### `Matrix.IsHermitian.eigenvectorUnitary`
 - **人话**：Hermitian 方阵的标准正交特征向量组成一个酉矩阵。
