@@ -71,6 +71,17 @@ python3 scripts/subject_package.py \
 `scripts/lean_trace.py append|check|summary`。积累一轮真实语料后，由 Main 复核质量并决定
 是否把软门转为硬门。
 
+包内还有一块 **`packs`（派工上下文包，Playbook §9）**，同为**软门**：
+
+- `pack_ids`：本批提交到 `traces/packs/` 的 pack 清单；
+- `referenced_by_traces`：trace 记录里实际引用的 `pack_id`；
+- `missing_for_referenced`：被引用却没有对应 pack 文件的 `pack_id`——这会打断
+  `(观测, 动作, 反馈)` 样本的配对，Main 必须追问；
+- `invalid`：pack 不是合法 JSON、缺 `pack_id`、schema 不对或 `task.goal_nl` 为空。
+
+pack 由负责人用 `scripts/context_pack.py build` 生成（`task.goal_nl` 是唯一手写字段），
+是子 Agent 的开工输入；其每条 trace 记录必须带同一个 `pack_id`。
+
 `verdict` 为 `pass` 时，Main 只需抽检异常清单之外的内容；`needs_changes` 时**只处理列出的异常**。
 退出码：`0`=pass，`1`=needs_changes。
 

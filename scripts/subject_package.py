@@ -258,6 +258,42 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
         trace_status = "n/a"
         trace_note = "本批未改动 Lean 源码，不要求 trace"
 
+    # ---- 派工上下文包（Playbook §9）：trace 的 join key，同样按软门统计 ----
+    pack_root = wt / "traces" / "packs"
+    pack_files = sorted(
+        str(p.relative_to(wt)) for p in pack_root.rglob("*.json")
+    ) if pack_root.exists() else []
+    pack_ids: list[str] = []
+    pack_bad: list[str] = []
+    for rel in pack_files:
+        try:
+            p = json.loads((wt / rel).read_text(encoding="utf-8"))
+        except Exception as e:  # noqa: BLE001
+            pack_bad.append(f"{rel}: 不是合法 JSON：{e}")
+            continue
+        pid = p.get("pack_id")
+        if not pid:
+            pack_bad.append(f"{rel}: 缺 pack_id")
+            continue
+        if p.get("schema") != "sandrones-context-pack/1":
+            pack_bad.append(f"{rel}: schema 必须是 sandrones-context-pack/1")
+            continue
+        if not str(p.get("task", {}).get("goal_nl", "")).strip():
+            pack_bad.append(f"{rel}: task.goal_nl 不能为空")
+            continue
+        pack_ids.append(pid)
+    referenced_packs: set[str] = set()
+    for rel in trace_files:
+        try:
+            for line in (wt / rel).read_text(encoding="utf-8").splitlines():
+                if line.strip():
+                    pid = json.loads(line).get("pack_id")
+                    if pid:
+                        referenced_packs.add(pid)
+        except Exception:  # noqa: BLE001 - 已在上面记入 invalid
+            pass
+    missing_packs = sorted(referenced_packs - set(pack_ids))
+
     return {
         "schema": SCHEMA,
         "subject": subject,
@@ -282,6 +318,19 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             "lean_files_changed": lean_changed,
             "note": trace_note,
             "invalid": trace_bad,
+        },
+        "packs": {
+            "files": pack_files,
+            "pack_ids": sorted(pack_ids),
+            "referenced_by_traces": sorted(referenced_packs),
+            "missing_for_referenced": missing_packs,
+            "invalid": pack_bad,
+            "note": (
+                "本批未生成派工上下文包（Playbook §9 软门；确无子 Agent 的批次请在 handoff 写明）"
+                if not pack_files and lean_changed else
+                ("trace 引用的 pack_id 没有对应 pack 文件：" + ", ".join(missing_packs)
+                 if missing_packs else "pack 与 trace 的 pack_id 已配对")
+            ),
         },
         "exceptions": ex,
         "verdict": "pass" if not ex else "needs_changes",
@@ -326,6 +375,10 @@ def main() -> None:
         tr = pkg.get("traces", {})
         tmark = {"present": "✅", "n/a": "➖", "missing": "⚠️", "invalid": "❌"}.get(tr.get("status"), "?")
         print(f"  {tmark} traces（软门）：{tr.get('note', '')}")
+        pk = pkg.get("packs", {})
+        pmark = "✅" if pk.get("pack_ids") and not pk.get("missing_for_referenced") else (
+            "❌" if pk.get("invalid") else "⚠️")
+        print(f"  {pmark} packs（软门）：{pk.get('note', '')}")
         if pkg["exceptions"]:
             print(f"\n  异常清单（{len(pkg['exceptions'])}）——Main 只需审这些：")
             for e in pkg["exceptions"]:

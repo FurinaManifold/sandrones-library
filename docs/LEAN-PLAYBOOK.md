@@ -341,6 +341,8 @@
 - **§6 从 mathlib 现成证明学 tactic**、**§7 self-harness 闭环**。
 - **§8 Lean 验证轨迹语料（JSON）**：底层子 Agent 的每次验证尝试都必须留成机器可读语料
   （自然语言叙述、待证命题、尝试轨迹、编译器反馈），作为 LLM 训练数据。
+- **§9 派工上下文包（JSON）**：轨迹的"观测"一半——派工前由脚本从权威源推导，负责人只填目标；
+  包与轨迹用 `pack_id` 挂钩，`(观测, 动作, 反馈)` 才构成可训练样本。
 
 ---
 
@@ -975,6 +977,7 @@ mathlib 的证明文件是**最好的教材**。读法：
 | `next_step` | 下一轮打算怎么改（写记录时就要给出，这是轨迹的"边") |
 
 选填字段：`entry_id`、`file`、`declaration`、`parent_attempt`（形成尝试树）、
+`pack_id`（**派工上下文包的 join key**，见 §9；有 pack 的批次必填，否则轨迹无法与上下文配对）、
 `hypotheses`（关键上下文）、`feedback_raw`（原始输出，**截断到 4000 字符**）、
 `feedback_sha256`（完整输出的摘要，便于日后回溯）、`elapsed_ms`。
 敏感信息（令牌、凭据、仓库外绝对路径）**一律不得写入**。
@@ -1007,3 +1010,63 @@ mathlib 的证明文件是**最好的教材**。读法：
 当前按"软门"落地（统计 + 提示，不单独否决策包），先积累一轮真实轨迹。当至少一个学科批次
 产出可用语料后，由 Main 复核质量（字段完整度、失败尝试占比、叙述是否为"语义层面"）并决定
 是否转为硬门。语料的价值在于**真实**；一旦为了过门而编造轨迹，整套机制就失去意义。
+
+## 9. 派工上下文包（`sandrones-context-pack/1`）：轨迹的"观测"一半
+
+### 9.1 为什么需要它
+
+§8 让尝试留痕，记下的是**动作与反馈**。但训练一个下层 Agent 需要的是
+**(观测, 动作, 反馈)**——观测就是派工时它拿到的上下文。缺了这一半：
+
+1. "这个任务需要什么上下文"不是良定义的函数：同一任务两次派工拿到不同输入，学不到可迁移的东西；
+2. **失败无法归因**：连续五次 `error`，到底是"没给前置引理的精确签名"、"没给 §2.7.1 的绝对值
+   铁律"，还是"证明真的难"？没有注入记录，这三种在 trace 里长得一模一样；
+3. 负责人每轮重新推导本该预计算的信息（ROADMAP 门、冻结签名、所有权边界、Playbook 适用节），
+   在上下文压力下掉的就是最后加载的那几路。
+
+**pack 是让 trace 变成训练样本的 join key**：包写 `pack_id`，每条 trace 记录带同一个 `pack_id`，
+于是"给了什么上下文 → 试了什么 → 编译器回了什么"连成一条完整样本。
+
+### 9.2 谁生成、何时生成
+
+- **学科负责人在派工前**生成：`python3 scripts/context_pack.py build ...`，
+  提交到 `traces/packs/<pack_id>.json`，把 pack 作为子 Agent 的**开工输入**。
+- 唯一由人手写的字段是 `task.goal_nl`；其余全部从权威源**推导**，不允许负责人改写。
+- 子 Agent 的每条 trace（§8）必须带同一个 `pack_id`。没有 pack 的批次要在 handoff 写明原因。
+
+### 9.3 字段与推导来源（指针优先）
+
+| 包内字段 | 推导自 |
+|---|---|
+| `ownership.writable` / `readonly` | `AGENTS.md` §3 的所有权规则（机器可读投影） |
+| `prerequisites.entries` | `index/registry.json` 的 `premises` 传递闭包（按层） |
+| `prerequisites.mathlib` | `registry.mathlib` |
+| `target.declarations_in_file` | 目标 Lean 文件扫描（签名摘录 + 是否含 `sorry`） |
+| `frozen.declarations` / `may_not_change` | 原型文件里的 `sorry` 声明（§0 sorry 框架法的落地点）；改签名即升级 |
+| `playbook.sections` | 目标形状关键词 → 锚点 + 行号（**指回去读，不复制正文**） |
+| `budget.max_attempts_per_goal` / `escalate_when` | §0 的五次试错硬规则 + 升级条件 |
+| `trace.path` / `trace.schema` | §8 |
+
+包里存的是**路径、id、行号与哈希**，不复制权威源内容（`AGENTS.md` §6 的派生文件纪律）；
+`pack_sha256` 覆盖除 `generated_at` 外的全部字段，保证同一任务反复生成字节一致。
+
+### 9.4 命令
+
+```bash
+python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> \
+    --role subject-maintainer --goal-nl "<一句话目标>" \
+    --prototype /tmp/<原型>.lean --out traces/packs/<pack_id>.json
+python3 scripts/context_pack.py show  --pack traces/packs/<pack_id>.json
+python3 scripts/context_pack.py check traces/packs/*.json
+```
+
+`check` 校验必填字段，并比对 `AGENTS.md` §3 的所有权表是否漂移；
+`subject_package.py` 会核对 trace 里引用的 `pack_id` 是否有对应 pack 文件。
+
+### 9.5 诚实的边界（已知未解决）
+
+**指针优先与上下文预算是冲突的。** 一个 32K 上下文的子 Agent 读不完十几个前置文件，
+所以包最终需要一层**内联预算**：按依赖深度与距离选出 top-K 片段内联进包，其余留指针。
+这一步**故意没做**——K 与排序规则要靠"先有一批带 `pack_id` 的真实样本"用数据选，
+而不是拍脑袋定参数（与 §8.7 "先积累一轮真实轨迹"是同一条思路）。
+在此之前，pack 只是**指针包**：它规定了"该读什么"，不代表子 Agent 真的读完了。

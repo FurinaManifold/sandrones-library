@@ -62,7 +62,7 @@ handoff 或验证命令表格。只有两个数学语义分支无法从仓库判
 - 既有修改默认属于用户或其他负责人。不得用 `git reset --hard`、`git checkout --`、
   整文件 ours/theirs 或覆盖写清除它们。
 - 学科负责人一般只写 `SandronesLibrary/<Subject>/`、对应 `docs/entries/`、
-  `docs/handoffs/`、`docs/maintenance/`、`traces/lean/<subject>/` 和审核处理记录。
+  `docs/handoffs/`、`docs/maintenance/`、`traces/lean/<subject>/`、`traces/packs/` 和审核处理记录。
 
 Main 共享文件包括：
 
@@ -155,6 +155,12 @@ lake build
    `sandrones-lean-attempt/1`），字段含自然语言叙述、待证命题、证明计划、尝试代码与编译器反馈；
    边做边写，失败尝试同样要留。handoff 须写明本批 trace 的路径与记录数；确无试错过程的批次要
    显式写明「本批无验证试错，无 trace」。工具：`python3 scripts/lean_trace.py append|check|summary`。
+9. **派工上下文包**：派子 Agent 之前必须用
+   `python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> --role <角色> --goal-nl "<一句话目标>" --out traces/packs/<pack_id>.json`
+   生成上下文包并提交；`task.goal_nl` 是唯一手写字段，其余（所有权、前提闭包、冻结签名、
+   Playbook 必读节、预算与升级条件）都从权威源推导，负责人不得改写。pack 是子 Agent 的开工输入，
+   其每条 trace 记录必须带同一个 `pack_id`；handoff 须列出本批 pack_id 清单。确无子 Agent 的批次
+   要写明原因。规范见 Playbook §9。
 
 学科负责人不运行全库 `lake build`，不直接维护 Main 共享文件。精确八段重排、
 front matter 统一、review 归档和 Registry/RADAR/ROADMAP 规范化是 Main 职责；

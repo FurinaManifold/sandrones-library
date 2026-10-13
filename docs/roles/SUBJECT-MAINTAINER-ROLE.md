@@ -24,6 +24,13 @@
 ## 子 Agent 管理
 
 - 默认可派 2–3 个子 Agent，每个只负责一组互不重叠的 `.lean` 文件和对应课程文档。
+- **派工前先出上下文包**：切分好所有权后，用
+  `python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> --role sub-agent --goal-nl "<一句话目标>" --out traces/packs/<pack_id>.json`
+  生成 pack 并提交到 `traces/packs/`，把它作为子 Agent 的开工输入。包里除 `task.goal_nl`
+  之外的字段（可写/只读路径、前提闭包、冻结签名、Playbook 必读节、预算与升级条件）都由脚本
+  从 AGENTS §3、Registry、原型文件和 Playbook 推导，负责人不得手改；不再靠临场拼提示词。
+- 子 Agent 的每条 Lean 验证记录（Playbook §8）必须带同一个 `pack_id`，否则该轨迹无法与上下文
+  配对成训练样本；handoff 要列出本批 pack_id 清单。规范见 Playbook §9。
 - 公共定义层先行：定义层 Agent 交付并通过上层组装类型检查后，才启动依赖它的证明包。
 - 子 Agent 不修改 main 共有文件，也不直接向 main 交付。
 - 负责人记录每个子 Agent 的分支、提交、所有权和返工问题，但不要求用户维护这些记录。
