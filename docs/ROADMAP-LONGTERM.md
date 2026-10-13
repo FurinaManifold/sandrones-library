@@ -289,6 +289,32 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
      `topology.space.closure` 等），其中 `x-normal-domain` 的 `x-` 前缀看起来是刻意停用。
      处置需要一次专门的只读审计，逐模块判定"已被取代 → 退役并移出根 import"还是"内容唯一 → 补
      Entry 登记"，不得按文件名猜。本项**不在 Wave D 三个窗口的文件所有权内**，应另开维护窗口。
+   - **(e) 两个 Entry id 的标记横跨两个 Lean 文件**，直接违反 AGENTS §6「一个 Entry id 只对应一个
+     Lean 文件」与学科验收门「Markdown id、源码 id、拟登记 Registry id 和唯一 `lean_file` 完全一致」：
+     - `linear-algebra.matrix.normal`：Registry 的 `lean_file` 是 `LinearAlgebra/NormalSpectral.lean`，
+       但 `LinearAlgebra/NormalMatrix.lean:16` 也带同一标记（该文件定义 `IsNormalMatrix`、
+       `IsHermitianMatrix`、`IsSkewHermitianMatrix` 等）。
+     - `abstract-algebra.poly.irreducible`：Registry 的 `lean_file` 是
+       `AbstractAlgebra/PolynomialIrreducibility.lean`，但 `AbstractAlgebra/Poly.lean:62,69` 也带同一标记。
+
+     后果：`map_entry_to_decl` 按"最近前置标记"会把两个文件的声明并到同一 Entry 下，而
+     `check_axioms.py` 只按 Registry 的 `lean_file` 探测，于是该条目的公理集实际只覆盖其中一个文件，
+     正文却跨两文件——两种读法不一致。`NormalMatrix.lean` 与 `Poly.lean` 的这部分声明究竟是
+     "已并入该 Entry 的合法部分"还是"应当另立 id／删标记"，须由线性代数与抽象代数窗口判定，
+     Main 不得替学科猜。**该缺陷会使 `gen_entry_rankings.py` 的 Lean 使用扫描结果产生歧义**
+     （见 (f)）。
+   - **(f) ✅ 已修复（2026-10-13，`scripts/gen_entry_rankings.py`）**：排名生成器**不是幂等的**——
+     同一个工作区连续运行会给出不同的小数位，跨 `PYTHONHASHSEED` 更明显。根因是 `dependents`
+     是 `set`，而 `sum()` 浮点累加不满足结合律，迭代顺序随字符串哈希变化；`LEAN_ROOT.rglob` 的
+     文件系统顺序也影响 `declaration.setdefault` 与 `lean_usage_evidence` 的列表顺序。修法：对
+     set 迭代排序、`rglob` 排序、传递影响与跨学科影响改用 `math.fsum`。已验证 5 个不同
+     `PYTHONHASHSEED` 下输出 md5 完全一致，并据此重生成 `index/rankings.json` 与
+     `docs/entries/RANKINGS.md`。
+
+     顺带发现：重生成后 `linear-algebra.matrix.normal` 的 `lean_usage_files` 由 0 变 1、名次与分数
+     随之变化，**正是 (e) 的重复标记造成的歧义扫描**，不是浮点噪声。修复前提交的排名文件因此
+     与生成器输出不一致；今后集成必须让排名文件与当次生成器输出逐字一致，否则说明仍有
+     非确定性输入。
 
 
 #### 每个学科 handoff 必须回答的路线问题

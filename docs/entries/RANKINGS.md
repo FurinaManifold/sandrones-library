@@ -11,33 +11,33 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.14 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 96.90 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 96.88 |
 | 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.63 |
-| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.46 |
+| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.44 |
 | 5 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.99 |
 | 6 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.99 |
-| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.89 |
-| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.75 |
-| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.62 |
+| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.87 |
+| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.73 |
+| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.60 |
 | 10 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.15 |
 | 11 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 91.68 |
-| 12 | `analysis.series.basic` | 数项级数基础 | 91.61 |
+| 12 | `analysis.series.basic` | 数项级数基础 | 91.60 |
 | 13 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.59 |
-| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.56 |
+| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.54 |
 | 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.05 |
 | 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.71 |
-| 17 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.69 |
+| 17 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.67 |
 | 18 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.18 |
-| 19 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.52 |
-| 20 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.30 |
-| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.05 |
+| 19 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.83 |
+| 20 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.52 |
+| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.03 |
 | 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.54 |
 | 23 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.47 |
-| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.72 |
-| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.62 |
-| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.39 |
-| 27 | `settheory.set.ext` | 外延性原理 | 87.21 |
-| 28 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 87.06 |
+| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.71 |
+| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.57 |
+| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.37 |
+| 27 | `settheory.set.ext` | 外延性原理 | 87.20 |
+| 28 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 87.05 |
 | 29 | `linear-algebra.det.mul` | 积的行列式 | 87.04 |
 | 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.72 |
 

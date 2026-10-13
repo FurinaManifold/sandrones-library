@@ -98,7 +98,9 @@ def lean_usage_files(records: list[dict]) -> tuple[dict[str, int], dict[str, lis
     declaration_file: dict[str, str] = {}
     raw_files: dict[str, str] = {}
     code_files: dict[str, str] = {}
-    for path in LEAN_ROOT.rglob("*.lean"):
+    # rglob 的顺序由文件系统决定；先排序，否则 `declaration.setdefault` 的“先到先得”
+    # 与 lean_usage_evidence 的列表顺序都会随运行环境变化。
+    for path in sorted(LEAN_ROOT.rglob("*.lean")):
         rel = str(path.relative_to(LEAN_ROOT))
         raw = path.read_text(encoding="utf-8")
         raw_files[rel] = raw
@@ -150,7 +152,9 @@ def main() -> None:
     for record in records:
         entry_id = record["id"]
         weighted = 0.0
-        for user_id in dependents[entry_id]:
+        # `dependents` 是 set，而浮点加法不满足结合律：按未排序的 set 迭代会让同一份
+        # Registry 在不同 PYTHONHASHSEED 下得到不同的小数位。排序后累加才可复现。
+        for user_id in sorted(dependents[entry_id]):
             user = by_id[user_id]
             contribution = 1.0 / max(1, len(user.get("premises", [])))
             if user.get("lean_file") == record.get("lean_file"):
@@ -161,22 +165,24 @@ def main() -> None:
         direct[entry_id] = weighted
 
         distance: dict[str, int] = {}
-        queue = deque((child, 1) for child in dependents[entry_id])
+        queue = deque((child, 1) for child in sorted(dependents[entry_id]))
         while queue:
             node, depth = queue.popleft()
             if depth > 6 or depth >= distance.get(node, 7):
                 continue
             distance[node] = depth
-            for child in dependents[node]:
+            for child in sorted(dependents[node]):
                 queue.append((child, depth + 1))
         transitive_users[entry_id] = len(distance)
-        transitive[entry_id] = sum(
+        transitive[entry_id] = math.fsum(
             (0.5 ** (depth - 1)) * (0.5 if by_id[node].get("kind") == "example" else 1.0)
-            for node, depth in distance.items()
+            for node, depth in sorted(distance.items())
         )
-        near_subjects = Counter(subject(node) for node, depth in distance.items() if depth <= 2)
+        near_subjects = Counter(subject(node) for node, depth in sorted(distance.items()) if depth <= 2)
         subject_reach[entry_id] = len(near_subjects)
-        cross_subject[entry_id] = sum(min(1.0, 0.25 * count) for count in near_subjects.values())
+        cross_subject[entry_id] = math.fsum(
+            min(1.0, 0.25 * count) for _, count in sorted(near_subjects.items())
+        )
 
     usage_count, usage_files = lean_usage_files(records)
     usage = {entry_id: math.log2(1 + count) for entry_id, count in usage_count.items()}
