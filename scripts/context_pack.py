@@ -164,15 +164,13 @@ def premises_closure(registry: dict[str, dict], roots: list[str], depth: int) ->
         frontier = nxt
     rows = []
     for eid, d in sorted(seen.items(), key=lambda kv: (kv[1], kv[0])):
-        if eid in roots:
-            continue
         e = registry[eid]
         rows.append({
             "entry_id": eid,
             "depth": d,
             "lean_file": f"SandronesLibrary/{e.get('lean_file', '?')}",
             "mathlib": e.get("mathlib", []),
-            "why": "registry.premises 闭包",
+            "why": "直接前提（registry.premises）" if d == 0 else "registry.premises 闭包",
         })
     return rows
 
@@ -233,12 +231,42 @@ def route_playbook(goal_text: str, sections: dict[str, dict]) -> list[dict]:
     return rows
 
 
+def nl_path_for(entry_id: str) -> str:
+    """id → 叙述层路径（audit.py 的 id→路径规范：点转斜杠 + .md）。"""
+    return "docs/entries/" + entry_id.replace(".", "/") + ".md"
+
+
+def resolve_entry(args: argparse.Namespace, registry: dict[str, dict]) -> dict:
+    """取目标 Entry。已登记的正常取；未登记的新条目走 `--new-entry` 计划模式。"""
+    entry = registry.get(args.entry)
+    if entry is not None:
+        return entry
+    if not args.new_entry:
+        raise SystemExit(
+            f"[ERR] registry 中没有 entry `{args.entry}`；"
+            "若是本批新条目，请加 `--new-entry --lean-file <路径>` 并给出 `--premises`")
+    if not args.lean_file:
+        raise SystemExit("[ERR] --new-entry 必须同时给 `--lean-file`（新条目的 Lean 文件相对路径）")
+    premises = [p for p in (args.premises or "").split(",") if p.strip()]
+    missing = [p for p in premises if p not in registry]
+    if missing:
+        raise SystemExit(f"[ERR] --premises 中这些 id 不在 registry：{', '.join(missing)}")
+    return {
+        "id": args.entry,
+        "state": "planned",
+        "title": args.goal_nl,
+        "summary": "（计划中新条目：尚未登记 Registry）",
+        "lean_file": args.lean_file,
+        "nl_file": nl_path_for(args.entry),
+        "premises": premises,
+        "mathlib": [m for m in (args.mathlib or "").split(",") if m.strip()],
+    }
+
+
 def build(args: argparse.Namespace) -> dict:
     registry = load_registry()
     subject = args.subject
-    entry = registry.get(args.entry)
-    if entry is None:
-        raise SystemExit(f"[ERR] registry 中没有 entry `{args.entry}`")
+    entry = resolve_entry(args, registry)
     if not entry.get("lean_file", "").lower().startswith(subject.split("-")[0][:4].lower()):
         print(f"[WARN] entry 的 lean_file={entry['lean_file']} 与 --subject {subject} 可能不匹配",
               file=sys.stderr)
@@ -284,6 +312,7 @@ def build(args: argparse.Namespace) -> dict:
             "role": args.role,
             "entry_id": args.entry,
             "entry_state": entry.get("state"),
+            "entry_planned": entry.get("state") == "planned",
             "entry_title": entry.get("title"),
             "entry_summary": entry.get("summary"),
             "goal_nl": args.goal_nl,
@@ -311,6 +340,9 @@ def build(args: argparse.Namespace) -> dict:
             "closure_depth": args.depth,
             "entries": premises_closure(registry, entry.get("premises", []), args.depth),
             "mathlib": sorted(set(entry.get("mathlib", []))),
+            "mathlib_status": (
+                "unverified_hint" if entry.get("state") == "planned" else "from_registry"
+            ),
         },
         "playbook": {"sections": route_playbook(goal_text, sections)},
         "budget": BUDGET,
@@ -411,7 +443,15 @@ def main() -> None:
     b = sub.add_parser("build", help="从权威源推导一个上下文包")
     b.add_argument("--subject", required=True)
     b.add_argument("--batch", required=True)
-    b.add_argument("--entry", required=True, help="registry 中的 Entry id（= task_id）")
+    b.add_argument("--entry", required=True, help="Entry id（= task_id）；新条目配合 --new-entry")
+    b.add_argument("--new-entry", action="store_true",
+                   help="计划模式：条目尚未登记 Registry（新批次首次派工）")
+    b.add_argument("--lean-file", default=None,
+                   help="计划模式下新条目的 Lean 文件相对路径，如 CommutativeAlgebra/Module/Definition.lean")
+    b.add_argument("--premises", default="",
+                   help="计划模式下的库内前提 id，逗号分隔（必须已在 Registry 中）")
+    b.add_argument("--mathlib", default="",
+                   help="计划模式下的 Mathlib 候选名，逗号分隔（记为未验证提示）")
     b.add_argument("--role", default="subject-maintainer",
                    choices=sorted(ROLE_OWNERSHIP))
     b.add_argument("--goal-nl", required=True, help="唯一必须手写的字段：本任务的一句话目标")

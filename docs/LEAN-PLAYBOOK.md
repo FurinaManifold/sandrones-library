@@ -1053,15 +1053,28 @@ mathlib 的证明文件是**最好的教材**。读法：
 ### 9.4 命令
 
 ```bash
+# 已登记条目
 python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> \
     --role subject-maintainer --goal-nl "<一句话目标>" \
     --prototype /tmp/<原型>.lean --out traces/packs/<pack_id>.json
+
+# 计划中的新条目（首次派工时就还没登记 Registry，走 --new-entry 计划模式）
+python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <新 Entry id> \
+    --new-entry --lean-file <Subject>/<File>.lean \
+    --premises <已登记的前提 id,逗号分隔> --mathlib <候选名,逗号分隔> \
+    --role sub-agent --goal-nl "<一句话目标>" --out traces/packs/<pack_id>.json
+
 python3 scripts/context_pack.py show  --pack traces/packs/<pack_id>.json
 python3 scripts/context_pack.py check traces/packs/*.json
 ```
 
 `check` 校验必填字段，并比对 `AGENTS.md` §3 的所有权表是否漂移；
 `subject_package.py` 会核对 trace 里引用的 `pack_id` 是否有对应 pack 文件。
+
+计划模式下 `prerequisites.mathlib` 是**未验证的候选提示**（`mathlib_status: unverified_hint`），
+不是已经确认的承载；`target.nl_file` 仍按 id→叙述层路径规范自动推导
+（`commutative-algebra.module.definition` → `docs/entries/commutative-algebra/module/definition.md`），
+所以包在建条目之前就把路径规范固定下来了。
 
 ### 9.5 诚实的边界（已知未解决）
 
