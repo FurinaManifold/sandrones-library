@@ -119,11 +119,31 @@ df -h /                                                                  # 构�
 
 ## 6. 学科包自检
 
-见本次交付提交后的现场运行结果（`python3 scripts/subject_package.py --worktree
-/home/pisquare/czt/sandrones-library-examples-r1 --base 7dffe37 --subject examples`）；
-异常清单与 verdict 以现场输出为准，若有异常逐条见本节补充。
+现场运行（提交 `c51b7df04e06ec2a05019757e781579e619308d6` 时点）：
 
-（注：`--base 7dffe37` 下 `docs/handoffs/examples-wave-r1.md` 必须已提交，coverage 门才通过。）
+```bash
+python3 scripts/subject_package.py \
+  --worktree /home/pisquare/czt/sandrones-library-examples-r1 \
+  --base 7dffe37 --subject examples
+```
+
+```text
+学科验收包 examples  (codex/examples-wave-r1 @ c51b7df04)
+  基线 7dffe37｜提交 4｜改动文件 8
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  verdict: pass
+```
+
+- 异常清单为空（`exceptions = []`）。
+- proof 门逐 Entry 声明数：`examples.real-analysis.measure-derivative` = 11、
+  `examples.probability.clt` = 12、`examples.topology.spaces` = 5；
+  每个 id 的源码标记均只落在各自单个 Lean 文件上。
+- 说明：本节在此提交后才逐字写入，故 `verdict: pass` 对应上一提交 `c51b7df`；文档提交后
+  head 前进，语义／证明／覆盖门不受影响，Main 可按新 head 复核。
 
 ## 7. 给 Main 的共享文件更新建议
 
