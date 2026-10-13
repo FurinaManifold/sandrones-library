@@ -9,6 +9,8 @@
   - `23e68f0` — `docs(statistics): entry draft for statistics.maximum-likelihood`（叙述层）
   - `9f9efd0` — `docs(statistics): wave-r1 handoff for S1 maximum-likelihood batch`（本文件）
   - `e612b94` — `fix(statistics): tighten log-likelihood prose and mathlib name list`（对数的严格单调边界、front-matter mathlib 实名）
+  - `2027675` — `docs(statistics): record wave-r1 commit list in handoff`
+  - `6128554` — `fix(statistics): document domination boundary and tighten audit-flagged docstrings`（审计返工：支配性边界、接口桥定性、删除冗余假设）
 - **权限判定**：ROADMAP §Wave R 将 R-statistics 列为 S1🚧（S2🔒）可并行窗口；D-0 第 1–2 项
   （含 `statistics.sufficiency.definition`）已集成；似然/密度所需的 RN 接口
   `real-analysis.measure-derivative.radon-nikodym` 已集成，故 S1 第 7 条
