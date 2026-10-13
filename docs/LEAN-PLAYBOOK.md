@@ -627,6 +627,32 @@
   `ℝ has type Type but expected Type u_1`。凡"Prop 里显式量化的指标类型"直接写 `Type`
   （Sort 1，覆盖 ℝ/ℕ/普通类型）即可，别用 `Type*`。
 - 出处：第三章第五批（NIT→FC 主定理；FC→AccPt 的 `accumulation_point_of_finite_cover`）。
+
+### 2.15 隐式 binder 的分量 + 嵌套 `And` 匿名构造子：不要写裸 lambda（CA1 试点 4 次复现）
+
+- 场景：目标是一个**由多个分量拼成的 `And`**，而分量本身用**隐式绑定**声明，例如本库的
+  `IsSubspace K W = W.Nonempty ∧ (∀ ⦃u v⦄, u ∈ W → v ∈ W → u + v ∈ W) ∧ …`、
+  `LeftIdealSet I = … ∧ (∀ ⦃x y⦄, x ∈ I → y ∈ I → x + y ∈ I) ∧ …`。
+- 错误写法：把裸 lambda 直接塞进匿名构造子，如
+  `exact ⟨h0, (fun hx hy => S.add_mem hx hy), …⟩`。
+- 实际报错：`Application type mismatch: The argument hx has type R but is expected to have
+  type ?m ∈ S`——Lean 把 `hx` 统一成了**隐式 binder 的第一个显式参数**（系数类型 `R`/`V`），
+  而不是元素属于子集的那个前提。
+- 根源：`And` 的匿名构造子不会把期望的函数类型传播进 lambda 的 binder 域，于是隐式 binder
+  `∀ ⦃x⦄` 在 lambda 里退化成了普通显式参数。
+- **修法**：不要在该位置写裸 lambda。先 `refine ⟨_, ?_, ?_⟩` 把分量开成独立 goal，
+  再用 `intro x y hx hy` 在 **goal 上**引入 binder——此时隐式 binder 由目标本身给出，推断正确：
+
+  ```lean
+  refine ⟨⟨0, S.zero_mem⟩, ?_, ?_⟩
+  · intro u hu v hv; exact S.add_mem hu hv
+  · intro c v hv;   exact S.smul_mem c hv
+  ```
+
+- 出处：`commutative-algebra.module.definition` 的 L1 桥与 A2 桥（
+  `traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl` 第 5、7、10 次尝试，
+  三次同一根因；第 6、11 次为修好后的 accepted 对照）。
+
 ## 3. 公理纪律（Classical.choice 最小化）（由原 §3.5–3.9 提升合并）
 
 > **总原则**：遇到条目带 `Classical.choice`，先分清是"**数学必需**"还是"**形式化噪声**"——
@@ -698,6 +724,22 @@
 - 正确做法：诚实保留 ≈/LimZero 形式，在叙述层注明
   "choice 来源是 `CauSeq.equiv` 实例内部（mathlib 的 LimZero 证明），非本条目内容"。
 - 出处：`analysis.real.construction-cauchy`（实验文件 /tmp/opencode/pb.lean）。
+
+### 3.6 `#print axioms` 当 `sorryAx` 探针：编译失败留下的 `?_` 会伪装成"大部分通过"
+
+- 现象（CA1 试点实测）：一个探针文件里前面几条 `example` 都通过、末尾一条因隐式 binder 报错，
+  但文件里残留的 `?_` 洞被 Lean 当作 `sorry`，于是脚本末尾的
+  `#print axioms <被审声明>` 打出
+  `depends on axioms: [propext, sorryAx]`。
+- 教训：**"编译输出里大部分是 ✔"不等于干净**。只要有一个 `?_` 没被填上，该声明就带 `sorryAx`，
+  而 `sorryAx` 会顺着依赖传染给所有引用它的定理。
+- 用法：把 `#print axioms <声明全名>` 当作**每个待交付声明的收尾探针**（尤其在
+  `/tmp` 原型转正式文件、或一轮里改了多处 binder 之后）。出现 `sorryAx` 说明还有洞，
+  与"编译通过"是两件独立的事——编译器可以一边报 error 一边让后续 `#print axioms` 给出结论。
+- 注意与 §3.5 的分工：`#print axioms` 会**漏报**被非 reducible 投影挡住的实例开销（§3.5），
+  但它对 `sorryAx` **不漏报**——两者是不同方向的盲区，不能互相替代。
+- 出处：`commutative-algebra.module.definition` 探针第 7 次尝试
+  （`traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl`）。
 
 ## 4. 转正方法论（Promote to Textbook Form）：mathlib 广泛形式 → 库当前阶段的教材陈述（由原 §3.18 提升）
 
@@ -976,6 +1018,18 @@ mathlib 的证明文件是**最好的教材**。读法：
 | `compiler_feedback` | 编译器反馈数组，每项 `{"severity", "message", "line", "col"}` |
 | `next_step` | 下一轮打算怎么改（写记录时就要给出，这是轨迹的"边") |
 
+**侦察类尝试（`#check` / `#print` / `#synth`）怎么写 `goal`。** 这类轮次没有"待证命题"，
+但它恰恰是轨迹里最便宜、信息量最大的一类样本，不要跳过。约定：
+
+- `goal` 写**本轮真正提交给编译器的那串探针命令的规范化形式**（可以按 `#check` 分组用
+  `/` 分隔），不要写成自然语言，也不要写成"想知道 X 是否存在"；
+- `outcome` 按编译器结论给：全部探针成功 → `accepted`；有 `Unknown constant` /
+  `Application type mismatch` 等 → `error`（**哪怕只有一条错**，见 §3.6）；
+- `next_step` 写"由这批探针结论**决定了什么**"（换了哪个承载、放弃了哪个候选名），
+  这是侦察轮最有训练价值的部分；
+- 出处示例：`traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl` 第 1–4 次尝试
+  （`#print Module/Submodule/LinearMap` → 确认父结构；`#check` 候选桥名 → 五个名字不存在）。
+
 选填字段：`entry_id`、`file`、`declaration`、`parent_attempt`（形成尝试树）、
 `pack_id`（**派工上下文包的 join key**，见 §9；有 pack 的批次必填，否则轨迹无法与上下文配对）、
 `hypotheses`（关键上下文）、`feedback_raw`（原始输出，**截断到 4000 字符**）、
@@ -1045,7 +1099,9 @@ mathlib 的证明文件是**最好的教材**。读法：
 | `frozen.declarations` / `may_not_change` | 原型文件里的 `sorry` 声明（§0 sorry 框架法的落地点）；改签名即升级 |
 | `playbook.sections` | 目标形状关键词 → 锚点 + 行号（**指回去读，不复制正文**） |
 | `budget.max_attempts_per_goal` / `escalate_when` | §0 的五次试错硬规则 + 升级条件 |
-| `trace.path` / `trace.schema` | §8 |
+| `pack_id` | `<学科>-<批次>-<Entry id>`；加了 `--worker` 则追加 `-<worker>`。**是 join key，必须唯一** |
+| `task.worker` | `--worker` 的短标签（同一 Entry 派多个子 Agent 时用来区分，见 §9.4） |
+| `trace.path` / `trace.schema` | §8；路径同样带 `-<worker>` 后缀，保证与 `pack_id` 一一对应 |
 
 包里存的是**路径、id、行号与哈希**，不复制权威源内容（`AGENTS.md` §6 的派生文件纪律）；
 `pack_sha256` 覆盖除 `generated_at` 外的全部字段，保证同一任务反复生成字节一致。
@@ -1067,6 +1123,21 @@ python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entr
 python3 scripts/context_pack.py show  --pack traces/packs/<pack_id>.json
 python3 scripts/context_pack.py check traces/packs/*.json
 ```
+
+**同一 Entry 派多个子 Agent 时必须加 `--worker`。** `pack_id` 默认是
+`<学科>-<批次>-<Entry id>`，`trace.path` 也由 Entry 唯一决定；一个批次只有一个 Entry 却要派
+两个 worker 时，两个 pack 会共用同一个 `pack_id`，join key 不再唯一——按 `pack.trace.path`
+收轨迹会漏掉另一个 worker 的全部记录（CA1 试点实测：漏掉 14 条）。给后续 worker 加短标签即可：
+
+```bash
+python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> \
+    --role sub-agent --worker verify --goal-nl "<该 worker 的目标>" \
+    --out traces/packs/<pack_id>-verify.json
+```
+
+`--worker` 会把 `-<worker>` 追加到 `pack_id` 与 `trace.path` 之后，并把标签写进 `task.worker`。
+`check` 现在会**直接报错**重复的 `pack_id`，`subject_package.py` 也会在 `packs` 块给出
+`duplicate_pack_ids`。
 
 `check` 校验必填字段，并比对 `AGENTS.md` §3 的所有权表是否漂移；
 `subject_package.py` 会核对 trace 里引用的 `pack_id` 是否有对应 pack 文件。

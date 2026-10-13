@@ -372,3 +372,4 @@ import SandronesLibrary.Examples.GaussStokes
 import SandronesLibrary.Examples.MeasureDerivative
 import SandronesLibrary.Examples.CentralLimit
 import SandronesLibrary.Examples.TopologySpaces
+import SandronesLibrary.CommutativeAlgebra.Module.Definition

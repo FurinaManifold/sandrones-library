@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **621** 个条目（verified 621，pending 0）。
+共 **622** 个条目（verified 622，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -274,6 +274,10 @@
 - ✅ [`special-angles.md`](analysis/trigonometric/special-angles.md) — 高中常用三角函数特殊角值
 - ✅ [`sum-product.md`](analysis/trigonometric/sum-product.md) — 三角函数和差化积公式
 - ✅ [`tan-identities.md`](analysis/trigonometric/tan-identities.md) — 正切的和差与倍角公式
+
+## `commutative-algebra.module`
+
+- ✅ [`definition.md`](commutative-algebra/module/definition.md) — 模、子模与模同态
 
 ## `complex-analysis`
 

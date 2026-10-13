@@ -20,10 +20,13 @@ open scoped Filter Topology
 * **linear-algebra.vector-space.basis**（基：基的大小 = 维数；dim ℝⁿ = n）。
 * **linear-algebra.vector-space.dimension**（维数：dim 与秩的一致；零维 ⟺ 平凡空间）。
 
-> **语言说明**：本文件的词条签名只用教材记号——`LinearSpace`（向量空间）、`dim`（维数）、
-> `IsLinearIndependent`（线性无关）、`IsBasis`（基）。mathlib 的更广抽象
-> （`Module`、`Module.finrank`、`LinearIndependent`、`Submodule`）只出现在 `:= by` 之后的证明内部，
-> 绝不出现在定理描述里。
+> **语言说明**：本文件的词条**陈述**（`lemma`/`theorem` 的签名）只用教材记号——`LinearSpace`
+> （向量空间）、`dim`（维数）、`IsLinearIndependent`（线性无关）、`IsBasis`（基）。
+> mathlib 的更广抽象（`Module`、`Module.finrank`、`LinearIndependent`、`Submodule`）不作为
+> 定理的陈述对象，只出现在两处：教材记号自身的**定义体**（`dim` 用 `Module.finrank`、
+> `IsFiniteDimensional` 用 `Module.Finite`、`IsLinearIndependent` 用 `LinearIndependent`、
+> `IsBasis` 用 `Submodule.span`），以及 `:= by` 之后的证明内部。
+> 也就是说：定理陈述里的数学对象一律是教材记号；mathlib 名可以成为教材记号的实现。
 -/
 
 namespace SandronesLibrary

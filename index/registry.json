@@ -2438,13 +2438,14 @@
     "added_by": "ingestor-linalg-L1",
     "added_at": "2026-08-21T05:44:24Z",
     "dependedOnBy": [
+      "commutative-algebra.module.definition",
       "linear-algebra.inner-product",
       "linear-algebra.tensor-exterior",
       "topology.normed-space.def"
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "d3ed16fafa7e9b68",
+    "proof_sha": "8202d0762f5299a6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2472,7 +2473,7 @@
     "dependedOnBy": [],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "d3ed16fafa7e9b68",
+    "proof_sha": "8202d0762f5299a6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2503,7 +2504,7 @@
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "d3ed16fafa7e9b68",
+    "proof_sha": "8202d0762f5299a6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2535,7 +2536,7 @@
     ],
     "family": "linear-algebra.vector-space",
     "variant": "ecnu",
-    "proof_sha": "d3ed16fafa7e9b68",
+    "proof_sha": "8202d0762f5299a6",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -2881,6 +2882,7 @@
     "added_by": "ingestor-linalg-L1b",
     "added_at": "2026-08-21T06:24:01Z",
     "dependedOnBy": [
+      "commutative-algebra.module.definition",
       "linear-algebra.vector-space.sum-quotient"
     ],
     "family": "linear-algebra.vector-space",
@@ -3650,7 +3652,8 @@
       "abstract-algebra.ring.divisibility",
       "abstract-algebra.ring.ideal",
       "abstract-algebra.ring.iso-theorems",
-      "abstract-algebra.ring.localization"
+      "abstract-algebra.ring.localization",
+      "commutative-algebra.module.definition"
     ],
     "proof_sha": "da90e910e146b486"
   },
@@ -3693,7 +3696,8 @@
       "abstract-algebra.ring.iso",
       "abstract-algebra.ring.iso-theorems",
       "abstract-algebra.ring.prime-ideal",
-      "abstract-algebra.ring.quotient"
+      "abstract-algebra.ring.quotient",
+      "commutative-algebra.module.definition"
     ],
     "proof_sha": "da90e910e146b486"
   },
@@ -20795,6 +20799,42 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T09:16:15Z",
     "proof_sha": "8717ca3cbfaf927e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "commutative-algebra.module.definition",
+    "kind": "definition",
+    "title": "模、子模与模同态",
+    "summary": "交换环上模、子模与模同态的教材定义与量词展开；子模的加法/数乘封闭刻画、模同态与线性映射的关系，以及它们在 Mathlib 中的角色分类",
+    "family": "commutative-algebra.module",
+    "variant": "textbook",
+    "premises": [
+      "abstract-algebra.ring.def",
+      "abstract-algebra.ring.ideal",
+      "linear-algebra.vector-space.def",
+      "linear-algebra.vector-space.subspace"
+    ],
+    "mathlib": [
+      "Module",
+      "Submodule",
+      "LinearMap",
+      "LinearMap.ker",
+      "LinearMap.range"
+    ],
+    "lean_file": "CommutativeAlgebra/Module/Definition.lean",
+    "nl_file": "docs/entries/commutative-algebra/module/definition.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "atiyah-macdonald-commutative-algebra-1969"
+    },
+    "state": "verified",
+    "added_by": "main-ca1-integration",
+    "added_at": "2026-10-13T11:30:00Z",
+    "proof_sha": "c9e58099a9c18a74",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

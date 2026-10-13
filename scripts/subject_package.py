@@ -25,6 +25,7 @@
 from __future__ import annotations
 
 import argparse
+import collections
 import datetime
 import json
 import re
@@ -293,6 +294,9 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
         except Exception:  # noqa: BLE001 - 已在上面记入 invalid
             pass
     missing_packs = sorted(referenced_packs - set(pack_ids))
+    # pack_id 是 (pack, trace) 的 join key：同批多 worker 必须用 --worker 区分，否则不唯一。
+    dup_packs = sorted(
+        pid for pid, n in collections.Counter(pack_ids).items() if n > 1)
 
     return {
         "schema": SCHEMA,
@@ -322,14 +326,17 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
         "packs": {
             "files": pack_files,
             "pack_ids": sorted(pack_ids),
+            "duplicate_pack_ids": dup_packs,
             "referenced_by_traces": sorted(referenced_packs),
             "missing_for_referenced": missing_packs,
             "invalid": pack_bad,
             "note": (
                 "本批未生成派工上下文包（Playbook §9 软门；确无子 Agent 的批次请在 handoff 写明）"
                 if not pack_files and lean_changed else
-                ("trace 引用的 pack_id 没有对应 pack 文件：" + ", ".join(missing_packs)
-                 if missing_packs else "pack 与 trace 的 pack_id 已配对")
+                ("pack_id 重复（join key 不唯一）：" + ", ".join(dup_packs)
+                 if dup_packs else
+                 ("trace 引用的 pack_id 没有对应 pack 文件：" + ", ".join(missing_packs)
+                  if missing_packs else "pack 与 trace 的 pack_id 已配对"))
             ),
         },
         "exceptions": ex,
@@ -376,7 +383,8 @@ def main() -> None:
         tmark = {"present": "✅", "n/a": "➖", "missing": "⚠️", "invalid": "❌"}.get(tr.get("status"), "?")
         print(f"  {tmark} traces（软门）：{tr.get('note', '')}")
         pk = pkg.get("packs", {})
-        pmark = "✅" if pk.get("pack_ids") and not pk.get("missing_for_referenced") else (
+        pmark = "✅" if (pk.get("pack_ids") and not pk.get("missing_for_referenced")
+                         and not pk.get("duplicate_pack_ids")) else (
             "❌" if pk.get("invalid") else "⚠️")
         print(f"  {pmark} packs（软门）：{pk.get('note', '')}")
         if pkg["exceptions"]:

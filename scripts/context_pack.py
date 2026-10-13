@@ -236,6 +236,17 @@ def nl_path_for(entry_id: str) -> str:
     return "docs/entries/" + entry_id.replace(".", "/") + ".md"
 
 
+def normalize_lean_file(raw: str) -> str:
+    """把 `--lean-file` 统一成 Registry 口径（相对 `SandronesLibrary/`）。
+
+    CLI 与 Registry 用同一口径；两种写法都接受，避免子 Agent 照抄 pack 里的
+    `SandronesLibrary/...` 再传给 CLI 时路径翻倍。
+    """
+    s = (raw or "").replace("\\", "/").strip().lstrip("./")
+    prefix = "SandronesLibrary/"
+    return s[len(prefix):] if s.startswith(prefix) else s
+
+
 def resolve_entry(args: argparse.Namespace, registry: dict[str, dict]) -> dict:
     """取目标 Entry。已登记的正常取；未登记的新条目走 `--new-entry` 计划模式。"""
     entry = registry.get(args.entry)
@@ -256,7 +267,7 @@ def resolve_entry(args: argparse.Namespace, registry: dict[str, dict]) -> dict:
         "state": "planned",
         "title": args.goal_nl,
         "summary": "（计划中新条目：尚未登记 Registry）",
-        "lean_file": args.lean_file,
+        "lean_file": normalize_lean_file(args.lean_file),
         "nl_file": nl_path_for(args.entry),
         "premises": premises,
         "mathlib": [m for m in (args.mathlib or "").split(",") if m.strip()],
@@ -294,9 +305,13 @@ def build(args: argparse.Namespace) -> dict:
     goal_text = " ".join([args.goal_nl] + [d["signature_excerpt"] for d in frozen_decls] + [args.entry])
     sections = parse_playbook_sections()
 
+    # 同一 Entry 派多个 worker 时，pack_id 与 trace 路径都要能区分，否则 join key 不唯一。
+    worker = (getattr(args, "worker", None) or "").strip()
+    suffix = f"-{worker}" if worker else ""
+
     pack = {
         "schema": SCHEMA,
-        "pack_id": f"{subject}-{args.batch}-{args.entry}",
+        "pack_id": f"{subject}-{args.batch}-{args.entry}{suffix}",
         "generated_at": datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
         "generator": "scripts/context_pack.py",
         "derived_from": {
@@ -310,6 +325,7 @@ def build(args: argparse.Namespace) -> dict:
             "subject": subject,
             "batch": args.batch,
             "role": args.role,
+            "worker": worker or None,
             "entry_id": args.entry,
             "entry_state": entry.get("state"),
             "entry_planned": entry.get("state") == "planned",
@@ -347,7 +363,7 @@ def build(args: argparse.Namespace) -> dict:
         "playbook": {"sections": route_playbook(goal_text, sections)},
         "budget": BUDGET,
         "trace": {
-            "path": f"traces/lean/{subject}/{args.entry}.jsonl",
+            "path": f"traces/lean/{subject}/{args.entry}{suffix}.jsonl",
             "schema": TRACE_SCHEMA,
             "pack_id_field": "pack_id",
             "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。",
@@ -402,6 +418,7 @@ def cmd_show(args: argparse.Namespace) -> int:
 def cmd_check(args: argparse.Namespace) -> int:
     """校验 pack 必备字段，并核对所有权表与 AGENTS §3 是否漂移。"""
     errs: list[str] = []
+    seen_ids: dict[str, list[str]] = {}
     for path in args.packs:
         p = Path(path)
         try:
@@ -423,6 +440,16 @@ def cmd_check(args: argparse.Namespace) -> int:
         if pack.get("frozen", {}).get("declarations") and \
                 not pack["frozen"].get("may_not_change"):
             errs.append(f"{p}: 有冻结声明却没有 may_not_change")
+        pid = pack.get("pack_id")
+        if pid:
+            seen_ids.setdefault(pid, []).append(str(p))
+    # pack_id 是 (pack, trace) 的 join key，必须唯一；同 Entry 多 worker 要用 --worker 区分。
+    for pid, paths in sorted(seen_ids.items()):
+        if len(paths) > 1:
+            errs.append(
+                f"pack_id `{pid}` 重复出现在 {len(paths)} 个文件（{', '.join(paths)}）："
+                "join key 不再唯一，按 pack.trace.path 收轨迹会漏掉其他 worker 的记录；"
+                "请给后续 worker 用 `--worker <短标签>` 重建 pack")
     # AGENTS §3 漂移检查
     agents = (ROOT / "AGENTS.md")
     if agents.exists():
@@ -447,7 +474,13 @@ def main() -> None:
     b.add_argument("--new-entry", action="store_true",
                    help="计划模式：条目尚未登记 Registry（新批次首次派工）")
     b.add_argument("--lean-file", default=None,
-                   help="计划模式下新条目的 Lean 文件相对路径，如 CommutativeAlgebra/Module/Definition.lean")
+                   help="计划模式下新条目的 Lean 文件路径。口径同 Registry：相对 "
+                        "`SandronesLibrary/`（如 CommutativeAlgebra/Module/Definition.lean）；"
+                        "写成 `SandronesLibrary/...` 也会被自动归一")
+    b.add_argument("--worker", default=None,
+                   help="同一 Entry 派多个子 Agent 时的短标签（如 lean-core / verify）。"
+                        "给了就在 pack_id 与 trace.path 后追加 `-<worker>`，保证 join key 唯一；"
+                        "不给则沿用 `<subject>-<batch>-<entry>`")
     b.add_argument("--premises", default="",
                    help="计划模式下的库内前提 id，逗号分隔（必须已在 Registry 中）")
     b.add_argument("--mathlib", default="",

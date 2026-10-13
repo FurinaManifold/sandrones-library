@@ -41,7 +41,7 @@
 | **Phase 9 统计推断** | `statistics.*` | S1🚧 S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3✅ N2.4–N2.15🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1🚧；其余按各自路线🔒 | 各自课程门达标 |
+| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1 定义层✅（首条成品）；其余 CA1 条目🚧；其余路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧（首批 `examples.*` 三个 Entry 已集成） E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
 | **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🔒 WF2–WF3🔒（2026-10-13 全线暂停） | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
 
@@ -183,7 +183,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D1 复分析 cycle 基础 | `codex/complex-analysis-wave-r1`（Wave R1） | `complex-analysis.integral.{banach-path-foundation, finite-cycle-foundation, winding-number-foundation}` | ✅ 已完成并集成（2026-10-13，`dee5fff`–`91416f8`） | `ComplexAnalysis/{BanachPathIntegral,CycleCarrier,WindingIndex}.lean`；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 已交付；C2 未关闭，C3 仍 ⏸ |
 | D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
 | D3 拓扑 AT2-C5e | `codex/topology-wave-r1`（Wave R1；原 `codex/topology-foundations` 已废弃） | `topology.covering.subgroup-construction-recovery` | 🚧 `research_open` 维持（原型含 3 个 `sorry`，未过无占位门） | 正式文件路径待 `development_open` 后再定；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
-| D4 交换代数 CA1 | `codex/commutative-algebra`（2026-10-13 试点开窗） | `commutative-algebra.module.definition` | 🚧 `research_open`（首条仍待成品；本批为 CA1 定义层开发） | **目录裁决（Main，2026-10-13）**：新建 `SandronesLibrary/CommutativeAlgebra/`，家族前缀 `commutative-algebra.*`，叙述层 `docs/entries/commutative-algebra/`。不复用 `AbstractAlgebra/`：那里承载 A2/A3 的 `abstract-algebra.{group,ring,poly,field}`，与 CA 课程线不同；且 Registry 中 `commutative-algebra.*` 现有 0 条，无撞车 | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
+| D4 交换代数 CA1 | `codex/commutative-algebra`（2026-10-13 试点开窗） | `commutative-algebra.module.definition` | ✅ 已完成并集成（2026-10-13，`398bd99`–`cc5061f`）；11 声明、无 `sorry`、公理级 `[propext]`/无公理 | **目录裁决（Main，2026-10-13）**：新建 `SandronesLibrary/CommutativeAlgebra/`，家族前缀 `commutative-algebra.*`，叙述层 `docs/entries/commutative-algebra/`。不复用 `AbstractAlgebra/`：那里承载 A2/A3 的 `abstract-algebra.{group,ring,poly,field}`，与 CA 课程线不同；且 Registry 中 `commutative-algebra.*` 现有 0 条，无撞车。**试点结论**：本批同时是「派工上下文包 + Lean 轨迹语料」协议的首次实跑，产出 27 条 trace（14 accepted／12 error／1 sorry_left）与 2 个 pack | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | `codex/number-theory-wave-r1`（Wave R1） | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | ✅ 已完成并集成（2026-10-13，`2cca2c0`–`58ceda2`） | `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
 | D7 集合论 ST3 纵深 | `codex/settheory-wave-r1`（Wave R1） | `primitive-recursive-class`、`universal-machine-instance`（2/4 已交付） | 🚧 部分完成：上述两条 ✅ 已集成（2026-10-13，`4cea0cb`–`1ce42ae`）；`hereditary-encoding-order`、`hydra-general-descent` 仍 🚧 | 各自独立文件；不改已集成 Goodstein 状态文件 | 🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
@@ -587,7 +587,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-statistics | 统计推断 | S1🚧（S1 第 7 条 ✅ 已集成；S2🔒） | `Statistics/`、`docs/entries/statistics/` |
 | R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
 | R-settheory | 集合论深化 | ST2✅/ST3🚧（primitive-recursive-class、universal-machine-instance ✅ 已集成） | `SetTheory/`、`docs/entries/settheory/` |
-| R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
+| R-calg | 交换代数 | CA1 定义层✅（首条已集成） | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
 | R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
 | ~~R-world~~ | 世界式书稿 | WF1🔒（2026-10-13 暂停，不派工） | —（窗口已关闭） |
 
@@ -1605,7 +1605,7 @@ G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
-| CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥（`research_open`） | A2/L1 ✅ |
+| CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥 ✅ `verified`（2026-10-13 集成，11 声明） | A2/L1 ✅ |
 | CA1 | `commutative-algebra.module.generated` | 子集生成子模及最小性 | CA1.definition |
 | CA1 | `commutative-algebra.module.quotient` | 商模、自然投影与商映射泛性质 | CA1.definition |
 | CA1 | `commutative-algebra.module.isomorphism-theorems` | 模的三大同构定理 | CA1.quotient |

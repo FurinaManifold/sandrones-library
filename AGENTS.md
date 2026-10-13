@@ -160,7 +160,9 @@ lake build
    生成上下文包并提交；`task.goal_nl` 是唯一手写字段，其余（所有权、前提闭包、冻结签名、
    Playbook 必读节、预算与升级条件）都从权威源推导，负责人不得改写。pack 是子 Agent 的开工输入，
    其每条 trace 记录必须带同一个 `pack_id`；handoff 须列出本批 pack_id 清单。确无子 Agent 的批次
-   要写明原因。规范见 Playbook §9。
+   要写明原因。**同一 Entry 派多个子 Agent 时必须给后续 worker 加 `--worker <短标签>`**：
+   `pack_id` 与 `trace.path` 都会追加该后缀，否则两个 pack 共用 join key，按 `pack.trace.path`
+   收轨迹会漏记录（CA1 试点实测漏掉 14 条）。规范见 Playbook §9。
 
 学科负责人不运行全库 `lake build`，不直接维护 Main 共享文件。精确八段重排、
 front matter 统一、review 归档和 Registry/RADAR/ROADMAP 规范化是 Main 职责；

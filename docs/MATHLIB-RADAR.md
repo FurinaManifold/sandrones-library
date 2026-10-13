@@ -3662,3 +3662,42 @@
 - **谁在用**：`analysis.coordinate-integrals.mass-center`（质量/一阶矩/二阶矩/转动惯量的
   线性性质，以及平行轴展开的逐坐标积分）。**边界**：`JordanEuc = Fin n → ℝ` 默认上确界范数，
   故显式引入 `euclideanNormSq` 作欧氏距离桥；平行轴只证到展开恒等式，经典形式未证。
+
+## 交换代数：模、子模与模同态（CA1 定义层，Wave R1 试点）
+
+### `Module` / `Submodule` / `LinearMap`（`M →ₗ[R] N`）
+- **人话**：`Module R M` 是环 `R` 上模的类（父类 `DistribMulAction` 已含 `smul_add`、`mul_smul`、
+  `one_smul`、`smul_zero`，自有字段只有 `add_smul` 与 `zero_smul`，合起来正是教材六条公理）；
+  `Submodule R M` 是子模（`carrier` 加零元、加法、数乘三条封闭性）；`LinearMap R M N`（记法
+  `M →ₗ[R] N`）是模同态，本版 Mathlib 的父结构是 `AddHom`（**不是** `AddMonoidHom`）。
+- **出处**：Mathlib 的 `Algebra.Module.Defs` / `LinearAlgebra.Basic`。
+- **谁在用**：`commutative-algebra.module.definition`（正式公开承载，四类归属中的第一类）。
+  同条目公开使用 `LinearMap.ker`/`LinearMap.range` 作为子模概念的真实上层使用者。
+
+### `Submodule.mk` / `LinearMap.mk` / `Submodule.neg_mem`（接口注意）
+- **人话**：`Submodule.mk` 吃「加法子幺半群 + 数乘封闭」，其 `add_mem'`/`smul_mem'` 是**隐式
+  binder**，用结构字面量装配时必须显式写出参数名；`LinearMap.mk` 吃 `AddHom` 加 `map_smul'`，
+  **不接受** `map_zero'` 字段（`f 0 = 0` 由 `AddMonoidHomClass` 实例推出，教材把它列为同态条件
+  在本库是派生性质而非构造条件）；`Submodule.neg_mem` 给出子模对负元封闭。
+- **出处**：Mathlib 的 `Algebra.Module.Submodule.Basic` 与 `LinearAlgebra.Basic`。
+- **谁在用**：`commutative-algebra.module.definition` 的 `submodule_of_closure`、`linearMap_iff`
+  （角色为私有证明后端；本批轨迹里 `LinearMap.mk` 的字段形状是实测确认的，不按记忆写）。
+
+### `Ideal R := Submodule R R`（可约别名，非独立类型）
+- **人话**：本版 Mathlib 里 `Ideal R` 是 `@[reducible] def Ideal R := Submodule R R`，两者是
+  **同一个类型**；因此 `Ideal.ofSubmodule`、`Submodule.toIdeal`、`Ideal.toSubmodule` 三个名字
+  不存在，也不需要——写转换引理是画蛇添足（`(I : Set R) = (I : Submodule R R)` 可用 `rfl` 判定）。
+- **出处**：Mathlib 的 `RingTheory.Ideal.Basic`；本库实测见
+  `traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl` 第 1、4 次尝试。
+- **谁在用**：`commutative-algebra.module.definition` 的 A2 桥
+  `twoSidedIdealSet_iff_exists_submodule_self`。**诚实披露**：该桥与 A2 已有的
+  `twoSidedIdealSet_iff_exists_ideal`（`AbstractAlgebra/Ring.lean:390`）是**同一命题**的两种词汇
+  写法，价值在 CA1 词汇与依赖归属，不是新数学。
+
+### `LinearMap.mem_range` 与 `RingHomSurjective (RingHom.id R)`（公开泄漏边界）
+- **人话**：`LinearMap.mem_range` 需要 `RingHomSurjective (RingHom.id R)`，该实例对恒等环同态
+  自动合成，不会作为额外 typeclass 出现在 `M →ₗ[R] N` 使用处的公开签名里；但若把结论推广到
+  一般半线性映射 `M →ₛₗ[σ] N` 而不假设实例，`RingHomSurjective` 就会真的成为公开假设。
+- **出处**：Mathlib 的 `LinearAlgebra.Basic`。
+- **谁在用**：`commutative-algebra.module.definition` 的 `linearMap_mem_range_iff`。
+  **冻结**：本条目冻结在 `M →ₗ[R] N`，不推广到 `→ₛₗ[σ]`，以免把超课程 typeclass 带进公开签名。

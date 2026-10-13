@@ -1,0 +1,124 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "commutative-algebra",
+  "worktree": "/home/pisquare/czt/sandrones-library-commutative-algebra",
+  "branch": "codex/commutative-algebra",
+  "base": "4bfa280",
+  "head": "e55e78bcfee67b1cb5086acb2cab7164fa70dc63",
+  "checked_at": "2026-10-13T11:19:59Z",
+  "commits": [
+    {
+      "sha": "e55e78bcfee67b1cb5086acb2cab7164fa70dc63",
+      "subject": "chore(traces): disambiguate the duplicate CA1 pack_id (join key)"
+    },
+    {
+      "sha": "cc5061f619dd5f5a0361169b48949fb8394943c2",
+      "subject": "docs(commutative-algebra): record final CA1 package re-run in handoff"
+    },
+    {
+      "sha": "0436946b742285587b3d6939e5a89e9b14b481c6",
+      "subject": "docs(commutative-algebra): correct CA1 handoff commit table and file sizes"
+    },
+    {
+      "sha": "36fd2fdcf632d0d6786aa3a3c5c5c9259980478b",
+      "subject": "docs(commutative-algebra): backfill CA1 subject_package verdict into handoff"
+    },
+    {
+      "sha": "3c9d09635035f3996abfde256b81f31180e1c30d",
+      "subject": "chore(commutative-algebra): CA1 lean traces (27 attempts) and handoff draft"
+    },
+    {
+      "sha": "8878212a00adbf85fc8beef666c77a0dc2b32fe6",
+      "subject": "docs(commutative-algebra): disclose L1 vocabulary boundary and M ->l[R] N freeze in CA1 entry"
+    },
+    {
+      "sha": "1956a2e5b106858687419d267d4b1fd8b1e83800",
+      "subject": "docs(commutative-algebra): CA1 module definition narrative layer"
+    },
+    {
+      "sha": "fe4eb10bf8cb7850e5933380e4d9e94a6f1f943b",
+      "subject": "feat(commutative-algebra): CA1 module/submodule/homomorphism definition layer"
+    },
+    {
+      "sha": "398bd99cfa8ad92cf483d064d269ee476581c6af",
+      "subject": "chore(commutative-algebra): land CA1 dispatch context packs and lead recon traces"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/CommutativeAlgebra/Module/Definition.lean",
+    "docs/entries/commutative-algebra/module/definition.md",
+    "docs/handoffs/commutative-algebra-ca1.md",
+    "traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl",
+    "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl",
+    "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.json",
+    "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.verify.json"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "commutative-algebra.module.definition",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/CommutativeAlgebra/Module/Definition.lean"
+          ],
+          "decls": 11
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/commutative-algebra-ca1.md"
+      ]
+    }
+  },
+  "traces": {
+    "status": "present",
+    "records": 27,
+    "files": [
+      "traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl",
+      "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl"
+    ],
+    "lean_files_changed": [
+      "SandronesLibrary/CommutativeAlgebra/Module/Definition.lean"
+    ],
+    "note": "本批含 27 条验证尝试记录",
+    "invalid": []
+  },
+  "packs": {
+    "files": [
+      "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.json",
+      "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.verify.json"
+    ],
+    "pack_ids": [
+      "commutative-algebra-CA1-commutative-algebra.module.definition",
+      "commutative-algebra-CA1-commutative-algebra.module.definition-verify"
+    ],
+    "duplicate_pack_ids": [],
+    "referenced_by_traces": [
+      "commutative-algebra-CA1-commutative-algebra.module.definition",
+      "commutative-algebra-CA1-commutative-algebra.module.definition-verify"
+    ],
+    "missing_for_referenced": [],
+    "invalid": [],
+    "note": "pack 与 trace 的 pack_id 已配对"
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}
