@@ -597,6 +597,12 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 3. 学科**不运行全库 `lake build`**，只做模块级与依赖闭包定向构建；全库 build 只在发布门执行。
 4. 子 Agent 的数量与文件所有权由学科负责人分配（2–3 个、互不重叠）；同一 worktree 的 git index
    与 `.lake/build` 是单写者资源。
+5. **上下文窗口门**：任一窗口或子 Agent 的 `contextPressure.pressureTokens` 达到 **300K**
+   即视为该窗口已到压缩点——不得带着 300K 以上上下文继续长任务；先落盘 handoff／中间结论，
+   再压缩上下文（或按最小区块重开窗口）后继续。Main 在每次交付审核时核对各窗口的
+   `pressureTokens`（现场：`~/.dsh/storages/session_projcache/sessions/<agent-id>.json`
+   的 `rows.contextPressure.val`），并在回执中记录峰值。阈值按有效上下文而非累计计费
+   token 计（当前窗口为 1M，300K ≈ 30%）。
 
 **波次计划**：Wave R1 先开 R-topology／R-real／R-probability 三窗口（磁盘实测可用约 10G，
 每个 worktree 的 `.lake/build` 需约 1.5G 真实副本）；每当一个窗口提交并进入集成（或关闭），
