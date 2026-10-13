@@ -5,8 +5,8 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 验收快照（`7daa627`，2026-10-13）：571 个 verified Entry、708 条直接依赖边、
-73 条合规 BibTeX 出版来源、569 个正式参排条目；主工作树完整 `lake build` 以 9056 jobs
+当前 Main 验收快照（`79fd7c2`，2026-10-13）：575 个 verified Entry、711 条直接依赖边、
+73 条合规 BibTeX 出版来源、573 个正式参排条目；主工作树完整 `lake build` 以 9060 jobs
 通过，仅重放既有 linter warnings。
 
 这些数字是快照，不是开工依据。每次接手必须现场检查：

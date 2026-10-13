@@ -203,7 +203,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | 窗口 | 负责人交付 | Main 裁决 | 集成提交 | 状态 |
 |---|---|---|---|---|
 | D2 | `d914d30`（3 文件：模块 + Entry 草稿 + handoff） | `accepted`（`docs/reviews/functional-analysis-f66b1-resolvent-integrand-main-review.md`） | `7daa627` | ✅ 已进入 Main（Registry 571 条、全库 9056 jobs） |
-| D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | 见本波 D5 Main 集成提交 | ✅ 已进入 Main（Registry 575 条） |
+| D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | `79fd7c2` | ✅ 已进入 Main（Registry 575 条、全库 9060 jobs） |
 | D1 | 现场交付 `docs/handoffs/complex-analysis-cycle-foundation.md`（`research_open`：只交冻结提案与 `/tmp` 原型，不交正式源码） | 待审 | — | ⏳ 进行中；Main 已就冻结问题给出临时裁决（绕数值域 ℂ 而非 ℤ、三文件三 id 且 id 不得跨文件、保留旧 `pathIntegral` 并新增泛化、量词排除 `trace`），正式冻结待原型齐备 |
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
