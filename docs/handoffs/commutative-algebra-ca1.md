@@ -16,7 +16,7 @@
 
 | Entry id | Lean 文件 | 叙述层 |
 |---|---|---|
-| `commutative-algebra.module.definition` | `SandronesLibrary/CommutativeAlgebra/Module/Definition.lean`（185 行） | `docs/entries/commutative-algebra/module/definition.md`（268 行） |
+| `commutative-algebra.module.definition` | `SandronesLibrary/CommutativeAlgebra/Module/Definition.lean`（185 行） | `docs/entries/commutative-algebra/module/definition.md`（277 行） |
 
 未修改：`SandronesLibrary.lean`、`index/registry.json`、`index/rankings.json`、`reference.bib`、
 `docs/entries/README.md`、`docs/entries/RANKINGS.md`、`docs/MATHLIB-RADAR.md`、
@@ -29,10 +29,12 @@
 | `398bd99` | CA1 派工上下文包（2 个 pack）+ 负责人接口侦察 trace（5 条） |
 | `fe4eb10` | CA1 定义层 Lean 源码（11 条公开声明） |
 | `1956a2e` | 叙述层 `docs/entries/commutative-algebra/module/definition.md` |
-| 本文件所在提交 | 两个 trace jsonl（27 条记录）+ 本 handoff（含 subject_package 回填） |
+| `8878212` | 叙述层补充：L1 词汇口径边界 + 冻结在 `M →ₗ[R] N` 的说明 |
+| `3c9d096` | 两个 trace jsonl（27 条记录）+ 本 handoff 初稿 |
+| `36fd2fd` | 本 handoff 回填 subject_package 输出（只改 handoff 文本） |
 
 源码 blob：`Definition.lean` = `13222ba08c15779bbe9036bbf8cb972406655ccd`；
-叙述层 = `0049dcc094af76f165a1041387c478f3d9a3ddf2`。
+叙述层 = `5b94d1f95679c7d09b878493552fcbce3a5b4a06`。行数：源码 185、叙述层 277、本文件 320。
 
 ## 3. 冻结的核心概念清单（AGENTS §4 六条）
 
