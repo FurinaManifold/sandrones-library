@@ -3333,3 +3333,40 @@
 - **本库边界**：只在证明体中把本库集合型理想局部桥接为 Mathlib `Ideal`；公开 CRT 定义继续
   使用本库 `TwoSidedIdealSet` 与 `quotientRingSet`，正式同构返回 `RingEquiv`，历史
   `RingIsomorphism` 签名保留为薄兼容层。
+
+## Banach–Steinhaus 1927：奇点凝聚与同时发散（论文批）
+
+### `Metric.dense_iff` / `isOpen_lt` / `Finset.single_le_sum`
+- **人话**：`Metric.dense_iff` 把稠密展开为“每个非空开球都交到该集合”；`isOpen_lt` 说明连续函数
+  严格超过常值的点集开；`Finset.single_le_sum` 说明非负有限和中单项不超过总和。
+- **出处**：Mathlib 的度量空间稠密性、开集与有限和接口。
+- **谁在用**：`functional-analysis.condensation`。先用开集性得到阈值集的拓扑描述，再用稠密性
+  证明局部步，最后用有限和证明去掉有限前缀不改变“任意阈值任意尾段都可超过”的量词。
+
+### `IsGδ.iInter_of_isOpen` / `IsGδ.iInter` / `dense_iInter_of_Gδ` / `exists_nat_gt`
+- **人话**：前两者说明可数个开集之交与可数个 Gδ 之交仍是 Gδ；`dense_iInter_of_Gδ` 就是 Baire
+  形式“可数多个稠密 Gδ 之交仍稠密”；`exists_nat_gt` 给出超过任意实数的自然数阈值。
+- **出处**：Mathlib 的 Gδ 集合与 Baire 范畴接口。
+- **谁在用**：`functional-analysis.condensation` 与 `functional-analysis.condensation.divergence`
+  的公共点组装；`exists_nat_gt` 负责把“每个实阈值”改写为“每个自然阈值”的可数交。
+
+### `Metric.cauchySeq_iff` / `Metric.mem_closure_iff` / `isClosed_of_closure_subset`
+- **人话**：`Metric.cauchySeq_iff` 把 Cauchy 性展开为双尾距离的 ε–N 条件；
+  `Metric.mem_closure_iff` 把闭包成员展开为任意小球都交到集合；`isClosed_of_closure_subset`
+  说明包含自身闭包的集合闭。
+- **出处**：Mathlib 的度量空间闭包与 Cauchy 列接口。
+- **谁在用**：`functional-analysis.condensation.divergence` 证明算子范数一致有界时 Cauchy 点集
+  闭：在闭包点附近取 Cauchy 点，再用一致范数界把距离搬回原序列。
+
+### `Submodule.eq_top_of_nonempty_interior'` / `CauchySeq.isBounded_range` / `Bornology.IsBounded.exists_norm_le`
+- **人话**：非空内部的子模必为全集，故真子模的内部为空、补集稠密；Cauchy 列的取值集有界，
+  有界集有范数上界。
+- **出处**：Mathlib 的子模内部、Cauchy 列有界性与 Bornology 有界集接口。
+- **谁在用**：`functional-analysis.condensation.divergence`。前者把“Cauchy 点构成真子空间”转成
+  “非 Cauchy 点稠密开”；后两者证明输出无界的点不可能 Cauchy。
+
+### `cauchySeq_tendsto_of_complete`
+- **人话**：完备空间中 Cauchy 列必收敛到空间中某点。
+- **出处**：Mathlib 的完备空间与收敛接口。
+- **谁在用**：`functional-analysis.condensation.divergence` 的极限形式：各行值域完备时，把
+  “非 Cauchy”转写为“不存在值域内的极限”。

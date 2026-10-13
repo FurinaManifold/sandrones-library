@@ -13211,6 +13211,8 @@
     "dependedOnBy": [
       "functional-analysis.banach-algebra.foundation",
       "functional-analysis.compact-operator.definition",
+      "functional-analysis.condensation",
+      "functional-analysis.condensation.divergence",
       "functional-analysis.dual-operator.definition",
       "functional-analysis.hahn-banach.extension",
       "functional-analysis.hilbert.adjoint"
@@ -13417,6 +13419,8 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "functional-analysis.banach-steinhaus",
+      "functional-analysis.condensation",
+      "functional-analysis.condensation.divergence",
       "functional-analysis.open-mapping"
     ],
     "family": "functional-analysis",
@@ -13448,7 +13452,10 @@
     "nl_file": "docs/entries/functional-analysis/banach-steinhaus.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "functional-analysis.condensation",
+      "functional-analysis.condensation.divergence"
+    ],
     "family": "functional-analysis",
     "variant": "salamon",
     "axioms": [
@@ -18674,5 +18681,85 @@
       "propext"
     ],
     "proof_sha": "5a091713506415c0"
+  },
+  {
+    "id": "functional-analysis.condensation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach–Steinhaus 1927 奇点凝聚定理 I",
+    "summary": "可数行连续实线性算子在 Banach 定义域上各有输出无界点时，公共无界点组成稠密 Gδ 集；公共点在每行每个尾段超过任意阈值",
+    "premises": [
+      "functional-analysis.baire.theorem",
+      "functional-analysis.operator.space",
+      "functional-analysis.banach-steinhaus"
+    ],
+    "mathlib": [
+      "Metric.dense_iff",
+      "isOpen_lt",
+      "IsGδ.iInter_of_isOpen",
+      "IsGδ.iInter",
+      "dense_iInter_of_Gδ",
+      "exists_nat_gt",
+      "Finset.single_le_sum"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "banach-steinhaus-condensation-1927"
+    },
+    "lean_file": "FunctionalAnalysis/Condensation.lean",
+    "nl_file": "docs/entries/functional-analysis/condensation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-10-13T00:00:00Z",
+    "dependedOnBy": [
+      "functional-analysis.condensation.divergence"
+    ],
+    "family": "functional-analysis",
+    "variant": "banach-steinhaus-1927",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "97228ea1222e945c"
+  },
+  {
+    "id": "functional-analysis.condensation.divergence",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Banach–Steinhaus 1927 同时发散定理 II",
+    "summary": "可数行连续实线性算子在 Banach 定义域上各有非 Cauchy 点时，公共非 Cauchy 点集稠密；各行值域完备时每行各有不收敛点推出公共不收敛点存在",
+    "premises": [
+      "functional-analysis.condensation",
+      "functional-analysis.baire.theorem",
+      "functional-analysis.banach-steinhaus",
+      "functional-analysis.operator.space"
+    ],
+    "mathlib": [
+      "Metric.cauchySeq_iff",
+      "Metric.mem_closure_iff",
+      "isClosed_of_closure_subset",
+      "Submodule.eq_top_of_nonempty_interior'",
+      "CauchySeq.isBounded_range",
+      "Bornology.IsBounded.exists_norm_le",
+      "dense_iInter_of_Gδ",
+      "cauchySeq_tendsto_of_complete"
+    ],
+    "provenance": {
+      "source_type": "paper",
+      "ref": "banach-steinhaus-condensation-1927"
+    },
+    "lean_file": "FunctionalAnalysis/CondensationDivergence.lean",
+    "nl_file": "docs/entries/functional-analysis/condensation/divergence.md",
+    "added_by": "main-integration",
+    "added_at": "2026-10-13T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "functional-analysis",
+    "variant": "banach-steinhaus-1927",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "509221aa648ff264"
   }
 ]

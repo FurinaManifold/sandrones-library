@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.condensation
 kind: theorem
-state: staging
+state: verified
 title: Banach–Steinhaus 1927 奇点凝聚定理 I
 premises: [functional-analysis.baire.theorem, functional-analysis.operator.space, functional-analysis.banach-steinhaus]
 mathlib: [Metric.dense_iff, isOpen_lt, IsGδ.iInter_of_isOpen, IsGδ.iInter, dense_iInter_of_Gδ, exists_nat_gt, Finset.single_le_sum]

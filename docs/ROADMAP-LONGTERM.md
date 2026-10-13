@@ -163,7 +163,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|
 | 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | `../review-inbox/probability/probability-pr3-levy-clt-foundation-ready.md` |
 | 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | `../review-inbox/probability/statistics-s1-sufficiency-ready.md` |
-| 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | `docs/handoffs/functional-analysis-paper-condensation.md` |
+| 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | ✅ 已于 2026-10-13 集成（`046e9f9`／`4ec485d`／`59ca250`，Main 集成提交见 §15.3.2） |
 | 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | `docs/world-formula/reviews/wf1-02-cantor-theorem-*.md` |
 
 1–3 按数学批次验收：语义 diff → 独立复验模块与联合导入 → 合并 → 共有文件 → 生成器／公理审计／
@@ -217,8 +217,9 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 2. 对账 N1+：Registry 已有 `continued-fraction-*`、`best-rational-approximation`、`pell-*` 等条目，
    而 §1 依赖门 G-N1+ 与 §11 N1+ 表仍记 🔲／未列；Main 须按 Registry 现状重写 N1+ 状态，并明确
    `convergent-best`、`sqrt-periodic-cf`、`pell-cf-bridge`、`pell-all-positive`、`negative-pell` 的剩余边界。
-3. 决定 `codex/archify-feasibility` 与 `codex/project-introduction` 两份仓库外报告是否进入
-   `docs/reports/`；两者都不是数学批次，须走 Main 文档审稿，不得混入数学集成提交。
+3. ✅ 已裁决：`codex/archify-feasibility` 与 `codex/project-introduction` 两份报告于 2026-10-13
+   接收进 `docs/reports/`（Main 文档审稿通过，第三方 MIT／OFL 许可原文随附）。两者不是数学批次，
+   Registry 不为它们建 Entry，也不得混入数学集成提交。
 
 #### 每个学科 handoff 必须回答的路线问题
 
@@ -2039,7 +2040,7 @@ AG3–AG10 未完成时，不得把“代数几何”标为完成。
 | 点集拓扑／流形入口 | Whitney, 1936（`whitney-differentiable-manifolds-1936`） | T1–T4、AN-MV、DM1–DM4 | 局部嵌入、分割单位、紧流形到欧氏空间的嵌入施工 | `future_paper`；不能把 Mathlib 已有嵌入存在性单句包装为整篇论文 |
 | 实分析／测度论 | Nikodym, 1930（`nikodym-radon-generalization-1930`） | R4、RA-F1–RA-F2；有限符号测度与绝对连续 | Radon–Nikodym 导数的存在、a.e. 唯一性与积分重建 | `paper_research_open`；先冻结 σ-有限／有限测度版本及符号约定 |
 | 复分析 | de Branges, 1985（`de-branges-bieberbach-1985`） | 完整 C2–C3；单叶函数、正规族、Loewner 链与系数泛函 | 归一化单叶类、Loewner 系数微分式、低阶系数界 | `future_paper`；低阶验证不等于 Bieberbach 全系数定理完成 |
-| 泛函分析 | Banach–Steinhaus, 1927（`banach-steinhaus-condensation-1927`） | F1–F2、Baire 与一致有界原理 | 双指标泛函族的奇点凝聚原理及其一致有界推论 | `paper_ready`；不得只把现有 Banach–Steinhaus 条目换标题 |
+| 泛函分析 | Banach–Steinhaus, 1927（`banach-steinhaus-condensation-1927`） | F1–F2、Baire 与一致有界原理 | 双指标泛函族的奇点凝聚原理及其一致有界推论 | §2 定理 I 与 II 已 `verified`（`functional-analysis.condensation`、`functional-analysis.condensation.divergence`）；§3 正交级数应用仍待后续批次。不得只把现有 Banach–Steinhaus 条目换标题 |
 | 概率论 | Donsker, 1951（`donsker-invariance-principle-1951`） | Pr1–Pr3、SP1–SP3；路径空间、弱收敛与 Brownian 运动 | 随机游走插值、有限维分布收敛、紧性与 Wiener 极限 | `future_paper`；CLT 不能代替路径空间中的函数型极限定理 |
 | 统计推断 | Neyman–Pearson, 1933（`neyman-pearson-tests-1933`） | Pr1、S1–S2；似然比、检验大小与功效 | 简单对简单假设的 Neyman–Pearson 引理及随机化边界 | `future_paper`；先做支配概率模型，不把复合假设一并声称完成 |
 | 数论 | Green–Tao, 2008（`green-tao-prime-progressions-2008`） | N3、HAna1–HAna4；Szemerédi 定理、伪随机测度与筛法 | 稠密模型／传递原理、线性形式条件和素数等差数列结论 | `future_paper`；不得用现成最终 theorem 跳过相对 Szemerédi 证明链 |

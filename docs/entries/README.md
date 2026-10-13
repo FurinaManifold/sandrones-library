@@ -1,12 +1,12 @@
 # Entries 索引
 
-> 自动生成（2026-10-09）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-10-13）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **565** 个条目（verified 565，pending 0）。
+共 **567** 个条目（verified 567，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -310,6 +310,7 @@
 - ✅ [`closed-graph.md`](functional-analysis/closed-graph.md) — Banach 闭图定理
 - ✅ [`closed-range.md`](functional-analysis/closed-range.md) — 闭值域的零化子刻画
 - ✅ [`compact-spectrum.md`](functional-analysis/compact-spectrum.md) — 紧算子的非零谱、有限重数与零聚点边界
+- ✅ [`condensation.md`](functional-analysis/condensation.md) — Banach–Steinhaus 1927 奇点凝聚定理 I
 - ✅ [`eberlein-smulian.md`](functional-analysis/eberlein-smulian.md) — Eberlein–Šmulian 闭单位球四项等价
 - ✅ [`inverse-operator.md`](functional-analysis/inverse-operator.md) — Banach 有界逆定理
 - ✅ [`krein-milman.md`](functional-analysis/krein-milman.md) — Krein--Milman 定理、face 与极点
@@ -338,6 +339,10 @@
 - ✅ [`composition.md`](functional-analysis/compact-operator/composition.md) — 紧算子的理想性质与范数极限
 - ✅ [`definition.md`](functional-analysis/compact-operator/definition.md) — 紧算子与单位球像刻画
 - ✅ [`dual.md`](functional-analysis/compact-operator/dual.md) — 紧算子的对偶仍紧
+
+## `functional-analysis.condensation`
+
+- ✅ [`divergence.md`](functional-analysis/condensation/divergence.md) — Banach–Steinhaus 1927 同时发散定理 II
 
 ## `functional-analysis.convex`
 

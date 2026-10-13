@@ -90,6 +90,7 @@ SandronesLibrary/               Lean 形式化模块
 docs/entries/                   逐 Entry 教材文档
 docs/handoffs/                  学科批次交付记录
 docs/reviews/                   已纳入 Git 的 Main 审核闭环
+docs/reports/                   项目工程报告与工具评估（非数学 Entry）
 docs/roles/                     Main、学科、维护和 Examples ROLE
 docs/world-formula/             常驻自然语言综合书稿《水仙十字的世界式》
 index/registry.json             Entry 事实与依赖元数据
@@ -131,6 +132,7 @@ scripts/                        生成、审计和脚手架工具
 | [`docs/INGESTION_PROTOCOL.md`](docs/INGESTION_PROTOCOL.md) | 新 Entry 的纳入流程 |
 | [`docs/SCHEMA.md`](docs/SCHEMA.md) | Registry 和课程文档字段契约 |
 | [`docs/MATHLIB-RADAR.md`](docs/MATHLIB-RADAR.md) | 重要 Mathlib API 的人话说明和使用者 |
+| [`docs/reports/README.md`](docs/reports/README.md) | 项目工程报告与工具评估的收录规则和索引（非数学 Entry） |
 | [`docs/roles/MAIN-ROLE.md`](docs/roles/MAIN-ROLE.md) | Main 审核与集成职责 |
 | [`docs/roles/SUBJECT-MAINTAINER-ROLE.md`](docs/roles/SUBJECT-MAINTAINER-ROLE.md) | 学科开发职责 |
 | [`docs/roles/SUBJECT-MAINTENANCE-ROLE.md`](docs/roles/SUBJECT-MAINTENANCE-ROLE.md) | 已完成学科的兼容迁移规程 |

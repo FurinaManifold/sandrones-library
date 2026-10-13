@@ -1,7 +1,7 @@
 ---
 id: functional-analysis.condensation.divergence
 kind: theorem
-state: staging
+state: verified
 title: Banach–Steinhaus 1927 同时发散定理 II
 premises: [functional-analysis.condensation, functional-analysis.baire.theorem, functional-analysis.banach-steinhaus, functional-analysis.operator.space]
 mathlib: [Metric.cauchySeq_iff, Metric.mem_closure_iff, isClosed_of_closure_subset, Submodule.eq_top_of_nonempty_interior', CauchySeq.isBounded_range, Bornology.IsBounded.exists_norm_le, dense_iInter_of_Gδ, cauchySeq_tendsto_of_complete]
