@@ -16,7 +16,8 @@
 - documents：`docs/entries/real-analysis/signed-measure/{definition,variation,jordan-decomposition,complex}.md`
   + 本 handoff
 - 未改任何 Main 共享文件（仅在本 handoff 给建议）
-- 本批为分支尖端上的单一语义 commit（4 Lean + 4 Entry 草稿 + 本 handoff）
+- 本批交付 commit：`f856e0f`（4 Lean + 4 Entry 草稿 + 本 handoff）；
+  紧随其后另有仅更新本 handoff 中该 commit 号的文档提交
 
 ## 1. 依赖门（路线问题 1）
 
