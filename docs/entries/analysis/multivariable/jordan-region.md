@@ -3,11 +3,11 @@ id: analysis.multivariable.jordan-region
 kind: definition
 state: verified
 title: "Jordan 可测区域"
-premises: ["analysis.multivariable.rectangle-integral"]
+premises: []
 mathlib: ["nullMeasurableSet_of_null_frontier", "closure_ae_eq_of_null_frontier"]
 provenance:
   source_type: book
-  ref: "数学分析：Jordan 可测区域与多重积分"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 定义

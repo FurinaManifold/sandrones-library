@@ -3,11 +3,11 @@ id: analysis.multivariable.change-variables
 kind: theorem
 state: verified
 title: "多重积分换元与 Jacobian 公式"
-premises: ["analysis.multivariable.x-normal-domain", "analysis.multivariable.frechet"]
+premises: ["analysis.multivariable.jordan-region"]
 mathlib: ["MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul", "MeasureTheory.integrableOn_image_iff_integrableOn_abs_det_fderiv_smul"]
 provenance:
   source_type: book
-  ref: "数学分析：多重积分换元公式"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 定理

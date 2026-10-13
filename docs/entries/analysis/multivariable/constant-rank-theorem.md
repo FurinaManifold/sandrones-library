@@ -3,11 +3,11 @@ id: analysis.multivariable.constant-rank-theorem
 kind: theorem
 state: verified
 title: "Rudin 一般常秩定理"
-premises: ["analysis.multivariable.inverse-function"]
+premises: []
 mathlib: ["ContDiffAt.toOpenPartialHomeomorph"]
 provenance:
   source_type: book
-  ref: "Walter Rudin, Principles of Mathematical Analysis, Theorem 9.32"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 陈述与证明路线

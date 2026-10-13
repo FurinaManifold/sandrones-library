@@ -6,12 +6,18 @@ kind: definition
 state: verified
 title: 一元导数的差商极限定义
 summary: HasDerivativeAtTextbook 以去心差商极限定义导数值，并与 HasDerivAt 等价
-premises: [analysis.func-limit.definition]
+premises: []
 mathlib: [slope_def_field, hasDerivAt_iff_tendsto_slope, HasDerivAt]
 provenance:
   source_type: book
-  ref: 华东师大《数学分析》第五版 第一卷 第五章 §1 导数概念
+  ref: ecnu-mathematical-analysis-5
 ---
+
+# 教材定位
+
+华东师大《数学分析》第五版 第一卷 第五章 §1 导数概念。本条只取该节的差商极限定义，
+不重复函数极限条目的接口（`Derivative.lean` 直接以 `Tendsto`／`𝓝[≠]` 表达去心极限，
+未引用 `analysis.func-limit.definition` 的声明）。
 
 # 动机
 

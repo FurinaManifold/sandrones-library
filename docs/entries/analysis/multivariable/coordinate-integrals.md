@@ -3,11 +3,11 @@ id: analysis.multivariable.coordinate-integrals
 kind: theorem
 state: verified
 title: "坐标积分：极坐标与柱坐标"
-premises: ["analysis.multivariable.change-variables", "real-analysis.measure.fubini"]
+premises: ["analysis.multivariable.change-variables"]
 mathlib: ["integral_comp_polarCoord_symm", "hasFDerivAt_polarCoord_symm", "det_fderivPolarCoordSymm"]
 provenance:
   source_type: book
-  ref: "数学分析：二重积分的极坐标换元"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 当前结果

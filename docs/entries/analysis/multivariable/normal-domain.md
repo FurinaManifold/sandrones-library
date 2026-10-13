@@ -1,13 +1,13 @@
 ---
-id: analysis.multivariable.x-normal-domain
+id: analysis.multivariable.normal-domain
 kind: theorem
 state: verified
 title: "x/y 型正常区域的变限累次积分"
-premises: ["analysis.multivariable.jordan-riemann-bridge", "real-analysis.measure.fubini", "real-analysis.riemann.eq-lebesgue-general"]
+premises: ["analysis.multivariable.jordan-region", "analysis.multivariable.jordan-riemann-bridge", "analysis.multivariable.riemann-box", "real-analysis.riemann.eq-lebesgue"]
 mathlib: ["MeasureTheory.integral_prod", "MeasureTheory.integral_indicator", "MeasureTheory.volume_preserving_finTwoArrow"]
 provenance:
   source_type: book
-  ref: "数学分析：二重积分化为累次积分"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 区域

@@ -3,11 +3,11 @@ id: analysis.complex.fundamental-theorem-algebra
 kind: theorem
 state: partial
 title: 代数学基本定理
-premises: [analysis.complex.definition]
+premises: []
 mathlib: [Complex.exists_root, IsAlgClosed.of_exists_root, IsAlgClosed.splits, Polynomial.Splits.eq_prod_roots]
 provenance:
-  source_type: textbook
-  ref: "复分析：Liouville 定理推出代数学基本定理"
+  source_type: book
+  ref: ahlfors-complex-analysis-1979
 ---
 
 # 代数学基本定理

@@ -3,11 +3,11 @@ id: analysis.complex.definition
 kind: definition
 state: partial
 title: 复数的定义与基本运算
-premises: [analysis.real.construction-cauchy]
+premises: []
 mathlib: [Complex, Complex.ext_iff, Complex.normSq, Complex.sq_norm]
 provenance:
-  source_type: textbook
-  ref: "数学分析与复分析预备：复数的实部—虚部定义"
+  source_type: book
+  ref: ahlfors-complex-analysis-1979
 ---
 
 # 复数的定义与基本运算

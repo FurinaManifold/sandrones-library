@@ -3,11 +3,11 @@ id: analysis.multivariable.rectangle-integral
 kind: theorem
 state: verified
 title: "Lebesgue 闭矩形二重积分与 Fubini 教材接口"
-premises: ["real-analysis.measure.fubini"]
+premises: []
 mathlib: ["MeasureTheory.setIntegral_prod", "MeasureTheory.intervalIntegral_intervalIntegral_swap"]
 provenance:
   source_type: book
-  ref: "多元微积分：矩形区域上的二重积分"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 定位

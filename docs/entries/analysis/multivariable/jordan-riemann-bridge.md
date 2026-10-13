@@ -7,7 +7,7 @@ premises: ["analysis.multivariable.jordan-region", "analysis.multivariable.riema
 mathlib: ["AEContinuous.hasBoxIntegral", "integral_indicator₀"]
 provenance:
   source_type: book
-  ref: "数学分析：Jordan 可测区域上的多重 Riemann 积分"
+  ref: spivak-calculus-manifolds-1965
 ---
 
 # 教材构造
