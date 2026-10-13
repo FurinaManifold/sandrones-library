@@ -1,0 +1,67 @@
+{
+  "schema": "sandrones-release-receipt/1",
+  "checked_at": "2026-10-13T07:06:18Z",
+  "branch": "main",
+  "head": "c41f685c97ba43fff3f87e3e954ab0bdbb2244f4",
+  "candidate_dirty_before": false,
+  "packages": [],
+  "steps": [
+    {
+      "step": "extract_registry_references",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "文献引用验证通过：Registry 共 599 条，未生成 @misc。"
+    },
+    {
+      "step": "update_dependency_graph",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "依赖图已重建：739 条直接边，更新 0 个反向缓存。"
+    },
+    {
+      "step": "gen_entries_index",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "已生成 docs/entries/README.md（599 条目）"
+    },
+    {
+      "step": "gen_entry_rankings",
+      "exit": 0,
+      "seconds": 11.6,
+      "tail": "已生成 index/rankings.json 和 docs/entries/RANKINGS.md；参排 597 条。"
+    },
+    {
+      "step": "check_axioms_fix",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 599 条目增量跳过（599 条）。--full 强制全量。"
+    },
+    {
+      "step": "check_axioms",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 599 条目增量跳过（599 条）。--full 强制全量。"
+    },
+    {
+      "step": "audit",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "审计通过：599 个条目 OK"
+    },
+    {
+      "step": "diff_check",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": ""
+    },
+    {
+      "step": "lake_build",
+      "exit": 0,
+      "seconds": 2.4,
+      "tail": "  omit [NormedLinearSpace ℝ E] in theorem ...\n\nNote: This linter can be disabled with `set_option linter.unusedSectionVars false`\nBuild completed successfully (9060 jobs)."
+    }
+  ],
+  "derived_state_files": [],
+  "exceptions": [],
+  "verdict": "pass"
+}
