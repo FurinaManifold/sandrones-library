@@ -83,13 +83,18 @@ def main() -> None:
         ("update_dependency_graph", [sys.executable, "scripts/update_dependency_graph.py"], None),
         ("gen_entries_index", [sys.executable, "scripts/gen_entries_index.py"], None),
         ("gen_entry_rankings", [sys.executable, "scripts/gen_entry_rankings.py"], None),
+    ]
+    # 新条目所在模块必须先编译，`check_axioms --all --fix` 的探针才能加载 olean。
+    if not args.skip_build:
+        steps.append(("lake_build", ["lake", "build"], 3600))
+    steps += [
         ("check_axioms_fix", [sys.executable, "scripts/check_axioms.py", "--all", "--fix"], None),
         ("check_axioms", [sys.executable, "scripts/check_axioms.py", "--all"], None),
         ("audit", [sys.executable, "scripts/audit.py"], None),
         ("diff_check", ["git", "diff", "--check"], None),
     ]
     if not args.skip_build:
-        steps.append(("lake_build", ["lake", "build"], 3600))
+        steps.append(("lake_build_final", ["lake", "build"], 3600))
 
     results = []
     for name, cmd, timeout in steps:
