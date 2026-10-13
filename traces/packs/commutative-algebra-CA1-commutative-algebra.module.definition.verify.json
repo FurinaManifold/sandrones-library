@@ -1,6 +1,6 @@
 {
   "schema": "sandrones-context-pack/1",
-  "pack_id": "commutative-algebra-CA1-commutative-algebra.module.definition",
+  "pack_id": "commutative-algebra-CA1-commutative-algebra.module.definition-verify",
   "generated_at": "2026-10-13T10:47:45Z",
   "generator": "scripts/context_pack.py",
   "derived_from": {
@@ -193,5 +193,13 @@
     "pack_id_field": "pack_id",
     "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
   },
-  "pack_sha256": "fb628519e10a1d912c1a063abce90c45b1f1b122ea21dc1f8985ef558fd3e8e0"
+  "pack_sha256": "4f51581c8a36e6a2c62c673e2329f651af1115ec3d9272726e17bde105a01549",
+  "join_key_migration": {
+    "from": "commutative-algebra-CA1-commutative-algebra.module.definition",
+    "to": "commutative-algebra-CA1-commutative-algebra.module.definition-verify",
+    "at": "2026-10-13T11:45:00Z",
+    "by": "main-ca1-integration",
+    "reason": "CA1 试点同批两 pack 共用 pack_id，join key 不唯一（试点协议反馈 #1/#2）。本字段只消歧标识符，pack 的 goal_nl/所有权/前提/预算与 14 条 trace 的内容均未改动。",
+    "tool": "scripts/context_pack.py --worker（修复后新增）"
+  }
 }
