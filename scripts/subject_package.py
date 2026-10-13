@@ -225,6 +225,39 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             sha, subj = line.split("\t", 1)
             commits.append({"sha": sha, "subject": subj})
 
+    # ---- 验证轨迹语料（Playbook §8）：软门，只统计与提示，不单独否决策包 ----
+    lean_changed = [f for f in files if f.startswith("SandronesLibrary/") and f.endswith(".lean")]
+    trace_root = wt / "traces" / "lean"
+    trace_files = sorted(
+        str(p.relative_to(wt)) for p in trace_root.rglob("*.jsonl")
+    ) if trace_root.exists() else []
+    trace_records = 0
+    trace_bad: list[str] = []
+    for rel in trace_files:
+        try:
+            for n, line in enumerate((wt / rel).read_text(encoding="utf-8").splitlines(), 1):
+                if not line.strip():
+                    continue
+                json.loads(line)
+                trace_records += 1
+        except Exception as e:  # noqa: BLE001 - 记录到包里，交给 Main 判断
+            trace_bad.append(f"{rel}: {e}")
+    if trace_bad:
+        trace_status = "invalid"
+        trace_note = "trace 记录不是合法 JSON Lines；Playbook §8.3 要求每行独立可解析"
+    elif trace_records:
+        trace_status = "present"
+        trace_note = f"本批含 {trace_records} 条验证尝试记录"
+    elif lean_changed:
+        trace_status = "missing"
+        trace_note = (
+            f"本批改动 {len(lean_changed)} 个 Lean 文件但 traces/lean/ 下无记录"
+            "（Playbook §8 软门；若确无验证试错过程，请在 handoff 显式写明）"
+        )
+    else:
+        trace_status = "n/a"
+        trace_note = "本批未改动 Lean 源码，不要求 trace"
+
     return {
         "schema": SCHEMA,
         "subject": subject,
@@ -241,6 +274,14 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             "semantics": {"status": semantics, "issues": semantics_issues},
             "proof": {"status": proof, "issues": proof_issues, "entries": covered},
             "coverage": {"status": coverage, "issues": coverage_issues, "handoffs": handoffs},
+        },
+        "traces": {
+            "status": trace_status,
+            "records": trace_records,
+            "files": trace_files,
+            "lean_files_changed": lean_changed,
+            "note": trace_note,
+            "invalid": trace_bad,
         },
         "exceptions": ex,
         "verdict": "pass" if not ex else "needs_changes",
@@ -282,6 +323,9 @@ def main() -> None:
         for name, g in pkg["gates"].items():
             mark = "✅" if g["status"] == "pass" else "❌"
             print(f"  {mark} {name}")
+        tr = pkg.get("traces", {})
+        tmark = {"present": "✅", "n/a": "➖", "missing": "⚠️", "invalid": "❌"}.get(tr.get("status"), "?")
+        print(f"  {tmark} traces（软门）：{tr.get('note', '')}")
         if pkg["exceptions"]:
             print(f"\n  异常清单（{len(pkg['exceptions'])}）——Main 只需审这些：")
             for e in pkg["exceptions"]:

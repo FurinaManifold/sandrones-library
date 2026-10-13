@@ -339,6 +339,8 @@
 - **§4 转正方法论**：mathlib 广泛形式 → 库当前阶段的教材陈述（库建设的核心工序）。
 - **§5 实战教训日志**：一次性具体坑，按时间登记，附出处。
 - **§6 从 mathlib 现成证明学 tactic**、**§7 self-harness 闭环**。
+- **§8 Lean 验证轨迹语料（JSON）**：底层子 Agent 的每次验证尝试都必须留成机器可读语料
+  （自然语言叙述、待证命题、尝试轨迹、编译器反馈），作为 LLM 训练数据。
 
 ---
 
@@ -924,3 +926,84 @@ mathlib 的证明文件是**最好的教材**。读法：
   因为记"这样能过"只解决一次，记"语义是什么"能迁移到所有类似情形。
 - 审计：`audit.py` 之外，人工 review 时检查"新条目是否引入了未登记的新 tactic 模式"。
 - Playbook 本身也是库的一部分，随版本管理，随经验增长。
+
+## 8. Lean 验证轨迹语料（JSON）：底层子 Agent 的强制留痕
+
+### 8.1 为什么
+
+`§5`/`§7` 记录的是**提炼后的教训**，而教训的原始过程——"我当时想证什么、为什么这样试、
+编译器回了什么、下一步怎么改"——才是训练 LLM 做形式化证明最有价值的语料。本库的学科窗口
+天然产出大量这类过程（原型 → 逐 `sorry` 消解 → 编译反馈），但过去只把结论留在 handoff。
+从 2026-10-13 起，**过程本身也是交付物**。
+
+### 8.2 谁写、什么时候写
+
+- **写入者**：实际执行 Lean 验证的 Agent。底层子 Agent（含学科负责人亲自下场时）都要写；
+  只读审计、纯文档工作的 Agent 不写。
+- **写入时机**：**边做边写**——每次把 tactic 块交给编译器之后立刻追加一条记录。
+  禁止事后凭记忆补写：事后重建的轨迹会被系统性美化（只记得成功的路径），
+  作为训练语料是**有害**的。
+- **诚实铁律**：`outcome` 必须等于编译器的真实结论。没跑过编译器不许写记录；
+  不许只记录成功尝试而丢弃失败尝试——失败尝试正是语料的主要价值。
+
+### 8.3 格式与位置
+
+- 位置：`traces/lean/<subject>/<task-id>.jsonl`（`<task-id>` = Entry id，或原型阶段的工作项名，
+  如 `topology-at2-c5e-e1-initsegmap`）。该目录属**学科自有**，随学科分支提交。
+- 格式：**JSON Lines**——每行一个独立的 JSON 对象（一次尝试），追加写入。
+  每行都必须能被 `json.loads` 单独解析；不要写成一个巨大的 JSON 数组（那样无法增量追加）。
+- schema 版本号写在每条记录的 `schema` 字段里，当前为 `sandrones-lean-attempt/1`。
+
+### 8.4 记录字段
+
+必填字段：
+
+| 字段 | 含义 |
+|---|---|
+| `schema` | 固定 `"sandrones-lean-attempt/1"` |
+| `trace_id` | 同一证明任务的稳定标识（一个任务一个文件，值一致） |
+| `attempt` | 本任务内从 1 开始的尝试序号 |
+| `timestamp` | UTC ISO-8601，写入时刻 |
+| `agent` | 写入者（子 Agent 标签或角色名） |
+| `subject` | 学科前缀（与目录一致） |
+| `narration` | **自然语言叙述**：这一轮想干什么、为什么这么想、上一轮学到了什么 |
+| `goal` | **待证命题**：当前目标的 Lean pretty-print（类型/目标），不是自然语言意译 |
+| `plan` | 本轮的证明计划（一句话：打算用哪条引理、怎么拆） |
+| `attempt_code` | 本轮真正提交给编译器的 tactic 块 |
+| `outcome` | `accepted` / `error` / `timeout` / `sorry_left` / `abandoned` |
+| `compiler_feedback` | 编译器反馈数组，每项 `{"severity", "message", "line", "col"}` |
+| `next_step` | 下一轮打算怎么改（写记录时就要给出，这是轨迹的"边") |
+
+选填字段：`entry_id`、`file`、`declaration`、`parent_attempt`（形成尝试树）、
+`hypotheses`（关键上下文）、`feedback_raw`（原始输出，**截断到 4000 字符**）、
+`feedback_sha256`（完整输出的摘要，便于日后回溯）、`elapsed_ms`。
+敏感信息（令牌、凭据、仓库外绝对路径）**一律不得写入**。
+
+最小合法记录（一行）：
+
+```json
+{"schema":"sandrones-lean-attempt/1","trace_id":"analysis.stokes.domain-gluing","attempt":1,"timestamp":"2026-10-13T09:30:00Z","agent":"analysis-r1/worker-a","subject":"analysis","narration":"目标是把两片的边界积分相加，先用 integral_biUnion_finset 合并区域。","goal":"⊢ ∫ x in A ∪ B, f x = ∫ x in A, f x + ∫ x in B, f x","plan":"先证不交，再套 integral_biUnion_finset","attempt_code":"rw [integral_biUnion_finset]","outcome":"error","compiler_feedback":[{"severity":"error","message":"failed to synthesize Disjoint A B","line":42,"col":8}],"next_step":"把 Disjoint 作为显式假设加进签名"}
+```
+
+### 8.5 工具与检查
+
+- 写入/校验：`python3 scripts/lean_trace.py append --file traces/lean/<subject>/<task-id>.jsonl --record <record.json>`
+  （自动补 `schema`/`timestamp`/`attempt` 并校验字段），
+  `python3 scripts/lean_trace.py check traces/lean/<subject>/`（校验全部记录），
+  `python3 scripts/lean_trace.py summary --subject <subject>`（按 outcome 统计）。
+- 学科交付包（`scripts/subject_package.py`）会统计本批 trace：本批改动了 `SandronesLibrary/**/*.lean`
+  却没有任何 trace 记录时，会在包中给出 `missing_lean_traces` **提示**（当前为软门，不单独否决策包）。
+- handoff（AGENTS §7 第 6 条）必须写明本批 trace 的路径与记录数；没有试错过程的批次要显式写
+  "本批无验证试错，无 trace"，而不是留空。
+
+### 8.6 与 §5 教训的关系
+
+§5 的每条教训都应能指回产生它的 trace（`traces/lean/<subject>/<task-id>.jsonl` 的第
+`attempt` 条）。写教训时带上这个回指，语料与知识才连成一条链；只有结论没有过程的教训，
+在 review 时按证据不足处理。
+
+### 8.7 演进
+
+当前按"软门"落地（统计 + 提示，不单独否决策包），先积累一轮真实轨迹。当至少一个学科批次
+产出可用语料后，由 Main 复核质量（字段完整度、失败尝试占比、叙述是否为"语义层面"）并决定
+是否转为硬门。语料的价值在于**真实**；一旦为了过门而编造轨迹，整套机制就失去意义。

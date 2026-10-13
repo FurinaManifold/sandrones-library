@@ -62,7 +62,7 @@ handoff 或验证命令表格。只有两个数学语义分支无法从仓库判
 - 既有修改默认属于用户或其他负责人。不得用 `git reset --hard`、`git checkout --`、
   整文件 ours/theirs 或覆盖写清除它们。
 - 学科负责人一般只写 `SandronesLibrary/<Subject>/`、对应 `docs/entries/`、
-  `docs/handoffs/`、`docs/maintenance/` 和审核处理记录。
+  `docs/handoffs/`、`docs/maintenance/`、`traces/lean/<subject>/` 和审核处理记录。
 
 Main 共享文件包括：
 
@@ -150,6 +150,11 @@ lake build
 7. 交付前用 `python3 scripts/subject_package.py --worktree <本 worktree> --base <基线> --subject <学科>`
    自检五组门（清洁／所有权／语义／证明／覆盖），把异常清单写进 handoff；`verdict=pass` 才申请集成。
    协议与字段见 `docs/SUBJECT-PACKAGE-PROTOCOL.md`。
+8. **Lean 验证轨迹语料**：实际执行 Lean 验证的 Agent（含底层子 Agent）必须按 Playbook §8 把每次
+   尝试追加到 `traces/lean/<subject>/<task-id>.jsonl`（JSON Lines，schema
+   `sandrones-lean-attempt/1`），字段含自然语言叙述、待证命题、证明计划、尝试代码与编译器反馈；
+   边做边写，失败尝试同样要留。handoff 须写明本批 trace 的路径与记录数；确无试错过程的批次要
+   显式写明「本批无验证试错，无 trace」。工具：`python3 scripts/lean_trace.py append|check|summary`。
 
 学科负责人不运行全库 `lake build`，不直接维护 Main 共享文件。精确八段重排、
 front matter 统一、review 归档和 Registry/RADAR/ROADMAP 规范化是 Main 职责；

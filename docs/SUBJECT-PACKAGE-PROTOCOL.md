@@ -59,6 +59,18 @@ python3 scripts/subject_package.py \
 4. `proof`：无禁用占位、每个 id 至少一个公开声明；
 5. `coverage`：逐 Entry 声明数 + `docs/handoffs/*.md` 存在。
 
+包内另有一块 **`traces`（Lean 验证轨迹语料，Playbook §8）**，当前为**软门**：
+
+- `present`：`traces/lean/` 下有合法 JSON Lines 记录，附记录条数；
+- `missing`：本批改动了 `SandronesLibrary/**/*.lean` 却没有任何 trace 记录——给提示，
+  **不单独否决策包**，但 Main 会据此追问；确无验证试错过程的批次须在 handoff 显式写明；
+- `invalid`：记录不是合法 JSON Lines（每行须可独立 `json.loads`）；
+- `n/a`：本批未改动 Lean 源码，不要求 trace。
+
+轨迹的写入者、字段与三条铁律见 `docs/LEAN-PLAYBOOK.md` §8；写入与校验工具为
+`scripts/lean_trace.py append|check|summary`。积累一轮真实语料后，由 Main 复核质量并决定
+是否把软门转为硬门。
+
 `verdict` 为 `pass` 时，Main 只需抽检异常清单之外的内容；`needs_changes` 时**只处理列出的异常**。
 退出码：`0`=pass，`1`=needs_changes。
 
