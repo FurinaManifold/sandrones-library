@@ -19898,5 +19898,193 @@
     "added_at": "2026-10-13T05:30:19Z",
     "dependedOnBy": [],
     "proof_sha": "7c7835e4dafc0f92"
+  },
+  {
+    "id": "real-analysis.measure-derivative.absolute-continuity",
+    "kind": "theorem",
+    "title": "测度的绝对连续",
+    "summary": "测度绝对连续 μ ≪ ν 的教材量词展开、可测集形式、代数性质、a.e. 滤子桥与密度测度方向",
+    "family": "real-analysis.measure-derivative",
+    "variant": "tao",
+    "premises": [],
+    "mathlib": [
+      "Measure.AbsolutelyContinuous",
+      "Measure.AbsolutelyContinuous.mk",
+      "Measure.absolutelyContinuous_of_le",
+      "Measure.absolutelyContinuous_of_eq",
+      "Measure.AbsolutelyContinuous.zero",
+      "Measure.AbsolutelyContinuous.smul_right",
+      "Measure.absolutelyContinuous_smul",
+      "Measure.absolutelyContinuous_zero_iff",
+      "Measure.ae_le_iff_absolutelyContinuous",
+      "Measure.AbsolutelyContinuous.ae_eq",
+      "Measure.AbsolutelyContinuous.null_mono",
+      "Measure.AbsolutelyContinuous.pos_mono",
+      "MeasureTheory.withDensity_absolutelyContinuous"
+    ],
+    "lean_file": "RealAnalysis/MeasureDerivativeAbsoluteContinuity.lean",
+    "nl_file": "docs/entries/real-analysis/measure-derivative/absolute-continuity.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:20:06Z",
+    "dependedOnBy": [
+      "real-analysis.measure-derivative.lebesgue-decomposition",
+      "real-analysis.measure-derivative.mutually-singular",
+      "real-analysis.measure-derivative.radon-nikodym"
+    ],
+    "proof_sha": "33a80b73070b1caf"
+  },
+  {
+    "id": "real-analysis.measure-derivative.mutually-singular",
+    "kind": "theorem",
+    "title": "互奇异测度",
+    "summary": "互奇异测度 μ ⟂ₘ ν 的教材量词展开、零测度／加法／标量倍／单调性等基本性质，与 Disjoint 及 a.e. 滤子的桥，以及互奇异与绝对连续相遇时测度为零",
+    "family": "real-analysis.measure-derivative",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure-derivative.absolute-continuity"
+    ],
+    "mathlib": [
+      "Measure.MutuallySingular",
+      "Measure.MutuallySingular.zero_left",
+      "Measure.MutuallySingular.symm",
+      "Measure.MutuallySingular.smul",
+      "Measure.MutuallySingular.add_left",
+      "Measure.MutuallySingular.self_iff",
+      "Measure.eq_zero_of_absolutelyContinuous_of_mutuallySingular",
+      "Measure.mutuallySingular_iff_disjoint",
+      "Measure.mutuallySingular_iff_disjoint_ae",
+      "Measure.MutuallySingular.withDensity",
+      "Measure.MutuallySingular.measurableSet_nullSet"
+    ],
+    "lean_file": "RealAnalysis/MeasureDerivativeMutuallySingular.lean",
+    "nl_file": "docs/entries/real-analysis/measure-derivative/mutually-singular.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:20:06Z",
+    "dependedOnBy": [
+      "real-analysis.measure-derivative.lebesgue-decomposition",
+      "real-analysis.measure-derivative.radon-nikodym"
+    ],
+    "proof_sha": "9facab051cb1f551"
+  },
+  {
+    "id": "real-analysis.measure-derivative.lebesgue-decomposition",
+    "kind": "theorem",
+    "title": "Lebesgue 分解",
+    "summary": "σ-有限测度关于 SFinite 测度的 Lebesgue 分解 μ = μ.singularPart ν + ν.withDensity (μ.rnDeriv ν)：存在性、奇异部分与密度的唯一性，以及 rnDeriv 可测、singularPart 的零点刻画",
+    "family": "real-analysis.measure-derivative",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure-derivative.absolute-continuity",
+      "real-analysis.measure-derivative.mutually-singular"
+    ],
+    "mathlib": [
+      "Measure.HaveLebesgueDecomposition",
+      "Measure.haveLebesgueDecomposition_of_sigmaFinite",
+      "Measure.singularPart",
+      "Measure.rnDeriv",
+      "Measure.haveLebesgueDecomposition_add",
+      "Measure.mutuallySingular_singularPart",
+      "Measure.singularPart_le",
+      "Measure.withDensity_rnDeriv_le",
+      "Measure.measurable_rnDeriv",
+      "Measure.eq_singularPart",
+      "Measure.eq_rnDeriv",
+      "Measure.MutuallySingular.haveLebesgueDecomposition",
+      "Measure.singularPart_eq_zero",
+      "Measure.singularPart_eq_zero_of_ac",
+      "Measure.singularPart_self",
+      "Measure.singularPart_eq_self",
+      "Measure.haveLebesgueDecomposition_withDensity"
+    ],
+    "lean_file": "RealAnalysis/MeasureDerivativeLebesgueDecomposition.lean",
+    "nl_file": "docs/entries/real-analysis/measure-derivative/lebesgue-decomposition.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:20:06Z",
+    "dependedOnBy": [
+      "real-analysis.measure-derivative.radon-nikodym"
+    ],
+    "proof_sha": "44684fd81b440e04"
+  },
+  {
+    "id": "real-analysis.measure-derivative.radon-nikodym",
+    "kind": "theorem",
+    "title": "Radon–Nikodym 定理与测度导数",
+    "summary": "绝对连续测度 μ ≪ ν 的 Radon–Nikodym 导数 dμ/dν 的存在唯一性、由密度构造测度、积分换测度、链式与互逆边界，以及有符号测度桥",
+    "family": "real-analysis.measure-derivative",
+    "variant": "tao",
+    "premises": [
+      "real-analysis.measure-derivative.absolute-continuity",
+      "real-analysis.measure-derivative.mutually-singular",
+      "real-analysis.measure-derivative.lebesgue-decomposition"
+    ],
+    "mathlib": [
+      "Measure.rnDeriv",
+      "Measure.withDensity",
+      "Measure.withDensityᵥ",
+      "Measure.HaveLebesgueDecomposition",
+      "Measure.real",
+      "Measure.withDensity_rnDeriv_eq",
+      "Measure.absolutelyContinuous_iff_withDensity_rnDeriv_eq",
+      "Measure.rnDeriv_pos",
+      "Measure.rnDeriv_self",
+      "Measure.rnDeriv_withDensity",
+      "Measure.rnDeriv_withDensity_left",
+      "Measure.rnDeriv_withDensity_right",
+      "Measure.inv_rnDeriv",
+      "Measure.rnDeriv_mul_rnDeriv",
+      "Measure.setLIntegral_rnDeriv",
+      "Measure.lintegral_rnDeriv",
+      "Measure.setIntegral_toReal_rnDeriv",
+      "Measure.integral_toReal_rnDeriv",
+      "Measure.rnDeriv_lt_top",
+      "Measure.rnDeriv_ne_top",
+      "SignedMeasure.absolutelyContinuous_iff_withDensityᵥ_rnDeriv_eq"
+    ],
+    "lean_file": "RealAnalysis/MeasureDerivativeRadonNikodym.lean",
+    "nl_file": "docs/entries/real-analysis/measure-derivative/radon-nikodym.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:20:06Z",
+    "dependedOnBy": [],
+    "proof_sha": "5914f8abecf76479"
   }
 ]

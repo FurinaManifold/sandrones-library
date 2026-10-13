@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **599** 个条目（verified 599，pending 0）。
+共 **603** 个条目（verified 603，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -647,6 +647,13 @@
 - ✅ [`product-measure.md`](real-analysis/measure/product-measure.md) — 乘积测度与矩形测度
 - ✅ [`sigma-algebra.md`](real-analysis/measure/sigma-algebra.md) — σ-代数公理
 - ✅ [`tonelli.md`](real-analysis/measure/tonelli.md) — Tonelli 定理
+
+## `real-analysis.measure-derivative`
+
+- ✅ [`absolute-continuity.md`](real-analysis/measure-derivative/absolute-continuity.md) — 测度的绝对连续
+- ✅ [`lebesgue-decomposition.md`](real-analysis/measure-derivative/lebesgue-decomposition.md) — Lebesgue 分解
+- ✅ [`mutually-singular.md`](real-analysis/measure-derivative/mutually-singular.md) — 互奇异测度
+- ✅ [`radon-nikodym.md`](real-analysis/measure-derivative/radon-nikodym.md) — Radon–Nikodym 定理与测度导数
 
 ## `real-analysis.riemann`
 

@@ -3495,3 +3495,35 @@
 - **出处**：Mathlib 的复测度接口。
 - **谁在用**：`real-analysis.signed-measure.complex`。**边界**：`IsFiniteMeasure (c.variation)` 当前
   Mathlib 未注册（实测 `synthInstanceFailed`），本批未证，不得当成已有结论。
+
+## 测度导数：绝对连续、互奇异、Lebesgue 分解与 Radon–Nikodym（RA-F2）
+
+### `Measure.AbsolutelyContinuous` / `Measure.absolutelyContinuous_*`
+- **人话**：`ν ≪ μ` 表示 μ-零集都是 ν-零集；它与 a.e. 蕴含等价
+  （`Measure.ae_le_iff_absolutelyContinuous`），并有零测、单调、加法与 smul 等结构引理；
+  `withDensity` 给出最基本的绝对连续例子。
+- **出处**：Mathlib 的测度绝对连续接口。
+- **谁在用**：`real-analysis.measure-derivative.absolute-continuity`（定义层承载）。
+
+### `Measure.MutuallySingular` / `Measure.mutuallySingular_*`
+- **人话**：`μ ⟂ ν` 表示存在 μ-零的可测集使 ν 集中在其上；有对称、smul、加法与
+  `Measure.eq_zero_of_absolutelyContinuous_of_mutuallySingular`（互奇异 + 绝对连续 ⇒ 零）。
+- **出处**：Mathlib 的互奇异测度接口。
+- **谁在用**：`real-analysis.measure-derivative.mutually-singular`。
+
+### `Measure.HaveLebesgueDecomposition` / `Measure.singularPart` / `Measure.rnDeriv`
+- **人话**：σ-有限测度可唯一分解为 `singularPart`（相对 μ 奇异）与 `withDensity (rnDeriv ν μ)`
+  （相对 μ 绝对连续）两部分；`rnDeriv` 是 Radon–Nikodym 导数。
+- **出处**：Mathlib 的 Lebesgue 分解与 RN 导数接口。
+- **谁在用**：`real-analysis.measure-derivative.lebesgue-decomposition`（分解存在与 `singularPart`／
+  `rnDeriv` 的性质）与 `real-analysis.measure-derivative.radon-nikodym`（导数唯一性、积分重建、
+  链式与互逆边界）。
+
+### `Measure.withDensity` / `Measure.withDensityᵥ` / `SignedMeasure.absolutelyContinuous_iff_withDensityᵥ_rnDeriv_eq`
+- **人话**：`withDensity μ f` 以密度 `f` 构造相对 μ 绝对连续的测度；带下标的 `withDensityᵥ` 是
+  有符号测度版本。`SignedMeasure.absolutelyContinuous_iff_withDensityᵥ_rnDeriv_eq` 把 RA-F1 的
+  有符号测度绝对连续与 RA-F2 的 RN 导数 `withDensityᵥ` 形式连接起来。
+- **出处**：Mathlib 的密度测度接口。
+- **谁在用**：`real-analysis.measure-derivative.absolute-continuity`（`withDensity_absolutelyContinuous`）、
+  `real-analysis.measure-derivative.radon-nikodym`（`withDensity_rnDeriv_eq` 等）。**桥**：
+  `SignedMeasure.absolutelyContinuous_iff_withDensityᵥ_rnDeriv_eq` 同时跨 RA-F1 与 RA-F2。

@@ -34,7 +34,7 @@
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3✅ | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（同伦桥已完成，覆盖分类继续） | 集合论 + 分析线直观 |
-| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅；RA-F2–RA-F6🚧 | T3 + M 系列 |
+| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅ RA-F2✅；RA-F3–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2🚧 C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2-Pr3🚧 | R4 |
@@ -179,7 +179,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
 | D3 拓扑 AT2-C5e | `codex/topology-foundations`（须先同步并丢弃 superseded 文件） | `topology.covering.subgroup-construction-recovery` | `research_open` | 新文件路径；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
 | D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
-| D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 待本窗验收 |
+| D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | 新建 `codex/number-theory-algebraic` | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | `development_open` | 新建 `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
 | D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
 | D8 概率 Pr3.5 一般 CLT | `codex/probability`（已可开工） | `probability.central-limit-theorem` | `research_open` | 不占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥的调查；不得用 Mathlib 最终 CLT 冒充课程证明链 |
@@ -1075,7 +1075,7 @@ Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均
 | 批次 | 教材内容 | 开工门 | 完成出口 |
 |---|---|---|---|
 | RA-F1 | 有符号测度、Jordan 分解、正负／全变差、复测度 | 正测度与积分主线已验收 | ✅ 已于 2026-10-13 集成：`real-analysis.signed-measure.{definition,variation,jordan-decomposition,complex}`（`f856e0f`／`ef88ec4`，Main 集成提交见 D-1a 进展表）。有限实／复值情形已齐备；RA-F2 仍未开门 |
-| RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | RN 存在唯一性、由密度构造测度、积分换测度及链式／互逆边界 |
+| RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | ✅ 2026-10-13 集成：`real-analysis.measure-derivative.{absolute-continuity,mutually-singular,lebesgue-decomposition,radon-nikodym}`（Wave R1 学科提交 `293fa00`–`27b2a1e`／`76b0238`）。Folland §3.2 的教材化承载与量词展开，复用 Mathlib 已证的 RN 与 Lebesgue 分解；有符号测度 RN 仅给桥 |
 | RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口冻结 | 极大函数教材定义、弱型估计和可测性边界 |
 | RA-F4 | Lebesgue 点与 Lebesgue 微分定理 | RA-F3 | 平均算子、Lebesgue 点定义、a.e. 定理和具名桥 |
 | RA-F5 | 单调函数、有界变差与绝对连续函数 | RA-F2；一维测度接口验收 | BV/AC 定义、分解性质与 a.e. 导数 |
