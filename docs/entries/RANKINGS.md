@@ -11,35 +11,35 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.14 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 96.88 |
-| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.63 |
-| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.44 |
-| 5 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.99 |
-| 6 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.99 |
-| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.87 |
-| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.73 |
-| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.60 |
-| 10 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.15 |
-| 11 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 91.68 |
-| 12 | `analysis.series.basic` | 数项级数基础 | 91.60 |
-| 13 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.59 |
-| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.54 |
-| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.05 |
-| 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.71 |
-| 17 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.67 |
-| 18 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.18 |
-| 19 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.83 |
-| 20 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.52 |
-| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.03 |
-| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.54 |
-| 23 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.47 |
-| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.71 |
-| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.57 |
-| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.37 |
-| 27 | `settheory.set.ext` | 外延性原理 | 87.20 |
-| 28 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 87.05 |
-| 29 | `linear-algebra.det.mul` | 积的行列式 | 87.04 |
-| 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.72 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 97.15 |
+| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.60 |
+| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.42 |
+| 5 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.97 |
+| 6 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.96 |
+| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.83 |
+| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.69 |
+| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.56 |
+| 10 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.17 |
+| 11 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 91.62 |
+| 12 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.58 |
+| 13 | `analysis.series.basic` | 数项级数基础 | 91.56 |
+| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.51 |
+| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.03 |
+| 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.70 |
+| 17 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.63 |
+| 18 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.12 |
+| 19 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.79 |
+| 20 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.51 |
+| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.00 |
+| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.48 |
+| 23 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.46 |
+| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.68 |
+| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.52 |
+| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.29 |
+| 27 | `settheory.set.ext` | 外延性原理 | 87.18 |
+| 28 | `linear-algebra.det.mul` | 积的行列式 | 87.02 |
+| 29 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 86.96 |
+| 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.65 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -80,13 +80,13 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 17.875 |
-| 2 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 17.719 |
-| 3 | `topology.space.def` | 拓扑空间与开闭集公理 | 17.375 |
-| 4 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 16.281 |
-| 5 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 16.250 |
-| 6 | `functional-analysis.operator.space` | 算子范数与连续线性算子空间 | 16.125 |
-| 7 | `linear-algebra.vector-space.def` | 向量空间定义 | 14.969 |
+| 1 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 18.375 |
+| 2 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 17.781 |
+| 3 | `topology.space.def` | 拓扑空间与开闭集公理 | 17.406 |
+| 4 | `functional-analysis.operator.space` | 算子范数与连续线性算子空间 | 16.375 |
+| 5 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 16.281 |
+| 6 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 16.250 |
+| 7 | `linear-algebra.vector-space.def` | 向量空间定义 | 15.000 |
 | 8 | `topology.foundation.constructions` | 诱导拓扑、子空间拓扑与积拓扑 | 14.906 |
 | 9 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 14.750 |
 | 10 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 13.906 |
@@ -96,14 +96,14 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 14 | `settheory.set.ext` | 外延性原理 | 13.094 |
 | 15 | `topology.homotopy.path-definition-foundation` | 道路与环路的正式承载 | 12.938 |
 | 16 | `analysis.continuity.definition` | 连续性定义 | 12.281 |
-| 17 | `topology.normed-space.banach` | 范数收敛与Banach完备性 | 12.062 |
+| 17 | `topology.normed-space.banach` | 范数收敛与Banach完备性 | 12.188 |
 | 18 | `functional-analysis.hahn-banach.extension` | Hahn–Banach 延拓定理 | 11.875 |
 | 19 | `real-analysis.measure.def` | 测度公理 | 11.875 |
-| 20 | `functional-analysis.operator.continuous-linear-map` | 连续线性算子 | 10.062 |
+| 20 | `functional-analysis.operator.continuous-linear-map` | 连续线性算子 | 10.188 |
 | 21 | `functional-analysis.hahn-banach.norming-functional` | 范数化泛函与对偶范数刻画 | 10.031 |
 | 22 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 9.969 |
-| 23 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.688 |
-| 24 | `topology.metric.def` | 度量空间与开球 | 9.688 |
+| 23 | `topology.metric.def` | 度量空间与开球 | 9.719 |
+| 24 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.688 |
 | 25 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 9.625 |
 | 26 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 9.531 |
 | 27 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
@@ -122,14 +122,14 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 5 | `probability.space.definition` | 概率空间与事件 | 1.750 |
 | 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 1.750 |
 | 7 | `topology.metric.def` | 度量空间与开球 | 1.750 |
-| 8 | `linear-algebra.det.mul` | 积的行列式 | 1.500 |
-| 9 | `probability.expectation.definition` | 期望与可积性 | 1.500 |
-| 10 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 1.500 |
-| 11 | `analysis.continuity.uniform` | 一致连续 | 1.250 |
-| 12 | `analysis.continuity.uniform-compact` | 紧集上连续 ⟹ 一致连续 | 1.250 |
-| 13 | `analysis.derivative.const` | 常数/线性函数导数 | 1.250 |
-| 14 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 1.250 |
-| 15 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 1.250 |
+| 8 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 1.500 |
+| 9 | `linear-algebra.det.mul` | 积的行列式 | 1.500 |
+| 10 | `probability.expectation.definition` | 期望与可积性 | 1.500 |
+| 11 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 1.500 |
+| 12 | `analysis.continuity.uniform` | 一致连续 | 1.250 |
+| 13 | `analysis.continuity.uniform-compact` | 紧集上连续 ⟹ 一致连续 | 1.250 |
+| 14 | `analysis.derivative.const` | 常数/线性函数导数 | 1.250 |
+| 15 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 1.250 |
 | 16 | `probability.distribution.pushforward` | 分布作为推前测度 | 1.250 |
 | 17 | `probability.variable.definition` | 随机变量与可测性 | 1.250 |
 | 18 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 1.250 |

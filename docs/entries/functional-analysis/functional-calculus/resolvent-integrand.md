@@ -3,7 +3,7 @@ id: functional-analysis.functional-calculus.resolvent-integrand
 family: functional-analysis.operator
 variant: resolvent-integrand
 kind: definition
-state: staging
+state: verified
 title: 预解恒等式与 Dunford 被积函数
 summary: 在尚未引入 cycle 时先建立第一预解恒等式、预解映射在预解集上的全纯性，以及 Dunford 被积函数在紧集上的 Bochner 可积性
 premises: [functional-analysis.functional-calculus.holomorphic-neighborhood, functional-analysis.spectrum.definition]

@@ -994,7 +994,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 4 | `functional-analysis.compact-spectrum` | 紧算子的非零谱、特征值有限重数与零点聚集边界 ✅ | compact operator spectrum |
 | 5 | `functional-analysis.hilbert.compact-selfadjoint-spectral` | 紧自伴算子的正交特征分解 ✅ | compact self-adjoint spectral theorem |
 | 6a | `functional-analysis.functional-calculus.holomorphic-neighborhood` | 谱邻域全纯谓词、交集见证与代数正例 ✅ | spectrum neighborhood、DifferentiableOn |
-| 6b1 | `functional-analysis.functional-calculus.resolvent-integrand` | 预解恒等式、预解函数全纯性与 Dunford 被积函数（`development_open`） | `resolvent`、`resolventSet`、Banach-valued differentiability；不引入 cycle |
+| 6b1 | `functional-analysis.functional-calculus.resolvent-integrand` | 预解恒等式、预解函数全纯性与 Dunford 被积函数 ✅ | `resolvent`、`resolventSet`、Banach-valued differentiability；不引入 cycle |
 | 6b2 | `functional-analysis.functional-calculus.holomorphic` | Dunford 积分、代数同态与谱映射（`research_open`） | complex cycle foundation、resolvent integral |
 | 7 | `functional-analysis.operator.selfadjoint-positive-normal` | 有界自伴、正、酉与正规算子的关系 | star/positive/normal operator API |
 | 8 | `functional-analysis.functional-calculus.continuous` | 自伴／正规算子的连续函数演算 | continuous functional calculus |

@@ -189,7 +189,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.6b 弱星序列抽取 | `examples.functional-analysis.weak-star-subsequences` | 可分空间对偶单位球序列的弱星收敛子列 | 只对紧子集断言可度量化；不可把弱星收敛写成范数收敛 | F4.4 |
 | E11.6c Banach–Dieudonné 判据 | `examples.functional-analysis.banach-dieudonne` | 有限维对偶的坐标子空间：直接比较整体弱星闭性与单位球截面闭性，并展示外点分离向量 | 判据只针对线性子空间；单位球截面弱星闭不能外推到任意非线性集合；原空间完备性不可省略 | F4.5 |
 | E11.7 紧算子与 Fredholm | `examples.functional-analysis.compact-fredholm` | 有限秩算子、对角紧算子、核／余核和指数计算 | 有界算子不必紧；紧算子不必有限秩；闭值域不可省略 | F5 |
-| E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算；多项式及两个不同谱邻域全纯函数的共同交集见证 | 无限维谱不等于特征值集合；谱半径不必等于算子范数；只在谱上给值不等于已给出开邻域全纯输入 | F6 |
+| E11.8 有界谱理论 | `examples.functional-analysis.spectrum` | 有限维矩阵、移位和紧对角算子的谱／预解计算；多项式及两个不同谱邻域全纯函数的共同交集见证；两个谱参数处预解元的第一预解恒等式与乘法交换的具体验算 | 无限维谱不等于特征值集合；谱半径不必等于算子范数；只在谱上给值不等于已给出开邻域全纯输入；第一预解恒等式要显式带上 `z,w ∈ resolventSet`，不可省成 `Ring.inverse` 的恒等式（谱点上 `resolvent` 为 0） | F6 ✅ |
 | E11.9 无界算子 | `examples.functional-analysis.unbounded-operators` | 微分／乘法算子的定义域、图、伴随和预解例 | 同一公式配不同定义域会给不同算子；对称不自动自伴 | F7 |
 | E11.10 算子半群 | `examples.functional-analysis.semigroups` | 平移、乘法和热半群的轨道及生成元计算 | 每点连续不能代替强连续；生成元通常不是有界算子 | F8 |
 | E11.11 半范数与 Fréchet 空间 | `examples.advanced-functional-analysis.frechet` | `ℝⁿ` 坐标半范数、`C∞` 导数半范数及可数族生成度量 | 单个半范数可不分离点；Fréchet 不等于“具有某个完备范数” | AFA1-AFA2 |

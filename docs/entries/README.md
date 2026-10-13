@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **570** 个条目（verified 570，pending 0）。
+共 **571** 个条目（verified 571，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -375,6 +375,7 @@
 ## `functional-analysis.functional-calculus`
 
 - ✅ [`holomorphic-neighborhood.md`](functional-analysis/functional-calculus/holomorphic-neighborhood.md) — 谱邻域上的全纯函数
+- ✅ [`resolvent-integrand.md`](functional-analysis/functional-calculus/resolvent-integrand.md) — 预解恒等式与 Dunford 被积函数
 
 ## `functional-analysis.hahn-banach`
 

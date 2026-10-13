@@ -3413,3 +3413,41 @@
 - **出处**：Mathlib 的 kernel 与 Markov kernel 接口。
 - **谁在用**：`statistics.sufficiency.definition` 的条件分布、重构 kernel 与有限离散原型；
   `statistics.estimator.definition` 同样用它承载随机化估计量。
+
+## 预解恒等式与 Dunford 被积函数（F6.6b1）
+
+> 本批现场审计结论（`lake env lean` 实跑，不是记忆）：pin 住的 Mathlib **没有**第一预解恒等式，
+> **也没有** `Complex.windingNumber` 与复分析 `residue`。第一预解恒等式由本库
+> `resolvent_sub_resolvent_same` 补上；后两者仍属复分析 `research_open` 范围，泛函侧不得重造。
+
+### `Ring.inverse` / `Ring.inverse_sub_inverse`
+- **人话**：`Ring.inverse` 是环上**总函数**形式的逆——可逆元处取真双边逆，其余处约定为零。
+  正因为是总函数，`Ring.inverse_sub_inverse` 必须显式携带两个元素"同时可逆"的等价性；本库据此
+  得到第一预解恒等式 `R z - R w = (w - z) • (R z * R w)`（前提 `z, w ∈ resolventSet ℂ a`）。
+- **出处**：Mathlib 的环逆与逆差恒等式（Sylvester 型）。
+- **谁在用**：`functional-analysis.functional-calculus.resolvent-integrand` 的
+  `resolvent_sub_resolvent_same`。注意谱点上 `resolvent a z = 0`，所以凡用到真逆元的公式都必须
+  显式带上 `z ∈ resolventSet ℂ a`，不能省。
+
+### `Commute.ringInverse_ringInverse` / `Algebra.commute_algebraMap_left`
+- **人话**：`z·1 - a` 与 `w·1 - a` 恒交换（标量与 `a` 中心交换），故两者的环逆也交换。又因
+  `Ring.inverse` 在不可逆处取零，交换性对**全部** `z, w : ℂ` 无条件成立，不需要预解集假设。
+- **出处**：Mathlib 的 `Commute` 与环逆交换接口。
+- **谁在用**：同条目的 `resolvent_mul_comm` 与 `resolvent_sub_resolvent_same_mul_comm`。
+
+### `spectrum.hasDerivAt_resolvent_const_left` / `spectrum.isOpen_resolventSet`
+- **人话**：前者给出预解映射在预解集上的导数 `HasDerivAt (resolvent a) (-resolvent a k ^ 2) k`，
+  与教材 `R'(z) = -R(z)²` 一致；后者给出预解集开性，是把逐点可微升为 `AnalyticOnNhd` 的关键。
+- **出处**：Mathlib 的复 Banach 代数谱理论。
+- **谁在用**：`differentiableOn_resolvent`、`differentiableAt_resolvent`、`analyticOnNhd_resolvent`、
+  `continuousOn_resolvent`。
+
+### `DifferentiableOn.smul` / `DifferentiableOn.analyticOnNhd` / `ContinuousOn.integrableOn_compact`
+- **人话**：前两个把标量函数 `f` 与预解映射的可微性组合成 Dunford 被积函数
+  `fun z ↦ f z • resolvent a z` 在共同有效开集 `U ∩ resolventSet ℂ a` 上的可微与全纯；第三个把
+  "紧集上连续"变成 `IntegrableOn ... volume`，即后续沿紧路径积分真正需要的可积前提。
+- **出处**：Mathlib 的微分运算与紧集上的 Bochner 可积接口。
+- **谁在用**：`differentiableOn_resolventIntegrand`、`continuousOn_resolventIntegrand`、
+  `HolomorphicOnNhdSpectrum.resolventIntegrand_differentiableOn` / `.resolventIntegrand_continuousOn`、
+  `integrableOn_resolventIntegrand_compact`。被积函数**只**在紧集上被证明可积，积分本身尚未组装；
+  Banach 值路径积分 carrier 归复分析所有。
