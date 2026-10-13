@@ -1,0 +1,81 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "statistics",
+  "worktree": "/home/pisquare/czt/sandrones-library-statistics-r1",
+  "branch": "codex/statistics-wave-r1",
+  "base": "7dffe37",
+  "head": "f42c1036b72d2be2358ba09e91824e8fcab8c6af",
+  "checked_at": "2026-10-13T09:05:29Z",
+  "commits": [
+    {
+      "sha": "f42c1036b72d2be2358ba09e91824e8fcab8c6af",
+      "subject": "docs(statistics): finalize wave-r1 handoff commit list"
+    },
+    {
+      "sha": "6128554f0280b8e2fbb39eb7ea2229674910ca5f",
+      "subject": "fix(statistics): document domination boundary and tighten audit-flagged docstrings"
+    },
+    {
+      "sha": "2027675f902f86034237cd9d1e9ae090bc2d42b4",
+      "subject": "docs(statistics): record wave-r1 commit list in handoff"
+    },
+    {
+      "sha": "e612b945da1c97e86677cb19dd4d9a6358396df2",
+      "subject": "fix(statistics): tighten log-likelihood prose and mathlib name list"
+    },
+    {
+      "sha": "9f9efd0065704aa73c961fd63a57e7c0d0aecf37",
+      "subject": "docs(statistics): wave-r1 handoff for S1 maximum-likelihood batch"
+    },
+    {
+      "sha": "23e68f06c7a9c80965d8550f5ab4f0c20ad77552",
+      "subject": "docs(statistics): entry draft for statistics.maximum-likelihood"
+    },
+    {
+      "sha": "6b4eac7633b8726bd508b5d80e2d938e5828bef6",
+      "subject": "feat(statistics): likelihood and maximum likelihood estimator (S1 maximum-likelihood)"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/Statistics/MaximumLikelihood.lean",
+    "docs/entries/statistics/maximum-likelihood.md",
+    "docs/handoffs/statistics-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "statistics.maximum-likelihood",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Statistics/MaximumLikelihood.lean"
+          ],
+          "decls": 15
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/statistics-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}

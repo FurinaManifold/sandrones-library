@@ -1,0 +1,83 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "settheory",
+  "worktree": "/home/pisquare/czt/sandrones-library-settheory-r1",
+  "branch": "codex/settheory-wave-r1",
+  "base": "7dffe37",
+  "head": "2dd67dd36b7400a2b52d6ed8aa82c31baf594140",
+  "checked_at": "2026-10-13T09:05:28Z",
+  "commits": [
+    {
+      "sha": "2dd67dd36b7400a2b52d6ed8aa82c31baf594140",
+      "subject": "docs(settheory): record provenance-format commit in wave R1 handoff"
+    },
+    {
+      "sha": "7bc718309dd77cef5b95f012c6889aad682f59d4",
+      "subject": "docs(settheory): use nested provenance block for wave R1 entries"
+    },
+    {
+      "sha": "e970e7f39be8c26abe29008d2ba7fe5c6235c20f",
+      "subject": "docs(settheory): add wave R1 handoff for primitive recursive class and universal runner"
+    },
+    {
+      "sha": "5564ea39226ec9005297768e96e4e19d938966db",
+      "subject": "feat(settheory): construct universal runner instance for NatProgram"
+    },
+    {
+      "sha": "1a2b104b34f9278841d53e9a833cd56eaf106cf1",
+      "subject": "feat(settheory): freeze primitive recursive class and derived closures"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/SetTheory/PrimitiveRecursiveClass.lean",
+    "SandronesLibrary/SetTheory/UniversalMachineInstance.lean",
+    "docs/entries/settheory/computability/universal-machine-instance.md",
+    "docs/entries/settheory/googology/primitive-recursive-class.md",
+    "docs/handoffs/settheory-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "settheory.computability.universal-machine-instance",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/SetTheory/UniversalMachineInstance.lean"
+          ],
+          "decls": 7
+        },
+        {
+          "id": "settheory.googology.primitive-recursive-class",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/SetTheory/PrimitiveRecursiveClass.lean"
+          ],
+          "decls": 4
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/settheory-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}

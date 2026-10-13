@@ -1,0 +1,85 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "complex-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-complex-r1",
+  "branch": "codex/complex-analysis-wave-r1",
+  "base": "7dffe37",
+  "head": "13d63c51b0ca36e91893cda35b722687aeb0b52e",
+  "checked_at": "2026-10-13T09:05:28Z",
+  "commits": [
+    {
+      "sha": "13d63c51b0ca36e91893cda35b722687aeb0b52e",
+      "subject": "docs(complex-analysis): Wave R1 handoff for the finite-cycle development batch"
+    },
+    {
+      "sha": "c76fae255059fa52deaa96cd837babc5ece4dfb2",
+      "subject": "docs(complex-analysis): course drafts for the three frozen cycle entries"
+    },
+    {
+      "sha": "dbae69071755b9c170fdbb551ef31ef7b4ad94f1",
+      "subject": "feat(complex-analysis): formalize D1 finite-cycle carrier under frozen signatures"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/ComplexAnalysis/BanachPathIntegral.lean",
+    "SandronesLibrary/ComplexAnalysis/CycleCarrier.lean",
+    "SandronesLibrary/ComplexAnalysis/WindingIndex.lean",
+    "docs/entries/complex-analysis/integral/banach-path-foundation.md",
+    "docs/entries/complex-analysis/integral/finite-cycle-foundation.md",
+    "docs/entries/complex-analysis/integral/winding-number-foundation.md",
+    "docs/handoffs/complex-analysis-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "complex-analysis.integral.banach-path-foundation",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/ComplexAnalysis/BanachPathIntegral.lean"
+          ],
+          "decls": 15
+        },
+        {
+          "id": "complex-analysis.integral.finite-cycle-foundation",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/ComplexAnalysis/CycleCarrier.lean"
+          ],
+          "decls": 23
+        },
+        {
+          "id": "complex-analysis.integral.winding-number-foundation",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/ComplexAnalysis/WindingIndex.lean"
+          ],
+          "decls": 17
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/complex-analysis-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}

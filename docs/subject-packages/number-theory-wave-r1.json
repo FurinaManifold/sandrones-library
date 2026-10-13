@@ -1,0 +1,93 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "number-theory",
+  "worktree": "/home/pisquare/czt/sandrones-library-number-r1",
+  "branch": "codex/number-theory-wave-r1",
+  "base": "ed6459a",
+  "head": "d7a81081a2c38c221384dd5e8b5c41ef16ba7608",
+  "checked_at": "2026-10-13T09:05:28Z",
+  "commits": [
+    {
+      "sha": "d7a81081a2c38c221384dd5e8b5c41ef16ba7608",
+      "subject": "docs(number-theory): append reproducible evidence appendix to wave R1 handoff"
+    },
+    {
+      "sha": "c0b88c8e195a3c391cbf0c527435e3404f8d994c",
+      "subject": "docs(number-theory): handoff for N2.1-N2.3 wave R1"
+    },
+    {
+      "sha": "25b796d1e70cd3bc457a2bcd0fef3e2ed6c10f6e",
+      "subject": "feat(number-theory): N2.3 ring of integers textbook layer"
+    },
+    {
+      "sha": "b33d0197d616dcef3d6b3d902c945b105580ced7",
+      "subject": "feat(number-theory): N2.2 algebraic integers textbook layer"
+    },
+    {
+      "sha": "a4ec77178d18afc49df217dc2d943bd294d59f66",
+      "subject": "feat(number-theory): N2.1 number field textbook layer"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/NumberTheory/Algebraic/AlgebraicInteger.lean",
+    "SandronesLibrary/NumberTheory/Algebraic/NumberField.lean",
+    "SandronesLibrary/NumberTheory/Algebraic/RingOfIntegers.lean",
+    "docs/entries/number-theory/algebraic/algebraic-integer.md",
+    "docs/entries/number-theory/algebraic/number-field.md",
+    "docs/entries/number-theory/algebraic/ring-of-integers.md",
+    "docs/handoffs/number-theory-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "number-theory.algebraic.algebraic-integer",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/NumberTheory/Algebraic/AlgebraicInteger.lean"
+          ],
+          "decls": 10
+        },
+        {
+          "id": "number-theory.algebraic.number-field",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/NumberTheory/Algebraic/NumberField.lean"
+          ],
+          "decls": 6
+        },
+        {
+          "id": "number-theory.algebraic.ring-of-integers",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/NumberTheory/Algebraic/RingOfIntegers.lean"
+          ],
+          "decls": 9
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/number-theory-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}

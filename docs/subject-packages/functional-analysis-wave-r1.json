@@ -1,0 +1,77 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "functional-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-functional-r1",
+  "branch": "codex/functional-analysis-wave-r1",
+  "base": "7dffe37",
+  "head": "515f431d88b4e577fe033dde7e4faf7ddb1e1149",
+  "checked_at": "2026-10-13T09:05:29Z",
+  "commits": [
+    {
+      "sha": "515f431d88b4e577fe033dde7e4faf7ddb1e1149",
+      "subject": "docs(functional-analysis): record subject_package pass in wave-r1 handoff"
+    },
+    {
+      "sha": "c5dc76725e091f188e24580389aeb25646dd8efc",
+      "subject": "docs(functional-analysis): use multi-line provenance in F6.7 entry front matter"
+    },
+    {
+      "sha": "b0d1ce7e039e15114ae5faba3a1cbe370c6103f6",
+      "subject": "docs(functional-analysis): wave-r1 handoff for F6.7 operator-class relations"
+    },
+    {
+      "sha": "75d35d771b1d5cc802a323e5f080714c027a2591",
+      "subject": "refactor(functional-analysis): trim F6.7 to relation API, drop rename-only re-exports"
+    },
+    {
+      "sha": "6af29f5df758a2103de0fc2c75969b5e05f0d3ba",
+      "subject": "docs(functional-analysis): fix F6.7 narrative overclaim and unused mathlib name"
+    },
+    {
+      "sha": "0c2eda7d139e375e26fde371ec45617ebaa69d3f",
+      "subject": "feat(functional-analysis): add F6.7 self-adjoint/positive/normal/unitary relations"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/FunctionalAnalysis/SelfAdjointPositiveNormal.lean",
+    "docs/entries/functional-analysis/operator/selfadjoint-positive-normal.md",
+    "docs/handoffs/functional-analysis-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "functional-analysis.operator.selfadjoint-positive-normal",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/FunctionalAnalysis/SelfAdjointPositiveNormal.lean"
+          ],
+          "decls": 14
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/functional-analysis-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}

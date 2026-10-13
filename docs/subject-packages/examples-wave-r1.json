@@ -1,0 +1,94 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "examples",
+  "worktree": "/home/pisquare/czt/sandrones-library-examples-r1",
+  "branch": "codex/examples-wave-r1",
+  "base": "7dffe37",
+  "head": "4632200fd392844f8db9ae20512c4cda6dcd53ef",
+  "checked_at": "2026-10-13T09:05:29Z",
+  "commits": [
+    {
+      "sha": "4632200fd392844f8db9ae20512c4cda6dcd53ef",
+      "subject": "docs(examples): record subject-package self-check result in wave-r1 handoff"
+    },
+    {
+      "sha": "c51b7df04e06ec2a05019757e781579e619308d6",
+      "subject": "docs(examples): wave-r1 handoff for RA-F2/CLT/topology examples"
+    },
+    {
+      "sha": "9d2d83ae76af010c412c9bcad951fa6870223c3d",
+      "subject": "examples(topology): closure/interior/frontier computations for Wave E entry topology.space.closure"
+    },
+    {
+      "sha": "12c8d617860c0f493e37ec74c37db8c771d701bc",
+      "subject": "examples(probability): concrete Pr3.5 CLT instantiation on Gaussian product space"
+    },
+    {
+      "sha": "735b26b1ecdff40b5f32da6b4aa91aec8ffdcfc8",
+      "subject": "examples(real-analysis): concrete RA-F2 measure-derivative examples"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/Examples/CentralLimit.lean",
+    "SandronesLibrary/Examples/MeasureDerivative.lean",
+    "SandronesLibrary/Examples/README.md",
+    "SandronesLibrary/Examples/TopologySpaces.lean",
+    "docs/entries/examples/probability/clt.md",
+    "docs/entries/examples/real-analysis/measure-derivative.md",
+    "docs/entries/examples/topology/spaces.md",
+    "docs/handoffs/examples-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "examples.probability.clt",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Examples/CentralLimit.lean"
+          ],
+          "decls": 12
+        },
+        {
+          "id": "examples.real-analysis.measure-derivative",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Examples/MeasureDerivative.lean"
+          ],
+          "decls": 11
+        },
+        {
+          "id": "examples.topology.spaces",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Examples/TopologySpaces.lean"
+          ],
+          "decls": 5
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/examples-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}
