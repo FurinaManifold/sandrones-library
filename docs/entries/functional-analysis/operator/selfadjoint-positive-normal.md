@@ -7,7 +7,7 @@ state: staging
 title: 有界自伴、正、正规与酉算子的关系
 summary: 在完备内积空间上以 Mathlib 的 IsSelfAdjoint、ContinuousLinearMap.IsPositive、IsStarNormal 与 unitary 子群为正式承载，证明“正 ⟹ 自伴 ⟹ 正规”“酉 ⟹ 正规”以及幂等算子自伴当且仅当正规的关系链与各项展开刻画
 premises: [functional-analysis.hilbert.adjoint, functional-analysis.hilbert.unitary]
-mathlib: [IsSelfAdjoint, ContinuousLinearMap.IsPositive, IsStarNormal, unitary, ContinuousLinearMap.star_eq_adjoint, ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric, ContinuousLinearMap.isPositive_iff', ContinuousLinearMap.isStarNormal_iff_norm_eq_adjoint, IsStarNormal.ker_adjoint_eq_ker, IsStarNormal.orthogonal_range, isStarNormal_of_mem_unitary, Unitary.star_eq_inv, Unitary.linearIsometryEquiv, IsIdempotentElem.isSelfAdjoint_iff_isStarNormal, ContinuousLinearMap.adjoint_adjoint]
+mathlib: [IsSelfAdjoint, ContinuousLinearMap.IsPositive, IsStarNormal, unitary, ContinuousLinearMap.star_eq_adjoint, ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric, ContinuousLinearMap.isPositive_iff', ContinuousLinearMap.isStarNormal_iff_norm_eq_adjoint, IsStarNormal.ker_adjoint_eq_ker, IsStarNormal.orthogonal_range, isStarNormal_of_mem_unitary, Unitary.star_eq_inv, Unitary.linearIsometryEquiv, IsIdempotentElem.isSelfAdjoint_iff_isStarNormal]
 provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
 ---
 
@@ -82,8 +82,9 @@ Mathlib 在 `E →L[𝕜] E` 上以伴随为对合 `star`（`ContinuousLinearMap
 
 教材把四类算子并列，但证明依赖链是单向的：正算子的定义里含自伴，自伴算子与其伴随显然交换，
 酉算子由 `U* U = 1` 立即得到 `U` 与 `U*` 交换。于是“正 ⟹ 自伴 ⟹ 正规”与“酉 ⟹ 正规”是两条
-独立的入口，最终都落到正规算子这一层。正规算子的价值在于它恰好等价于核与伴随核一致
-（`isStarNormal_ker_adjoint`），从而给出值域与核的正交分解，这是后续谱测度与函数演算的共同起点。
+独立的入口，最终都落到正规算子这一层。正规算子的价值在于它**蕴含**核与伴随核一致
+（`isStarNormal_ker_adjoint`）；对正规算子，值域的正交补恰是核（`isStarNormal_range_orthogonal_ker`），
+这是后续谱测度与函数演算的共同起点。（反向不成立：核与伴随核一致并不推出正规；本条目只证蕴含。）
 
 幂等情形是唯一的“反向”命题：一般地自伴比正规强，但对幂等算子两者等价
 （`IsIdempotentElem.isSelfAdjoint_iff_isStarNormal`）。这正是正交投影与一般幂等投影的分界，
@@ -127,9 +128,8 @@ Mathlib 在 `E →L[𝕜] E` 上以伴随为对合 `star`（`ContinuousLinearMap
 `ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric`、`ContinuousLinearMap.isPositive_iff'`、
 `ContinuousLinearMap.isStarNormal_iff_norm_eq_adjoint`、`IsStarNormal.ker_adjoint_eq_ker`、
 `IsStarNormal.orthogonal_range`、`isStarNormal_of_mem_unitary`、`Unitary.star_eq_inv`、
-`Unitary.linearIsometryEquiv`、`IsIdempotentElem.isSelfAdjoint_iff_isStarNormal`、
-`ContinuousLinearMap.adjoint_adjoint`（用于伴随对合，属私有证明后端）。其中前四者是语义一致的
-正式公开承载；其余是复用的刻画与桥。本条目**没有**新增 `def` 或 `structure`。
+`Unitary.linearIsometryEquiv`、`IsIdempotentElem.isSelfAdjoint_iff_isStarNormal`。其中前四者是
+语义一致的正式公开承载；其余是复用的刻画与桥。本条目**没有**新增 `def` 或 `structure`。
 
 # 诚实边界
 
