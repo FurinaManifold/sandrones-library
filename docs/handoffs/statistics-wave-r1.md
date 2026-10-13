@@ -7,7 +7,8 @@
 - **交付提交**：
   - `6b4eac7` — `feat(statistics): likelihood and maximum likelihood estimator (S1 maximum-likelihood)`（源码）
   - `23e68f0` — `docs(statistics): entry draft for statistics.maximum-likelihood`（叙述层）
-  - 本 handoff 提交（`docs/handoffs/statistics-wave-r1.md`）
+  - `9f9efd0` — `docs(statistics): wave-r1 handoff for S1 maximum-likelihood batch`（本文件）
+  - `e612b94` — `fix(statistics): tighten log-likelihood prose and mathlib name list`（对数的严格单调边界、front-matter mathlib 实名）
 - **权限判定**：ROADMAP §Wave R 将 R-statistics 列为 S1🚧（S2🔒）可并行窗口；D-0 第 1–2 项
   （含 `statistics.sufficiency.definition`）已集成；似然/密度所需的 RN 接口
   `real-analysis.measure-derivative.radon-nikodym` 已集成，故 S1 第 7 条
