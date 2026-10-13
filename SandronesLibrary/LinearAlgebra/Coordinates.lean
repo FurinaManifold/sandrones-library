@@ -17,6 +17,8 @@ import SandronesLibrary.LinearAlgebra.LinearMap
 
 公开签名只使用本库教材层的 `LinearSpace`、`IsBasis`、坐标函数与矩阵。
 mathlib 的模、基及矩阵表示接口只在定义体和证明内部承担实现工作。
+
+> **Entry**: linear-algebra.coordinates.change-basis
 -/
 
 namespace SandronesLibrary.LinearAlgebra.Coordinates

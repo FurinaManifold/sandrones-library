@@ -8,6 +8,8 @@ import SandronesLibrary.Analysis.FundamentalTheoremAlgebra
 
 /-!
 # LinearAlgebra / JordanSimilarity —— 矩阵的 Jordan 相似标准型
+
+> **Entry**: linear-algebra.eigen.jordan-similarity
 -/
 
 

@@ -8,6 +8,8 @@ import Mathlib.Algebra.DirectSum.LinearMap
 
 /-!
 # LinearAlgebra / JordanNormalForm —— Jordan 标准基存在性
+
+> **Entry**: linear-algebra.eigen.jordan-normal-form
 -/
 
 namespace SandronesLibrary.LinearAlgebra.Jordan

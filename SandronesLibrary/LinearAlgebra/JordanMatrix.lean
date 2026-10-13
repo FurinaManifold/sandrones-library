@@ -9,6 +9,8 @@ import SandronesLibrary.LinearAlgebra.JordanDecomposition
 # LinearAlgebra / JordanMatrix —— Jordan 链基的块对角矩阵
 
 本文件把抽象的 Jordan 链族基转化为教材中的块对角 Jordan 矩阵。
+
+> **Entry**: linear-algebra.eigen.jordan-block
 -/
 
 

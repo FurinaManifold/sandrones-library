@@ -13,6 +13,8 @@ Jordan 标准形的块没有自然顺序，因此“唯一”不能表述为两�
 出现的重数相同，则两份块数据之间存在保持全部标签的重编号。
 
 后续的线性代数部分将通过广义特征空间中 `(T - μI)^k` 的核维数恢复这些重数。
+
+> **Entry**: linear-algebra.eigen.jordan-uniqueness
 -/
 
 namespace SandronesLibrary.LinearAlgebra.Jordan

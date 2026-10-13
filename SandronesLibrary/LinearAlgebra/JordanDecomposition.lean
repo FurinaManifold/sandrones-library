@@ -10,6 +10,8 @@ import SandronesLibrary.LinearAlgebra.Jordan
 
 本文件以不变子空间上的像空间归纳，构造幂零线性算子的完整 Jordan 链基。
 归纳步骤提升像空间中的链，并以核空间基补齐各条链的首向量和剩余长度为一的链。
+
+> **Entry**: linear-algebra.eigen.jordan-decomposition
 -/
 
 

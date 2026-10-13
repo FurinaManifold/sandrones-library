@@ -16,6 +16,8 @@ import Mathlib.LinearAlgebra.Matrix.SchurComplement
 
 这个恒等式是无换行 LU/LDU 分解的递归步骤。一般 PLU 分解还需在每一步主元
 不可逆时先交换行，后续将在本文件中接着构造。
+
+> **Entry**: linear-algebra.decomposition.lu
 -/
 
 namespace SandronesLibrary.LinearAlgebra.MatrixDecomposition

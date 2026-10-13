@@ -16,6 +16,8 @@ import SandronesLibrary.LinearAlgebra.Subspace
 
 公开签名不暴露 mathlib 的模或子模结构。`subspaceDim` 和 `quotientDim` 是教材层的
 数值接口；底层商空间及有限维公式只在定义体和证明内部出现。
+
+> **Entry**: linear-algebra.vector-space.sum-quotient
 -/
 
 namespace SandronesLibrary.LinearAlgebra.SubspaceTheory

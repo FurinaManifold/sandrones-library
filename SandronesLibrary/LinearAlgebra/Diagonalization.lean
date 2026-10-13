@@ -14,6 +14,8 @@ import SandronesLibrary.LinearAlgebra.Eigenvalue
 几何重数不超过代数重数，特征多项式满足 Cayley–Hamilton 定理，并定义最小多项式及其
 湮灭、整除和最小性。公开签名只使用本库教材层的向量空间、基、维数、矩阵和多项式语言；
 mathlib 的模与子模结构仅出现在证明内部。
+
+> **Entry**: linear-algebra.eigen.diagonalization
 -/
 
 namespace SandronesLibrary.LinearAlgebra.Diagonalization

@@ -9,6 +9,8 @@ import Mathlib.LinearAlgebra.Matrix.Transvection
 
 /-!
 # 初等行变换与高斯消元
+
+> **Entry**: linear-algebra.elimination.row-reduction
 -/
 
 namespace SandronesLibrary.LinearAlgebra.MatrixElimination

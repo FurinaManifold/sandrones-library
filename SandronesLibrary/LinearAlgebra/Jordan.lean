@@ -12,6 +12,8 @@ import SandronesLibrary.LinearAlgebra.Diagonalization
 Jordan 链基、Jordan 块矩阵表示，以及链向量被相应幂次湮灭。完整 Jordan 标准形的
 存在性在后续 `JordanDecomposition`、`JordanNormalForm` 与 `JordanSimilarity` 中完成。
 公开签名不暴露 mathlib 的模或子模结构。
+
+> **Entry**: linear-algebra.eigen.jordan
 -/
 
 namespace SandronesLibrary.LinearAlgebra.Jordan
