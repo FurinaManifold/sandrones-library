@@ -293,3 +293,15 @@ Examples 的缺口通常不打回数学正确的理论提交，但 Main 必须�
 
 > 本次巡视发现的问题：`1762942` 与 `46ea736` 集成时漏了本文件登记。登记本身是 Main 的集成
 > 职责（MAIN-ROLE 验收顺序第 5 步），此前未执行，现补记于此，供后续 Main 核对节奏。
+
+## Wave R1 Examples 交付台账（2026-10-13，已集成）
+
+首批正式 `examples.*` Entry 进入 Main，覆盖三个学派的最新增量（RA-F2、Pr3.5、Wave E 拓扑条目）：
+
+| 台账项 | 已交付 Entry | 覆盖状态 | 说明 |
+|---|---|---|---|
+| E7.1 拓扑与邻域（Wave E `topology.space.closure`） | `examples.topology.spaces` | **partial** | 开区间闭包、闭区间内部、开区间边界，以及「开集不必闭／闭集不必开」两个精确反例；离散、不可分辨与「同一集合不同拓扑」尚未补 |
+| E8.6 有符号／复测度与 RN（RA-F2 侧） | `examples.real-analysis.measure-derivative` | **partial** | 常密度测度、标准正态的 RN 导数，以及 Dirac 测度相对 Lebesgue 的互奇异与 Lebesgue 分解；有符号／复测度 Jordan 分解与变差的 `examples.real-analysis.signed-rn` 仍缺 |
+| E9P.8 中心极限定理 | `examples.probability.clt` | **covered（主链）** | 标准正态坐标无限乘积空间上的 iid／L²／均值零／方差一，代入一般 iid CLT 得弱收敛，并经 Lévy 接口读回特征函数极限；「逐点特征函数收敛不足以保证弱收敛」的反例仍只在叙述层辨析，未 Lean 化 |
+
+**剩余边界**：E0.2–E0.4 存量转正未做；E9P.8 的反例未 Lean 化；上表三行的 partial 项须在后续巡视补足。

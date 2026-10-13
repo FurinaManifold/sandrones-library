@@ -18841,6 +18841,7 @@
     "added_by": "main-integration",
     "added_at": "2026-10-13T00:00:00Z",
     "dependedOnBy": [
+      "examples.probability.clt",
       "probability.clt.characteristic-foundation"
     ],
     "family": "probability.characteristic-function",
@@ -19562,7 +19563,9 @@
     ],
     "added_by": "main-wave-e-integration",
     "added_at": "2026-10-13T05:28:36Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.topology.spaces"
+    ],
     "proof_sha": "69578ee57d990df0"
   },
   {
@@ -19953,6 +19956,7 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T07:20:06Z",
     "dependedOnBy": [
+      "examples.real-analysis.measure-derivative",
       "real-analysis.measure-derivative.lebesgue-decomposition",
       "real-analysis.measure-derivative.mutually-singular",
       "real-analysis.measure-derivative.radon-nikodym"
@@ -19997,6 +20001,7 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T07:20:06Z",
     "dependedOnBy": [
+      "examples.real-analysis.measure-derivative",
       "real-analysis.measure-derivative.lebesgue-decomposition",
       "real-analysis.measure-derivative.radon-nikodym"
     ],
@@ -20047,6 +20052,7 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T07:20:06Z",
     "dependedOnBy": [
+      "examples.real-analysis.measure-derivative",
       "real-analysis.measure-derivative.radon-nikodym"
     ],
     "proof_sha": "44684fd81b440e04"
@@ -20100,7 +20106,9 @@
     ],
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T07:20:06Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.real-analysis.measure-derivative"
+    ],
     "proof_sha": "5914f8abecf76479"
   },
   {
@@ -20136,7 +20144,9 @@
     ],
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T07:28:13Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.probability.clt"
+    ],
     "proof_sha": "46d2bef16c14ef33"
   },
   {
@@ -20484,6 +20494,118 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:58:58Z",
     "proof_sha": "f468cb7e9e2cc4ed",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.real-analysis.measure-derivative",
+    "kind": "example",
+    "title": "测度导数具体计算例",
+    "summary": "常密度测度、标准正态测度关于 Lebesgue 测度的 Radon–Nikodym 导数，以及 Dirac 测度相对 Lebesgue 测度的互奇异与 Lebesgue 分解",
+    "premises": [
+      "real-analysis.measure-derivative.absolute-continuity",
+      "real-analysis.measure-derivative.mutually-singular",
+      "real-analysis.measure-derivative.lebesgue-decomposition",
+      "real-analysis.measure-derivative.radon-nikodym"
+    ],
+    "mathlib": [
+      "withDensity_absolutelyContinuous",
+      "Measure.rnDeriv_withDensity",
+      "withDensity_apply",
+      "setLIntegral_const",
+      "Real.volume_Icc",
+      "gaussianReal_absolutelyContinuous",
+      "rnDeriv_gaussianReal",
+      "Measure.mutuallySingular_dirac",
+      "Real.volume_singleton",
+      "Measure.dirac_apply_of_mem",
+      "Measure.singularPart_eq_self",
+      "Measure.MutuallySingular.rnDeriv_ae_eq_zero",
+      "Measure.haveLebesgueDecomposition_add"
+    ],
+    "lean_file": "Examples/MeasureDerivative.lean",
+    "nl_file": "docs/entries/examples/real-analysis/measure-derivative.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:00:59Z",
+    "proof_sha": "424510a7c6b1b623",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.probability.clt",
+    "kind": "example",
+    "title": "中心极限定理的具体概率空间实例",
+    "summary": "在标准正态坐标的无限乘积空间上，坐标随机变量独立同分布、均值零方差一，代入一般 iid CLT 得到标准化和弱收敛到标准正态，并读回特征函数逐点极限",
+    "premises": [
+      "probability.clt.central-limit-theorem",
+      "probability.characteristic-function.levy-continuity"
+    ],
+    "mathlib": [
+      "Measure.infinitePi",
+      "Measure.infinitePi_map_eval",
+      "iIndepFun_infinitePi",
+      "measurable_pi_apply",
+      "memLp_map_measure_iff",
+      "memLp_id_gaussianReal",
+      "integral_map",
+      "integral_id_gaussianReal",
+      "variance_map",
+      "variance_id_gaussianReal",
+      "charFun_gaussianReal"
+    ],
+    "lean_file": "Examples/CentralLimit.lean",
+    "nl_file": "docs/entries/examples/probability/clt.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:00:59Z",
+    "proof_sha": "a62ad096ca0d228e",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.topology.spaces",
+    "kind": "example",
+    "title": "内部、闭包与边界的实直线计算例",
+    "summary": "开区间的闭包、闭区间的内部、开区间的边界，以及开集不必闭、闭集不必开的精确反例",
+    "premises": [
+      "topology.space.closure"
+    ],
+    "mathlib": [
+      "closure_Ioo",
+      "interior_Icc",
+      "frontier_Ioo",
+      "right_mem_Icc",
+      "left_mem_Icc",
+      "lt_irrefl"
+    ],
+    "lean_file": "Examples/TopologySpaces.lean",
+    "nl_file": "docs/entries/examples/topology/spaces.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "munkres-topology-2000"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:00:59Z",
+    "proof_sha": "d141ffb2a07e6498",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

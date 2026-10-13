@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **614** 个条目（verified 614，pending 0）。
+共 **617** 个条目（verified 617，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -319,6 +319,18 @@
 ## `complex-analysis.singularity`
 
 - ✅ [`classification-foundation.md`](complex-analysis/singularity/classification-foundation.md) — 孤立奇点分类的基础接口
+
+## `examples.probability`
+
+- ✅ [`clt.md`](examples/probability/clt.md) — 中心极限定理的具体概率空间实例
+
+## `examples.real-analysis`
+
+- ✅ [`measure-derivative.md`](examples/real-analysis/measure-derivative.md) — 测度导数具体计算例
+
+## `examples.topology`
+
+- ✅ [`spaces.md`](examples/topology/spaces.md) — 内部、闭包与边界的实直线计算例
 
 ## `functional-analysis`
 

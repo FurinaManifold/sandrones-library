@@ -12,34 +12,34 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 |---:|---|---|---:|
 | 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.07 |
 | 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 97.02 |
-| 3 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.48 |
-| 4 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.64 |
+| 3 | `complex-analysis.integral.path` | 复路径与路径积分 | 95.47 |
+| 4 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.63 |
 | 5 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.32 |
-| 6 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.99 |
-| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.77 |
-| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.72 |
-| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.62 |
-| 10 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 92.40 |
-| 11 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 92.15 |
-| 12 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.95 |
+| 6 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.97 |
+| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.75 |
+| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.70 |
+| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.61 |
+| 10 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 92.43 |
+| 11 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 92.16 |
+| 12 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.97 |
 | 13 | `analysis.series.basic` | 数项级数基础 | 91.56 |
-| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.39 |
-| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.02 |
-| 16 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.83 |
-| 17 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.80 |
-| 18 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.61 |
-| 19 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.79 |
+| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.38 |
+| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.01 |
+| 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.81 |
+| 17 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.78 |
+| 18 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.60 |
+| 19 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.80 |
 | 20 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.11 |
-| 21 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.51 |
-| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.40 |
-| 23 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.86 |
-| 24 | `analysis.multivariable.jordan-region` | Jordan 可测区域 | 87.77 |
-| 25 | `linear-algebra.det.mul` | 积的行列式 | 87.64 |
-| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.61 |
-| 27 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.51 |
-| 28 | `settheory.set.ext` | 外延性原理 | 87.17 |
-| 29 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 86.95 |
-| 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.72 |
+| 21 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.49 |
+| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.42 |
+| 23 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.84 |
+| 24 | `analysis.multivariable.jordan-region` | Jordan 可测区域 | 87.79 |
+| 25 | `linear-algebra.det.mul` | 积的行列式 | 87.68 |
+| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.62 |
+| 27 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.52 |
+| 28 | `topology.space.def` | 拓扑空间与开闭集公理 | 87.46 |
+| 29 | `settheory.set.ext` | 外延性原理 | 87.18 |
+| 30 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 86.91 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -81,7 +81,7 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
 | 1 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 20.375 |
-| 2 | `topology.space.def` | 拓扑空间与开闭集公理 | 18.406 |
+| 2 | `topology.space.def` | 拓扑空间与开闭集公理 | 18.656 |
 | 3 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 17.781 |
 | 4 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 17.000 |
 | 5 | `topology.foundation.structure` | 拓扑、连续映射与同胚的正式承载 | 16.469 |
@@ -106,10 +106,10 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 24 | `real-analysis.measure.sigma-algebra` | σ-代数公理 | 9.875 |
 | 25 | `topology.metric.def` | 度量空间与开球 | 9.719 |
 | 26 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 9.625 |
-| 27 | `probability.space.definition` | 概率空间与事件 | 9.562 |
+| 27 | `probability.space.definition` | 概率空间与事件 | 9.594 |
 | 28 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 9.531 |
 | 29 | `real-analysis.measure.measurable-function` | 可测函数 | 9.500 |
-| 30 | `probability.distribution.pushforward` | 分布作为推前测度 | 8.938 |
+| 30 | `probability.distribution.pushforward` | 分布作为推前测度 | 9.062 |
 
 ## 跨学科桥梁榜
 
@@ -141,10 +141,10 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 24 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 1.250 |
 | 25 | `topology.homotopy.path-polygonal-approximation` | 开集内道路的相对折线逼近 | 1.250 |
 | 26 | `topology.metric.cauchy-complete` | Cauchy 列与完备空间 | 1.250 |
-| 27 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 1.000 |
-| 28 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 1.000 |
-| 29 | `abstract-algebra.field.galois-definitions` | Galois 扩张、显式自同构群与固定域 | 1.000 |
-| 30 | `abstract-algebra.field.separable-normal` | 可分多项式、可分扩张与正规扩张 | 1.000 |
+| 27 | `topology.space.def` | 拓扑空间与开闭集公理 | 1.250 |
+| 28 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 1.000 |
+| 29 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 1.000 |
+| 30 | `abstract-algebra.field.galois-definitions` | Galois 扩张、显式自同构群与固定域 | 1.000 |
 
 ## 形式化复用榜（Lean 调用文件数）
 
