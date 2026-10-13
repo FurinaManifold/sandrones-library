@@ -186,6 +186,28 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
 | D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | `development_open` | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
 
+**D-1a 本波派工（2026-10-13，自 Main `0b2ae8c` 净新开工）**
+
+本波派出三个文件所有权互不重叠的学科负责人。三人都获授权在**文件所有权不重叠**的前提下自行
+派生 2–3 个子 Agent（DSH 子 Agent 深度上限为 3：负责人为 depth 1，其子 Agent 为 depth 2，仍可
+再派生 depth 3）。子 Agent 的“完成”不是学科验收，负责人必须亲自逐文件复核。
+
+| 窗口 | 负责人分支（自 Main `0b2ae8c` 净新开工） | worktree | 权限 | 文件所有权 |
+|---|---|---|---|---|
+| D1 | `codex/complex-analysis-cycle` | `sandrones-library-complex-analysis` | `research_open` | 新建 cycle／绕数／Banach 值路径积分研究载体；不改已集成 C2／C3 文件 |
+| D2 | `codex/functional-analysis-f66b1` | `sandrones-library-functional-analysis` | `development_open` | 新建 `SandronesLibrary/FunctionalAnalysis/HolomorphicResolventIntegrand.lean`（文件名可调）；不改已集成泛函文件 |
+| D5 | `codex/real-analysis` | `sandrones-library-real-analysis` | 🚧 可开工（按 `development_open` 执行） | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` 与 `docs/entries/real-analysis/` 新文件 |
+
+派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
+`0b2ae8c` 无唯一净增量——前者净新增仅为已被取代的 `docs/ROADMAP-math-analysis.md` 与
+`docs/entries/complex-analysis/cauchy/goursat-triangle.md`，不含任何 cycle／winding／Bochner 研究
+载体；后者净新增仅为已被 `MeanErgodicDecomposition.lean` 取代的
+`docs/entries/functional-analysis/mean-ergodic-decomposition.md`，不含 resolvent-integrand 载体。
+因此 D1／D2 不复用旧分支尖端，自查净新分支开工；旧分支按 D-3 保留为历史，不合并、不删除。
+
+D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 冻结签名前，D2 只做
+`resolventSet`／`resolvent` 层面的解析部分，不得另建第二套 cycle、路径积分或 `f(a)`。
+
 **D-2 关键路径与并行边界**
 
 - 关键路径：D1（复分析 cycle carrier）→ F6.6b2 Dunford 演算 → F7/F8 与 C3 残数定理。D1 冻结签名前，
