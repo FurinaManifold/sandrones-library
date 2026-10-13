@@ -187,6 +187,9 @@ python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-libra
 "missing_for_referenced": [], "invalid": []}`——注意 `pack_ids` 里同一个 id 出现两次，
 即 §13 第 1/2 条的 pack_id 粒度问题在验收包里可见（机械门不报错，但 join key 不再唯一）。
 
+回填后在最终 HEAD 重跑（`0436946b7`，提交 7，改动文件 7）：五组门全 pass、两条软门同文案，
+`verdict: pass` 不变，`git status --short` 为空。
+
 ## 9. 子 Agent 所有权与退回
 
 | 子 Agent | 所有权（本批实际写入） | pack | 结果 | 负责人退回／修复 |
