@@ -5,12 +5,13 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 验收快照（`7dcf8d0`，2026-10-13）：618 个 verified Entry、773 条直接依赖边、
-73 条合规 BibTeX 出版来源、616 个正式参排条目；主工作树完整 `lake build` 以 9079 jobs
-通过，仅重放既有 linter warnings。本快照覆盖 Wave R1 的六个数理批次（数论 N2.1–N2.3、
+当前 Main 验收快照（`85f1a59`，2026-10-13）：621 个 verified Entry、778 条直接依赖边、
+73 条合规 BibTeX 出版来源、619 个正式参排条目；主工作树完整 `lake build` 以 9082 jobs
+通过，仅重放既有 linter warnings。本快照覆盖 Wave R1 的七个数理批次（数论 N2.1–N2.3、
 复分析 cycle 载体、集合论 ST3 纵深两条、统计 S1 最大似然、计算例首批 `examples.*`、
-泛函 F6.7）与拓扑 AT2-C5e 的 research 文档接收；发布回执见
-`docs/releases/release-receipt-2026-10-13T090539Z.json`。
+泛函 F6.7、分析 AN-MV 的 #1/#4/#5）与拓扑 AT2-C5e 的 research 文档接收；发布回执见
+`docs/releases/release-receipt-2026-10-13T090539Z.json`（六批次）与
+`docs/releases/release-receipt-2026-10-13T091749Z.json`（AN-MV）。
 
 这些数字是快照，不是开工依据。每次接手必须现场检查：
 

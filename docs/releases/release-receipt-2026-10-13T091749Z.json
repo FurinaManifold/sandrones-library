@@ -1,0 +1,68 @@
+{
+  "schema": "sandrones-release-receipt/1",
+  "checked_at": "2026-10-13T09:17:49Z",
+  "branch": "main",
+  "head": "85f1a5916bf242c7053b8009b96d4f9c8552d873",
+  "candidate_dirty_before": false,
+  "packages": [
+    {
+      "subject": "analysis",
+      "head": "14b88d23fe83adb6b2ecceeada6636a82e8dc52d",
+      "verdict": "pass",
+      "unmerged": 0
+    }
+  ],
+  "steps": [
+    {
+      "step": "extract_registry_references",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "文献引用验证通过：Registry 共 621 条，未生成 @misc。"
+    },
+    {
+      "step": "update_dependency_graph",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "依赖图已重建：778 条直接边，更新 0 个反向缓存。"
+    },
+    {
+      "step": "gen_entries_index",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "已生成 docs/entries/README.md（621 条目）"
+    },
+    {
+      "step": "gen_entry_rankings",
+      "exit": 0,
+      "seconds": 12.5,
+      "tail": "已生成 index/rankings.json 和 docs/entries/RANKINGS.md；参排 619 条。"
+    },
+    {
+      "step": "check_axioms_fix",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 621 条目增量跳过（621 条）。--full 强制全量。"
+    },
+    {
+      "step": "check_axioms",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 621 条目增量跳过（621 条）。--full 强制全量。"
+    },
+    {
+      "step": "audit",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "审计通过：621 个条目 OK"
+    },
+    {
+      "step": "diff_check",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": ""
+    }
+  ],
+  "derived_state_files": [],
+  "exceptions": [],
+  "verdict": "pass"
+}
