@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **571** 个条目（verified 571，pending 0）。
+共 **575** 个条目（verified 575，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -627,6 +627,13 @@
 - ✅ [`lebesgue-criterion.md`](real-analysis/riemann/lebesgue-criterion.md) — 黎曼可积的 Lebesgue 判据
 - ✅ [`mean-value.md`](real-analysis/riemann/mean-value.md) — Riemann 积分中值定理与周期积分
 - ✅ [`parts-substitution.md`](real-analysis/riemann/parts-substitution.md) — Riemann 积分的分部积分与换元法
+
+## `real-analysis.signed-measure`
+
+- ✅ [`complex.md`](real-analysis/signed-measure/complex.md) — 复测度
+- ✅ [`definition.md`](real-analysis/signed-measure/definition.md) — 有符号测度与正／负／零集
+- ✅ [`jordan-decomposition.md`](real-analysis/signed-measure/jordan-decomposition.md) — Jordan 分解
+- ✅ [`variation.md`](real-analysis/signed-measure/variation.md) — 正／负／全变差
 
 ## `settheory.cardinal`
 

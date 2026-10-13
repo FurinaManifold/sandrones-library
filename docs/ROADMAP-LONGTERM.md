@@ -34,7 +34,7 @@
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3✅ | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（同伦桥已完成，覆盖分类继续） | 集合论 + 分析线直观 |
-| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1–RA-F6🚧 | T3 + M 系列 |
+| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅；RA-F2–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2🚧 C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2-Pr3🚧 | R4 |
@@ -203,7 +203,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | 窗口 | 负责人交付 | Main 裁决 | 集成提交 | 状态 |
 |---|---|---|---|---|
 | D2 | `d914d30`（3 文件：模块 + Entry 草稿 + handoff） | `accepted`（`docs/reviews/functional-analysis-f66b1-resolvent-integrand-main-review.md`） | `7daa627` | ✅ 已进入 Main（Registry 571 条、全库 9056 jobs） |
-| D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | 待审 | — | ⏳ 已交付，等待 Main 语义 diff |
+| D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | 见本波 D5 Main 集成提交 | ✅ 已进入 Main（Registry 575 条） |
 | D1 | 现场交付 `docs/handoffs/complex-analysis-cycle-foundation.md`（`research_open`：只交冻结提案与 `/tmp` 原型，不交正式源码） | 待审 | — | ⏳ 进行中；Main 已就冻结问题给出临时裁决（绕数值域 ℂ 而非 ℤ、三文件三 id 且 id 不得跨文件、保留旧 `pathIntegral` 并新增泛化、量词排除 `trace`），正式冻结待原型齐备 |
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
@@ -817,7 +817,7 @@ Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均
 
 | 批次 | 教材内容 | 开工门 | 完成出口 |
 |---|---|---|---|
-| RA-F1 | 有符号测度、Jordan 分解、正负／全变差、复测度 | 正测度与积分主线已验收 | 四类概念均有正式承载、教材解释、展开性质和必要桥 |
+| RA-F1 | 有符号测度、Jordan 分解、正负／全变差、复测度 | 正测度与积分主线已验收 | ✅ 已于 2026-10-13 集成：`real-analysis.signed-measure.{definition,variation,jordan-decomposition,complex}`（`f856e0f`／`ef88ec4`，Main 集成提交见 D-1a 进展表）。有限实／复值情形已齐备；RA-F2 仍未开门 |
 | RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | RN 存在唯一性、由密度构造测度、积分换测度及链式／互逆边界 |
 | RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口冻结 | 极大函数教材定义、弱型估计和可测性边界 |
 | RA-F4 | Lebesgue 点与 Lebesgue 微分定理 | RA-F3 | 平均算子、Lebesgue 点定义、a.e. 定理和具名桥 |

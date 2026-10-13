@@ -3451,3 +3451,47 @@
   `HolomorphicOnNhdSpectrum.resolventIntegrand_differentiableOn` / `.resolventIntegrand_continuousOn`、
   `integrableOn_resolventIntegrand_compact`。被积函数**只**在紧集上被证明可积，积分本身尚未组装；
   Banach 值路径积分 carrier 归复分析所有。
+
+## 有符号测度、Jordan 分解与复测度（RA-F1）
+
+> 本批直接把 Mathlib 的测度论结构当作教材载体（测度积分是 Mathlib 核心库），没有为制造本库
+> 名称重造同构结构。本库新增的只是**课程量词定义**（正集／负集／零集）与其具名桥。
+
+### `MeasureTheory.SignedMeasure` / `MeasureTheory.VectorMeasure`
+- **人话**：教材的"取实值、空集取零的 σ-可加集函数"与 `SignedMeasure α = VectorMeasure α ℝ`
+  语义一致，故直接复用；`VectorMeasure.of_union`、`m_iUnion`、`of_biUnion_finset`、
+  `tendsto_vectorMeasure_iUnion_atTop_nat` 分别是有限可加、可数可加、有限并与下连续的展开后端。
+  注意载体规定**非可测集取零**，所以外延性只比较可测集。
+- **出处**：Mathlib 的向量测度与有符号测度接口。
+- **谁在用**：`real-analysis.signed-measure.definition`。
+
+### `VectorMeasure.restrict_le_restrict_iff`、`Measure.toSignedMeasure*`
+- **人话**：前者把"限制序 `0 ≤[i] s`"与逐子集的不等号联系起来，是本库课程量词
+  `IsPositiveSet`／`IsNegativeSet` 与 Mathlib 侧刻画之间的**双向具名桥**；后者把有限正测度送进
+  有符号测度（含加法与零的相容性）。
+- **出处**：Mathlib 的向量测度限制序与正测度嵌入接口。
+- **谁在用**：`isPositiveSet_iff_zero_le_restrict`、`isNegativeSet_iff_restrict_le_zero`、
+  `measure_toSignedMeasure_add`、`measure_toSignedMeasure_zero`。桥是本条目的真实使用者，不是装饰。
+
+### `SignedMeasure.totalVariation` / `VectorMeasure.variation`
+- **人话**：`totalVariation` 是**测度**（`ν⁺ + ν⁻`），`variation` 是 sup-over-partitions 的
+  集函数；`totalVariation_eq_variation` 给出两者的桥，是本批最需要看住方向的一条。另外
+  `totalVariation_apply`／`totalVariation_univ_lt_top`（`IsFiniteMeasure`）说明它在有限情形下的取值。
+- **出处**：Mathlib 的变差与 Jordan 分解接口。
+- **谁在用**：`real-analysis.signed-measure.variation`（含 `abs_apply_le_totalVariation`、
+  `null_of_totalVariation_zero`、`totalVariation_union`、`posPart_mutuallySingular_negPart`）。
+
+### `MeasureTheory.JordanDecomposition` / `toJordanDecomposition` / `toSignedMeasure`
+- **人话**：`JordanDecomposition α` 打包一对互奇异的有限测度；`toJordanDecomposition` 与
+  `toSignedMeasure` 是一对互逆构造，`toSignedMeasure_injective` 给出单射性，本库据此得到
+  `SignedMeasure α ≃ JordanDecomposition α`。
+- **出处**：Mathlib 的 Jordan 分解接口。
+- **谁在用**：`real-analysis.signed-measure.jordan-decomposition`（含 `jordan_decomposition_unique'`、
+  逐点 `jordan_apply_eq_posPart_real_sub_negPart_real`）。
+
+### `MeasureTheory.ComplexMeasure` / `ComplexMeasure.equivSignedMeasure`
+- **人话**：复测度是 ℂ-值向量测度；`re`／`im` 是它的实部虚部有符号测度，`re_add_im` 是重构恒等式，
+  `equivSignedMeasure` 把复测度与"一对有符号测度"对应起来。
+- **出处**：Mathlib 的复测度接口。
+- **谁在用**：`real-analysis.signed-measure.complex`。**边界**：`IsFiniteMeasure (c.variation)` 当前
+  Mathlib 未注册（实测 `synthInstanceFailed`），本批未证，不得当成已有结论。

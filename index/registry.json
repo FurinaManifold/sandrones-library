@@ -18918,5 +18918,172 @@
       "propext"
     ],
     "proof_sha": "d56ea05fa7f864d2"
+  },
+  {
+    "id": "real-analysis.signed-measure.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "有符号测度与正／负／零集",
+    "summary": "有符号测度作为实值 σ-可加集函数（载体、可加性、下连续、由有限正测度构造）以及正集、负集、零集的课程量词定义与 Mathlib 桥",
+    "premises": [],
+    "mathlib": [
+      "MeasureTheory.SignedMeasure",
+      "MeasureTheory.VectorMeasure",
+      "VectorMeasure.of_union",
+      "VectorMeasure.of_sdiff",
+      "VectorMeasure.of_compl",
+      "VectorMeasure.m_iUnion",
+      "VectorMeasure.of_biUnion_finset",
+      "VectorMeasure.tendsto_vectorMeasure_iUnion_atTop_nat",
+      "VectorMeasure.restrict_le_restrict_iff",
+      "Measure.toSignedMeasure_apply_measurable",
+      "Measure.toSignedMeasure_add",
+      "Measure.toSignedMeasure_zero",
+      "SignedMeasure.exists_compl_positive_negative"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "lean_file": "RealAnalysis/SignedMeasureDefinition.lean",
+    "nl_file": "docs/entries/real-analysis/signed-measure/definition.md",
+    "added_by": "main-wave-d-d5",
+    "added_at": "2026-10-13T04:02:52Z",
+    "dependedOnBy": [
+      "real-analysis.signed-measure.complex",
+      "real-analysis.signed-measure.jordan-decomposition",
+      "real-analysis.signed-measure.variation"
+    ],
+    "family": "real-analysis.signed-measure",
+    "variant": "tao",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "7d77d7a9cd9ceeaf"
+  },
+  {
+    "id": "real-analysis.signed-measure.variation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "正／负／全变差",
+    "summary": "有符号测度的正变差 ν⁺、负变差 ν⁻ 与全变差 |ν|：展开、有限性、与 sup-over-partitions 定义的桥",
+    "premises": [
+      "real-analysis.signed-measure.definition"
+    ],
+    "mathlib": [
+      "SignedMeasure.totalVariation",
+      "SignedMeasure.toJordanDecomposition",
+      "SignedMeasure.totalVariation_eq_variation",
+      "SignedMeasure.totalVariation_zero",
+      "SignedMeasure.totalVariation_neg",
+      "SignedMeasure.null_of_totalVariation_zero",
+      "SignedMeasure.norm_le_totalVariation",
+      "SignedMeasure.enorm_le_totalVariation",
+      "VectorMeasure.variation",
+      "JordanDecomposition",
+      "measure_lt_top",
+      "measure_union",
+      "Measure.real",
+      "measureReal_def"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "lean_file": "RealAnalysis/SignedMeasureVariation.lean",
+    "nl_file": "docs/entries/real-analysis/signed-measure/variation.md",
+    "added_by": "main-wave-d-d5",
+    "added_at": "2026-10-13T04:02:52Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.signed-measure",
+    "variant": "tao",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "64658f14d72996ad"
+  },
+  {
+    "id": "real-analysis.signed-measure.jordan-decomposition",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Jordan 分解",
+    "summary": "有符号测度唯一分解为两个互奇异有限测度之差 ν = ν⁺ − ν⁻，并给出逐点展开与唯一性",
+    "premises": [
+      "real-analysis.signed-measure.definition"
+    ],
+    "mathlib": [
+      "MeasureTheory.JordanDecomposition",
+      "MeasureTheory.SignedMeasure.toJordanDecomposition",
+      "MeasureTheory.JordanDecomposition.toSignedMeasure",
+      "MeasureTheory.Measure.toSignedMeasure",
+      "MeasureTheory.SignedMeasure.toSignedMeasure_toJordanDecomposition",
+      "MeasureTheory.JordanDecomposition.toJordanDecomposition_toSignedMeasure",
+      "MeasureTheory.SignedMeasure.toJordanDecomposition_eq",
+      "MeasureTheory.SignedMeasure.toJordanDecompositionEquiv",
+      "MeasureTheory.JordanDecomposition.toSignedMeasure_injective",
+      "MeasureTheory.SignedMeasure.apply_eq_posPart_real_sub_negPart_real",
+      "MeasureTheory.IsFiniteMeasure"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "lean_file": "RealAnalysis/SignedMeasureJordan.lean",
+    "nl_file": "docs/entries/real-analysis/signed-measure/jordan-decomposition.md",
+    "added_by": "main-wave-d-d5",
+    "added_at": "2026-10-13T04:02:52Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.signed-measure",
+    "variant": "tao",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "8d96d3f291546b99"
+  },
+  {
+    "id": "real-analysis.signed-measure.complex",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "复测度",
+    "summary": "复测度作为 ℂ-值向量测度；实部／虚部为有符号测度，复测度与有符号测度对一一对应",
+    "premises": [
+      "real-analysis.signed-measure.definition"
+    ],
+    "mathlib": [
+      "ComplexMeasure.re",
+      "ComplexMeasure.im",
+      "ComplexMeasure.re_apply",
+      "ComplexMeasure.im_apply",
+      "SignedMeasure.toComplexMeasure",
+      "SignedMeasure.toComplexMeasure_apply",
+      "ComplexMeasure.toComplexMeasure_to_signedMeasure",
+      "SignedMeasure.re_toComplexMeasure",
+      "SignedMeasure.im_toComplexMeasure",
+      "ComplexMeasure.equivSignedMeasure",
+      "Complex.re_add_im"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "folland-real-analysis-1999"
+    },
+    "lean_file": "RealAnalysis/SignedMeasureComplex.lean",
+    "nl_file": "docs/entries/real-analysis/signed-measure/complex.md",
+    "added_by": "main-wave-d-d5",
+    "added_at": "2026-10-13T04:02:52Z",
+    "dependedOnBy": [],
+    "family": "real-analysis.signed-measure",
+    "variant": "tao",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "9fdee75c6bb964f9"
   }
 ]

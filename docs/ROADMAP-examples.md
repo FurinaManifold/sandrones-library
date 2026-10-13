@@ -130,7 +130,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E8.3 收敛定理 | `examples.real-analysis.convergence-theorems` | MCT、Fatou、DCT 的具体函数列 | 去掉单调／支配条件时交换极限与积分失败 | R2 |
 | E8.4 乘积测度 | `examples.real-analysis.product-measure` | 矩形、可分离函数、Tonelli/Fubini 换序 | 非绝对可积时 Fubini 换序可失败 | R4 |
 | E8.5 `Lᵖ` | `examples.real-analysis.lp` | 指示函数范数、Hölder/Minkowski 等号例 | `Lᵖ` 函数是 a.e. 等价类；不同 `p` 的包含依赖测度空间 | R4 |
-| E8.6 有符号／复测度与 RN | `examples.real-analysis.signed-rn` | 有限离散空间 Jordan 分解、密度与 RN 导数 | 绝对连续与互奇异的区分 | RA-F1-F2 |
+| E8.6 有符号／复测度与 RN | `examples.real-analysis.signed-rn` | 有限离散空间 Jordan 分解、正／负／全变差的具体计算、复测度实部虚部分解；密度与 RN 导数（属 RA-F2） | 绝对连续与互奇异的区分；第一预解式类的符号陷阱不适用但要看住：`totalVariation` 是测度而非数，谱点上 `resolvent` 为 0 类的边界对应有符号测度在零变差集上取零 | RA-F1 ✅（RA-F2 未开） |
 | E8.7 微分定理与 a.e. FTC | `examples.real-analysis.differentiation-ftc` | 阶梯／绝对连续函数的 Lebesgue 点和积分表示 | a.e. 导数结论不是逐点结论 | RA-F3-F6 |
 
 ## E9 复分析
