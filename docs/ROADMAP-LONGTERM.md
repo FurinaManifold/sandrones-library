@@ -246,6 +246,50 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
 3. ✅ 已裁决：`codex/archify-feasibility` 与 `codex/project-introduction` 两份报告于 2026-10-13
    接收进 `docs/reports/`（Main 文档审稿通过，第三方 MIT／OFL 许可原文随附）。两者不是数学批次，
    Registry 不为它们建 Entry，也不得混入数学集成提交。
+4. ⏳ **Registry／Entry 登记完整性审计（2026-10-13 发现，尚未处置）**。Main 在核查
+   `check_axioms.py` 的两条长期 SKIP 时，做了三项全库对账，发现以下缺陷。它们都是 Main 侧元数据
+   完整性债务，不影响已验收数学，但在处置前不得声称"Registry 与源码一一对应"。
+
+   - **(a) 一条 `verified` Entry 没有源码**：`linear-algebra.vector-space.dimension`
+     （`lean_file: LinearAlgebra/VectorSpace.lean`）在 Registry 里是 `state: verified` 且有
+     `proof_sha`，但该文件只有 `def`（×2）、`independent`、`basis` 四个标记，**没有任何
+     `dimension` 标记，也没有声明 `dim V = 0 ↔ Subsingleton V` 或 `finrank_eq_rank`**。
+     全库搜索确认 `finrank_eq_rank` 未被本库任何文件使用。它的 `dependedOnBy` 是
+     `linear-algebra.maps.rank-nullity`，而后者把 `linear-algebra.vector-space.dimension` 列为
+     `premises`——即一条不存在的定理被下游当前提引用。处置需线性代数窗口决定"补证"还是"降级"，
+     Main 不得替学科发明数学内容。
+   - **(b) 一条 Entry 的定理存在但标记缺失**：`real-analysis.riemann.cont-integrable`。
+     `RealAnalysis/Riemann.lean` 的第 185 行 `continuous_on_riemannIntegrable_lt`、第 290 行
+     `continuous_intervalIntegrable` 正是该条目内容，但文件只有第 53 行 `real-analysis.riemann.def`
+     与第 907 行 `real-analysis.riemann.eq-lebesgue` 两个标记，于是这两条定理目前被**归到
+     `real-analysis.riemann.def` 名下**。修法不是简单插一个标记（那会把 185–906 行整段机器都算成
+     该条目），而要先定"连续可积"条目的确切声明集合，再在其后恢复后续归属。该文件属实分析学科，
+     且 `codex/real-analysis` 正在 Wave D D5 活跃开发，故本项推迟到 D5 窗口结束后处理，避免
+     在学科活跃期改其源码。
+   - **(c) 反向缺口：有标记、有文档、无 Registry 记录**：`analysis.derivative.definition`
+     （`Analysis/Derivative.lean:32`，文档 `docs/entries/analysis/derivative/definition.md`，
+     ROADMAP §2 M4 第 1 行已记 ✅）在 Registry 中**完全没有记录**，因此不进公理审计、不进
+     index／rankings。其文档 front matter 的 `provenance.ref` 写成
+     `华东师大《数学分析》第五版 第一卷 第五章 §1 导数概念`，**不是 `reference.bib` 的 citation
+     key**（AGENTS §6 要求只存 key，章节定位写在正文）。补登记须先修该 ref（应为
+     `ecnu-mathematical-analysis-5`），再由 Main 走完整验收（生成器＋公理审计＋audit＋全库 build）
+     更新快照，本轮不做。
+   - **(d) 一批模块整体在 Entry 体系之外**：`SandronesLibrary/` 下有 **28 个 `.lean` 文件不含任何
+     `**Entry**` 标记**，且**全部被根 `SandronesLibrary.lean` 导入**，即都参与全库构建却完全绕过
+     Entry／公理审计／文档契约。其中 4 个属 `Examples/`（Examples 学科未开工，预期），2 个是基础设施
+     （`Basic.lean`、`Topology/MathlibBridge.lean`）；其余 22 个是实质内容模块，例如
+     `Analysis/{ChangeOfVariables,Complex,ConstantRank,CoordinateIntegrals,FundamentalTheoremAlgebra,JordanRegion,JordanRiemannBridge,MultivariableIntegration,NormalDomain,NormedAlternating}.lean`、
+     `LinearAlgebra/{Coordinates,Diagonalization,Jordan,JordanDecomposition,JordanMatrix,JordanNormalForm,JordanSimilarity,JordanUniqueness,MatrixDecomposition,MatrixElimination,SubspaceSumQuotient}.lean`、
+     `Topology/Closure.lean`。其中 `MatrixDecomposition.lean`（987 行）在库内**零导入者**，很可能
+     已被 `MatrixSVD.lean`／`MatrixSchur.lean` 等按分解拆分的模块取代；
+     `MatrixElimination.lean`（604 行）、`Analysis/NormedAlternating.lean` 既无标记也无任何
+     `docs/entries/` 文档。同时 `docs/entries/` 下有 **15 个文档文件**声明的 id 不在 Registry
+     （`analysis.complex.definition`、`analysis.multivariable.{change-variables,constant-rank-theorem,coordinate-integrals,jordan-region,jordan-riemann-bridge,x-normal-domain,rectangle-integral}`、
+     `linear-algebra.{coordinates.change-basis,eigen.diagonalization,eigen.jordan,vector-space.sum-quotient}`、
+     `topology.space.closure` 等），其中 `x-normal-domain` 的 `x-` 前缀看起来是刻意停用。
+     处置需要一次专门的只读审计，逐模块判定"已被取代 → 退役并移出根 import"还是"内容唯一 → 补
+     Entry 登记"，不得按文件名猜。本项**不在 Wave D 三个窗口的文件所有权内**，应另开维护窗口。
+
 
 #### 每个学科 handoff 必须回答的路线问题
 
