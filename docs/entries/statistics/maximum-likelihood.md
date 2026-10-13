@@ -51,14 +51,16 @@ noncomputable def likelihood (P : Kernel Θ 𝓧) (ν : Measure 𝓧) (θ : Θ) 
 
 `statistics.model.density` 已经把 `(θ,x) ↦ P.rnDeriv (Kernel.const Θ ν) θ x` 固定为联合可测版本，
 `likelihood` 只是把这个一手对象命名，便于写"似然函数"和换元，不引入第二个密度载体。
-`likelihood_jointlyMeasurable` 与 `likelihood_lintegral_eq_one` 分别说明它联合可测、且关于 `ν`
-的总积分为一；`withDensity_likelihood_eq` 说明在 `∀ θ, P θ ≪ ν` 时
+`likelihood_jointlyMeasurable`、`likelihood_lintegral_eq_one` 与 `withDensity_likelihood_eq` 是
+**把密度条目的既有事实改写为 `likelihood` 语言的联系引理**（本身不增加新数学）：它们说明似然
+联合可测、关于 `ν` 的总积分为一，并且在 `∀ θ, P θ ≪ ν` 时
 
 ```lean
 ν.withDensity (likelihood P ν θ) = P θ
 ```
 
-即这个函数确实是 `P θ` 关于 `ν` 的密度，而不是任意函数。
+即这个函数确实是 `P θ` 关于 `ν` 的密度，而不是任意函数。这三条的存在意义正是证明 `likelihood`
+不是无人使用的装饰别名，而是密度条目的真实函数层消费者。
 
 最大似然估计用 Mathlib 的极大值谓词 `IsMaxOn` 承载：
 
@@ -78,10 +80,17 @@ IsMaximumLikelihoodEstimator P ν θhat ↔
 这是教材陈述的逐字 Lean 对照。使用 Mathlib 的 `IsMaxOn` 是刻意的语义一致复用：极大值不是本课
 专有的量词，重造 argmax 结构只会制造第二套同义谓词。
 
+**支配性边界。** `IsMaximumLikelihoodEstimator` 刻意**不**把模型支配 `∀ θ, P θ ≪ ν` 作为字段：
+估计量的身份不应依赖模型的正则性。但在非支配模型上 `likelihood` 只表示 `P θ` 绝对连续部分的密度，
+逐点 argmax 会退化（最极端地，`ν = 0` 时对任意可测 `θhat` 都恒真），此时它不承载统计意义。
+支配性在所有语义定理（`likelihood_lintegral_eq_one`、`withDensity_likelihood_eq`）中显式假设，
+因此把本谓词用于统计结论时必须同时给出支配假设；本条目不在定义层静默吸收这个条件。
+
 # 关键性质与证明思路
 
 **合法估计量。** `maximumLikelihoodEstimator_isMarkov` 说明 `Kernel.deterministic θhat h.1` 是
 Markov kernel，从而最大似然估计接入 `statistics.estimator.definition` 的随机化估计量接口。
+这是一条接口桥：它只用到定义的可测性分量，argmax 分量不参与证明，因此不产生新的数学内容。
 
 **严格单调变换保持最大值点。** `isMaxOn_univ_comp_strictMono_iff` 证明对任意严格单调 `φ`，
 

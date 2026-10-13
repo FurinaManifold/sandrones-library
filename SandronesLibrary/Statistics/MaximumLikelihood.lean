@@ -79,7 +79,13 @@ noncomputable def likelihood (P : Kernel Θ 𝓧) (ν : Measure 𝓧) (θ : Θ) 
 参数空间上最大化似然。
 
 "几乎处处"与"可测"都在定义内：前者排除零测集上密度版本差异造成的伪 argmax，后者保证它确实
-是一个（确定性）估计量。极大值性质直接用 `IsMaxOn (fun θ ↦ likelihood P ν θ x) Set.univ`。 -/
+是一个（确定性）估计量。极大值性质直接用 `IsMaxOn (fun θ ↦ likelihood P ν θ x) Set.univ`。
+
+**支配性边界。** 本谓词刻意**不**把模型支配 `∀ θ, P θ ≪ ν` 作为字段：估计量的身份不应依赖模型的
+正则性。但在非支配模型上 `likelihood` 只表示 `P θ` 绝对连续部分的密度，逐点 argmax 会退化
+（最极端地，`ν = 0` 时对任意可测 `θhat` 都恒真），此时它**不承载统计意义**。支配性在所有语义
+定理（`likelihood_lintegral_eq_one`、`withDensity_likelihood_eq`）中显式假设，因此使用本谓词作
+统计结论时必须同时给出支配假设。 -/
 def IsMaximumLikelihoodEstimator (P : Kernel Θ 𝓧) (ν : Measure 𝓧)
     (θhat : 𝓧 → Θ) : Prop :=
   Measurable θhat ∧ ∀ᵐ x ∂ν, IsMaxOn (fun θ => likelihood P ν θ x) Set.univ (θhat x)
@@ -105,8 +111,11 @@ theorem isMaximumLikelihoodEstimator_iff
         likelihood P ν θ x ≤ likelihood P ν (θhat x) x := by
   simp [IsMaximumLikelihoodEstimator, isMaxOn_univ_iff]
 
-/-- 最大似然估计经 Dirac kernel 给出合法的确定性估计量。这把它接入
-`statistics.estimator.definition` 的随机化估计量接口。 -/
+/-- 最大似然估计经 Dirac kernel 给出合法的确定性估计量，从而接入
+`statistics.estimator.definition` 的随机化估计量接口。
+
+本引理只使用定义中的可测性分量 `h.1`，argmax 分量不参与证明；它唯一的职责是把 MLE 送进
+`Kernel`/`IsMarkovKernel` 接口，而不是产生新的数学内容。 -/
 theorem maximumLikelihoodEstimator_isMarkov
     (P : Kernel Θ 𝓧) (ν : Measure 𝓧) (θhat : 𝓧 → Θ)
     (h : IsMaximumLikelihoodEstimator P ν θhat) :
@@ -191,7 +200,7 @@ variable {Θ 𝓧 : Type*} [MeasurableSpace Θ] [MeasurableSpace 𝓧]
 
 /-- 有限参数空间上，逐点最大值一定可取到。
 
-这是"有限集合上实值函数有最大值"的 `ℝ≥0∞` 版本，不涉及可测选择；可测性在下一个定理中另行
+这是"有限集合上数值函数有最大值"的 `ℝ≥0∞` 版本，不涉及可测选择；可测性在下一个定理中另行
 处理。 -/
 theorem exists_maxOn_likelihood_of_finite [Finite Θ] [Nonempty Θ]
     [MeasurableSpace.CountableOrCountablyGenerated Θ 𝓧]
@@ -213,7 +222,7 @@ noncomputable def maximumLikelihoodMapOfFinite [Finite Θ] [Nonempty Θ]
 可数样本空间是"任意样本空间上可测 argmax"这一未解问题的真实代价：当 `𝓧` 可数且单点可测时，
 任何从 `𝓧` 出发的映射都可测，于是经典选择给出的 argmax 映射自动合法。 -/
 theorem maximumLikelihoodEstimator_of_finite [Finite Θ] [Nonempty Θ]
-    [Countable Θ] [Countable 𝓧] [MeasurableSingletonClass 𝓧]
+    [Countable 𝓧] [MeasurableSingletonClass 𝓧]
     (P : Kernel Θ 𝓧) (ν : Measure 𝓧) :
     IsMaximumLikelihoodEstimator P ν (maximumLikelihoodMapOfFinite P ν) := by
   refine ⟨measurable_of_countable _, ?_⟩

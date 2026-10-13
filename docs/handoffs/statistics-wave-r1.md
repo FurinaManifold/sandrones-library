@@ -109,7 +109,24 @@
 
 ## 审计结论（负责人复核）
 
-（待两个审计子 Agent 返回后填写；如发现问题，返工提交追加在本节。）
+两个只读审计子 Agent 的报告已由负责人逐条复核。**无数学错误、无虚假证明**；缺陷集中在
+"包装定理的新内容"与"定义边界披露"，处理如下：
+
+| 编号 | 来源 | 问题 | 负责人处理 |
+|---|---|---|---|
+| A-F1 | 契约审计 | handoff 当时未提交，`cleanliness` 门 fail | `resolved`：handoff 已提交（`9f9efd0`、`2027675`），自检 5/5 门通过 |
+| A-F2 | 契约审计 | Entry front-matter `mathlib:` 曾写 `Mathlib.Order.Filter.IsMaxOn` 与 `Mathlib.Order.Monotone.StrictMono`，二者既非声明也非模块 | `resolved`（`e612b94`）：改为实名 `IsMaxOn`、`StrictMono.le_iff_le`，并已 `#check` 六项全部通过 |
+| B-1 | 数学审计 | `IsMaximumLikelihoodEstimator` 不含支配 `∀θ, P θ ≪ ν`，非支配模型（如 `ν=0`）下恒真 | `resolved`：在 Lean 定义 docstring 与 Entry 增设"支配性边界"段，显式说明该谓词的形式性与退化条件，并要求统计结论另行给出支配假设；不把模型正则性塞进估计量定义 |
+| B-2/B-3/B-4 | 数学审计 | `likelihood_jointlyMeasurable`、`likelihood_lintegral_eq_one`、`withDensity_likelihood_eq` 是密度既有事实的改写，本身不增新数学 | `declined with reason`：保留为 `likelihood` 的**联系引理**，并在 Entry 中改称"联系引理（不增加新数学）"，用途是证明 `likelihood` 有真实消费者而非装饰别名；删除会使定义链失去密度语义锚点 |
+| B-5 | 数学审计 | `maximumLikelihoodEstimator_isMarkov` 仅用可测性、docstring 过强 | `resolved`：Lean docstring 与 Entry 明确标注它是接口桥、argmax 分量不参与证明、不产生新数学 |
+| B-7 | 数学审计 | `Real.log` 非全局 `StrictMono`，题注曾暗示可直接实例化 | `resolved`（`e612b94`）：Lean 与 Entry 均改为"在 `Set.Ioi 0` 上严格单调，是教材原型" |
+| B-8 | 数学审计 | `maximumLikelihoodEstimator_of_finite` 的 `[Countable Θ]` 在 `[Finite Θ]` 下冗余；有限存在性 docstring 措辞 | `resolved`：删除 `[Countable Θ]`（由 `[Finite Θ]` 自动合成），docstring 改为"数值函数" |
+
+审计 A 另确认：模块 `lake env lean` 零输出、15 个公开声明无禁用占位、id 标记唯一且位于全部声明
+之前、id→叙述层路径符合 `subject_package.py:161`、`premises` 均为库内 Entry id、`provenance.ref`
+在 `reference.bib:582`。审计 B 另用 `/tmp` 最小实例机器验证谓词非空且可分：`Θ=𝓧=Bool`、
+`ν=δ_true+δ_false`、`P=(Kernel.const ν).withDensity(θ,x↦if x=θ then 1 else 0)` 下 `id` 是 MLE
+而 `fun x=>!x` 不是。两项结论均与本文件陈述一致。
 
 ## 下一批可稳定依赖 / 不可依赖的 API
 
@@ -129,3 +146,5 @@
    留待下一窗口。
 4. 未触碰 S2（检验与回归，🔒）。
 5. 重参数化不变性只在似然函数层陈述，未接入重参数化 kernel（载体未冻结）。
+6. `IsMaximumLikelihoodEstimator` 不含支配字段；非支配模型下逐点 argmax 退化（`ν=0` 恒真），
+   统计结论必须另行给出 `∀θ, P θ ≪ ν`。这一边界已写入 Lean docstring 与 Entry，非隐藏假设。
