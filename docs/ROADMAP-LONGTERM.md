@@ -560,6 +560,49 @@ Main 侧：Registry 由 **575 → 599** 条（E1 +12、E2 +11、E3 +1 `topology.
 id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁在用"段落（其 Mathlib 接口
 本就未在 RADAR 收录）。
 
+#### Wave R：并行学科开发窗口（2026-10-13 起）
+
+**背景**：`docs/reports/project-introduction/project-introduction.md` §7/§8 要求把 Main 从"逐份重审"
+变为"治理接口、审异常、批发布"。该减负工程已落地：`scripts/subject_package.py`（学科验收包，
+五组门 + 异常清单）、`scripts/release_gate.py`（候选批次发布门 + 回执）、协议
+`docs/SUBJECT-PACKAGE-PROTOCOL.md`（提交 `c41f685`），首份发布回执
+`docs/releases/release-receipt-2026-10-13T070618Z.json`（verdict pass，9/9 步，提交 `e5c0b42`）。
+从本波起，学科交付须先自检学科包；Main 只审异常清单与跨学科接口。
+
+**当前可并行开发的学科窗口**（判据：ROADMAP §1 阶段表为非 🔒 且文件所有权互不重叠）：
+
+| 窗口 | 学科 | 阶段表状态 | 文件所有权（学科自有） |
+|---|---|---|---|
+| R-analysis | 数学分析 | AN-MV🚧（AN3🔒） | `Analysis/`、`docs/entries/analysis/` |
+| R-topology | 拓扑学 | T4🚧 | `Topology/`、`docs/entries/topology/` |
+| R-real | 实分析 | RA-F2–RA-F6🚧 | `RealAnalysis/`、`docs/entries/real-analysis/` |
+| R-complex | 复分析 | C2🚧（C3⏸） | `ComplexAnalysis/`、`docs/entries/complex-analysis/` |
+| R-functional | 泛函分析 | F6🚧（F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
+| R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
+| R-statistics | 统计推断 | S1🚧（S2🔒） | `Statistics/`、`docs/entries/statistics/` |
+| R-number | 数论 | N2.1–N2.3🚧 | `NumberTheory/`、`docs/entries/number-theory/` |
+| R-settheory | 集合论深化 | ST2/ST3🚧 | `SetTheory/`、`docs/entries/settheory/` |
+| R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
+| R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
+| R-world | 世界式书稿 | WF1🚧 | `docs/world-formula/`（Main 持总目录） |
+
+**资源纪律（硬约束，Main 与学科共同遵守）**：
+
+1. **磁盘是瓶颈**。主工作树 `.lake` 已占 9.0G（其中 `.lake/packages` 7.5G），磁盘可用约 10G。
+   每个新窗口的 `.lake/packages` **必须符号链接到主工作树**，禁止 `lake update`／`lake exe cache get`。
+2. **窗口分批开放**：一次最多 3 个活跃学科窗口（另加 Main 集成），其余排队。任一时点
+   `df -h /` 可用低于 3G 时，**停止派发与构建**并报告 Main。文件系统为 ext2/3，**不支持
+   reflink**，每个 worktree 的 `.lake/build` 是真实副本（约 1.5G），因此窗口数必须严格受限。
+3. 学科**不运行全库 `lake build`**，只做模块级与依赖闭包定向构建；全库 build 只在发布门执行。
+4. 子 Agent 的数量与文件所有权由学科负责人分配（2–3 个、互不重叠）；同一 worktree 的 git index
+   与 `.lake/build` 是单写者资源。
+
+**波次计划**：Wave R1 先开 R-topology／R-real／R-probability 三窗口（磁盘实测可用约 10G，
+每个 worktree 的 `.lake/build` 需约 1.5G 真实副本）；每当一个窗口提交并进入集成（或关闭），
+立即从剩余窗口补充，直到全部 🚧 学科开放。每批仍按 AGENTS §8 集成，并在候选整体上跑
+`scripts/release_gate.py`。
+
+
 
 ---
 
