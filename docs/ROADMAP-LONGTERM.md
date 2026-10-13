@@ -204,9 +204,9 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|
 | D2 | `d914d30`（3 文件：模块 + Entry 草稿 + handoff） | `accepted`（`docs/reviews/functional-analysis-f66b1-resolvent-integrand-main-review.md`） | `7daa627` | ✅ 已进入 Main（Registry 571 条、全库 9056 jobs） |
 | D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | `79fd7c2` | ✅ 已进入 Main（Registry 575 条、全库 9060 jobs） |
-| D1 | 现场交付 `docs/handoffs/complex-analysis-cycle-foundation.md`（219 行；`research_open`：只交冻结提案与 `/tmp` 原型，不交正式源码） | **未裁决完成**：主设计问题已给倾向性裁决（见 D-1b），正式签名冻结待 §6 原型核验 | — | ⏳ 进行中；截至本轮负责人**尚未提交**（handoff 仍是 untracked），§5／§6 仍为占位。Main 已书面要求其先落盘再补原型 |
+| D1 | `477a834`（`docs/handoffs/complex-analysis-cycle-foundation.md`，328 行；§5／§6 仍标"未完成"，完整内联版在工作树未提交） | **`accepted_research`**：正式签名冻结已下达（见 D-1b 与 `../review-inbox/complex-analysis/main-d1-cycle-signature-freeze.md`），权限转 `development_open` | 不适用（`research_open` 无集成） | ⏳ 冻结已下；正式源码、Entry 与集成属下一窗 |
 
-**D-1b D1 的 Main 倾向性裁决（2026-10-13，**尚未构成正式签名冻结**）**
+**D-1b D1 的 Main 签名裁决（2026-10-13；倾向性裁决见下表，正式冻结见本节末"正式签名冻结"）**
 
 D1 是 `research_open` 窗口，出口是"签名冻结提案 + 无占位 `/tmp` 原型 + D2 接口契约"，**不产生可
 集成交付**。Main 对其 §9 提出的九个开放问题裁决如下；这些是方向决定，只有在 D1 把 §6 原型与
@@ -269,10 +269,32 @@ lake env lean /tmp/sandrones-library/check_D.lean    # 退出码 0
   `γ.SupportedIn U`）、`windingNumber_eq_zero_of_piecewiseC1_nullHomotopic`（前提是 `w ∉ U`，
   不再带 trace 排除项）、`isNullHomologousIn_of_piecewiseC1_nullHomotopic`。
 
-**D1 未完成边界（不得当成已交付）**：§5 概念六列表与 §6 无占位原型尚未内联进 handoff；负责人
-**未提交任何 commit**（handoff 仍是 untracked，截至 2026-10-13 本轮）；与上述量词相关的教材
-"同调"完全等价仍未证明。**因此正式签名冻结与 `development_open` 转换仍未发生**——第 5 节
-`SandronesLibrary.lean`、Registry 与 RADAR 均不为 D1 改动。
+**D1 的正式签名冻结（2026-10-13 已下达）**
+
+依 `477a834`（`docs(complex-analysis): D1 finite-cycle research handoff (prototypes pending inline)`）
+与上节的独立编译核验，Main 已下达正式签名冻结，通知落在
+`../review-inbox/complex-analysis/main-d1-cycle-signature-freeze.md`：
+
+- **冻结的公共面**：三个文件三个 Entry id——`BanachPathIntegral.lean` →
+  `complex-analysis.integral.banach-path-foundation`（`banachOneForm`／`BanachPathIntegrable`／
+  `banachPathIntegral` 及其线性与拼接引理／`banachPathIntegral_complex_eq_pathIntegral`）；
+  `CycleCarrier.lean` → `complex-analysis.integral.finite-cycle-foundation`（`ClosedPath`／`Cycle`／
+  `Cycle.trace`／`SupportedIn`／`Integrable`／`PiecewiseC1`／`cycleIntegral`）；`WindingIndex.lean` →
+  `complex-analysis.integral.winding-number-foundation`（`windingNumber : Cycle → ℂ → ℂ`／
+  `IsNullHomologousIn`／`IsHomologousIn` 及其引理）。
+- **冻结的三条语义决定**：绕数值域为 ℂ（整值性未证，不得写成"整数绕数"）；`IsNullHomologousIn` 的
+  `SupportedIn` 合取项是**定义的一部分**；保留旧 `pathIntegral` API、不做 M2 迁移。
+- **权限转换**：`research_open` → **`development_open`**，下一窗可写正式源码、Entry 文档与提交。
+- **冻结的生效条件**：负责人须先提交工作树里那份已内联 §5／§6 的 1163 行版本并保持 `git status` 干净，
+  下一窗开工前按 AGENTS §9 同步最新 Main。**内联属文档事项，Main 未因它阻塞数学裁决**（MAIN-ROLE
+  明确禁止因纯文档／字段／归档缺口退回学科成果），但交付仍以其提交的 commit 为准。
+- **冻结不覆盖**：绕数整值性、该量词与教材"同调"的完全等价、Laurent／一般残数定理／辐角原理／
+  Rouché、`f(a)`／谱映射／谱投影／连续函数演算，以及任何第二套 cycle 或 Banach 值积分载体。
+
+**D1 剩余未完成边界（不得当成已集成）**：本批是 `research_open` 出口，**不产生可集成交付**——
+`SandronesLibrary.lean`、Registry 与 RADAR 均不为 D1 改动，正式源码、Entry 与集成提交全部属于下一个
+`development_open` 窗口。截至本轮，已提交的唯一交付是 `477a834`（其 §5／§6 仍标"未完成"）；负责人
+工作树中另有未提交的已内联版本。
 
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
@@ -954,7 +976,7 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 10 | `complex-analysis.cauchy.smooth-homotopy-foundation` | 给定 C² 相对端点同伦时路径积分不变 ✅（foundation） | `ContinuousMap.Homotopy`、`ContDiffOn` |
 | 11 | `complex-analysis.cauchy.primitive-from-path-independence-foundation` | 由 admissible 道路积分无关构造原函数 ✅（foundation） | `HasDerivAt`、短线段积分 |
 | 12 | `complex-analysis.cauchy.admissible-path-connectivity-foundation` | 开连通域内从基点到各点存在有限分段正则道路 ✅（foundation） | `IsPreconnected`、`Path.trans` |
-| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（`research_open`；Main 倾向性冻结裁决见 §Wave D 的 D-1b，**尚未正式冻结**） | finite formal sums、winding、Bochner path integral |
+| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（签名已于 2026-10-13 冻结，权限转 `development_open`，见 §Wave D 的 D-1b；**正式源码与 Entry 尚未提交**） | finite formal sums、winding、Bochner path integral |
 
 ### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 
