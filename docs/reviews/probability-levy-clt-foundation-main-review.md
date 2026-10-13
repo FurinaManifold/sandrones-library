@@ -3,7 +3,7 @@
 - 学科 staging：`codex/probability`（本批无独立 worktree）
 - 学科提交：`fbc5afd`（前置接口审计 `c087066`）
 - 已接入 main：`8d98886`
-- Main 集成提交：本批共享状态提交
+- Main 集成提交：`46ea736`
 - Entry：`probability.characteristic-function.levy-continuity`、`probability.clt.characteristic-foundation`
 - 来源：`kallenberg-modern-probability-2021`
 - Verdict：`accepted_main_docs`

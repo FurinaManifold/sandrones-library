@@ -3,7 +3,7 @@
 - 学科 staging：`codex/probability`（本批无独立 worktree）
 - 学科提交：`96bb6b0`（前置接口审计 `04da6e0`）
 - 已接入 main：`3a15393`
-- Main 集成提交：本批共享状态提交
+- Main 集成提交：`46ea736`
 - Entry：`statistics.sufficiency.definition`
 - 来源：`schervish-theory-statistics-1995`
 - Verdict：`accepted_main_docs`
