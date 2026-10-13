@@ -5,7 +5,9 @@ state: verified
 title: "原始递归函数类：冻结、教科书承载与派生闭包"
 premises: ["settheory.googology.primitive-recursion"]
 mathlib: ["Nat.Primrec'", "Nat.Primrec'.prim_iff", "Nat.Primrec'.prec'", "Nat.Primrec'.comp'", "Finset.range"]
-provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
+provenance:
+  source_type: textbook
+  ref: "odifreddi-classical-recursion-1989"
 ---
 
 # 动机

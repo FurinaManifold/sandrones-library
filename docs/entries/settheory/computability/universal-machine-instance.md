@@ -5,7 +5,9 @@ state: verified
 title: "现有机器模型的通用 runner 实例"
 premises: ["settheory.computability.universal-interpreter-spec", "settheory.computability.binary-machine-coding"]
 mathlib: ["Nat.pair", "Nat.unpair", "Function.Injective"]
-provenance: {source_type: textbook, ref: "odifreddi-classical-recursion-1989"}
+provenance:
+  source_type: textbook
+  ref: "odifreddi-classical-recursion-1989"
 ---
 
 # 动机
