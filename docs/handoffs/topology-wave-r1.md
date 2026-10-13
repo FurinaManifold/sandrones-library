@@ -34,7 +34,14 @@ universal cover（冻结的 C5f–C5g）。
 | 1 | `RFC + 概念六列表` | `docs/maintenance/topology-at2-c5e-construction-recovery-rfc.md`（新增） |
 | 2 | `handoff` | `docs/handoffs/topology-wave-r1.md`（本文件，新增） |
 
-（提交哈希在交付时由本 worktree 现场 `git log` 给出；见 §4。）
+实际提交（本 worktree 现场）：
+
+| # | commit | 内容 |
+|---|---|---|
+| 1 | `030605b` | `docs(topology): AT2-C5e construction-recovery RFC (research_open)` |
+| 2 | `01c7675` | `docs(topology): Wave R1 handoff for AT2-C5e research window` |
+
+（记录本 handoff 现场输出的提交为 HEAD，其自身哈希见 §4 的 `git log`。）
 
 本窗不修改任何 Main 共享文件，也不修改 `SandronesLibrary/Topology/`、`docs/entries/topology/`。
 
@@ -72,17 +79,29 @@ python3 scripts/subject_package.py \
     --base 49acfa0 --subject topology
 ```
 
-现场输出（交付提交后重跑，见 §4）：`verdict: pass`，五组门全过，异常清单为空。
+现场输出（交付提交后重跑，见 §4）：
+
+```text
+学科验收包 topology  (codex/topology-wave-r1 @ 01c767530)
+  基线 49acfa0｜提交 2｜改动文件 2
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  verdict: pass
+```
+
 基线（未提交时）唯一异常为 `coverage: 无 docs/handoffs/*.md`，本文件提交后消除。
 
 ### 3.4 磁盘
 
-构建前后 `df -h /`：可用从 8.6G 起，构建后 ≥ 3G（未触发停止线）。
-本 worktree `.lake/build` 占用见 §7。
+构建前后 `df -h /`：可用从 8.6G 起，构建后 16G（未触发停止线）。
+本 worktree `.lake/build` 约 24M（Mathlib olean 走符号链接复用）。
 
 ## 4. 交付时现场记录（`git log` / `subject_package`）
 
-见仓库现场输出；本文件在提交后不再追加哈希，避免“文档引用自身提交”的循环——
+本 handoff 的记录提交为交付分支 HEAD；重复现场命令：
 
 ```bash
 git -C /home/pisquare/czt/sandrones-library-topology-r1 log --oneline 49acfa0..HEAD
