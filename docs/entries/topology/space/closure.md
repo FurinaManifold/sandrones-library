@@ -7,7 +7,7 @@ premises: ["topology.space.def", "topology.space.neighborhood"]
 mathlib: ["interior", "closure", "frontier", "mem_closure_iff"]
 provenance:
   source_type: book
-  ref: "点集拓扑：内部、闭包与边界"
+  ref: "munkres-topology-2000"
 ---
 
 # 定义
@@ -32,3 +32,42 @@ provenance:
 
 Jordan 可测区域以“有界且边界零体积”定义；闭包、边界和邻域接口也是紧致性、连通性、
 流形边界及微分形式积分的共同前置。
+
+# Lean 声明集合
+
+以下 23 个公开定理均由 Entry `topology.space.closure` 登记，分属四个 section。
+
+## Interior
+
+- `interior_eq_sUnion_open_subsets`
+- `isOpen_interior'`
+- `interior_subset_self`
+- `subset_interior_of_isOpen`
+- `mem_interior_iff_open_neighborhood`
+- `interior_eq_self_iff_isOpen`
+- `interior_mono'`
+
+## Closure
+
+- `closure_eq_sInter_closed_supersets`
+- `subset_closure_self`
+- `isClosed_closure'`
+- `closure_subset_of_isClosed`
+- `closure_eq_self_iff_isClosed`
+- `closure_mono'`
+- `closure_union'`
+- `mem_closure_iff_open_neighborhood_meets`
+
+## Duality
+
+- `closure_eq_compl_interior_compl'`
+- `interior_compl'`
+
+## Frontier
+
+- `frontier_eq_closure_sdiff_interior`
+- `frontier_eq_two_closures`
+- `isClosed_frontier'`
+- `frontier_compl'`
+- `closure_eq_interior_union_frontier'`
+- `closure_eq_self_union_frontier'`

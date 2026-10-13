@@ -22,7 +22,9 @@ variable {X : Type*} [TopologicalSpace X] {s t : Set X} {x : X}
 
 section Interior
 
-/-- 内部是 `s` 所含全部开集的并。 -/
+/-- 内部是 `s` 所含全部开集的并。
+
+> **Entry**: topology.space.closure -/
 theorem interior_eq_sUnion_open_subsets (s : Set X) :
     interior s = ⋃₀ {u : Set X | IsOpen u ∧ u ⊆ s} := rfl
 
@@ -52,7 +54,9 @@ end Interior
 
 section Closure
 
-/-- 闭包是所有包含 `s` 的闭集之交。 -/
+/-- 闭包是所有包含 `s` 的闭集之交。
+
+> **Entry**: topology.space.closure -/
 theorem closure_eq_sInter_closed_supersets (s : Set X) :
     closure s = ⋂₀ {u : Set X | IsClosed u ∧ s ⊆ u} := rfl
 
@@ -84,7 +88,9 @@ end Closure
 
 section Duality
 
-/-- 闭包与内部通过补集对偶。 -/
+/-- 闭包与内部通过补集对偶。
+
+> **Entry**: topology.space.closure -/
 theorem closure_eq_compl_interior_compl' (s : Set X) :
     closure s = (interior sᶜ)ᶜ := closure_eq_compl_interior_compl
 
@@ -95,7 +101,9 @@ end Duality
 
 section Frontier
 
-/-- 边界的教材定义：闭包减去内部。 -/
+/-- 边界的教材定义：闭包减去内部。
+
+> **Entry**: topology.space.closure -/
 theorem frontier_eq_closure_sdiff_interior (s : Set X) :
     frontier s = closure s \ interior s := rfl
 
