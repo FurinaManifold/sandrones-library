@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **608** 个条目（verified 608，pending 0）。
+共 **611** 个条目（verified 611，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -293,8 +293,11 @@
 
 ## `complex-analysis.integral`
 
+- ✅ [`banach-path-foundation.md`](complex-analysis/integral/banach-path-foundation.md) — Banach 值路径积分的基础载体
+- ✅ [`finite-cycle-foundation.md`](complex-analysis/integral/finite-cycle-foundation.md) — 有限 cycle 载体与 ℤ-线性 cycle 积分
 - ✅ [`path.md`](complex-analysis/integral/path.md) — 复路径与路径积分
 - ✅ [`reparametrization.md`](complex-analysis/integral/reparametrization.md) — 路径反向、拼接与参数空间换元
+- ✅ [`winding-number-foundation.md`](complex-analysis/integral/winding-number-foundation.md) — cycle 的绕数与相对同调基础谓词
 
 ## `complex-analysis.path-integral`
 

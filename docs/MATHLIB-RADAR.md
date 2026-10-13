@@ -3244,8 +3244,13 @@
 - **谁在用**：复分析 C1 的教材复可微定义及其 Mathlib 兼容桥。
 
 ### `curveIntegral` / `intervalIntegral.integral_comp_mul_deriv` / `Complex.circleIntegral`
-- **人话**：承载复路径积分、有向参数换元与圆周积分公式。
-- **谁在用**：复分析 C2 路径积分、Cauchy 公式与 C3 圆周残数 foundation。
+- **人话**：承载复路径积分、有向参数换元与圆周积分公式。`curveIntegral` 对余域是泛型的：对
+  `ω : ℂ → ℂ →L[ℂ] F` 直接产出 `F` 中元素，因此 Banach 值被积函数不必另立后端。
+- **谁在用**：复分析 C2 路径积分、Cauchy 公式与 C3 圆周残数 foundation；以及 Wave R1 的
+  `complex-analysis.integral.banach-path-foundation`（`banachPathIntegral` 直接以 `curveIntegral`
+  实现，`F=ℂ` 时与标量 `pathIntegral` 定义性一致）、`complex-analysis.integral.finite-cycle-foundation`
+  （逐片调用）与 `complex-analysis.integral.winding-number-foundation`（`dz/(z-w)` 的被积函数）。
+  Mathlib 仍无 `Complex.windingNumber`／一般残数定理封装。
 
 ### `AnalyticAt.taylorSeries_eq` / `AnalyticAt.sum_taylorSeries` / `HasFPowerSeriesAt.coeff_unique`
 - **人话**：解析函数的 Taylor 系数、级数求和与局部系数唯一性。

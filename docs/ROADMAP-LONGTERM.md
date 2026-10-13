@@ -180,7 +180,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 
 | 窗口 | 学科 staging | 条目范围 | 权限 | 文件所有权 | 出口与边界 |
 |---|---|---|---|---|---|
-| D1 复分析 cycle 基础 | `codex/complex-analysis`（须先同步） | `complex-analysis.integral.finite-cycle-foundation` | `research_open` | 新建 cycle 与 Banach 值路径积分文件；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 的六列表与无占位原型；Main 冻结签名后转 `development_open` |
+| D1 复分析 cycle 基础 | `codex/complex-analysis-wave-r1`（Wave R1） | `complex-analysis.integral.{banach-path-foundation, finite-cycle-foundation, winding-number-foundation}` | ✅ 已完成并集成（2026-10-13，`dee5fff`–`91416f8`） | `ComplexAnalysis/{BanachPathIntegral,CycleCarrier,WindingIndex}.lean`；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 已交付；C2 未关闭，C3 仍 ⏸ |
 | D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
 | D3 拓扑 AT2-C5e | `codex/topology-foundations`（须先同步并丢弃 superseded 文件） | `topology.covering.subgroup-construction-recovery` | `research_open` | 新文件路径；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
 | D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
@@ -1154,7 +1154,9 @@ C0 复数基础、C0.5 代数学基本定理与 C1 已完成；C2/C3 已有基�
 | 10 | `complex-analysis.cauchy.smooth-homotopy-foundation` | 给定 C² 相对端点同伦时路径积分不变 ✅（foundation） | `ContinuousMap.Homotopy`、`ContDiffOn` |
 | 11 | `complex-analysis.cauchy.primitive-from-path-independence-foundation` | 由 admissible 道路积分无关构造原函数 ✅（foundation） | `HasDerivAt`、短线段积分 |
 | 12 | `complex-analysis.cauchy.admissible-path-connectivity-foundation` | 开连通域内从基点到各点存在有限分段正则道路 ✅（foundation） | `IsPreconnected`、`Path.trans` |
-| 13 | `complex-analysis.integral.finite-cycle-foundation` | 有限闭路 cycle、绕数条件与 Banach 值路径积分 carrier（签名已于 2026-10-13 冻结，权限转 `development_open`，见 §Wave D 的 D-1b；**正式源码与 Entry 尚未提交**） | finite formal sums、winding、Bochner path integral |
+| 13 | `complex-analysis.integral.banach-path-foundation` | ✅ Banach 值路径积分基础载体：`banachOneForm`、`BanachPathIntegrable`、`banachPathIntegral`，`F=ℂ` 时定义性回到标量 `pathIntegral`（Wave R1，`dee5fff`） | `curveIntegral`、`CurveIntegrable` |
+| 14 | `complex-analysis.integral.finite-cycle-foundation` | ✅ 有限闭路 cycle 载体（`ClosedPath →₀ ℤ`）、`trace`／`PiecewiseC1`／`SupportedIn`／`Integrable` 谓词与 `ℤ`-线性 cycle 积分，并给出求导积分归零的首个上层消费者（Wave R1，签名沿用 D-1 冻结） | `Finsupp.linearCombination` |
+| 15 | `complex-analysis.integral.winding-number-foundation` | ✅ cycle 的复值绕数 `(2πi)⁻¹∮dz/(z-w)`、`IsNullHomologousIn`／`IsHomologousIn` 谓词，以及分段 C¹ 零同伦消费者。**边界**：绕数整值性、与教材同调定义的完全等价、Laurent／残数／辐角原理均未证 | `Finsupp.single`、`Real.pi` |
 
 ### C3 Laurent、残数与亚纯函数 ⏸（依赖完整 C2）
 

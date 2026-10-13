@@ -11478,7 +11478,9 @@
       "complex-analysis.cauchy.smooth-homotopy-foundation",
       "complex-analysis.cauchy.triangle",
       "complex-analysis.cauchy.triangle-ball",
-      "complex-analysis.integral.reparametrization"
+      "complex-analysis.integral.banach-path-foundation",
+      "complex-analysis.integral.reparametrization",
+      "complex-analysis.integral.winding-number-foundation"
     ],
     "family": "complex-analysis.integral",
     "variant": "textbook",
@@ -11656,6 +11658,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+      "complex-analysis.integral.finite-cycle-foundation",
       "complex-analysis.path-integral.dyadic-assembly"
     ],
     "family": "complex-analysis.cauchy",
@@ -12168,6 +12171,7 @@
       "complex-analysis.holomorphic.elementary",
       "complex-analysis.holomorphic.power-series",
       "complex-analysis.integral.path",
+      "complex-analysis.integral.winding-number-foundation",
       "complex-analysis.series.taylor",
       "complex-analysis.singularity.classification-foundation",
       "functional-analysis.functional-calculus.holomorphic-neighborhood"
@@ -16320,6 +16324,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.integral.finite-cycle-foundation",
       "complex-analysis.path-integral.dyadic-assembly",
       "topology.homotopy.finite-raw-open-path-grid",
       "topology.homotopy.piecewise-c1-dyadic-alignment"
@@ -17450,6 +17455,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.integral.finite-cycle-foundation",
       "complex-analysis.path-integral.finite-raw-grid-boundary"
     ],
     "family": "complex-analysis.path-integral",
@@ -17591,7 +17597,9 @@
     "nl_file": "docs/entries/complex-analysis/path-integral/piecewise-c1-homotopy-invariance.md",
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "complex-analysis.integral.winding-number-foundation"
+    ],
     "family": "complex-analysis.path-integral",
     "variant": "continuous-endpoint-relative-homotopy-piecewise-c1-boundary",
     "axioms": [
@@ -20259,6 +20267,122 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:10:00Z",
     "proof_sha": "6e45981f7641fbed",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "complex-analysis.integral.banach-path-foundation",
+    "kind": "definition",
+    "title": "Banach 值路径积分的基础载体",
+    "summary": "在 Mathlib 泛型 curveIntegral 之上给出 Banach 值被积函数的路径积分载体，并证明 F=ℂ 时定义性地回到既有标量 pathIntegral",
+    "family": "complex-analysis.integral",
+    "variant": "banach-valued",
+    "premises": [
+      "complex-analysis.integral.path"
+    ],
+    "mathlib": [
+      "curveIntegral",
+      "CurveIntegrable",
+      "ContinuousLinearMap.smulRight",
+      "curveIntegral_add",
+      "curveIntegral_smul",
+      "curveIntegral_trans",
+      "curveIntegral_symm",
+      "curveIntegral_cast"
+    ],
+    "lean_file": "ComplexAnalysis/BanachPathIntegral.lean",
+    "nl_file": "docs/entries/complex-analysis/integral/banach-path-foundation.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:53:33Z",
+    "dependedOnBy": [
+      "complex-analysis.integral.finite-cycle-foundation"
+    ],
+    "proof_sha": "9f754451995d59e5",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "complex-analysis.integral.finite-cycle-foundation",
+    "kind": "definition",
+    "title": "有限 cycle 载体与 ℤ-线性 cycle 积分",
+    "summary": "以闭路的有限整数系数形式和张成 cycle 载体，定义 trace 等谓词与对 cycle 逐片积分的 ℤ-线性 cycle 积分，并给出求导积分归零的首个上层消费者",
+    "family": "complex-analysis.integral",
+    "variant": "finite-formal-sum",
+    "premises": [
+      "complex-analysis.integral.banach-path-foundation",
+      "complex-analysis.path-integral.dyadic-assembly",
+      "complex-analysis.cauchy.primitive-from-path-independence-foundation",
+      "topology.homotopy.piecewise-c1-path"
+    ],
+    "mathlib": [
+      "Finsupp",
+      "Finsupp.linearCombination",
+      "Finsupp.linearCombination_single",
+      "Finsupp.mem_support_iff",
+      "Finsupp.sum_of_support_subset",
+      "Finset.sum_add_distrib"
+    ],
+    "lean_file": "ComplexAnalysis/CycleCarrier.lean",
+    "nl_file": "docs/entries/complex-analysis/integral/finite-cycle-foundation.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:53:33Z",
+    "dependedOnBy": [
+      "complex-analysis.integral.winding-number-foundation"
+    ],
+    "proof_sha": "413ea43037ea429b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "complex-analysis.integral.winding-number-foundation",
+    "kind": "definition",
+    "title": "cycle 的绕数与相对同调基础谓词",
+    "summary": "用 (2πi)⁻¹∮ dz/(z-w) 定义 cycle 的复值绕数、给出其 ℤ-线性与相对同调谓词，并由分段 C¹ 零同伦消费者证明首个非平凡同调实例",
+    "family": "complex-analysis.integral",
+    "variant": "index-and-homology",
+    "premises": [
+      "complex-analysis.integral.finite-cycle-foundation",
+      "complex-analysis.integral.path",
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.path-integral.piecewise-c1-homotopy-invariance"
+    ],
+    "mathlib": [
+      "Finsupp.single",
+      "Real.pi",
+      "Complex.I",
+      "HasDerivAt",
+      "differentiableAt_id",
+      "IsOpen"
+    ],
+    "lean_file": "ComplexAnalysis/WindingIndex.lean",
+    "nl_file": "docs/entries/complex-analysis/integral/winding-number-foundation.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:53:33Z",
+    "proof_sha": "492017765f008752",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
