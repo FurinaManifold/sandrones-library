@@ -107,3 +107,28 @@ foundation/special-case 已进入 main。Main 全库构建、公理审计与 Reg
 Main 定向构建四个新模块通过，并在集成工作树完成 406 条 Registry 审计、仓库 audit 与
 8890-job 全库构建。一般连续同伦正则化、无条件单连通域积分无关和原函数存在仍未完成；三个相关
 结果继续以 foundation 条目接收，不扩大完整 C2 的完成度。
+
+## Round 6: Main-side 集成门 R3 关闭记录
+
+- reviewer: `main`
+- reviewed_at: 2026-10-13
+- 关闭对象: Round 4 的 R3（`inductive` 声明无法进入 Entry 声明映射）
+
+Round 4 曾把"`AdmissiblePath` 这一 `inductive` 定义没有进入 `map_entry_to_decl` 报告"记为
+Main-side 集成门。Main 现已核查并关闭该门：
+
+- `scripts/check_axioms.py` 的 `DECL_RE` 已包含 `inductive`；
+- 实测 `map_entry_to_decl(read('SandronesLibrary/ComplexAnalysis/PrimitiveFromPathIntegral.lean'))`
+  返回
+  `complex-analysis.cauchy.primitive-from-path-independence-foundation ->`
+  `[SandronesLibrary.ComplexAnalysis.AdmissiblePath,` `...AdmissiblePath.range_subset,`
+  `...AdmissiblePath.pathIntegrable,` `...pathIntegral_eq_sub_of_primitive_of_admissiblePath,`
+  `...PathIntegralIndependentOn,` `...pathIntegralIndependentOn_of_primitive,`
+  `...exists_primitive_of_pathIntegralIndependentOn]`。
+
+即核心 `inductive` 定义、它的性质、以及本条目全部上层使用者都在同一 Entry 下，没有被相邻条目
+吸入，也没有因声明类型支持不足而漏审。**该门关闭不是数学验收结论**：本条目其它边界（一般连续
+同伦正则化、无条件单连通域积分无关、原函数存在）仍然未完成。
+
+该核查与 Wave D 的 D1（`complex-analysis.integral.finite-cycle-foundation`）直接相关：cycle
+carrier 很可能是新 `inductive`／`structure` 类型，本门关闭意味着它不会被审计器盲区吞掉。

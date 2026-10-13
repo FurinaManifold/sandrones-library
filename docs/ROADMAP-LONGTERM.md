@@ -113,7 +113,7 @@ WF0 已完成，WF1 持续 `development_open`；WF2/WF3 按各学科已验收资
 | G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧（T4 桥已满足，继续完成 C2/C3） |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | ✅ |
 | G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
-| G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲 |
+| G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲（五个目标均未完成；第 1、3、4 项的低层基础已登记，见 §11 N1+） |
 
 依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
 必须已有本库教材定义、显式实现桥、课程文档和 verified Registry 条目。
@@ -236,9 +236,13 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
 
 1. 集成 D-0 后同步更新 §1 总览、对应章节状态、`SandronesLibrary.lean`、Registry、RADAR 与
    `ROADMAP-examples.md`。
-2. 对账 N1+：Registry 已有 `continued-fraction-*`、`best-rational-approximation`、`pell-*` 等条目，
-   而 §1 依赖门 G-N1+ 与 §11 N1+ 表仍记 🔲／未列；Main 须按 Registry 现状重写 N1+ 状态，并明确
-   `convergent-best`、`sqrt-periodic-cf`、`pell-cf-bridge`、`pell-all-positive`、`negative-pell` 的剩余边界。
+2. ✅ 已对账（2026-10-13）：Registry 现有 21 条 `number-theory.elementary.*`（含
+   `continued-fraction-convergent`／`-recursion`、`best-rational-approximation`、
+   `finite-best-approximation`、`legendre-criterion`、`pell-equation`／`-composition`／
+   `-positive-existence`／`-fundamental-solution`）。据此已重写 §11 N1+：由 🔲 改为 🚧，
+   逐行给出"已登记的 Registry 基础 / 剩余边界"，并明确 `convergent-best`、`sqrt-periodic-cf`、
+   `pell-cf-bridge`、`pell-all-positive`、`negative-pell` **五条都还没有 Entry**；
+   §1 的 G-N1+ 仍为 🔲，但补注部分低层基础已登记。不得把已有基础当成这些目标的完成证据。
 3. ✅ 已裁决：`codex/archify-feasibility` 与 `codex/project-introduction` 两份报告于 2026-10-13
    接收进 `docs/reports/`（Main 文档审稿通过，第三方 MIT／OFL 许可原文随附）。两者不是数学批次，
    Registry 不为它们建 Entry，也不得混入数学集成提交。
@@ -1105,15 +1109,21 @@ F6.5--F6.10 仍按教材依赖门推进；
 
 21 个教材入口已进入 main。最佳逼近必要方向、√d 连分数桥、负 Pell 和全体正解分类归入 N1+。
 
-### N1+ 初等专题扩展 🔲
+### N1+ 初等专题扩展 🚧（2026-10-13 按 Registry 现况对账；五个目标均未完成）
 
-| # | 条目 id | 内容 | 前置 |
-|---|---|---|---|
-| 1 | `number-theory.elementary.convergent-best` | 收敛子是最佳逼近的必要方向 | N1 连分数 |
-| 2 | `number-theory.elementary.sqrt-periodic-cf` | 二次无理数连分数周期性 | N1 |
-| 3 | `number-theory.elementary.pell-cf-bridge` | √d 收敛子产生 Pell 解 | 前两条 |
-| 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | Pell bridge |
-| 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 周期奇偶性 |
+N1 的 21 个 `number-theory.elementary.*` 入口已全部 verified。下表五个 N1+ 目标**都还没有
+Entry**；本段由 🔲 升为 🚧 只表示低层接口已就位、可以开工，**不表示任何一条已经完成**。
+"已登记的 Registry 基础"列只列真实存在的条目标题，不能当作该行目标的完成证据。
+
+| # | 目标条目 id | 内容 | 已登记的 Registry 基础 | 剩余边界 |
+|---|---|---|---|---|
+| 1 | `number-theory.elementary.convergent-best` | 收敛子与最佳逼近的关系 | `continued-fraction-convergent`、`continued-fraction-recursion`、`best-rational-approximation`、`finite-best-approximation`、`legendre-criterion` | `legendre-criterion` 只给出"非常好的近似 ⇒ 收敛子"的**充分判据**；其文档明确声明"收敛子 ⇒ 最佳逼近"这一经典结论在当前 Mathlib 接口中尚不存在，必须自建，不得用 Legendre 判据冒充 |
+| 2 | `number-theory.elementary.sqrt-periodic-cf` | 二次无理数连分数周期性 | `continued-fraction-convergent`、`continued-fraction-recursion` | 完全未开始：周期性本身的陈述、周期长度与判别式的关系都需新建 |
+| 3 | `number-theory.elementary.pell-cf-bridge` | √d 收敛子产生 Pell 解 | `pell-equation`、`pell-composition`、`pell-positive-existence`、`pell-fundamental-solution` | 现有 Pell 存在性走的是 Mathlib `Pell.Solution₁` 的二次整数环路线；`pell-positive-existence` 文档明确记录它**没有**建立解与 √d 连分数周期的对应（Mathlib 原文件把该连接列为 TODO）。本桥必须新建 |
+| 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | `pell-fundamental-solution`（基本解存在）、`pell-composition`（Brahmagupta 合成） | 只差"全体"那一半：需要证明每个正解都是基本解的幂；合成只给出"幂仍是解" |
+| 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 无 | 完全未开始；负 Pell 与可解性必须单列，不得由正 Pell 结果暗示 |
+
+G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 
 ### N2 代数数论 🚧（G-A2/G-A3 已满足；N2.1–N2.3 `development_open`，N2.4–N2.15 `research_open`）
 
