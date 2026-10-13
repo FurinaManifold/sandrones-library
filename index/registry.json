@@ -9949,7 +9949,8 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
-      "settheory.computability.pairing-code"
+      "settheory.computability.pairing-code",
+      "settheory.computability.universal-machine-instance"
     ],
     "family": "settheory.computability.universal-interpreter-spec",
     "variant": "generated",
@@ -11088,7 +11089,8 @@
     "dependedOnBy": [
       "settheory.googology.ackermann",
       "settheory.googology.hereditary-base",
-      "settheory.googology.hyperoperation"
+      "settheory.googology.hyperoperation",
+      "settheory.googology.primitive-recursive-class"
     ],
     "family": "settheory.googology.primitive-recursion",
     "variant": "generated",
@@ -12466,7 +12468,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-25T03:51:39Z",
     "dependedOnBy": [
-      "settheory.computability.binary-machine-code-halting"
+      "settheory.computability.binary-machine-code-halting",
+      "settheory.computability.universal-machine-instance"
     ],
     "proof_sha": "15301e866f567477",
     "axioms": [
@@ -20383,6 +20386,67 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:53:33Z",
     "proof_sha": "492017765f008752",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.primitive-recursive-class",
+    "kind": "definition",
+    "title": "原始递归函数类：冻结、教科书承载与派生闭包",
+    "summary": "以 Mathlib 教科书版 Nat.Primrec' 作为原始递归函数类的正式承载，给出到一元形式的桥并新增有界和、有界积与迭代闭包，把本库 primitiveRecursion 接入该类",
+    "premises": [
+      "settheory.googology.primitive-recursion"
+    ],
+    "mathlib": [
+      "Nat.Primrec'",
+      "Nat.Primrec'.prim_iff",
+      "Nat.Primrec'.prec'",
+      "Nat.Primrec'.comp'",
+      "Finset.range"
+    ],
+    "lean_file": "SetTheory/PrimitiveRecursiveClass.lean",
+    "nl_file": "docs/entries/settheory/googology/primitive-recursive-class.md",
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "odifreddi-classical-recursion-1989"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:57:05Z",
+    "proof_sha": "58627b1b6091eaa6",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.computability.universal-machine-instance",
+    "kind": "definition",
+    "title": "现有机器模型的通用 runner 实例",
+    "summary": "为既有 UniversalNatInterpreter 规格构造真实 inhabitant：Nat.pair 编码与解码、左逆与单射、universalNatInterpreter 及输出等价；为 noncomputable 元层 runner，不构成自解释器或停机判定",
+    "premises": [
+      "settheory.computability.universal-interpreter-spec",
+      "settheory.computability.binary-machine-coding"
+    ],
+    "mathlib": [
+      "Nat.pair",
+      "Nat.unpair",
+      "Function.Injective"
+    ],
+    "lean_file": "SetTheory/UniversalMachineInstance.lean",
+    "nl_file": "docs/entries/settheory/computability/universal-machine-instance.md",
+    "provenance": {
+      "source_type": "textbook",
+      "ref": "odifreddi-classical-recursion-1989"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:57:05Z",
+    "proof_sha": "64adc764dc88e545",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

@@ -3578,3 +3578,21 @@
 - **谁在用**：`number-theory.algebraic.ring-of-integers`。**边界**：只给秩等式
   `finrank ℤ 𝓞_K = finrank ℚ K`，未建整基的存在性与构造；Dedekind 性、分式理想、理想唯一分解、
   类群、分歧与 Minkowski 均未触及，属 N2.4–N2.15 `research_open`。
+
+## 集合论 ST3 纵深：原始递归类与通用 runner（Wave R1）
+
+### `Nat.Primrec'` / `Nat.Primrec'.prim_iff` / `Nat.Primrec'.prec'` / `Nat.Primrec'.comp'`
+- **人话**：`Nat.Primrec'` 是 Mathlib 教科书版的原始递归函数类（多元、无结构参数的谓词形式）；
+  `prim_iff` 给出它与一元 `Nat.Primrec` 形式的等价桥，`prec'`／`comp'` 是原始递归与复合的
+  构造闭包。
+- **出处**：Mathlib 的 `Computability.Primrec`。
+- **谁在用**：`settheory.googology.primitive-recursive-class`（正式承载；另新增
+  `primrec_boundedSum`／`primrec_boundedProd`／`primrec_iterated` 派生闭包，并把本库
+  `primitiveRecursion` 接入该类）。**边界**：不含 Ackermann 非原始递归与无界 μ 闭包（ROADMAP 仍 🔒）。
+
+### `Nat.pair` / `Nat.unpair`
+- **人话**：把两个自然数编码成一个自然数并可解码，构成 `ℕ × ℕ ≃ ℕ` 的配对／解对接口。
+- **出处**：Mathlib 的 `Data.Nat.Pairing`。
+- **谁在用**：`settheory.computability.universal-machine-instance`（`encodeNatProgram`／
+  `decodeNatProgram` 的编码后端）。**边界**：runner 依赖 `Fintype.equivFin` + `Classical.choice`，
+  是 `noncomputable` 元层，不构成自解释器，也不产生停机判定或不可判定性结论。

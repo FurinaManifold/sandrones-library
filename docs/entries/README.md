@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **611** 个条目（verified 611，pending 0）。
+共 **613** 个条目（verified 613，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -719,6 +719,7 @@
 - ✅ [`pairing-code.md`](settheory/computability/pairing-code.md) — 自然数有序对编码
 - ✅ [`partial-nat-computable.md`](settheory/computability/partial-nat-computable.md) — 部分自然数函数的可计算性
 - ✅ [`universal-interpreter-spec.md`](settheory/computability/universal-interpreter-spec.md) — 通用自然数解释器的抽象规格
+- ✅ [`universal-machine-instance.md`](settheory/computability/universal-machine-instance.md) — 现有机器模型的通用 runner 实例
 
 ## `settheory.function`
 
@@ -784,6 +785,7 @@
 - ✅ [`knuth-arrow.md`](settheory/googology/knuth-arrow.md) — Knuth 上箭头：用符号数量提升运算等级
 - ✅ [`machine-execution.md`](settheory/googology/machine-execution.md) — 有限状态机的单步与多步执行
 - ✅ [`primitive-recursion.md`](settheory/googology/primitive-recursion.md) — 原始递归：从初值逐步生成自然数函数
+- ✅ [`primitive-recursive-class.md`](settheory/googology/primitive-recursive-class.md) — 原始递归函数类：冻结、教科书承载与派生闭包
 - ✅ [`tree-function.md`](settheory/googology/tree-function.md) — TREE 函数：有限标号树与坏序列的严格定义入口
 - ✅ [`unbounded-halting-relation.md`](settheory/googology/unbounded-halting-relation.md) — 无时间界停机关系与最终输出
 

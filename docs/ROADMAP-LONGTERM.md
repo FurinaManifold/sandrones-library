@@ -186,7 +186,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | `codex/number-theory-wave-r1`（Wave R1） | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | ✅ 已完成并集成（2026-10-13，`2cca2c0`–`58ceda2`） | `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
-| D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
+| D7 集合论 ST3 纵深 | `codex/settheory-wave-r1`（Wave R1） | `primitive-recursive-class`、`universal-machine-instance`（2/4 已交付） | 🚧 部分完成：上述两条 ✅ 已集成（2026-10-13，`4cea0cb`–`1ce42ae`）；`hereditary-encoding-order`、`hydra-general-descent` 仍 🚧 | 各自独立文件；不改已集成 Goodstein 状态文件 | 🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
 | D8 概率 Pr3.5 一般 CLT | `codex/probability-wave-r1`（Wave R1） | `probability.clt.central-limit-theorem` | ✅ 已完成并集成（2026-10-13，`dbba195`–`58d97b8`） | 未占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥已完成；未用 Mathlib 最终 CLT 冒充课程证明链。D8 原标 `research_open` 针对的“任意点态特征函数极限存在性”子问题仍未解，但既有接口上的开发交付已通过 |
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
 | D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | 🔒 冻结（2026-10-13 用户指示暂停；恢复须显式解冻） | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
@@ -586,7 +586,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
 | R-statistics | 统计推断 | S1🚧（S2🔒） | `Statistics/`、`docs/entries/statistics/` |
 | R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
-| R-settheory | 集合论深化 | ST2/ST3🚧 | `SetTheory/`、`docs/entries/settheory/` |
+| R-settheory | 集合论深化 | ST2✅/ST3🚧（primitive-recursive-class、universal-machine-instance ✅ 已集成） | `SetTheory/`、`docs/entries/settheory/` |
 | R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
 | R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
 | ~~R-world~~ | 世界式书稿 | WF1🔒（2026-10-13 暂停，不派工） | —（窗口已关闭） |
@@ -1568,7 +1568,7 @@ G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 
 | # | 待开发条目 | 需要补齐的内容 | 状态 |
 |---|---|---|---|
-| 1 | `settheory.googology.primitive-recursive-class` | 冻结原始递归函数类并证明闭包 | 🚧 |
+| 1 | `settheory.googology.primitive-recursive-class` | ✅ 冻结原始递归函数类（教科书 `Nat.Primrec'` 承载）并证明有界和／有界积／迭代闭包；Ackermann 非原始递归与无界 μ 仍 🔒（Wave R1 `c424c95`） | ✅ |
 | 2 | `settheory.googology.ackermann-domination` | 支配全部原始递归函数及非原始递归性 | 🔒 |
 | 3 | `settheory.googology.hereditary-encoding-order` | 已有全局严格保序、底数幂精确秩、`B^(B^k)` 参数族借位与规范状态；继续证明一般换底重编码保持 `omegaValue` | 🚧 |
 | 4 | `settheory.googology.goodstein-ordinal-descent` | 从局部借位推广到一般正规 Goodstein 步骤 | 🔒 |
@@ -1576,7 +1576,7 @@ G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 | 6 | `settheory.googology.goodstein-pa-independence` | 精确形式化 PA 不可证性边界 | 🔒 |
 | 7 | `settheory.googology.hydra-general-descent` | 消除最右脊柱证书限制，覆盖一般游戏步骤 | 🚧 |
 | 8 | `settheory.googology.hydra-termination` | 一般 Hydra 游戏终止及强度边界 | 🔒 |
-| 9 | `settheory.computability.universal-machine-instance` | 为当前 `NatProgram` 构造通用 runner | 🚧 |
+| 9 | `settheory.computability.universal-machine-instance` | ✅ 为当前 `NatProgram` 构造通用 runner（编码／解码／`universalNatInterpreter`／输出等价；noncomputable 元层，不含自解释器与停机判定，Wave R1 `c424c95`） | ✅ |
 | 10 | `settheory.computability.diagonal-flip-instance` | 实现并验证翻转编译闭包 | 🔒 |
 | 11 | `settheory.computability.halting-undecidable` | 去除结构参数的停机不可判定定理 | 🔒 |
 | 12 | `settheory.googology.busy-beaver-uncomputable` | 从停机问题完成不可计算性归约 | 🔒 |
