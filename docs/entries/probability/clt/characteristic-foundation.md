@@ -6,7 +6,7 @@ kind: theorem
 state: verified
 title: 中心极限定理的特征函数基础链
 summary: 由独立和乘积、二阶 Taylor 小量与 Lévy 定理证明标准化 iid 和律弱收敛到标准正态
-premises: [probability.characteristic-function.levy-continuity, probability.law-large-numbers.strong]
+premises: [probability.characteristic-function.levy-continuity]
 mathlib: [ProbabilityTheory.iIndepFun.charFun_map_fun_finsetSum_eq_prod, MeasureTheory.taylor_charFun_two, MeasureTheory.charFun_gaussianReal]
 provenance:
   source_type: book

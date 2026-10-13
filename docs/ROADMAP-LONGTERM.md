@@ -161,10 +161,10 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 
 | 顺序 | 学科 staging | 交付 commit | 范围 | 待接收凭据 |
 |---|---|---|---|---|
-| 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | `../review-inbox/probability/probability-pr3-levy-clt-foundation-ready.md` |
-| 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | `../review-inbox/probability/statistics-s1-sufficiency-ready.md` |
+| 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | ✅ 已于 2026-10-13 集成（`8d98886`，裁决见 `docs/reviews/probability-levy-clt-foundation-main-review.md`） |
+| 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | ✅ 已于 2026-10-13 集成（`3a15393`，裁决见 `docs/reviews/statistics-sufficiency-main-review.md`） |
 | 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | ✅ 已于 2026-10-13 集成（`046e9f9`／`4ec485d`／`59ca250`，Main 集成提交 `1762942`） |
-| 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | `docs/world-formula/reviews/wf1-02-cantor-theorem-*.md` |
+| 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | ⏸ 暂缓：交付仍留在 `codex/world-formula`，未接收；恢复时按纯文本批次审稿 |
 
 1–3 按数学批次验收：语义 diff → 独立复验模块与联合导入 → 合并 → 共有文件 → 生成器／公理审计／
 `audit.py`／一次全库 `lake build` → 独立 Main 集成提交。4 为纯文本批次，先核对逐断言数学审稿，
@@ -182,7 +182,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 待本窗验收 |
 | D6 数论 N2.1–N2.3 | 新建 `codex/number-theory-algebraic` | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | `development_open` | 新建 `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
 | D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
-| D8 概率 Pr3.5 一般 CLT | 待 D-0 第 1 项集成后 | `probability.central-limit-theorem` | `research_open` | 不占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥的调查；不得用 Mathlib 最终 CLT 冒充课程证明链 |
+| D8 概率 Pr3.5 一般 CLT | `codex/probability`（已可开工） | `probability.central-limit-theorem` | `research_open` | 不占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥的调查；不得用 Mathlib 最终 CLT 冒充课程证明链 |
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
 | D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | `development_open` | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
 
@@ -997,7 +997,10 @@ F6.5--F6.10 仍按教材依赖门推进；
 `probability.convergence.modes` 已集成，完成四种教材展开、经典单向蕴含、a.s. 子列与连续映射
 消费者。弱大数律已经沿 iid、同分布、二阶矩、有限和方差与 Chebyshev 夹逼证明链完成并集成。
 强大数律已经以两两独立／iid 双层接口和一阶可积条件完成，Entry 完整解释 Etemadi 截断证明地图。
-特征函数现为 `research_open`，只调查定义、基本连续性、乘积公式与分布唯一性接口；CLT 继续冻结。
+特征函数 4、Lévy 连续性接口 4b1 与 CLT 特征函数基础链 4b2 均已集成并 `verified`：4b1 固定“已知目标
+概率测度”版本，任意点态极限版本只推出 tightness；4b2 限中心零、二阶矩一，且不 import 或调用 Mathlib
+最终 CLT。一般均值方差 CLT、退化方差边界与随机变量层 `TendstoInDistribution` 桥仍为 `research_open`
+（见 §1.2 窗口 D8）。
 
 统计 S1 的模型／密度审计已完成：正式模型采用 `Kernel Θ 𝓧` 与 `IsMarkovKernel`，联合可测 likelihood
 采用 `Kernel.rnDeriv` 而非逐参数 `Measure.rnDeriv`。`statistics.model.definition` 已集成；支配
@@ -1005,10 +1008,11 @@ F6.5--F6.10 仍按教材依赖门推进；
 随机化估计量主 carrier，可测函数经 deterministic kernel 接入；损失和风险复用
 `avgRisk`／`bayesRisk` 等正式接口。偏差—方差分解现为 `research_open`，仅调查实值估计量的二阶矩、
 偏差—方差分解已经沿 Markov estimator 输出律完成一般概率测度的均方误差恒等式及 ENNReal 风险
-消费者并集成。相合性的共同观测空间估计量序列、逐参数／一致相合量词与 `L² →` 概率充分条件已
-完成审计，现为 `development_open`；MLE、Fisher 信息与一般估计定理继续冻结。
+消费者并集成。相合性的共同观测空间估计量序列、逐参数／一致相合量词与 `L² →` 概率充分条件已完成
+并集成；充分统计量定义、参数无关条件律与 Blackwell 重构桥也已集成（`statistics.sufficiency.definition`），
+一般 Neyman--Fisher 双向定理、矩估计、MLE、Fisher 信息与 Cramér--Rao 继续冻结。
 
-### Pr3 极限定理 🔒（依赖 Pr1/Pr2）
+### Pr3 极限定理 🚧（依赖 Pr1/Pr2；Pr3.1–Pr3.4b2 已集成，一般 CLT 待开发）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -1016,9 +1020,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 2 | `probability.law-large-numbers.weak` | 弱大数律 ✅ | iid variance bounds |
 | 3 | `probability.law-large-numbers.strong` | 强大数律 ✅ | Etemadi truncation、a.e. convergence |
 | 4 | `probability.characteristic-function` | 实值特征函数、基本性质、独立和乘积与分布唯一性 ✅ | `charFun (μ.map X)`、`Measure.ext_of_charFun` |
-| 4b1 | `probability.characteristic-function.levy-continuity` | 已知目标概率测度版 Lévy 连续性接口（`development_open`） | `ProbabilityMeasure.tendsto_iff_tendsto_charFun`；解释任意点态极限仍需零点连续性与紧性 |
-| 4b2 | `probability.clt.characteristic-foundation` | iid 归一化和特征函数幂公式、二阶 Taylor 极限与标准正态弱收敛（`development_open`） | 不调用 Mathlib 最终 CLT；首版限中心零、二阶矩一 |
-| 5 | `probability.central-limit-theorem` | 一般 iid 中心极限定理（`research_open`） | 调查任意均值方差的中心化标准化、退化方差边界与随机变量分布收敛桥 |
+| 4b1 | `probability.characteristic-function.levy-continuity` | 已知目标概率测度版 Lévy 连续性接口 ✅ | `ProbabilityMeasure.tendsto_iff_tendsto_charFun`；解释任意点态极限仍需零点连续性与紧性 |
+| 4b2 | `probability.clt.characteristic-foundation` | iid 归一化和特征函数幂公式、二阶 Taylor 极限与标准正态弱收敛 ✅ | 不调用 Mathlib 最终 CLT；首版限中心零、二阶矩一 |
+| 5 | `probability.central-limit-theorem` | 一般 iid 中心极限定理（`research_open`，见窗口 D8） | 调查任意均值方差的中心化标准化、退化方差边界与随机变量分布收敛桥 |
 
 ## 10. Phase 9 — 统计推断（S1-S2）
 
@@ -1036,7 +1040,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 2 | `statistics.estimator.definition` | 统计量、估计量与风险 ✅ | 可测映射、Markov kernel、风险积分 |
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 ✅ | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 共同观测空间上的逐参数相合与 `L²` 充分条件 ✅ | Pr3、`TendstoInMeasure` |
-| 5 | `statistics.sufficiency.definition` | 充分统计量与重构入口（`development_open`） | 以共同正规条件核定义充分性；Blackwell 重构为后续刻画；首批只做定义、重构桥与有限离散消费者，一般 Neyman--Fisher 定理继续研究 |
+| 5 | `statistics.sufficiency.definition` | 充分统计量与重构入口 ✅ | 以共同正规条件核定义充分性；Blackwell 重构为后续刻画；首批只做定义、重构桥与有限离散消费者，一般 Neyman--Fisher 定理继续研究 |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |
 | 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
 | 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |

@@ -3370,3 +3370,46 @@
 - **出处**：Mathlib 的完备空间与收敛接口。
 - **谁在用**：`functional-analysis.condensation.divergence` 的极限形式：各行值域完备时，把
   “非 Cauchy”转写为“不存在值域内的极限”。
+
+## Lévy 连续性与 CLT 特征函数基础
+
+### `ProbabilityMeasure.tendsto_iff_tendsto_charFun` / `isTightMeasureSet_of_tendsto_charFun`
+- **人话**：前者把概率测度的弱收敛准确刻画为特征函数在每个实参数处逐点收敛到目标测度的特征函数；
+  后者在“点态极限函数在零点连续”的前提下只推出测度族紧，并不保证极限概率测度已存在。
+- **出处**：Mathlib 的 Lévy 连续性定理与紧测度族接口。
+- **谁在用**：`probability.characteristic-function.levy-continuity`。已知目标测度版本无需额外连续性
+  前提；任意极限函数版本必须保留 `ContinuousAt f 0`，否则不能声称极限分布存在。
+
+### `iIndepFun.charFun_map_fun_finsetSum_eq_prod` / `charFun_map_mul_comp`
+- **人话**：独立随机变量有限和的特征函数等于各因子特征函数之积；标量缩放移到特征函数参数上。
+- **出处**：Mathlib 的独立性、特征函数与缩放接口。
+- **谁在用**：`probability.clt.characteristic-foundation` 的 `normalizedSum_charFun_eq_pow`，把 iid
+  归一化和的特征函数化为单项特征函数的 `n` 次幂。
+
+### `taylor_charFun_two` / `tendsto_pow_exp_of_isLittleO_sub_add_div`
+- **人话**：前者给出中心零、二阶矩一时特征函数在零点的二阶展开 `φ(u)=1-u²/2+o(u²)`；后者把这个
+  小量稳定地传到 `n` 次幂的指数极限，而不是把 `o(1/n)` 当作可逐项忽略的普通等式。
+- **出处**：Mathlib 的特征函数 Taylor 展开与幂极限接口。
+- **谁在用**：`probability.clt.characteristic-foundation` 的
+  `centeredVarianceOne_charFun_pow_tendsto`；只要求二阶矩，不要求三阶矩。
+
+### `charFun_gaussianReal` / `gaussianReal`
+- **人话**：标准正态分布的特征函数是 `exp(-t²/2)`，因此上一步的点态极限确实是一个已知概率测度的
+  特征函数，可与 Lévy iff 的反向对接。
+- **出处**：Mathlib 的实高斯分布与特征函数接口。
+- **谁在用**：`probability.clt.characteristic-foundation` 的
+  `normalizedSum_probabilityMeasure_tendsto_standardGaussian`。
+
+### `condDistrib` / `condDistrib_comp_map`
+- **人话**：`condDistrib id S (P θ)` 给出完整样本在给定统计量 `S` 后的正规条件分布 kernel；
+  `condDistrib_comp_map` 说明它与统计量边缘分布复合后恰好还原原样本分布。
+- **出处**：Mathlib 的正规条件分布与 kernel 复合接口。
+- **谁在用**：`statistics.sufficiency.definition`。充分性用参数无关 kernel 在统计量分布下 a.e. 相等
+  来定义；重构桥再用上述复合恒等式推出 Blackwell 重构。
+
+### `Kernel` / `IsMarkovKernel` / `Kernel.deterministic`
+- **人话**：Markov kernel 是参数到概率测度的可测族，`IsMarkovKernel` 保证每个纤维都是概率测度，
+  `Kernel.deterministic` 把可测函数打包成确定性 kernel。
+- **出处**：Mathlib 的 kernel 与 Markov kernel 接口。
+- **谁在用**：`statistics.sufficiency.definition` 的条件分布、重构 kernel 与有限离散原型；
+  `statistics.estimator.definition` 同样用它承载随机化估计量。

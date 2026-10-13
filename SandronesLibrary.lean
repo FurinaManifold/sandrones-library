@@ -333,11 +333,14 @@ import SandronesLibrary.Probability.Convergence
 import SandronesLibrary.Probability.WeakLaw
 import SandronesLibrary.Probability.StrongLaw
 import SandronesLibrary.Probability.CharacteristicFunction
+import SandronesLibrary.Probability.LevyContinuity
+import SandronesLibrary.Probability.CLTCharacteristicFoundation
 import SandronesLibrary.Statistics.Model
 import SandronesLibrary.Statistics.Density
 import SandronesLibrary.Statistics.Estimator
 import SandronesLibrary.Statistics.BiasVariance
 import SandronesLibrary.Statistics.Consistency
+import SandronesLibrary.Statistics.Sufficiency
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **567** 个条目（verified 567，pending 0）。
+共 **570** 个条目（verified 570，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -522,6 +522,14 @@
 
 - ✅ [`characteristic-function.md`](probability/characteristic-function.md) — 实值随机变量的特征函数
 
+## `probability.characteristic-function`
+
+- ✅ [`levy-continuity.md`](probability/characteristic-function/levy-continuity.md) — Lévy 连续性定理
+
+## `probability.clt`
+
+- ✅ [`characteristic-foundation.md`](probability/clt/characteristic-foundation.md) — 中心极限定理的特征函数基础链
+
 ## `probability.conditional-expectation`
 
 - ✅ [`definition.md`](probability/conditional-expectation/definition.md) — 条件期望的定义与刻画
@@ -775,6 +783,10 @@
 
 - ✅ [`definition.md`](statistics/model/definition.md) — 统计模型
 - ✅ [`density.md`](statistics/model/density.md) — 支配统计模型与联合可测密度
+
+## `statistics.sufficiency`
+
+- ✅ [`definition.md`](statistics/sufficiency/definition.md) — 充分统计量与参数无关条件律
 
 ## `topology`
 

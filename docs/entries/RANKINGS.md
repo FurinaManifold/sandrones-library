@@ -10,36 +10,36 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 
 | # | 条目 | 标题 | 指标 |
 |---:|---|---|---:|
-| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.13 |
-| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 96.91 |
-| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.61 |
-| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.47 |
-| 5 | `complex-analysis.integral.path` | 复路径与路径积分 | 94.10 |
-| 6 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 94.00 |
-| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.91 |
-| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.77 |
-| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.71 |
-| 10 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.16 |
-| 11 | `analysis.series.basic` | 数项级数基础 | 91.73 |
-| 12 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 91.65 |
-| 13 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.57 |
-| 14 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.56 |
-| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.06 |
-| 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.81 |
+| 1 | `topology.normed-space.def` | 赋范线性空间与Banach空间 | 99.14 |
+| 2 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 96.90 |
+| 3 | `settheory.ordinal.exponentiation` | 序数幂的后继递推 | 94.63 |
+| 4 | `topology.foundation.real-line` | 标准实拓扑与单位区间的正式承载 | 94.46 |
+| 5 | `abstract-algebra.ring.def` | 环、单位、子环与环同态 | 93.99 |
+| 6 | `complex-analysis.integral.path` | 复路径与路径积分 | 93.99 |
+| 7 | `topology.homotopy.path-homotopy-standard` | 标准道路同伦与端点固定 | 93.89 |
+| 8 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 92.75 |
+| 9 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 92.62 |
+| 10 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 92.15 |
+| 11 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 91.68 |
+| 12 | `analysis.series.basic` | 数项级数基础 | 91.61 |
+| 13 | `topology.homotopy.homotopy-square-grid` | 道路同伦方形与一致网格边 | 91.59 |
+| 14 | `abstract-algebra.group.def` | 子群判定与基本性质 | 91.56 |
+| 15 | `abstract-algebra.field.extension` | 域扩张、生成中间域、代数元与最小多项式 | 91.05 |
+| 16 | `abstract-algebra.ring.divisibility` | 整除、相伴、不可约元、素元与最大公因子 | 90.71 |
 | 17 | `abstract-algebra.poly.def` | 多项式的有限支撑系数语义与 Lean 承载 | 90.69 |
-| 18 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.20 |
-| 19 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.50 |
-| 20 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.28 |
-| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.07 |
-| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.52 |
-| 23 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.50 |
-| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.71 |
-| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.63 |
-| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.41 |
-| 27 | `settheory.set.ext` | 外延性原理 | 87.22 |
-| 28 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 87.10 |
+| 18 | `real-analysis.riemann.def` | 黎曼积分定义 | 90.18 |
+| 19 | `linear-algebra.matrix.orthogonal-unitary` | 正交矩阵与酉矩阵 | 89.52 |
+| 20 | `abstract-algebra.field.degree` | 域扩张次数、有限扩张与塔式公式 | 89.30 |
+| 21 | `functional-analysis.baire.theorem` | Banach 空间上的 Baire 范畴定理 | 89.05 |
+| 22 | `functional-analysis.weak-star.banach-dieudonne` | Banach–Dieudonné 弱星闭性判据 | 88.54 |
+| 23 | `topology.fundamental-group.van-kampen-cover-subdivision` | 二开集覆盖下的有限带标签道路细分 | 88.47 |
+| 24 | `complex-analysis.cauchy.formula` | Cauchy 积分公式 | 87.72 |
+| 25 | `settheory.googology.bounded-halting` | 限定步数停机 | 87.62 |
+| 26 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 87.39 |
+| 27 | `settheory.set.ext` | 外延性原理 | 87.21 |
+| 28 | `functional-analysis.banach-alaoglu` | Banach–Alaoglu 定理 | 87.06 |
 | 29 | `linear-algebra.det.mul` | 积的行列式 | 87.04 |
-| 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.68 |
+| 30 | `analysis.mvt.lagrange` | 拉格朗日中值定理 | 86.72 |
 
 ## 教材枢纽榜（加权直接引用）
 
@@ -107,9 +107,9 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 25 | `abstract-algebra.ring.ideal` | 理想的定义与基本运算 | 9.625 |
 | 26 | `functional-analysis.bidual.reflexive` | 典范双对偶嵌入与自反性 | 9.531 |
 | 27 | `real-analysis.measure.measurable-function` | 可测函数 | 9.125 |
-| 28 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
-| 29 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
-| 30 | `settheory.ordinal.order-type` | 良序与序型 | 8.562 |
+| 28 | `probability.space.definition` | 概率空间与事件 | 8.938 |
+| 29 | `analysis.derivative.const` | 常数/线性函数导数 | 8.906 |
+| 30 | `analysis.derivative.chain-rule` | 链式法则 | 8.875 |
 
 ## 跨学科桥梁榜
 
@@ -123,14 +123,14 @@ Lean 使用采用去注释后的主声明文本扫描；短名碰撞时该项记
 | 6 | `real-analysis.riemann.eq-lebesgue` | 黎曼积分值 = Lebesgue 区间积分 | 1.750 |
 | 7 | `topology.metric.def` | 度量空间与开球 | 1.750 |
 | 8 | `linear-algebra.det.mul` | 积的行列式 | 1.500 |
-| 9 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 1.500 |
-| 10 | `analysis.continuity.uniform` | 一致连续 | 1.250 |
-| 11 | `analysis.continuity.uniform-compact` | 紧集上连续 ⟹ 一致连续 | 1.250 |
-| 12 | `analysis.derivative.const` | 常数/线性函数导数 | 1.250 |
-| 13 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 1.250 |
-| 14 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 1.250 |
-| 15 | `probability.distribution.pushforward` | 分布作为推前测度 | 1.250 |
-| 16 | `probability.expectation.definition` | 期望与可积性 | 1.250 |
+| 9 | `probability.expectation.definition` | 期望与可积性 | 1.500 |
+| 10 | `topology.homotopy.unit-interval-mesh` | 单位区间的一致有限网格 | 1.500 |
+| 11 | `analysis.continuity.uniform` | 一致连续 | 1.250 |
+| 12 | `analysis.continuity.uniform-compact` | 紧集上连续 ⟹ 一致连续 | 1.250 |
+| 13 | `analysis.derivative.const` | 常数/线性函数导数 | 1.250 |
+| 14 | `analysis.special-functions.basic` | 初等特殊函数基础性质 | 1.250 |
+| 15 | `complex-analysis.holomorphic.definition` | 复可微与集合上全纯 | 1.250 |
+| 16 | `probability.distribution.pushforward` | 分布作为推前测度 | 1.250 |
 | 17 | `probability.variable.definition` | 随机变量与可测性 | 1.250 |
 | 18 | `real-analysis.measure.lintegral` | 非负积分（lintegral） | 1.250 |
 | 19 | `real-analysis.riemann.cont-integrable` | 连续函数黎曼可积 | 1.250 |

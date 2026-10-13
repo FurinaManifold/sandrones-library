@@ -17136,7 +17136,8 @@
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
       "probability.conditional-expectation.independence",
-      "probability.conditional-expectation.tower"
+      "probability.conditional-expectation.tower",
+      "statistics.sufficiency.definition"
     ],
     "family": "probability.conditional-expectation",
     "variant": "textbook",
@@ -18183,7 +18184,9 @@
     "nl_file": "docs/entries/statistics/model/density.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "statistics.sufficiency.definition"
+    ],
     "family": "statistics.model",
     "variant": "textbook",
     "axioms": [
@@ -18217,7 +18220,8 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
-      "statistics.estimator.bias-variance"
+      "statistics.estimator.bias-variance",
+      "statistics.sufficiency.definition"
     ],
     "family": "statistics.estimator",
     "variant": "textbook",
@@ -18672,7 +18676,9 @@
     "nl_file": "docs/entries/probability/characteristic-function.md",
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.characteristic-function.levy-continuity"
+    ],
     "family": "probability.characteristic-function",
     "variant": "textbook",
     "axioms": [
@@ -18761,5 +18767,105 @@
       "propext"
     ],
     "proof_sha": "509221aa648ff264"
+  },
+  {
+    "id": "probability.characteristic-function.levy-continuity",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "Lévy 连续性定理",
+    "summary": "以特征函数逐点收敛刻画实概率测度的弱收敛，并区分任意点态极限的紧性结论",
+    "premises": [
+      "probability.characteristic-function"
+    ],
+    "mathlib": [
+      "MeasureTheory.ProbabilityMeasure.tendsto_iff_tendsto_charFun",
+      "MeasureTheory.isTightMeasureSet_of_tendsto_charFun"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/LevyContinuity.lean",
+    "nl_file": "docs/entries/probability/characteristic-function/levy-continuity.md",
+    "added_by": "main-integration",
+    "added_at": "2026-10-13T00:00:00Z",
+    "dependedOnBy": [
+      "probability.clt.characteristic-foundation"
+    ],
+    "family": "probability.characteristic-function",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "d28076c8f5816389"
+  },
+  {
+    "id": "probability.clt.characteristic-foundation",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "中心极限定理的特征函数基础链",
+    "summary": "由独立和乘积、二阶 Taylor 小量与 Lévy 定理证明标准化 iid 和律弱收敛到标准正态",
+    "premises": [
+      "probability.characteristic-function.levy-continuity"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.iIndepFun.charFun_map_fun_finsetSum_eq_prod",
+      "MeasureTheory.taylor_charFun_two",
+      "MeasureTheory.charFun_gaussianReal"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "lean_file": "Probability/CLTCharacteristicFoundation.lean",
+    "nl_file": "docs/entries/probability/clt/characteristic-foundation.md",
+    "added_by": "main-integration",
+    "added_at": "2026-10-13T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "probability.clt",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "789dfcf6930310f4"
+  },
+  {
+    "id": "statistics.sufficiency.definition",
+    "kind": "definition",
+    "state": "verified",
+    "title": "充分统计量与参数无关条件律",
+    "summary": "以共同正规条件分布定义充分统计量，并建立重构桥和有限归一化因子分解消费者",
+    "premises": [
+      "statistics.model.density",
+      "statistics.estimator.definition",
+      "probability.conditional-expectation.definition"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.condDistrib",
+      "ProbabilityTheory.condDistrib_comp_map",
+      "ProbabilityTheory.Kernel",
+      "ProbabilityTheory.IsMarkovKernel"
+    ],
+    "provenance": {
+      "source_type": "book",
+      "ref": "schervish-theory-statistics-1995"
+    },
+    "lean_file": "Statistics/Sufficiency.lean",
+    "nl_file": "docs/entries/statistics/sufficiency/definition.md",
+    "added_by": "main-integration",
+    "added_at": "2026-10-13T00:00:00Z",
+    "dependedOnBy": [],
+    "family": "statistics.sufficiency",
+    "variant": "textbook",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "proof_sha": "4973e699941fe3d5"
   }
 ]
