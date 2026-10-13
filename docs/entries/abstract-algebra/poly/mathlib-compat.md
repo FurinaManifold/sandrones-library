@@ -34,6 +34,12 @@ provenance:
 `dvd_X_sub_C_iff_isRoot`、`poly_is_domain_of_is_domain`、`poly_isUnit_iff`、
 `mem_roots_iff_isRoot` 与 `root_mul_iff`。
 
+此外，本条目接手了由旧 `Poly.lean` 不可约性块重归的历史包装：
+`irreducible_mul_iff`、`irreducible_X_sub_C`、`irreducible_X`、
+`irreducible_of_degree_eq_one`、`modByMonic_eq_zero_iff_dvd`、`degree_modByMonic_lt`。
+它们是不可约性与带余除法的历史兼容入口，其规范版本现由
+`abstract-algebra.poly.irreducible`（`PolynomialIrreducibility.lean`）承载。
+
 # 思维脉络（thinking trace）
 
 这些结论直接转交 Mathlib 已验证 API；独立 Entry 使 Registry 和审计不会把它们误判为新的教材

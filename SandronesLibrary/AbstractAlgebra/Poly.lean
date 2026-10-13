@@ -10,9 +10,12 @@ import Mathlib
 
 本文件当前条目（引理清单，§0 铁律4：一次一条，逐条编译）：
 
-* **abstract-algebra.poly.mathlib-compat**（历史 Mathlib 多项式兼容接口）✅。
-* **abstract-algebra.poly.irreducible**（不可约判据/X-a不可约/X不可约/次数1不可约/带余除法/余式次数）✅。
+* **abstract-algebra.poly.mathlib-compat**（历史 Mathlib 多项式兼容接口；含由旧 `Poly.lean`
+  不可约性/带余除法块重归的历史包装）✅。
 * **abstract-algebra.poly.roots-card**（根属于根集/乘积的根/根个数≤次数）✅。
+
+> 不可约性的规范条目位于 `SandronesLibrary/AbstractAlgebra/PolynomialIrreducibility.lean`；
+> 本文件不再承载该 Entry。
 
 > **语言说明**：抽象代数阶段（§Phase3）允许直接用 mathlib 的 `Polynomial`/`Irreducible`/
 > `EuclideanDomain` 等教材结构；`Module` 仍不允许（线性代数已用 LinearSpace 承载）。
@@ -59,42 +62,42 @@ theorem poly_isUnit_iff {R : Type*} [Semiring R] [NoZeroDivisors R] (p : R[X]) :
   exact Polynomial.isUnit_iff
 
 /-- **不可约的教材判据**：p 不可约 ⟹ 若 p = a·b，则 a 或 b 是单位。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem irreducible_mul_iff {M : Type*} [Monoid M] {p : M} (hp : Irreducible p)
     {a b : M} (hab : p = a * b) : IsUnit a ∨ IsUnit b := by
   exact hp.isUnit_or_isUnit hab
 
 /-- **X − a 不可约**：一次因式 X−a 是不可约多项式。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem irreducible_X_sub_C {R : Type*} [CommRing R] [IsDomain R] (a : R) :
     Irreducible (X - C a) := by
   exact Polynomial.irreducible_X_sub_C a
 
 /-- **X 不可约**：不定元 X 本身是不可约多项式。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem irreducible_X {R : Type*} [CommRing R] [IsDomain R] :
     Irreducible (X : R[X]) := by
   exact Polynomial.irreducible_X
 
 /-- **次数 1 多项式不可约**（域上）：域上的一次多项式是不可约的。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem irreducible_of_degree_eq_one {R : Type*} [Field R] {p : R[X]}
     (hp : p.degree = 1) : Irreducible p := by
   exact Polynomial.irreducible_of_degree_eq_one hp
 
 /-- **带余除法整除判据**：p 被首一多项式 q 整除 ⟺ 余式为 0（`p %ₘ q = 0`）。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem modByMonic_eq_zero_iff_dvd {R : Type*} [Ring R] {p q : R[X]}
     (hq : q.Monic) : p %ₘ q = 0 ↔ q ∣ p := by
   exact Polynomial.modByMonic_eq_zero_iff_dvd hq
 
 /-- **余式次数小于除式**：带余除法中，余式次数严格小于除式次数（欧几里得性质）。 
-> **Entry**: abstract-algebra.poly.irreducible
+> **Entry**: abstract-algebra.poly.mathlib-compat
 -/
 theorem degree_modByMonic_lt {R : Type*} [Ring R] [Nontrivial R] (p : R[X])
     {q : R[X]} (hq : q.Monic) : (p %ₘ q).degree < q.degree := by
