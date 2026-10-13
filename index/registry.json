@@ -18233,6 +18233,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
+      "statistics.maximum-likelihood",
       "statistics.sufficiency.definition"
     ],
     "family": "statistics.model",
@@ -18269,6 +18270,7 @@
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
       "statistics.estimator.bias-variance",
+      "statistics.maximum-likelihood",
       "statistics.sufficiency.definition"
     ],
     "family": "statistics.estimator",
@@ -20447,6 +20449,41 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:57:05Z",
     "proof_sha": "64adc764dc88e545",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "statistics.maximum-likelihood",
+    "kind": "definition",
+    "title": "似然函数与最大似然估计",
+    "summary": "以支配模型的联合可测 Radon–Nikodym 密度承载似然，用几乎处处的 argmax 定义最大似然估计，并建立其订单与存在性性质（不含 ∀θ,Pθ≪ν 支配字段，非支配模型下退化）",
+    "family": "statistics.estimator",
+    "variant": "textbook",
+    "premises": [
+      "statistics.model.density",
+      "statistics.estimator.definition"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.Kernel.rnDeriv",
+      "ProbabilityTheory.Kernel.measurable_rnDeriv",
+      "ProbabilityTheory.Kernel.deterministic",
+      "IsMaxOn",
+      "StrictMono.le_iff_le",
+      "Set.exists_max_image"
+    ],
+    "lean_file": "Statistics/MaximumLikelihood.lean",
+    "nl_file": "docs/entries/statistics/maximum-likelihood.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "schervish-theory-statistics-1995"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:58:58Z",
+    "proof_sha": "f468cb7e9e2cc4ed",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

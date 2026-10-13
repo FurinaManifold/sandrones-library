@@ -3596,3 +3596,21 @@
 - **谁在用**：`settheory.computability.universal-machine-instance`（`encodeNatProgram`／
   `decodeNatProgram` 的编码后端）。**边界**：runner 依赖 `Fintype.equivFin` + `Classical.choice`，
   是 `noncomputable` 元层，不构成自解释器，也不产生停机判定或不可判定性结论。
+
+## 统计推断：似然与最大似然估计（S1 第 7 条，Wave R1）
+
+### `ProbabilityTheory.Kernel.rnDeriv` / `Kernel.measurable_rnDeriv` / `Kernel.deterministic`
+- **人话**：正规条件核的 Radon–Nikodym 导数给出「以参数为条件的密度」，其可测性由
+  `measurable_rnDeriv` 提供；`Kernel.deterministic` 把确定性核（可测映射）接入核语言，
+  使统计量／估计量可以同时作为核与函数看待。
+- **出处**：Mathlib 的 `ProbabilityTheory.Kernel` RN 导数接口。
+- **谁在用**：`statistics.maximum-likelihood`（`likelihood` 的正式承载，以及联合可测性）。
+
+### `IsMaxOn` / `StrictMono.le_iff_le` / `Set.exists_max_image`
+- **人话**：`IsMaxOn f s x` 表示 `x ∈ s` 是 `f` 在 `s` 上的最大值点；`StrictMono.le_iff_le`
+  给出严格单调函数保值序的双向条件；`Set.exists_max_image` 是有限集上最大值点存在性。
+- **出处**：Mathlib 的序与集合极值接口。
+- **谁在用**：`statistics.maximum-likelihood`（`IsMaximumLikelihoodEstimator` 用 `IsMaxOn` 加
+  `ν`-a.e. 量词定义；订单与换参数不变性、有限参数显式可测存在性）。**边界**：谓词不含
+  `∀θ, Pθ ≪ ν` 支配字段，非支配模型（`ν = 0`）下退化；未证可测选择（任意样本空间的可测 argmax），
+  MLE 的相合性／渐近正态性／渐近有效性均未证。

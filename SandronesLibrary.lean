@@ -360,6 +360,7 @@ import SandronesLibrary.Statistics.Estimator
 import SandronesLibrary.Statistics.BiasVariance
 import SandronesLibrary.Statistics.Consistency
 import SandronesLibrary.Statistics.Sufficiency
+import SandronesLibrary.Statistics.MaximumLikelihood
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions

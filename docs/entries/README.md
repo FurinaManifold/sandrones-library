@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **613** 个条目（verified 613，pending 0）。
+共 **614** 个条目（verified 614，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -832,6 +832,10 @@
 ## `settheory.zorn`
 
 - ✅ [`zorn.md`](settheory/zorn/zorn.md) — Zorn 引理
+
+## `statistics`
+
+- ✅ [`maximum-likelihood.md`](statistics/maximum-likelihood.md) — 似然函数与最大似然估计
 
 ## `statistics.estimator`
 

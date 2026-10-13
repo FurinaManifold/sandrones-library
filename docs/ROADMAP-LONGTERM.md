@@ -584,7 +584,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-complex | 复分析 | C2🚧（C3⏸） | `ComplexAnalysis/`、`docs/entries/complex-analysis/` |
 | R-functional | 泛函分析 | F6🚧（F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
 | R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
-| R-statistics | 统计推断 | S1🚧（S2🔒） | `Statistics/`、`docs/entries/statistics/` |
+| R-statistics | 统计推断 | S1🚧（S1 第 7 条 ✅ 已集成；S2🔒） | `Statistics/`、`docs/entries/statistics/` |
 | R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
 | R-settheory | 集合论深化 | ST2✅/ST3🚧（primitive-recursive-class、universal-machine-instance ✅ 已集成） | `SetTheory/`、`docs/entries/settheory/` |
 | R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
@@ -1418,7 +1418,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 4 | `statistics.estimator.consistency` | 共同观测空间上的逐参数相合与 `L²` 充分条件 ✅ | Pr3、`TendstoInMeasure` |
 | 5 | `statistics.sufficiency.definition` | 充分统计量与重构入口 ✅ | 以共同正规条件核定义充分性；Blackwell 重构为后续刻画；首批只做定义、重构桥与有限离散消费者，一般 Neyman--Fisher 定理继续研究 |
 | 6 | `statistics.method-of-moments` | 矩估计 | moments |
-| 7 | `statistics.maximum-likelihood` | 似然与 MLE | density/Radon–Nikodym |
+| 7 | `statistics.maximum-likelihood` | ✅ 似然函数与最大似然估计（Wave R1）：RN 密度承载似然、`IsMaximumLikelihoodEstimator` 用 a.e. argmax 定义并给出订单／存在性；未含支配字段，可测选择与相合性／渐近正态性未证 | `Kernel.rnDeriv`、`IsMaxOn` |
 | 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |
 
 ### S2 检验与回归 🔒（依赖 S1）
