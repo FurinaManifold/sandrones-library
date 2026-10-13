@@ -443,6 +443,44 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
 - **失败回退**：数学或定义层问题退回对应学科负责人；共有文件冲突由 main 语义合并；其他学科
   的无关 linter 警告记录但不混入当前修复提交。
 
+#### Wave E：登记完整性维护波（2026-10-13 起，基线 Main `c58dd2f`）
+
+本波不是新课程开发，而是按 `docs/roles/SUBJECT-MAINTENANCE-ROLE.md` 修复 D-4 第 4 项记录的
+**登记完整性缺陷**。Main 已在基线 `c58dd2f` 上重新验证全部缺陷仍然存在（验证脚本与判据见 D-4 第 4 项）。
+**每个维护窗口的第一份交付必须是 `docs/maintenance/<subject>-<topic>.md` RFC**：先给只读影响图
+（直接引用者、typeclass／notation／simp 影响、imports 闭包、`premises`／`dependedOnBy`、RADAR 谁在用），
+再动源码；没有影响图不得修改高扇出公开定义。
+
+| 窗口 | 维护分支／worktree | 职责范围（文件所有权） | 权限 |
+|---|---|---|---|
+| E1 线性代数 | `codex/linear-algebra-maintenance` / `sandrones-library-linear-algebra` | ① `linear-algebra.vector-space.dimension` 幽灵 verified Entry：Registry 与文档在、**源码无任何声明**，且被 `linear-algebra.maps.rank-nullity` 当 `premises` 引用 ② `linear-algebra.matrix.normal` 标记横跨 `NormalMatrix.lean` + `NormalSpectral.lean` ③ 11 个无 Entry 标记却参与全库构建的模块：`Coordinates`、`Diagonalization`、`Jordan`／`JordanDecomposition`／`JordanMatrix`／`JordanNormalForm`／`JordanSimilarity`／`JordanUniqueness`、`MatrixDecomposition`、`MatrixElimination`、`SubspaceSumQuotient` ④ 4 个 orphan 文档：`linear-algebra.{coordinates.change-basis, eigen.diagonalization, eigen.jordan, vector-space.sum-quotient}` | 维护 🚧 |
+| E2 数学分析 | `codex/analysis-registry-maintenance` / `sandrones-library-analysis-registry` | ① `analysis.derivative.definition` 有源码标记与文档、ROADMAP 记 ✅，但 **Registry 无记录**，且其文档 `provenance.ref` 写成中文自由文本而非 `reference.bib` key ② 10 个无标记模块：`Analysis/{ChangeOfVariables, Complex, ConstantRank, CoordinateIntegrals, FundamentalTheoremAlgebra, JordanRegion, JordanRiemannBridge, MultivariableIntegration, NormalDomain, NormedAlternating}` ③ 9 个 orphan 文档：`analysis.complex.{definition, fundamental-theorem-algebra}`、`analysis.multivariable.{change-variables, constant-rank-theorem, coordinate-integrals, jordan-region, jordan-riemann-bridge, x-normal-domain, rectangle-integral}` | 维护 🚧 |
+| E3 跨学科登记 | `codex/registry-integrity-maintenance` / `sandrones-library-registry-integrity` | 三个**互不重叠的文件分片**（跨学科所有权由 Main 明确授予）：① 实分析 `RealAnalysis/Riemann.lean` —— `real-analysis.riemann.cont-integrable` 的定理真实存在（`:185` `continuous_on_riemannIntegrable_lt`、`:290` `continuous_intervalIntegrable`）但缺标记，现被错算到 `real-analysis.riemann.def` 名下 ② 抽象代数 `AbstractAlgebra/Poly.lean` 与 `AbstractAlgebra/PolynomialIrreducibility.lean` —— `abstract-algebra.poly.irreducible` 标记横跨两文件 ③ 拓扑 `Topology/Closure.lean` 无标记 + orphan 文档 `topology.space.closure`；并判定 `Topology/MathlibBridge.lean`、`SandronesLibrary/Basic.lean` 是否属基础设施（若是须在 RFC 写明并给出长期排除规则） | 维护 🚧 |
+
+**共同裁决原则（Main 已定，维护人不得自行放宽）**：
+
+1. **禁止按文件名猜。** 无标记模块必须逐个判定"已被 `*Standard.lean` 或按分解拆分的模块取代 →
+   申请退役"还是"内容唯一 → 补 Entry 登记"。证据必须来自源码对比（声明清单、库内导入者计数、
+   与已登记 Entry 的重复度），不能只比文件名或行数。
+2. **退役不得顺手做。** 即使判定 superseded，退役也必须满足 SUBJECT-MAINTENANCE-ROLE 阶段 C 的
+   四条（库内旧 API 使用计数为零、下游验收、Main 全库 build 通过、回滚点可追溯），且**必须单独
+   提交**；移除根 `SandronesLibrary.lean` 的 import 属退役提交的一部分，不得混进登记提交。
+3. **幽灵 Entry（D-4 (a)）二选一**：补证（写回真实声明并通过学科验收门）或降级／撤登记。
+   **Main 不替学科发明数学内容**；若降级，必须同时处理 `rank-nullity` 的 `premises` 引用，
+   不得留下悬空前提到已撤条目。
+4. **跨文件 id 一律拆开**：一个 Entry id 只对应一个 Lean 文件。先判定哪个文件的声明属于该 Entry；
+   另一处的标记删除，或另立 id（若另立，按 M3 新 Entry id 处理并为新条目补文档）。
+5. **orphan 文档不得直接删**：先判定是"未登记但内容有效"（补 Registry 记录）还是"已被取代"
+   （随对应退役提交一并申请移除），并给出依据。
+6. 维护人只写学科源码、`docs/entries/`、`docs/maintenance/`、`docs/handoffs/`；`SandronesLibrary.lean`、
+   Registry、RADAR、ROADMAP、`docs/entries/README.md` 等共有文件仍由 Main 更新。
+7. 维护人可派 2–3 个文件所有权不重叠的子 Agent；**同一 worktree 的 git index 与 `.lake/build` 是
+   单写者资源**，子 Agent 不得跑 git 写或并发 `lake`；子 Agent 的"完成"不是验收。
+8. 磁盘仅约 11G，`.lake/packages` 已符号链接到主 worktree：不得跑 `lake update`／`lake exe cache get`，
+   不得删除 worktree 外文件，构建前后查 `df -h /`，低于 3G 立即停止并报告。
+9. 维护人**不运行全库 `lake build`**（Main 职责）。
+
+
 ---
 
 ## 2. Phase 1 — 分析线（M1-M5 ✅；AN3🔒）
