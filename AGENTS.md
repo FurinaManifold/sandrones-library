@@ -68,6 +68,7 @@ Main 共享文件包括：
 - `docs/entries/README.md`、`docs/entries/RANKINGS.md`；
 - `docs/MATHLIB-RADAR.md`、`docs/ROADMAP-*.md`、`docs/LEAN-PLAYBOOK.md`；
 - `docs/world-formula/` 的总目录、跨章规范和 Main-side 最终审稿记录；
+- `docs/subject-packages/`、`docs/releases/`（学科验收包与候选批次发布回执台账）；
 - `README.md`、`AGENTS.md` 及 Main-side 审计/生成工具。
 
 学科 handoff 只提供这些文件的更新建议，不长期维护自己的分叉版本。
@@ -142,6 +143,9 @@ lake build
 4. Entry 声明映射、禁用占位、冲突标记、全局 instance 与公开泄漏扫描；
 5. `git diff --check`，并确保交付成果已提交；
 6. `docs/handoffs/<subject>-<batch>.md` 中如实记录范围、提交、验证、共享更新建议和未完成边界。
+7. 交付前用 `python3 scripts/subject_package.py --worktree <本 worktree> --base <基线> --subject <学科>`
+   自检五组门（清洁／所有权／语义／证明／覆盖），把异常清单写进 handoff；`verdict=pass` 才申请集成。
+   协议与字段见 `docs/SUBJECT-PACKAGE-PROTOCOL.md`。
 
 学科负责人不运行全库 `lake build`，不直接维护 Main 共享文件。精确八段重排、
 front matter 统一、review 归档和 Registry/RADAR/ROADMAP 规范化是 Main 职责；
@@ -157,6 +161,10 @@ Main 的验收顺序：
 4. 数学通过后合并学科提交，由 Main 补共享文档、Examples 巡视和 Git 内 review；
 5. 只在共享状态完成后运行公理、audit、diff 和一次全库构建；
 6. 作独立 Main 集成提交，并确保主工作区清洁。
+
+共享状态与候选批次的机械核对由 `python3 scripts/release_gate.py --package <学科包>` 执行：
+它在候选整体上跑完 §6 流水线并留发布回执；常规、稳定接口内的批次**只审回执中的异常清单**，
+跨学科 API、额外公理、例外与最终发布仍由 Main 判断（协议见 `docs/SUBJECT-PACKAGE-PROTOCOL.md`）。
 
 verdict 只使用：
 
