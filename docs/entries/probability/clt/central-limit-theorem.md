@@ -1,5 +1,5 @@
 ---
-id: probability.central-limit-theorem
+id: probability.clt.central-limit-theorem
 family: probability.clt
 variant: textbook
 kind: theorem

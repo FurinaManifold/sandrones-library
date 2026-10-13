@@ -64,7 +64,7 @@ provenance:
 
 # 上层使用者
 
-`probability.central-limit-theorem` 的
+`probability.clt.central-limit-theorem` 的
 `iid_centeredScaled_clt_tendstoInDistribution` 是本桥的真实使用者：它先用一般 iid CLT 得到
 `ProbabilityMeasure ℝ` 层的弱收敛，再调用本桥的 Gaussian 版本得到随机变量层的
 `TendstoInDistribution`。

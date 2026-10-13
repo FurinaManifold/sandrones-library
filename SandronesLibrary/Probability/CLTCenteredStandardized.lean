@@ -29,7 +29,7 @@ iid 中心极限定理。设 `X₀, X₁, …` 独立同分布、二阶矩有限
 特征函数极限是否仍是特征函数”的存在性问题，也没有 import 或调用 Mathlib 的最终
 `CentralLimitTheorem`。
 
-> **Entry**: probability.central-limit-theorem
+> **Entry**: probability.clt.central-limit-theorem
 -/
 
 namespace SandronesLibrary.Probability

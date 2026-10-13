@@ -18402,6 +18402,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-28T00:00:00Z",
     "dependedOnBy": [
+      "probability.convergence.distribution-bridge",
       "probability.law-large-numbers.strong",
       "probability.law-large-numbers.weak",
       "statistics.estimator.consistency"
@@ -18860,7 +18861,9 @@
     "nl_file": "docs/entries/probability/clt/characteristic-foundation.md",
     "added_by": "main-integration",
     "added_at": "2026-10-13T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "probability.clt.central-limit-theorem"
+    ],
     "family": "probability.clt",
     "variant": "textbook",
     "axioms": [
@@ -20086,5 +20089,76 @@
     "added_at": "2026-10-13T07:20:06Z",
     "dependedOnBy": [],
     "proof_sha": "5914f8abecf76479"
+  },
+  {
+    "id": "probability.clt.central-limit-theorem",
+    "kind": "theorem",
+    "title": "一般 iid 中心极限定理（中心化与标准化）",
+    "summary": "由中心化标准化归约与特征函数基础链证明任意均值、正方差 iid 序列的中心极限定理，并给出退化方差边界与随机变量层分布收敛消费者",
+    "family": "probability.clt",
+    "variant": "textbook",
+    "premises": [
+      "probability.clt.characteristic-foundation",
+      "probability.convergence.distribution-bridge"
+    ],
+    "mathlib": [
+      "ProbabilityTheory.variance",
+      "ProbabilityTheory.variance_eq_integral",
+      "ProbabilityTheory.ae_eq_integral_of_variance_eq_zero",
+      "MeasureTheory.MemLp.integrable",
+      "MeasureTheory.gaussianReal_zero_var",
+      "MeasureTheory.ProbabilityMeasure"
+    ],
+    "lean_file": "Probability/CLTCenteredStandardized.lean",
+    "nl_file": "docs/entries/probability/clt/central-limit-theorem.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:28:13Z",
+    "dependedOnBy": [],
+    "proof_sha": "46d2bef16c14ef33"
+  },
+  {
+    "id": "probability.convergence.distribution-bridge",
+    "kind": "theorem",
+    "title": "分布收敛的随机变量桥",
+    "summary": "把 ProbabilityMeasure ℝ 层的弱收敛与已知极限分布组装成随机变量层的 TendstoInDistribution",
+    "family": "probability.convergence",
+    "variant": "textbook",
+    "premises": [
+      "probability.convergence.modes"
+    ],
+    "mathlib": [
+      "MeasureTheory.TendstoInDistribution",
+      "MeasureTheory.ProbabilityMeasure",
+      "MeasureTheory.Measure.isProbabilityMeasure_map",
+      "MeasureTheory.Measure.map_congr"
+    ],
+    "lean_file": "Probability/DistributionConvergenceBridge.lean",
+    "nl_file": "docs/entries/probability/convergence/distribution-bridge.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "kallenberg-modern-probability-2021"
+    },
+    "state": "verified",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ],
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T07:28:13Z",
+    "dependedOnBy": [
+      "probability.clt.central-limit-theorem"
+    ],
+    "proof_sha": "7127772be4a7ecee"
   }
 ]

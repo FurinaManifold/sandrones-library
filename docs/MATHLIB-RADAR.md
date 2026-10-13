@@ -3527,3 +3527,21 @@
 - **谁在用**：`real-analysis.measure-derivative.absolute-continuity`（`withDensity_absolutelyContinuous`）、
   `real-analysis.measure-derivative.radon-nikodym`（`withDensity_rnDeriv_eq` 等）。**桥**：
   `SignedMeasure.absolutelyContinuous_iff_withDensityᵥ_rnDeriv_eq` 同时跨 RA-F1 与 RA-F2。
+
+## 概率：分布收敛与中心极限定理（Pr3.5）
+
+### `ProbabilityMeasure` 弱收敛 / `TendstoInDistribution`
+- **人话**：概率测度的弱收敛（对每个有界连续函数积分收敛）与随机变量序列的依分布收敛
+  `TendstoInDistribution` 是同一件事的测度侧与变量侧表述；`lawProbabilityMeasure` 把随机变量的
+  分布提升为 `ProbabilityMeasure`。
+- **出处**：Mathlib 的概率测度弱拓扑与依分布收敛接口。
+- **谁在用**：`probability.convergence.distribution-bridge`（桥）、
+  `probability.clt.central-limit-theorem`（随机变量层消费者）。
+
+### `characteristicFunction` / `gaussianReal`
+- **人话**：特征函数 `charFun` 唯一决定概率测度；`gaussianReal μ v` 是均值 μ、方差 v 的高斯测度，
+  其特征函数给出标准正态的极限。
+- **出处**：Mathlib 的特征函数与高斯测度接口。
+- **谁在用**：`probability.clt.central-limit-theorem`（一般 iid CLT 经由特征函数收敛证明弱收敛到
+  `gaussianReal 0 1`；退化方差走 `gaussianReal 0 0`）。**边界**：本库未调用 Mathlib 最终 CLT，
+  任意点态特征函数极限 `φₙ → f` 的存在性仍未证。

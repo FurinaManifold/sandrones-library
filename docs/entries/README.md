@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **603** 个条目（verified 603，pending 0）。
+共 **605** 个条目（verified 605，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -561,6 +561,7 @@
 
 ## `probability.clt`
 
+- ✅ [`central-limit-theorem.md`](probability/clt/central-limit-theorem.md) — 一般 iid 中心极限定理（中心化与标准化）
 - ✅ [`characteristic-foundation.md`](probability/clt/characteristic-foundation.md) — 中心极限定理的特征函数基础链
 
 ## `probability.conditional-expectation`
@@ -571,6 +572,7 @@
 
 ## `probability.convergence`
 
+- ✅ [`distribution-bridge.md`](probability/convergence/distribution-bridge.md) — 分布收敛的随机变量桥
 - ✅ [`modes.md`](probability/convergence/modes.md) — 随机变量的四种收敛模式
 
 ## `probability.distribution`

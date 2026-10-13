@@ -37,7 +37,7 @@
 | **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅ RA-F2✅；RA-F3–RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2🚧 C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
-| **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2-Pr3🚧 | R4 |
+| **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2🚧 Pr3🚧（Pr3.5 一般 CLT 已完成） | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1🚧 S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
@@ -182,7 +182,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | 新建 `codex/number-theory-algebraic` | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | `development_open` | 新建 `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
 | D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
-| D8 概率 Pr3.5 一般 CLT | `codex/probability`（已可开工） | `probability.central-limit-theorem` | `research_open` | 不占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥的调查；不得用 Mathlib 最终 CLT 冒充课程证明链 |
+| D8 概率 Pr3.5 一般 CLT | `codex/probability-wave-r1`（Wave R1） | `probability.clt.central-limit-theorem` | ✅ 已完成并集成（2026-10-13，`dbba195`–`58d97b8`） | 未占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥已完成；未用 Mathlib 最终 CLT 冒充课程证明链。D8 原标 `research_open` 针对的“任意点态特征函数极限存在性”子问题仍未解，但既有接口上的开发交付已通过 |
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
 | D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | `development_open` | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
 
@@ -1373,7 +1373,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 并集成；充分统计量定义、参数无关条件律与 Blackwell 重构桥也已集成（`statistics.sufficiency.definition`），
 一般 Neyman--Fisher 双向定理、矩估计、MLE、Fisher 信息与 Cramér--Rao 继续冻结。
 
-### Pr3 极限定理 🚧（依赖 Pr1/Pr2；Pr3.1–Pr3.4b2 已集成，一般 CLT 待开发）
+### Pr3 极限定理 🚧（依赖 Pr1/Pr2；Pr3.1–Pr3.4b2 与 Pr3.5 一般 CLT 已集成，其余待续）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
@@ -1383,7 +1383,8 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 4 | `probability.characteristic-function` | 实值特征函数、基本性质、独立和乘积与分布唯一性 ✅ | `charFun (μ.map X)`、`Measure.ext_of_charFun` |
 | 4b1 | `probability.characteristic-function.levy-continuity` | 已知目标概率测度版 Lévy 连续性接口 ✅ | `ProbabilityMeasure.tendsto_iff_tendsto_charFun`；解释任意点态极限仍需零点连续性与紧性 |
 | 4b2 | `probability.clt.characteristic-foundation` | iid 归一化和特征函数幂公式、二阶 Taylor 极限与标准正态弱收敛 ✅ | 不调用 Mathlib 最终 CLT；首版限中心零、二阶矩一 |
-| 5 | `probability.central-limit-theorem` | 一般 iid 中心极限定理（`research_open`，见窗口 D8） | 调查任意均值方差的中心化标准化、退化方差边界与随机变量分布收敛桥 |
+| 5 | `probability.clt.central-limit-theorem` | ✅ 一般 iid 中心极限定理（Wave R1 集成）：任意均值 μ、方差 σ²>0 的中心化标准化归约到已集成核心，弱收敛 `gaussianReal 0 1`；含退化方差边界与随机变量层桥 | 不调用 Mathlib 最终 CLT；复用特征函数与 `gaussianReal` |
+| 6 | `probability.convergence.distribution-bridge` | ✅ `lawProbabilityMeasure` 载体与已知 Gaussian 极限下 `TendstoInDistribution` 桥（Wave R1） | `ProbabilityMeasure`、`TendstoInDistribution` |
 
 ## 10. Phase 9 — 统计推断（S1-S2）
 

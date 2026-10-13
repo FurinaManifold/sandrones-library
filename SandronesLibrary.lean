@@ -344,6 +344,8 @@ import SandronesLibrary.Probability.StrongLaw
 import SandronesLibrary.Probability.CharacteristicFunction
 import SandronesLibrary.Probability.LevyContinuity
 import SandronesLibrary.Probability.CLTCharacteristicFoundation
+import SandronesLibrary.Probability.DistributionConvergenceBridge
+import SandronesLibrary.Probability.CLTCenteredStandardized
 import SandronesLibrary.Statistics.Model
 import SandronesLibrary.Statistics.Density
 import SandronesLibrary.Statistics.Estimator
