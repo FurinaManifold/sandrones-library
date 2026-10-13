@@ -1,0 +1,89 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-analysis-r1",
+  "branch": "codex/analysis-wave-r1",
+  "base": "7dffe37",
+  "head": "14b88d23fe83adb6b2ecceeada6636a82e8dc52d",
+  "checked_at": "2026-10-13T09:17:49Z",
+  "commits": [
+    {
+      "sha": "14b88d23fe83adb6b2ecceeada6636a82e8dc52d",
+      "subject": "docs(analysis): handoff for AN-MV-R1 batch (items 1/4/5)"
+    },
+    {
+      "sha": "acd8c6da7468856ad9aaa22927edb4aee5adc1da",
+      "subject": "feat(analysis): coordinate expressions of differential forms (AN-MV item 1)"
+    },
+    {
+      "sha": "841caece0038ffee89de10918fd47614eba0d305",
+      "subject": "feat(analysis): mass, centroid and moment of inertia interface (AN-MV item 5)"
+    },
+    {
+      "sha": "b9bd91e07eea7e226db5547ec91af29bf9bb3845",
+      "subject": "feat(analysis): piecewise-smooth region gluing for Green/Gauss/Stokes (AN-MV item 4)"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/Analysis/FormCoordinateExpression.lean",
+    "SandronesLibrary/Analysis/MassCenter.lean",
+    "SandronesLibrary/Analysis/StokesDomainGluing.lean",
+    "docs/entries/analysis/coordinate-integrals/mass-center.md",
+    "docs/entries/analysis/forms/coordinate-expression.md",
+    "docs/entries/analysis/stokes/domain-gluing.md",
+    "docs/handoffs/analysis-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "analysis.coordinate-integrals.mass-center",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Analysis/MassCenter.lean"
+          ],
+          "decls": 27
+        },
+        {
+          "id": "analysis.forms.coordinate-expression",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Analysis/FormCoordinateExpression.lean"
+          ],
+          "decls": 10
+        },
+        {
+          "id": "analysis.stokes.domain-gluing",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/Analysis/StokesDomainGluing.lean"
+          ],
+          "decls": 11
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/analysis-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}
