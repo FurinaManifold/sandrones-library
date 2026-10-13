@@ -4,7 +4,7 @@
   `sandrones-library-introduction`／`codex/project-introduction`
 - 学科提交：`e8b8475`；`537153f`、`4dfb2e5`、`b99d2de`
 - 已接入 main：`a46ad2b`；`32b587e`、`b6a113f`、`c7bd772`
-- Main 集成提交：本批共享状态提交
+- Main 集成提交：`1762942`
 - Verdict：`accepted`（Main 文档审稿；两份报告均非数学 Entry）
 
 ## 裁决

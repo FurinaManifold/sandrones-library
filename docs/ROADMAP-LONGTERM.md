@@ -163,7 +163,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|
 | 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | `../review-inbox/probability/probability-pr3-levy-clt-foundation-ready.md` |
 | 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | `../review-inbox/probability/statistics-s1-sufficiency-ready.md` |
-| 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | ✅ 已于 2026-10-13 集成（`046e9f9`／`4ec485d`／`59ca250`，Main 集成提交见 §15.3.2） |
+| 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | ✅ 已于 2026-10-13 集成（`046e9f9`／`4ec485d`／`59ca250`，Main 集成提交 `1762942`） |
 | 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | `docs/world-formula/reviews/wf1-02-cantor-theorem-*.md` |
 
 1–3 按数学批次验收：语义 diff → 独立复验模块与联合导入 → 合并 → 共有文件 → 生成器／公理审计／

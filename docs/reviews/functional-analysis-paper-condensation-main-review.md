@@ -3,7 +3,7 @@
 - 学科 worktree／分支：`sandrones-library-condensation`／`codex/functional-analysis-paper-condensation`
 - 学科提交：`0e8706f`（数学与文档）、`8895b2e`（计量）、`27f33e9`（原文扫描归档）
 - 已接入 main：`046e9f9`、`4ec485d`、`59ca250`
-- Main 集成提交：本批共享状态提交
+- Main 集成提交：`1762942`
 - Entry：`functional-analysis.condensation`、`functional-analysis.condensation.divergence`
 - 来源：`banach-steinhaus-condensation-1927`（*Fundamenta Mathematicae* 9 (1927), 50–61）
 - Verdict：`accepted`
