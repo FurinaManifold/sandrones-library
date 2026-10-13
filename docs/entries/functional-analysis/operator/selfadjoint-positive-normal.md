@@ -8,7 +8,9 @@ title: 有界自伴、正、正规与酉算子的关系
 summary: 在完备内积空间上以 Mathlib 的 IsSelfAdjoint、ContinuousLinearMap.IsPositive、IsStarNormal 与 unitary 子群为正式承载，证明“正 ⟹ 自伴 ⟹ 正规”“酉 ⟹ 正规”以及幂等算子自伴当且仅当正规的关系链与各项展开刻画
 premises: [functional-analysis.hilbert.adjoint, functional-analysis.hilbert.unitary]
 mathlib: [IsSelfAdjoint, ContinuousLinearMap.IsPositive, IsStarNormal, unitary, ContinuousLinearMap.star_eq_adjoint, ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric, ContinuousLinearMap.isPositive_iff', ContinuousLinearMap.isStarNormal_iff_norm_eq_adjoint, IsStarNormal.ker_adjoint_eq_ker, IsStarNormal.orthogonal_range, isStarNormal_of_mem_unitary, Unitary.star_eq_inv, Unitary.linearIsometryEquiv, IsIdempotentElem.isSelfAdjoint_iff_isStarNormal]
-provenance: {source_type: book, ref: "buehler-salamon-functional-analysis-2018"}
+provenance:
+  source_type: book
+  ref: "buehler-salamon-functional-analysis-2018"
 ---
 
 # 动机
