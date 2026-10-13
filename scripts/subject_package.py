@@ -158,6 +158,9 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             continue
         if len(doc_ids.get(eid, [])) > 1:
             semantics_issues.append(f"{eid}: 多个叙述层文件 {doc_ids[eid]}")
+        expected_nl = f"docs/entries/{eid.replace('.', '/')}.md"
+        if rel != expected_nl:
+            semantics_issues.append(f"{eid}: 叙述层路径与 id 不一致（{rel}；应为 {expected_nl}）")
         files_with = marker_files.get(eid, set())
         if not files_with:
             semantics_issues.append(f"{eid}: 无源码标记（幽灵 Entry）")
