@@ -3,7 +3,8 @@
 - 分支：`codex/settheory-wave-r1`
 - worktree：`/home/pisquare/czt/sandrones-library-settheory-r1`
 - 基线：`7dffe37`（Main 当前尖端，worktree 直接从该提交建立，未另行 rebase）
-- 提交：`1a2b104`（原始递归函数类）、`5564ea3`（通用 runner 实例）
+- 提交：`1a2b104`（原始递归函数类）、`5564ea3`（通用 runner 实例）、
+  `7bc7183`（两篇 Entry 的 provenance 改为嵌套块格式，使 `subject_package.py` 可解析）
 - 范围：ST3 纵深两条 🚧 课程门
   - `settheory.googology.primitive-recursive-class`
   - `settheory.computability.universal-machine-instance`
@@ -137,7 +138,7 @@ lake env lean /tmp/sandrones-library/aggregate.lean
 - 禁用占位扫描：两文件零命中 `sorry`／`admit`／`sorryAx`／`native_decide`／`TODO`／`FIXME`。
 - 叙述层：两篇文档均恰含 8 个一级标题、front matter id 与
   `docs/entries/{id/点转斜杠}.md` 路径一致。
-- `git diff --check`：两提交均干净。
+- `git diff --check`：各提交均干净。
 - 学科验收包：`python3 scripts/subject_package.py --worktree
   /home/pisquare/czt/sandrones-library-settheory-r1 --base 7dffe37 --subject settheory`
   → `verdict: pass`（五组门全部 pass，无异常）。
