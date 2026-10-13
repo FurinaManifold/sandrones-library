@@ -1,0 +1,98 @@
+{
+  "schema": "sandrones-release-receipt/1",
+  "checked_at": "2026-10-13T09:05:39Z",
+  "branch": "main",
+  "head": "0aa21676d9195a3bdb03d8677eb72e5de6c559e4",
+  "candidate_dirty_before": false,
+  "packages": [
+    {
+      "subject": "number-theory",
+      "head": "d7a81081a2c38c221384dd5e8b5c41ef16ba7608",
+      "verdict": "pass",
+      "unmerged": 0
+    },
+    {
+      "subject": "complex-analysis",
+      "head": "13d63c51b0ca36e91893cda35b722687aeb0b52e",
+      "verdict": "pass",
+      "unmerged": 0
+    },
+    {
+      "subject": "settheory",
+      "head": "2dd67dd36b7400a2b52d6ed8aa82c31baf594140",
+      "verdict": "pass",
+      "unmerged": 0
+    },
+    {
+      "subject": "statistics",
+      "head": "f42c1036b72d2be2358ba09e91824e8fcab8c6af",
+      "verdict": "pass",
+      "unmerged": 0
+    },
+    {
+      "subject": "examples",
+      "head": "4632200fd392844f8db9ae20512c4cda6dcd53ef",
+      "verdict": "pass",
+      "unmerged": 0
+    },
+    {
+      "subject": "functional-analysis",
+      "head": "515f431d88b4e577fe033dde7e4faf7ddb1e1149",
+      "verdict": "pass",
+      "unmerged": 0
+    }
+  ],
+  "steps": [
+    {
+      "step": "extract_registry_references",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "文献引用验证通过：Registry 共 618 条，未生成 @misc。"
+    },
+    {
+      "step": "update_dependency_graph",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": "依赖图已重建：773 条直接边，更新 0 个反向缓存。"
+    },
+    {
+      "step": "gen_entries_index",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "已生成 docs/entries/README.md（618 条目）"
+    },
+    {
+      "step": "gen_entry_rankings",
+      "exit": 0,
+      "seconds": 12.3,
+      "tail": "已生成 index/rankings.json 和 docs/entries/RANKINGS.md；参排 616 条。"
+    },
+    {
+      "step": "check_axioms_fix",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 618 条目增量跳过（618 条）。--full 强制全量。"
+    },
+    {
+      "step": "check_axioms",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "[DONE] 全部 618 条目增量跳过（618 条）。--full 强制全量。"
+    },
+    {
+      "step": "audit",
+      "exit": 0,
+      "seconds": 0.1,
+      "tail": "审计通过：618 个条目 OK"
+    },
+    {
+      "step": "diff_check",
+      "exit": 0,
+      "seconds": 0.0,
+      "tail": ""
+    }
+  ],
+  "derived_state_files": [],
+  "exceptions": [],
+  "verdict": "pass"
+}

@@ -182,7 +182,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|---|
 | D1 复分析 cycle 基础 | `codex/complex-analysis-wave-r1`（Wave R1） | `complex-analysis.integral.{banach-path-foundation, finite-cycle-foundation, winding-number-foundation}` | ✅ 已完成并集成（2026-10-13，`dee5fff`–`91416f8`） | `ComplexAnalysis/{BanachPathIntegral,CycleCarrier,WindingIndex}.lean`；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 已交付；C2 未关闭，C3 仍 ⏸ |
 | D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
-| D3 拓扑 AT2-C5e | `codex/topology-foundations`（须先同步并丢弃 superseded 文件） | `topology.covering.subgroup-construction-recovery` | `research_open` | 新文件路径；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
+| D3 拓扑 AT2-C5e | `codex/topology-wave-r1`（Wave R1；原 `codex/topology-foundations` 已废弃） | `topology.covering.subgroup-construction-recovery` | 🚧 `research_open` 维持（原型含 3 个 `sorry`，未过无占位门） | 正式文件路径待 `development_open` 后再定；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
 | D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | `codex/number-theory-wave-r1`（Wave R1） | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | ✅ 已完成并集成（2026-10-13，`2cca2c0`–`58ceda2`） | `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
@@ -1059,7 +1059,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C5b 道路类商承载 | 已集成 | dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；没有偷带教材差环路 iff、拓扑或连续性 |
 | AT2-C5c 覆盖 chart 与拓扑构造 | 已集成 | canonical chart generator topology、离散 fiber transition、chart homeomorphism 与 `IsCoveringMap` | 首版固定道路连通 base；明确不是 generic quotient topology，并转换到实际投影 fiber |
 | AT2-C5d 从 pointed covering 恢复子群 | 已集成 | 道路连通底空间上的道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | base 与 total 都保留 `PathConnectedSpace`；range 为主定义；只做恢复与等价不变性，不声称分类双射 |
-| AT2-C5e 构造—恢复方向 | `research_open` | 证明 C5c 子群道路类 cover 的 total space 道路连通，打包为 `PointedCovering`，再恢复原子群 | 先核验 canonical lift point 与 range 等式；不得顺手声称任意 covering 的反向互逆 |
+| AT2-C5e 构造—恢复方向 | `research_open`（Wave R1 research 窗口已交付 RFC + 概念六列表，2026-10-13；**维持 research_open**） | 证明 C5c 子群道路类 cover 的 total space 道路连通，打包为 `PointedCovering`，再恢复原子群。Wave R1 原型仍含 3 个 `sorry`（E1 `initSegMap` 连续性、E2 总空间道路连通、E3 子群恢复），未过「无占位原型」门，裁决见 `../review-inbox/topology/main-at2-c5e-wave-r1-research-still-open.md` | 先核验 canonical lift point 与 range 等式；不得顺手声称任意 covering 的反向互逆 |
 | AT2-C5f--C5g 覆盖分类后续 | 冻结，C5e handoff 后分步开放 | 任意 pointed cover 的恢复—构造方向、unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
