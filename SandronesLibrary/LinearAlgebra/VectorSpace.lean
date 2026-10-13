@@ -105,4 +105,23 @@ lemma dim_eq_card_basis {𝕜 : Type*} {V : Type*} [Field 𝕜]
   unfold dim
   exact Module.finrank_eq_card_basis b'
 
+/-- 有限维空间中，维数为零当且仅当空间是平凡空间：`dim V = 0 ↔ Subsingleton V`。
+  无限维时 mathlib 的 `finrank` 按约定为 0，故该等价必须带有限维假设。
+> **Entry**: linear-algebra.vector-space.dimension
+-/
+lemma dim_eq_zero_iff_subsingleton {𝕜 : Type*} {V : Type*} [Field 𝕜]
+    [AddCommGroup V] [LinearSpace 𝕜 V] [IsFiniteDimensional 𝕜 V] :
+    dim 𝕜 V = 0 ↔ Subsingleton V := by
+  unfold dim IsFiniteDimensional at *
+  exact Module.finrank_zero_iff
+
+/-- 有限维空间中，维数与基数秩一致：`(dim V : Cardinal) = Module.rank 𝕜 V`。
+> **Entry**: linear-algebra.vector-space.dimension
+-/
+lemma dim_eq_rank {𝕜 : Type*} {V : Type*} [Field 𝕜]
+    [AddCommGroup V] [LinearSpace 𝕜 V] [IsFiniteDimensional 𝕜 V] :
+    (dim 𝕜 V : Cardinal) = Module.rank 𝕜 V := by
+  unfold dim
+  exact Module.finrank_eq_rank 𝕜 V
+
 end LinearAlgebra.VectorSpace
