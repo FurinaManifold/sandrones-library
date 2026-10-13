@@ -117,8 +117,11 @@ theorem withDensity_absolutelyContinuous (μ : Measure α) (f : α → ℝ≥0�
 
 ## 应用与陷阱
 
-- **`≪` 不是 `≤`**：`μ ≤ ν ⟹ μ ≪ ν`，反之不成立（Lebesgue 测度关于 `2·` Lebesgue 测度
-  绝对连续但既不 `≤` 也不 `≥`）。本 Entry 的 `absolutelyContinuous_of_le` 只是单向桥。
+- **`≪` 不是 `≤`**：`μ ≤ ν ⟹ μ ≪ ν`，反之不成立。取 `μ = 2 • volume`、`ν = volume`：
+  则 `μ ≪ ν` 成立（`ν s = 0` 时 `μ s = 2 · 0 = 0`），但 `μ ≤ ν` 不成立——任何满足
+  `ν s > 0` 的 `s` 上都有 `μ s = 2 ν s > ν s`。把两者对调，`(volume, 2 • volume)` 给出
+  `μ ≪ ν` 而 `μ ≥ ν` 不成立（此时 `μ ≤ ν` 反而成立）。所以 `≪` 既不蕴含 `≤` 也不蕴含 `≥`。
+  本 Entry 的 `absolutelyContinuous_of_le` 只是单向桥。
 - **零测度方向**：`0 ≪ ν` 恒成立，但 `ν ≪ 0` 只在 `ν = 0` 时成立，见
   `absolutelyContinuous_zero_iff`。
 - **非可测集**：Mathlib 的 `Measure` 在不可测集上取外测度，所以定义量词 `ν s = 0 → μ s = 0`
