@@ -19,6 +19,8 @@ Mathlib 的星代数接口，因此是本轮依赖已满足的下一批。
 | `0c2eda7` | `feat(functional-analysis): add F6.7 self-adjoint/positive/normal/unitary relations` |
 | `6af29f5` | `docs(functional-analysis): fix F6.7 narrative overclaim and unused mathlib name` |
 | `75d35d7` | `refactor(functional-analysis): trim F6.7 to relation API, drop rename-only re-exports` |
+| `b0d1ce7` | `docs(functional-analysis): wave-r1 handoff for F6.7 operator-class relations` |
+| `c5dc767` | `docs(functional-analysis): use multi-line provenance in F6.7 entry front matter` |
 
 文件清单（均为新建，全部在学科所有权目录内）：
 
@@ -140,7 +142,11 @@ python3 scripts/subject_package.py \
   --base 7dffe37 --subject functional-analysis
 ```
 
-结果：见交付末尾补记（verdict 与五组门明细）。
+结果：**verdict pass**（五组门 cleanliness／ownership／semantics／proof／coverage 全 pass，
+异常清单为空），提交 `c5dc7672`（`--base 7dffe37`）。修复过程：首跑报 `semantics: 缺 provenance.ref`
+（新检查要求 `ref:` 单独成行；初稿用了单行内联 `provenance: {…}`），改为多行
+`provenance:\n  source_type: book\n  ref: "buehler-salamon-functional-analysis-2018"` 后复跑通过
+（提交 `c5dc767`）。本包 JSON 属 Main 侧台账（`docs/subject-packages/`），学科不写入。
 
 ## 11. 负责人审核发现与处理
 
