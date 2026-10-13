@@ -1,9 +1,12 @@
 ---
 id: linear-algebra.matrix.normal
+family: linear-algebra.matrix
+variant: textbook
 kind: theorem
 state: verified
-title: "正规、Hermitian与斜Hermitian矩阵"
-premises: ["linear-algebra.matrix.orthogonal-unitary", "linear-algebra.spectral-quadratic"]
+title: 正规矩阵的酉谱定理
+summary: 一般复正规矩阵可被酉矩阵对角化
+premises: ["linear-algebra.matrix.orthogonal-unitary", "linear-algebra.matrix.hermitian"]
 mathlib: ["Matrix.IsHermitian.spectral_theorem", "Matrix.IsHermitian.eigenvectorUnitary", "Matrix.conjTranspose_add", "Matrix.conjTranspose_sub"]
 provenance:
   source_type: book
@@ -12,41 +15,38 @@ provenance:
 
 # 动机
 
-Hermitian 矩阵是实对称矩阵的复数推广，正规矩阵则是能够酉对角化的正确类别。
+正规矩阵是能够被酉矩阵对角化的正确类别，它把实对称／Hermitian 矩阵的谱定理推广到一般复方阵。
 
 # 直觉
 
-Hermitian 与斜 Hermitian 分别满足 `Aᴴ=A`、`Aᴴ=-A`；一般复方阵可分解成这两部分。
+任意复方阵都能唯一分成 Hermitian 部分与斜 Hermitian 部分。若矩阵正规，这两部分可交换，
+因而可同时对角化；把两个实／复特征值合并，就得到原矩阵的酉对角化。
 
 # 陈述（自然语言）
 
-Hermitian 和斜 Hermitian 矩阵均正规。任意复方阵等于其 Hermitian 部分与斜
-Hermitian 部分之和。Hermitian 矩阵存在酉对角化，且对角元均为实数；一般复正规
-矩阵也存在酉对角化。
+设 `A` 是复方阵。若 `A` 正规（`Aᴴ A = A Aᴴ`），则存在酉矩阵 `U` 与对角元向量 `eig`，
+使得 `A = U · diag(eig) · Uᴴ`。
 
 # 陈述（Lean 对照）
 
-对应 `IsNormalMatrix`、`IsHermitianMatrix`、`IsSkewHermitianMatrix`、
-`hermitian_add_skewHermitian`、`hermitian_unitary_diagonalization` 与
-`normal_unitary_diagonalization`。
+对应 `normal_unitary_diagonalization {A : Matrix n n ℂ} (hA : IsNormalMatrix A) :
+∃ (U : Matrix n n ℂ) (eig : n → ℂ), IsUnitaryMatrix U ∧ A = U * Matrix.diagonal eig * Uᴴ`。
 
 # 思维脉络（thinking trace）
 
-前两类蕴含正规性由定义代换得到；标准分解通过共轭转置的加减法规则验证。
-Hermitian 酉对角化调用有限维复内积空间的矩阵谱定理。一般正规矩阵分解为两个
-可交换 Hermitian 矩阵；证明把联合特征空间指标缩到两个有限谱上，收集共同特征向量
-形成正交归一基，再将换基矩阵识别为酉矩阵。
-
-# 自然语言 ↔ Lean 映射
-
-- Hermitian 部分 ↔ `hermitianPart`；斜 Hermitian 部分 ↔ `skewHermitianPart`。
-- 酉对角化 ↔ `A = U * diagonal μ * Uᴴ`。
+先把正规矩阵分解为两个可交换的 Hermitian 矩阵（`hermitianPart` 与 `-i • skewHermitianPart`），
+再对可交换 Hermitian 对构造共同特征向量组成的正交归一基；最后把换基矩阵识别为酉矩阵，
+并将两块的对角数据合并。私有引理 `commuting_hermitian_joint_orthonormalBasis` 与
+`commuting_hermitian_simultaneously_diagonalizable` 承担该步骤。
 
 # 依赖（人话版）
 
-依赖共轭转置、酉矩阵和有限维 Hermitian 谱定理。
+依赖 Hermitian／斜 Hermitian 定义与分解（`linear-algebra.matrix.hermitian`）、酉矩阵
+（`linear-algebra.matrix.orthogonal-unitary`）以及有限维 Hermitian 谱定理。
 
 # 应用与陷阱
 
-Hermitian 矩阵的特征值为实数，一般正规矩阵的特征值则不必为实数。联合特征空间
-原本由无限类型 `ℂ × ℂ` 编号，构造有限维正交基前必须先缩到实际出现的有限谱。
+一般正规矩阵的特征值不必为实数（只有 Hermitian 情形才是实数）。证明中联合特征空间
+原本由无限类型 `ℂ × ℂ` 编号，构造有限维正交基前必须先把指标缩到实际出现的有限谱。
+本文件的 `lean_file` 为 `LinearAlgebra/NormalSpectral.lean`；三类矩阵的定义与
+Hermitian 酉对角化归 `linear-algebra.matrix.hermitian`（`NormalMatrix.lean`）。

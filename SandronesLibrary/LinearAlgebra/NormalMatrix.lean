@@ -13,7 +13,7 @@ import Mathlib.Analysis.Matrix.Spectrum
 分成 Hermitian 部分与斜 Hermitian 部分；两类矩阵都正规。最后给出 Hermitian 矩阵
 的酉对角化，其特征值全部为实数。
 
-> **Entry**: linear-algebra.matrix.normal
+> **Entry**: linear-algebra.matrix.hermitian
 -/
 
 namespace SandronesLibrary.LinearAlgebra.NormalMatrix
