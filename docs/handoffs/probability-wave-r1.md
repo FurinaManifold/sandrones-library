@@ -43,7 +43,8 @@
 |---|---|
 | `dbba195` | 两个 Lean 源模块 |
 | `07b7bbb` | 两篇 Entry 文档 |
-| `<handoff-commit>` | 本 handoff（提交后回填） |
+| `fed409a` | 本 handoff（首版） |
+| handoff 更新提交 | 填入 subject_package 自检输出（仅文档，见 §7） |
 
 ## 3. 概念冻结表
 
@@ -169,7 +170,25 @@ $ python3 scripts/subject_package.py \
 
 ## 7. 学科验收包回填
 
-（运行后由本节记录 verdict 与异常清单。）
+真实运行（在 `fed409a` 上，工作区清洁）：
+
+```text
+$ python3 scripts/subject_package.py \
+    --worktree /home/pisquare/czt/sandrones-library-probability-r1 \
+    --base 49acfa0 --subject probability
+学科验收包 probability  (codex/probability-wave-r1 @ fed409a48)
+  基线 49acfa0｜提交 3｜改动文件 5
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+
+  verdict: pass
+RC=0
+```
+
+异常清单：空（0 条）。五组门全部 `pass`。
 
 ## 8. 子 Agent 所有权与退回
 
