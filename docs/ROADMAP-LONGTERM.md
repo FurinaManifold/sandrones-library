@@ -419,6 +419,26 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
      随之变化，**正是 (e) 的重复标记造成的歧义扫描**，不是浮点噪声。修复前提交的排名文件因此
      与生成器输出不一致；今后集成必须让排名文件与当次生成器输出逐字一致，否则说明仍有
      非确定性输入。
+    - **(g) ✅ 已披露（2026-10-13，`scripts/check_axioms.py`）**：审计器的源码扫描存在两类
+      结构性盲区，此前是**静默跳过**的：
+      1. **命名 instance**：旧 `DECL_RE` 不含 `instance`，因此带源码名的 `instance foo : Bar := …`
+         （如 `AbstractAlgebra.Ring.quotientRingSetAdd`）虽被文档声明、却从不进 `#print axioms`
+         批量探测。已把 `instance` 并入 `DECL_RE`；受影响的 4 个条目
+         （`abstract-algebra.field.galois-correspondence`、`abstract-algebra.ring.iso-theorems`、
+         `abstract-algebra.ring.quotient`、`linear-algebra.tensor-exterior`）共 19 条新声明已逐条
+         单独探针通过（`/tmp/main-inst-probe/AllNew.lean`，EXIT=0），`--full --fix` 后
+         **公理覆盖扩大、结论不变**（仍为 `[OK]`）。
+      2. **匿名 instance**：`instance : Foo := …` 没有可从源码稳定引用的名字，Lean 生成的内部名
+         不可从源码预测，**不能**用源码全名进 `#print axioms`。新增 `--blindspots` 只读路径
+         （`ANON_INSTANCE_RE`）把这类位置显式列出，使盲区是**被披露的**而非静默的。当前
+         全库 `verified` 条目源码中共 **35 处匿名 instance、涉及 10 个文件**
+         （`AbstractAlgebra/{FieldExtension,FieldGaloisDefinitions,FieldSplitting,PolynomialDefinition,RingIsomorphismTheorems,RingLocalization}.lean`、
+         `LinearAlgebra/SymplecticBasis.lean`、`SetTheory/GoogologyComputability.lean`、
+         `Topology/{Homotopy,Path}.lean`）。这些条目的公理集只能靠**使用它们的命名定理**间接覆盖。
+
+     `check_axioms.py --blindspots` 是只读诊断，不进 AGENTS §6 集成流水线；集成审计仍以
+     `--all`／`--all --fix` 为准。**集成门新增一条**：若某学科交付新增匿名 instance，handoff
+     必须点明"哪条命名定理覆盖了它"，否则该条目的公理审计视为不完整。
 
 
 #### 每个学科 handoff 必须回答的路线问题
@@ -479,6 +499,10 @@ D1 与 D2 的公共 Banach 值积分 carrier 仍归 D1 所有（D-2）：在 D1 
 8. 磁盘仅约 11G，`.lake/packages` 已符号链接到主 worktree：不得跑 `lake update`／`lake exe cache get`，
    不得删除 worktree 外文件，构建前后查 `df -h /`，低于 3G 立即停止并报告。
 9. 维护人**不运行全库 `lake build`**（Main 职责）。
+10. **公理审计盲区必须披露**：带源码名的 `instance` 现已进 `DECL_RE` 批量探测；匿名
+    `instance`（`instance : Foo := …`）无法用源码名探测，只以 `check_axioms.py --blindspots`
+    只读列出。维护人新增匿名 instance 时，须在 RFC／handoff 指明覆盖它的命名定理，否则视为
+    该条目公理审计不完整（判据见 D-4 第 4 项 (g)）。
 
 
 ---

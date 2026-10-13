@@ -36,11 +36,22 @@ SECTION_RE = re.compile(r"^section(?:\s+([\w.]+))?")
 END_NS_RE = re.compile(r"^end\s+([\w.]+)\s*$")
 # Public declarations may carry attributes/modifiers, may introduce structures,
 # and may use a qualified name such as `UnitInterval.reflect`.
+#
+# `instance` 必须在内：命名实例（如 `instance quotientRingSetAdd : Add ...`）是很多条目的
+# **核心载体**，只审计同一文件里后面的定理会把"核心定义未被审计"这件事藏起来——这正是
+# `AdmissiblePath`（`inductive`）那次返工的同一类故障。匿名实例（`instance : Foo := ...`）
+# 没有可从源码稳定引用的名字，这里**故意不匹配**，其盲区由 report_anonymous_instances 显式报出，
+# 不静默跳过。
 DECL_RE = re.compile(
     r"^(?:(?:@\[[^\]]+\])\s+)*"
     r"(?:(?:noncomputable|unsafe|private|protected)\s+)*"
-    r"(theorem|lemma|def|abbrev|structure|class|inductive|opaque)\s+"
+    r"(theorem|lemma|def|abbrev|structure|class|inductive|opaque|instance)\s+"
     r"([A-Za-z_][\w'.!?]*)"
+)
+# 匿名 `instance`（无显式名字）：Lean 会生成不可从源码预测的内部名，因此无法用源码全名
+# 执行 `#print axioms`；它们只能靠"使用它们的定理"间接覆盖。此模式用于显式披露，不用于匹配。
+ANON_INSTANCE_RE = re.compile(
+    r"^(?:(?:@\[[^\]]+\])\s+)*(?:(?:noncomputable|unsafe|private|protected)\s+)*instance\s*[:{]"
 )
 ENTRY_RE = re.compile(r">\s*\*\*Entry\*\*:\s*([\w.\-]+)")
 AXIOMS_DEP = re.compile(r"depends on axioms:\s*\[([^\]]*)\]", re.DOTALL)
@@ -286,5 +297,39 @@ def main() -> None:
     sys.exit(1 if bad and not args.fix else 0)
 
 
+def report_blindspots() -> None:
+    """显式报出 `DECL_RE` 仍看不见的公开声明形态。
+
+    匿名 `instance`（`instance : Foo := ...`）没有可从源码稳定引用的名字，Lean 生成的内部名
+    无法从源码预测，因此不能用源码全名执行 `#print axioms`。它们只能靠"使用它们的定理"间接
+    覆盖。本函数把这类位置列出来，使审计盲区是**被披露的**而不是静默跳过的——按 Playbook，
+    审计器暂不支持的声明命令必须列为 Main-side 集成门。
+    """
+    data = json.loads(REGISTRY.read_text(encoding="utf-8"))
+    hits: dict[str, list[int]] = {}
+    for rec in data:
+        if rec.get("state") != "verified":
+            continue
+        lf = LEAN_ROOT / rec["lean_file"]
+        if not lf.exists():
+            continue
+        nums = [
+            i for i, line in enumerate(lf.read_text(encoding="utf-8").splitlines(), 1)
+            if ANON_INSTANCE_RE.match(line.strip())
+        ]
+        if nums:
+            hits.setdefault(rec["lean_file"], []).extend(nums)
+    total = sum(len(v) for v in hits.values())
+    print(f"匿名 instance（无源码可引用名，无法进 #print axioms 批量探测）：{total} 处，"
+          f"涉及 {len(hits)} 个文件")
+    for f in sorted(hits):
+        print(f"  {f}: {sorted(set(hits[f]))}")
+    if total == 0:
+        print("  无：当前审计器对全部 verified 条目的公开声明形态均已覆盖。")
+
+
 if __name__ == "__main__":
-    main()
+    if "--blindspots" in sys.argv:
+        report_blindspots()
+    else:
+        main()
