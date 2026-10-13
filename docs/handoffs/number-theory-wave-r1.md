@@ -189,3 +189,63 @@ python3 scripts/subject_package.py \
 - **不可依赖**：`ringOfIntegers_rank` 之外的整基/判别式结论（不存在）；任何 N2.4+ 名称。
 - 本批公开签名一旦 Main 集成即冻结为 definition 层；后续批次若需弱化/替换应走
   `SUBJECT-MAINTENANCE-ROLE.md` 的 M1/M2 流程。
+
+## 12. 复现证据附录
+
+### 12.1 subject_package 真实输出（源码/条目/初版 handoff 提交 `c0b88c8`；本附录提交只改 handoff 文本，verdict 不变）
+
+```
+学科验收包 number-theory  (codex/number-theory-wave-r1 @ c0b88c8e1)
+  基线 ed6459a｜提交 4｜改动文件 7
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+
+  verdict: pass
+```
+
+逐 Entry 声明数：`number-theory.algebraic.number-field` 6，`algebraic-integer` 10，
+`ring-of-integers` 9；三者 `in_registry: false`（由 Main 登记），`lean_files` 各只有一个文件。
+
+### 12.2 聚合 `#check` 文件（临时，位于 `/tmp/sandrones-library/aggregate.lean`）
+
+```lean
+import SandronesLibrary.NumberTheory.Algebraic.NumberField
+import SandronesLibrary.NumberTheory.Algebraic.AlgebraicInteger
+import SandronesLibrary.NumberTheory.Algebraic.RingOfIntegers
+
+open SandronesLibrary.NumberTheory.Algebraic
+
+#check @numberField_iff
+#check @numberField_finiteDimensional
+#check @numberField_isAlgebraic
+#check @numberField_of_module_finite
+#check @numberField_of_subfield
+#check @numberField_exists_primitive_element
+#check @isIntegral_iff_monic
+#check @isIntegral_iff_mem_integralClosure
+#check @algebraMap_isIntegral
+#check @intCast_isIntegral
+#check @isIntegral_add
+#check @isIntegral_mul
+#check @isIntegral_neg
+#check @isIntegral_sub
+#check @int_isIntegrallyClosed
+#check @isIntegral_rat_iff
+#check @ringOfIntegers_mem_iff
+#check @ringOfIntegersMk
+#check @ringOfIntegersMk_coe
+#check @ringOfIntegers_isIntegral
+#check @ringOfIntegers_coe_injective
+#check @ringOfIntegers_isIntegralClosure
+#check @ringOfIntegers_isFractionRing
+#check @ringOfIntegers_isIntegrallyClosed
+#check @ringOfIntegers_rank
+#print axioms numberField_exists_primitive_element
+#print axioms isIntegral_rat_iff
+#print axioms ringOfIntegers_rank
+```
+
+重建后运行 `lake env lean /tmp/sandrones-library/aggregate.lean`，rc 0。
