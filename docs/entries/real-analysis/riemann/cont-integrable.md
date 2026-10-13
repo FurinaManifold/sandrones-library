@@ -40,3 +40,15 @@ uniform（一致连续 ε-δ）。证明用均匀分划 + 区间宽度引理 + �
 - 这是"连续 ⟹ 可积"的教材定理，也是数值=Lebesgue（eq-lebesgue）的前提。
 - 退化区间 [a,a] 无 Darboux 分划（严格增矛盾），主定理限定 a < b。
 - 证明要点：一致连续给 δ；均匀分划步长 < δ；每子区间振荡 ≤ 2ε'；求和 ≤ 2ε'·(b-a)。
+
+## Lean 声明集合
+
+本 Entry 在 `SandronesLibrary/RealAnalysis/Riemann.lean` 中确切包含 4 个声明
+（`> **Entry**: real-analysis.riemann.cont-integrable` 标记自 `b3_osc` 起、
+至 `continuous_intervalIntegrable` 止；`uniformPartition` 家族与 `interval_width`
+属 `real-analysis.riemann.def`）：
+
+- `b3_osc`：区间振荡界 `sSup(f''I) − sInf(f''I) ≤ 2ε`（B3）。
+- `C2_subinterval`：子区间振荡界，一致连续 + 宽度控制（C2）。
+- `continuous_on_riemannIntegrable_lt`：`a < b` 且 `f` 在 `[a,b]` 连续 ⟹ `RiemannIntegrable`。
+- `continuous_intervalIntegrable`：`a ≤ b` 且 `f` 在 `[a,b]` 连续 ⟹ `IntervalIntegrable`。

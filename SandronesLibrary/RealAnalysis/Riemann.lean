@@ -133,7 +133,9 @@ lemma interval_width {p q x y : ℝ} (_hpq : p ≤ q)
     exact this
 
 /-- **振荡界（B3）**：区间内任意两点 f 值差 ≤ ε ⟹ sSup(f''I) − sInf(f''I) ≤ 2ε。
-  用下确界逼近（exists_lt_of_lt_csSup 思路）。 -/
+  用下确界逼近（exists_lt_of_lt_csSup 思路）。
+> **Entry**: real-analysis.riemann.cont-integrable
+-/
 lemma b3_osc {f : ℝ → ℝ} {I : Set ℝ} (hI : I.Nonempty)
     {ε : ℝ} (hε : 0 < ε)
     (hosc : ∀ x ∈ I, ∀ y ∈ I, |f x - f y| ≤ ε) :
@@ -294,7 +296,9 @@ theorem continuous_intervalIntegrable {f : ℝ → ℝ} {a b : ℝ} (hab : a ≤
     exact hf
   exact ContinuousOn.intervalIntegrable (μ := volume) hf'
 /-- **单区间常数 indicator 积分**：∫ (c·1_{Ioc a b}) = c·(b−a)（a ≤ b）。
-  达布和 = 阶梯函数积分的原子引理。 -/
+  达布和 = 阶梯函数积分的原子引理。
+> **Entry**: real-analysis.riemann.eq-lebesgue
+-/
 theorem integral_indicator_const_Ioc {a b c : ℝ} (hab : a ≤ b) :
     (∫ x : ℝ, (Set.Ioc a b).indicator (fun _ : ℝ => c) x ∂volume) = c * (b - a) := by
   rw [integral_indicator (hs := measurableSet_Ioc)]

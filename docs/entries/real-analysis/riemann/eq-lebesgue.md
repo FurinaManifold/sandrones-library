@@ -42,3 +42,21 @@ measure.lintegral（Lebesgue 积分）、analysis.continuity.uniform-compact（�
 - 这是"两种积分数值相等"，证明黎曼积分是 Lebesgue 积分的特例（连续情形）。
 - 证明要点：阶梯函数（indicator 常数和）的 Lebesgue 积分 = 达布和；上下夹逼 + 可积性。
 - 退化区间 [a,a] 无 Darboux 分划，主定理限 a < b。
+
+## Lean 声明集合
+
+本 Entry 在 `SandronesLibrary/RealAnalysis/Riemann.lean` 中确切包含 26 个声明
+（`> **Entry**: real-analysis.riemann.eq-lebesgue` 标记自 `integral_indicator_const_Ioc`
+起至主定理 `riemannIntegral_eq_interval` 止，是“达布和 = 阶梯积分 + 上下夹逼”的证明后端）：
+
+- 指标/阶梯积分原子引理：`integral_indicator_const_Ioc`、`integral_sum_indicator_Ioc`、
+  `restricted_integral_const_Ioc`、`step_indicator_identity`、`lower_sum_le_interval`、
+  `continuous_indicator_integrable`。
+- 分划组合引理：`partition_cover`、`step_eval_at`、`fin_strict_mono_le`、`partition_disjoint`、
+  `mono_x_le`、`mono_x_le_le`、`partition_point_mem`、`partition_subinterval_sub`。
+- 下和方向：`step_le_f_pointwise`、`step_le_f_upper`、`step_integral_eq_lowerSum`、
+  `darboux_lower_le_interval`、`riemannIntegral_le_interval`。
+- 上和方向：`f_le_step_sup_pointwise`、`step_ge_f_upper`、`indicator_f_le_indicator_uP`、
+  `step_sup_integral_eq_upperSum`、`darboux_upper_ge_interval`、
+  `interval_le_sSup_lowerSum_add`。
+- 主定理：`riemannIntegral_eq_interval`。
