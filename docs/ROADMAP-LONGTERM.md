@@ -244,8 +244,35 @@ D1 是 `research_open` 窗口，出口是"签名冻结提案 + 无占位 `/tmp` 
 - D1 列出的**仍存在**的审计器盲区（`instance`／`notation`／`class abbrev`／`deriving`／`where`
   辅助声明、跨行 attribute）接受为 Main-side 集成门，本批原型未引入这些形态。
 
-**D1 未完成边界（不得当成已交付）**：§5 概念六列表与 §6 无占位原型尚未内联；负责人未提交任何
-commit；与该量词相关的教材"同调"完全等价未证明。
+**Main 独立编译核验（2026-10-13）**：D1 尚未提交，但其 `/tmp` 原型可用其自制的串接校验文件在
+Main worktree 内独立复验。Main 现场运行
+
+```bash
+cd /home/pisquare/czt/sandrones-library
+lake env lean /tmp/sandrones-library/check_D.lean    # 退出码 0
+```
+
+该文件串接三个拟议模块（`BanachPathIntegral`、`CycleCarrier`、`WindingIndex`）加聚合桥，编译通过
+并打印完整定义链的 `#check`。核验到的事实（**注意：这是对 `/tmp` 研究原型的编译证据，不构成
+"正式源码已提交"，仍以 D1 的 commit 为交付依据**）：
+
+- 上表第 4 项被真实采纳：原型中
+  `def IsNullHomologousIn (γ : Cycle) (U : Set ℂ) : Prop := γ.SupportedIn U ∧ ∀ w : ℂ, w ∉ U → windingNumber γ w = 0`，
+  且 `isNullHomologousIn_add` **不再携带 `htr`**（用 `hγ.1.add hδ.1` 处理支撑合取项），加法封闭性
+  按裁决恢复。`IsHomologousIn` 同样把两个 `SupportedIn` 合取进来，源码注释说明这是为了不让谓词在
+  「各自 trace 上的 junk 值」处断言相等——与裁决理由一致。
+- 上表第 1、2 项被真实采纳：`abbrev ClosedPath : Type := Σ a : ℂ, Path a a`、
+  `abbrev Cycle : Type := ClosedPath →₀ ℤ`、`windingNumber (γ : Cycle) (w : ℂ) : ℂ`。
+- 上表第 5 项被真实采纳：`banachPathIntegral_complex_eq_pathIntegral : banachPathIntegral f γ = pathIntegral f γ`
+  给出 `F = ℂ` 对照，旧 `pathIntegral` API 保留，未做 M2 迁移。
+- 定义链上的真实消费者已存在：`cycleIntegral_eq_zero_of_primitive`（要求 `γ.PiecewiseC1` 与
+  `γ.SupportedIn U`）、`windingNumber_eq_zero_of_piecewiseC1_nullHomotopic`（前提是 `w ∉ U`，
+  不再带 trace 排除项）、`isNullHomologousIn_of_piecewiseC1_nullHomotopic`。
+
+**D1 未完成边界（不得当成已交付）**：§5 概念六列表与 §6 无占位原型尚未内联进 handoff；负责人
+**未提交任何 commit**（handoff 仍是 untracked，截至 2026-10-13 本轮）；与上述量词相关的教材
+"同调"完全等价仍未证明。**因此正式签名冻结与 `development_open` 转换仍未发生**——第 5 节
+`SandronesLibrary.lean`、Registry 与 RADAR 均不为 D1 改动。
 
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
