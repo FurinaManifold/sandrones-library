@@ -1,0 +1,103 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "real-analysis-wave-r1",
+  "worktree": "/home/pisquare/czt/sandrones-library-real-r1",
+  "branch": "codex/real-analysis-wave-r1",
+  "base": "49acfa0",
+  "head": "76b0238764cec868e6206b6d1bbb9c23020728a8",
+  "checked_at": "2026-10-13T07:24:20Z",
+  "commits": [
+    {
+      "sha": "76b0238764cec868e6206b6d1bbb9c23020728a8",
+      "subject": "docs(real-analysis): RA-F2 handoff (real-analysis-wave-r1)"
+    },
+    {
+      "sha": "27b2a1ed2f582efec5e5046ca9eb3457969e8df0",
+      "subject": "feat(real-analysis): RA-F2 Radon-Nikodym theorem and measure derivative (Folland 3.2)"
+    },
+    {
+      "sha": "b7657b26cbee04e1b6df4a9ca79e905387bdb7c9",
+      "subject": "feat(real-analysis): RA-F2 Lebesgue decomposition (Folland 3.2)"
+    },
+    {
+      "sha": "ca1737a6023426ec26438390864fef2d302d136a",
+      "subject": "feat(real-analysis): RA-F2 mutually singular measures (Folland 3.2)"
+    },
+    {
+      "sha": "293fa008322806d79e03cd3deff979088e61520f",
+      "subject": "feat(real-analysis): RA-F2 absolute continuity of measures (Folland 3.2)"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/RealAnalysis/MeasureDerivativeAbsoluteContinuity.lean",
+    "SandronesLibrary/RealAnalysis/MeasureDerivativeLebesgueDecomposition.lean",
+    "SandronesLibrary/RealAnalysis/MeasureDerivativeMutuallySingular.lean",
+    "SandronesLibrary/RealAnalysis/MeasureDerivativeRadonNikodym.lean",
+    "docs/entries/real-analysis/measure-derivative/absolute-continuity.md",
+    "docs/entries/real-analysis/measure-derivative/lebesgue-decomposition.md",
+    "docs/entries/real-analysis/measure-derivative/mutually-singular.md",
+    "docs/entries/real-analysis/measure-derivative/radon-nikodym.md",
+    "docs/handoffs/real-analysis-wave-r1.md"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "real-analysis.measure-derivative.absolute-continuity",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/RealAnalysis/MeasureDerivativeAbsoluteContinuity.lean"
+          ],
+          "decls": 18
+        },
+        {
+          "id": "real-analysis.measure-derivative.lebesgue-decomposition",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/RealAnalysis/MeasureDerivativeLebesgueDecomposition.lean"
+          ],
+          "decls": 15
+        },
+        {
+          "id": "real-analysis.measure-derivative.mutually-singular",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/RealAnalysis/MeasureDerivativeMutuallySingular.lean"
+          ],
+          "decls": 17
+        },
+        {
+          "id": "real-analysis.measure-derivative.radon-nikodym",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/RealAnalysis/MeasureDerivativeRadonNikodym.lean"
+          ],
+          "decls": 16
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/real-analysis-wave-r1.md"
+      ]
+    }
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}
