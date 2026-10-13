@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **605** 个条目（verified 605，pending 0）。
+共 **608** 个条目（verified 608，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -526,6 +526,12 @@
 - ✅ [`span.md`](linear-algebra/vector-space/span.md) — 生成子空间
 - ✅ [`subspace.md`](linear-algebra/vector-space/subspace.md) — 子空间
 - ✅ [`sum-quotient.md`](linear-algebra/vector-space/sum-quotient.md) — 子空间和、直和与商空间维数
+
+## `number-theory.algebraic`
+
+- ✅ [`algebraic-integer.md`](number-theory/algebraic/algebraic-integer.md) — 代数整数与整闭包
+- ✅ [`number-field.md`](number-theory/algebraic/number-field.md) — 数域与有限扩张
+- ✅ [`ring-of-integers.md`](number-theory/algebraic/ring-of-integers.md) — 数域的整数环
 
 ## `number-theory.elementary`
 

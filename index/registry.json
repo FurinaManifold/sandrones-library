@@ -20160,5 +20160,109 @@
       "probability.clt.central-limit-theorem"
     ],
     "proof_sha": "7127772be4a7ecee"
+  },
+  {
+    "id": "number-theory.algebraic.number-field",
+    "kind": "definition",
+    "title": "数域与有限扩张",
+    "summary": "数域是特征零且作为 ℚ-向量空间有限维的域；对有限扩张与子域封闭，并有单生成元定理",
+    "family": "number-theory.algebraic",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "NumberField",
+      "NumberField.of_module_finite",
+      "NumberField.of_subfield",
+      "NumberField.isAlgebraic",
+      "Field.exists_primitive_element"
+    ],
+    "lean_file": "NumberTheory/Algebraic/NumberField.lean",
+    "nl_file": "docs/entries/number-theory/algebraic/number-field.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ireland-rosen-number-theory-1990"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:10:00Z",
+    "dependedOnBy": [
+      "number-theory.algebraic.ring-of-integers"
+    ],
+    "proof_sha": "dff22b2e41498760",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.algebraic.algebraic-integer",
+    "kind": "definition",
+    "title": "代数整数与整闭包",
+    "summary": "代数整数是整元素；整元素对加、减、乘封闭构成整闭包子环，并且 ℚ 中的代数整数恰为整数",
+    "family": "number-theory.algebraic",
+    "variant": "textbook",
+    "premises": [],
+    "mathlib": [
+      "IsIntegral",
+      "integralClosure",
+      "IsIntegralClosure",
+      "IsIntegrallyClosed",
+      "GCDMonoid.toIsIntegrallyClosed",
+      "Polynomial.eval₂"
+    ],
+    "lean_file": "NumberTheory/Algebraic/AlgebraicInteger.lean",
+    "nl_file": "docs/entries/number-theory/algebraic/algebraic-integer.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ireland-rosen-number-theory-1990"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:10:00Z",
+    "dependedOnBy": [
+      "number-theory.algebraic.ring-of-integers"
+    ],
+    "proof_sha": "a4bb14217741a053",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "number-theory.algebraic.ring-of-integers",
+    "kind": "definition",
+    "title": "数域的整数环",
+    "summary": "整数环是数域中在 ℤ 上整的元素全体；它以该数域为分式域、整闭，且秩等于扩张次数",
+    "family": "number-theory.algebraic",
+    "variant": "textbook",
+    "premises": [
+      "number-theory.algebraic.number-field",
+      "number-theory.algebraic.algebraic-integer"
+    ],
+    "mathlib": [
+      "NumberField.RingOfIntegers",
+      "IsIntegralClosure",
+      "IsFractionRing",
+      "IsIntegrallyClosed",
+      "NumberField.RingOfIntegers.rank",
+      "Module.finrank"
+    ],
+    "lean_file": "NumberTheory/Algebraic/RingOfIntegers.lean",
+    "nl_file": "docs/entries/number-theory/algebraic/ring-of-integers.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ireland-rosen-number-theory-1990"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T08:10:00Z",
+    "proof_sha": "6e45981f7641fbed",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
   }
 ]

@@ -17,6 +17,9 @@ import SandronesLibrary.NumberTheory.Elementary.QuadraticResidues
 import SandronesLibrary.NumberTheory.Elementary.QuadraticReciprocity
 import SandronesLibrary.NumberTheory.Elementary.ContinuedFractions
 import SandronesLibrary.NumberTheory.Elementary.Pell
+import SandronesLibrary.NumberTheory.Algebraic.NumberField
+import SandronesLibrary.NumberTheory.Algebraic.AlgebraicInteger
+import SandronesLibrary.NumberTheory.Algebraic.RingOfIntegers
 import SandronesLibrary.Analysis.Real
 import SandronesLibrary.Analysis.Complex
 import SandronesLibrary.Analysis.FundamentalTheoremAlgebra

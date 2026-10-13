@@ -39,7 +39,7 @@
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2🚧 Pr3🚧（Pr3.5 一般 CLT 已完成） | R4 |
 | **Phase 9 统计推断** | `statistics.*` | S1🚧 S2🔒 | Pr1/Pr3 |
-| **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
+| **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3✅ N2.4–N2.15🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1🚧；其余按各自路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧 E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
@@ -150,7 +150,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 
 | 门 | 后续学科路线 | 第一批可执行目标 | 禁止越界 |
 |---|---|---|---|
-| G-A2 + G-A3 | N2 代数数论 | N2.1 数域/代数整数；N2.2 范数迹判别式；N2.3 整数环与整基 | 未有 Dedekind/分式理想定义前，不登记类群和唯一分解 |
+| G-A2 + G-A3 | N2 代数数论 | N2.1 数域与有限扩张；N2.2 代数整数与整闭包；N2.3 整数环（含分式域、整闭性与秩） | 未有 Dedekind/分式理想定义前，不登记类群和唯一分解 |
 | G-C | N3 解析数论 | N3.1 算术函数可提前独立做；开门后做 Dirichlet 级数、ζ、Euler 乘积 | 素数定理必须有复分析依赖链，不以单条 Mathlib 定理包装代替课程证明 |
 | G-Pr | S1 统计推断 | 分布族、估计量、偏差/方差、矩估计与 MLE 定义 | 不在测度/可测性前提不清时使用非正式“密度最大化” |
 | G-ST | ST3 递归与增长 | 原始递归、Ackermann、序数记号、基本列 | Goodstein 状态编码完成前，不把 ST1 的下降接口宣称为 Goodstein 定理 |
@@ -185,7 +185,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D3 拓扑 AT2-C5e | `codex/topology-foundations`（须先同步并丢弃 superseded 文件） | `topology.covering.subgroup-construction-recovery` | `research_open` | 新文件路径；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
 | D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
-| D6 数论 N2.1–N2.3 | 新建 `codex/number-theory-algebraic` | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | `development_open` | 新建 `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
+| D6 数论 N2.1–N2.3 | `codex/number-theory-wave-r1`（Wave R1） | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | ✅ 已完成并集成（2026-10-13，`2cca2c0`–`58ceda2`） | `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
 | D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
 | D8 概率 Pr3.5 一般 CLT | `codex/probability-wave-r1`（Wave R1） | `probability.clt.central-limit-theorem` | ✅ 已完成并集成（2026-10-13，`dbba195`–`58d97b8`） | 未占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥已完成；未用 Mathlib 最终 CLT 冒充课程证明链。D8 原标 `research_open` 针对的“任意点态特征函数极限存在性”子问题仍未解，但既有接口上的开发交付已通过 |
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
@@ -585,7 +585,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-functional | 泛函分析 | F6🚧（F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
 | R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
 | R-statistics | 统计推断 | S1🚧（S2🔒） | `Statistics/`、`docs/entries/statistics/` |
-| R-number | 数论 | N2.1–N2.3🚧 | `NumberTheory/`、`docs/entries/number-theory/` |
+| R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
 | R-settheory | 集合论深化 | ST2/ST3🚧 | `SetTheory/`、`docs/entries/settheory/` |
 | R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
 | R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
@@ -1473,13 +1473,13 @@ Entry**；本段由 🔲 升为 🚧 只表示低层接口已就位、可以开�
 
 G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 
-### N2 代数数论 🚧（G-A2/G-A3 已满足；N2.1–N2.3 `development_open`，N2.4–N2.15 `research_open`）
+### N2 代数数论 🚧（G-A2/G-A3 已满足；N2.1–N2.3 ✅ 已集成，N2.4–N2.15 `research_open`）
 
 | # | 条目 id | 内容 | 主要 Mathlib 接口 |
 |---|---|---|---|
-| 1 | `number-theory.algebraic.number-field` | 数域与有限扩张 | `NumberField` |
-| 2 | `number-theory.algebraic.algebraic-integer` | 代数整数与整闭包 | `IsIntegral` |
-| 3 | `number-theory.algebraic.ring-of-integers` | 整数环 | `RingOfIntegers` |
+| 1 | `number-theory.algebraic.number-field` | ✅ 数域与有限扩张 | `NumberField` |
+| 2 | `number-theory.algebraic.algebraic-integer` | ✅ 代数整数与整闭包 | `IsIntegral` |
+| 3 | `number-theory.algebraic.ring-of-integers` | ✅ 整数环（分式域／整闭／秩） | `RingOfIntegers` |
 | 4 | `number-theory.algebraic.norm-trace` | 范数与迹 | `Algebra.norm/trace` |
 | 5 | `number-theory.algebraic.discriminant` | 判别式与整基 | `Algebra.discr` |
 | 6 | `number-theory.algebraic.dedekind` | 整数环的 Dedekind 性 | `IsDedekindDomain` |

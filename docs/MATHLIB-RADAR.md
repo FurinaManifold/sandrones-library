@@ -3545,3 +3545,31 @@
 - **谁在用**：`probability.clt.central-limit-theorem`（一般 iid CLT 经由特征函数收敛证明弱收敛到
   `gaussianReal 0 1`；退化方差走 `gaussianReal 0 0`）。**边界**：本库未调用 Mathlib 最终 CLT，
   任意点态特征函数极限 `φₙ → f` 的存在性仍未证。
+
+## 代数数论入口：数域、代数整数与整数环（N2.1–N2.3）
+
+### `NumberField` / `NumberField.of_module_finite` / `NumberField.of_subfield` / `Field.exists_primitive_element`
+- **人话**：`NumberField K` 是 Mathlib 对「`ℚ` 的有限扩张」的正式承载，定义与教材数域概念一致；
+  给定 `CharZero K` 时 `NumberField K ↔ FiniteDimensional ℚ K`。`of_module_finite` 与 `of_subfield`
+  分别给出「数域的有限扩张还是数域」「数域的子域还是数域」；`Field.exists_primitive_element`
+  是有限可分扩张的单生成元定理，特征零使其自动适用于数域。
+- **出处**：Mathlib 的 `Mathlib.NumberTheory.NumberField.Basic` 与 `Mathlib.FieldTheory.PrimitiveElement`。
+- **谁在用**：`number-theory.algebraic.number-field`（定义层正式承载 + 展开/刻画/封闭性/上层使用者）。
+
+### `IsIntegral` / `integralClosure` / `IsIntegralClosure` / `IsIntegrallyClosed`
+- **人话**：`IsIntegral R x` 表示 `x` 是首一 `R`-系数多项式的零点（与教材「整元素」逐字一致）；
+  `integralClosure R A` 是全体整元素构成的子代数，对加、减、乘封闭。`IsIntegrallyClosed R`
+  表示 `R` 在自身分式域中整闭，`GCDMonoid.toIsIntegrallyClosed` 给出 UFD/GCD 整环的实例。
+- **出处**：Mathlib 的 `RingTheory.IntegralClosure.*` 与 `Algebra.GCDMonoid.IntegrallyClosed`。
+- **谁在用**：`number-theory.algebraic.algebraic-integer`（首一判据 `isIntegral_iff_monic`、
+  成员桥 `mem_integralClosure_iff`、封闭性，以及「`ℚ` 中的代数整数只能是整数」）；
+  `number-theory.algebraic.ring-of-integers`（成员刻画与整闭性）。
+
+### `NumberField.RingOfIntegers` / `NumberField.RingOfIntegers.rank`
+- **人话**：数域 `K` 的整数环 `𝓞_K` 就是 `ℤ` 在 `K` 中的整闭包；它继承 `IsIntegralClosure`、
+  `IsFractionRing`（以 `K` 为分式域）与 `IsIntegrallyClosed`（在 `K` 中整闭）。
+  `NumberField.RingOfIntegers.rank` 给出作为 `ℤ`-模的秩等于扩张次数 `[K : ℚ]`。
+- **出处**：Mathlib 的 `Mathlib.NumberTheory.NumberField.Basic`。
+- **谁在用**：`number-theory.algebraic.ring-of-integers`。**边界**：只给秩等式
+  `finrank ℤ 𝓞_K = finrank ℚ K`，未建整基的存在性与构造；Dedekind 性、分式理想、理想唯一分解、
+  类群、分歧与 Minkowski 均未触及，属 N2.4–N2.15 `research_open`。
