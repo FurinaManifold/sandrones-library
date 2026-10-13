@@ -204,7 +204,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|
 | D2 | `d914d30`（3 文件：模块 + Entry 草稿 + handoff） | `accepted`（`docs/reviews/functional-analysis-f66b1-resolvent-integrand-main-review.md`） | `7daa627` | ✅ 已进入 Main（Registry 571 条、全库 9056 jobs） |
 | D5 | `f856e0f`、`ef88ec4`（4 模块 + 4 Entry 草稿 + handoff） | `accepted`（`docs/reviews/real-analysis-ra-f1-signed-measure-main-review.md`） | `79fd7c2` | ✅ 已进入 Main（Registry 575 条、全库 9060 jobs） |
-| D1 | `477a834`（`docs/handoffs/complex-analysis-cycle-foundation.md`，328 行；§5／§6 仍标"未完成"，完整内联版在工作树未提交） | **`accepted_research`**：正式签名冻结已下达（见 D-1b 与 `../review-inbox/complex-analysis/main-d1-cycle-signature-freeze.md`），权限转 `development_open` | 不适用（`research_open` 无集成） | ⏳ 冻结已下；正式源码、Entry 与集成属下一窗 |
+| D1 | `477a834` + `3614e12`（`docs/handoffs/complex-analysis-cycle-foundation.md`，0 → 1163 行；只改 handoff，无源码／Entry） | **`accepted_research`**：正式签名冻结已下达（见 D-1b 与 `../review-inbox/complex-analysis/main-d1-cycle-signature-freeze.md`），权限转 `development_open` | 不适用（`research_open` 无集成） | ✅ 研究窗交付完成；正式源码、Entry 与集成属下一窗 |
 
 **D-1b D1 的 Main 签名裁决（2026-10-13；倾向性裁决见下表，正式冻结见本节末"正式签名冻结"）**
 
@@ -271,8 +271,8 @@ lake env lean /tmp/sandrones-library/check_D.lean    # 退出码 0
 
 **D1 的正式签名冻结（2026-10-13 已下达）**
 
-依 `477a834`（`docs(complex-analysis): D1 finite-cycle research handoff (prototypes pending inline)`）
-与上节的独立编译核验，Main 已下达正式签名冻结，通知落在
+依 D1 的最终交付 `477a834`（handoff 骨架）与 `3614e12`（内联 §5／§6，并按反例修正
+`IsNullHomologousIn`／`IsHomologousIn`）以及上节的独立编译核验，Main 已下达正式签名冻结，通知落在
 `../review-inbox/complex-analysis/main-d1-cycle-signature-freeze.md`：
 
 - **冻结的公共面**：三个文件三个 Entry id——`BanachPathIntegral.lean` →
@@ -285,16 +285,21 @@ lake env lean /tmp/sandrones-library/check_D.lean    # 退出码 0
 - **冻结的三条语义决定**：绕数值域为 ℂ（整值性未证，不得写成"整数绕数"）；`IsNullHomologousIn` 的
   `SupportedIn` 合取项是**定义的一部分**；保留旧 `pathIntegral` API、不做 M2 迁移。
 - **权限转换**：`research_open` → **`development_open`**，下一窗可写正式源码、Entry 文档与提交。
-- **冻结的生效条件**：负责人须先提交工作树里那份已内联 §5／§6 的 1163 行版本并保持 `git status` 干净，
+- **冻结的生效条件**：负责人已于 `3614e12` 提交内联 §5／§6 的 1163 行版本并保持 `git status` 干净；
   下一窗开工前按 AGENTS §9 同步最新 Main。**内联属文档事项，Main 未因它阻塞数学裁决**（MAIN-ROLE
-  明确禁止因纯文档／字段／归档缺口退回学科成果），但交付仍以其提交的 commit 为准。
+  明确禁止因纯文档／字段／归档缺口退回学科成果）。
+- **`IsHomologousIn` 的形式（Main 确认）**：冻结为**直接形式**——两个 cycle 各自的 `SupportedIn`
+  合取，而非 `IsNullHomologousIn (γ₁-γ₂) U`。负责人理由成立并被采纳：差形式只要求"差在 `U` 内"，
+  仍会让 `n(γ₁,·)` 在 `w ∈ trace γ₁ \ U` 处取 junk，与 `IsNullHomologousIn` 必须合取 `SupportedIn`
+  同源；走差形式还需额外的 support-of-difference 桥，不引入。
 - **冻结不覆盖**：绕数整值性、该量词与教材"同调"的完全等价、Laurent／一般残数定理／辐角原理／
   Rouché、`f(a)`／谱映射／谱投影／连续函数演算，以及任何第二套 cycle 或 Banach 值积分载体。
 
 **D1 剩余未完成边界（不得当成已集成）**：本批是 `research_open` 出口，**不产生可集成交付**——
 `SandronesLibrary.lean`、Registry 与 RADAR 均不为 D1 改动，正式源码、Entry 与集成提交全部属于下一个
-`development_open` 窗口。截至本轮，已提交的唯一交付是 `477a834`（其 §5／§6 仍标"未完成"）；负责人
-工作树中另有未提交的已内联版本。
+`development_open` 窗口。D1 的最终交付是两个只改 handoff 的 commit（`477a834` 骨架、`3614e12` 内联并
+修正谓词，0 → 1163 行）。**绕数整值性 `n(γ,w) ∈ ℤ` 未证明；该量词与教材"同调"定义的完全等价未证明**；
+Laurent／一般残数定理／辐角原理／Rouché 未触及。
 
 
 派工前的净增量复核：`codex/complex-analysis` 与 `codex/functional-analysis-restart` 相对 Main
