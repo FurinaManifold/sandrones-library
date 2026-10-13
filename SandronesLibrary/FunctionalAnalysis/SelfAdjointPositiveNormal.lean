@@ -54,25 +54,18 @@ variable [NormedAddCommGroup E] [InnerProductSpace 𝕜 E] [CompleteSpace E]
 
 /-! ## 自伴算子 -/
 
-/-- 有界算子的教材定义承载：`T` 自伴当且仅当它的伴随等于自身。
+/-- 自伴算子的内积刻画：`T` 自伴（即伴随等于自身，`T† = T`）当且仅当它可把内积中的 `T`
+从一侧移到另一侧。
+
+这是教材“`⟪T x, y⟫ = ⟪x, T y⟫`” 陈述对全部向量的精确量词展开；教材的 `T = T*` 即
+`IsSelfAdjoint T`（在 `E →L[𝕜] E` 上 `star T = T†`）。
 
 > **Entry**: functional-analysis.operator.selfadjoint-positive-normal
 -/
-theorem isSelfAdjoint_iff_adjoint_eq (T : E →L[𝕜] E) :
-    IsSelfAdjoint T ↔ T.adjoint = T :=
-  isSelfAdjoint_iff'
-
-/-- 自伴算子的内积刻画：`T` 自伴当且仅当它可把内积中的 `T` 从一侧移到另一侧。
-
-这是教材“`⟪T x, y⟫ = ⟪x, T y⟫`” 陈述对全部向量的精确量词展开。 -/
 theorem isSelfAdjoint_iff_inner_symm (T : E →L[𝕜] E) :
     IsSelfAdjoint T ↔ ∀ x y : E, inner 𝕜 (T x) y = inner 𝕜 x (T y) := by
   rw [ContinuousLinearMap.isSelfAdjoint_iff_isSymmetric]
   exact ⟨fun h x y => h x y, fun h x y => h x y⟩
-
-/-- 自伴算子的伴随就是它自身（教材 `T = T*` 的直接使用形式）。 -/
-theorem selfAdjoint_adjoint_eq {T : E →L[𝕜] E} (hT : IsSelfAdjoint T) : T.adjoint = T :=
-  hT.adjoint_eq
 
 /-! ## 正算子 -/
 
@@ -86,12 +79,6 @@ theorem isPositive_iff_selfAdjoint_inner_nonneg (T : E →L[𝕜] E) :
 /-- 正算子是自伴算子。 -/
 theorem positive_isSelfAdjoint {T : E →L[𝕜] E} (hT : T.IsPositive) : IsSelfAdjoint T :=
   hT.isSelfAdjoint
-
-omit [CompleteSpace E] in
-/-- 正算子的二次型取非负值。 -/
-theorem positive_inner_nonneg {T : E →L[𝕜] E} (hT : T.IsPositive) (x : E) :
-    0 ≤ inner 𝕜 (T x) x :=
-  hT.inner_nonneg_left x
 
 /-! ## 正规算子 -/
 
@@ -152,16 +139,6 @@ theorem unitary_adjoint_eq_inv (U : unitary (E →L[𝕜] E)) :
     (U : E →L[𝕜] E).adjoint = (U⁻¹ : unitary (E →L[𝕜] E)) := by
   rw [← star_eq_adjoint (U : E →L[𝕜] E)]
   exact congrArg (fun V : unitary (E →L[𝕜] E) => (V : E →L[𝕜] E)) (Unitary.star_eq_inv U)
-
-/-- `unitary` 子群元素保持内积。 -/
-theorem mem_unitary_inner_map_map (U : unitary (E →L[𝕜] E)) (x y : E) :
-    inner 𝕜 ((U : E →L[𝕜] E) x) ((U : E →L[𝕜] E) y) = inner 𝕜 x y :=
-  Unitary.inner_map_map U x y
-
-/-- `unitary` 子群元素保持范数。 -/
-theorem mem_unitary_norm_map (U : unitary (E →L[𝕜] E)) (x : E) :
-    ‖(U : E →L[𝕜] E) x‖ = ‖x‖ :=
-  Unitary.norm_map U x
 
 /-- 自伴的酉算子是幂等的对合：`U * U = 1`。
 

@@ -43,14 +43,15 @@ Mathlib 在 `E →L[𝕜] E` 上以伴随为对合 `star`（`ContinuousLinearMap
 
 # 陈述（自然语言）
 
-- **自伴刻画**：`T` 自伴当且仅当 `T† = T`，也当且仅当对任意 `x, y` 都有
-  `⟪T x, y⟫ = ⟪x, T y⟫`。
+- **自伴刻画**：`T` 自伴（`IsSelfAdjoint`，在 `E →L[𝕜] E` 上即 `T† = T`）当且仅当对任意
+  `x, y` 都有 `⟪T x, y⟫ = ⟪x, T y⟫`。
 - **正算子的等价刻画**：`T` 正，当且仅当 `T` 自伴且对每个 `x` 有 `⟪T x, x⟫ ≥ 0`。
 - **关系链**：正算子必自伴；自伴算子必正规；正算子必正规。
 - **正规刻画**：`T` 正规当且仅当 `T† T = T T†`，当且仅当对每个 `x` 有 `‖T x‖ = ‖T† x‖`。
   正规算子的核与 `T†` 的核相同，且其值域与核正交。
 - **酉与正规**：`U` 酉则 `U` 正规；酉元素的伴随等于其群逆。
-- **酉的等距性**：酉元素保持内积与范数。
+- **酉的等距性**：酉元素（`unitary` 子群）在 `E ≃ₗᵢ[𝕜] E` 的对应下保持内积与范数
+  （Mathlib `Unitary.inner_map_map`／`Unitary.norm_map`，并由 F3.5 承载）。
 - **自伴且酉**：若 `U` 同时自伴且酉，则 `U² = 1`。
 - **幂等特例**：对幂等算子 `T`，`T` 自伴当且仅当 `T` 正规。
 
@@ -58,12 +59,9 @@ Mathlib 在 `E →L[𝕜] E` 上以伴随为对合 `star`（`ContinuousLinearMap
 
 | 自然语言 | Lean 声明 |
 |---|---|
-| 自伴 ⇔ 伴随等于自身 | `isSelfAdjoint_iff_adjoint_eq` |
-| 自伴 ⇔ 内积可转移 | `isSelfAdjoint_iff_inner_symm` |
-| 自伴算子的伴随就是自身 | `selfAdjoint_adjoint_eq` |
+| 自伴 ⇔ 内积可转移（承载即 `T† = T`） | `isSelfAdjoint_iff_inner_symm` |
 | 正 ⇔ 自伴 + 二次型非负 | `isPositive_iff_selfAdjoint_inner_nonneg` |
 | 正 ⟹ 自伴 | `positive_isSelfAdjoint` |
-| 正算子的二次型非负 | `positive_inner_nonneg` |
 | 正规 ⇔ 与伴随可交换 | `isStarNormal_iff_adjoint_commute` |
 | 正规 ⇔ `T` 与 `T†` 范数一致 | `isStarNormal_iff_norm_adjoint` |
 | 正规 ⟹ 核与伴随核相同 | `isStarNormal_ker_adjoint` |
@@ -73,10 +71,13 @@ Mathlib 在 `E →L[𝕜] E` 上以伴随为对合 `star`（`ContinuousLinearMap
 | 幂等：自伴 ⇔ 正规 | `idempotent_selfAdjoint_iff_isStarNormal` |
 | 酉 ⟹ 正规 | `unitary_isStarNormal` |
 | 酉元素的伴随 = 逆 | `unitary_adjoint_eq_inv` |
-| 酉元素保持内积 | `mem_unitary_inner_map_map` |
-| 酉元素保持范数 | `mem_unitary_norm_map` |
 | 自伴且酉 ⟹ `U² = 1` | `isSelfAdjoint_unitary_mul_self` |
 | 线性等距等价是酉元素 | `linearIsometryEquiv_mem_unitary` |
+
+酉元素的等距性没有另设本库定理：`unitary` 子群与 `E ≃ₗᵢ[𝕜] E` 的 `≃*` 对应由 Mathlib
+`Unitary.linearIsometryEquiv` 给出，等距性由 `Unitary.inner_map_map`、`Unitary.norm_map`
+承载；F3.5 的 `unitary_inner_map_map`、`unitary_norm_map` 已为 `LinearIsometryEquiv` 载体
+建立了教材解释。
 
 # 思维脉络
 
