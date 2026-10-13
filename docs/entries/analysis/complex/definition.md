@@ -1,7 +1,7 @@
 ---
 id: analysis.complex.definition
 kind: definition
-state: partial
+state: verified
 title: 复数的定义与基本运算
 premises: []
 mathlib: [Complex, Complex.ext_iff, Complex.normSq, Complex.sq_norm]

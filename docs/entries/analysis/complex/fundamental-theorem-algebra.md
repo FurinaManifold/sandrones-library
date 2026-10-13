@@ -1,7 +1,7 @@
 ---
 id: analysis.complex.fundamental-theorem-algebra
 kind: theorem
-state: partial
+state: verified
 title: 代数学基本定理
 premises: []
 mathlib: [Complex.exists_root, IsAlgClosed.of_exists_root, IsAlgClosed.splits, Polynomial.Splits.eq_prod_roots]
