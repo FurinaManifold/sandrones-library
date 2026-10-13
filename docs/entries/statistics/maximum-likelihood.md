@@ -7,7 +7,7 @@ state: verified
 title: 似然函数与最大似然估计
 summary: 以支配模型的联合可测 Radon–Nikodym 密度承载似然，用几乎处处的 argmax 定义最大似然估计并建立其订单与存在性性质
 premises: [statistics.model.density, statistics.estimator.definition]
-mathlib: [ProbabilityTheory.Kernel.rnDeriv, ProbabilityTheory.Kernel.measurable_rnDeriv, Mathlib.Order.Filter.IsMaxOn, Mathlib.Order.Monotone.StrictMono, Set.exists_max_image, ProbabilityTheory.Kernel.deterministic]
+mathlib: [ProbabilityTheory.Kernel.rnDeriv, ProbabilityTheory.Kernel.measurable_rnDeriv, ProbabilityTheory.Kernel.deterministic, IsMaxOn, StrictMono.le_iff_le, Set.exists_max_image]
 provenance:
   source_type: book
   ref: "schervish-theory-statistics-1995"
@@ -89,8 +89,8 @@ Markov kernel，从而最大似然估计接入 `statistics.estimator.definition`
   \operatorname{argmax}_\theta \varphi(f(\theta))=\operatorname{argmax}_\theta f(\theta).
 \]
 
-取 `φ = Real.log` 就是"最大化似然等价于最大化对数似然"的一般订单形式；本条目不为对数单独复制
-一份 argmax 论证，而是把这条通用事实作为正式引理。
+`Real.log` 在 `Set.Ioi 0` 上严格单调，正是"最大化似然等价于最大化对数似然"的教材原型；本条目不
+为对数单独复制一份 argmax 论证，而是把这条订单层事实抽成对任意严格单调 `φ` 的正式引理。
 
 **换参数不变性。** `isMaxOn_univ_comp_equiv_iff` 是订单层核心：双射 `e : Θ' ≃ Θ` 下，
 `θ' ↦ p(e θ')` 的最大值点恰是 `p` 的最大值点的逆像。由此 `maximumLikelihoodEstimator_reparametrize`

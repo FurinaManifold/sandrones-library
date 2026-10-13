@@ -22,7 +22,7 @@ Radon--Nikodym 密度固定为 `P.rnDeriv (Kernel.const Θ ν) θ x`。把它看
 "几乎处处"是定义的组成部分，而不是事后补的正则性假设。
 
 本文件证明：似然联合可测且总积分为一（似然确实是密度的函数层视角）、最大似然估计给出合法的
-确定性估计量、任一严格单调变换（例如对数）不改变最大化点、参数双射下最大化点按逆像对应、
+确定性估计量、任一严格单调变换不改变最大化点（对数似然等价性是其原型）、参数双射下最大化点按逆像对应、
 两个最大似然估计的似然值几乎处处相等；并在有限参数、可数样本空间上给出一个显式存在且可测的
 最大似然估计。
 
@@ -39,8 +39,9 @@ namespace SandronesLibrary.Statistics
 open MeasureTheory ProbabilityTheory
 open scoped ENNReal
 
-/-- 严格单调变换不改变最大值点。取 `φ = Real.log` 即"最大化似然等价于最大化对数似然"的
-一般订单形式；这里把它写成对任意严格单调 `φ` 的引理，避免为对数单独复制一份 argmax 论证。 -/
+/-- 严格单调变换不改变最大值点。`Real.log` 在 `Set.Ioi 0` 上严格单调，正是这条引理的教材原型
+（"最大化似然等价于最大化对数似然"）；这里把订单层事实抽成对任意严格单调 `φ` 的一般引理，
+不为对数单独复制一份 argmax 论证。 -/
 theorem isMaxOn_univ_comp_strictMono_iff {α β γ : Type*} [LinearOrder β] [Preorder γ]
     (φ : β → γ) (hφ : StrictMono φ) (f : α → β) (a : α) :
     IsMaxOn (fun x => φ (f x)) Set.univ a ↔ IsMaxOn f Set.univ a := by
