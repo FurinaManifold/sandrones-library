@@ -266,3 +266,12 @@ Lean 的正式承载是 Mathlib 的 `Module`、`Submodule`、`LinearMap`（记�
   张量积、局部化；也不含子模格的运算（和、交、任意交）。`Module` 在 Mathlib 里比教材更
   一般（系数可以是 `Semiring`、底群可以是 `AddCommMonoid`），本条目一律在教材设定
   `[CommRing R] [AddCommGroup M]` 上陈述，不把这种一般性当教材内容。
+- **冻结在 `M →ₗ[R] N`**：`LinearMap.range` 需要 `RingHomSurjective (RingHom.id R)`，该实例在
+  本条目用到的记法上自动合成，不会进公开签名；但如果把结论推广到一般半线性映射
+  `M →ₛₗ[σ] N` 而不假设实例，`RingHomSurjective` 就会真的成为公开假设。本条目因此冻结在
+  `M →ₗ[R] N`。
+- **与 L1 语言纪律的关系（跨条目口径问题，留给 Main）**：L1 的 `VectorSpace.lean` 头部自述
+  「mathlib 的 `Module`/`Submodule` 等只出现在 `:= by` 之后，绝不出现在定理描述里」，但同一
+  文件的 `IsBasis` 公开定义体已经含 `Submodule.span`。本条目公开使用 `Submodule`/`LinearMap`
+  与 L1 的**实际**做法一致，与 L1 的**自述**纪律不一致。本批不擅改 L1 文档，把口径统一作为
+  Main-side 建议写进 handoff。
