@@ -151,6 +151,75 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | G-ST | ST3 递归与增长 | 原始递归、Ackermann、序数记号、基本列 | Goodstein 状态编码完成前，不把 ST1 的下降接口宣称为 Goodstein 定理 |
 | G-N1+ | N1 扩展 | 最佳逼近必要方向、周期连分数、`√d`—Pell、全体正解分类 | 负 Pell 与可解性必须单列，不由正 Pell 结果暗示 |
 
+#### Wave D：当前调度窗口（2026-10-13 起，基线 Main `b2cd090`）
+
+本表取代 Wave A–C 的启动语义，是当前唯一派工依据。窗口按“依赖门已开 + 文件所有权不重叠”派发；
+同一学科同一时间只指定一个负责人，负责人可带 2–3 个文件所有权不重叠的子 Agent。所有窗口开工前
+必须先同步 Main `b2cd090` 或其后继（`git rebase main`，共享 staging 用 `git merge origin/main`）。
+
+**D-0 Main 集成队列（先清队，再派新工）**
+
+| 顺序 | 学科 staging | 交付 commit | 范围 | 待接收凭据 |
+|---|---|---|---|---|
+| 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | `../review-inbox/probability/probability-pr3-levy-clt-foundation-ready.md` |
+| 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | `../review-inbox/probability/statistics-s1-sufficiency-ready.md` |
+| 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | `docs/handoffs/functional-analysis-paper-condensation.md` |
+| 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | `docs/world-formula/reviews/wf1-02-cantor-theorem-*.md` |
+
+1–3 按数学批次验收：语义 diff → 独立复验模块与联合导入 → 合并 → 共有文件 → 生成器／公理审计／
+`audit.py`／一次全库 `lake build` → 独立 Main 集成提交。4 为纯文本批次，先核对逐断言数学审稿，
+再核对跨章一致性与出版编辑审稿；只有目录、链接、版式等 R3 问题由 Main 直接修，事实或结构问题
+退回主编。
+
+**D-1 学科开发窗口**
+
+| 窗口 | 学科 staging | 条目范围 | 权限 | 文件所有权 | 出口与边界 |
+|---|---|---|---|---|---|
+| D1 复分析 cycle 基础 | `codex/complex-analysis`（须先同步） | `complex-analysis.integral.finite-cycle-foundation` | `research_open` | 新建 cycle 与 Banach 值路径积分文件；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 的六列表与无占位原型；Main 冻结签名后转 `development_open` |
+| D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
+| D3 拓扑 AT2-C5e | `codex/topology-foundations`（须先同步并丢弃 superseded 文件） | `topology.covering.subgroup-construction-recovery` | `research_open` | 新文件路径；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
+| D4 交换代数 CA1 | 新建 `codex/commutative-algebra` | `commutative-algebra.module.definition` | `research_open` | 新建 `SandronesLibrary/CommutativeAlgebra/` | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
+| D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 待本窗验收 |
+| D6 数论 N2.1–N2.3 | 新建 `codex/number-theory-algebraic` | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | `development_open` | 新建 `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
+| D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
+| D8 概率 Pr3.5 一般 CLT | 待 D-0 第 1 项集成后 | `probability.central-limit-theorem` | `research_open` | 不占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥的调查；不得用 Mathlib 最终 CLT 冒充课程证明链 |
+| D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
+| D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | `development_open` | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
+
+**D-2 关键路径与并行边界**
+
+- 关键路径：D1（复分析 cycle carrier）→ F6.6b2 Dunford 演算 → F7/F8 与 C3 残数定理。D1 冻结签名前，
+  D2 只做不依赖 cycle 的解析部分，不得另建第二套 cycle 或 Banach 值积分结构。
+- 可全并行：D2、D3、D4、D5、D6、D7、D9、D10 之间无共享文件；D5 与 D6 只在 Registry／ROADMAP 由 Main 合并。
+- D1 与 D2 都可能触及 Banach 值积分：公共 carrier 归 D1 所有，D2 只消费。
+- D-0 未清队前不新开同学科窗口；概率与统计的后续窗口须等 D-0 第 1–2 项落地。
+
+**D-3 陈旧分支处置（不得合并）**
+
+以下分支尖端落后于 Main，部分文件是已被 `*Standard.lean` 取代的旧载体；合并会重放 superseded
+提交或制造重复 Entry id。负责人开工前必须同步 Main，只保留尚未集成的成果。
+
+| 分支 | 现场判定 | 处置 |
+|---|---|---|
+| `codex/topology-foundations` | 11 个旧载体文件（`Contractible.lean`、`HomotopyEquivalence.lean`、`LoopHomotopyClasses.lean` 等）已被 `*Standard.lean` 取代，另有 `Homotopy.lean` 等 3 个文件的旧版本；C5d `ca00a9b` 已由 Main `d3583a8`／`7a1239b` 集成 | 不得合并旧文件；C5e 用新文件路径重做 |
+| `codex/abstract-algebra` | 含 Main 已判 superseded 的 `9c73a89`；尖端落后 | 同步 Main 后另开 CA1 分支 |
+| `codex/complex-analysis` | 落后于 Main，已集成 C2 内容重复 | 同步 Main，只保留 cycle 研究原型 |
+| `codex/functional-analysis-restart`、`codex/functional-analysis` | 落后于 Main | 同步 Main 后只追加 F6.6b1 新文件 |
+| `codex/settheory-ordinal` | 落后于 Main；`goodstein-reencoding` 已集成 | 同步 Main 后只追加 ST3 纵深新文件 |
+| `codex/number-theory-*` | N1 与 N1.5 条目已在 Registry | 不再合并；N2 另开分支 |
+| `codex/analysis-maintenance-uniform-compact` | 仅 `MVT.lean` 微小差异且落后 | 由 Main 在维护窗口语义核对后决定 |
+| `codex/abstract-algebra-*` 子分支 | 各维护阶段已被 Main 逐阶段接收 | 保留为历史，不再合并 |
+
+**D-4 Main 待办（共享文件与对账）**
+
+1. 集成 D-0 后同步更新 §1 总览、对应章节状态、`SandronesLibrary.lean`、Registry、RADAR 与
+   `ROADMAP-examples.md`。
+2. 对账 N1+：Registry 已有 `continued-fraction-*`、`best-rational-approximation`、`pell-*` 等条目，
+   而 §1 依赖门 G-N1+ 与 §11 N1+ 表仍记 🔲／未列；Main 须按 Registry 现状重写 N1+ 状态，并明确
+   `convergent-best`、`sqrt-periodic-cf`、`pell-cf-bridge`、`pell-all-positive`、`negative-pell` 的剩余边界。
+3. 决定 `codex/archify-feasibility` 与 `codex/project-introduction` 两份仓库外报告是否进入
+   `docs/reports/`；两者都不是数学批次，须走 Main 文档审稿，不得混入数学集成提交。
+
 #### 每个学科 handoff 必须回答的路线问题
 
 除 Playbook 规定字段外，`docs/handoffs/<subject>-<batch>.md` 必须增加以下六项：
