@@ -43,7 +43,7 @@
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1🚧；其余按各自路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧 E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
-| **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🚧 WF2–WF3🔒/滚动开放 | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
+| **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🔒 WF2–WF3🔒（2026-10-13 全线暂停） | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
 阶段进度表。✅ 只表示已进入 main、Registry 为 verified 且 main 全库验收通过；`staging`、
@@ -72,7 +72,11 @@ main 的理论命名例子 Entry 暂不破坏性迁移，但其补例、扩展�
 即使主教材把例题紧接在定理后面，Main 也必须在排期时拆成“理论接口”和“Examples 实例化”两个
 所有权不同的项目；不得因为例题是教材章节的一部分，就把它继续派给理论学科负责人。
 
-### 1.1 《水仙十字的世界式》常驻批次
+### 1.1 《水仙十字的世界式》常驻批次（🔒 2026-10-13 全线暂停）
+
+> **冻结决定（2026-10-13，用户指示）**：本书稿线的全部窗口停止派工与续写，WF1/WF2/WF3 一律记 🔒。
+> 已产出但未接收的文字留在各自 `codex/world-formula*` 分支，**不并入 main**；恢复须由用户显式解冻，
+> 并按 §D-0 第 4 行的纯文本批次流程（逐断言数学审稿 + 出版编辑审稿）重新排队。
 
 | 批次 | 范围 | 开工门 | 接收出口 |
 |---|---|---|---|
@@ -81,8 +85,9 @@ main 的理论命名例子 Entry 暂不破坏性迁移，但其补例、扩展�
 | WF2 成熟学科扩展 | 实分析、数论、复分析、概率、泛函分析 | 只领取已集成部分；未开门内容仅作明确远景 | 每个学科至少一篇路径综述与两个跨学科连接 |
 | WF3 高阶综合 | Fourier/调和、PDE、几何、代数拓扑、范畴／同调／代数几何、逻辑与重要论文 | 各自课程门满足 | 正式章节与出版背景严格分栏；不得用论文摘要替代知识链 |
 
-WF0 已完成，WF1 持续 `development_open`；WF2/WF3 按各学科已验收资产滚动开放，不要求全库先
-“完成”。每个章节记录事实截止 Main commit，后续源条目变化触发文字维护审计，而不是静默过时。
+WF0 已完成；WF1 原为持续 `development_open`，现随全线暂停转 🔒。WF2/WF3 同样冻结，解冻后按各学科
+已验收资产滚动开放，不要求全库先“完成”。每个章节记录事实截止 Main commit，后续源条目变化触发
+文字维护审计，而不是静默过时。
 
 ### 1.2 多学科并行生产路线（main 调度基线）
 
@@ -164,7 +169,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | 1 | `codex/probability` | `fbc5afd` | Pr3 4b1 `probability.characteristic-function.levy-continuity` 与 4b2 `probability.clt.characteristic-foundation`（2 条） | ✅ 已于 2026-10-13 集成（`8d98886`，裁决见 `docs/reviews/probability-levy-clt-foundation-main-review.md`） |
 | 2 | `codex/probability` | `96bb6b0` | S1.5 `statistics.sufficiency.definition`（1 条） | ✅ 已于 2026-10-13 集成（`3a15393`，裁决见 `docs/reviews/statistics-sufficiency-main-review.md`） |
 | 3 | `codex/functional-analysis-paper-condensation` | `27f33e9` | Banach–Steinhaus 1927 凝集定理论文批（`Condensation.lean`、`CondensationDivergence.lean`，`paper_ready`） | ✅ 已于 2026-10-13 集成（`046e9f9`／`4ec485d`／`59ca250`，Main 集成提交 `1762942`） |
-| 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | ⏸ 暂缓：交付仍留在 `codex/world-formula`，未接收；恢复时按纯文本批次审稿 |
+| 4 | `codex/world-formula` | `bbb6378` | WF1-02 Cantor 定理章节 + 数学／编辑双重审稿 | 🔒 冻结：随 §1.1 全线暂停，交付留在 `codex/world-formula`，不接收；解冻后按纯文本批次审稿 |
 
 1–3 按数学批次验收：语义 diff → 独立复验模块与联合导入 → 合并 → 共有文件 → 生成器／公理审计／
 `audit.py`／一次全库 `lake build` → 独立 Main 集成提交。4 为纯文本批次，先核对逐断言数学审稿，
@@ -184,7 +189,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 | D7 集合论 ST3 纵深 | `codex/settheory-ordinal`（须先同步） | `primitive-recursive-class`、`hereditary-encoding-order`、`hydra-general-descent`、`universal-machine-instance` | 🚧 可开工 | 各自独立文件；不改已集成 Goodstein 状态文件 | 四条 🚧 逐条独立 Entry；🔒 条目（Ackermann 支配、一般下降与终止、PA 边界、对角翻转、停机不可判定）仍等各自前置 |
 | D8 概率 Pr3.5 一般 CLT | `codex/probability-wave-r1`（Wave R1） | `probability.clt.central-limit-theorem` | ✅ 已完成并集成（2026-10-13，`dbba195`–`58d97b8`） | 未占用 4b1/4b2 已集成文件 | 任意均值方差、退化方差边界与分布收敛桥已完成；未用 Mathlib 最终 CLT 冒充课程证明链。D8 原标 `research_open` 针对的“任意点态特征函数极限存在性”子问题仍未解，但既有接口上的开发交付已通过 |
 | D9 Examples 覆盖巡检 | 新建 `codex/examples` | E0.2–E0.4 存量转正 + E1 集合／映射／基数／序数 | 🚧 可开工 | `SandronesLibrary/Examples/`、`docs/entries/examples/` | 每次 Main 集成新知识点后产生一次巡检；理论模块不得依赖 Examples |
-| D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | `development_open` | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
+| D10 《水仙十字的世界式》 | `codex/world-formula` | WF1 续写；WF2 按已验收资产滚动开放 | 🔒 冻结（2026-10-13 用户指示暂停；恢复须显式解冻） | `docs/world-formula/` | 只消费已验收 Entry；每章记录事实截止 Main commit |
 
 **D-1a 本波派工（2026-10-13，自 Main `0b2ae8c` 净新开工）**
 
@@ -584,7 +589,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-settheory | 集合论深化 | ST2/ST3🚧 | `SetTheory/`、`docs/entries/settheory/` |
 | R-calg | 交换代数 | CA1🚧 | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
 | R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
-| R-world | 世界式书稿 | WF1🚧 | `docs/world-formula/`（Main 持总目录） |
+| ~~R-world~~ | 世界式书稿 | WF1🔒（2026-10-13 暂停，不派工） | —（窗口已关闭） |
 
 **资源纪律（硬约束，Main 与学科共同遵守）**：
 
