@@ -7522,6 +7522,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T01:27:21Z",
     "dependedOnBy": [
+      "analysis.forms.coordinate-expression",
       "analysis.multivariable.second-kind-integrals"
     ],
     "proof_sha": "4bf3525f81c7b120",
@@ -7595,7 +7596,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T02:28:49Z",
     "dependedOnBy": [
-      "analysis.multivariable.green-gauss-stokes"
+      "analysis.multivariable.green-gauss-stokes",
+      "analysis.stokes.domain-gluing"
     ],
     "axioms": [
       "Classical.choice",
@@ -7632,7 +7634,9 @@
     "nl_file": "docs/entries/analysis/multivariable/green-gauss-stokes.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T02:38:51Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.stokes.domain-gluing"
+    ],
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -19828,6 +19832,7 @@
     "added_by": "main-wave-e-integration",
     "added_at": "2026-10-13T05:30:19Z",
     "dependedOnBy": [
+      "analysis.coordinate-integrals.mass-center",
       "analysis.multivariable.coordinate-integrals"
     ],
     "proof_sha": "efc1b234451089e7"
@@ -19861,7 +19866,9 @@
     ],
     "added_by": "main-wave-e-integration",
     "added_at": "2026-10-13T05:30:19Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "analysis.coordinate-integrals.mass-center"
+    ],
     "proof_sha": "b6f7662b65ff1026"
   },
   {
@@ -20652,6 +20659,142 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T09:03:43Z",
     "proof_sha": "1801d1cb33e658c7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.forms.coordinate-expression",
+    "kind": "theorem",
+    "title": "欧氏空间上微分形式的坐标表达式",
+    "summary": "在 ℝⁿ 的标准基下给出 1、2、3 次微分形式的坐标形式 dx_i、dx_i∧dx_j 与体积形式的显式分量展开；一般 n 只覆盖 1-形式，2/3-形式分别限 ℝ²/ℝ³，未含 k≥4",
+    "family": "analysis.forms",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.differential-forms"
+    ],
+    "mathlib": [
+      "ContinuousAlternatingMap.ofSubsingletonLIE",
+      "AlternatingMap.domCoprod",
+      "MultilinearMap.domCoprod",
+      "MultilinearMap.alternatization",
+      "MultilinearMap.domCoprod_alternization_eq",
+      "MultilinearMap.alternatization_apply",
+      "TensorProduct.lid",
+      "Module.Basis.ext_alternating",
+      "Module.Basis.det",
+      "Module.Basis.det_apply",
+      "Module.Basis.toMatrix_apply",
+      "AlternatingMap.eq_smul_basis_det",
+      "AlternatingMap.map_swap",
+      "Pi.basisFun",
+      "Pi.basisFun_repr",
+      "Matrix.det_apply",
+      "Finset.sum_eq_single",
+      "Equiv.Perm.sign"
+    ],
+    "lean_file": "Analysis/FormCoordinateExpression.lean",
+    "nl_file": "docs/entries/analysis/forms/coordinate-expression.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:16:15Z",
+    "proof_sha": "1e2e71a404ef1b22",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.stokes.domain-gluing",
+    "kind": "theorem",
+    "title": "分段光滑区域的拼接与积分公式装配",
+    "summary": "用整数关联数统一刻画分段光滑区域的公共边/面抵消，把各片局部 Green、Gauss、Stokes 公式装配为整体外边界定理；局部公式作假设，参数域固定 ℝ×ℝ，不含一般流形与单位分解",
+    "family": "analysis.stokes",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.green-gauss-stokes",
+      "analysis.multivariable.second-kind-integrals"
+    ],
+    "mathlib": [
+      "MeasureTheory.integral_biUnion_finset",
+      "MeasureTheory.IntegrableOn",
+      "Finset.sum_subset",
+      "Finset.erase_subset",
+      "Finset.mem_erase",
+      "Fin.sum_univ_two",
+      "MeasurableSet.prod",
+      "measurableSet_Iio",
+      "measurableSet_Ici",
+      "integrableOn_zero"
+    ],
+    "lean_file": "Analysis/StokesDomainGluing.lean",
+    "nl_file": "docs/entries/analysis/stokes/domain-gluing.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:16:15Z",
+    "proof_sha": "0ab2e499b7cbb20b",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "analysis.coordinate-integrals.mass-center",
+    "kind": "theorem",
+    "title": "质量、重心与转动惯量",
+    "summary": "带密度区域的质量、一阶矩/重心、二阶矩与转动惯量的集积分接口及平行轴展开；平行轴只证到展开恒等式，未证代入重心的经典形式",
+    "family": "analysis.coordinate-integrals",
+    "variant": "textbook",
+    "premises": [
+      "analysis.multivariable.coordinate-integrals",
+      "analysis.multivariable.change-variables"
+    ],
+    "mathlib": [
+      "setIntegral_nonneg_of_ae_restrict",
+      "ae_restrict_iff'₀",
+      "setIntegral_union",
+      "setIntegral_union₀",
+      "setIntegral_sdiff",
+      "integral_add",
+      "integral_sub",
+      "integral_const_mul",
+      "integral_finsetSum",
+      "setIntegral_const",
+      "setIntegral_one_eq_measureReal",
+      "setIntegral_congr_fun",
+      "integral_congr_ae",
+      "Finset.sum_mul",
+      "Finset.mul_sum",
+      "Finset.sum_add_distrib",
+      "Finset.sum_sub_distrib",
+      "Finset.sum_congr",
+      "Finset.sum_nonneg",
+      "sq_nonneg",
+      "mul_div_mul_left",
+      "mul_ne_zero"
+    ],
+    "lean_file": "Analysis/MassCenter.lean",
+    "nl_file": "docs/entries/analysis/coordinate-integrals/mass-center.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ecnu-mathematical-analysis-5"
+    },
+    "state": "verified",
+    "added_by": "main-wave-r1-integration",
+    "added_at": "2026-10-13T09:16:15Z",
+    "proof_sha": "8717ca3cbfaf927e",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

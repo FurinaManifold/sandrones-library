@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **618** 个条目（verified 618，pending 0）。
+共 **621** 个条目（verified 621，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -109,6 +109,10 @@
 - ✅ [`uniform.md`](analysis/continuity/uniform.md) — 一致连续
 - ✅ [`uniform-compact.md`](analysis/continuity/uniform-compact.md) — 紧集上连续 ⟹ 一致连续
 
+## `analysis.coordinate-integrals`
+
+- ✅ [`mass-center.md`](analysis/coordinate-integrals/mass-center.md) — 质量、重心与转动惯量
+
 ## `analysis.derivative`
 
 - ✅ [`add.md`](analysis/derivative/add.md) — 和/差导数
@@ -120,6 +124,10 @@
 - ✅ [`inverse-function.md`](analysis/derivative/inverse-function.md) — 反函数求导
 - ✅ [`mul.md`](analysis/derivative/mul.md) — 积的导数（Leibniz）
 - ✅ [`unique.md`](analysis/derivative/unique.md) — 导数唯一
+
+## `analysis.forms`
+
+- ✅ [`coordinate-expression.md`](analysis/forms/coordinate-expression.md) — 欧氏空间上微分形式的坐标表达式
 
 ## `analysis.func-limit`
 
@@ -251,6 +259,10 @@
 - ✅ [`log.md`](analysis/special-functions/log.md) — 对数函数的基本性质
 - ✅ [`log-tan-pow.md`](analysis/special-functions/log-tan-pow.md) — 对数、正切、幂函数与反三角函数
 - ✅ [`tan-pow.md`](analysis/special-functions/tan-pow.md) — 反余弦函数的连续性
+
+## `analysis.stokes`
+
+- ✅ [`domain-gluing.md`](analysis/stokes/domain-gluing.md) — 分段光滑区域的拼接与积分公式装配
 
 ## `analysis.trigonometric`
 

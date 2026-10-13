@@ -247,8 +247,11 @@ theorem integral_sq_sub_center {n : ℕ} {ρ : JordanEuc n → ℝ} {D : Set (Jo
 `momentOfInertia ρ D c =
   ∑ i, (secondMoment ρ D i - 2 cᵢ firstMoment ρ D i + cᵢ² mass ρ D)`。
 
-它不假设 `c` 是重心，也不断言交叉项消失；当 `c` 取重心向量时交叉项归零，才退化
-为经典平行轴定理。 -/
+它不假设 `c` 是重心。取 `c := fun i => centroid ρ D i` 时，
+`∑ᵢ cᵢ firstMoment ρ D i = mass ρ D · euclideanNormSq c`（=`m‖c‖²`），代入后得到
+`momentOfInertia ρ D c = I₀ - m‖c‖²`，其中 `I₀ = ∑ i, secondMoment ρ D i` 是关于原点的转动惯量；
+整理即经典平行轴定理 `I₀ = I_c + m‖c‖²`。**本定理只证明到展开恒等式这一层**，上述代入重心的
+化简未在此证明。 -/
 theorem momentOfInertia_expansion {n : ℕ} {ρ : JordanEuc n → ℝ} {D : Set (JordanEuc n)}
     {c : JordanEuc n} (hρ : IntegrableOn ρ D volume)
     (h2 : ∀ i, IntegrableOn (fun x => (x i) ^ 2 * ρ x) D)
@@ -279,8 +282,10 @@ theorem momentOfInertia_expansion {n : ℕ} {ρ : JordanEuc n → ℝ} {D : Set 
 `momentOfInertia ρ D c =
   (∑ i, secondMoment ρ D i) - 2 (∑ i, cᵢ firstMoment ρ D i) + euclideanNormSq c · mass ρ D`。
 
-当 `c` 取重心向量时 `∑ i, cᵢ firstMoment ρ D i` 归零，右端即经典平行轴定理
-`I_c = I_0 + ‖c‖² m` 中的展开结构。 -/
+取 `c := fun i => centroid ρ D i` 时第二项并不消失，而是
+`2 (∑ i, cᵢ firstMoment ρ D i) = 2 m‖c‖²`（`m = mass ρ D`），故右端化为
+`I₀ - m‖c‖²`，对应经典平行轴定理 `I₀ = I_c + m‖c‖²`。本定理本身只是展开恒等式的线性重排，
+不含代入重心的化简。 -/
 theorem momentOfInertia_parallel_axis {n : ℕ} {ρ : JordanEuc n → ℝ}
     {D : Set (JordanEuc n)} {c : JordanEuc n} (hρ : IntegrableOn ρ D volume)
     (h2 : ∀ i, IntegrableOn (fun x => (x i) ^ 2 * ρ x) D)

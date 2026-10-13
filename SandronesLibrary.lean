@@ -194,6 +194,9 @@ import SandronesLibrary.Analysis.TaylorSeries
 import SandronesLibrary.Analysis.TaylorIntegralRemainder
 import SandronesLibrary.Analysis.Stirling
 import SandronesLibrary.Analysis.FiniteInequalities
+import SandronesLibrary.Analysis.FormCoordinateExpression
+import SandronesLibrary.Analysis.StokesDomainGluing
+import SandronesLibrary.Analysis.MassCenter
 import SandronesLibrary.Topology.Compact
 import SandronesLibrary.SetTheory.Set
 import SandronesLibrary.SetTheory.Function

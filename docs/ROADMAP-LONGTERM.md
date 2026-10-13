@@ -578,7 +578,7 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 
 | 窗口 | 学科 | 阶段表状态 | 文件所有权（学科自有） |
 |---|---|---|---|
-| R-analysis | 数学分析 | AN-MV🚧（AN3🔒） | `Analysis/`、`docs/entries/analysis/` |
+| R-analysis | 数学分析 | AN-MV🚧（#1/#4/#5 ✅ 已集成；#2 leibniz、#3 poincaré、#6 course-boundary 未交付；AN3🔒） | `Analysis/`、`docs/entries/analysis/` |
 | R-topology | 拓扑学 | T4🚧 | `Topology/`、`docs/entries/topology/` |
 | R-real | 实分析 | RA-F2–RA-F6🚧 | `RealAnalysis/`、`docs/entries/real-analysis/` |
 | R-complex | 复分析 | C2🚧（C3⏸） | `ComplexAnalysis/`、`docs/entries/complex-analysis/` |
@@ -728,11 +728,11 @@ Hessian/Taylor、反函数／隐函数／常秩定理、多重积分与换元、
 
 | # | 条目 id | 内容 | 主要接口 |
 |---|---|---|---|
-| 1 | `analysis.forms.coordinate-expression` | 1/2/3-形式显式坐标表达 | 本库 `DifferentialForm` |
+| 1 | `analysis.forms.coordinate-expression` | ✅ 1/2/3-形式显式坐标表达（Wave R1）：一般 n 的 1-形式、ℝ²/ℝ³ 的 2-形式、ℝ³ 的 3-形式；未含 k≥4 | 本库 `DifferentialForm` |
 | 2 | `analysis.forms.leibniz` | 外微分对楔积的分次 Leibniz 公式 | 外微分/楔积接口 |
 | 3 | `analysis.forms.poincare` | 星形域上的 Poincaré 引理 | 同伦算子与积分 |
-| 4 | `analysis.stokes.domain-gluing` | 参数片拼成一般分片光滑区域 | 已有三大公式片接口 |
-| 5 | `analysis.coordinate-integrals.mass-center` | 质量、重心、转动惯量理论接口 | 坐标换元 API；计算题归 Examples |
+| 4 | `analysis.stokes.domain-gluing` | ✅ 参数片拼成一般分片光滑区域（Wave R1）：`PiecewiseSmoothRegion` 接口、Green/Gauss/Stokes 拼接与两片共享边抵消；局部公式作假设，参数域固定 ℝ×ℝ，不含一般流形／单位分解 | 已有三大公式片接口 |
+| 5 | `analysis.coordinate-integrals.mass-center` | ✅ 质量、重心、转动惯量理论接口（Wave R1）：平行轴仅证到展开恒等式，代入重心的经典形式 `I₀ = I_c + m‖c‖²` 未证；因 `JordanEuc` 默认上确界范数，显式引入 `euclideanNormSq` 作欧氏距离桥 | 坐标换元 API；计算题归 Examples |
 | 6 | `analysis.multivariable.course-boundary` | 分析 II 覆盖范围与 de Rham 边界 | 本库多元分析 API |
 
 边界：本路线只到欧氏空间上的第二型积分、Green--Gauss--Stokes 与 Poincaré 型结论；de Rham

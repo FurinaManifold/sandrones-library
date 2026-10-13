@@ -3638,3 +3638,27 @@
 - **谁在用**：`functional-analysis.operator.selfadjoint-positive-normal`（正规性刻画与
   「正规 ⟹ 核与伴随核一致」的单向蕴含，反向不成立已在文档注明）。**边界**：正规算子谱定理、
   连续函数演算（F6.8）、谱测度（F6.9）与 Gelfand 理论（F6.10）均未触及。
+
+## 数学分析：形式坐标表达、区域拼接与坐标积分（AN-MV-R1，Wave R1）
+
+### `AlternatingMap.domCoprod` / `MultilinearMap.domCoprod_alternization_eq` / `AlternatingMap.eq_smul_basis_det`
+- **人话**：`domCoprod` 把两个交替（或一般多重线性）映射组合成高阶交替映射，
+  `domCoprod_alternization_eq` 说明「先楔积再交替化 = 楔积」，
+  `eq_smul_basis_det` 用行列式标定最高次交替映射在标准基上的唯一标量。
+- **出处**：Mathlib 的 `LinearAlgebra.Alternating` 与 `TensorProduct` 楔积接口。
+- **谁在用**：`analysis.forms.coordinate-expression`（`coordinateTwoForm_apply` 的完整证明；
+  `dx_i ∧ dx_j` 与体积形式的显式分量展开）。
+
+### `MeasureTheory.integral_biUnion_finset` / `IntegrableOn` / `Fin.sum_univ_two`
+- **人话**：有限不交并上的积分等于各部分积分之和；`IntegrableOn` 是区域可积性谓词；
+  `Fin.sum_univ_two` 把 `Fin 2` 上的求和展开为两项。
+- **出处**：Mathlib 的积分与有限和接口。
+- **谁在用**：`analysis.stokes.domain-gluing`（各参数片局部公式装配为整体外边界定理、
+  两片共享边人射数为零）。
+
+### `integral_finsetSum` / `setIntegral_sdiff` / `setIntegral_one_eq_measureReal`
+- **人话**：有限和的逐项集积分；集合差上的集积分；常值 `1` 的集积分等于实测度。
+- **出处**：Mathlib 的集积分接口。
+- **谁在用**：`analysis.coordinate-integrals.mass-center`（质量/一阶矩/二阶矩/转动惯量的
+  线性性质，以及平行轴展开的逐坐标积分）。**边界**：`JordanEuc = Fin n → ℝ` 默认上确界范数，
+  故显式引入 `euclideanNormSq` 作欧氏距离桥；平行轴只证到展开恒等式，经典形式未证。
