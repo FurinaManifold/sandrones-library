@@ -156,9 +156,11 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E9P.2 独立性、矩与方差 | `examples.probability.independence-moments` | 独立 Bernoulli 和、均值、方差与协方差计算 | 不相关不等于独立；有限期望不自动给有限方差 | Pr1 |
 | E9P.3 条件期望与鞅 | `examples.probability.conditional-martingale` | 有限分割条件期望、简单随机游走鞅与有界停时 | 条件期望是 a.e. 等价类；无界停时不能直接套有界可选停止 | Pr2 |
 | E9P.4 收敛与大数律 | `examples.probability.convergence-lln` | 样本均值的概率／几乎必然收敛及收敛模式比较 | 概率收敛不自动推出几乎必然收敛；弱大数律不等于强大数律 | Pr3 |
-| E9P.5 特征函数 | `examples.probability.characteristic-functions` | Bernoulli、正态及独立和的特征函数计算 | 只写形式积分不等于满足可测性；连续性不需要矩条件 | Pr3.4 |
+| E9P.5 特征函数 | `examples.probability.characteristic-functions` | Bernoulli、正态及独立和的特征函数计算 | 只写形式积分不等于满足可测性；连续性不需要矩条件 | Pr3.4 ✅ |
 | E9P.6 统计模型、风险与偏差—方差 | `examples.statistics.estimators` | Bernoulli 模型样本均值、平方损失风险与偏差—方差分解 | 无偏不等于风险最小；随机化估计量需要明确 kernel | S1.1-S1.3 |
 | E9P.7 相合性 | `examples.statistics.consistency` | 共同样本轨道上的样本均值，展示 `L²` 误差趋零推出逐参数概率相合 | 逐参数相合不等于一致相合；不同样本空间无 coupling 时不能直接用 `TendstoInMeasure` | S1.4 |
+| E9P.8 中心极限定理 | `examples.probability.clt` | 标准化 iid 和的特征函数逐点收敛到标准正态特征函数，并接上 Lévy 连续性定理得到弱收敛 | 特征函数逐点收敛本身不足以保证弱收敛（Lévy 定理必须用过连续性点或紧性条件）；证明链走特征函数二阶 Taylor 小量，不能只写"由中心极限定理" | Pr3.5 ✅ |
+| E9P.9 充分统计量 | `examples.statistics.sufficiency` | Bernoulli／正态模型下样本和或样本均值为充分统计量，核验共同正规条件分布与参数无关 | 充分不等于最小充分；"条件分布与参数无关"必须落在共同正规条件分布上，不能只比较形式密度 | S1.5 ✅ |
 
 ## E10 初等数论
 
@@ -193,6 +195,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E11.11 半范数与 Fréchet 空间 | `examples.advanced-functional-analysis.frechet` | `ℝⁿ` 坐标半范数、`C∞` 导数半范数及可数族生成度量 | 单个半范数可不分离点；Fréchet 不等于“具有某个完备范数” | AFA1-AFA2 |
 | E11.12 桶、Bornological 与 Montel | `examples.advanced-functional-analysis.space-properties` | 标准 Fréchet、LF 和 Montel 空间的性质核对 | 完备不自动 Montel；有界集概念不能静默换成范数有界 | AFA3-AFA4 |
 | E11.13 测试函数与分布 | `examples.advanced-functional-analysis.distributions` | Dirac、函数诱导分布、导数和 Fourier 变换 | 点值对一般 `L¹` 函数无意义；分布收敛不等于逐点收敛 | AFA5 |
+| E11.14 Banach–Steinhaus 凝集定理 | `examples.functional-analysis.condensation` | 可数行连续线性算子族各行各有输出无界点时，构造公共无界点；同时发散版本给出公共非 Cauchy 点 | 结论是"公共点集稠密 `Gδ`"而不是全空间或某个固定点；行数必须可数，Baire 范畴条件与 Banach 定义域不可省略；各行值域完备性只在同时发散版本里用到 | F2 ✅ |
 
 ## E12 偏微分方程
 
@@ -279,3 +282,14 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 
 Examples 的缺口通常不打回数学正确的理论提交，但 Main 必须把缺口排入巡视，不能让“以后补例子”
 成为永久状态。
+
+### 巡视记录
+
+- **2026-10-13（Main `1e7bf87`）**：补齐上一轮两次集成的登记缺口。`1762942`
+  （Banach–Steinhaus 1927 凝集定理 I／II）登记为 E11.14；`46ea736`（Lévy 连续性定理、
+  CLT 特征函数基础链、充分统计量）登记为 E9P.8 与 E9P.9，并把 E9P.5 的开门口
+  `Pr3.4` 标注为已验收。四条新项目均为 `missing`（尚无 Examples Entry），按"未覆盖但不阻塞
+  理论"排入本路线图，不打回已通过数学验收的理论提交。
+
+> 本次巡视发现的问题：`1762942` 与 `46ea736` 集成时漏了本文件登记。登记本身是 Main 的集成
+> 职责（MAIN-ROLE 验收顺序第 5 步），此前未执行，现补记于此，供后续 Main 核对节奏。
