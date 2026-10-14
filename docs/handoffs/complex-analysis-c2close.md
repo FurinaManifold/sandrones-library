@@ -137,10 +137,10 @@ python3 scripts/subject_package.py \
 > 上面这次运行的 coverage ❌ 就是本文件当时还没提交；本文件提交后的最终复跑结果与异常清单
 > 见本节末尾「最终复跑」。
 
-**最终复跑**（本 handoff 提交后，工作区干净）：
+**最终复跑**（本 handoff 首次提交 `75054f5` 后，工作区干净，退出码 0）：
 
 ```text
-学科验收包 complex-analysis  (codex/complex-analysis-c2-close @ <handoff tip>)
+学科验收包 complex-analysis  (codex/complex-analysis-c2-close @ 75054f577)
   基线 bc8d4fe｜提交 2｜改动文件 5
   ✅ cleanliness
   ✅ ownership
@@ -150,9 +150,11 @@ python3 scripts/subject_package.py \
   ✅ traces（软门）：本批含 35 条验证尝试记录
   ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
 
-  异常清单：空
   verdict: pass
 ```
+
+异常清单为空。本 handoff 在 `75054f5` 之后只有一处回填（就是本节这段文字，以及把
+「最终复跑」的 `<handoff tip>` 换成实际输出），源码、Entry 与 trace 事实不变。
 
 ## 6. C2 收口判定（本窗真正目标）
 
