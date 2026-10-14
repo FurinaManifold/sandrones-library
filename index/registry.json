@@ -11483,6 +11483,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+      "complex-analysis.cauchy.homotopy",
       "complex-analysis.cauchy.path-independence-primitive",
       "complex-analysis.cauchy.primitive-from-path-independence-foundation",
       "complex-analysis.cauchy.smooth-homotopy-foundation",
@@ -11668,6 +11669,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+      "complex-analysis.cauchy.homotopy",
       "complex-analysis.integral.finite-cycle-foundation",
       "complex-analysis.path-integral.dyadic-assembly"
     ],
@@ -11704,7 +11706,9 @@
     "nl_file": "docs/entries/complex-analysis/cauchy/admissible-path-connectivity-foundation.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "complex-analysis.cauchy.homotopy"
+    ],
     "family": "complex-analysis.cauchy",
     "variant": "open-connected-reachability",
     "axioms": [
@@ -12172,6 +12176,7 @@
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
       "complex-analysis.cauchy.formula",
+      "complex-analysis.cauchy.homotopy",
       "complex-analysis.cauchy.primitive-from-path-independence-foundation",
       "complex-analysis.cauchy.smooth-homotopy-foundation",
       "complex-analysis.cauchy.triangle",
@@ -16338,6 +16343,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.cauchy.homotopy",
       "complex-analysis.integral.finite-cycle-foundation",
       "complex-analysis.path-integral.dyadic-assembly",
       "topology.homotopy.finite-raw-open-path-grid",
@@ -17322,6 +17328,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.cauchy.homotopy",
       "topology.homotopy.finite-raw-open-path-grid",
       "topology.homotopy.indexed-open-cover-square-subdivision",
       "topology.homotopy.piecewise-c1-dyadic-alignment"
@@ -17612,6 +17619,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-26T00:00:00Z",
     "dependedOnBy": [
+      "complex-analysis.cauchy.homotopy",
       "complex-analysis.integral.winding-number-foundation"
     ],
     "family": "complex-analysis.path-integral",
@@ -20412,6 +20420,50 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:53:33Z",
     "proof_sha": "492017765f008752",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "complex-analysis.cauchy.homotopy",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "同伦形式的 Cauchy 定理与单连通域原函数",
+    "summary": "在单连通开域中由拓扑假设自动得到同端点道路的相对同伦，从而证明全纯函数的路径积分只依赖端点、存在原函数，并推出闭分段 C¹ 道路积分为零",
+    "family": "complex-analysis.cauchy",
+    "variant": "simply-connected-homotopy-primitive",
+    "premises": [
+      "complex-analysis.path-integral.piecewise-c1-homotopy-invariance",
+      "complex-analysis.cauchy.primitive-from-path-independence-foundation",
+      "complex-analysis.cauchy.admissible-path-connectivity-foundation",
+      "complex-analysis.holomorphic.definition",
+      "complex-analysis.integral.path",
+      "topology.homotopy.piecewise-c1-path",
+      "topology.homotopy.homotopy-square-grid"
+    ],
+    "mathlib": [
+      "IsSimplyConnected",
+      "SimplyConnectedSpace",
+      "SimplyConnectedSpace.paths_homotopic",
+      "Path.Homotopy",
+      "Path.Homotopy.map",
+      "Path.map",
+      "Path.Homotopic",
+      "HasDerivAt",
+      "IsOpen"
+    ],
+    "lean_file": "ComplexAnalysis/CauchyHomotopy.lean",
+    "nl_file": "docs/entries/complex-analysis/cauchy/homotopy.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ahlfors-complex-analysis-1979"
+    },
+    "added_by": "main-e5-c2close-integration",
+    "added_at": "2026-10-13T12:45:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "edc041f14bf4b747",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

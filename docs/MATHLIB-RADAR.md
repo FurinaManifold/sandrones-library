@@ -157,6 +157,23 @@
 - **人话**：承载道路之间端点固定的正方形连续变形，以及反身、时间反向和分段传递操作。
 - **谁在用**：`topology.homotopy.path-homotopy-standard`；第一坐标为同伦时间，第二坐标为道路位置。
 
+### `IsSimplyConnected` / `SimplyConnectedSpace` / `SimplyConnectedSpace.paths_homotopic`
+- **人话**：子类型 `U` 的单连通性——「任意两条同端点道路都相对端点同伦」；`paths_homotopic` 把它
+  直接交成一条落在子类型内的同伦，不需要使用者自己构造。
+- **谁在用**：`complex-analysis.cauchy.homotopy`，作为**语义一致的正式承载**。本库只做搬运：把道路
+  提升为子类型 `U` 上的道路、取 Mathlib 给出的同伦、再沿 `Subtype.val` 搬回复平面并逐点读出像集。
+  教材「单连通 ⇒ 路径无关 ⇒ 原函数存在」这一层是本库自证的，不是 Mathlib 结论的改名——
+  Mathlib `Analysis/Complex/HasPrimitives.lean` 的文件头至今明写「尚未推广到单连通域」，只证到
+  圆盘（`DifferentiableOn.isExactOn_ball`）与全平面（`Differentiable.isExactOn_univ`）。
+
+### `Path.Homotopy.map` / `Path.map` / `Path.Homotopic`
+- **人话**：沿连续映射搬运道路同伦（`Path.Homotopy.map`）与搬运道路本身（`Path.map`）；
+  `Path.Homotopic` 是端点固定同伦的存在性谓词。
+- **谁在用**：`complex-analysis.cauchy.homotopy` 的拓扑桥用
+  `Path.Homotopy.map ⟨Subtype.val, continuous_subtype_val⟩` 把子类型同伦搬回复平面。搬运项必须直接
+  写在 `refine` 里：先用 `have` 绑定成局部定义会让 `pathHomotopySquare` 与子类型分量不再 defeq
+  （该窗三分对照实验定位，见 Playbook §5 教训）。
+
 ### `Path.subpath` / `Path.range_subpath_of_le` / `Path.concat` / `Path.Homotopic.concat_subpath`
 - **人话**：把道路限制并线性重参数化到闭子区间，刻画子道路的精确值域，再把有限相邻子道路按序
   拼接；全部网格子段的拼接与原道路全段在固定端点下同伦。

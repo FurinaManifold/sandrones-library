@@ -270,6 +270,7 @@ import SandronesLibrary.ComplexAnalysis.PiecewiseC1HomotopyInvariance
 import SandronesLibrary.ComplexAnalysis.BanachPathIntegral
 import SandronesLibrary.ComplexAnalysis.CycleCarrier
 import SandronesLibrary.ComplexAnalysis.WindingIndex
+import SandronesLibrary.ComplexAnalysis.CauchyHomotopy
 import SandronesLibrary.FunctionalAnalysis.Operator
 import SandronesLibrary.FunctionalAnalysis.OperatorSpace
 import SandronesLibrary.FunctionalAnalysis.BanachSeries

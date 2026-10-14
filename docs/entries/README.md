@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **622** 个条目（verified 622，pending 0）。
+共 **623** 个条目（verified 623，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -292,6 +292,7 @@
 - ✅ [`admissible-path-connectivity-foundation.md`](complex-analysis/cauchy/admissible-path-connectivity-foundation.md) — 开连通域中的可积道路可达性
 - ✅ [`derivatives.md`](complex-analysis/cauchy/derivatives.md) — Cauchy 高阶导数公式与估计
 - ✅ [`formula.md`](complex-analysis/cauchy/formula.md) — Cauchy 积分公式
+- ✅ [`homotopy.md`](complex-analysis/cauchy/homotopy.md) — 同伦形式的 Cauchy 定理与单连通域原函数
 - ✅ [`path-independence-primitive.md`](complex-analysis/cauchy/path-independence-primitive.md) — 原函数条件下的路径无关
 - ✅ [`primitive-from-path-independence-foundation.md`](complex-analysis/cauchy/primitive-from-path-independence-foundation.md) — 由路径积分无关性构造原函数
 - ✅ [`smooth-homotopy-foundation.md`](complex-analysis/cauchy/smooth-homotopy-foundation.md) — C² 道路同伦下的全纯路径积分不变性

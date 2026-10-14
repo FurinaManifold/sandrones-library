@@ -950,6 +950,21 @@
   如 `WellFoundedLT.induction`。
 - **出处**：`settheory.ordinal.order-type`、`transfinite-induction`、`multiplication`。
 
+### 5.14 不要把需要 defeq 展开的项用 `have`/`let` 绑定成局部定义
+
+- **症状**：已经确认 `(F'.map f) z` 与 `pathHomotopySquare (F'.map f) z` 都和子类型的第二分量
+  `(F' z).2` 定义等价，但把同伦先写成 `have hF' : gamma.Homotopic delta := ...` 之后，
+  对 `hF'` 使用同样的项就报类型不匹配。
+- **诊断**：`have`/`let` 引入的局部定义是**不透明**的绑定，`whnf`/`defeq` 不会穿过它展开；
+  于是「项 A 与项 B 定义等价」在绑定之后不再对 elaborator 可见。直接写项时它会被就地展开，
+  所以同一段代码在有无绑定时表现不同——这也是为什么三分对照（直接项 / 绑定项 / 显式展开）
+  能把原因钉死，而不是继续猜 tactic。
+- **解法**：把需要 defeq 的项**直接写在 `refine`/`exact` 的位置**，不要先 `have` 绑定；
+  确实需要复用时，用 `show` 或 `change` 把目标显式改写成绑定前的形状，或给绑定加
+  `@[reducible]`/`dsimp only` 级别的显式展开。
+- **出处**：`complex-analysis.cauchy.homotopy`（E5 窗口，三分对照实验定位；
+  trace 见 `traces/lean/complex-analysis/complex-analysis.cauchy.homotopy.jsonl` 的定位轮）。
+
 ## 6. 怎么从 mathlib 现成证明学到 tactic 用法
 
 mathlib 的证明文件是**最好的教材**。读法：
