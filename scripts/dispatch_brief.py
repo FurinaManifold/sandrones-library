@@ -28,6 +28,26 @@ def cell(s: str) -> str:
     return (s or "").replace("|", "\\|").strip() or "—"
 
 
+def uniq(seq):
+    """去重且保持首次出现顺序（pack 之间大量字段本就重复，不能靠 set 打乱）。"""
+    seen, out = set(), []
+    for x in seq:
+        if x not in seen:
+            seen.add(x)
+            out.append(x)
+    return out
+
+
+def uniq_by(seq, key):
+    seen, out = set(), []
+    for x in seq:
+        k = key(x)
+        if k not in seen:
+            seen.add(k)
+            out.append(x)
+    return out
+
+
 def render(window: str, packs: list[dict], note: str) -> str:
     head = packs[0]
     task = head["task"]
@@ -73,12 +93,12 @@ def render(window: str, packs: list[dict], note: str) -> str:
     A("")
     A("**可写：**")
     A("")
-    for w in head["ownership"]["writable"]:
+    for w in uniq([w for p in packs for w in p["ownership"]["writable"]]):
         A(f"- `{w}`")
     A("")
     A("**只读（改了即越界）：**")
     A("")
-    for r in head["ownership"]["readonly"]:
+    for r in uniq([r for p in packs for r in p["ownership"]["readonly"]]):
         A(f"- `{r}`")
     A("")
     A(f"禁用占位：{', '.join('`' + x + '`' for x in head['ownership']['forbidden_in_source'])}。"
@@ -89,9 +109,11 @@ def render(window: str, packs: list[dict], note: str) -> str:
     A("")
     A("| 批次 | Entry id | ROADMAP 内容 |")
     A("|---|---|---|")
-    for s in head["scope"]["out_of_scope"]:
+    # 窗口内每个 Entry 都有自己的同族兄弟，必须取并集；只渲染 head 会漏掉其余条目。
+    oos = uniq_by([s for p in packs for s in p["scope"]["out_of_scope"]], lambda s: s["entry_id"])
+    for s in oos:
         A(f"| {cell(s.get('batch'))} | `{s['entry_id']}` | {cell(s.get('roadmap_content'))} |")
-    if not head["scope"]["out_of_scope"]:
+    if not oos:
         A("| — | — | 无同族兄弟条目 |")
     A("")
     A(f"> {head['scope'].get('note', '')}")
@@ -99,28 +121,37 @@ def render(window: str, packs: list[dict], note: str) -> str:
 
     A("## 4. 前置闭包（从 Registry 推导）")
     A("")
-    A(f"闭包深度 {head['prerequisites']['closure_depth']}；Mathlib 状态："
-      f"`{head['prerequisites']['mathlib_status']}`。")
-    A("")
-    A("| 深度 | Entry id | Lean 文件 |")
-    A("|---|---|---|")
-    for e in head["prerequisites"]["entries"]:
-        A(f"| d{e.get('depth')} | `{e['entry_id']}` | `{cell(e.get('lean_file'))}` |")
-    A("")
-    if head["prerequisites"]["mathlib"]:
-        A("**Mathlib 候选**（计划模式下是**未验证提示**，不是已确认承载——先 `#check` 实测）：")
+    if len(packs) == 1:
+        A(f"闭包深度 {head['prerequisites']['closure_depth']}；Mathlib 状态："
+          f"`{head['prerequisites']['mathlib_status']}`。")
         A("")
-        A("```")
-        for m in head["prerequisites"]["mathlib"]:
-            A(m)
-        A("```")
+    for i, p in enumerate(packs):
+        pre = p["prerequisites"]
+        if len(packs) > 1:
+            A(f"### 4.{i + 1} `{p['task']['entry_id']}`")
+            A("")
+            A(f"闭包深度 {pre['closure_depth']}；Mathlib 状态：`{pre['mathlib_status']}`。")
+            A("")
+        A("| 深度 | Entry id | Lean 文件 |")
+        A("|---|---|---|")
+        for e in pre["entries"]:
+            A(f"| d{e.get('depth')} | `{e['entry_id']}` | `{cell(e.get('lean_file'))}` |")
         A("")
+        if pre["mathlib"]:
+            A("**Mathlib 候选**（计划模式下是**未验证提示**，不是已确认承载——先 `#check` 实测）：")
+            A("")
+            A("```")
+            for m in pre["mathlib"]:
+                A(m)
+            A("```")
+            A("")
 
     A("## 5. Playbook 必读节（指回去读，不复制正文）")
     A("")
     A("| 锚点 | 标题 | 行号 |")
     A("|---|---|---|")
-    for sec in head["playbook"]["sections"]:
+    for sec in uniq_by([s for p in packs for s in p["playbook"]["sections"]],
+                       lambda s: s.get("anchor")):
         A(f"| `{sec.get('anchor')}` | {cell(sec.get('title'))} | L{sec.get('line')} |")
     A("")
 
@@ -133,19 +164,27 @@ def render(window: str, packs: list[dict], note: str) -> str:
 
     A("## 7. 轨迹（Playbook §8）")
     A("")
-    A(f"- 路径：`{head['trace']['path']}`")
+    # 每个 Entry 一条独立 trace 文件（同 Entry 多 worker 还带 `--worker` 后缀）；
+    # 只报 head 的路径会让负责人漏写其余条目的记录，收轨迹时才发现。
+    for p in packs:
+        A(f"- `{p['task']['entry_id']}`：`{p['trace']['path']}`")
     A(f"- schema：`{head['trace']['schema']}`；join key 字段：`{head['trace']['pack_id_field']}`")
     A(f"- {head['trace'].get('note', '')}")
     A("")
 
     A("## 8. 冻结声明（目标文件里已冻结、不得改签名的声明）")
     A("")
-    if head["frozen"]["declarations"]:
-        for d in head["frozen"]["declarations"]:
-            A(f"- `{d.get('name')}`（含 sorry：{d.get('has_sorry')}）")
-    else:
-        A("本批目标文件里没有冻结声明（新文件从零开始）。")
-    A("")
+    for p in packs:
+        decls = p["frozen"]["declarations"]
+        if len(packs) > 1:
+            A(f"**`{p['task']['entry_id']}`**（`{cell(p['target'].get('lean_file'))}`）：")
+            A("")
+        if decls:
+            for d in decls:
+                A(f"- `{d.get('name')}`（含 sorry：{d.get('has_sorry')}）")
+        else:
+            A("本目标文件里没有冻结声明（新文件从零开始）。")
+        A("")
     A(f"> {head['frozen'].get('rule', '')}")
     A("")
 

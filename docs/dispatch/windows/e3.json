@@ -26,9 +26,7 @@
       "premises": [
         "number-theory.elementary.continued-fraction-recursion"
       ],
-      "mathlib": [
-        "GenContFract.of_sqrt"
-      ],
+      "mathlib": [],
       "goal_nl": "交付 √d 连分数展开的周期性陈述与周期长度同判别式的关系"
     },
     {
@@ -39,8 +37,7 @@
         "number-theory.elementary.pell-positive-existence"
       ],
       "mathlib": [
-        "Pell.Solution",
-        "GenContFract.of_sqrt"
+        "Pell.Solution₁"
       ],
       "goal_nl": "在本库连分数接口与 Pell 解之间建立显式桥"
     },
@@ -51,9 +48,7 @@
         "number-theory.elementary.pell-fundamental-solution",
         "number-theory.elementary.pell-composition"
       ],
-      "mathlib": [
-        "Pell.Solution.xp"
-      ],
+      "mathlib": [],
       "goal_nl": "补全全体正解的分类：证明每个正解都是基本解的幂"
     }
   ]

@@ -30,7 +30,6 @@
         "commutative-algebra.module.definition"
       ],
       "mathlib": [
-        "Submodule.Quotient",
         "Submodule.mkQ",
         "Submodule.Quotient.mk",
         "Submodule.liftQ",
@@ -47,8 +46,8 @@
       "mathlib": [
         "DirectSum",
         "DirectSum.mk",
-        "DirectSum.lift",
-        "Submodule.IsCompl",
+        "DirectSum.toModule",
+        "IsCompl",
         "Submodule.prod"
       ],
       "goal_nl": "交付内直和与外直和的定义、分解判据及两者的桥"

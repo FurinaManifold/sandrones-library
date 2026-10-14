@@ -28,8 +28,8 @@
         "real-analysis.measure.lintegral"
       ],
       "mathlib": [
-        "MeasureTheory.maximalFunction",
-        "MeasureTheory.Measure.mul_meas_gt_of_cluster_pts"
+        "VitaliFamily.mul_measure_le_of_subset_lt_limRatioMeas",
+        "VitaliFamily"
       ],
       "goal_nl": "交付 Hardy–Littlewood 极大函数的教材定义、弱型 (1,1) 估计与可测性边界，保留课程证明骨架"
     },
@@ -42,7 +42,7 @@
       ],
       "mathlib": [
         "Monotone.ae_differentiableAt",
-        "Monotone.continuousAt_iff"
+        "Monotone.continuousAt_iff_leftLim_eq_rightLim"
       ],
       "goal_nl": "交付单调函数的间断结构、a.e. 可导性与 Stieltjes 测度桥"
     },
@@ -67,7 +67,7 @@
         "real-analysis.measure.def"
       ],
       "mathlib": [
-        "AbsolutelyContinuousOn"
+        "AbsolutelyContinuousOnInterval"
       ],
       "goal_nl": "交付绝对连续函数定义、与 BV／Lipschitz 的关系及 a.e. 导数"
     }

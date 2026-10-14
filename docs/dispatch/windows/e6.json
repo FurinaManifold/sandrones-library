@@ -28,7 +28,7 @@
         "statistics.model.density"
       ],
       "mathlib": [
-        "Kernel.rnDeriv",
+        "ProbabilityTheory.Kernel.rnDeriv",
         "MeasureTheory.integral"
       ],
       "goal_nl": "交付 Cramér–Rao 下界，把微分与积分可交换的正则条件显式写进签名"

@@ -1244,8 +1244,18 @@ python3 scripts/dispatch_brief.py --window <窗口> --pack traces/packs/<pack_id
 
 ### 10.7 已固化的踩坑（开窗前负责人先看这几条）
 
-- **候选接口名先实测再写**：CA1 批按记忆写 `Ideal.ofSubmodule`、`AddMonoidHom.toLinearMap`
-  这些**不存在**的名字，白烧多轮编译。开工第一步 `#check` 候选名，并写成 trace（§8.4）。
+- **候选接口名先实测再写，且由机械门禁兜底**：CA1 批按记忆写 `Ideal.ofSubmodule`、
+  `AddMonoidHom.toLinearMap` 这些**不存在**的名字，白烧多轮编译。Wave E 更严重：Main 手写的
+  10 个窗口定义里 **42 个候选有 13 个不存在（31%）**——多数只是命名空间写错（`Kernel.rnDeriv`
+  应为 `ProbabilityTheory.Kernel.rnDeriv`，`AbsolutelyContinuousOn` 应为
+  `AbsolutelyContinuousOnInterval`），少数是整个概念在 Mathlib 里没有承载
+  （`GenContFract.of_sqrt`、`MeasureTheory.maximalFunction`），而后者恰恰是窗口最该提前知道的
+  边界。现在 `scripts/open_window.py` 开窗前强制 `#check` 全部候选，不通过就不许开窗（§10.2）。
+  负责人开工第一步仍要自己 `#check` 候选名，并写成 trace（§8.4）。
+- **窗口简令必须覆盖窗口内全部 pack**：Wave E 的 `dispatch_brief.py` 曾在 §2–§8 只取 `packs[0]`，
+  于是 6 个 Entry 的窗口里，简令只列了 **1/6** 条 trace 路径，只给第一个 Entry 的 Mathlib 候选
+  与冻结声明——负责人照着写会漏记录，收轨迹时才发现。多 Entry 窗口的简令必须逐 pack 渲染或取
+  并集。简令与 pack 不一致时**以 pack 为准**，并报告 Main 重新生成（§10.1）。
 - **隐式 binder + 嵌套 `And` 的匿名构造子**：别写裸 lambda，用 `refine ⟨_, ?_, ?_⟩` + 在 goal 上
   `intro`（§2.15，CA1 批 4 次复现）。
 - **`#print axioms` 当 `sorryAx` 探针**：编译"大部分 ✔"不等于干净（§3.6）；

@@ -18,7 +18,7 @@
       ],
       "mathlib": [
         "Ordinal",
-        "Ordinal.opow"
+        "Ordinal.opow_add"
       ],
       "goal_nl": "证明一般换底重编码保持 omegaValue，消除已证特例的限制"
     },

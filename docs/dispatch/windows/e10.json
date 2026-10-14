@@ -17,7 +17,7 @@
         "complex-analysis.integral.finite-cycle-foundation"
       ],
       "mathlib": [
-        "Resolvent",
+        "resolvent",
         "ContinuousLinearMap"
       ],
       "goal_nl": "研究窗：为 Dunford 积分、代数同态与谱映射给出签名冻结提案与无占位原型"

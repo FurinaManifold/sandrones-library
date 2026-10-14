@@ -16,8 +16,10 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import subprocess
 import sys
+import tempfile
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -33,10 +35,44 @@ def sh(*args: str, cwd: Path | None = None, check: bool = True) -> str:
     return r.stdout.strip()
 
 
+def verify_mathlib(names: list[str]) -> list[str]:
+    """对窗口定义里的 `mathlib` 候选做真实 `#check`（Playbook §10.7）。
+
+    候选名义上是"未验证提示"，但**错的提示比没有提示更贵**：窗口会花真实时间去试一个
+    根本不存在的名字，再回头怀疑自己的方向。2026-10-13 Wave E 实测 42 个候选里 13 个
+    不存在（31%），其中多数只是命名空间写错（`Kernel.rnDeriv` 应为
+    `ProbabilityTheory.Kernel.rnDeriv`），少数是整个概念在 Mathlib 里没有承载
+    （`GenContFract.of_sqrt`、`MeasureTheory.maximalFunction`）——后者恰恰是窗口最需要
+    提前知道的边界。所以开窗前必须机械实测，不靠记忆。
+    """
+    uniq = sorted(set(names))
+    if not uniq:
+        return []
+    tmp = Path(tempfile.mkdtemp(prefix="sandrones-mathlib-probe-")) / "probe.lean"
+    tmp.write_text("import Mathlib\n" + "\n".join(f"#check @{n}" for n in uniq) + "\n",
+                   encoding="utf-8")
+    line_of = {i + 2: n for i, n in enumerate(uniq)}  # 第 1 行是 import
+    r = subprocess.run(["lake", "env", "lean", str(tmp)], cwd=ROOT,
+                       capture_output=True, text=True)
+    bad: list[str] = []
+    for m in re.finditer(rf"^{re.escape(str(tmp))}:(\d+):\d+: error", r.stderr, re.M):
+        n = line_of.get(int(m.group(1)))
+        if n and n not in bad:
+            bad.append(n)
+    if not bad and r.returncode != 0:
+        raise SystemExit("[ERR] Mathlib 候选实测未能运行（不是候选的问题）：\n"
+                         f"{r.stdout}{r.stderr}")
+    return bad
+
+
 def main() -> None:
     ap = argparse.ArgumentParser(description="开窗：worktree + pack + 简令")
     ap.add_argument("--spec", required=True)
     ap.add_argument("--dry-run", action="store_true")
+    ap.add_argument("--check-only", action="store_true",
+                    help="只跑 Mathlib 候选门禁，不开窗")
+    ap.add_argument("--skip-mathlib-check", action="store_true",
+                    help="跳过候选门禁（仅在 Mathlib 尚未构建等基础设施原因下使用）")
     a = ap.parse_args()
 
     spec = json.loads(Path(a.spec).read_text(encoding="utf-8"))
@@ -45,6 +81,23 @@ def main() -> None:
     base = spec.get("base") or sh("git", "rev-parse", "HEAD")
     brief_rel = f"docs/dispatch/{spec['window'].lower()}-{spec['slug']}.md"
     registry = cp.load_registry()
+
+    # ── 0. Mathlib 候选门禁（Playbook §10.7）────────────────────────────────
+    # 必须在建 worktree 之前：候选不干净就不该留下半个窗口。
+    cands = [m for e in spec["entries"] for m in e.get("mathlib", [])]
+    if a.skip_mathlib_check:
+        print("[warn] 已跳过 Mathlib 候选门禁")
+    else:
+        bad = verify_mathlib(cands)
+        if bad:
+            raise SystemExit(
+                "[ERR] 以下 mathlib 候选在真实 Mathlib 中不存在（`#check` 实测）：\n"
+                + "\n".join(f"  - {n}" for n in bad)
+                + "\n处理方式只有两种：改成实测通过的真名，或从窗口定义里删掉。\n"
+                  "不得把不存在的名字写进窗口定义——它会被当成 pack 的未验证提示下发。")
+        print(f"[ok  ] mathlib 候选 {len(set(cands))} 个全部实测通过")
+    if a.check_only:
+        return
 
     # ── 1. worktree ────────────────────────────────────────────────────────
     listed = sh("git", "worktree", "list", "--porcelain")
