@@ -246,4 +246,36 @@ Cramér–Rao）可标 ✅，但**建议保留诚实边界注记**：Cramér–R
 
 ## 附录：subject_package 复跑原文
 
-（本节在本 handoff 提交后复跑并抄录，见紧随其后的提交。）
+命令：
+
+```bash
+python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-library-stats-s1 \
+    --base bc8d4fe --subject statistics
+```
+
+在提交 `50ab3d0`（交付主体 + 本 handoff，工作区干净）上的**原文**：
+
+```text
+学科验收包 statistics  (codex/statistics-s1-rest @ 50ab3d02d)
+  基线 bc8d4fe｜提交 2｜改动文件 9
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 39 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+
+  verdict: pass
+```
+
+按 AGENTS §7 第 7 条要求逐字抄录的两行：
+
+```text
+  ✅ traces（软门）：本批含 39 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+```
+
+异常清单：空。`verdict = pass`。
+（追加本附录后提交数变为 3、改动文件变为 10，这两项是包头部对"相对基线的提交/文件计数"，
+不改变任何门的结论；除本附录外，被审的树与上表完全一致。）
