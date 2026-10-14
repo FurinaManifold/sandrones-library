@@ -80,16 +80,18 @@
 
 ## 5. 现场与提交
 
-（提交后由本文件的最后一次 amend/后续提交固定；见 `git log --oneline`。）
-
 | 项 | 值 |
 |---|---|
 | 分支 | `codex/number-theory-algebraic-research` |
-| 基线 | `bc8d4fe` |
-| HEAD | 见 §5 末尾 commit 列表 |
-| 提交数 | 1（本窗成果单一提交） |
+| 基线 | `bc8d4feb59f639aa440d7719466297d918e9dd28` |
+| 成果提交 | `b81eaf6b4da94cfbc98e8256c4360dbad075172b`（RFC + handoff + 4 pack + 4 trace） |
+| handoff 收尾提交 | 记录本表 hash 的后续提交（见 `git log --oneline -2`） |
 | 工作区 | 干净（`git status --short` 无输出） |
-| `git diff --check` | 通过 |
+| `git diff --check` | 通过（提交前执行） |
+| 未 push | 按 AGENTS §11，未经用户要求不 push |
+
+源码 blob（本窗**未改** `SandronesLibrary/`，故无源码 blob）：`NumberField.lean`／
+`AlgebraicInteger.lean`／`RingOfIntegers.lean` 仍为基线 `bc8d4fe` 版本。
 
 ## 6. 共享文件更新建议（Main 侧，本窗不改）
 
