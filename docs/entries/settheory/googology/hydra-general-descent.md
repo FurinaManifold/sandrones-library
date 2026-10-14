@@ -5,7 +5,9 @@ state: verified
 title: "一般 Hydra 单步的序数下降"
 premises: ["settheory.googology.hydra-ordinal-assignment", "settheory.ordinal.power-bridge"]
 mathlib: ["Ordinal.CNF.eval", "Ordinal.CNF.coeff", "Ordinal.CNF.coeff_eval", "Ordinal.CNF.eval_lt", "Ordinal.opow_mul_lt_opow", "Ordinal.lt_omega0"]
-provenance: {source_type: book, ref: "kirby-paris-independence-1982"}
+provenance:
+  source_type: book
+  ref: "kirby-paris-independence-1982"
 ---
 
 # 动机

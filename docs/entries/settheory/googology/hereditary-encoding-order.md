@@ -5,7 +5,9 @@ state: verified
 title: "一般换底重编码保持 omegaValue"
 premises: ["settheory.googology.canonical-goodstein-state", "settheory.googology.hereditary-natural-encoding", "settheory.googology.hereditary-natural-encoding-same-block-order"]
 mathlib: ["Nat.mul_add_div", "Nat.mul_add_mod", "Nat.div_eq_of_lt", "Nat.mod_eq_of_lt"]
-provenance: {source_type: book, ref: "pohlers-proof-theory-1989"}
+provenance:
+  source_type: book
+  ref: "pohlers-proof-theory-1989"
 ---
 
 # 动机
