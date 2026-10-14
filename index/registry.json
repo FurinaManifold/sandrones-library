@@ -9147,7 +9147,7 @@
       "number-theory.elementary.pell-fundamental-solution",
       "number-theory.elementary.pell-positive-existence"
     ],
-    "proof_sha": "347d37ec3100ffac",
+    "proof_sha": "b5f674246841ff41",
     "axioms": [
       "propext"
     ]
@@ -9171,7 +9171,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "347d37ec3100ffac",
+    "proof_sha": "b5f674246841ff41",
     "axioms": [
       "Quot.sound",
       "propext"
@@ -9201,7 +9201,7 @@
     "dependedOnBy": [
       "number-theory.elementary.pell-fundamental-solution"
     ],
-    "proof_sha": "347d37ec3100ffac",
+    "proof_sha": "b5f674246841ff41",
     "axioms": [
       "Classical.choice",
       "Quot.sound",
@@ -9234,7 +9234,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [],
-    "proof_sha": "347d37ec3100ffac",
+    "proof_sha": "b5f674246841ff41",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

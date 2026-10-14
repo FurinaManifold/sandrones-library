@@ -109,7 +109,9 @@ theorem exists_positive_pellSolution_of_not_integerSquare {d : ℤ} (hd : 0 < d)
 /-- 基本 Pell 解是一个正的非平凡解，并且它的第一坐标在所有 `x > 1` 的解中最小。
 
 具体地说，要求 `a.x > 1`、`a.y > 0`，并要求任意另一个满足 `b.x > 1` 的解都有
-`a.x ≤ b.x`。这里允许最小第一坐标对应多个表示；定义没有额外声称唯一性。 -/
+`a.x ≤ b.x`。这里允许最小第一坐标对应多个表示；定义没有额外声称唯一性。
+
+> **Entry**: number-theory.elementary.pell-fundamental-solution -/
 def IsFundamentalPellSolution (a : PellSolution d) : Prop :=
   1 < a.x ∧ 0 < a.y ∧
     ∀ b : PellSolution d, 1 < b.x → a.x ≤ b.x
