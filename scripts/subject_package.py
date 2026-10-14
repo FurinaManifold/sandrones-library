@@ -302,6 +302,9 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
     # pack_id 是 (pack, trace) 的 join key：同批多 worker 必须用 --worker 区分，否则不唯一。
     dup_packs = sorted(
         pid for pid, n in collections.Counter(pack_ids).items() if n > 1)
+    # 反向：pack 生成了却没有任何 trace 引用它 = 派了工但没留下语料（§8 的静默失效）。
+    # 仅作信息项：纯文档 worker 拿到 pack 也不写 trace，属合法情形，故不影响软门标记。
+    unreferenced = sorted(set(pack_ids) - referenced_packs)
     # pack.trace.path 是消费方顺着找记录的指针：它必须指向真的装着本 pack 记录的文件。
     # CA1 试点里 verify pack 的 trace.path 指向 lead 的 jsonl（其中 0 条属于它），
     # 按指针收轨迹会静默漏掉 14 条——机械门当时不报，这里补上。
@@ -351,6 +354,7 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             "referenced_by_traces": sorted(referenced_packs),
             "missing_for_referenced": missing_packs,
             "trace_path_mismatch": path_mismatch,
+            "unreferenced_packs": unreferenced,
             "invalid": pack_bad,
             "note": (
                 "本批未生成派工上下文包（Playbook §9 软门；确无子 Agent 的批次请在 handoff 写明）"
