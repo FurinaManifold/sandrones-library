@@ -10,8 +10,7 @@
 | worktree | `/home/pisquare/czt/sandrones-library-ca-c2` |
 | 分支 | `codex/complex-analysis-c2-close` |
 | 基线 | `bc8d4feb59f639aa440d7719466297d918e9dd28` |
-| HEAD | `04c5d934a0270d7d8bb35c0315fa953c038b97e9` |
-| 基线后提交数 | 1 |
+| 交付提交 | `04c5d93`（`CauchyHomotopy.lean` + Entry 叙述层 + trace + pack）、`75054f5`（本 handoff）、`aebb795`（§5 回填验收包原文）；本 handoff 定稿提交只修正本表，源码与 Entry 事实不变 |
 | 工作区 | 干净（`git status --porcelain` 为空；handoff 提交前自检见 §5） |
 | 磁盘 | `/` 3.7T 中 212G 可用（95% 使用）；本 worktree `.lake` 67M（仅定向构建增量） |
 | 同步 Main | 本窗未 rebase：基线 `bc8d4fe` 即窗口创建时的 Main 尖端，窗口内未再同步 |
