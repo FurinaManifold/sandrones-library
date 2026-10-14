@@ -595,3 +595,60 @@ N2.8 桥的陈述能否通过类型检查）。**它们等待的东西已经不�
 10. **trace 义务的可执行化**：`chain` worker 自建了「编译 + 立即 append」一体化脚本
     （`trace_run.py`，自动判定 outcome），这是把 §8.2「边做边写」从纪律变成机械动作的正确方向，
     建议 Playbook §8.5 收录该模式（本窗的 trace 缺口正是靠人工纪律失败造成的）。
+
+---
+
+## Main 裁决（2026-10-14，Main 侧记录；本窗已结束，裁决供下一批开工使用）
+
+窗口提出 7 项待裁，逐条裁决如下。**这些裁决在下一批 pack 生成前生效**，负责人开工时按此执行；
+如现场证据与之冲突，按 AGENTS §8 报 Main，不得自行改口径。
+
+1. **N2.4 命名 —— 采用「扁平命名空间 + 同名消歧前缀」**。库内声明一律落在
+   `SandronesLibrary.NumberTheory.Algebraic`（与 N2.1–N2.3 一致），**禁止把声明写到根命名空间**。
+   与 Mathlib 根名**字面相同**的两条（`trace_eq_sum_embeddings`、`traceForm_nondegenerate`）
+   加 `numberField_` 前缀消歧——理由是教材读者会在同一段文字里同时看到 Mathlib 根名与本库条目名，
+   同名会让"谁是正式承载"在阅读层就失效。其余 17 条不加前缀。不得用 `_root_.` 限定把本库名字
+   注入根命名空间。
+2. **命名空间 —— 扁平，不做每 Entry 子命名空间**。`geom` 的子命名空间提案会把已集成的 N2.1–N2.3
+   推成一次 M2 迁移，而收益只是名字好看；按 AGENTS §10，M2 需要影响图 + RFC + 三阶段回滚，
+   不值得为一个纯审美理由启动。文件内可用 `section` 组织，但 `section` 不构成全名。
+3. **N2.6 升为 course-strength，并据此解锁 N2.7–N2.9 开发窗 —— 准**。窗口用
+   `IsNoetherianRing.of_finite` + `Ring.DimensionLEOne.of_isIntegral` +
+   `IsIntegrallyClosed.algebraMap_eq_of_integral` **真组装**出与教材三条件逐字同形的右端，
+   且另证了教材范数论证对应的 `Ring.HasFiniteQuotients` 路线。两条路线都要在 Entry 文档里写明，
+   **不得只写一条**：`of_isIntegral` 走 going-up，与教材范数论证不是同一条证明。
+4. **N2.8 桥签名冻结 —— 准**，冻结为
+   `∃! e : HeightOneSpectrum R →₀ ℕ, e.prod (fun v n => v.asIdeal ^ n) = I`。
+   该形式已零 `sorry` 真证（唯一性引擎 `FractionalIdeal.count_finsuppProd`），与教材写法逐字对应。
+   **同时确认窗口的修正**：N2.8 的 Lean 前置只需 N2.6，不需要 N2.7 的 Entry——Wave C 的门是
+   **登记顺序约束**而非 Lean 依赖，Entry 文档必须把这个区别写清楚，不得暗示"N2.7 是 N2.8 的数学前置"。
+5. **N2.9 拆两次交付 —— 准**。定义层随 N2.7 之后交付；有限性层必须等 N2.11。
+   理由是窗口已如实披露：`IsIntegralClosure.isNoetherianRing`（迹形式／对偶基）、
+   `DimensionLEOne.of_isIntegral`（going-up）、Minkowski 格点／凸体定理、
+   `Ideal.uniqueFactorizationMonoid` 构造四条链**未复现**，故类群有限性当前只能
+   foundation／bridge，**course-strength 留给 N2.11**。不得把 foundation 写成教材定理。
+6. **N2.13–N2.15 继续冻结 —— 准，不改挂交换代数线**。三条 ROADMAP 明文（行 1453「补指定专题
+   教材前不得正式开发」、行 1451 Ireland–Rosen 止于 N2.12、行 1455–1456 点名禁止从 `Padic`
+   倒推课程）都在生效；`reference.bib` 73 条**无局部域教材**。窗口实测的两条事实一并记账：
+   **`LocalField` 在 Mathlib 不存在**（真名 `IsNonarchimedeanLocalField`，且全库零实例）、
+   `Padic p` 是构造而「ℚ_p 是完备化」无单条定理。改挂 CA 线需要先在 ROADMAP §13.1 登记
+   DVR／赋值条目并补教材，属独立的路线决策，**不在本窗裁决范围**。
+7. **批次切分 —— 准，并按窗口自己的修正调整依赖**：
+   - **A = N2.4–N2.5**（可立即开）；
+   - **B = N2.6 → N2.7 → N2.9 定义层 → N2.8**（Wave C 登记门在 N2.8 前）；
+   - **C = N2.11 → N2.12**；
+   - **N2.10 与 B 并行**（其前置是 N2.3 + N2.6，**不是 N2.8**）；
+   - **N2.9 有限性层排在 N2.11 之后**。
+   窗口修正的「依赖顺序 ≠ 编号顺序」采纳：**N2.9 类群有限性是 N2.11 的下游**，不是 N2.10–N2.12
+   的前置；RFC 初稿的依赖图已由窗口自行改正，以 RFC 现行版本为准。
+
+### 附：本窗协议反馈的处置
+
+- **`LocalField` 错名**——这是 pack 候选未验证的又一例，与 `24f9e30` 的 13/42 同类；
+  `open_window.py` 的 `#check` 门禁已覆盖开窗路径，本窗是负责人手写候选，**未走门禁**。
+  下一批若仍手写候选，负责人须自行 `#check` 后再写进 pack。
+- **`chain` worker 的 16 轮 trace 缺口**——窗口**未事后补造**，并附 mtime 清单，处置正确：
+  缺口如实披露优于补造。其自建的 `trace_run.py`（编译 + 立即 append）是把 §8.2 从纪律变成
+  机械动作的正确方向，**建议在下一批推广**，Playbook §8 收录留待该模式复现一次后再固化。
+- **`subject_package` 在无 Lean 变更时给出空真 `pass`**——窗口主动指出「不得当作验收结论」，
+  判断正确。这确实是一个工具缺陷（`pass` 与 `not_applicable` 语义不同），列入 Main 侧工具待修项。
