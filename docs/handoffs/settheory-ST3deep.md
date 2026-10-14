@@ -44,11 +44,11 @@
 | pack_id | pack 文件 | trace 路径 | 记录数（accepted / error） |
 |---|---|---|---|
 | `settheory-ST3deep-settheory.googology.hereditary-encoding-order` | `traces/packs/settheory-ST3deep-settheory.googology.hereditary-encoding-order.json` | `traces/lean/settheory/settheory.googology.hereditary-encoding-order.jsonl` | 1 / 0（负责人批级验收记录） |
-| `settheory-ST3deep-settheory.googology.hereditary-encoding-order-enc` | `traces/packs/…-hereditary-encoding-order-enc.json` | `traces/lean/settheory/settheory.googology.hereditary-encoding-order-enc.jsonl` | 6 / 1（子 Agent 逐轮 + 负责人独立复验） |
-| `settheory-ST3deep-settheory.googology.hydra-general-descent` | `traces/packs/settheory-ST3deep-settheory.googology.hydra-general-descent.json` | `traces/lean/settheory/settheory.googology.hydra-general-descent.jsonl` | 9 / 7 |
+| `settheory-ST3deep-settheory.googology.hereditary-encoding-order-enc` | `traces/packs/…-hereditary-encoding-order-enc.json` | `traces/lean/settheory/settheory.googology.hereditary-encoding-order-enc.jsonl` | 6 / 1（子 Agent 逐轮 5/1 + 负责人独立复验 1/0） |
+| `settheory-ST3deep-settheory.googology.hydra-general-descent` | `traces/packs/settheory-ST3deep-settheory.googology.hydra-general-descent.json` | `traces/lean/settheory/settheory.googology.hydra-general-descent.jsonl` | 5 / 11 |
 
 `python3 scripts/lean_trace.py check traces/lean/settheory/` → `检查 3 个文件、24 条记录：通过`；
-`summary --subject settheory` → `2 个任务、24 条尝试；accepted 16 / error 8`。
+`summary --subject settheory` → `3 个任务、24 条尝试；accepted 12 / error 12`（失败占 50%，正是本窗要求的失败轨迹密度）。
 
 **派子 Agent 的说明**：本窗只有 encoding 一条派给了子 Agent，因此为该 Entry 另建了带 `--worker enc`
 的 pack（join key 唯一，避免与维护者 pack 共用 `trace.path` 而漏记录）；hydra 一条由负责人亲自完成，
