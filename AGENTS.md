@@ -130,12 +130,17 @@ python3 scripts/extract_registry_references.py
 python3 scripts/update_dependency_graph.py
 python3 scripts/gen_entries_index.py
 python3 scripts/gen_entry_rankings.py
+lake build
 python3 scripts/check_axioms.py --all --fix
 python3 scripts/check_axioms.py --all
 python3 scripts/audit.py
 git diff --check
-lake build
 ```
+
+**顺序不是随意的**：`check_axioms.py` 通过 `#print axioms` 探针读取模块的 `.olean`。
+批次引入**新模块**时，必须先 `lake build` 产出 `.olean`，否则探针报
+`object file ... does not exist` 并拒绝写 Registry（2026-10-14 复分析 C2 收口集成实测踩到一次）。
+`release_gate.py` 的步骤顺序同样以 build 在前。
 
 ## 7. 学科负责人交付门
 

@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **623** 个条目（verified 623，pending 0）。
+共 **638** 个条目（verified 638，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -278,6 +278,10 @@
 ## `commutative-algebra.module`
 
 - ✅ [`definition.md`](commutative-algebra/module/definition.md) — 模、子模与模同态
+- ✅ [`direct-sum.md`](commutative-algebra/module/direct-sum.md) — 内外直和与分解判据
+- ✅ [`generated.md`](commutative-algebra/module/generated.md) — 子集生成的子模与最小性
+- ✅ [`isomorphism-theorems.md`](commutative-algebra/module/isomorphism-theorems.md) — 模的三大同构定理
+- ✅ [`quotient.md`](commutative-algebra/module/quotient.md) — 商模、自然投影与商映射的泛性质
 
 ## `complex-analysis`
 
@@ -573,12 +577,15 @@
 - ✅ [`congruence.md`](number-theory/elementary/congruence.md) — 同余与剩余环
 - ✅ [`continued-fraction-convergent.md`](number-theory/elementary/continued-fraction-convergent.md) — 实数连分数的有理收敛子
 - ✅ [`continued-fraction-recursion.md`](number-theory/elementary/continued-fraction-recursion.md) — 连分数收敛子的递归公式
+- ✅ [`convergent-best.md`](number-theory/elementary/convergent-best.md) — 连分数收敛子的最佳逼近性
 - ✅ [`divisibility.md`](number-theory/elementary/divisibility.md) — 带余除法、最大公因数与 Bézout 等式
 - ✅ [`fermat-euler.md`](number-theory/elementary/fermat-euler.md) — Euler 定理与 Fermat 小定理
 - ✅ [`finite-best-approximation.md`](number-theory/elementary/finite-best-approximation.md) — 有限候选集中的最佳逼近存在
 - ✅ [`infinite-primes.md`](number-theory/elementary/infinite-primes.md) — Euclid 定理：素数有无穷多个
 - ✅ [`legendre-criterion.md`](number-theory/elementary/legendre-criterion.md) — Legendre 连分数判据
 - ✅ [`linear-diophantine.md`](number-theory/elementary/linear-diophantine.md) — 二元一次不定方程的 gcd 可解判据
+- ✅ [`pell-all-positive.md`](number-theory/elementary/pell-all-positive.md) — 正 Pell 方程全体正解的分类
+- ✅ [`pell-cf-bridge.md`](number-theory/elementary/pell-cf-bridge.md) — 连分数与 Pell 解的桥
 - ✅ [`pell-composition.md`](number-theory/elementary/pell-composition.md) — Pell 解的 Brahmagupta 合成
 - ✅ [`pell-equation.md`](number-theory/elementary/pell-equation.md) — Pell 方程的整数解
 - ✅ [`pell-fundamental-solution.md`](number-theory/elementary/pell-fundamental-solution.md) — Pell 基本解存在
@@ -588,6 +595,7 @@
 - ✅ [`pythagorean-triples.md`](number-theory/elementary/pythagorean-triples.md) — 勾股三元组的 Euclid 参数化
 - ✅ [`quadratic-reciprocity.md`](number-theory/elementary/quadratic-reciprocity.md) — Legendre/Jacobi 二次互反律
 - ✅ [`quadratic-residues.md`](number-theory/elementary/quadratic-residues.md) — 二次剩余、Legendre/Jacobi 符号与 Gauss 引理
+- ✅ [`sqrt-periodic-cf.md`](number-theory/elementary/sqrt-periodic-cf.md) — √d 连分数展开的最终周期性
 - ✅ [`totient.md`](number-theory/elementary/totient.md) — Euler φ 函数
 
 ## `probability`
@@ -659,7 +667,12 @@
 
 ## `real-analysis`
 
+- ✅ [`absolute-continuity-function.md`](real-analysis/absolute-continuity-function.md) — 绝对连续函数
+- ✅ [`bounded-variation.md`](real-analysis/bounded-variation.md) — 有界变差与 Jordan 分解
+- ✅ [`covering-lemma.md`](real-analysis/covering-lemma.md) — 一维 Vitali 覆盖引理
 - ✅ [`lebesgue-measure.md`](real-analysis/lebesgue-measure.md) — Lebesgue 测度
+- ✅ [`maximal-function.md`](real-analysis/maximal-function.md) — Hardy–Littlewood 极大函数与弱型 (1,1) 估计
+- ✅ [`monotone-function.md`](real-analysis/monotone-function.md) — 单调函数：间断结构、a.e. 可导性与 Stieltjes 测度桥
 
 ## `real-analysis.calculus`
 
@@ -866,12 +879,17 @@
 ## `statistics`
 
 - ✅ [`maximum-likelihood.md`](statistics/maximum-likelihood.md) — 似然函数与最大似然估计
+- ✅ [`method-of-moments.md`](statistics/method-of-moments.md) — 矩估计
 
 ## `statistics.estimator`
 
 - ✅ [`bias-variance.md`](statistics/estimator/bias-variance.md) — 平方损失的偏差—方差分解
 - ✅ [`consistency.md`](statistics/estimator/consistency.md) — 估计量的逐参数相合性
 - ✅ [`definition.md`](statistics/estimator/definition.md) — 统计量、随机化估计量与风险
+
+## `statistics.information`
+
+- ✅ [`cramer-rao.md`](statistics/information/cramer-rao.md) — Fisher 信息与 Cramér–Rao 下界
 
 ## `statistics.model`
 

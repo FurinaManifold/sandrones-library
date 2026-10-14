@@ -17,6 +17,10 @@ import SandronesLibrary.NumberTheory.Elementary.QuadraticResidues
 import SandronesLibrary.NumberTheory.Elementary.QuadraticReciprocity
 import SandronesLibrary.NumberTheory.Elementary.ContinuedFractions
 import SandronesLibrary.NumberTheory.Elementary.Pell
+import SandronesLibrary.NumberTheory.Elementary.ConvergentBest
+import SandronesLibrary.NumberTheory.Elementary.SqrtPeriodicCF
+import SandronesLibrary.NumberTheory.Elementary.PellCFBridge
+import SandronesLibrary.NumberTheory.Elementary.PellAllPositive
 import SandronesLibrary.NumberTheory.Algebraic.NumberField
 import SandronesLibrary.NumberTheory.Algebraic.AlgebraicInteger
 import SandronesLibrary.NumberTheory.Algebraic.RingOfIntegers
@@ -185,6 +189,11 @@ import SandronesLibrary.RealAnalysis.MeasureDerivativeAbsoluteContinuity
 import SandronesLibrary.RealAnalysis.MeasureDerivativeMutuallySingular
 import SandronesLibrary.RealAnalysis.MeasureDerivativeLebesgueDecomposition
 import SandronesLibrary.RealAnalysis.MeasureDerivativeRadonNikodym
+import SandronesLibrary.RealAnalysis.CoveringLemma
+import SandronesLibrary.RealAnalysis.MaximalFunction
+import SandronesLibrary.RealAnalysis.MonotoneFunction
+import SandronesLibrary.RealAnalysis.BoundedVariation
+import SandronesLibrary.RealAnalysis.AbsoluteContinuityFunction
 import SandronesLibrary.Analysis.SpecialFunctions
 import SandronesLibrary.Analysis.ClassicalLimits
 import SandronesLibrary.Analysis.Series.RiemannRearrangement
@@ -366,6 +375,8 @@ import SandronesLibrary.Statistics.BiasVariance
 import SandronesLibrary.Statistics.Consistency
 import SandronesLibrary.Statistics.Sufficiency
 import SandronesLibrary.Statistics.MaximumLikelihood
+import SandronesLibrary.Statistics.MethodOfMoments
+import SandronesLibrary.Statistics.CramerRao
 import SandronesLibrary.Examples.CoordinateIntegrals
 import SandronesLibrary.Examples.SphericalMoments
 import SandronesLibrary.Examples.GreenRegions
@@ -374,3 +385,7 @@ import SandronesLibrary.Examples.MeasureDerivative
 import SandronesLibrary.Examples.CentralLimit
 import SandronesLibrary.Examples.TopologySpaces
 import SandronesLibrary.CommutativeAlgebra.Module.Definition
+import SandronesLibrary.CommutativeAlgebra.Module.Generated
+import SandronesLibrary.CommutativeAlgebra.Module.Quotient
+import SandronesLibrary.CommutativeAlgebra.Module.DirectSum
+import SandronesLibrary.CommutativeAlgebra.Module.IsomorphismTheorems

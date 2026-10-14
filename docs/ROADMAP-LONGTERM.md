@@ -34,14 +34,14 @@
 | **Phase 2 线性代数** | `linear-algebra.*` | L1-L7✅ | 集合论预备 |
 | **Phase 3 抽象代数** | `abstract-algebra.*` | A1✅ A2✅ A3✅ | 等价关系/商集 |
 | **Phase 4 拓扑学基础** | `topology.*` | T1-T3✅ T4🚧（同伦桥已完成，覆盖分类继续） | 集合论 + 分析线直观 |
-| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅ RA-F2✅；RA-F3–RA-F6🚧 | T3 + M 系列 |
+| **Phase 5 实分析** | `real-analysis.*` | R1-R4✅ RA-F1✅ RA-F2✅ RA-F3✅ RA-F5✅；RA-F4/RA-F6🚧 | T3 + M 系列 |
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2✅ C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2🚧 Pr3🚧（Pr3.5 一般 CLT 已完成） | R4 |
-| **Phase 9 统计推断** | `statistics.*` | S1🚧 S2🔒 | Pr1/Pr3 |
+| **Phase 9 统计推断** | `statistics.*` | S1✅ S2🔒 | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3✅ N2.4–N2.15🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
-| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1 定义层✅（首条成品）；其余 CA1 条目🚧；其余路线🔒 | 各自课程门达标 |
+| **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1 ✅（定义层 + CA1b2 四条，2026-10-14 全部集成）；CA2 起🚧；其余路线🔒 | 各自课程门达标 |
 | **持续学科 Examples** | `examples.*` | E0🚧（首批 `examples.*` 三个 Entry 已集成） E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
 | **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🔒 WF2–WF3🔒（2026-10-13 全线暂停） | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
 
@@ -118,7 +118,7 @@ WF0 已完成；WF1 原为持续 `development_open`，现随全线暂停转 🔒
 | G-C | C1–C3 的全纯、复积分、解析延拓与残数接口完成 | N3.2–N3.5 | 🚧（C2 已收口，继续 C3；开门前先补同调形式 Cauchy） |
 | G-Pr | Pr1 概率空间、随机变量、期望和独立性完成 | Pr2、统计 S1 | ✅ |
 | G-ST | ST2 已审核接口进入 main，并另建可计算性定义层 | ST3 深层增长/不可计算性 | ✅ |
-| G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | 🔲（五个目标均未完成；第 1、3、4 项的低层基础已登记，见 §11 N1+） |
+| G-N1+ | 连分数最佳逼近必要方向及 `√d`—Pell 桥完成 | N1 专题扩展；不阻塞 N2 | ✅（2026-10-14：第 1–4 项已交付；第 5 项负 Pell 仍单列未做，见 §11 N1+） |
 
 依赖门只由 main 在验收对应 handoff 后改为 ✅。存在相近 Mathlib 文件或一条强定理不等于开门；
 必须已有本库教材定义、显式实现桥、课程文档和 verified Registry 条目。
@@ -182,7 +182,7 @@ Wave A 保留为启动阶段的依赖记录，不再作为当前派工表。当�
 |---|---|---|---|---|---|
 | D1 复分析 cycle 基础 | `codex/complex-analysis-wave-r1`（Wave R1） | `complex-analysis.integral.{banach-path-foundation, finite-cycle-foundation, winding-number-foundation}` | ✅ 已完成并集成（2026-10-13，`dee5fff`–`91416f8`） | `ComplexAnalysis/{BanachPathIntegral,CycleCarrier,WindingIndex}.lean`；不改已集成 C2 文件 | 有限 cycle、绕数量词、公共积分 carrier 已交付；C2 未关闭，C3 仍 ⏸ |
 | D2 泛函 F6.6b1 预解被积函数 | `codex/functional-analysis-restart`（须先同步） | `functional-analysis.functional-calculus.resolvent-integrand` | `development_open` | 建议 `FunctionalAnalysis/HolomorphicResolventIntegrand.lean` | 预解恒等式、预解集上全纯性、`f z • resolvent a z` 的 Banach 值被积函数；不得定义 cycle、路径积分或 `f(a)` |
-| D3 拓扑 AT2-C5e | `codex/topology-wave-r1`（Wave R1；原 `codex/topology-foundations` 已废弃） | `topology.covering.subgroup-construction-recovery` | 🚧 `research_open` 维持（原型含 3 个 `sorry`，未过无占位门） | 正式文件路径待 `development_open` 后再定；不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
+| D3 拓扑 AT2-C5e | `codex/topology-wave-r1`（Wave R1；原 `codex/topology-foundations` 已废弃） | `topology.covering.subgroup-construction-recovery` | ✅ Wave R2 已达成无占位原型（2026-10-14，`75216b3`），可转 `development_open`；正式文件路径计划 `SandronesLibrary/Topology/CoveringSubgroupConstructionRecovery.lean` | 不得重放旧 `TextbookTopology`／旧 `Path` 载体 | C5c cover 道路连通 + `recoveredSubgroup (subgroupPointedCovering H) = H`；C5f–C5g 继续冻结 |
 | D4 交换代数 CA1 | `codex/commutative-algebra`（2026-10-13 试点开窗） | `commutative-algebra.module.definition` | ✅ 已完成并集成（2026-10-13，`398bd99`–`e55e78b`）；11 声明、无 `sorry`、公理画像 `[Classical.choice, Quot.sound, propext]` | **目录裁决（Main，2026-10-13）**：新建 `SandronesLibrary/CommutativeAlgebra/`，家族前缀 `commutative-algebra.*`，叙述层 `docs/entries/commutative-algebra/`。不复用 `AbstractAlgebra/`：那里承载 A2/A3 的 `abstract-algebra.{group,ring,poly,field}`，与 CA 课程线不同；且 Registry 中 `commutative-algebra.*` 现有 0 条，无撞车。**试点结论**：本批同时是「派工上下文包 + Lean 轨迹语料」协议的首次实跑，产出 27 条 trace（14 accepted／12 error／1 sorry_left）与 2 个 pack；据此修三处协议缺陷（`--worker` join key 消歧、重复 pack_id 检测、`--lean-file` 口径归一） | 模／子模／模同态教材定义与 Mathlib 角色分类；生成子模、商模继续冻结 |
 | D5 实分析 RA-F1 | 新建 `codex/real-analysis` | 有符号测度、Jordan 分解、正负／全变差、复测度 | 🚧 可开工 | 新建 `SandronesLibrary/RealAnalysis/SignedMeasure*.lean` | 四类概念均有正式承载、教材解释、展开性质与必要桥；RA-F2 已由 Wave R1 独立窗口交付并集成 |
 | D6 数论 N2.1–N2.3 | `codex/number-theory-wave-r1`（Wave R1） | `number-theory.algebraic.number-field`、`algebraic-integer`、`ring-of-integers` | ✅ 已完成并集成（2026-10-13，`2cca2c0`–`58ceda2`） | `SandronesLibrary/NumberTheory/Algebraic/` | 数域、代数整数与整闭包、整数环；N2.4 起仍 `research_open` |
@@ -584,10 +584,10 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 | R-complex | 复分析 | C2✅（C3⏸） | `ComplexAnalysis/`、`docs/entries/complex-analysis/` |
 | R-functional | 泛函分析 | F6🚧（F6.7 ✅ 已集成；F6.6b2 仍 research_open；F7-F8🔒） | `FunctionalAnalysis/`、`docs/entries/functional-analysis/` |
 | R-probability | 概率论 | Pr2-Pr3🚧 | `Probability/`、`docs/entries/probability/` |
-| R-statistics | 统计推断 | S1🚧（S1 第 7 条 ✅ 已集成；S2🔒） | `Statistics/`、`docs/entries/statistics/` |
+| R-statistics | 统计推断 | S1✅（2026-10-14 全部 8 行交付；S2🔒） | `Statistics/`、`docs/entries/statistics/` |
 | R-number | 数论 | N2.1–N2.3✅（Wave R1 已集成） | `NumberTheory/`、`docs/entries/number-theory/` |
 | R-settheory | 集合论深化 | ST2✅/ST3🚧（primitive-recursive-class、universal-machine-instance ✅ 已集成） | `SetTheory/`、`docs/entries/settheory/` |
-| R-calg | 交换代数 | CA1 定义层✅（首条已集成） | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
+| R-calg | 交换代数 | CA1 ✅（2026-10-14 五条全部集成） | `CommutativeAlgebra/`、`docs/entries/commutative-algebra/` |
 | R-examples | 计算例巡视 | E0🚧 | `Examples/`、`docs/ROADMAP-examples.md` 建议 |
 | ~~R-world~~ | 世界式书稿 | WF1🔒（2026-10-13 暂停，不派工） | —（窗口已关闭） |
 
@@ -1059,7 +1059,7 @@ A3.6 的课程主签名继续显式接受 `FieldEmbedding`，线性组合、线�
 | AT2-C5b 道路类商承载 | 已集成 | dependent endpoint carrier、子群轨道 setoid、quotient 与 endpoint projection | 采用右陪集 `gH` 方向；没有偷带教材差环路 iff、拓扑或连续性 |
 | AT2-C5c 覆盖 chart 与拓扑构造 | 已集成 | canonical chart generator topology、离散 fiber transition、chart homeomorphism 与 `IsCoveringMap` | 首版固定道路连通 base；明确不是 generic quotient topology，并转换到实际投影 fiber |
 | AT2-C5d 从 pointed covering 恢复子群 | 已集成 | 道路连通底空间上的道路连通 pointed covering carrier、投影诱导基本群同态之像及其对 pointed equivalence 的不变性 | base 与 total 都保留 `PathConnectedSpace`；range 为主定义；只做恢复与等价不变性，不声称分类双射 |
-| AT2-C5e 构造—恢复方向 | `research_open`（Wave R1 research 窗口已交付 RFC + 概念六列表，2026-10-13；**维持 research_open**） | 证明 C5c 子群道路类 cover 的 total space 道路连通，打包为 `PointedCovering`，再恢复原子群。Wave R1 原型仍含 3 个 `sorry`（E1 `initSegMap` 连续性、E2 总空间道路连通、E3 子群恢复），未过「无占位原型」门，裁决见 `../review-inbox/topology/main-at2-c5e-wave-r1-research-still-open.md` | 先核验 canonical lift point 与 range 等式；不得顺手声称任意 covering 的反向互逆 |
+| AT2-C5e 构造—恢复方向 | ✅ **无占位原型达成**（Wave R2 research 窗口，2026-10-14，提交 `75216b3`）：496 行 / 29 声明 / **0 `sorry`**，编译零 error 零 warning，7 条关键声明 `#print axioms` 全部无 `sorryAx`。**可转 `development_open`**，待 Main 开窗 | 三个占位全消：E1 `continuous_initSegMap`（靠新证的分裂引理 `segPath_homotopic_trans`，取代 Mathlib 缺失的 `truncate_trans`）、E2 `pathConnectedSpace_coveringSubgroupPathClass`、E3 `recoveredSubgroup_subgroupPointedCovering`（`⊆` 用 `IsCoveringMap.eq_of_comp_eq` 提升唯一性）；E3 另有旧载体上的独立第二条证明 | **签名裁决（Main，2026-10-14）**：`initSegMap` 及其两条端点引理带 `[LocallyPathConnectedSpace X] [SemilocallySimplyConnectedSpace X]` **获准**——这是 E1 取 chart 的真实必要边界，与 RFC §1、C5c 一致，不是额外加强；`segClass` 改无 cast 钳制写法（`segPath`/`segTrunc`）只动实现层，公开签名不变。**开窗时必须处理实例菱形**：打包 `PointedCovering` 的实例与 `coveringSubgroupTopology` 仅命题相等，恢复定理须先 `change` 成显式 `f : C(E,X)` + `hf := rfl`。仍不得声称任意 covering 的反向互逆 |
 | AT2-C5f--C5g 覆盖分类后续 | 冻结，C5e handoff 后分步开放 | 任意 pointed cover 的恢复—构造方向、unpointed 分类与 universal cover | 不得一个大文件直冲最终分类；非连通 cover 不能误称对应单一子群 |
 
 三个正式开发窗口必须使用互不重叠文件并各自形成独立提交。单位律、结合律和逆律若不是严格道路
@@ -1088,9 +1088,9 @@ Riemann 定义、连续可积、Lebesgue 判据、FTC、分部积分和换元均
 |---|---|---|---|
 | RA-F1 | 有符号测度、Jordan 分解、正负／全变差、复测度 | 正测度与积分主线已验收 | ✅ 已于 2026-10-13 集成：`real-analysis.signed-measure.{definition,variation,jordan-decomposition,complex}`（`f856e0f`／`ef88ec4`，Main 集成提交见 D-1a 进展表）。有限实／复值情形已齐备；RA-F2 仍未开门 |
 | RA-F2 | 绝对连续、互奇异、Lebesgue 分解与 Radon--Nikodym | RA-F1 | ✅ 2026-10-13 集成：`real-analysis.measure-derivative.{absolute-continuity,mutually-singular,lebesgue-decomposition,radon-nikodym}`（Wave R1 学科提交 `293fa00`–`27b2a1e`／`76b0238`）。Folland §3.2 的教材化承载与量词展开，复用 Mathlib 已证的 RN 与 Lebesgue 分解；有符号测度 RN 仅给桥 |
-| RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口冻结 | 极大函数教材定义、弱型估计和可测性边界 |
+| RA-F3 | Hardy--Littlewood 极大函数与弱型估计 | RA-F2；覆盖引理接口冻结 | ✅ 2026-10-14 集成：`real-analysis.covering-lemma`（一维 Vitali 覆盖，签名先冻结再派上层）+ `real-analysis.maximal-function`。**弱型 (1,1) 是自证的全 `⨆` 版本**，走完整覆盖论证（见证区间 → 半径一致界 → Vitali τ=4 不交子族 → 测度控制 → 逐项换积分 → `lintegral_iUnion`）；**常数是 4（Mathlib Vitali 的 τ>3 口径），不声称复刻 Folland 一维的 3／ℝⁿ 的 3ⁿ**；极大函数是一维非中心版、值域 `ℝ≥0∞`。**Mathlib 无极大函数算子，本条为自建**；全文未出现任何 a.e. 微分结论（§6 硬约束满足，RA-F4 未越界代劳） |
 | RA-F4 | Lebesgue 点与 Lebesgue 微分定理 | RA-F3 | 平均算子、Lebesgue 点定义、a.e. 定理和具名桥 |
-| RA-F5 | 单调函数、有界变差与绝对连续函数 | RA-F2；一维测度接口验收 | BV/AC 定义、分解性质与 a.e. 导数 |
+| RA-F5 | 单调函数、有界变差与绝对连续函数 | RA-F2；一维测度接口验收 | ✅ 2026-10-14 集成：`real-analysis.{monotone-function,bounded-variation,absolute-continuity-function}`。已披露边界：Stieltjes 测度取 `f` **右连续化**后的测度，教材字面 `f(b)−f(a)` 只在右连续时成立；Jordan 分解不交付规范公式 `p=(T_F+F)/2`；`AbsolutelyContinuousOnInterval` 是**区间上**谓词；`τ=3` 不成立（须 `>3`） |
 | RA-F6 | FTC 的 a.e. 版本与 Newton--Leibniz 表示 | RA-F4、RA-F5 | 积分表示双向定理及与既有 Riemann/FTC 接口的总桥 |
 
 Mathlib 的 `SignedMeasure`、`ComplexMeasure`、`Measure.AbsolutelyContinuous`、`rnDeriv` 等接口
@@ -1411,7 +1411,7 @@ F6.5--F6.10 仍按教材依赖门推进；
 > *Linear Regression Analysis* 第二版（`seber-lee-linear-regression-2003`）。似然和密度必须
 > 等待 RN 接口，不能用有限样本公式冒充一般统计实验已经定义。
 
-### S1 参数估计 🚧（依赖 Pr1）
+### S1 参数估计 ✅（依赖 Pr1；2026-10-14 全部 8 行交付，一般 Neyman–Fisher 定理仍为后续研究项）
 
 | # | 条目 id | 内容 | 主要实现接口 |
 |---|---|---|---|
@@ -1421,9 +1421,9 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 3 | `statistics.estimator.bias-variance` | 偏差—方差分解 ✅ | Pr1 方差 |
 | 4 | `statistics.estimator.consistency` | 共同观测空间上的逐参数相合与 `L²` 充分条件 ✅ | Pr3、`TendstoInMeasure` |
 | 5 | `statistics.sufficiency.definition` | 充分统计量与重构入口 ✅ | 以共同正规条件核定义充分性；Blackwell 重构为后续刻画；首批只做定义、重构桥与有限离散消费者，一般 Neyman--Fisher 定理继续研究 |
-| 6 | `statistics.method-of-moments` | 矩估计 | moments |
+| 6 | `statistics.method-of-moments` | ✅ 2026-10-14 集成：以总体矩映射的配平等式定义矩估计，显式列出模型族可测性、矩存在性、识别性与矩方程适定性。**边界：相合性是拓扑转移，不是大数定律证明** | `MeasureTheory.integral`、`TendstoInMeasure`、`Kernel.deterministic` |
 | 7 | `statistics.maximum-likelihood` | ✅ 似然函数与最大似然估计（Wave R1）：RN 密度承载似然、`IsMaximumLikelihoodEstimator` 用 a.e. argmax 定义并给出订单／存在性；未含支配字段，可测选择与相合性／渐近正态性未证 | `Kernel.rnDeriv`、`IsMaxOn` |
-| 8 | `statistics.information.cramer-rao` | Fisher 信息与 Cramér–Rao | 微分与积分交换 |
+| 8 | `statistics.information.cramer-rao` | ✅ 2026-10-14 集成：以支配测度上的实值密度族承载模型测度与 Fisher 信息，**把「微分与积分可交换」写成显式正则条件**（密度侧 `deriv_integral_swap` 字段 + 主定理假设 `hswap`；结论左端写作 `deriv (densityMean ν p T) θ`，故假设真参与证明而非装饰），并证明下界及其教材形式与无偏形式。**边界：交换性是显式假设（foundation／bridge），未从课程级充分条件推导**；未证 Fisher 信息对 ν 的不变性、多参数矩阵与渐近有效性 | `Kernel.rnDeriv`、`Measure.withDensity`、`variance` |
 
 ### S2 检验与回归 🔒（依赖 S1）
 
@@ -1463,18 +1463,19 @@ F6.5--F6.10 仍按教材依赖门推进；
 
 21 个教材入口已进入 main。最佳逼近必要方向、√d 连分数桥、负 Pell 和全体正解分类归入 N1+。
 
-### N1+ 初等专题扩展 🚧（2026-10-13 按 Registry 现况对账；五个目标均未完成）
+### N1+ 初等专题扩展 🚧（2026-10-14：第 1–4 项已交付；第 5 项负 Pell 仍单列未做）
 
-N1 的 21 个 `number-theory.elementary.*` 入口已全部 verified。下表五个 N1+ 目标**都还没有
-Entry**；本段由 🔲 升为 🚧 只表示低层接口已就位、可以开工，**不表示任何一条已经完成**。
-"已登记的 Registry 基础"列只列真实存在的条目标题，不能当作该行目标的完成证据。
+N1 的 21 个 `number-theory.elementary.*` 入口已全部 verified。下表第 1–4 项已于 2026-10-14
+集成（N1plus 批次，4 条 Entry / 80 条公开声明 / 零 `sorry`）；**第 5 项负 Pell 仍未做**，故本节
+整体保持 🚧。每行的"已披露边界"是该条目 docstring 与叙述层里写明的强度限制，**不得读作已完成
+的更强结论**。
 
 | # | 目标条目 id | 内容 | 已登记的 Registry 基础 | 剩余边界 |
 |---|---|---|---|---|
-| 1 | `number-theory.elementary.convergent-best` | 收敛子与最佳逼近的关系 | `continued-fraction-convergent`、`continued-fraction-recursion`、`best-rational-approximation`、`finite-best-approximation`、`legendre-criterion` | `legendre-criterion` 只给出"非常好的近似 ⇒ 收敛子"的**充分判据**；其文档明确声明"收敛子 ⇒ 最佳逼近"这一经典结论在当前 Mathlib 接口中尚不存在，必须自建，不得用 Legendre 判据冒充 |
-| 2 | `number-theory.elementary.sqrt-periodic-cf` | 二次无理数连分数周期性 | `continued-fraction-convergent`、`continued-fraction-recursion` | 完全未开始：周期性本身的陈述、周期长度与判别式的关系都需新建 |
-| 3 | `number-theory.elementary.pell-cf-bridge` | √d 收敛子产生 Pell 解 | `pell-equation`、`pell-composition`、`pell-positive-existence`、`pell-fundamental-solution` | 现有 Pell 存在性走的是 Mathlib `Pell.Solution₁` 的二次整数环路线；`pell-positive-existence` 文档明确记录它**没有**建立解与 √d 连分数周期的对应（Mathlib 原文件把该连接列为 TODO）。本桥必须新建 |
-| 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | `pell-fundamental-solution`（基本解存在）、`pell-composition`（Brahmagupta 合成） | 只差"全体"那一半：需要证明每个正解都是基本解的幂；合成只给出"幂仍是解" |
+| 1 | `number-theory.elementary.convergent-best` | 收敛子与最佳逼近的关系 | ✅ 2026-10-14 集成，19 声明。交付的是**「收敛子 ⇒ 最佳逼近」**（第一类），核心引理为更强的第二类版本 | **`n ≥ 1` 不可去**（ξ=1.7 时第 0 个收敛子不是最佳逼近）；**逆命题为假**（ξ=√2 时 4/3 在分母 ≤ 3 内误差最小却不是收敛子），文档已写明与 `legendre-criterion` 互不蕴含 |
+| 2 | `number-theory.elementary.sqrt-periodic-cf` | 二次无理数连分数周期性 | ✅ 2026-10-14 集成，23 声明。**一般 `d` 的最终周期性真证**（整数 (P,Q) 递推 + 鸽笼），另给 `L ≤ 2d` 与 `d=a²+1` 周期 1 | **`2d` 不是判别式界**（`disc ≥ d` 对非平方因子 `d` 为假，如 `d=18`）；周期—判别式精确关系（基本单位／类数／负 Pell）未形式化 |
+| 3 | `number-theory.elementary.pell-cf-bridge` | √d 收敛子产生 Pell 解 | ✅ 2026-10-14 集成，2 公开声明（+3 private）。**方向 I 真证**：Pell 正解 ⇒ 其比值是 √d 的收敛子 | **方向 II 只到上界** `\|q.num² − d·q.den²\| ≤ 2√d+1`，**不是**「收敛子都是 Pell 解」；**「周期末端收敛子 = 基本解」未做**（Mathlib 无 √d 连分数承载，`GenContFract.of_sqrt` 不存在） |
+| 4 | `number-theory.elementary.pell-all-positive` | 全体正解由基本解幂生成 | ✅ 2026-10-14 集成，16 声明。**全称那一半是真证的**：`exists_pow_eq_of_fundamental`（每个正解都是基本解的 Brahmagupta 幂）+ 双向 + 正指数加强 + 收口形式；**未用「幂仍是解」冒充** | 覆盖第二坐标非负的解；带符号完整分类（`±a₁^n`, `n:ℤ`）未重述，也未建群／整数幂 |
 | 5 | `number-theory.elementary.negative-pell` | 负 Pell 可解性边界 | 无 | 完全未开始；负 Pell 与可解性必须单列，不得由正 Pell 结果暗示 |
 
 G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
@@ -1610,10 +1611,11 @@ G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 | 批次 | 条目 id | 内容 | 前置 |
 |---|---|---|---|
 | CA1 | `commutative-algebra.module.definition` | 模、子模与模同态的教材定义及 Mathlib 桥 ✅ `verified`（2026-10-13 集成，11 声明） | A2/L1 ✅ |
-| CA1 | `commutative-algebra.module.generated` | 子集生成子模及最小性 | CA1.definition |
-| CA1 | `commutative-algebra.module.quotient` | 商模、自然投影与商映射泛性质 | CA1.definition |
-| CA1 | `commutative-algebra.module.isomorphism-theorems` | 模的三大同构定理 | CA1.quotient |
-| CA1 | `commutative-algebra.module.direct-sum` | 内外直和及分解判据 | CA1.definition |
+| CA1 | （CA1b2 批次小结） | ✅ 2026-10-14 集成：`generated`／`quotient`／`direct-sum`／`isomorphism-theorems` 四条，共 77 条公开声明、零 `sorry`。**四条的第 2 类桥全为空**（不定义新结构/新谓词）——是承载选择正确的结论，不是遗漏。已披露：`⟨S⟩` = 有限线性组合之集**未形式化**（给的是归纳原理这一结构性刻画，两者不等价）；`direct-sum` 的「重组同构反向」**命题为假**（刻意不做）；三条同构定理的「≅」是 `≃ₗ`（数据）故为 `noncomputable def` | CA1.definition ✅ |
+| CA1 | `commutative-algebra.module.generated` | 子集生成子模及最小性 ✅（2026-10-14，15 声明） | CA1.definition ✅ |
+| CA1 | `commutative-algebra.module.quotient` | 商模、自然投影与商映射泛性质 ✅（2026-10-14，18 声明；唯一自证定理 `quotient_liftQ_exists_unique`） | CA1.definition ✅ |
+| CA1 | `commutative-algebra.module.isomorphism-theorems` | 模的三大同构定理 ✅（2026-10-14，22 声明；**自建完整链，零调用 Mathlib 现成等价**） | CA1.quotient ✅ |
+| CA1 | `commutative-algebra.module.direct-sum` | 内外直和及分解判据 ✅（2026-10-14，22 声明；两项内直和 + 一般族分解，无 n 元判据） | CA1.definition ✅ |
 | CA2 | `commutative-algebra.module.finite-generation` | 有限生成模及生成元变换 | CA1 |
 | CA2 | `commutative-algebra.module.free` | 自由模、基与秩 | CA1/L1 |
 | CA2 | `commutative-algebra.module.exact-sequence` | 模同态序列、正合性、分裂正合 | CA1 |
