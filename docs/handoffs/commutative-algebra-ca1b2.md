@@ -32,8 +32,10 @@ projective / injective / flat 等一条未碰）。
 
 | commit | 内容 |
 |---|---|
-| `f6d1b3d` | CA1b2 派工上下文包 6 个（3 个负责人 pack + 3 个子 Agent pack）+ 负责人侦察 trace（6 条） |
-| （见 §2.1 回填） | 4 个 Lean 源文件 + 4 篇叙述层 + 6 条 trace jsonl + 本 handoff |
+| `27015b8` | CA1b2 全批：6 个 pack + 4 个 Lean 源文件 + 4 篇叙述层 + 6 条 trace jsonl + 本 handoff |
+| （分支尖端，回填提交） | 本 handoff §8 回填 subject_package 原文（只改 handoff 文本） |
+
+分支尖端（回填后）：`git log --oneline -2` → 回填提交、`27015b8`。
 
 工作区清洁度实测：
 
@@ -187,7 +189,51 @@ $ python3 scripts/lean_trace.py check traces/lean/commutative-algebra/
 
 ## 8. subject_package 自检
 
-（本节由回填提交补入，原文见下。）
+命令（`docs/subject-packages/**` 在本窗口的 `ownership.readonly` 清单里，**不能写入**，
+所以包输出到 `/tmp`，Main 集成时请重新生成到 `docs/subject-packages/`）：
+
+```bash
+python3 scripts/subject_package.py \
+    --worktree /home/pisquare/czt/sandrones-library-ca-b2 \
+    --base bc8d4fe --subject commutative-algebra \
+    --out /tmp/ca_b2/subject-package-ca1b2.json
+```
+
+真实输出：
+
+```
+学科验收包 commutative-algebra  (codex/commutative-algebra-b2 @ 27015b895)
+  基线 bc8d4fe｜提交 1｜改动文件 21
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 69 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+
+  verdict: pass
+```
+
+`exceptions` 块：`[]`。五组门与两条软门全部 `pass`，无异常清单。
+
+**`traces` 行原文**（schema `sandrones-subject-package/1`）：
+
+```json
+{"status": "present", "records": 69, "files": ["traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.direct-sum-ds.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.direct-sum.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.generated-gen.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.generated.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.isomorphism-theorems.jsonl", "traces/lean/commutative-algebra/commutative-algebra.module.quotient.jsonl"], "lean_files_changed": ["SandronesLibrary/CommutativeAlgebra/Module/DirectSum.lean", "SandronesLibrary/CommutativeAlgebra/Module/Generated.lean", "SandronesLibrary/CommutativeAlgebra/Module/IsomorphismTheorems.lean", "SandronesLibrary/CommutativeAlgebra/Module/Quotient.lean"], "note": "本批含 69 条验证尝试记录", "invalid": []}
+```
+
+（69 条含 CA1 批遗留的 2 个文件、27 条记录；**本批新增 6 个文件、42 条**。）
+
+**`packs` 行原文**：
+
+```json
+{"files": ["traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.json", "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.verify.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.direct-sum-ds.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.direct-sum.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.generated-gen.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.generated.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.isomorphism-theorems.json", "traces/packs/commutative-algebra-CA1b2-commutative-algebra.module.quotient.json"], "pack_ids": ["commutative-algebra-CA1-commutative-algebra.module.definition", "commutative-algebra-CA1-commutative-algebra.module.definition-verify", "commutative-algebra-CA1b2-commutative-algebra.module.direct-sum", "commutative-algebra-CA1b2-commutative-algebra.module.direct-sum-ds", "commutative-algebra-CA1b2-commutative-algebra.module.generated", "commutative-algebra-CA1b2-commutative-algebra.module.generated-gen", "commutative-algebra-CA1b2-commutative-algebra.module.isomorphism-theorems", "commutative-algebra-CA1b2-commutative-algebra.module.quotient"], "duplicate_pack_ids": [], "referenced_by_traces": ["commutative-algebra-CA1-commutative-algebra.module.definition", "commutative-algebra-CA1-commutative-algebra.module.definition-verify", "commutative-algebra-CA1b2-commutative-algebra.module.direct-sum", "commutative-algebra-CA1b2-commutative-algebra.module.direct-sum-ds", "commutative-algebra-CA1b2-commutative-algebra.module.generated", "commutative-algebra-CA1b2-commutative-algebra.module.generated-gen", "commutative-algebra-CA1b2-commutative-algebra.module.isomorphism-theorems", "commutative-algebra-CA1b2-commutative-algebra.module.quotient"], "missing_for_referenced": [], "trace_path_mismatch": [], "unreferenced_packs": [], "invalid": [], "note": "pack 与 trace 的 pack_id 已配对，trace.path 指针正确"}
+```
+
+**Main 集成时的一项提醒**：`gates.proof.entries` 里四条 Entry 的 `in_registry` 均为 `false`
+——这是**预期**的（本批四条都是计划中新条目，Registry 是 Main 共享文件，学科侧不能写）。
+Main 语义合并 Registry 后重跑本命令，`in_registry` 应变为 `true`，其余门应保持 `pass`。
 
 ## 9. 子 Agent 所有权与负责人复核
 
