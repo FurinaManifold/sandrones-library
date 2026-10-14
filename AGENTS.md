@@ -5,8 +5,8 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 验收快照（`8d52e5c`，2026-10-14）：638 个 verified Entry、820 条直接依赖边、
-73 条合规 BibTeX 出版来源、636 个正式参排条目；主工作树完整 `lake build` 以 9099 jobs
+当前 Main 验收快照（`5683fbc`，2026-10-14）：649 个 verified Entry、856 条直接依赖边、
+73 条合规 BibTeX 出版来源、647 个正式参排条目；主工作树完整 `lake build` 以 9106 jobs
 通过，仅重放既有 linter warnings。本快照在 `d3b492f`（Wave R1 七批次 + CA1 定义层）之上，
 覆盖 Wave E 的六个交付批次与三个 research 窗口：
 - 复分析 C2 收口 `complex-analysis.cauchy.homotopy`（C2 判 ✅，并登记 C3 开门前置
@@ -17,8 +17,9 @@
 - 数论 N1+ `number-theory.elementary.{convergent-best,sqrt-periodic-cf,pell-cf-bridge,`
   `pell-all-positive}`（第 5 项负 Pell 仍单列未做）；
 - 统计 S1 收口 `statistics.{method-of-moments,information.cramer-rao}`；
+- Examples E0 存量转正 + E1 全批 `examples.{analysis.*,settheory.*}`（11 条，262 声明）；
 - research 窗口文档接收：复分析 homology 缺口、泛函 F6.6b2 签名冻结、拓扑 AT2-C5e
-  无占位原型（已裁决可转 `development_open`）。
+  无占位原型（已裁决可转 `development_open`）、数论 N2 签名冻结 RFC（含 Main 七项裁决）。
 发布回执见 `docs/releases/release-receipt-2026-10-13T090539Z.json`、`…T091749Z.json`、
 `…T112349Z.json`（Wave R1 与 CA1）与 `docs/releases/release-receipt-2026-10-14T041800Z.json`
 （复分析 C2close）。
