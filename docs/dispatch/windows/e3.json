@@ -1,0 +1,60 @@
+{
+  "window": "E3",
+  "subject": "number-theory",
+  "batch": "N1plus",
+  "role": "subject-maintainer",
+  "branch": "codex/number-theory-elementary-plus",
+  "worktree": "/home/pisquare/czt/sandrones-library-nt-n1plus",
+  "slug": "nt-n1plus",
+  "note": "docs/dispatch/notes/e3.md",
+  "entries": [
+    {
+      "id": "number-theory.elementary.convergent-best",
+      "lean_file": "NumberTheory/Elementary/ConvergentBest.lean",
+      "premises": [
+        "number-theory.elementary.continued-fraction-convergent",
+        "number-theory.elementary.legendre-criterion"
+      ],
+      "mathlib": [
+        "GenContFract.conv_eq_conts_a_div_conts_b"
+      ],
+      "goal_nl": "交付连分数最佳逼近的必要方向，并说清它与 legendre-criterion 的方向关系"
+    },
+    {
+      "id": "number-theory.elementary.sqrt-periodic-cf",
+      "lean_file": "NumberTheory/Elementary/SqrtPeriodicCF.lean",
+      "premises": [
+        "number-theory.elementary.continued-fraction-recursion"
+      ],
+      "mathlib": [
+        "GenContFract.of_sqrt"
+      ],
+      "goal_nl": "交付 √d 连分数展开的周期性陈述与周期长度同判别式的关系"
+    },
+    {
+      "id": "number-theory.elementary.pell-cf-bridge",
+      "lean_file": "NumberTheory/Elementary/PellCFBridge.lean",
+      "premises": [
+        "number-theory.elementary.continued-fraction-convergent",
+        "number-theory.elementary.pell-positive-existence"
+      ],
+      "mathlib": [
+        "Pell.Solution",
+        "GenContFract.of_sqrt"
+      ],
+      "goal_nl": "在本库连分数接口与 Pell 解之间建立显式桥"
+    },
+    {
+      "id": "number-theory.elementary.pell-all-positive",
+      "lean_file": "NumberTheory/Elementary/PellAllPositive.lean",
+      "premises": [
+        "number-theory.elementary.pell-fundamental-solution",
+        "number-theory.elementary.pell-composition"
+      ],
+      "mathlib": [
+        "Pell.Solution.xp"
+      ],
+      "goal_nl": "补全全体正解的分类：证明每个正解都是基本解的幂"
+    }
+  ]
+}

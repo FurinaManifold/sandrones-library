@@ -343,6 +343,8 @@
   （自然语言叙述、待证命题、尝试轨迹、编译器反馈），作为 LLM 训练数据。
 - **§9 派工上下文包（JSON）**：轨迹的"观测"一半——派工前由脚本从权威源推导，负责人只填目标；
   包与轨迹用 `pack_id` 挂钩，`(观测, 动作, 反馈)` 才构成可训练样本。
+- **§10 并行窗口派工规程**：简令由脚本从 pack 渲染（不许手写）、开窗前 Main 的四件事、
+  负责人对子 Agent 的责任、研究窗与开发窗的区别、报告格式与三条不许。
 
 ---
 
@@ -1163,3 +1165,88 @@ CA1 试点实测漏掉 14 条）。
 这一步**故意没做**——K 与排序规则要靠"先有一批带 `pack_id` 的真实样本"用数据选，
 而不是拍脑袋定参数（与 §8.7 "先积累一轮真实轨迹"是同一条思路）。
 在此之前，pack 只是**指针包**：它规定了"该读什么"，不代表子 Agent 真的读完了。
+
+## 10. 并行窗口派工规程（Wave E 起）
+
+本节规定**跨学科的派工方法**：Main 如何开窗、窗口简令从哪来、负责人对子 Agent 负什么责。
+学科范围与状态一律以 ROADMAP 为准，本节不复制课程内容。
+
+### 10.1 简令必须由脚本渲染，不许手写
+
+派工输入是 **pack**（§9），不是一份散文简令。手写简令必然与 pack 漂移，而且等于把
+"负责人不得改写"的字段（所有权、前提闭包、冻结签名、批次边界、Playbook 必读节、预算、
+trace 路径、派工坐标）重新抄成第二份事实源——这正是 §9 要消灭的东西。
+
+```bash
+# 1) 先建 pack（派工坐标也写进 pack 的 dispatch 块）
+python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> \
+    --role subject-maintainer --worktree <绝对路径> --branch <分支> --base <基线 commit> \
+    --brief docs/dispatch/<窗口>.md --goal-nl "<一句话目标>" \
+    --new-entry --lean-file <Subject>/<File>.lean \
+    --premises <已登记前提> --mathlib <候选名> --out traces/packs/<pack_id>.json
+
+# 2) 再由 pack 渲染简令（窗口特有的判断放 --note 片段）
+python3 scripts/dispatch_brief.py --window <窗口> --pack traces/packs/<pack_id>.json \
+    [--pack …] --note docs/dispatch/notes/<窗口>.md --out docs/dispatch/<窗口>.md
+```
+
+- 简令里**从 pack 推导的部分**与**手写残量（`--note`）**分开成节，便于日后审计漂移；
+- 简令与 pack 不一致时**以 pack 为准**，并重新生成简令；
+- `--note` 只写无法从权威源推导的判断（例如"这条的难点是强度，容易退化成换个名字的包装"），
+  不重抄范围表、所有权、前置——那些已经在 pack 里。
+
+### 10.2 开窗前 Main 要做的四件事
+
+1. **建 worktree 并接线**：`git worktree add ../sandrones-library-<slug> -b codex/<slug> main`，
+   再把 `.lake/packages` 软链到主工作树（否则每个 worktree 复制一份 packages）。
+   **不要**复制 `.lake/build`；学科只做定向构建，磁盘靠增量省。
+2. **每个计划 Entry 建一个 pack**，并 `context_pack.py check` 通过。
+   目标 Entry 尚未登记 Registry 时用 `--new-entry` 计划模式（此时 `prerequisites.mathlib`
+   是 `unverified_hint`，明示"提示不是结论"）。
+3. **确认文件所有权不重叠**：同一学科同时只设一个负责人；一个负责人带 2–3 个子 Agent，
+   每个子 Agent 只拥有一组 `.lean` 与对应 `docs/entries/<family>/`。
+4. **写 `--note` 片段**（唯一手写残量），然后渲染简令、提交，再派工。
+
+### 10.3 负责人对子 Agent 的责任
+
+- 派工前为**每个**子 Agent 生成 pack，`--role sub-agent --worker <短标签>`；
+  不加 `--worker` 会让两个 pack 共用 join key，按 `pack.trace.path` 收轨迹会静默漏记录。
+- **子 Agent 的"完成"不是验收**：负责人必须亲自复跑编译、逐条读数学陈述、核对公开签名四类归属，
+  并**独立复核**子 Agent 报告的关键事实。CA1 试点里负责人正是靠独立复核抓出一处 docstring 事实错误。
+- handoff 里必须写清"我亲自验了什么、哪些是采信子 Agent 的"。
+
+### 10.4 研究窗与开发窗的区别
+
+- `development_open`：交付 Lean 源码 + Entry 叙述层 + 可集成的 Registry 建议，跑五组门 + 两条软门；
+- `research_open`：**不产生可集成交付**。出口是签名冻结提案 + 无占位 `/tmp` 原型（原型允许 `sorry`，
+  但每个 `sorry` 必须列条目说明在等什么）+ 接口契约 + 诚实边界。研究窗**不写 `SandronesLibrary/`**，
+  报告里要显式写「本窗无 Lean 交付，故无 `subject_package` 五门」。
+- 权限转换（`research_open` → `development_open`）**只能由 Main** 在验收研究窗 handoff 后宣布。
+
+### 10.5 窗口报告格式（自包含，Main 不回看过程）
+
+```
+1. 现场：worktree／分支／基线／HEAD／提交数／工作区是否干净／磁盘
+2. 交付：Entry 列表 + Lean 文件与行数 + 声明数 + 公理画像
+3. 验证：定向 build 真实结果、聚合 #check、占位扫描、声明↔Entry 映射、git diff --check
+4. pack 与 trace：pack_id 清单 + trace 路径 + 按 outcome 分类的记录数 + check 输出
+5. subject_package 原文（含 traces／packs 两行；研究窗写"无"）
+6. 子 Agent 与负责人审核发现（含退回或修复了什么）
+7. 诚实边界：没做什么、哪些只是桥／foundation、哪些结论强度弱于教材
+8. 协议反馈：pack 不够用之处、trace 记不下的东西、字段缺什么
+```
+
+### 10.6 三条不许
+
+- **不许**为了报告好看而掩盖失败：轨迹里的 `error` 是资产，不是污点（CA1 批失败占 47%）。
+- **不许**把 foundation／bridge 说成教材定理已完成；做不到就诚实登记强度。
+- **不许**越界：不碰 `scope.out_of_scope` 的条目、不碰其他窗口的目录、不碰 Main 共享文件。
+
+### 10.7 已固化的踩坑（开窗前负责人先看这几条）
+
+- **候选接口名先实测再写**：CA1 批按记忆写 `Ideal.ofSubmodule`、`AddMonoidHom.toLinearMap`
+  这些**不存在**的名字，白烧多轮编译。开工第一步 `#check` 候选名，并写成 trace（§8.4）。
+- **隐式 binder + 嵌套 `And` 的匿名构造子**：别写裸 lambda，用 `refine ⟨_, ?_, ?_⟩` + 在 goal 上
+  `intro`（§2.15，CA1 批 4 次复现）。
+- **`#print axioms` 当 `sorryAx` 探针**：编译"大部分 ✔"不等于干净（§3.6）；
+  但它对非 reducible 投影会**漏报**，那是漏报不是真零，禁止用投影改写伪装零公理（§3.5）。

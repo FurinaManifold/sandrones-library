@@ -1,0 +1,25 @@
+{
+  "window": "E4",
+  "subject": "number-theory",
+  "batch": "N2res",
+  "role": "subject-maintainer",
+  "branch": "codex/number-theory-algebraic-research",
+  "worktree": "/home/pisquare/czt/sandrones-library-nt-n2-research",
+  "slug": "nt-n2-research",
+  "note": "docs/dispatch/notes/e4.md",
+  "entries": [
+    {
+      "id": "number-theory.algebraic.norm-trace",
+      "lean_file": "NumberTheory/Algebraic/NormTrace.lean",
+      "premises": [
+        "number-theory.algebraic.number-field",
+        "number-theory.algebraic.ring-of-integers"
+      ],
+      "mathlib": [
+        "Algebra.norm",
+        "Algebra.trace"
+      ],
+      "goal_nl": "研究窗：为 N2.4–N2.15 给出签名冻结提案与无占位原型，起点是范与迹"
+    }
+  ]
+}

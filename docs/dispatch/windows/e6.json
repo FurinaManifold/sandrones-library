@@ -1,0 +1,37 @@
+{
+  "window": "E6",
+  "subject": "statistics",
+  "batch": "S1rest",
+  "role": "subject-maintainer",
+  "branch": "codex/statistics-s1-rest",
+  "worktree": "/home/pisquare/czt/sandrones-library-stats-s1",
+  "slug": "stats-s1",
+  "note": "docs/dispatch/notes/e6.md",
+  "entries": [
+    {
+      "id": "statistics.method-of-moments",
+      "lean_file": "Statistics/MethodOfMoments.lean",
+      "premises": [
+        "statistics.estimator.definition",
+        "statistics.model.definition"
+      ],
+      "mathlib": [
+        "MeasureTheory.integral"
+      ],
+      "goal_nl": "交付矩估计的定义与一致性前提，写清模型族可测性与矩存在性"
+    },
+    {
+      "id": "statistics.information.cramer-rao",
+      "lean_file": "Statistics/CramerRao.lean",
+      "premises": [
+        "statistics.estimator.bias-variance",
+        "statistics.model.density"
+      ],
+      "mathlib": [
+        "Kernel.rnDeriv",
+        "MeasureTheory.integral"
+      ],
+      "goal_nl": "交付 Cramér–Rao 下界，把微分与积分可交换的正则条件显式写进签名"
+    }
+  ]
+}

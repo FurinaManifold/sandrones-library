@@ -1,0 +1,57 @@
+{
+  "window": "E1",
+  "subject": "commutative-algebra",
+  "batch": "CA1b2",
+  "role": "subject-maintainer",
+  "branch": "codex/commutative-algebra-b2",
+  "worktree": "/home/pisquare/czt/sandrones-library-ca-b2",
+  "slug": "ca-b2",
+  "note": "docs/dispatch/notes/e1.md",
+  "entries": [
+    {
+      "id": "commutative-algebra.module.generated",
+      "lean_file": "CommutativeAlgebra/Module/Generated.lean",
+      "premises": [
+        "commutative-algebra.module.definition"
+      ],
+      "mathlib": [
+        "Submodule.span",
+        "Submodule.span_le",
+        "Submodule.mem_span",
+        "Submodule.span_eq",
+        "Submodule.span_mono"
+      ],
+      "goal_nl": "交付子集生成子模的教材定义、最小性刻画与 Mathlib 承载分类"
+    },
+    {
+      "id": "commutative-algebra.module.quotient",
+      "lean_file": "CommutativeAlgebra/Module/Quotient.lean",
+      "premises": [
+        "commutative-algebra.module.definition"
+      ],
+      "mathlib": [
+        "Submodule.Quotient",
+        "Submodule.mkQ",
+        "Submodule.Quotient.mk",
+        "Submodule.liftQ",
+        "Submodule.ker_mkQ"
+      ],
+      "goal_nl": "交付商模、自然投影与商映射的泛性质（不只是类型别名包装）"
+    },
+    {
+      "id": "commutative-algebra.module.direct-sum",
+      "lean_file": "CommutativeAlgebra/Module/DirectSum.lean",
+      "premises": [
+        "commutative-algebra.module.definition"
+      ],
+      "mathlib": [
+        "DirectSum",
+        "DirectSum.mk",
+        "DirectSum.lift",
+        "Submodule.IsCompl",
+        "Submodule.prod"
+      ],
+      "goal_nl": "交付内直和与外直和的定义、分解判据及两者的桥"
+    }
+  ]
+}

@@ -144,6 +144,23 @@ def pack_sha(pack: dict) -> str:
     return sha256_text(json.dumps(body, ensure_ascii=False, sort_keys=True))
 
 
+def roadmap_row(entry_id: str) -> dict | None:
+    """取 ROADMAP 批次表里该 Entry 的行：批次、内容、前置。简令据此渲染，不手抄。"""
+    if not ROADMAP.exists():
+        return None
+    row = re.compile(r"^\|\s*([A-Za-z0-9.]+)\s*\|\s*`([^`]+)`\s*\|([^|]*)\|([^|]*)\|?\s*$")
+    for line in ROADMAP.read_text(encoding="utf-8").splitlines():
+        m = row.match(line)
+        if m and m.group(2) == entry_id:
+            return {
+                "batch": m.group(1).strip(),
+                "entry_id": entry_id,
+                "content": m.group(3).strip(),
+                "prereq": m.group(4).strip(),
+            }
+    return None
+
+
 def scope_siblings(entry_id: str) -> list[dict]:
     """从 ROADMAP 批次表推出**同族兄弟条目**：它们就是本批明确不做的部分。
 
@@ -395,6 +412,16 @@ def build(args: argparse.Namespace) -> dict:
             "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，"
                     "也不得改动它们的文件；越界即升级。",
         },
+        # 派工坐标也属于"从权威源推导、负责人不得改写"的部分：窗口简令由
+        # `scripts/dispatch_brief.py` 从 pack 渲染，不许手写简令再把 pack 抄一遍。
+        "dispatch": {
+            "worktree": args.worktree,
+            "branch": args.branch,
+            "base": args.base,
+            "brief": args.brief,
+            "rule": "简令由 scripts/dispatch_brief.py 从本 pack 渲染；"
+                    "窗口特有的、无法推导的文字放在 --note 片段里。",
+        },
         "prerequisites": {
             "closure_depth": args.depth,
             "entries": premises_closure(registry, entry.get("premises", []), args.depth),
@@ -533,6 +560,11 @@ def main() -> None:
                    help="同一 Entry 派多个子 Agent 时的短标签（如 lean-core / verify）。"
                         "给了就在 pack_id 与 trace.path 后追加 `-<worker>`，保证 join key 唯一；"
                         "不给则沿用 `<subject>-<batch>-<entry>`")
+    b.add_argument("--worktree", default=None, help="本窗口 worktree 绝对路径（写进 dispatch 块）")
+    b.add_argument("--branch", default=None, help="本窗口 git 分支（写进 dispatch 块）")
+    b.add_argument("--base", default=None, help="本窗口基线 commit（写进 dispatch 块）")
+    b.add_argument("--brief", default=None,
+                   help="窗口简令输出路径（写进 dispatch 块；由 dispatch_brief.py 生成）")
     b.add_argument("--premises", default="",
                    help="计划模式下的库内前提 id，逗号分隔（必须已在 Registry 中）")
     b.add_argument("--mathlib", default="",

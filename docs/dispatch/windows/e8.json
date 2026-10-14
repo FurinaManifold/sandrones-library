@@ -1,0 +1,24 @@
+{
+  "window": "E8",
+  "subject": "topology",
+  "batch": "AT2C5e",
+  "role": "subject-maintainer",
+  "branch": "codex/topology-at2-c5e",
+  "worktree": "/home/pisquare/czt/sandrones-library-topo-c5e",
+  "slug": "topo-c5e",
+  "note": "docs/dispatch/notes/e8.md",
+  "entries": [
+    {
+      "id": "topology.covering.subgroup-construction-recovery",
+      "lean_file": "Topology/CoveringSubgroupConstructionRecovery.lean",
+      "premises": [
+        "topology.covering.pointed-recovered-subgroup",
+        "topology.covering.subgroup-path-class-standard"
+      ],
+      "mathlib": [
+        "FundamentalGroup"
+      ],
+      "goal_nl": "研究窗：消掉 Wave R1 原型残留的三个 sorry（initSegMap 连续性、总空间道路连通、子群恢复）"
+    }
+  ]
+}

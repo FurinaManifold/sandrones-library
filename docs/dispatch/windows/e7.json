@@ -1,0 +1,39 @@
+{
+  "window": "E7",
+  "subject": "settheory",
+  "batch": "ST3deep",
+  "role": "subject-maintainer",
+  "branch": "codex/settheory-st3-deep",
+  "worktree": "/home/pisquare/czt/sandrones-library-st3-deep",
+  "slug": "st3-deep",
+  "note": "docs/dispatch/notes/e7.md",
+  "entries": [
+    {
+      "id": "settheory.googology.hereditary-encoding-order",
+      "lean_file": "SetTheory/HereditaryEncodingOrderGeneral.lean",
+      "premises": [
+        "settheory.googology.hereditary-natural-encoding",
+        "settheory.googology.hereditary-natural-encoding-strict-order",
+        "settheory.googology.goodstein-reencoding"
+      ],
+      "mathlib": [
+        "Ordinal",
+        "Ordinal.opow"
+      ],
+      "goal_nl": "证明一般换底重编码保持 omegaValue，消除已证特例的限制"
+    },
+    {
+      "id": "settheory.googology.hydra-general-descent",
+      "lean_file": "SetTheory/HydraGeneralDescent.lean",
+      "premises": [
+        "settheory.googology.hydra-game-step",
+        "settheory.googology.hydra-ordinal-assignment",
+        "settheory.googology.hydra-rightmost-spine-descent"
+      ],
+      "mathlib": [
+        "Ordinal"
+      ],
+      "goal_nl": "消除最右脊柱证书限制，覆盖一般 Hydra 游戏步骤的下降"
+    }
+  ]
+}

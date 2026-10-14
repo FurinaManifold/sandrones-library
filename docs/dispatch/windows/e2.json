@@ -1,0 +1,75 @@
+{
+  "window": "E2",
+  "subject": "real-analysis",
+  "batch": "RA-F3F5",
+  "role": "subject-maintainer",
+  "branch": "codex/real-analysis-maximal-bv",
+  "worktree": "/home/pisquare/czt/sandrones-library-ra-maximal-bv",
+  "slug": "ra-maximal-bv",
+  "note": "docs/dispatch/notes/e2.md",
+  "entries": [
+    {
+      "id": "real-analysis.covering-lemma",
+      "lean_file": "RealAnalysis/CoveringLemma.lean",
+      "premises": [
+        "real-analysis.measure.def"
+      ],
+      "mathlib": [
+        "VitaliFamily",
+        "IsUnifLocDoublingMeasure"
+      ],
+      "goal_nl": "先冻结覆盖引理接口签名，作为极大函数弱型估计的前置"
+    },
+    {
+      "id": "real-analysis.maximal-function",
+      "lean_file": "RealAnalysis/MaximalFunction.lean",
+      "premises": [
+        "real-analysis.measure.def",
+        "real-analysis.measure.lintegral"
+      ],
+      "mathlib": [
+        "MeasureTheory.maximalFunction",
+        "MeasureTheory.Measure.mul_meas_gt_of_cluster_pts"
+      ],
+      "goal_nl": "交付 Hardy–Littlewood 极大函数的教材定义、弱型 (1,1) 估计与可测性边界，保留课程证明骨架"
+    },
+    {
+      "id": "real-analysis.monotone-function",
+      "lean_file": "RealAnalysis/MonotoneFunction.lean",
+      "premises": [
+        "real-analysis.measure.def",
+        "real-analysis.calculus.ftc"
+      ],
+      "mathlib": [
+        "Monotone.ae_differentiableAt",
+        "Monotone.continuousAt_iff"
+      ],
+      "goal_nl": "交付单调函数的间断结构、a.e. 可导性与 Stieltjes 测度桥"
+    },
+    {
+      "id": "real-analysis.bounded-variation",
+      "lean_file": "RealAnalysis/BoundedVariation.lean",
+      "premises": [
+        "real-analysis.measure.def",
+        "real-analysis.signed-measure.variation"
+      ],
+      "mathlib": [
+        "eVariationOn",
+        "BoundedVariationOn"
+      ],
+      "goal_nl": "交付有界变差定义、Jordan 分解（BV = 增 − 增）与全变差的关系"
+    },
+    {
+      "id": "real-analysis.absolute-continuity-function",
+      "lean_file": "RealAnalysis/AbsoluteContinuityFunction.lean",
+      "premises": [
+        "real-analysis.calculus.ftc",
+        "real-analysis.measure.def"
+      ],
+      "mathlib": [
+        "AbsolutelyContinuousOn"
+      ],
+      "goal_nl": "交付绝对连续函数定义、与 BV／Lipschitz 的关系及 a.e. 导数"
+    }
+  ]
+}

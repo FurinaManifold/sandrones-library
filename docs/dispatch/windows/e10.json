@@ -1,0 +1,26 @@
+{
+  "window": "E10",
+  "subject": "functional-analysis",
+  "batch": "F66b2",
+  "role": "subject-maintainer",
+  "branch": "codex/functional-analysis-f66b2",
+  "worktree": "/home/pisquare/czt/sandrones-library-fa-f66b2",
+  "slug": "fa-f66b2",
+  "note": "docs/dispatch/notes/e10.md",
+  "entries": [
+    {
+      "id": "functional-analysis.functional-calculus.holomorphic",
+      "lean_file": "FunctionalAnalysis/FunctionalCalculusHolomorphic.lean",
+      "premises": [
+        "functional-analysis.functional-calculus.holomorphic-neighborhood",
+        "functional-analysis.functional-calculus.resolvent-integrand",
+        "complex-analysis.integral.finite-cycle-foundation"
+      ],
+      "mathlib": [
+        "Resolvent",
+        "ContinuousLinearMap"
+      ],
+      "goal_nl": "研究窗：为 Dunford 积分、代数同态与谱映射给出签名冻结提案与无占位原型"
+    }
+  ]
+}

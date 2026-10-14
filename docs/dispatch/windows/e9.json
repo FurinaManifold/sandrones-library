@@ -1,0 +1,60 @@
+{
+  "window": "E9",
+  "subject": "examples",
+  "batch": "E1",
+  "role": "subject-maintainer",
+  "branch": "codex/examples-e1",
+  "worktree": "/home/pisquare/czt/sandrones-library-examples-e1",
+  "slug": "examples-e1",
+  "note": "docs/dispatch/notes/e9.md",
+  "entries": [
+    {
+      "id": "examples.settheory.set-operations",
+      "lean_file": "Examples/SetTheory/SetOperations.lean",
+      "premises": [
+        "settheory.set.operations.complement-union",
+        "settheory.set.operations.inter-distrib"
+      ],
+      "mathlib": [
+        "Set.union_inter_distrib_right"
+      ],
+      "goal_nl": "集合运算正例（并交差补、De Morgan）与反例（A∪B=A∪C 推不出 B=C）"
+    },
+    {
+      "id": "examples.settheory.functions",
+      "lean_file": "Examples/SetTheory/Functions.lean",
+      "premises": [
+        "settheory.function.inject-surject.bijective-iff-inverse",
+        "settheory.function.image-preimage.preimage-inter"
+      ],
+      "mathlib": [
+        "Set.image_inter"
+      ],
+      "goal_nl": "映射性质正例（像/原像、单射/满射/双射）与反例（像不保持交）"
+    },
+    {
+      "id": "examples.settheory.quotients",
+      "lean_file": "Examples/SetTheory/Quotients.lean",
+      "premises": [
+        "settheory.set.relations.quotient-surj",
+        "settheory.set.relations.equivalence-class-eq"
+      ],
+      "mathlib": [
+        "Quotient"
+      ],
+      "goal_nl": "等价关系与商的正例（模 n 同余类）与反例（不同代表元给同一商元素）"
+    },
+    {
+      "id": "examples.settheory.countability",
+      "lean_file": "Examples/SetTheory/Countability.lean",
+      "premises": [
+        "settheory.cardinal.countable-def",
+        "settheory.cardinal.countable-union"
+      ],
+      "mathlib": [
+        "Set.Countable"
+      ],
+      "goal_nl": "可数性正例（ℕ×ℕ 配对、整数枚举、可数并）与反例（无限不必不可数）"
+    }
+  ]
+}

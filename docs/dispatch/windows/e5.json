@@ -1,0 +1,24 @@
+{
+  "window": "E5",
+  "subject": "complex-analysis",
+  "batch": "C2close",
+  "role": "subject-maintainer",
+  "branch": "codex/complex-analysis-c2-close",
+  "worktree": "/home/pisquare/czt/sandrones-library-ca-c2",
+  "slug": "ca-c2",
+  "note": "docs/dispatch/notes/e5.md",
+  "entries": [
+    {
+      "id": "complex-analysis.cauchy.homotopy",
+      "lean_file": "ComplexAnalysis/CauchyHomotopy.lean",
+      "premises": [
+        "complex-analysis.cauchy.smooth-homotopy-foundation",
+        "complex-analysis.integral.path"
+      ],
+      "mathlib": [
+        "ContinuousMap.Homotopy"
+      ],
+      "goal_nl": "把已集成的分段 C¹ 同伦不变性提升到教材要求的一般同伦形式，并给出 C2 收口判定"
+    }
+  ]
+}
