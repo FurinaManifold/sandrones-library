@@ -7,11 +7,17 @@ import SandronesLibrary.Analysis.CoordinateIntegrals
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 /-!
-# 坐标积分例题
+# Examples / 坐标积分：球体体积与质量的球坐标计算
 
-本文件收录数学分析教材中的多重积分计算例题。这些定理不再建立换元理论，
-而是调用 `CoordinateIntegrals` 的坐标公式和一维特殊函数积分接口，给出可直接
-在教材中引用的数值结果。
+本 Entry 服务理论条目 `analysis.multivariable.coordinate-integrals`（极坐标与柱坐标的
+坐标变换公式）。本文件把球坐标参数盒 `(ρ,θ,φ) ∈ (0,R)×(-π,π)×(0,π)` 上的 Jacobian
+积分逐步算成教材数值：极角积分 `∫₀^π sin φ dφ = 2`、径向积分 `∫₀^R ρ² dρ = R³/3`，
+合起来给出半径 `R` 的球体体积 `4πR³/3` 与常密度 `δ` 下的质量 `4πδR³/3`。
+
+本文件不重建换元理论：所有结果都调用理论层的坐标公式与一维特殊函数积分接口，
+给出可直接在教材中引用的数值。转动惯量与重心见 `SphericalMoments.lean`。
+
+> **Entry**: examples.analysis.coordinate-integrals
 -/
 
 noncomputable section

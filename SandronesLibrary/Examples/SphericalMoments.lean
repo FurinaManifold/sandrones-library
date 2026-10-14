@@ -6,11 +6,17 @@ Authors: Sandrone's Library contributors
 import SandronesLibrary.Examples.CoordinateIntegrals
 
 /-!
-# 均匀球体的重心与转动惯量
+# Examples / 球体矩：均匀球体的重心与转动惯量
 
-本模块继续球坐标例题：通过角变量的奇偶性证明均匀球体的三个一阶矩均为零，
-并直接计算绕 `z` 轴的转动惯量。所有计算都保留 Jacobian `ρ² sin φ`，
-以便与数学分析教材的逐步积分一一对照。
+本 Entry 服务理论条目 `analysis.coordinate-integrals.mass-center`（质量、重心与转动惯量）
+与 `analysis.multivariable.coordinate-integrals`（球坐标公式）。本文件继续
+`CoordinateIntegrals.lean` 的球坐标例题：通过角变量的奇偶性证明均匀球体的三个一阶矩
+（重心坐标）均为零，并直接算出绕 `z` 轴的转动惯量 `8πδR⁵/15`，最后把它改写成教材
+常见的 `I = (2/5)MR²`（`M = 4πδR³/3` 为球体质量）。
+
+所有计算都保留 Jacobian `ρ² sin φ`，以便与数学分析教材的逐步积分一一对照。
+
+> **Entry**: examples.analysis.spherical-moments
 -/
 
 noncomputable section

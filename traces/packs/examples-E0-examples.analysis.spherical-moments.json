@@ -1,0 +1,301 @@
+{
+  "schema": "sandrones-context-pack/1",
+  "pack_id": "examples-E0-examples.analysis.spherical-moments",
+  "generated_at": "2026-10-14T02:56:17Z",
+  "generator": "scripts/context_pack.py",
+  "derived_from": {
+    "registry": "index/registry.json",
+    "registry_sha256": "f65a2a1f5d20db3669f82b5cdb6f58165cf9f97133b6d93112e866c0f838ad5c",
+    "playbook": "docs/LEAN-PLAYBOOK.md",
+    "playbook_sha256": "1e8d167bcb9b1dd6272ac7ba83645d6ad36549471f2991d9f099d6ac9faf285b",
+    "agonist": "AGENTS.md §3（所有权表）"
+  },
+  "task": {
+    "subject": "examples",
+    "batch": "E0",
+    "role": "subject-maintainer",
+    "worker": null,
+    "entry_id": "examples.analysis.spherical-moments",
+    "entry_state": "planned",
+    "entry_planned": true,
+    "entry_title": "E0.2 存量转正：为均匀球体重心与转动惯量计算例补 Entry docstring 与课程文档（含 2/5 MR² 真计算）",
+    "entry_summary": "（计划中新条目：尚未登记 Registry）",
+    "goal_nl": "E0.2 存量转正：为均匀球体重心与转动惯量计算例补 Entry docstring 与课程文档（含 2/5 MR² 真计算）",
+    "handwritten_fields": [
+      "task.goal_nl"
+    ]
+  },
+  "ownership": {
+    "writable": [
+      "SandronesLibrary/Examples/**",
+      "docs/entries/examples/**",
+      "docs/handoffs/examples-*.md",
+      "docs/maintenance/examples-*.md",
+      "traces/lean/examples/**",
+      "traces/packs/**"
+    ],
+    "readonly": [
+      "SandronesLibrary.lean",
+      "index/registry.json",
+      "index/rankings.json",
+      "reference.bib",
+      "docs/entries/README.md",
+      "docs/entries/RANKINGS.md",
+      "docs/MATHLIB-RADAR.md",
+      "docs/ROADMAP-*.md",
+      "docs/LEAN-PLAYBOOK.md",
+      "docs/subject-packages/**",
+      "docs/releases/**",
+      "docs/world-formula/**",
+      "README.md",
+      "AGENTS.md",
+      "scripts/**"
+    ],
+    "forbidden_in_source": [
+      "sorry",
+      "admit",
+      "sorryAx",
+      "native_decide"
+    ],
+    "source": "AGENTS.md §3 / §5",
+    "note": "writable 之外一律只读；需要改动即升级，不自行扩权。"
+  },
+  "target": {
+    "lean_file": "SandronesLibrary/Examples/SphericalMoments.lean",
+    "nl_file": "docs/entries/examples/analysis/spherical-moments.md",
+    "declarations_in_file": [
+      {
+        "name": "integral_Ioo_cos_neg_pi_pi",
+        "kind": "lemma",
+        "line": 25,
+        "signature_excerpt": "lemma integral_Ioo_cos_neg_pi_pi : (∫ θ in Ioo (-π) π, cos θ) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "integral_Ioo_sin_neg_pi_pi",
+        "kind": "lemma",
+        "line": 32,
+        "signature_excerpt": "lemma integral_Ioo_sin_neg_pi_pi : (∫ θ in Ioo (-π) π, sin θ) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "integral_Ioo_sin_sq_zero_pi",
+        "kind": "lemma",
+        "line": 39,
+        "signature_excerpt": "lemma integral_Ioo_sin_sq_zero_pi : (∫ φ in Ioo (0 : ℝ) π, sin φ ^ 2) = π / 2",
+        "has_sorry": false
+      },
+      {
+        "name": "integral_Ioo_sin_mul_cos_zero_pi",
+        "kind": "lemma",
+        "line": 45,
+        "signature_excerpt": "lemma integral_Ioo_sin_mul_cos_zero_pi : (∫ φ in Ioo (0 : ℝ) π, sin φ * cos φ) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "integral_Ioo_sin_cube_zero_pi",
+        "kind": "lemma",
+        "line": 51,
+        "signature_excerpt": "lemma integral_Ioo_sin_cube_zero_pi : (∫ φ in Ioo (0 : ℝ) π, sin φ ^ 3) = 4 / 3",
+        "has_sorry": false
+      },
+      {
+        "name": "integral_Ioo_pow_four_zero_radius",
+        "kind": "lemma",
+        "line": 57,
+        "signature_excerpt": "lemma integral_Ioo_pow_four_zero_radius {R : ℝ} (hR : 0 ≤ R) : (∫ ρ in Ioo (0 : ℝ) R, ρ ^ 4) = R ^ 5 / 5",
+        "has_sorry": false
+      },
+      {
+        "name": "uniform_ball_first_moment_x",
+        "kind": "theorem",
+        "line": 64,
+        "signature_excerpt": "theorem uniform_ball_first_moment_x (δ : ℝ) {R : ℝ} : (∫ ρ in Ioo (0 : ℝ) R, ∫ θ in Ioo (-π) π, ∫ φ in Ioo (0 : ℝ) π, δ * ((ρ * sin φ * cos θ) * (ρ ^ 2 * sin φ))) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "uniform_ball_first_moment_y",
+        "kind": "theorem",
+        "line": 94,
+        "signature_excerpt": "theorem uniform_ball_first_moment_y (δ : ℝ) {R : ℝ} : (∫ ρ in Ioo (0 : ℝ) R, ∫ θ in Ioo (-π) π, ∫ φ in Ioo (0 : ℝ) π, δ * ((ρ * sin φ * sin θ) * (ρ ^ 2 * sin φ))) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "uniform_ball_first_moment_z",
+        "kind": "theorem",
+        "line": 124,
+        "signature_excerpt": "theorem uniform_ball_first_moment_z (δ : ℝ) {R : ℝ} : (∫ ρ in Ioo (0 : ℝ) R, ∫ _θ in Ioo (-π) π, ∫ φ in Ioo (0 : ℝ) π, δ * ((ρ * cos φ) * (ρ ^ 2 * sin φ))) = 0",
+        "has_sorry": false
+      },
+      {
+        "name": "uniform_ball_moment_of_inertia_z",
+        "kind": "theorem",
+        "line": 143,
+        "signature_excerpt": "theorem uniform_ball_moment_of_inertia_z (δ : ℝ) {R : ℝ} (hR : 0 ≤ R) : (∫ ρ in Ioo (0 : ℝ) R, ∫ _θ in Ioo (-π) π, ∫ φ in Ioo (0 : ℝ) π, δ * (ρ ^ 4 * sin φ ^ 3)) = 8 * π * δ * R ^ 5 / 15",
+        "has_sorry": false
+      },
+      {
+        "name": "uniform_ball_inertia_eq_two_fifths_mass",
+        "kind": "theorem",
+        "line": 175,
+        "signature_excerpt": "theorem uniform_ball_inertia_eq_two_fifths_mass (δ R : ℝ) : 8 * π * δ * R ^ 5 / 15 = (2 / 5 : ℝ) * (4 * π * δ * R ^ 3 / 3) * R ^ 2",
+        "has_sorry": false
+      }
+    ]
+  },
+  "frozen": {
+    "prototype": null,
+    "declarations": [],
+    "may_not_change": [],
+    "rule": "签名先冻结再填证明（AGENTS §5 sorry 框架法）；改签名必须升级。"
+  },
+  "scope": {
+    "in_scope": [
+      "examples.analysis.spherical-moments"
+    ],
+    "out_of_scope": [],
+    "source": "docs/ROADMAP-LONGTERM.md 批次表（按 family 前缀匹配）",
+    "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，也不得改动它们的文件；越界即升级。"
+  },
+  "dispatch": {
+    "worktree": "/home/pisquare/czt/sandrones-library-examples-e1",
+    "branch": "codex/examples-e1",
+    "base": "bc8d4feb59f639aa440d7719466297d918e9dd28",
+    "brief": "docs/dispatch/e9-examples-e1.md",
+    "rule": "简令由 scripts/dispatch_brief.py 从本 pack 渲染；窗口特有的、无法推导的文字放在 --note 片段里。"
+  },
+  "prerequisites": {
+    "closure_depth": 2,
+    "entries": [
+      {
+        "entry_id": "analysis.coordinate-integrals.mass-center",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/Analysis/MassCenter.lean",
+        "mathlib": [
+          "setIntegral_nonneg_of_ae_restrict",
+          "ae_restrict_iff'₀",
+          "setIntegral_union",
+          "setIntegral_union₀",
+          "setIntegral_sdiff",
+          "integral_add",
+          "integral_sub",
+          "integral_const_mul",
+          "integral_finsetSum",
+          "setIntegral_const",
+          "setIntegral_one_eq_measureReal",
+          "setIntegral_congr_fun",
+          "integral_congr_ae",
+          "Finset.sum_mul",
+          "Finset.mul_sum",
+          "Finset.sum_add_distrib",
+          "Finset.sum_sub_distrib",
+          "Finset.sum_congr",
+          "Finset.sum_nonneg",
+          "sq_nonneg",
+          "mul_div_mul_left",
+          "mul_ne_zero"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "analysis.multivariable.coordinate-integrals",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/Analysis/CoordinateIntegrals.lean",
+        "mathlib": [
+          "integral_comp_polarCoord_symm",
+          "hasFDerivAt_polarCoord_symm",
+          "det_fderivPolarCoordSymm"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "analysis.multivariable.change-variables",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/Analysis/ChangeOfVariables.lean",
+        "mathlib": [
+          "MeasureTheory.integral_image_eq_integral_abs_det_fderiv_smul",
+          "MeasureTheory.integrableOn_image_iff_integrableOn_abs_det_fderiv_smul"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "analysis.multivariable.jordan-region",
+        "depth": 2,
+        "lean_file": "SandronesLibrary/Analysis/JordanRegion.lean",
+        "mathlib": [
+          "nullMeasurableSet_of_null_frontier",
+          "closure_ae_eq_of_null_frontier"
+        ],
+        "why": "registry.premises 闭包"
+      }
+    ],
+    "mathlib": [
+      "integral_cos",
+      "integral_sin",
+      "intervalIntegral.integral_of_le"
+    ],
+    "mathlib_status": "unverified_hint"
+  },
+  "playbook": {
+    "sections": [
+      {
+        "anchor": "§0",
+        "title": "工作流铁律（Step 3 遇到困难时，按此顺序）",
+        "playbook_line": 351,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.1",
+        "title": "`exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器（由原 §3.17 提升）",
+        "playbook_line": 395,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.2",
+        "title": "`No goals to be solved`：直接把多余的 tactic 删掉，别干别的（由原 §3.14 提升）",
+        "playbook_line": 411,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.3",
+        "title": "`lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新（由原 §3.10 提升）",
+        "playbook_line": 423,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§3",
+        "title": "公理纪律（Classical.choice 最小化）（由原 §3.5–3.9 提升合并）",
+        "playbook_line": 658,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§8",
+        "title": "Lean 验证轨迹语料（JSON）：底层子 Agent 的强制留痕",
+        "playbook_line": 976,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      }
+    ]
+  },
+  "budget": {
+    "max_attempts_per_goal": 5,
+    "source": "docs/LEAN-PLAYBOOK.md §0.4（5 次试错硬规则）",
+    "escalate_when": [
+      "同一目标连续编译失败 ≥ 5 次（含接口不匹配）→ 停止盲试，拆子 todo 或上报负责人",
+      "需要改动 frozen.may_not_change 中的任何签名 → 立即升级，不得自行修改",
+      "需要写 ownership.writable 之外的路径 → 立即升级",
+      "目标本身疑似表述有误（需要改陈述而非改证明）→ 立即升级"
+    ],
+    "trace_duty": {
+      "schema": "sandrones-lean-attempt/1",
+      "when": "每次把 tactic 块交给编译器之后立刻追加，失败尝试同样要留",
+      "source": "docs/LEAN-PLAYBOOK.md §8.2"
+    }
+  },
+  "trace": {
+    "path": "traces/lean/examples/examples.analysis.spherical-moments.jsonl",
+    "schema": "sandrones-lean-attempt/1",
+    "pack_id_field": "pack_id",
+    "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
+  },
+  "pack_sha256": "36ed55ea52c0d0916a5298ef86519f5b0426f2b82e0a23ed4edfeecdc489f490"
+}

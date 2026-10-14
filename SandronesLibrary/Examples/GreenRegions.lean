@@ -7,10 +7,18 @@ import SandronesLibrary.Analysis.GreenGaussStokes
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 /-!
-# Green 公式的平面区域例题
+# Examples / Green 公式：直角三角形与单位圆盘
 
-本文件收录标准直角三角形与单位圆盘等具体区域。通用 Green、Gauss、Stokes 理论留在
-`Analysis`；图形构造、坐标表示和数值计算统一放在顶层 `Examples`。
+本 Entry 服务理论条目 `analysis.multivariable.green-gauss-stokes`（Green、Gauss 与 Stokes
+公式）与 `analysis.multivariable.jordan-region`（Jordan 可测区域）。本文件给出两个标准
+平面区域上的 Green 公式实例：第一象限的标准直角三角形与闭单位圆盘。两者都先写成理论层
+的「双正常域」表示（竖直正常域 = 水平正常域），再调用 `green_binormal_domain`。
+
+本文件还给出**定向反例**：把边界遍历方向反过来，边界积分整体变号，而右端的区域内积分
+与定向无关，于是同一个右端不可能同时匹配两种定向——Green 公式的逆时针约定不是可以省略
+的装饰（`standardRightTriangle_rev_ne_ccw`、`unitDisk_rev_ne_ccw_of_ne_zero`）。
+
+> **Entry**: examples.analysis.green-regions
 -/
 
 noncomputable section
@@ -209,5 +217,81 @@ theorem green_unitDisk
     hdomains hPy' hQx' hPdiff hQdiff hPint hQint
   simpa [unitDiskBoundaryIntegral, normalDomainBoundaryIntegral,
     ← unitDisk_eq_xNormal] using h
+
+/-! ## 定向：反向遍历的反例
+
+Green 公式的左端是**有向**边界积分。下面把两个区域的边界按相反方向再遍历一次，
+证明所得积分恰好是原积分的相反数；于是只要原积分非零，两种定向给出不同的值，
+而右端的区域内积分并不随定向改变——公式只能对其中一种定向成立。
+-/
+
+/-- 标准直角三角形的顺时针（反向）边界积分：三条边的参数化方向全部反过来。 -/
+def standardRightTriangleBoundaryIntegralRev (P Q : ℝ × ℝ → ℝ) : ℝ :=
+  (∫ x in Icc (0 : ℝ) 1, P (x, 1 - x) - P (x, 0)) +
+    ∫ y in Icc (0 : ℝ) 1, Q (0, y) - Q (1 - y, y)
+
+/-- **反向遍历只改符号**：直角三角形的顺时针边界积分等于逆时针边界积分的相反数。 -/
+theorem standardRightTriangleBoundaryIntegralRev_eq_neg (P Q : ℝ × ℝ → ℝ) :
+    standardRightTriangleBoundaryIntegralRev P Q =
+      -standardRightTriangleBoundaryIntegral P Q := by
+  have h1 : (∫ x in Icc (0 : ℝ) 1, P (x, 1 - x) - P (x, 0)) =
+      -(∫ x in Icc (0 : ℝ) 1, P (x, 0) - P (x, 1 - x)) := by
+    rw [← integral_neg]
+    apply setIntegral_congr_fun measurableSet_Icc
+    intro x _
+    ring
+  have h2 : (∫ y in Icc (0 : ℝ) 1, Q (0, y) - Q (1 - y, y)) =
+      -(∫ y in Icc (0 : ℝ) 1, Q (1 - y, y) - Q (0, y)) := by
+    rw [← integral_neg]
+    apply setIntegral_congr_fun measurableSet_Icc
+    intro y _
+    ring
+  rw [standardRightTriangleBoundaryIntegralRev, standardRightTriangleBoundaryIntegral,
+    h1, h2]
+  ring
+
+/-- **定向反例（直角三角形）**：取 `(P,Q)=(0,x)` 时逆时针边界积分为 `1/2`（三角形面积），
+顺时针为 `-1/2`，两者不等。这反驳「边界积分与遍历方向无关」这一误认：Green 公式
+`standardRightTriangleBoundaryIntegral P Q = ∬(∂Q/∂x-∂P/∂y)` 的右端不随定向改变，
+因此反向定向后公式必然失败。 -/
+theorem standardRightTriangle_rev_ne_ccw :
+    standardRightTriangleBoundaryIntegralRev (fun _ ↦ 0) (fun z ↦ z.1) ≠
+      standardRightTriangleBoundaryIntegral (fun _ ↦ 0) (fun z ↦ z.1) := by
+  rw [standardRightTriangleBoundaryIntegralRev_eq_neg,
+    standardRightTriangleBoundaryIntegral_zero_fst]
+  norm_num
+
+/-- 闭单位圆盘的顺时针（反向）边界积分：上下两个半圆图像的参数化方向都反过来。 -/
+def unitDiskBoundaryIntegralRev (P Q : ℝ × ℝ → ℝ) : ℝ :=
+  (∫ x in Icc (-1 : ℝ) 1, P (x, √(1 - x ^ 2)) - P (x, -√(1 - x ^ 2))) +
+    ∫ y in Icc (-1 : ℝ) 1, Q (-√(1 - y ^ 2), y) - Q (√(1 - y ^ 2), y)
+
+/-- **反向遍历只改符号**：单位圆盘的顺时针边界积分等于逆时针边界积分的相反数。 -/
+theorem unitDiskBoundaryIntegralRev_eq_neg (P Q : ℝ × ℝ → ℝ) :
+    unitDiskBoundaryIntegralRev P Q = -unitDiskBoundaryIntegral P Q := by
+  have h1 : (∫ x in Icc (-1 : ℝ) 1, P (x, √(1 - x ^ 2)) - P (x, -√(1 - x ^ 2))) =
+      -(∫ x in Icc (-1 : ℝ) 1, P (x, -√(1 - x ^ 2)) - P (x, √(1 - x ^ 2))) := by
+    rw [← integral_neg]
+    apply setIntegral_congr_fun measurableSet_Icc
+    intro x _
+    ring
+  have h2 : (∫ y in Icc (-1 : ℝ) 1, Q (-√(1 - y ^ 2), y) - Q (√(1 - y ^ 2), y)) =
+      -(∫ y in Icc (-1 : ℝ) 1, Q (√(1 - y ^ 2), y) - Q (-√(1 - y ^ 2), y)) := by
+    rw [← integral_neg]
+    apply setIntegral_congr_fun measurableSet_Icc
+    intro y _
+    ring
+  rw [unitDiskBoundaryIntegralRev, unitDiskBoundaryIntegral, h1, h2]
+  ring
+
+/-- **定向反例（单位圆盘）**：只要逆时针边界积分非零，顺时针值就与它不同。
+取 `(P,Q)=(0,x)` 时逆时针值是圆盘面积 `π`（由 `green_unitDisk` 化为 `∬1`），
+顺时针值是 `-π`——定向同样不可省略。 -/
+theorem unitDisk_rev_ne_ccw_of_ne_zero {P Q : ℝ × ℝ → ℝ}
+    (h : unitDiskBoundaryIntegral P Q ≠ 0) :
+    unitDiskBoundaryIntegralRev P Q ≠ unitDiskBoundaryIntegral P Q := by
+  rw [unitDiskBoundaryIntegralRev_eq_neg]
+  intro hc
+  exact h (by linarith [hc])
 
 end SandronesLibrary.Examples.GreenRegions
