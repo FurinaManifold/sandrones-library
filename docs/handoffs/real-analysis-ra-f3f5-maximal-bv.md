@@ -320,7 +320,50 @@ $ git diff --check
   零 warning 必须用 `lake build <module>` 口径复验」（本批实测，最小复现见 f5mono trace 第 11 条）。
 - `reference.bib`：**无需新增**（5 条 Entry 都用已存在的 `folland-real-analysis-1999`）。
 
-## 11. Registry 建议（由 Main 语义合并；`axioms`/`proof_sha` 请用 `check_axioms.py` 生成）
+## 11. 学科验收包（`subject_package.py` 原文）
+
+命令（交付前自检，简令三条硬规程之三）：
+
+```text
+python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-library-ra-maximal-bv \
+    --base bc8d4fe --subject real-analysis
+```
+
+输出：
+
+```text
+学科验收包 real-analysis  (codex/real-analysis-maximal-bv @ 91d11cd8c)
+  基线 bc8d4fe｜提交 3｜改动文件 25
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 78 条验证尝试记录
+  ⚠️ packs（软门）：pack.trace.path 与记录不符：traces/packs/real-analysis-RA-F3F5-real-analysis.absolute-continuity-function.json: trace.path=traces/lean/real-analysis/real-analysis.absolute-continuity-function.jsonl 在 trace 清单里不存在; traces/packs/real-analysis-RA-F3F5-real-analysis.bounded-variation.json: trace.path=traces/lean/real-analysis/real-analysis.bounded-variation.jsonl 在 trace 清单里不存在; traces/packs/real-analysis-RA-F3F5-real-analysis.maximal-function.json: trace.path=traces/lean/real-analysis/real-analysis.maximal-function.jsonl 在 trace 清单里不存在; traces/packs/real-analysis-RA-F3F5-real-analysis.monotone-function.json: trace.path=traces/lean/real-analysis/real-analysis.monotone-function.jsonl 在 trace 清单里不存在
+
+  verdict: pass
+```
+
+`exceptions` 为空数组；`duplicate_pack_ids` / `missing_for_referenced` / `invalid` 均为空。
+
+**两条软门异常的逐项解释（不是缺陷，是派工方式的必然结果，请 Main 裁定口径）**：
+
+1. **`traces` 78 条 ≠ 本批 51 条**：该字段统计的是 worktree 里 `traces/lean/**` 全部记录，
+   含基线提交 `bc8d4fe` 就带来的 CA1 试点 27 条（`traces/lean/commutative-algebra/` 两个文件）。
+   本批自有记录是 **51 条**（`traces/lean/real-analysis/` 五个文件），见 §7 表格。
+2. **`packs` 的 4 条 `trace_path_mismatch` / `unreferenced_packs`**：指向的是 **Main 生成的
+   5 个 subject-maintainer pack 中的 4 个**（`covering-lemma` 那个没被报，因为它没有下游 worker，
+   其 `trace.path` 就是负责人自己写的文件）。这 4 个 pack 的 `trace.path` 是
+   `…real-analysis.<entry>.jsonl`（无 worker 后缀），而本窗按简令 §9 与 Playbook §9.4
+   **必须**用 `--worker` 给三个 worker 各建 pack，实际 trace 落在
+   `…<entry>-<worker>.jsonl`。因此这 4 个 Main pack 的指针**天然过期**，而
+   **负责人建的 4 个 worker pack 全部 path 一致、全部被 trace 引用**（`referenced_by_traces`
+   里 5 条本批 id 全部命中，`missing_for_referenced` 为空）。
+   建议：Main 以 worker pack 为权威 join key，或在下次开窗时把 subject-maintainer pack 的
+   `trace.path` 标成"由负责人按 worker 细分后覆盖"。
+
+## 12. Registry 建议（由 Main 语义合并；`axioms`/`proof_sha` 请用 `check_axioms.py` 生成）
 
 共同字段：`state: "verified"`、`kind: "theorem"`、`variant: "tao"`、
 `provenance: {"source_type": "book", "ref": "folland-real-analysis-1999"}`。
