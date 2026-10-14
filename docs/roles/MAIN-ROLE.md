@@ -35,6 +35,12 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 - 维护《水仙十字的世界式》的总目录、事实截止点和最终审稿门；书稿是 Registry/Entry 的消费者，
   不得反向成为课程完成状态或数学事实的来源。
 - 根据 ROADMAP 的依赖门和波次安排后续学科；避免多个负责人领取相同文件。
+- **开窗必须机械化，简令不许手写**（Playbook §10）：窗口定义写成
+  `docs/dispatch/windows/<窗口>.json`（数据），再用 `scripts/open_window.py` 一步跑完
+  「建 worktree → 把 `.lake/packages` 软链到主工作树 → 每个 Entry 生成 pack → 渲染简令」。
+  简令由 `scripts/dispatch_brief.py` 从 pack 渲染；手写简令等于把 pack 里"负责人不得改写"的
+  字段抄成第二份事实源，必然漂移。无法从权威源推导的判断只写进 `docs/dispatch/notes/<窗口>.md`。
+  通用派工规程的唯一位置是 Playbook §10，不要另建平行文档。
 - 对每条活跃关键路线至少维持一个 `integration_open` 窗口和一个所有权不冲突的
   `development_open` 或 `research_open` 后续窗口。不得把“尚不可集成”等同于“禁止开发”；
   权限按 Playbook 的三级模型写入 ROADMAP 或 review-inbox。只有公开载体未冻结、会产生语义

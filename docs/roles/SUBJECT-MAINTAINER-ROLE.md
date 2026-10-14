@@ -25,10 +25,15 @@
 
 - 默认可派 2–3 个子 Agent，每个只负责一组互不重叠的 `.lean` 文件和对应课程文档。
 - **派工前先出上下文包**：切分好所有权后，用
-  `python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> --role sub-agent --goal-nl "<一句话目标>" --out traces/packs/<pack_id>.json`
+  `python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entry <Entry id> --role sub-agent --worker <短标签> --goal-nl "<一句话目标>" --out traces/packs/<pack_id>-<短标签>.json`
   生成 pack 并提交到 `traces/packs/`，把它作为子 Agent 的开工输入。包里除 `task.goal_nl`
-  之外的字段（可写/只读路径、前提闭包、冻结签名、Playbook 必读节、预算与升级条件）都由脚本
-  从 AGENTS §3、Registry、原型文件和 Playbook 推导，负责人不得手改；不再靠临场拼提示词。
+  之外的字段（可写/只读路径、前提闭包、冻结签名、批次边界 `scope`、Playbook 必读节、预算与
+  升级条件、派工坐标）都由脚本从 AGENTS §3、Registry、ROADMAP 和 Playbook 推导，负责人不得手改；
+  不再靠临场拼提示词。
+- **同一 Entry 派多个子 Agent 时必须加 `--worker <短标签>`**：`pack_id` 与 `trace.path` 都会带该
+  后缀。不加则两个 pack 共用 join key，按 `pack.trace.path` 收轨迹会**静默漏记录**
+  （CA1 试点实测漏掉 14 条），且并发 append 同一 jsonl 会竞争 `attempt` 序号（`lean_trace.py check`
+  会报错）。规范见 Playbook §10。
 - 子 Agent 的每条 Lean 验证记录（Playbook §8）必须带同一个 `pack_id`，否则该轨迹无法与上下文
   配对成训练样本；handoff 要列出本批 pack_id 清单。规范见 Playbook §9。
 - 公共定义层先行：定义层 Agent 交付并通过上层组装类型检查后，才启动依赖它的证明包。

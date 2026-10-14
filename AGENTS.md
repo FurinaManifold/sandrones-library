@@ -186,6 +186,14 @@ Main 的验收顺序：
 它在候选整体上跑完 §6 流水线并留发布回执；常规、稳定接口内的批次**只审回执中的异常清单**，
 跨学科 API、额外公理、例外与最终发布仍由 Main 判断（协议见 `docs/SUBJECT-PACKAGE-PROTOCOL.md`）。
 
+**开窗也是 Main 的职责，且必须机械化**（Playbook §10）：建 worktree、把 `.lake/packages` 软链到
+主工作树、为每个计划 Entry 生成 pack、渲染窗口简令——一条 `scripts/open_window.py` 跑完。
+**窗口简令必须由 `scripts/dispatch_brief.py` 从 pack 渲染，禁止手写**：手写简令必然与 pack 漂移，
+且等于把"负责人不得改写"的字段重新抄成第二份事实源。窗口特有的、无法从 ROADMAP／Registry／
+AGENTS／Playbook 推导的判断，只允许写进 `docs/dispatch/notes/<窗口>.md`（`--note` 片段），
+并在简令里与推导部分分开成节。**不要另建平行的派工规程文档**——通用规程的唯一位置是
+Playbook §10。
+
 verdict 只使用：
 
 - `accepted`：数学和 Main 规范都已完成；
