@@ -1,0 +1,410 @@
+{
+  "schema": "sandrones-context-pack/1",
+  "pack_id": "real-analysis-RA-F3F5-real-analysis.maximal-function-f3max",
+  "generated_at": "2026-10-14T03:09:53Z",
+  "generator": "scripts/context_pack.py",
+  "derived_from": {
+    "registry": "index/registry.json",
+    "registry_sha256": "f65a2a1f5d20db3669f82b5cdb6f58165cf9f97133b6d93112e866c0f838ad5c",
+    "playbook": "docs/LEAN-PLAYBOOK.md",
+    "playbook_sha256": "1e8d167bcb9b1dd6272ac7ba83645d6ad36549471f2991d9f099d6ac9faf285b",
+    "agonist": "AGENTS.md §3（所有权表）"
+  },
+  "task": {
+    "subject": "real-analysis",
+    "batch": "RA-F3F5",
+    "role": "sub-agent",
+    "worker": "f3max",
+    "entry_id": "real-analysis.maximal-function",
+    "entry_state": "planned",
+    "entry_planned": true,
+    "entry_title": "交付 Hardy–Littlewood 极大函数的教材定义、弱型 (1,1) 估计与可测性边界，保留课程证明骨架；覆盖引理接口已冻结在 CoveringLemma.lean",
+    "entry_summary": "（计划中新条目：尚未登记 Registry）",
+    "goal_nl": "交付 Hardy–Littlewood 极大函数的教材定义、弱型 (1,1) 估计与可测性边界，保留课程证明骨架；覆盖引理接口已冻结在 CoveringLemma.lean",
+    "handwritten_fields": [
+      "task.goal_nl"
+    ]
+  },
+  "ownership": {
+    "writable": [
+      "SandronesLibrary/RealAnalysis/**",
+      "traces/lean/real-analysis/**",
+      "/tmp/sandrones-library/**"
+    ],
+    "readonly": [
+      "index/registry.json",
+      "reference.bib",
+      "SandronesLibrary.lean",
+      "docs/**",
+      "scripts/**",
+      "traces/packs/**"
+    ],
+    "forbidden_in_source": [
+      "sorry",
+      "admit",
+      "sorryAx",
+      "native_decide"
+    ],
+    "source": "AGENTS.md §3 / §5",
+    "note": "writable 之外一律只读；需要改动即升级，不自行扩权。"
+  },
+  "target": {
+    "lean_file": "SandronesLibrary/RealAnalysis/MaximalFunction.lean",
+    "nl_file": "docs/entries/real-analysis/maximal-function.md",
+    "declarations_in_file": []
+  },
+  "frozen": {
+    "prototype": "SandronesLibrary/RealAnalysis/CoveringLemma.lean",
+    "declarations": [
+      {
+        "name": "OpenInterval",
+        "kind": "structure",
+        "line": 62,
+        "signature_excerpt": "structure OpenInterval",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "toSet",
+        "kind": "def",
+        "line": 75,
+        "signature_excerpt": "def toSet (I : OpenInterval) : Set ℝ",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "center",
+        "kind": "def",
+        "line": 80,
+        "signature_excerpt": "noncomputable def center (I : OpenInterval) : ℝ",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "radius",
+        "kind": "def",
+        "line": 85,
+        "signature_excerpt": "noncomputable def radius (I : OpenInterval) : ℝ",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "center_sub_radius",
+        "kind": "theorem",
+        "line": 87,
+        "signature_excerpt": "@[simp] theorem center_sub_radius (I : OpenInterval) : I.center - I.radius = I.l",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "center_add_radius",
+        "kind": "theorem",
+        "line": 91,
+        "signature_excerpt": "@[simp] theorem center_add_radius (I : OpenInterval) : I.center + I.radius = I.u",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "radius_pos",
+        "kind": "theorem",
+        "line": 98,
+        "signature_excerpt": "theorem radius_pos (I : OpenInterval) : 0 < I.radius",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "ball_center_radius",
+        "kind": "theorem",
+        "line": 106,
+        "signature_excerpt": "theorem ball_center_radius (I : OpenInterval) : ball I.center I.radius = I.toSet",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "mem_toSet_iff",
+        "kind": "theorem",
+        "line": 109,
+        "signature_excerpt": "theorem mem_toSet_iff {I : OpenInterval} {x : ℝ} : x ∈ I.toSet ↔ I.l < x ∧ x < I.u",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "center_mem_toSet",
+        "kind": "theorem",
+        "line": 115,
+        "signature_excerpt": "theorem center_mem_toSet (I : OpenInterval) : I.center ∈ I.toSet",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "isOpen_toSet",
+        "kind": "theorem",
+        "line": 122,
+        "signature_excerpt": "theorem isOpen_toSet (I : OpenInterval) : IsOpen I.toSet",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "measurableSet_toSet",
+        "kind": "theorem",
+        "line": 127,
+        "signature_excerpt": "theorem measurableSet_toSet (I : OpenInterval) : MeasurableSet I.toSet",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "exists_disjoint_interval_subfamily_covering_enlargement",
+        "kind": "theorem",
+        "line": 148,
+        "signature_excerpt": "theorem exists_disjoint_interval_subfamily_covering_enlargement (t : Set ι) (I : ι → OpenInterval) (R : ℝ) (hR : ∀ a ∈ t, (I a).radius ≤ R) {τ : ℝ} (hτ : 3 < τ) : ∃ u ⊆ t, u.PairwiseDisjoint (fun a => (I a).toSet) ∧ ∀ a ∈ t, ∃ b ∈ u, (I a).toSet ⊆ ball (I b).center (τ * (I b).radius)",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "volume_iUnion_le_mul_tsum",
+        "kind": "theorem",
+        "line": 175,
+        "signature_excerpt": "theorem volume_iUnion_le_mul_tsum (t : Set ι) (I : ι → OpenInterval) (u : Set ι) (_hut : u ⊆ t) (hdisj : u.PairwiseDisjoint fun a => (I a).toSet) (hcov : ∀ a ∈ t, ∃ b ∈ u, (I a).toSet ⊆ ball (I b).center (τ * (I b).radius)) (hτ : 0 ≤ τ) : volume (⋃ a ∈ t, (I a).toSet) ≤ ENNReal.ofReal τ * ∑' b : u, volume ((I b).toSet)",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "vitaliFamilyVolume",
+        "kind": "def",
+        "line": 216,
+        "signature_excerpt": "noncomputable def vitaliFamilyVolume : VitaliFamily (volume : Measure ℝ)",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "measure_le_of_frequently_le_vitali",
+        "kind": "theorem",
+        "line": 226,
+        "signature_excerpt": "theorem measure_le_of_frequently_le_vitali {μ : Measure ℝ} (v : VitaliFamily μ) {ρ : Measure ℝ} (ν : Measure ℝ) [IsLocallyFiniteMeasure ν] (hρ : ρ ≪ μ) (s : Set ℝ) (hs : ∀ x ∈ s, ∃ᶠ a in v.filterAt x, ρ a ≤ ν a) : ρ s ≤ ν s",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      },
+      {
+        "name": "fineSubfamilyOn_measure_le_tsum",
+        "kind": "theorem",
+        "line": 236,
+        "signature_excerpt": "theorem fineSubfamilyOn_measure_le_tsum {μ : Measure ℝ} {v : VitaliFamily μ} {f : ℝ → Set (Set ℝ)} {s : Set ℝ} (h : v.FineSubfamilyOn f s) : μ s ≤ ∑' x : h.index, μ (h.covering x)",
+        "has_sorry": false,
+        "file": "SandronesLibrary/RealAnalysis/CoveringLemma.lean"
+      }
+    ],
+    "may_not_change": [
+      "OpenInterval",
+      "toSet",
+      "center",
+      "radius",
+      "center_sub_radius",
+      "center_add_radius",
+      "radius_pos",
+      "ball_center_radius",
+      "mem_toSet_iff",
+      "center_mem_toSet",
+      "isOpen_toSet",
+      "measurableSet_toSet",
+      "exists_disjoint_interval_subfamily_covering_enlargement",
+      "volume_iUnion_le_mul_tsum",
+      "vitaliFamilyVolume",
+      "measure_le_of_frequently_le_vitali",
+      "fineSubfamilyOn_measure_le_tsum"
+    ],
+    "rule": "签名先冻结再填证明（AGENTS §5 sorry 框架法）；改签名必须升级。"
+  },
+  "scope": {
+    "in_scope": [
+      "real-analysis.maximal-function"
+    ],
+    "out_of_scope": [],
+    "source": "docs/ROADMAP-LONGTERM.md 批次表（按 family 前缀匹配）",
+    "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，也不得改动它们的文件；越界即升级。"
+  },
+  "dispatch": {
+    "worktree": "/home/pisquare/czt/sandrones-library-ra-maximal-bv",
+    "branch": "codex/real-analysis-maximal-bv",
+    "base": "bc8d4feb59f639aa440d7719466297d918e9dd28",
+    "brief": "docs/dispatch/e2-ra-maximal-bv.md",
+    "rule": "简令由 scripts/dispatch_brief.py 从本 pack 渲染；窗口特有的、无法推导的文字放在 --note 片段里。"
+  },
+  "prerequisites": {
+    "closure_depth": 2,
+    "entries": [
+      {
+        "entry_id": "real-analysis.measure.def",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/RealAnalysis/Measure.lean",
+        "mathlib": [
+          "measure_empty",
+          "measure_sUnion",
+          "measure_mono",
+          "measure_union"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "real-analysis.measure.lintegral",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/RealAnalysis/Measure.lean",
+        "mathlib": [
+          "lintegral_const",
+          "lintegral_mono",
+          "lintegral_eq_zero_iff"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "real-analysis.measure.measurable-function",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/RealAnalysis/Measure.lean",
+        "mathlib": [
+          "Measurable",
+          "measurable_id",
+          "measurable_const",
+          "Measurable.comp"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "real-analysis.measure.sigma-algebra",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/RealAnalysis/Measure.lean",
+        "mathlib": [
+          "MeasurableSpace",
+          "MeasurableSet.empty",
+          "MeasurableSet.compl",
+          "MeasurableSet.iUnion",
+          "MeasurableSet.inter"
+        ],
+        "why": "registry.premises 闭包"
+      }
+    ],
+    "mathlib": [
+      "ENNReal.ofReal_mul",
+      "Measurable.iSup",
+      "MeasureTheory.lintegral_iUnion",
+      "MeasureTheory.measure_iUnion_le",
+      "Real.volume_ball",
+      "Vitali.exists_disjoint_subfamily_covering_enlargement_ball"
+    ],
+    "mathlib_status": "unverified_hint"
+  },
+  "playbook": {
+    "sections": [
+      {
+        "anchor": "§0",
+        "title": "工作流铁律（Step 3 遇到困难时，按此顺序）",
+        "playbook_line": 351,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.1",
+        "title": "`exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器（由原 §3.17 提升）",
+        "playbook_line": 395,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.2",
+        "title": "`No goals to be solved`：直接把多余的 tactic 删掉，别干别的（由原 §3.14 提升）",
+        "playbook_line": 411,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.3",
+        "title": "`lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新（由原 §3.10 提升）",
+        "playbook_line": 423,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§3",
+        "title": "公理纪律（Classical.choice 最小化）（由原 §3.5–3.9 提升合并）",
+        "playbook_line": 658,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§8",
+        "title": "Lean 验证轨迹语料（JSON）：底层子 Agent 的强制留痕",
+        "playbook_line": 976,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§2.11",
+        "title": "`⋃ i ∈ t, U i`（t : Finset）会把绑定变量绑架成 `Set ℝ` —— 改用纯 ∃ 描述（由原 §3.12 提升）",
+        "playbook_line": 573,
+        "reason": "有界并集易绑架绑定变量"
+      },
+      {
+        "anchor": "§2.12",
+        "title": "构造 `⋃ c ∈ s, t c` 的元素用 `Set.mem_biUnion`；无限子集的枚举用 `Set.Infinite.exists_gt`（由原 §3.16 提升）",
+        "playbook_line": 591,
+        "reason": "有界并集易绑架绑定变量"
+      },
+      {
+        "anchor": "§2.9",
+        "title": "双向蕴含（当且仅当）→ `constructor` 两半",
+        "playbook_line": 562,
+        "reason": "双向蕴含分两半"
+      },
+      {
+        "anchor": "§2.2",
+        "title": "目标含存在量词 → 构造 witness",
+        "playbook_line": 460,
+        "reason": "存在量词的构造与提取"
+      },
+      {
+        "anchor": "§2.3",
+        "title": "手头有存在命题，想取出里面的东西 → `rcases` / `obtain` / `rintro`",
+        "playbook_line": 470,
+        "reason": "存在量词的构造与提取"
+      },
+      {
+        "anchor": "§2.4",
+        "title": "目标含合取（要证\"且\"）→ `constructor` 或 `refine ⟨?_, ?_⟩`",
+        "playbook_line": 480,
+        "reason": "合取的构造与拆解"
+      },
+      {
+        "anchor": "§2.5",
+        "title": "已知含合取（手头有\"且\"）→ `rcases ... with ⟨h1, h2⟩`",
+        "playbook_line": 485,
+        "reason": "合取的构造与拆解"
+      },
+      {
+        "anchor": "§2.1",
+        "title": "集合等式 / 函数等式 → `ext x`",
+        "playbook_line": 451,
+        "reason": "集合/函数等式先 ext"
+      },
+      {
+        "anchor": "§2.7",
+        "title": "算术 / 序关系 / 线性组合 → 自动化策略",
+        "playbook_line": 494,
+        "reason": "算术/序关系优先自动化策略"
+      }
+    ]
+  },
+  "budget": {
+    "max_attempts_per_goal": 5,
+    "source": "docs/LEAN-PLAYBOOK.md §0.4（5 次试错硬规则）",
+    "escalate_when": [
+      "同一目标连续编译失败 ≥ 5 次（含接口不匹配）→ 停止盲试，拆子 todo 或上报负责人",
+      "需要改动 frozen.may_not_change 中的任何签名 → 立即升级，不得自行修改",
+      "需要写 ownership.writable 之外的路径 → 立即升级",
+      "目标本身疑似表述有误（需要改陈述而非改证明）→ 立即升级"
+    ],
+    "trace_duty": {
+      "schema": "sandrones-lean-attempt/1",
+      "when": "每次把 tactic 块交给编译器之后立刻追加，失败尝试同样要留",
+      "source": "docs/LEAN-PLAYBOOK.md §8.2"
+    }
+  },
+  "trace": {
+    "path": "traces/lean/real-analysis/real-analysis.maximal-function-f3max.jsonl",
+    "schema": "sandrones-lean-attempt/1",
+    "pack_id_field": "pack_id",
+    "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
+  },
+  "pack_sha256": "77723b7ce364364606b5b1cc68916aef1c9ede3e8f18f0d6590eb19030894f4f"
+}
