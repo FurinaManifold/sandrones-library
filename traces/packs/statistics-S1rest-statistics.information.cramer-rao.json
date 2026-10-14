@@ -1,0 +1,239 @@
+{
+  "schema": "sandrones-context-pack/1",
+  "pack_id": "statistics-S1rest-statistics.information.cramer-rao",
+  "generated_at": "2026-10-14T02:45:43Z",
+  "generator": "scripts/context_pack.py",
+  "derived_from": {
+    "registry": "index/registry.json",
+    "registry_sha256": "f65a2a1f5d20db3669f82b5cdb6f58165cf9f97133b6d93112e866c0f838ad5c",
+    "playbook": "docs/LEAN-PLAYBOOK.md",
+    "playbook_sha256": "1e8d167bcb9b1dd6272ac7ba83645d6ad36549471f2991d9f099d6ac9faf285b",
+    "agonist": "AGENTS.md §3（所有权表）"
+  },
+  "task": {
+    "subject": "statistics",
+    "batch": "S1rest",
+    "role": "subject-maintainer",
+    "worker": null,
+    "entry_id": "statistics.information.cramer-rao",
+    "entry_state": "planned",
+    "entry_planned": true,
+    "entry_title": "交付 Cramér–Rao 下界，把微分与积分可交换的正则条件显式写进签名",
+    "entry_summary": "（计划中新条目：尚未登记 Registry）",
+    "goal_nl": "交付 Cramér–Rao 下界，把微分与积分可交换的正则条件显式写进签名",
+    "handwritten_fields": [
+      "task.goal_nl"
+    ]
+  },
+  "ownership": {
+    "writable": [
+      "SandronesLibrary/Statistics/**",
+      "docs/entries/statistics/**",
+      "docs/handoffs/statistics-*.md",
+      "docs/maintenance/statistics-*.md",
+      "traces/lean/statistics/**",
+      "traces/packs/**"
+    ],
+    "readonly": [
+      "SandronesLibrary.lean",
+      "index/registry.json",
+      "index/rankings.json",
+      "reference.bib",
+      "docs/entries/README.md",
+      "docs/entries/RANKINGS.md",
+      "docs/MATHLIB-RADAR.md",
+      "docs/ROADMAP-*.md",
+      "docs/LEAN-PLAYBOOK.md",
+      "docs/subject-packages/**",
+      "docs/releases/**",
+      "docs/world-formula/**",
+      "README.md",
+      "AGENTS.md",
+      "scripts/**"
+    ],
+    "forbidden_in_source": [
+      "sorry",
+      "admit",
+      "sorryAx",
+      "native_decide"
+    ],
+    "source": "AGENTS.md §3 / §5",
+    "note": "writable 之外一律只读；需要改动即升级，不自行扩权。"
+  },
+  "target": {
+    "lean_file": "SandronesLibrary/Statistics/CramerRao.lean",
+    "nl_file": "docs/entries/statistics/information/cramer-rao.md",
+    "declarations_in_file": []
+  },
+  "frozen": {
+    "prototype": null,
+    "declarations": [],
+    "may_not_change": [],
+    "rule": "签名先冻结再填证明（AGENTS §5 sorry 框架法）；改签名必须升级。"
+  },
+  "scope": {
+    "in_scope": [
+      "statistics.information.cramer-rao"
+    ],
+    "out_of_scope": [],
+    "source": "docs/ROADMAP-LONGTERM.md 批次表（按 family 前缀匹配）",
+    "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，也不得改动它们的文件；越界即升级。"
+  },
+  "dispatch": {
+    "worktree": "/home/pisquare/czt/sandrones-library-stats-s1",
+    "branch": "codex/statistics-s1-rest",
+    "base": "bc8d4feb59f639aa440d7719466297d918e9dd28",
+    "brief": "docs/dispatch/e6-stats-s1.md",
+    "rule": "简令由 scripts/dispatch_brief.py 从本 pack 渲染；窗口特有的、无法推导的文字放在 --note 片段里。"
+  },
+  "prerequisites": {
+    "closure_depth": 2,
+    "entries": [
+      {
+        "entry_id": "statistics.estimator.bias-variance",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/Statistics/BiasVariance.lean",
+        "mathlib": [
+          "ProbabilityTheory.variance_eq_sub",
+          "MeasureTheory.memLp_two_iff_integrable_sq",
+          "MeasureTheory.ofReal_integral_eq_lintegral_ofReal"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "statistics.model.density",
+        "depth": 0,
+        "lean_file": "SandronesLibrary/Statistics/Density.lean",
+        "mathlib": [
+          "ProbabilityTheory.Kernel.rnDeriv",
+          "ProbabilityTheory.Kernel.measurable_rnDeriv",
+          "ProbabilityTheory.Kernel.withDensity_rnDeriv_eq"
+        ],
+        "why": "直接前提（registry.premises）"
+      },
+      {
+        "entry_id": "probability.moments.variance",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/Probability/Moments.lean",
+        "mathlib": [
+          "variance",
+          "evariance",
+          "covariance",
+          "MemLp"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "statistics.estimator.definition",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/Statistics/Estimator.lean",
+        "mathlib": [
+          "ProbabilityTheory.Kernel.deterministic",
+          "ProbabilityTheory.avgRisk",
+          "ProbabilityTheory.bayesRisk",
+          "ProbabilityTheory.IsBayesEstimator"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "statistics.model.definition",
+        "depth": 1,
+        "lean_file": "SandronesLibrary/Statistics/Model.lean",
+        "mathlib": [
+          "ProbabilityTheory.Kernel",
+          "ProbabilityTheory.IsMarkovKernel"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "probability.expectation.definition",
+        "depth": 2,
+        "lean_file": "SandronesLibrary/Probability/Expectation.lean",
+        "mathlib": [
+          "MeasureTheory.integral",
+          "Integrable",
+          "MemLp"
+        ],
+        "why": "registry.premises 闭包"
+      },
+      {
+        "entry_id": "probability.space.definition",
+        "depth": 2,
+        "lean_file": "SandronesLibrary/Probability/Space.lean",
+        "mathlib": [
+          "IsProbabilityMeasure",
+          "MeasurableSet",
+          "Measure"
+        ],
+        "why": "registry.premises 闭包"
+      }
+    ],
+    "mathlib": [
+      "Kernel.rnDeriv",
+      "MeasureTheory.integral"
+    ],
+    "mathlib_status": "unverified_hint"
+  },
+  "playbook": {
+    "sections": [
+      {
+        "anchor": "§0",
+        "title": "工作流铁律（Step 3 遇到困难时，按此顺序）",
+        "playbook_line": 351,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.1",
+        "title": "`exact` 报类型不匹配时，先用 `exact?` / `apply?` / `rw?` 问编译器（由原 §3.17 提升）",
+        "playbook_line": 395,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.2",
+        "title": "`No goals to be solved`：直接把多余的 tactic 删掉，别干别的（由原 §3.14 提升）",
+        "playbook_line": 411,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§1.3",
+        "title": "`lake build` 的增量失误：改顶层 import 的子模块后，顶层 olean 可能不刷新（由原 §3.10 提升）",
+        "playbook_line": 423,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§3",
+        "title": "公理纪律（Classical.choice 最小化）（由原 §3.5–3.9 提升合并）",
+        "playbook_line": 658,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      },
+      {
+        "anchor": "§8",
+        "title": "Lean 验证轨迹语料（JSON）：底层子 Agent 的强制留痕",
+        "playbook_line": 976,
+        "reason": "常驻：工作流铁律 / 调试 / 公理纪律 / 轨迹留痕"
+      }
+    ]
+  },
+  "budget": {
+    "max_attempts_per_goal": 5,
+    "source": "docs/LEAN-PLAYBOOK.md §0.4（5 次试错硬规则）",
+    "escalate_when": [
+      "同一目标连续编译失败 ≥ 5 次（含接口不匹配）→ 停止盲试，拆子 todo 或上报负责人",
+      "需要改动 frozen.may_not_change 中的任何签名 → 立即升级，不得自行修改",
+      "需要写 ownership.writable 之外的路径 → 立即升级",
+      "目标本身疑似表述有误（需要改陈述而非改证明）→ 立即升级"
+    ],
+    "trace_duty": {
+      "schema": "sandrones-lean-attempt/1",
+      "when": "每次把 tactic 块交给编译器之后立刻追加，失败尝试同样要留",
+      "source": "docs/LEAN-PLAYBOOK.md §8.2"
+    }
+  },
+  "trace": {
+    "path": "traces/lean/statistics/statistics.information.cramer-rao.jsonl",
+    "schema": "sandrones-lean-attempt/1",
+    "pack_id_field": "pack_id",
+    "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
+  },
+  "pack_sha256": "ea5ebffc3e8800ac426314ff1ea6f961653f879f6c2379fd06c1ef01c16dd570"
+}
