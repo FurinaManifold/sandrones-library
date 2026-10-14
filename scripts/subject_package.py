@@ -55,7 +55,13 @@ MAIN_SHARED = (
     "docs/LEAN-PLAYBOOK.md",
     "docs/DESIGN.md",
     "docs/SCHEMA.md",
-    "docs/world-formula/",
+    # world-formula：AGENTS §3 只把「总目录、跨章规范和 Main-side 最终审稿记录」划给 Main。
+    # 书稿、术语表、来源账、章节审稿记录归主编/章节编辑（WORLD-FORMULA-EDITOR-ROLE「文件所有权」），
+    # 所以**不能**用 `docs/world-formula/` 整前缀——那会把编辑的正常交付误判成越权。
+    "docs/world-formula/README.md",
+    "docs/world-formula/REVIEW-PROTOCOL.md",
+    "docs/world-formula/TONE-AND-SCENES.md",
+    "docs/world-formula/characters/ROLE-TEMPLATE.md",
     "README.md",
     "AGENTS.md",
     "scripts/",
