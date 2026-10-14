@@ -11111,6 +11111,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "settheory.googology.hydra-general-descent",
       "settheory.googology.hydra-one-level-descent"
     ],
     "family": "settheory.googology.hydra-ordinal-assignment",
@@ -11482,6 +11483,7 @@
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
       "settheory.googology.canonical-goodstein-state",
+      "settheory.googology.hereditary-encoding-order",
       "settheory.googology.hereditary-natural-encoding-same-block-order"
     ],
     "family": "settheory.googology.hereditary-natural-encoding",
@@ -11611,6 +11613,7 @@
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
     "dependedOnBy": [
+      "settheory.googology.hereditary-encoding-order",
       "settheory.googology.hereditary-natural-encoding-strict-order"
     ],
     "family": "settheory.googology.hereditary-natural-encoding-same-block-order",
@@ -12806,7 +12809,8 @@
     "added_at": "2026-08-25T03:51:40Z",
     "dependedOnBy": [
       "examples.settheory.ordinal-arithmetic",
-      "settheory.googology.goodstein-hereditary-power-exponent-borrow"
+      "settheory.googology.goodstein-hereditary-power-exponent-borrow",
+      "settheory.googology.hydra-general-descent"
     ],
     "proof_sha": "c2e7b6951ff33190",
     "axioms": [
@@ -15397,7 +15401,9 @@
     "nl_file": "docs/entries/settheory/googology/canonical-goodstein-state.md",
     "added_by": "main-integration",
     "added_at": "2026-08-25T00:00:00Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "settheory.googology.hereditary-encoding-order"
+    ],
     "family": "settheory.googology",
     "variant": "canonical-state-conditional-descent",
     "proof_sha": "4c1270a86354522c",
@@ -21064,6 +21070,77 @@
     "added_by": "main-wave-r1-integration",
     "added_at": "2026-10-13T08:57:05Z",
     "proof_sha": "58627b1b6091eaa6",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.hereditary-encoding-order",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "一般换底重编码保持 omegaValue",
+    "summary": "对任意底数 2 ≤ b ≤ c 与任意 n，遗传编码树在 c 下重新求值并重新编码后 omegaValue 不变；由此把 CanonicalGoodsteinState 的命名义务 CanonicalBaseChangeOmegaCompatible 由假设升级为定理",
+    "family": "settheory.googology",
+    "variant": "hereditary-encoding-order",
+    "premises": [
+      "settheory.googology.canonical-goodstein-state",
+      "settheory.googology.hereditary-natural-encoding",
+      "settheory.googology.hereditary-natural-encoding-same-block-order"
+    ],
+    "mathlib": [
+      "Nat.mul_add_div",
+      "Nat.mul_add_mod",
+      "Nat.div_eq_of_lt",
+      "Nat.mod_eq_of_lt"
+    ],
+    "lean_file": "SetTheory/HereditaryEncodingOrderGeneral.lean",
+    "nl_file": "docs/entries/settheory/googology/hereditary-encoding-order.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "pohlers-proof-theory-1989"
+    },
+    "added_by": "main-e7-st3deep-integration",
+    "added_at": "2026-10-14T05:45:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "b39835a622806a97",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "settheory.googology.hydra-general-descent",
+    "kind": "theorem",
+    "state": "verified",
+    "title": "一般 Hydra 单步的序数下降",
+    "summary": "对任意合法 Hydra.Step（任意深度、任意头位置、任意阶段复制）证明结构序数 hydraGeneralOrdinal 严格下降；并形式化旧度量 hydraOrdinal 在一般位置砍头时反而上升的反例",
+    "family": "settheory.googology",
+    "variant": "hydra-general-descent",
+    "premises": [
+      "settheory.googology.hydra-ordinal-assignment",
+      "settheory.ordinal.power-bridge"
+    ],
+    "mathlib": [
+      "Ordinal.CNF.eval",
+      "Ordinal.CNF.coeff",
+      "Ordinal.CNF.coeff_eval",
+      "Ordinal.CNF.eval_lt",
+      "Ordinal.opow_mul_lt_opow",
+      "Ordinal.lt_omega0"
+    ],
+    "lean_file": "SetTheory/HydraGeneralDescent.lean",
+    "nl_file": "docs/entries/settheory/googology/hydra-general-descent.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "kirby-paris-independence-1982"
+    },
+    "added_by": "main-e7-st3deep-integration",
+    "added_at": "2026-10-14T05:45:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "58b41b0a069492a4",
     "axioms": [
       "Classical.choice",
       "Quot.sound",

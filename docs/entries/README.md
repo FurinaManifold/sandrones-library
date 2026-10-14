@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **649** 个条目（verified 649，pending 0）。
+共 **651** 个条目（verified 651，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -826,6 +826,7 @@
 - ✅ [`graham-number.md`](settheory/googology/graham-number.md) — Graham 数：让前一项决定下一步的箭头数量
 - ✅ [`hardy-hierarchy.md`](settheory/googology/hardy-hierarchy.md) — Hardy 层级：沿记号下降，把后继变成输入递增
 - ✅ [`hereditary-base.md`](settheory/googology/hereditary-base.md) — 遗传基表示：连指数也用同一底数展开
+- ✅ [`hereditary-encoding-order.md`](settheory/googology/hereditary-encoding-order.md) — 一般换底重编码保持 omegaValue
 - ✅ [`hereditary-natural-encoding.md`](settheory/googology/hereditary-natural-encoding.md) — 任意自然数的遗传基编码
 - ✅ [`hereditary-natural-encoding-same-block-order.md`](settheory/googology/hereditary-natural-encoding-same-block-order.md) — 修正遗传编码的同商块严格保序
 - ✅ [`hereditary-natural-encoding-strict-order.md`](settheory/googology/hereditary-natural-encoding-strict-order.md) — 遗传自然数编码的全局严格保序
@@ -835,6 +836,7 @@
 - ✅ [`hydra-certified-strategy-termination.md`](settheory/googology/hydra-certified-strategy-termination.md) — 认证 Hydra 策略规格的有限终止轨迹
 - ✅ [`hydra-certified-transitive-descent.md`](settheory/googology/hydra-certified-transitive-descent.md) — 认证 Hydra 有限多步的严格下降与良基闭包
 - ✅ [`hydra-game-step.md`](settheory/googology/hydra-game-step.md) — 有限 Hydra 游戏的定义与阶段相关单步
+- ✅ [`hydra-general-descent.md`](settheory/googology/hydra-general-descent.md) — 一般 Hydra 单步的序数下降
 - ✅ [`hydra-one-level-descent.md`](settheory/googology/hydra-one-level-descent.md) — 含阶段复制的一层 Hydra 砍头严格下降
 - ✅ [`hydra-ordinal-assignment.md`](settheory/googology/hydra-ordinal-assignment.md) — Hydra 的结构性序数赋值与两个已验证接口
 - ✅ [`hydra-parent-sibling-descent.md`](settheory/googology/hydra-parent-sibling-descent.md) — 父节点内部保留左兄弟的 Hydra 复制下降

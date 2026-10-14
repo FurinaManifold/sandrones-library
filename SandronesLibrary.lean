@@ -256,6 +256,8 @@ import SandronesLibrary.SetTheory.OrdinalPowerBridge
 import SandronesLibrary.SetTheory.HereditaryNatPowerRank
 import SandronesLibrary.SetTheory.PrimitiveRecursiveClass
 import SandronesLibrary.SetTheory.UniversalMachineInstance
+import SandronesLibrary.SetTheory.HereditaryEncodingOrderGeneral
+import SandronesLibrary.SetTheory.HydraGeneralDescent
 import SandronesLibrary.ComplexAnalysis.Holomorphic
 import SandronesLibrary.ComplexAnalysis.CauchyRiemann
 import SandronesLibrary.ComplexAnalysis.PowerSeries

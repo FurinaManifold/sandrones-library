@@ -335,7 +335,19 @@ def build(args: argparse.Namespace) -> dict:
         print(f"[WARN] entry 的 lean_file={entry['lean_file']} 与 --subject {subject} 可能不匹配",
               file=sys.stderr)
 
-    subject_cap = "".join(w.capitalize() for w in re.split(r"[-_]", subject))
+    # `str.capitalize()` 无法从单 token 学科名得到正确目录名：`settheory` 只会给出
+    # `Settheory`，而目录是 `SandronesLibrary/SetTheory/`。凡「学科名 → 目录名」不是
+    # 逐词首字母大写的，必须在此显式登记；下面的存在性守卫会拦住漏登记的。
+    # （2026-10-14 E7 窗口实测：pack 的 ownership.writable 报出不存在的
+    #   `SandronesLibrary/Settheory/**`，窗口只能靠人读简令纠正。）
+    SUBJECT_DIR_OVERRIDE = {"settheory": "SetTheory"}
+    subject_cap = (SUBJECT_DIR_OVERRIDE.get(subject)
+                   or "".join(w.capitalize() for w in re.split(r"[-_]", subject)))
+    if not (ROOT / "SandronesLibrary" / subject_cap).is_dir():
+        print(f"[WARN] 学科目录 SandronesLibrary/{subject_cap} 不存在——"
+              f"若 --subject {subject} 正确，请在 SUBJECT_DIR_OVERRIDE 里登记它的目录名",
+              file=sys.stderr)
+
     def sub_paths(key: str) -> list[str]:
         return [p.replace("{subject}", subject).replace("{Subject}", subject_cap)
                 for p in ROLE_OWNERSHIP[args.role][key]]
