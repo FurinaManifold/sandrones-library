@@ -56,7 +56,23 @@
 
 ## 5. subject_package 五门原文
 
-（见 §9 附录：`verdict` 与 `traces`／`packs` 两行逐字抄录。）
+```
+学科验收包 settheory  (codex/settheory-st3-deep @ 2f4f93d4f)
+  基线 bc8d4fe｜提交 2｜改动文件 11
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 51 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+
+  verdict: pass
+```
+
+（`traces`／`packs` 两行原文：`✅ traces（软门）：本批含 51 条验证尝试记录`、
+`✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确`。
+51 = 本窗 settheory 24 条 + 仓库内其他窗口既有轨迹；软门按仓库口径统计。）
 
 ## 6. 子 Agent 与负责人审核发现
 
