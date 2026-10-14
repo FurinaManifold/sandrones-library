@@ -5,10 +5,10 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 验收快照（`5683fbc`，2026-10-14）：649 个 verified Entry、856 条直接依赖边、
-73 条合规 BibTeX 出版来源、647 个正式参排条目；主工作树完整 `lake build` 以 9106 jobs
+当前 Main 验收快照（`a1455df`，2026-10-14）：651 个 verified Entry、861 条直接依赖边、
+73 条合规 BibTeX 出版来源、649 个正式参排条目；主工作树完整 `lake build` 以 9108 jobs
 通过，仅重放既有 linter warnings。本快照在 `d3b492f`（Wave R1 七批次 + CA1 定义层）之上，
-覆盖 Wave E 的六个交付批次与三个 research 窗口：
+覆盖 Wave E 的**全部十个窗口**（七个交付批次 + 三个 research 窗口）：
 - 复分析 C2 收口 `complex-analysis.cauchy.homotopy`（C2 判 ✅，并登记 C3 开门前置
   `complex-analysis.cauchy.homology`）；
 - 交换代数 CA1b2 `commutative-algebra.module.{generated,quotient,direct-sum,isomorphism-theorems}`；
@@ -18,6 +18,8 @@
   `pell-all-positive}`（第 5 项负 Pell 仍单列未做）；
 - 统计 S1 收口 `statistics.{method-of-moments,information.cramer-rao}`；
 - Examples E0 存量转正 + E1 全批 `examples.{analysis.*,settheory.*}`（11 条，262 声明）；
+- 集合论 ST3 纵深 `settheory.googology.{hereditary-encoding-order,hydra-general-descent}`
+  （D7 批次 4/4 收口；Hydra 一般单步下降换用自建自然和，旧度量不下降已形式化为反例）；
 - research 窗口文档接收：复分析 homology 缺口、泛函 F6.6b2 签名冻结、拓扑 AT2-C5e
   无占位原型（已裁决可转 `development_open`）、数论 N2 签名冻结 RFC（含 Main 七项裁决）。
 发布回执见 `docs/releases/release-receipt-2026-10-13T090539Z.json`、`…T091749Z.json`、
