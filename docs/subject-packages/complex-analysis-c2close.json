@@ -1,0 +1,112 @@
+{
+  "schema": "sandrones-subject-package/1",
+  "subject": "complex-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-ca-c2",
+  "branch": "codex/complex-analysis-c2-close",
+  "base": "bc8d4fe",
+  "head": "ff4061364845b2bc72936be26b0124b79135220e",
+  "checked_at": "2026-10-14T04:13:14Z",
+  "commits": [
+    {
+      "sha": "ff4061364845b2bc72936be26b0124b79135220e",
+      "subject": "docs(complex-analysis): keep mathlib dependency list to names actually used"
+    },
+    {
+      "sha": "4586ac0086290b40a9db71e7eb7c4434c9836697",
+      "subject": "docs(complex-analysis): correct delivery commit list in C2close handoff"
+    },
+    {
+      "sha": "aebb7958cefc00f0d7b617e6fac9d2825bc548ed",
+      "subject": "docs(complex-analysis): backfill final subject_package output into C2close handoff"
+    },
+    {
+      "sha": "75054f577e14476118e948840e7a268232f752ff",
+      "subject": "docs(complex-analysis): C2 close-out handoff with C3 opening advice"
+    },
+    {
+      "sha": "04c5d934a0270d7d8bb35c0315fa953c038b97e9",
+      "subject": "feat(complex-analysis): close C2 homotopy with simply connected primitive"
+    }
+  ],
+  "changed_files": [
+    "SandronesLibrary/ComplexAnalysis/CauchyHomotopy.lean",
+    "docs/entries/complex-analysis/cauchy/homotopy.md",
+    "docs/handoffs/complex-analysis-c2close.md",
+    "traces/lean/complex-analysis/complex-analysis.cauchy.homotopy.jsonl",
+    "traces/packs/complex-analysis-C2close-complex-analysis.cauchy.homotopy.json"
+  ],
+  "gates": {
+    "cleanliness": {
+      "status": "pass",
+      "dirty_files": []
+    },
+    "ownership": {
+      "status": "pass",
+      "main_shared_touched": []
+    },
+    "semantics": {
+      "status": "pass",
+      "issues": []
+    },
+    "proof": {
+      "status": "pass",
+      "issues": [],
+      "entries": [
+        {
+          "id": "complex-analysis.cauchy.homotopy",
+          "in_registry": true,
+          "lean_files": [
+            "SandronesLibrary/ComplexAnalysis/CauchyHomotopy.lean"
+          ],
+          "decls": 9
+        }
+      ]
+    },
+    "coverage": {
+      "status": "pass",
+      "issues": [],
+      "handoffs": [
+        "docs/handoffs/complex-analysis-c2close.md"
+      ]
+    }
+  },
+  "traces": {
+    "status": "present",
+    "records": 35,
+    "files": [
+      "traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl",
+      "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl",
+      "traces/lean/complex-analysis/complex-analysis.cauchy.homotopy.jsonl"
+    ],
+    "lean_files_changed": [
+      "SandronesLibrary/ComplexAnalysis/CauchyHomotopy.lean"
+    ],
+    "note": "本批含 35 条验证尝试记录",
+    "invalid": []
+  },
+  "packs": {
+    "files": [
+      "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.json",
+      "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.verify.json",
+      "traces/packs/complex-analysis-C2close-complex-analysis.cauchy.homotopy.json"
+    ],
+    "pack_ids": [
+      "commutative-algebra-CA1-commutative-algebra.module.definition",
+      "commutative-algebra-CA1-commutative-algebra.module.definition-verify",
+      "complex-analysis-C2close-complex-analysis.cauchy.homotopy"
+    ],
+    "duplicate_pack_ids": [],
+    "referenced_by_traces": [
+      "commutative-algebra-CA1-commutative-algebra.module.definition",
+      "commutative-algebra-CA1-commutative-algebra.module.definition-verify",
+      "complex-analysis-C2close-complex-analysis.cauchy.homotopy"
+    ],
+    "missing_for_referenced": [],
+    "trace_path_mismatch": [],
+    "unreferenced_packs": [],
+    "invalid": [],
+    "note": "pack 与 trace 的 pack_id 已配对，trace.path 指针正确"
+  },
+  "exceptions": [],
+  "verdict": "pass"
+}
