@@ -51,8 +51,14 @@
    `summary --subject number-theory` → 4 个任务、67 条尝试（accepted 28 / error 38 / sorry_left 1）。
 4. **pack 校验**：`python3 scripts/context_pack.py check traces/packs/*.json` → 通过（6 个 pack）。
 5. **`git diff --check`**：见 §5（提交前执行）。
-6. **未做**：`lake build`（本窗禁止）、全库 `subject_package`（研究窗无五门）、Registry/audit
-   （不改共享文件）。
+6. **`subject_package.py`（只读跑了一次，作为"无五门"的证据）**：
+   `python3 scripts/subject_package.py --worktree <本 worktree> --base bc8d4fe --subject number-theory --json`
+   → `verdict: pass`，五组门全 `pass`，`exceptions: []`，`packs.trace_path_mismatch: []`、
+   `unreferenced_packs: []`。**但这个 pass 对研究窗是空真的**：`proof` 门的 `entries` 为空、
+   `lean_files_changed: []`——**本窗无 Lean 交付，故无 `subject_package` 五门**（Playbook §10.4）。
+   五门的语义是"可集成候选的验收"，研究窗不产生候选，因此**不得**把这次 `pass` 当作验收结论。
+7. **未做**：`lake build`（本窗禁止）、全库 `audit.py`／`check_axioms.py`（不改 Registry 与源码，
+   且研究窗无 `.olean` 产出）。
 
 ## 4. 子 Agent 与负责人审核发现
 
@@ -124,4 +130,10 @@
 4. `lean_trace.py` 的 `check`（位置参数）与 `summary`（`--subject/--root`）接口不一致；
 5. trace 就地更正缺少 `amended` 字段；
 6. 「边做边写」需要可观测强制点（原型 mtime 晚于最后 trace 应报软警告）；
-7. 研究窗缺一个 `--research` 只读自检（trace 计数 + pack_id 闭合 + 原型 `sorry` 扫描）。
+7. 研究窗缺一个 `--research` 只读自检（trace 计数 + pack_id 闭合 + 原型 `sorry` 扫描）；
+8. **`subject_package.py` 的 trace 计数把基线里既有的 trace 也算进来**：本窗自己的 4 个文件是
+   67 条，工具报 `records: 94`（多出的 27 条是 CA1 批留在基线的两个文件）。建议按 `base..head`
+   的 diff 过滤 trace 文件，否则研究窗/小批次的语料计数会被历史记录污染；
+9. **研究窗的 `verdict: pass` 是空真的**（`proof.entries` 为空）：建议工具在
+   `lean_files_changed` 为空时把 verdict 标成 `not_applicable` 而不是 `pass`，
+   避免"没有 Lean 交付"被读成"五门通过"。
