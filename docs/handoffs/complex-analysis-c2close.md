@@ -303,7 +303,6 @@ commit 取该 Lean 文件的最近一次改动；`ComplexAnalysis/` 前缀省略
     "IsSimplyConnected",
     "SimplyConnectedSpace",
     "SimplyConnectedSpace.paths_homotopic",
-    "isSimplyConnected_iff_exists_homotopy_refl_forall_mem",
     "Path.Homotopy",
     "Path.Homotopy.map",
     "Path.map",
@@ -328,7 +327,8 @@ commit 取该 Lean 文件的最近一次改动；`ComplexAnalysis/` 前缀省略
   - 第 1124–1128 行的叙述段「C2/C3 已有基础条目进入 main」需按本次收口更新。
 - `docs/MATHLIB-RADAR.md`：登记新用到的 Mathlib 承载
   `IsSimplyConnected`/`SimplyConnectedSpace`/`SimplyConnectedSpace.paths_homotopic`/
-  `isSimplyConnected_iff_exists_homotopy_refl_forall_mem`/`Path.Homotopy.map`/`Path.map`；
+  `Path.Homotopy.map`/`Path.map`（`isSimplyConnected_iff_exists_homotopy_refl_forall_mem` 只作为
+  教材展开在叙述层引用，证明未调用，故不进 Registry `mathlib` 表，也不建议进 RADAR 依赖面）；
   并建议记录一条**反向情报**：`Mathlib/Analysis/Complex/HasPrimitives.lean` 文件头 TODO 明言
   「尚未推广到单连通域」，这是本库 `exists_primitive_of_isSimplyConnected` 领先 Mathlib 的证据，
   也是后续「科研论文定理下沉/上游贡献」的候选。

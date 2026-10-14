@@ -7,7 +7,7 @@ state: verified
 title: 同伦形式的 Cauchy 定理与单连通域原函数
 summary: 在单连通开域中由拓扑假设自动得到同端点道路的相对同伦，从而证明全纯函数的路径积分只依赖端点、存在原函数，并推出闭分段 C1 道路积分为零
 premises: [complex-analysis.path-integral.piecewise-c1-homotopy-invariance, complex-analysis.cauchy.primitive-from-path-independence-foundation, complex-analysis.cauchy.admissible-path-connectivity-foundation, complex-analysis.holomorphic.definition, complex-analysis.integral.path, topology.homotopy.piecewise-c1-path, topology.homotopy.homotopy-square-grid]
-mathlib: [IsSimplyConnected, SimplyConnectedSpace, SimplyConnectedSpace.paths_homotopic, isSimplyConnected_iff_exists_homotopy_refl_forall_mem, Path.Homotopy, Path.Homotopy.map, Path.map, Path.Homotopic, HasDerivAt, IsOpen]
+mathlib: [IsSimplyConnected, SimplyConnectedSpace, SimplyConnectedSpace.paths_homotopic, Path.Homotopy, Path.Homotopy.map, Path.map, Path.Homotopic, HasDerivAt, IsOpen]
 provenance:
   source_type: book
   ref: "ahlfors-complex-analysis-1979"
@@ -116,7 +116,7 @@ theorem pathIntegral_eq_zero_of_isSimplyConnected
 
 | 概念 | 教材定义／语义 | Lean 正式承载 | 展开／刻画 | 角色 | 首个使用者 |
 |---|---|---|---|---|---|
-| 单连通域 | 域内闭路皆零同伦 | Mathlib `IsSimplyConnected` | `isSimplyConnected_iff_exists_homotopy_refl_forall_mem` | 语义一致的正式承载 | `homotopicWithin_of_isSimplyConnected` |
+| 单连通域 | 域内闭路皆零同伦 | Mathlib `IsSimplyConnected` | `isSimplyConnected_iff_exists_homotopy_refl_forall_mem`（Mathlib 提供的教材展开；本条目的证明直接使用 `SimplyConnectedSpace.paths_homotopic`，未调用该 iff，故它不进 front matter 的 `mathlib` 依赖表） | 语义一致的正式承载 | `homotopicWithin_of_isSimplyConnected` |
 | 相对端点同伦 | 固定端点的连续变形，像在域内 | Mathlib `Path.Homotopy`；本库 `HomotopicWithin` 包装像集条件 | `homotopicWithin_iff` | 正式承载 + 本库桥侧谓词 | `pathIntegral_eq_of_homotopicWithin` |
 | 分段 C1 道路 | 有限段 C1 参数化 | 本库 `Path.PiecewiseC1` | `AdmissiblePath.piecewiseC1` | 本库课程承载 | `pathIntegral_eq_of_isSimplyConnected` |
 | 路径积分 | `∫_gamma f dz` | 本库 `pathIntegral` | 既有 `pathIntegral_trans/symm` | 语义一致的正式承载 | `pathIntegral_eq_of_isSimplyConnected` |
