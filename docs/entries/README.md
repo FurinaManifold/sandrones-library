@@ -6,7 +6,7 @@
 > 权威数据在 `index/registry.json`。
 > 状态图例：✅ verified &#183; 🕓 pending &#183; ⚠️ unresolved。
 
-共 **638** 个条目（verified 638，pending 0）。
+共 **649** 个条目（verified 649，pending 0）。
 
 ## `abstract-algebra.field`
 
@@ -341,6 +341,13 @@
 
 - ✅ [`classification-foundation.md`](complex-analysis/singularity/classification-foundation.md) — 孤立奇点分类的基础接口
 
+## `examples.analysis`
+
+- ✅ [`coordinate-integrals.md`](examples/analysis/coordinate-integrals.md) — 球体体积与质量的球坐标计算例
+- ✅ [`gauss-stokes.md`](examples/analysis/gauss-stokes.md) — 单位立方体的 Gauss 与水平单位正方形的 Stokes 计算例
+- ✅ [`green-regions.md`](examples/analysis/green-regions.md) — 直角三角形与单位圆盘上的 Green 公式计算例
+- ✅ [`spherical-moments.md`](examples/analysis/spherical-moments.md) — 均匀球体的重心与转动惯量计算例
+
 ## `examples.probability`
 
 - ✅ [`clt.md`](examples/probability/clt.md) — 中心极限定理的具体概率空间实例
@@ -348,6 +355,16 @@
 ## `examples.real-analysis`
 
 - ✅ [`measure-derivative.md`](examples/real-analysis/measure-derivative.md) — 测度导数具体计算例
+
+## `examples.settheory`
+
+- ✅ [`cardinal-arithmetic.md`](examples/settheory/cardinal-arithmetic.md) — 有限基数加乘幂的计算与基数算术的两个反例
+- ✅ [`countability.md`](examples/settheory/countability.md) — 可数性：ℕ×ℕ 配对、整数枚举与「无限不必不可数」的辨析
+- ✅ [`functions.md`](examples/settheory/functions.md) — 像、原像与单射／满射／双射的具体计算与反例
+- ✅ [`ordinal-arithmetic.md`](examples/settheory/ordinal-arithmetic.md) — 有限序数与 ω 的加乘幂、Cantor 正规形小例
+- ✅ [`ordinals.md`](examples/settheory/ordinals.md) — 序数 0,1,2,ω,ω+1 的序关系与后继／极限辨析
+- ✅ [`quotients.md`](examples/settheory/quotients.md) — 等价关系与商：模 5 同余类、商映射满射与「不同代表元同一商元素」的辨析
+- ✅ [`set-operations.md`](examples/settheory/set-operations.md) — 有限集上的并、交、差、补与 De Morgan 逐元素计算例
 
 ## `examples.topology`
 

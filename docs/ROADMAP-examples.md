@@ -14,14 +14,14 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 - `missing`：重要知识点尚无正式例子。
 - `blocked`：理论定义层或所需公开接口尚未验收，Examples 不自行绕过。
 
-## E0 建制与存量转正 🚧
+## E0 建制与存量转正 ✅（2026-10-14 收口）
 
 | 批次 | 范围 | 当前状态 | 出口 |
 |---|---|---|---|
 | E0.1 | Examples ROLE、路线图、目录依赖规则 | covered | Main 文件建立并登记学科 |
-| E0.2 | 坐标积分与球体矩 | partial | 为球体体积、质量、重心、转动惯量补 Examples Entry 与课程文档 |
-| E0.3 | Green/Gauss/Stokes 具体区域 | partial | 为三角形、圆盘、立方体和正方形例子补 Entry，并检查是否需要定向反例 |
-| E0.4 | 既有 `analysis.integral.examples`、Taylor examples 归档 | partial | 保留原理论 Entry 或迁移为 Examples Entry 的影响审计，不破坏下游 |
+| E0.2 | 坐标积分与球体矩 | covered | 为球体体积、质量、重心、转动惯量补 Examples Entry 与课程文档 |
+| E0.3 | Green/Gauss/Stokes 具体区域 | covered | 为三角形、圆盘、立方体和正方形例子补 Entry，并检查是否需要定向反例 |
+| E0.4 | 既有 `analysis.integral.examples`、Taylor examples 归档 | covered（保留不迁移） | 保留原理论 Entry 或迁移为 Examples Entry 的影响审计，不破坏下游 |
 
 ## E1 集合、映射、基数与序数
 
@@ -33,7 +33,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E1.4 可数性 | `examples.settheory.countability` | `ℕ×ℕ` 配对、整数枚举、两个可数集之并 | 无限集不必不可数；幂集严格更大的有限原型 | 基数基础 |
 | E1.5 基数算术 | `examples.settheory.cardinal-arithmetic` | 有限基数加乘幂；可数集与有限集运算 | 基数相等不等于集合相等；无限基数算术不能照搬自然数消去律 | ST2 |
 | E1.6 序数基础 | `examples.settheory.ordinals` | `0,1,2,ω,ω+1` 的序关系、后继／极限辨析 | `1+ω=ω` 但 `ω+1≠ω`，展示序数加法不交换 | ST1 |
-| E1.7 序数算术 | `examples.settheory.ordinal-arithmetic` | 有限序数、`ω` 的加乘幂和 Cantor 正规形小例 | 加法与乘法不交换、左消去失败的具体反例 | 序数运算主线 |
+| E1.7 序数算术 | `examples.settheory.ordinal-arithmetic` | 有限序数、`ω` 的加乘幂和 Cantor 正规形小例 | 加法与乘法不交换；**左消去成立、右消去失败**的具体反例（本节原写「左消去失败」，2026-10-14 实测为反，已勘误，见文末台账） | 序数运算主线 |
 | E1.8 递归与增长 | `examples.settheory.recursion-growth` | 小输入计算原始递归、Ackermann、规范 Goodstein 状态／`B^(B^k)` 借位、Hydra 的前若干步，并演示固定机器代码的燃料检查 | “前几步下降”不等于全程终止；有限燃料返回假不等于永不停机；条件式换底兼容性不得冒充完整 Goodstein 下降 | ST3 |
 
 ## E2 一元分析基础
@@ -59,7 +59,7 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 | E3.3 多重积分与坐标 | `examples.analysis.coordinate-integrals` | 矩形、圆盘、球体的体积、质量、重心和惯量 | 忽略 Jacobian 得到错误数值的精确辨析 | 换元与坐标积分 |
 | E3.4 曲线与曲面 | `examples.analysis.curves-surfaces` | 圆周弧长、球面面积、第一型积分 | 非正则参数化不能直接套用公式 | 参数化接口 |
 | E3.5 微分形式 | `examples.analysis.differential-forms` | 低维楔积、外微分、拉回的坐标计算 | 楔积不交换；`dω=0` 的局部／全局边界 | 形式定义层 |
-| E3.6 Green/Gauss/Stokes | `examples.analysis.integral-theorems` | 三角形、圆盘、立方体、球面和正方形上的两侧计算 | 定向反转改变符号；非闭边界不能误套闭曲面结论 | 三大公式 |
+| E3.6 Green/Gauss/Stokes | `examples.analysis.green-regions` + `examples.analysis.gauss-stokes`（原计划 id `examples.analysis.integral-theorems` 因「一 Entry 一文件」被 E0.3 拆为两条） | 三角形、圆盘、立方体、球面和正方形上的两侧计算 | 定向反转改变符号；非闭边界不能误套闭曲面结论 | 三大公式 |
 
 ## E4 Analysis 第三学期
 
@@ -304,4 +304,37 @@ Examples 的缺口通常不打回数学正确的理论提交，但 Main 必须�
 | E8.6 有符号／复测度与 RN（RA-F2 侧） | `examples.real-analysis.measure-derivative` | **partial** | 常密度测度、标准正态的 RN 导数，以及 Dirac 测度相对 Lebesgue 的互奇异与 Lebesgue 分解；有符号／复测度 Jordan 分解与变差的 `examples.real-analysis.signed-rn` 仍缺 |
 | E9P.8 中心极限定理 | `examples.probability.clt` | **covered（主链）** | 标准正态坐标无限乘积空间上的 iid／L²／均值零／方差一，代入一般 iid CLT 得弱收敛，并经 Lévy 接口读回特征函数极限；「逐点特征函数收敛不足以保证弱收敛」的反例仍只在叙述层辨析，未 Lean 化 |
 
-**剩余边界**：E0.2–E0.4 存量转正未做；E9P.8 的反例未 Lean 化；上表三行的 partial 项须在后续巡视补足。
+**剩余边界**：E9P.8 的反例未 Lean 化；上表三行的 partial 项须在后续巡视补足（E0.2–E0.4 已于 2026-10-14 收口，见下一节台账）。
+
+## Wave E2 Examples 交付台账（2026-10-14，已集成）
+
+E0 存量转正收口 + E1 全批交付，共 **11 条 Entry / 262 条公开声明**（提交 `a6c81d1`，Main 集成见
+`examples` 批次合并）：
+
+| 台账项 | 已交付 Entry | 覆盖状态 | 说明 |
+|---|---|---|---|
+| E0.2 坐标积分与球体矩 | `examples.analysis.coordinate-integrals`、`examples.analysis.spherical-moments` | **covered** | 存量模块转正，签名一字未改 |
+| E0.3 Green/Gauss/Stokes | `examples.analysis.green-regions`、`examples.analysis.gauss-stokes` | **covered** | 另补 4 条定向反例（反向遍历／内向法向／交换切向量次序恰好变号，含 `-1/2 ≠ 1/2`、`-3 ≠ 3`、`-1` 三处真计算） |
+| E0.4 存量影响审计 | —（审计文档） | **covered（保留不迁移）** | `docs/maintenance/examples-e0-impact-audit.md`：两条既有理论 Entry 的下游三重独立核对为零；理论模块不得依赖 Examples，迁移属跨学科 M2 |
+| E1.1–E1.4 集合／映射／商／可数性 | `examples.settheory.{set-operations,functions,quotients,countability}` | **covered** | ROADMAP 点名的反例全部 Lean 化 |
+| E1.5–E1.6 基数算术／序数基础 | `examples.settheory.{cardinal-arithmetic,ordinals}` | **covered** | |
+| E1.7 序数算术 | `examples.settheory.ordinal-arithmetic` | **covered（含一处 ROADMAP 勘误）** | 见下 |
+
+**E1.7 勘误（窗口实测，Main 采纳）**：原写「左消去失败」，实测**相反**——序数加法**左消去成立**
+（`addition_left_cancellation`），**右消去失败**（`1+ω = 2+ω = ω` 而 `1≠2`）。按「不制造伪反例」
+原则把成立方向证成定理、失败方向做成反例，并在课程文档「应用与陷阱」登记。E1.7 行已改正。
+
+**E3.6 计划 id 拆分（Main，2026-10-14）**：原计划 id `examples.analysis.integral-theorems` 因
+「一 Entry 一文件」被 E0.3 实际消耗为两条——`examples.analysis.green-regions` 与
+`examples.analysis.gauss-stokes`。E3.6 行已更新。
+
+**剩余边界**：E1.4 的整数枚举只证单射（`countable-def`「可嵌入 ℕ」所需），未构造显式双射
+`ℤ ≃ ℕ`；E1.7 的 Cantor 正规形只做 `CNF ω ω`、`CNF ω (ω+1)` 真算列表 + 显式求值，未证一般
+`ω²+ω+1` 展开；**E1.8 未做**（等 ST3 纵深）；E1.5 的配对／等势见证直接复用 Mathlib，未另造本库包装；
+E1.6/E1.7 的 `premises` 按「声明级直接使用」给（2／5 条），不是 pack 闭包（5／9 条）。
+
+**本批另修两处共享缺陷**：① `check_axioms.py::DECL_RE` 的字符类允许名字**尾点**，使
+`theorem foo.{u}` 被捕成 `foo.`、`#print axioms foo.` 语法错误、公理字段静默变 `<解析失败>`
+（窗口实测踩到并绕开）——已修为「点只允许出现在名字内部」；② 9 条 `premises` 原为「文档对应、
+代码没调用」的假依赖边，窗口补 9 条实例定理使其成为真依赖，并让这批零下游的理论条目首次有公开
+上层使用者（AGENTS §4 第 5 条）。

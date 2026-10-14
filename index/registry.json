@@ -50,6 +50,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:55:42Z",
     "dependedOnBy": [
+      "examples.settheory.functions",
+      "examples.settheory.set-operations",
       "settheory.function.image-preimage.preimage-inter",
       "settheory.function.image-preimage.preimage-union",
       "settheory.set.operations.inter-distrib",
@@ -84,7 +86,9 @@
     "nl_file": "docs/entries/settheory/set/operations/inter-distrib.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.set-operations"
+    ],
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "axioms": [
@@ -111,7 +115,9 @@
     "nl_file": "docs/entries/settheory/function/inj-comp.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.functions"
+    ],
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
@@ -135,7 +141,9 @@
     "nl_file": "docs/entries/settheory/function/surj-comp.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T07:56:18Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.functions"
+    ],
     "family": "settheory.function",
     "variant": "ecnu",
     "axioms": [],
@@ -230,7 +238,9 @@
     "nl_file": "docs/entries/settheory/function/image-preimage/preimage-union.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:16Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.functions"
+    ],
     "family": "settheory.function.image-preimage",
     "variant": "ecnu",
     "axioms": [
@@ -257,7 +267,9 @@
     "nl_file": "docs/entries/settheory/function/image-preimage/preimage-inter.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:34:16Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.functions"
+    ],
     "family": "settheory.function.image-preimage",
     "variant": "ecnu",
     "axioms": [
@@ -283,7 +295,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [
-      "analysis.real.construction-cauchy"
+      "analysis.real.construction-cauchy",
+      "examples.settheory.quotients"
     ],
     "family": "settheory.set.relations",
     "variant": "ecnu",
@@ -310,7 +323,8 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
     "dependedOnBy": [
-      "analysis.real.construction-cauchy"
+      "analysis.real.construction-cauchy",
+      "examples.settheory.quotients"
     ],
     "family": "settheory.set.relations",
     "variant": "ecnu",
@@ -333,7 +347,10 @@
     "nl_file": "docs/entries/settheory/cardinal/countable-def.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
+      "examples.settheory.countability"
+    ],
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [],
@@ -381,7 +398,9 @@
     "nl_file": "docs/entries/settheory/cardinal/uncountable-real.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.countability"
+    ],
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [
@@ -407,7 +426,9 @@
     "nl_file": "docs/entries/settheory/cardinal/countable-union.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:40:24Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.countability"
+    ],
     "family": "settheory.cardinal",
     "variant": "ecnu",
     "axioms": [
@@ -433,7 +454,9 @@
     "nl_file": "docs/entries/settheory/set/operations/complement-union.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:54:36Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.set-operations"
+    ],
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
@@ -458,7 +481,9 @@
     "nl_file": "docs/entries/settheory/set/operations/complement-inter.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:54:37Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.set-operations"
+    ],
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
@@ -486,7 +511,9 @@
     "nl_file": "docs/entries/settheory/set/operations/diff-inter-complement.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:54:37Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.set-operations"
+    ],
     "family": "settheory.set.operations",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
@@ -508,7 +535,9 @@
     "nl_file": "docs/entries/settheory/function/inject-surject/bijective-iff-inverse.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-19T08:54:37Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.functions"
+    ],
     "family": "settheory.function.inject-surject",
     "variant": "ecnu",
     "proof_sha": "d065f0fc3976123b",
@@ -6637,7 +6666,9 @@
     "nl_file": "docs/entries/settheory/set/subset/definition.md",
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-22T11:35:27Z",
-    "dependedOnBy": [],
+    "dependedOnBy": [
+      "examples.settheory.set-operations"
+    ],
     "family": "settheory.set.subset",
     "variant": "ecnu",
     "proof_sha": "4dea626a30aeab72",
@@ -7648,7 +7679,9 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-23T02:38:51Z",
     "dependedOnBy": [
-      "analysis.stokes.domain-gluing"
+      "analysis.stokes.domain-gluing",
+      "examples.analysis.gauss-stokes",
+      "examples.analysis.green-regions"
     ],
     "axioms": [
       "Classical.choice",
@@ -8350,6 +8383,8 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.ordinal-arithmetic",
+      "examples.settheory.ordinals",
       "settheory.googology.hydra-ordinal-assignment",
       "settheory.ordinal.multiplication"
     ],
@@ -8387,6 +8422,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.ordinal-arithmetic",
       "settheory.ordinal.exponentiation"
     ],
     "family": "settheory.ordinal.multiplication",
@@ -8422,6 +8458,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.ordinal-arithmetic",
       "settheory.googology.goodstein-ordinal-measure",
       "settheory.googology.hydra-ordinal-assignment",
       "settheory.ordinal.cantor-normal-form",
@@ -8460,6 +8497,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.ordinals",
       "settheory.ordinal.cofinality"
     ],
     "family": "settheory.ordinal.successor-limit",
@@ -8595,6 +8633,7 @@
     "added_by": "ingestor-codex",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.ordinal-arithmetic",
       "settheory.ordinal.epsilon-zero"
     ],
     "family": "settheory.ordinal.cantor-normal-form",
@@ -9480,6 +9519,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
       "settheory.cardinal.konig-theorem"
     ],
     "family": "settheory.cardinal.addition",
@@ -9764,6 +9804,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
       "settheory.cardinal.addition",
       "settheory.cardinal.cantor-bernstein",
       "settheory.cardinal.comparison",
@@ -9800,6 +9841,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
       "settheory.cardinal.beth-hierarchy"
     ],
     "family": "settheory.cardinal.exponentiation",
@@ -9832,6 +9874,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
       "settheory.cardinal.aleph-hierarchy"
     ],
     "family": "settheory.cardinal.finite-set",
@@ -9896,6 +9939,7 @@
     "added_by": "main-settheory-integration",
     "added_at": "2026-08-24T00:00:00Z",
     "dependedOnBy": [
+      "examples.settheory.cardinal-arithmetic",
       "settheory.cardinal.konig-theorem"
     ],
     "family": "settheory.cardinal.multiplication",
@@ -12761,6 +12805,7 @@
     "added_by": "ingestor-new_entry.py",
     "added_at": "2026-08-25T03:51:40Z",
     "dependedOnBy": [
+      "examples.settheory.ordinal-arithmetic",
       "settheory.googology.goodstein-hereditary-power-exponent-borrow"
     ],
     "proof_sha": "c2e7b6951ff33190",
@@ -19964,7 +20009,8 @@
     "dependedOnBy": [
       "analysis.multivariable.change-variables",
       "analysis.multivariable.jordan-riemann-bridge",
-      "analysis.multivariable.normal-domain"
+      "analysis.multivariable.normal-domain",
+      "examples.analysis.green-regions"
     ],
     "proof_sha": "a41f35d9f9f16100"
   },
@@ -20103,7 +20149,9 @@
     "added_by": "main-wave-e-integration",
     "added_at": "2026-10-13T05:30:19Z",
     "dependedOnBy": [
-      "analysis.coordinate-integrals.mass-center"
+      "analysis.coordinate-integrals.mass-center",
+      "examples.analysis.coordinate-integrals",
+      "examples.analysis.spherical-moments"
     ],
     "proof_sha": "b6f7662b65ff1026"
   },
@@ -21270,6 +21318,469 @@
     ]
   },
   {
+    "id": "examples.settheory.set-operations",
+    "kind": "example",
+    "state": "verified",
+    "title": "有限集上的并、交、差、补与 De Morgan 逐元素计算例",
+    "summary": "在有限全集 Fin 5 上取 A={1,2,3}、B={3,4}、C={2,4}，逐元素算出并、交、差、补、交对并分配律与德摩根律两侧，并给出 A∪B=A∪C 推不出 B=C 的精确反例与差集不可交换的辨析",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.set.ext",
+      "settheory.set.subset.definition",
+      "settheory.set.operations.inter-distrib",
+      "settheory.set.operations.complement-union",
+      "settheory.set.operations.complement-inter",
+      "settheory.set.operations.diff-inter-complement"
+    ],
+    "mathlib": [
+      "Set.ext",
+      "Set.mem_insert_iff",
+      "Set.mem_singleton_iff",
+      "Set.mem_inter_iff",
+      "Set.mem_sdiff",
+      "Set.mem_compl_iff",
+      "Set.union_insert",
+      "Set.union_singleton",
+      "Set.insert_eq_of_mem",
+      "Fin.reduceEq"
+    ],
+    "lean_file": "Examples/SetTheory/SetOperations.lean",
+    "nl_file": "docs/entries/examples/settheory/set-operations.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "8e9119f9f08019ae",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.functions",
+    "kind": "example",
+    "state": "verified",
+    "title": "像、原像与单射／满射／双射的具体计算与反例",
+    "summary": "命名线性函数 2n+1、折半函数 n/2、平方函数 n² 与平移函数 n+1，逐元素算出它们的像与原像，并给出单射不必满射、满射不必单射、像不保持交三组精确反例与双射、复合的正例",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.function.inj-comp",
+      "settheory.function.surj-comp",
+      "settheory.function.image-preimage.preimage-union",
+      "settheory.function.image-preimage.preimage-inter",
+      "settheory.function.inject-surject.bijective-iff-inverse",
+      "settheory.set.ext"
+    ],
+    "mathlib": [
+      "Function.Injective",
+      "Function.Surjective",
+      "Function.Bijective",
+      "Function.LeftInverse",
+      "Function.RightInverse",
+      "Set.ext",
+      "Set.mem_image",
+      "Set.mem_preimage",
+      "Set.mem_insert_iff",
+      "Set.mem_singleton_iff",
+      "Set.mem_inter_iff",
+      "Set.mem_empty_iff_false",
+      "Set.image_empty",
+      "Set.image_inter_subset",
+      "Nat.mul_div_right",
+      "mul_eq_zero"
+    ],
+    "lean_file": "Examples/SetTheory/Functions.lean",
+    "nl_file": "docs/entries/examples/settheory/functions.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "c2033a19eb16aaac",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.quotients",
+    "kind": "example",
+    "state": "verified",
+    "title": "等价关系与商：模 5 同余类、商映射满射与「不同代表元同一商元素」的辨析",
+    "summary": "模 5 同余是 ℤ 上的 Setoid，7 与 2 显式判定同类、商映射满射；反例给出 ⟦7⟧ = ⟦2⟧ 而 7 ≠ 2，精确否定「商元素唯一决定代表元」",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.set.relations.equivalence-class-eq",
+      "settheory.set.relations.quotient-surj"
+    ],
+    "mathlib": [
+      "Int.ModEq",
+      "Int.modEq_iff_dvd",
+      "Quotient.eq",
+      "Quotient.sound",
+      "Quotient.exact",
+      "Quotient.mk_surjective",
+      "Setoid.ker",
+      "ZMod"
+    ],
+    "lean_file": "Examples/SetTheory/Quotients.lean",
+    "nl_file": "docs/entries/examples/settheory/quotients.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "eb00a2a7ef7bd8b2",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.countability",
+    "kind": "example",
+    "state": "verified",
+    "title": "可数性：ℕ×ℕ 配对、整数枚举与「无限不必不可数」的辨析",
+    "summary": "Nat.pair 的显式配对与真值、ℤ 的显式枚举及其单射、偶数∪奇数与 ℤ = ⋃{-n,n} 两个可数并实例，以及「ℕ 无限却可数」「Fin 3 幂集 2³ = 8 > 3」两条反例",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.cardinal.countable-def",
+      "settheory.cardinal.countable-union",
+      "settheory.cardinal.uncountable-real"
+    ],
+    "mathlib": [
+      "Nat.pair",
+      "Nat.unpair",
+      "Nat.pair_unpair",
+      "Nat.unpair_pair",
+      "Nat.pair_eq_pair",
+      "Nat.pairEquiv",
+      "Equiv.countable_iff",
+      "Set.countable_range",
+      "Set.Countable.union",
+      "Set.countable_univ",
+      "Set.countable_univ_iff",
+      "Set.countable_iUnion",
+      "Set.infinite_univ",
+      "Fintype.card_fun",
+      "Fintype.card_le_of_surjective",
+      "Fintype.card_le_of_injective",
+      "Finset.card_powerset",
+      "Int.toNat_of_nonneg"
+    ],
+    "lean_file": "Examples/SetTheory/Countability.lean",
+    "nl_file": "docs/entries/examples/settheory/countability.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "c9ec2ead40fba17f",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.cardinal-arithmetic",
+    "kind": "example",
+    "state": "verified",
+    "title": "有限基数加乘幂的计算与基数算术的两个反例",
+    "summary": "有限基数加、乘、幂的显式等势见证与真计算，可数集与有限集之并仍可数，以及「基数相等不等于集合相等」「无限基数加法没有自然数那样的消去律」两个精确反例",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.cardinal.addition",
+      "settheory.cardinal.multiplication",
+      "settheory.cardinal.exponentiation",
+      "settheory.cardinal.finite-set",
+      "settheory.cardinal.equinumerous",
+      "settheory.cardinal.countable-def"
+    ],
+    "mathlib": [
+      "finSumFinEquiv",
+      "finProdFinEquiv",
+      "finTwoArrowEquiv",
+      "Equiv.natSumNatEquivNat",
+      "Fintype.card_congr",
+      "Fintype.card_fin",
+      "Set.range",
+      "Set.countable_range",
+      "Set.finite_singleton",
+      "Set.Countable.union",
+      "Fin.elim0",
+      "Nat.add_sub_cancel"
+    ],
+    "lean_file": "Examples/SetTheory/CardinalArithmetic.lean",
+    "nl_file": "docs/entries/examples/settheory/cardinal-arithmetic.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "f6e8a04aa3ee7f5d",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.ordinals",
+    "kind": "example",
+    "state": "verified",
+    "title": "序数 0,1,2,ω,ω+1 的序关系与后继／极限辨析",
+    "summary": "把 ω+1 命名并证明它是 ω 的后继，给出 0<1<2<ω<ω+1 的序关系链、极限序数与后继序数的区分，以及 1+ω=ω 但 ω+1≠ω 的加法不交换反例",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.ordinal.addition",
+      "settheory.ordinal.successor-limit"
+    ],
+    "mathlib": [
+      "Ordinal.natCast_lt_omega0",
+      "Order.not_isSuccLimit_succ",
+      "Order.lt_succ",
+      "Order.succ_eq_add_one"
+    ],
+    "lean_file": "Examples/SetTheory/Ordinals.lean",
+    "nl_file": "docs/entries/examples/settheory/ordinals.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "9c8430a88f5e66c5",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.settheory.ordinal-arithmetic",
+    "kind": "example",
+    "state": "verified",
+    "title": "有限序数与 ω 的加乘幂、Cantor 正规形小例",
+    "summary": "有限序数加乘幂的真计算、ω 的加乘幂恒等式、加法与乘法不交换的反例、序数加法左消去成立而右消去失败的实测，以及 ω+1 的 Cantor 正规形计算与显式求值",
+    "family": "examples.settheory",
+    "variant": null,
+    "premises": [
+      "settheory.ordinal.addition",
+      "settheory.ordinal.multiplication",
+      "settheory.ordinal.exponentiation",
+      "settheory.ordinal.cantor-normal-form",
+      "settheory.ordinal.power-bridge"
+    ],
+    "mathlib": [
+      "Ordinal.mul_two",
+      "Ordinal.opow_succ",
+      "Ordinal.opow_one",
+      "Ordinal.add_omega0",
+      "Ordinal.natCast_lt_omega0",
+      "Ordinal.one_lt_omega0",
+      "add_left_cancel",
+      "mul_left_cancel₀",
+      "one_mul",
+      "Ordinal.CNF.opow_mul_add",
+      "Ordinal.CNF.of_lt",
+      "Order.lt_succ",
+      "Order.succ_eq_add_one"
+    ],
+    "lean_file": "Examples/SetTheory/OrdinalArithmetic.lean",
+    "nl_file": "docs/entries/examples/settheory/ordinal-arithmetic.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "jech-set-theory-2003"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "7102693fe34a7866",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.analysis.coordinate-integrals",
+    "kind": "example",
+    "state": "verified",
+    "title": "球体体积与质量的球坐标计算例",
+    "summary": "极角积分 ∫₀^π sin φ dφ = 2、径向积分 ∫₀^R ρ² dρ = R³/3，合成半径 R 球体的体积 4πR³/3 与常密度 δ 下的质量 4πδR³/3",
+    "family": "examples.analysis",
+    "variant": null,
+    "premises": [
+      "analysis.multivariable.coordinate-integrals"
+    ],
+    "mathlib": [
+      "integral_Ioc_eq_integral_Ioo",
+      "intervalIntegral.integral_of_le",
+      "integral_sin",
+      "integral_pow",
+      "integral_const_mul",
+      "setIntegral_const"
+    ],
+    "lean_file": "Examples/CoordinateIntegrals.lean",
+    "nl_file": "docs/entries/examples/analysis/coordinate-integrals.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ecnu-mathematical-analysis-5"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "0a316f501be9fede",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.analysis.spherical-moments",
+    "kind": "example",
+    "state": "verified",
+    "title": "均匀球体的重心与转动惯量计算例",
+    "summary": "三个一阶矩（重心坐标）全为零，绕 z 轴的转动惯量为 8πδR⁵/15，并改写为教材形式 I = (2/5)MR²",
+    "family": "examples.analysis",
+    "variant": null,
+    "premises": [
+      "analysis.multivariable.coordinate-integrals",
+      "analysis.coordinate-integrals.mass-center"
+    ],
+    "mathlib": [
+      "integral_Ioc_eq_integral_Ioo",
+      "intervalIntegral.integral_of_le",
+      "integral_cos",
+      "integral_sin",
+      "integral_sin_sq",
+      "integral_sin_mul_cos₁",
+      "integral_sin_pow_three",
+      "integral_pow",
+      "integral_const_mul",
+      "setIntegral_const",
+      "setIntegral_congr_fun",
+      "measurableSet_Ioo"
+    ],
+    "lean_file": "Examples/SphericalMoments.lean",
+    "nl_file": "docs/entries/examples/analysis/spherical-moments.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "ecnu-mathematical-analysis-5"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "9dc51b6a46f81ee3",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.analysis.green-regions",
+    "kind": "example",
+    "state": "verified",
+    "title": "直角三角形与单位圆盘上的 Green 公式计算例",
+    "summary": "两个标准平面区域上的 Green 公式实例、三角形面积型边界积分 1/2，以及边界定向反转使积分变号的精确反例",
+    "family": "examples.analysis",
+    "variant": null,
+    "premises": [
+      "analysis.multivariable.green-gauss-stokes",
+      "analysis.multivariable.jordan-region"
+    ],
+    "mathlib": [
+      "Real.abs_le_sqrt",
+      "Real.sq_sqrt",
+      "sq_le_sq₀",
+      "sq_abs",
+      "abs_le",
+      "intervalIntegral.integral_sub",
+      "intervalIntegral.integral_of_le",
+      "integral_Icc_eq_integral_Ioc",
+      "integral_id",
+      "integral_neg",
+      "setIntegral_congr_fun",
+      "measurableSet_Icc",
+      "Continuous.intervalIntegrable"
+    ],
+    "lean_file": "Examples/GreenRegions.lean",
+    "nl_file": "docs/entries/examples/analysis/green-regions.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "833713bb18cb9a29",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
+    "id": "examples.analysis.gauss-stokes",
+    "kind": "example",
+    "state": "verified",
+    "title": "单位立方体的 Gauss 与水平单位正方形的 Stokes 计算例",
+    "summary": "位置向量场在单位立方体上的外向通量为 3、1-形式 x dy 在水平单位正方形上的边界环流为 1，以及法向定向与切向量次序反转改变符号的精确反例",
+    "family": "examples.analysis",
+    "variant": null,
+    "premises": [
+      "analysis.multivariable.green-gauss-stokes"
+    ],
+    "mathlib": [
+      "setIntegral_const",
+      "integrableOn_const",
+      "measure_Icc_lt_top",
+      "Real.volume_Icc_pi_toReal",
+      "isCompact_Icc",
+      "ContinuousLinearMap.fst",
+      "Finset.sum_neg_distrib"
+    ],
+    "lean_file": "Examples/GaussStokes.lean",
+    "nl_file": "docs/entries/examples/analysis/gauss-stokes.md",
+    "provenance": {
+      "source_type": "book",
+      "ref": "spivak-calculus-manifolds-1965"
+    },
+    "added_by": "main-e9-examples-e0e1-integration",
+    "added_at": "2026-10-14T05:30:00Z",
+    "dependedOnBy": [],
+    "proof_sha": "3d83a0042a4ed1a7",
+    "axioms": [
+      "Classical.choice",
+      "Quot.sound",
+      "propext"
+    ]
+  },
+  {
     "id": "functional-analysis.operator.selfadjoint-positive-normal",
     "kind": "theorem",
     "title": "有界自伴、正、正规与酉算子的关系",
@@ -21446,6 +21957,9 @@
       "Classical.choice",
       "Quot.sound",
       "propext"
+    ],
+    "dependedOnBy": [
+      "examples.analysis.spherical-moments"
     ]
   },
   {

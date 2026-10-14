@@ -46,7 +46,11 @@ DECL_RE = re.compile(
     r"^(?:(?:@\[[^\]]+\])\s+)*"
     r"(?:(?:noncomputable|unsafe|private|protected)\s+)*"
     r"(theorem|lemma|def|abbrev|structure|class|inductive|opaque|instance)\s+"
-    r"([A-Za-z_][\w'.!?]*)"
+    # 名字里允许 `.`（`Submodule.Quotient.mk`），但**不允许尾点**：写
+    # `theorem foo.{u}` 时旧的 `[\w'.!?]*` 会捕成 `foo.`，而 `#print axioms foo.`
+    # 报 `unexpected token '.'`，于是公理字段静默变成 `<解析失败>`。
+    # 点只能出现在名字**内部**，故用 `(?:\.[\w'!?]+)*` 而非把 `.` 放进字符类。
+    r"([A-Za-z_][\w'!?]*(?:\.[\w'!?]+)*)"
 )
 # 匿名 `instance`（无显式名字）：Lean 会生成不可从源码预测的内部名，因此无法用源码全名
 # 执行 `#print axioms`；它们只能靠"使用它们的定理"间接覆盖。此模式用于显式披露，不用于匹配。

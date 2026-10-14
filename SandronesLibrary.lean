@@ -384,6 +384,13 @@ import SandronesLibrary.Examples.GaussStokes
 import SandronesLibrary.Examples.MeasureDerivative
 import SandronesLibrary.Examples.CentralLimit
 import SandronesLibrary.Examples.TopologySpaces
+import SandronesLibrary.Examples.SetTheory.SetOperations
+import SandronesLibrary.Examples.SetTheory.Functions
+import SandronesLibrary.Examples.SetTheory.Quotients
+import SandronesLibrary.Examples.SetTheory.Countability
+import SandronesLibrary.Examples.SetTheory.CardinalArithmetic
+import SandronesLibrary.Examples.SetTheory.Ordinals
+import SandronesLibrary.Examples.SetTheory.OrdinalArithmetic
 import SandronesLibrary.CommutativeAlgebra.Module.Definition
 import SandronesLibrary.CommutativeAlgebra.Module.Generated
 import SandronesLibrary.CommutativeAlgebra.Module.Quotient
