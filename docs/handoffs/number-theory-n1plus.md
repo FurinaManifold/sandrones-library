@@ -144,8 +144,27 @@ traces/lean/number-theory: 7 个任务、60 条尝试
 ## 5. subject_package 原文
 
 ```
-（见下方粘贴；命令：python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-library-nt-n1plus --base bc8d4fe --subject number-theory）
+$ python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-library-nt-n1plus --base bc8d4fe --subject number-theory
+学科验收包 number-theory  (codex/number-theory-elementary-plus @ 09a85b997)
+  基线 bc8d4fe｜提交 3｜改动文件 23
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 87 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+
+  verdict: pass
+EXIT=0
 ```
+
+五组门全绿、两条软门全绿，异常清单为空。上面的 `@ 09a85b997` 是本段文字写入前的 HEAD；
+本段之后只追加了 §5/§8 的 handoff 文字，未改动任何 Lean 源码、Entry 叙述层或 trace，
+最终 HEAD 上重跑该命令的结论与上面逐行一致（五组门 + 两条软门均 ✅、`verdict: pass`、退出码 0）。
+
+> 注：软门那行「87 条」是**全仓库** `traces/lean/` 的记录数（本窗 number-theory 60 条 + 其它窗口既有的 27 条），
+> 不是本批的条数；本批的真实条数以 §4.2 的 `lean_trace.py summary` 为准（60 条）。见 §8 第 7 条。
 
 ## 6. 子 Agent 与负责人审核发现
 
@@ -223,6 +242,13 @@ traces/lean/number-theory: 7 个任务、60 条尝试
    公理经公开定理传递，行为符合预期；但 `map_entry_to_decl` 的"最近前置 marker"规则会让**未标 marker 的声明**
    继承更早 Entry——`Pell.lean` 里 `IsFundamentalPellSolution` 因此被算进 `pell-positive-existence`
    （其叙述层却在 `pell-fundamental-solution.md`）。Main 已确认由 Main 侧修 marker。
+7. **`subject_package` 的 `traces` 软门统计口径是全仓库、不是本批**：本窗输出「本批含 87 条验证尝试记录」，
+   而本批真实是 60 条（number-theory 目录 7 文件），差的 27 条是同 worktree 里其它窗口既有的
+   `traces/lean/commutative-algebra/` 记录。建议改为按 `--base` 的 diff 过滤（否则一个批次完全没留痕时，
+   只要仓库别处有记录就会被算成 ✅，软门失去提示作用）。
+8. **`traces/packs/` 里同目录混着其它窗口的历史 pack**（本 worktree 共 9 个，本批 7 个）。
+   `check` 能通过，但 handoff 与包无法自动区分"本批 pack"。建议 pack 增加 `dispatch.batch` 已在，
+   包侧按 batch 过滤即可。
 
 ## 附：共享文件更新建议（只建议，不改）
 
