@@ -7,12 +7,20 @@ import SandronesLibrary.Analysis.GreenGaussStokes
 import Mathlib.Analysis.SpecialFunctions.Integrals.Basic
 
 /-!
-# Gauss 与 Stokes 公式例题
+# Examples / Gauss 与 Stokes 公式：单位立方体与水平单位正方形
 
-本文件给出两个标准教材计算。Gauss 例题在单位立方体上取位置向量场，散度恒为 `3`；
+本 Entry 服务理论条目 `analysis.multivariable.green-gauss-stokes`（Green、Gauss 与 Stokes
+公式）。本文件给出两个标准教材计算。Gauss 例题在单位立方体上取位置向量场，散度恒为 `3`；
 Stokes 例题在水平单位正方形上取 1-形式 `x dy`，其拉回为 `u dv`，外微分密度恒为
 `1`。两个证明分别调用理论层的 `gauss_box3` 和 `stokes_parametrized_rectangle`，
 同时完成最终积分数值的计算。
+
+本文件还给出**定向反例**：Gauss 公式的六面通量用的是外向法向，改成内向法向后整体变号
+（`gauss_inward_ne_outward`）；Stokes 公式的曲面方向由切向量次序 `(∂ᵤσ,∂ᵥσ)` 决定，
+交换两个切向量后同一 1-形式的边界环流变成 `-1`（`stokes_horizontalUnitSquareRev_xDy`）。
+两处的定向约定都不是可以省略的装饰。
+
+> **Entry**: examples.analysis.gauss-stokes
 -/
 
 noncomputable section
@@ -105,5 +113,54 @@ theorem stokes_horizontalUnitSquare_xDy :
       exact integrableOn_const ((isCompact_Icc.prod isCompact_Icc).measure_lt_top.ne))
   rw [hstokes]
   simp [P', Q']
+
+/-! ## 定向：外向法向与切向量次序的反例 -/
+
+/-- 单位立方体的**内向**通量：与 `boxBoundaryFlux3` 同一组六个面，但每个面的法向取反。 -/
+def boxBoundaryFlux3Inward (F : (Fin 3 → ℝ) → (Fin 3 → ℝ)) (a b : Fin 3 → ℝ) : ℝ :=
+  ∑ i : Fin 3,
+    ((∫ y in Icc (a ∘ i.succAbove) (b ∘ i.succAbove), F (i.insertNth (a i) y) i) -
+      ∫ y in Icc (a ∘ i.succAbove) (b ∘ i.succAbove), F (i.insertNth (b i) y) i)
+
+/-- **内向通量只改符号**：六个面逐面取反，总和取反。 -/
+theorem boxBoundaryFlux3Inward_eq_neg (F : (Fin 3 → ℝ) → (Fin 3 → ℝ))
+    (a b : Fin 3 → ℝ) :
+    boxBoundaryFlux3Inward F a b = -boxBoundaryFlux3 F a b := by
+  rw [boxBoundaryFlux3Inward, boxBoundaryFlux3, ← Finset.sum_neg_distrib]
+  apply Finset.sum_congr rfl
+  intro i _
+  ring
+
+/-- **定向反例（Gauss）**：单位立方体上位置向量场的外向通量为 `3`，内向通量为 `-3`，
+两者不等。这反驳「通量与法向定向无关」这一误认：`gauss_box3` 的右端散度积分不随定向
+改变，故内向约定下公式必然差一个符号。 -/
+theorem gauss_inward_ne_outward :
+    boxBoundaryFlux3Inward (fun x : Fin 3 → ℝ ↦ x) unitCubeLower unitCubeUpper ≠
+      boxBoundaryFlux3 (fun x : Fin 3 → ℝ ↦ x) unitCubeLower unitCubeUpper := by
+  rw [boxBoundaryFlux3Inward_eq_neg, gauss_unitCube_identity]
+  norm_num
+
+/-- 把水平单位正方形的两个切向量次序交换，得到反向定向的参数化 `σ(u,v)=(v,u,0)`。 -/
+def horizontalUnitSquareRev : ParametrizedSurface 3 :=
+  affinePlane 0 ![0, 1, 0] ![1, 0, 0]
+
+/-- **定向反例（Stokes）**：在反向参数化 `σ(u,v)=(v,u,0)` 下，同一 1-形式 `x dy`
+的拉回变成 `v du`，其外微分密度为 `-1`，于是边界环流为 `-1`，而原参数化下为 `1`。
+这反驳「Stokes 公式的环流与曲面定向无关」这一误认：切向量次序 `(∂ᵤσ,∂ᵥσ)` 决定曲面
+方向，交换次序恰好改变符号。 -/
+theorem stokes_horizontalUnitSquareRev_xDy :
+    rectangleBoundaryIntegral
+      (surfacePullbackCoeff₁ xDyForm horizontalUnitSquareRev)
+      (surfacePullbackCoeff₂ xDyForm horizontalUnitSquareRev) 0 0 1 1 = -1 := by
+  have hP : surfacePullbackCoeff₁ xDyForm horizontalUnitSquareRev = fun z ↦ z.2 := by
+    funext z
+    simp [surfacePullbackCoeff₁, xDyForm, horizontalUnitSquareRev, affinePlane,
+      surfaceTangent₁_affinePlane]
+  have hQ : surfacePullbackCoeff₂ xDyForm horizontalUnitSquareRev = fun _ ↦ 0 := by
+    funext z
+    simp [surfacePullbackCoeff₂, xDyForm, horizontalUnitSquareRev, affinePlane,
+      surfaceTangent₂_affinePlane]
+  rw [hP, hQ, rectangleBoundaryIntegral]
+  norm_num
 
 end SandronesLibrary.Examples.GaussStokes
