@@ -364,8 +364,10 @@ lake env lean /tmp/sandrones-library/e1_aggregate.lean | grep -A3 "depends on ax
 ### 12.4 注册后按 AGENTS §6 重建
 
 `extract_registry_references` → `update_dependency_graph` → `gen_entries_index` →
-`gen_entry_rankings` → `check_axioms.py --all --fix` → `check_axioms.py --all` → `audit.py` →
-`git diff --check` → 全库 `lake build`。
+`gen_entry_rankings` → **`lake build`（本批引入 7 个新模块，必须先产出 `.olean`，否则
+`check_axioms.py` 的 `#print axioms` 探针报 `object file ... does not exist` 并拒绝写 Registry）**
+→ `check_axioms.py --all --fix` → `check_axioms.py --all` → `audit.py` → `git diff --check` →
+全库 `lake build`。
 
 ### 12.5 共享工具建议（`scripts/**` 属 Main）
 
@@ -379,9 +381,106 @@ lake env lean /tmp/sandrones-library/e1_aggregate.lean | grep -A3 "depends on ax
   `Ordinal.opow_two` 不存在）——建议在 pack 里显式写「提示名需自证」。
 - **`pack.target.lean_file`** 用全路径 `SandronesLibrary/Examples/...`，而 `registry.lean_file`
   惯例相对 `SandronesLibrary/`；建议 pack 增 `registry_lean_file` 或注明换算。
+- **`subject_package.py --out` 与所有权表冲突**：AGENTS §7.7 与
+  `docs/SUBJECT-PACKAGE-PROTOCOL.md` §3 的命令示例都写
+  `--out docs/subject-packages/<subject>-<batch>.json`，但 AGENTS §3 与脚本自身的
+  `MAIN_SHARED` 都把 `docs/subject-packages/` 判为 Main 共享——学科一旦提交该文件，
+  ownership 门就会报 `main_shared_touched`。建议二选一：把 `--out` 默认改到学科可写路径
+  （如 `traces/packages/`），或在协议里写明「该文件由 Main 落盘，学科只把原文抄进 handoff」。
+  本窗按后者处置（见 §13）。
 
 ## 13. 学科包原文（提交后运行）
 
-见下方「§13 附录」——若本 handoff 中该节为空，则以 Main 复跑为准；本窗在提交后运行
-`python3 scripts/subject_package.py --worktree /home/pisquare/czt/sandrones-library-examples-e1 --base bc8d4feb59f639aa440d7719466297d918e9dd28 --subject examples`
-并把 `traces`／`packs` 两行与异常清单原文抄进该附录（记录该次运行对应的 head）。
+**运行命令**（`head` = `a6c81d1f4`，即本批交付提交；`exceptions = []`）：
+
+```bash
+python3 scripts/subject_package.py \
+  --worktree /home/pisquare/czt/sandrones-library-examples-e1 \
+  --base bc8d4feb59f639aa440d7719466297d918e9dd28 --subject examples
+```
+
+```text
+学科验收包 examples  (codex/examples-e1 @ a6c81d1f4)
+  基线 bc8d4feb59f639aa440d7719466297d918e9dd28｜提交 1｜改动文件 55
+  ✅ cleanliness
+  ✅ ownership
+  ✅ semantics
+  ✅ proof
+  ✅ coverage
+  ✅ traces（软门）：本批含 92 条验证尝试记录
+  ✅ packs（软门）：pack 与 trace 的 pack_id 已配对，trace.path 指针正确
+
+  verdict: pass
+```
+
+**`traces` 行原文**（JSON 块，节选到本批文件）：
+
+```json
+{"status": "present", "records": 92,
+ "files": ["traces/lean/examples/examples.analysis.coordinate-integrals.jsonl",
+           "traces/lean/examples/examples.analysis.gauss-stokes.jsonl",
+           "traces/lean/examples/examples.analysis.green-regions.jsonl",
+           "traces/lean/examples/examples.analysis.spherical-moments.jsonl",
+           "traces/lean/examples/examples.settheory.cardinal-arithmetic-worker-c.jsonl",
+           "traces/lean/examples/examples.settheory.countability-worker-b.jsonl",
+           "traces/lean/examples/examples.settheory.countability.jsonl",
+           "traces/lean/examples/examples.settheory.functions-worker-a.jsonl",
+           "traces/lean/examples/examples.settheory.functions.jsonl",
+           "traces/lean/examples/examples.settheory.ordinal-arithmetic-worker-c.jsonl",
+           "traces/lean/examples/examples.settheory.ordinals-worker-c.jsonl",
+           "traces/lean/examples/examples.settheory.quotients-worker-b.jsonl",
+           "traces/lean/examples/examples.settheory.quotients.jsonl",
+           "traces/lean/examples/examples.settheory.set-operations-worker-a.jsonl",
+           "traces/lean/examples/examples.settheory.set-operations.jsonl"],
+ "lean_files_changed": [11 个 Examples 模块], "invalid": []}
+```
+
+（`records = 92` 是 `traces/lean/` 全树计数，含基线自带的 CA1 两条 jsonl 的 27 条；
+本批新增 15 个文件共 65 条，见 §8 表。）
+
+**`packs` 行原文**（JSON 块，节选）：
+
+```json
+{"files": ["traces/packs/examples-E0-examples.analysis.coordinate-integrals.json",
+           "traces/packs/examples-E0-examples.analysis.gauss-stokes.json",
+           "traces/packs/examples-E0-examples.analysis.green-regions.json",
+           "traces/packs/examples-E0-examples.analysis.spherical-moments.json",
+           "traces/packs/examples-E1-examples.settheory.cardinal-arithmetic-worker-c.json",
+           "traces/packs/examples-E1-examples.settheory.countability-worker-b.json",
+           "traces/packs/examples-E1-examples.settheory.countability.json",
+           "traces/packs/examples-E1-examples.settheory.functions-worker-a.json",
+           "traces/packs/examples-E1-examples.settheory.functions.json",
+           "traces/packs/examples-E1-examples.settheory.ordinal-arithmetic-worker-c.json",
+           "traces/packs/examples-E1-examples.settheory.ordinals-worker-c.json",
+           "traces/packs/examples-E1-examples.settheory.quotients-worker-b.json",
+           "traces/packs/examples-E1-examples.settheory.quotients.json",
+           "traces/packs/examples-E1-examples.settheory.set-operations-worker-a.json",
+           "traces/packs/examples-E1-examples.settheory.set-operations.json",
+           "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.json",
+           "traces/packs/commutative-algebra-CA1-commutative-algebra.module.definition.verify.json"],
+ "pack_ids": [15 个 examples pack + 2 个基线 CA1 pack],
+ "duplicate_pack_ids": [], "missing_for_referenced": [], "trace_path_mismatch": [],
+ "unreferenced_packs": [], "invalid": [],
+ "note": "pack 与 trace 的 pack_id 已配对，trace.path 指针正确"}
+```
+
+**`coverage` 门逐 Entry 声明数**（全部 `in_registry: false`，等 Main 登记）：
+
+| Entry | 声明数 | | Entry | 声明数 |
+|---|---|---|---|---|
+| `examples.settheory.set-operations` | 43 | | `examples.settheory.ordinals` | 13 |
+| `examples.settheory.functions` | 53 | | `examples.settheory.ordinal-arithmetic` | 21 |
+| `examples.settheory.quotients` | 17 | | `examples.analysis.coordinate-integrals` | 4 |
+| `examples.settheory.countability` | 39 | | `examples.analysis.spherical-moments` | 11 |
+| `examples.settheory.cardinal-arithmetic` | 33 | | `examples.analysis.green-regions` | 17 |
+| | | | `examples.analysis.gauss-stokes` | 11 |
+
+**说明**：本 handoff 的 §13 是在提交 `a6c81d1f4` 之后逐字写入的，因此该 `verdict: pass`
+对应交付提交 `a6c81d1f4`；§13 自身只改 `docs/handoffs/` 下的文档，不触碰五组门的任何输入
+（cleanliness／ownership／semantics／proof／coverage 均与交付提交一致），Main 可按新 head 复核。
+
+**未把包 JSON 写进 `docs/subject-packages/`**：AGENTS §7.7 的命令示例给出
+`--out docs/subject-packages/<subject>-<batch>.json`，但 §3 与 `subject_package.py` 的
+`MAIN_SHARED` 都把 `docs/subject-packages/` 列为 Main 共享（提交该文件会让 ownership 门报
+`main_shared_touched`）。本窗的处置是**不提交**包 JSON，把 `traces`／`packs` 两行原文抄进本节；
+这条口径冲突已写入 §12.5 的协议反馈。
