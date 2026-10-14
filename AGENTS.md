@@ -5,16 +5,23 @@
 
 ## 1. 仓库快照与事实源
 
-当前 Main 验收快照（`d3b492f`，2026-10-13）：622 个 verified Entry、782 条直接依赖边、
-73 条合规 BibTeX 出版来源、620 个正式参排条目；主工作树完整 `lake build` 以 9083 jobs
-通过，仅重放既有 linter warnings。本快照覆盖 Wave R1 的七个数理批次（数论 N2.1–N2.3、
-复分析 cycle 载体、集合论 ST3 纵深两条、统计 S1 最大似然、计算例首批 `examples.*`、
-泛函 F6.7、分析 AN-MV 的 #1/#4/#5）、拓扑 AT2-C5e 的 research 文档接收，以及交换代数
-课程线首条 `commutative-algebra.module.definition`（CA1 定义层；同时是「派工上下文包 +
-Lean 验证轨迹语料」协议的首次实跑，产出 27 条 trace）；发布回执见
-`docs/releases/release-receipt-2026-10-13T090539Z.json`（六批次）、
-`docs/releases/release-receipt-2026-10-13T091749Z.json`（AN-MV）与
-`docs/releases/release-receipt-2026-10-13T112349Z.json`（CA1）。
+当前 Main 验收快照（`8d52e5c`，2026-10-14）：638 个 verified Entry、820 条直接依赖边、
+73 条合规 BibTeX 出版来源、636 个正式参排条目；主工作树完整 `lake build` 以 9099 jobs
+通过，仅重放既有 linter warnings。本快照在 `d3b492f`（Wave R1 七批次 + CA1 定义层）之上，
+覆盖 Wave E 的六个交付批次与三个 research 窗口：
+- 复分析 C2 收口 `complex-analysis.cauchy.homotopy`（C2 判 ✅，并登记 C3 开门前置
+  `complex-analysis.cauchy.homology`）；
+- 交换代数 CA1b2 `commutative-algebra.module.{generated,quotient,direct-sum,isomorphism-theorems}`；
+- 实分析 RA-F3/RA-F5 `real-analysis.{covering-lemma,maximal-function,monotone-function,`
+  `bounded-variation,absolute-continuity-function}`（弱型常数 4 与 a.e. 边界已披露）；
+- 数论 N1+ `number-theory.elementary.{convergent-best,sqrt-periodic-cf,pell-cf-bridge,`
+  `pell-all-positive}`（第 5 项负 Pell 仍单列未做）；
+- 统计 S1 收口 `statistics.{method-of-moments,information.cramer-rao}`；
+- research 窗口文档接收：复分析 homology 缺口、泛函 F6.6b2 签名冻结、拓扑 AT2-C5e
+  无占位原型（已裁决可转 `development_open`）。
+发布回执见 `docs/releases/release-receipt-2026-10-13T090539Z.json`、`…T091749Z.json`、
+`…T112349Z.json`（Wave R1 与 CA1）与 `docs/releases/release-receipt-2026-10-14T041800Z.json`
+（复分析 C2close）。
 
 这些数字是快照，不是开工依据。每次接手必须现场检查：
 
