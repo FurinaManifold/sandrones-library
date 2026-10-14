@@ -39,6 +39,7 @@ SCHEMA = "sandrones-context-pack/1"
 TRACE_SCHEMA = "sandrones-lean-attempt/1"
 REGISTRY = ROOT / "index" / "registry.json"
 PLAYBOOK = ROOT / "docs" / "LEAN-PLAYBOOK.md"
+ROADMAP = ROOT / "docs" / "ROADMAP-LONGTERM.md"
 
 # ── 所有权表：AGENTS.md §3 是唯一事实源，此处只是它的机器可读投影。
 #    改 AGENTS §3 时必须同步本表；`check` 子命令会比对 AGENTS 文本里是否仍出现这些路径。
@@ -130,6 +131,41 @@ def sha256_text(s: str) -> str:
 
 def sha256_file(p: Path) -> str:
     return sha256_text(p.read_text(encoding="utf-8")) if p.exists() else ""
+
+
+def pack_sha(pack: dict) -> str:
+    """`pack_sha256` 的**唯一**计算口径：除 `generated_at` 外，还**自排除 `pack_sha256` 本身**。
+
+    自排除是必须的（否则哈希不能写回自己的字段），但很容易被漏掉——CA1 试点里一次手工
+    重算就按"只排除 generated_at"算错了一个 pack。所以本函数是唯一入口，`build` 与
+    `check` 都调它，任何人不得在别处重写这段逻辑。
+    """
+    body = {k: v for k, v in pack.items() if k not in ("generated_at", "pack_sha256")}
+    return sha256_text(json.dumps(body, ensure_ascii=False, sort_keys=True))
+
+
+def scope_siblings(entry_id: str) -> list[dict]:
+    """从 ROADMAP 批次表推出**同族兄弟条目**：它们就是本批明确不做的部分。
+
+    pack 原来只能表达"目标文件里哪些声明被冻结"（`frozen.declarations`），表达不了
+    "本批只做哪一条、同族哪些条目冻结"——CA1 试点里这个边界只能靠负责人手写进派工提示词，
+    换个负责人就会漂。批次表本来就是权威源，这里按 family 前缀（Entry id 去掉最后一段）
+    匹配，把兄弟条目连同其 ROADMAP 内容一起放进 `scope.out_of_scope`。
+    """
+    if not ROADMAP.exists():
+        return []
+    family = entry_id.rsplit(".", 1)[0] + "."
+    out: list[dict] = []
+    row = re.compile(r"^\|\s*([A-Za-z0-9.]+)\s*\|\s*`([^`]+)`\s*\|\s*([^|]*?)\s*\|")
+    for line in ROADMAP.read_text(encoding="utf-8").splitlines():
+        m = row.match(line)
+        if not m:
+            continue
+        batch, eid, content = m.group(1), m.group(2), m.group(3).strip()
+        if eid == entry_id or not eid.startswith(family):
+            continue
+        out.append({"entry_id": eid, "batch": batch, "roadmap_content": content})
+    return out
 
 
 def load_registry() -> dict[str, dict]:
@@ -352,6 +388,13 @@ def build(args: argparse.Namespace) -> dict:
             "may_not_change": [d["name"] for d in frozen_decls],
             "rule": "签名先冻结再填证明（AGENTS §5 sorry 框架法）；改签名必须升级。",
         },
+        "scope": {
+            "in_scope": [args.entry],
+            "out_of_scope": scope_siblings(args.entry),
+            "source": "docs/ROADMAP-LONGTERM.md 批次表（按 family 前缀匹配）",
+            "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，"
+                    "也不得改动它们的文件；越界即升级。",
+        },
         "prerequisites": {
             "closure_depth": args.depth,
             "entries": premises_closure(registry, entry.get("premises", []), args.depth),
@@ -369,9 +412,7 @@ def build(args: argparse.Namespace) -> dict:
             "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。",
         },
     }
-    pack["pack_sha256"] = sha256_text(json.dumps(
-        {k: v for k, v in pack.items() if k != "generated_at"},
-        ensure_ascii=False, sort_keys=True))
+    pack["pack_sha256"] = pack_sha(pack)
     return pack
 
 
@@ -428,12 +469,23 @@ def cmd_check(args: argparse.Namespace) -> int:
             continue
         if pack.get("schema") != SCHEMA:
             errs.append(f"{p}: schema 必须是 {SCHEMA}")
-        for k in ("pack_id", "task", "ownership", "frozen", "prerequisites",
+        for k in ("pack_id", "task", "ownership", "frozen", "scope", "prerequisites",
                   "playbook", "budget", "trace", "pack_sha256"):
             if k not in pack:
                 errs.append(f"{p}: 缺 `{k}`")
         if not pack.get("task", {}).get("goal_nl", "").strip():
             errs.append(f"{p}: task.goal_nl 不能为空（唯一必须手写的字段）")
+        # 哈希必须真校验：此前只检查字段存在，导致一个按错误口径重算的 pack 混了过去。
+        if "pack_sha256" in pack:
+            want = pack_sha(pack)
+            if pack["pack_sha256"] != want:
+                errs.append(
+                    f"{p}: pack_sha256 不匹配（存储 {pack['pack_sha256'][:16]}…，"
+                    f"按口径应为 {want[:16]}…）。注意口径是「除 generated_at 外、"
+                    "并自排除 pack_sha256」；不要手写重算，用 scripts/context_pack.py 的 pack_sha()")
+        sc = pack.get("scope", {})
+        if "scope" in pack and not sc.get("in_scope"):
+            errs.append(f"{p}: scope.in_scope 不能为空")
         tr = pack.get("trace", {})
         if tr.get("schema") != TRACE_SCHEMA:
             errs.append(f"{p}: trace.schema 必须是 {TRACE_SCHEMA}")

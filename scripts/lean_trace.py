@@ -143,12 +143,24 @@ def cmd_check(args: argparse.Namespace) -> int:
             print(f"[ERR] {e}", file=sys.stderr)
             bad += 1
             continue
+        seen_attempts: dict[int, int] = {}
         for i, rec in enumerate(recs, 1):
             total += 1
             errs = validate(rec, f"{f}:{i}")
             for e in errs:
                 print(f"[ERR] {e}", file=sys.stderr)
             bad += len(errs)
+            a = rec.get("attempt")
+            if isinstance(a, int):
+                seen_attempts[a] = seen_attempts.get(a, 0) + 1
+        # attempt 序号必须唯一：并发 append 同一文件时两个 Agent 会各自从 1 开始编号，
+        # 序号竞争会让轨迹的先后关系失真（CA1 试点实测：两个 worker 只能分文件写）。
+        for a, n in sorted(seen_attempts.items()):
+            if n > 1:
+                print(f"[ERR] {f}: attempt={a} 出现 {n} 次——同一文件的 attempt 序号必须唯一；"
+                      "多 worker 并发写同一 jsonl 会竞争序号，请按 Playbook §9.4 用 `--worker` "
+                      "让每个 worker 写自己的 trace 文件", file=sys.stderr)
+                bad += 1
     print(f"检查 {len(files)} 个文件、{total} 条记录：{'通过' if bad == 0 else f'{bad} 个问题'}")
     return 0 if bad == 0 else 1
 

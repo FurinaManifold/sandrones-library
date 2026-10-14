@@ -1048,6 +1048,9 @@ mathlib 的证明文件是**最好的教材**。读法：
   （自动补 `schema`/`timestamp`/`attempt` 并校验字段），
   `python3 scripts/lean_trace.py check traces/lean/<subject>/`（校验全部记录），
   `python3 scripts/lean_trace.py summary --subject <subject>`（按 outcome 统计）。
+- `check` 还会查**同一文件内 `attempt` 序号是否唯一**。两个 worker 并发 append 同一个 jsonl 时
+  会各自从 1 开始编号，序号竞争让轨迹的先后关系失真——CA1 试点里 `ca1-verify` 因此另写了文件。
+  正确做法是 §9.4 的 `--worker`：每个 worker 有各自的 `trace.path`，不必也不应抢同一个文件。
 - 学科交付包（`scripts/subject_package.py`）会统计本批 trace：本批改动了 `SandronesLibrary/**/*.lean`
   却没有任何 trace 记录时，会在包中给出 `missing_lean_traces` **提示**（当前为软门，不单独否决策包）。
 - handoff（AGENTS §7 第 6 条）必须写明本批 trace 的路径与记录数；没有试错过程的批次要显式写
@@ -1099,12 +1102,16 @@ mathlib 的证明文件是**最好的教材**。读法：
 | `frozen.declarations` / `may_not_change` | 原型文件里的 `sorry` 声明（§0 sorry 框架法的落地点）；改签名即升级 |
 | `playbook.sections` | 目标形状关键词 → 锚点 + 行号（**指回去读，不复制正文**） |
 | `budget.max_attempts_per_goal` / `escalate_when` | §0 的五次试错硬规则 + 升级条件 |
+| `scope.in_scope` / `out_of_scope` | ROADMAP 批次表按 family 前缀匹配的同族条目。**`out_of_scope` 就是本批明确不做的那部分**——派工边界不再靠提示词手写 |
 | `pack_id` | `<学科>-<批次>-<Entry id>`；加了 `--worker` 则追加 `-<worker>`。**是 join key，必须唯一** |
 | `task.worker` | `--worker` 的短标签（同一 Entry 派多个子 Agent 时用来区分，见 §9.4） |
 | `trace.path` / `trace.schema` | §8；路径同样带 `-<worker>` 后缀，保证与 `pack_id` 一一对应 |
 
-包里存的是**路径、id、行号与哈希**，不复制权威源内容（`AGENTS.md` §6 的派生文件纪律）；
-`pack_sha256` 覆盖除 `generated_at` 外的全部字段，保证同一任务反复生成字节一致。
+包里存的是**路径、id、行号与哈希**，不复制权威源内容（`AGENTS.md` §6 的派生文件纪律）。
+`pack_sha256` 的口径是**除 `generated_at` 外、并自排除 `pack_sha256` 本身**——自排除是必须的
+（哈希不能覆盖自己），但很容易漏；CA1 试点里一次手工重算就按"只排除 `generated_at`"算错了一个 pack，
+而当时 `check` 只查字段存在、不校验值，所以没被发现。现在 `check` 会**真校验**，
+计算入口只有 `scripts/context_pack.py` 的 `pack_sha()` 一个，不要在别处重写这段逻辑。
 
 ### 9.4 命令
 

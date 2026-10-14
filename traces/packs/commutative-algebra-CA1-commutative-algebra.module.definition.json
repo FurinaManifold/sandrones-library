@@ -206,5 +206,67 @@
     "pack_id_field": "pack_id",
     "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
   },
-  "pack_sha256": "eb4adfd17d111d43c2fb4a0be172e48a2231aee838083ce12ae92138724718d2"
+  "pack_sha256": "f58eb5980b2dd9086085b5e83ce0c0a7314a9078299dd3a8265869dd58cd15ad",
+  "scope": {
+    "in_scope": [
+      "commutative-algebra.module.definition"
+    ],
+    "out_of_scope": [
+      {
+        "entry_id": "commutative-algebra.module.generated",
+        "batch": "CA1",
+        "roadmap_content": "子集生成子模及最小性"
+      },
+      {
+        "entry_id": "commutative-algebra.module.quotient",
+        "batch": "CA1",
+        "roadmap_content": "商模、自然投影与商映射泛性质"
+      },
+      {
+        "entry_id": "commutative-algebra.module.isomorphism-theorems",
+        "batch": "CA1",
+        "roadmap_content": "模的三大同构定理"
+      },
+      {
+        "entry_id": "commutative-algebra.module.direct-sum",
+        "batch": "CA1",
+        "roadmap_content": "内外直和及分解判据"
+      },
+      {
+        "entry_id": "commutative-algebra.module.finite-generation",
+        "batch": "CA2",
+        "roadmap_content": "有限生成模及生成元变换"
+      },
+      {
+        "entry_id": "commutative-algebra.module.free",
+        "batch": "CA2",
+        "roadmap_content": "自由模、基与秩"
+      },
+      {
+        "entry_id": "commutative-algebra.module.exact-sequence",
+        "batch": "CA2",
+        "roadmap_content": "模同态序列、正合性、分裂正合"
+      },
+      {
+        "entry_id": "commutative-algebra.module.projective",
+        "batch": "CA2",
+        "roadmap_content": "投射模及提升性质"
+      },
+      {
+        "entry_id": "commutative-algebra.module.injective",
+        "batch": "CA2",
+        "roadmap_content": "内射模及延拓性质"
+      },
+      {
+        "entry_id": "commutative-algebra.module.flat",
+        "batch": "CA2",
+        "roadmap_content": "平坦模与张量保持单射"
+      }
+    ],
+    "source": "docs/ROADMAP-LONGTERM.md 批次表（按 family 前缀匹配）",
+    "note": "out_of_scope 是同族但**本批明确不做**的条目：不得顺手实现，也不得改动它们的文件；越界即升级。",
+    "backfilled_at": "2026-10-13T11:40:00Z",
+    "backfilled_by": "main-ca1-integration",
+    "backfill_reason": "本批派工时 pack 还无法表达批次冻结范围（试点协议反馈 #5），边界写在派工提示词里。此处按 ROADMAP 批次表确定性重建，内容与当时提示词一致；未改动 goal_nl／所有权／前提／预算。"
+  }
 }

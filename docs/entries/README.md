@@ -1,6 +1,6 @@
 # Entries 索引
 
-> 自动生成（2026-10-13）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
+> 自动生成（2026-10-14）— 请勿手改；改动 registry 后重跑 `python3 scripts/gen_entries_index.py`。
 
 > 叙述层按**家族**（entry-id 去掉最后一段）存放在 `docs/entries/<family>/…`。
 > 权威数据在 `index/registry.json`。
