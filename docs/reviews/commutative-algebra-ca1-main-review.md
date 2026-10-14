@@ -57,11 +57,14 @@
 
 试点最有价值的产出是它把工具的缺陷打了出来。四项已修（提交随本次集成）：
 
-- **`--worker`（join key 消歧）。** 原来 `pack_id` 与 `trace.path` 都由 Entry 唯一决定，
+- **`--worker`（join key 消歧 + 指针一致）。** 原来 `pack_id` 与 `trace.path` 都由 Entry 唯一决定，
   一个 Entry 派两个子 Agent 时 join key 不唯一——按 `pack.trace.path` 收轨迹会**静默漏掉**
-  `ca1-verify` 全部 14 条。现在 `--worker` 给两者加同一后缀。
-- **重复 `pack_id` 检测。** `context_pack.py check` 直接报错；验收包新增 `duplicate_pack_ids`
-  并参与 packs 软门的标记判定。
+  `ca1-verify` 全部 14 条。现在 `--worker` 给两者加同一后缀。**历史 pack 的指针也修了**：
+  verify pack 的 `trace.path` 原本指向 lead 的 jsonl（其中 0 条属于它），已改为
+  `ca1-mathlib-role-probe.jsonl`，迁移记录写在 `join_key_migration.trace_path`。
+- **重复 `pack_id` 与错误 `trace.path` 的检测。** `context_pack.py check` 直接报错重复的
+  `pack_id`；验收包新增 `duplicate_pack_ids` 与 `trace_path_mismatch`，两者都参与 packs 软门
+  的标记判定（反向用例已验证能报错）。
 - **`--lean-file` 口径归一。** CLI 相对 `SandronesLibrary/`、包内 `target.lean_file` 相对仓库根，
   两套口径会让子 Agent 路径翻倍；现在两种写法都接受并归一。
 - **pack 表达不了批次冻结范围（反馈 #5，本批最后修掉的一条）。** 原来 `frozen` 只覆盖

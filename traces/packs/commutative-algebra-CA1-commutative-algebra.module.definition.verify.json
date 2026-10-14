@@ -188,19 +188,24 @@
     }
   },
   "trace": {
-    "path": "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl",
+    "path": "traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl",
     "schema": "sandrones-lean-attempt/1",
     "pack_id_field": "pack_id",
     "note": "每条 attempt 记录必须带同一个 pack_id，否则该轨迹无法与上下文配对。"
   },
-  "pack_sha256": "4774c8e6bc8c187cb979600fc82e918b749a9f340ba025500b1f8271077f53c6",
+  "pack_sha256": "d37d203e33a3d6680fa5ccf49954016f99c49897a8d7b11373c6a79ac40bcc3a",
   "join_key_migration": {
     "from": "commutative-algebra-CA1-commutative-algebra.module.definition",
     "to": "commutative-algebra-CA1-commutative-algebra.module.definition-verify",
     "at": "2026-10-13T11:45:00Z",
     "by": "main-ca1-integration",
     "reason": "CA1 试点同批两 pack 共用 pack_id，join key 不唯一（试点协议反馈 #1/#2）。本字段只消歧标识符，pack 的 goal_nl/所有权/前提/预算与 14 条 trace 的内容均未改动。",
-    "tool": "scripts/context_pack.py --worker（修复后新增）"
+    "tool": "scripts/context_pack.py --worker（修复后新增）",
+    "trace_path": {
+      "from": "traces/lean/commutative-algebra/commutative-algebra.module.definition.jsonl",
+      "to": "traces/lean/commutative-algebra/ca1-mathlib-role-probe.jsonl",
+      "reason": "原 trace.path 指向 lead 的 jsonl，其中没有任何一条属于本 pack——按 pack.trace.path 收轨迹会漏掉 ca1-verify 全部 14 条（试点协议反馈 #1）。修复后 --worker 会同时给 pack_id 与 trace.path 加后缀，二者天然一致。"
+    }
   },
   "scope": {
     "in_scope": [

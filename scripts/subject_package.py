@@ -266,6 +266,7 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
     ) if pack_root.exists() else []
     pack_ids: list[str] = []
     pack_bad: list[str] = []
+    packs_seen: list[tuple[str, dict]] = []
     for rel in pack_files:
         try:
             p = json.loads((wt / rel).read_text(encoding="utf-8"))
@@ -283,20 +284,40 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             pack_bad.append(f"{rel}: task.goal_nl 不能为空")
             continue
         pack_ids.append(pid)
+        packs_seen.append((rel, p))
     referenced_packs: set[str] = set()
+    per_file_ids: dict[str, set[str]] = {}
     for rel in trace_files:
+        per_file_ids.setdefault(rel, set())
         try:
             for line in (wt / rel).read_text(encoding="utf-8").splitlines():
                 if line.strip():
                     pid = json.loads(line).get("pack_id")
                     if pid:
                         referenced_packs.add(pid)
+                        per_file_ids[rel].add(pid)
         except Exception:  # noqa: BLE001 - 已在上面记入 invalid
             pass
     missing_packs = sorted(referenced_packs - set(pack_ids))
     # pack_id 是 (pack, trace) 的 join key：同批多 worker 必须用 --worker 区分，否则不唯一。
     dup_packs = sorted(
         pid for pid, n in collections.Counter(pack_ids).items() if n > 1)
+    # pack.trace.path 是消费方顺着找记录的指针：它必须指向真的装着本 pack 记录的文件。
+    # CA1 试点里 verify pack 的 trace.path 指向 lead 的 jsonl（其中 0 条属于它），
+    # 按指针收轨迹会静默漏掉 14 条——机械门当时不报，这里补上。
+    path_mismatch: list[str] = []
+    for rel, p in packs_seen:
+        pid = p["pack_id"]
+        tp = str(p.get("trace", {}).get("path", "")).strip()
+        if not tp:
+            path_mismatch.append(f"{rel}: trace.path 为空")
+            continue
+        if tp not in per_file_ids:
+            path_mismatch.append(f"{rel}: trace.path={tp} 在 trace 清单里不存在")
+        elif pid not in per_file_ids[tp]:
+            path_mismatch.append(
+                f"{rel}: trace.path={tp} 里没有任何带 pack_id={pid} 的记录"
+                f"（该文件实际含 {sorted(per_file_ids[tp]) or '无'}）")
 
     return {
         "schema": SCHEMA,
@@ -329,14 +350,17 @@ def build_package(wt: Path, base: str, subject: str) -> dict:
             "duplicate_pack_ids": dup_packs,
             "referenced_by_traces": sorted(referenced_packs),
             "missing_for_referenced": missing_packs,
+            "trace_path_mismatch": path_mismatch,
             "invalid": pack_bad,
             "note": (
                 "本批未生成派工上下文包（Playbook §9 软门；确无子 Agent 的批次请在 handoff 写明）"
                 if not pack_files and lean_changed else
                 ("pack_id 重复（join key 不唯一）：" + ", ".join(dup_packs)
                  if dup_packs else
-                 ("trace 引用的 pack_id 没有对应 pack 文件：" + ", ".join(missing_packs)
-                  if missing_packs else "pack 与 trace 的 pack_id 已配对"))
+                 ("pack.trace.path 与记录不符：" + "; ".join(path_mismatch)
+                  if path_mismatch else
+                  ("trace 引用的 pack_id 没有对应 pack 文件：" + ", ".join(missing_packs)
+                   if missing_packs else "pack 与 trace 的 pack_id 已配对，trace.path 指针正确")))
             ),
         },
         "exceptions": ex,
@@ -384,7 +408,8 @@ def main() -> None:
         print(f"  {tmark} traces（软门）：{tr.get('note', '')}")
         pk = pkg.get("packs", {})
         pmark = "✅" if (pk.get("pack_ids") and not pk.get("missing_for_referenced")
-                         and not pk.get("duplicate_pack_ids")) else (
+                         and not pk.get("duplicate_pack_ids")
+                         and not pk.get("trace_path_mismatch")) else (
             "❌" if pk.get("invalid") else "⚠️")
         print(f"  {pmark} packs（软门）：{pk.get('note', '')}")
         if pkg["exceptions"]:

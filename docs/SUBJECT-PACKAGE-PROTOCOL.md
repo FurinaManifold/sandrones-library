@@ -74,13 +74,20 @@ python3 scripts/subject_package.py \
 包内还有一块 **`packs`（派工上下文包，Playbook §9）**，同为**软门**：
 
 - `pack_ids`：本批提交到 `traces/packs/` 的 pack 清单；
+- `duplicate_pack_ids`：同一个 `pack_id` 出现在多个 pack 文件里。`pack_id` 是
+  `(pack, trace)` 的 join key，重复即不唯一——同一 Entry 派多个 worker 时必须用
+  `context_pack.py build --worker <短标签>` 让两者都带上后缀（Playbook §9.4）；
 - `referenced_by_traces`：trace 记录里实际引用的 `pack_id`；
 - `missing_for_referenced`：被引用却没有对应 pack 文件的 `pack_id`——这会打断
   `(观测, 动作, 反馈)` 样本的配对，Main 必须追问；
+- `trace_path_mismatch`：pack 的 `trace.path` 指针与实际记录不符（文件不存在，或该文件里
+  没有一条带本 pack `pack_id` 的记录）。消费方是顺着 `trace.path` 找记录的，指针错就会
+  **静默漏样本**——CA1 试点里 verify pack 的指针指向 lead 的 jsonl，会漏掉 14 条；
 - `invalid`：pack 不是合法 JSON、缺 `pack_id`、schema 不对或 `task.goal_nl` 为空。
 
 pack 由负责人用 `scripts/context_pack.py build` 生成（`task.goal_nl` 是唯一手写字段），
-是子 Agent 的开工输入；其每条 trace 记录必须带同一个 `pack_id`。
+是子 Agent 的开工输入；其每条 trace 记录必须带同一个 `pack_id`。`context_pack.py check`
+还会**真校验 `pack_sha256`**（口径：除 `generated_at` 外并自排除 `pack_sha256` 本身）。
 
 `verdict` 为 `pass` 时，Main 只需抽检异常清单之外的内容；`needs_changes` 时**只处理列出的异常**。
 退出码：`0`=pass，`1`=needs_changes。

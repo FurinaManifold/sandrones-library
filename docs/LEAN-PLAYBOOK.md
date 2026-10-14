@@ -1144,7 +1144,9 @@ python3 scripts/context_pack.py build --subject <学科> --batch <批次> --entr
 
 `--worker` 会把 `-<worker>` 追加到 `pack_id` 与 `trace.path` 之后，并把标签写进 `task.worker`。
 `check` 现在会**直接报错**重复的 `pack_id`，`subject_package.py` 也会在 `packs` 块给出
-`duplicate_pack_ids`。
+`duplicate_pack_ids` 与 `trace_path_mismatch`（后者指 pack 的 `trace.path` 指向的文件里
+没有任何带本 pack `pack_id` 的记录——消费方顺着指针收轨迹就会**静默漏样本**，
+CA1 试点实测漏掉 14 条）。
 
 `check` 校验必填字段，并比对 `AGENTS.md` §3 的所有权表是否漂移；
 `subject_package.py` 会核对 trace 里引用的 `pack_id` 是否有对应 pack 文件。
