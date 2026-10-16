@@ -1,0 +1,44 @@
+{
+  "window": "F06",
+  "subject": "number-theory",
+  "batch": "N2A-NegPell-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f06-number-theory",
+  "worktree": "/home/pisquare/czt/sandrones-library-f06-number-theory",
+  "slug": "f06-number-theory",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f06.md",
+  "entries": [
+    {
+      "id": "number-theory.algebraic.norm-trace",
+      "lean_file": "NumberTheory/Algebraic/NormTrace.lean",
+      "goal_nl": "按已接受 N2res Main 七项裁决交付范数与迹正式条目",
+      "premises": [
+        "number-theory.algebraic.number-field",
+        "number-theory.algebraic.ring-of-integers"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "number-theory.algebraic.discriminant",
+      "lean_file": "NumberTheory/Algebraic/Discriminant.lean",
+      "goal_nl": "按 N2res 冻结签名交付判别式与整基的课程解释和形式化",
+      "premises": [
+        "number-theory.algebraic.number-field",
+        "number-theory.algebraic.ring-of-integers"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "number-theory.elementary.negative-pell",
+      "lean_file": "NumberTheory/Elementary/NegativePell.lean",
+      "goal_nl": "单列负 Pell 的定义与可解性边界，严格区分已证判据与未证周期奇偶性",
+      "premises": [
+        "number-theory.elementary.sqrt-periodic-cf",
+        "number-theory.elementary.pell-all-positive"
+      ],
+      "mathlib": []
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "window": "F10",
+  "subject": "probability",
+  "batch": "Levy-existence-F",
+  "role": "subject-maintainer",
+  "permission": "research_open",
+  "branch": "codex/f10-probability",
+  "worktree": "/home/pisquare/czt/sandrones-library-f10-probability",
+  "slug": "f10-probability",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f10.md",
+  "entries": [
+    {
+      "id": "probability.characteristic-function.levy-continuity",
+      "lean_file": "Probability/LevyContinuity.lean",
+      "goal_nl": "为任意点态特征函数极限的测度存在性做只读影响审计、M1 RFC 和原型，闭合当前仅已知目标测度版本的缺口",
+      "premises": [],
+      "mathlib": []
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "window": "F01",
+  "subject": "analysis",
+  "batch": "ANMV-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f01-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-f01-analysis",
+  "slug": "f01-analysis",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f01.md",
+  "entries": [
+    {
+      "id": "analysis.forms.leibniz",
+      "lean_file": "Analysis/FormsLeibniz.lean",
+      "goal_nl": "交付欧氏微分形式外微分对楔积的分次 Leibniz 公式；先冻结下层接口并组装，不越界到流形",
+      "premises": [
+        "analysis.forms.coordinate-expression"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "analysis.forms.poincare",
+      "lean_file": "Analysis/FormsPoincare.lean",
+      "goal_nl": "研究并交付星形域上的 Poincare 引理；若证明链不足只交诚实的原型与缺口，不伪装完整定理",
+      "premises": [
+        "analysis.forms.coordinate-expression"
+      ],
+      "mathlib": []
+    }
+  ]
+}

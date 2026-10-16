@@ -1,0 +1,33 @@
+{
+  "window": "F03",
+  "subject": "real-analysis",
+  "batch": "RAF4-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f03-real-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-f03-real-analysis",
+  "slug": "f03-real-analysis",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f03.md",
+  "entries": [
+    {
+      "id": "real-analysis.lebesgue-point",
+      "lean_file": "RealAnalysis/LebesguePoint.lean",
+      "goal_nl": "交付局部平均与 Lebesgue 点定义、教材量词展开及真实使用者",
+      "premises": [
+        "real-analysis.maximal-function"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "real-analysis.lebesgue-differentiation",
+      "lean_file": "RealAnalysis/LebesgueDifferentiation.lean",
+      "goal_nl": "沿弱型估计、L1 逼近与坏集控制证明 Lebesgue 微分定理，不以最终强定理包装替代课程链",
+      "premises": [
+        "real-analysis.maximal-function",
+        "real-analysis.covering-lemma"
+      ],
+      "mathlib": []
+    }
+  ]
+}

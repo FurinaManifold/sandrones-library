@@ -1,0 +1,25 @@
+{
+  "window": "F04",
+  "subject": "complex-analysis",
+  "batch": "Homology-F",
+  "role": "subject-maintainer",
+  "permission": "research_open",
+  "branch": "codex/f04-complex-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-f04-complex-analysis",
+  "slug": "f04-complex-analysis",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f04.md",
+  "entries": [
+    {
+      "id": "complex-analysis.cauchy.homology",
+      "lean_file": "ComplexAnalysis/CauchyHomology.lean",
+      "goal_nl": "为同调形式 Cauchy 定理冻结可组装公开签名，探索完整证明并交付原型和诚实边界",
+      "premises": [
+        "complex-analysis.integral.finite-cycle-foundation",
+        "complex-analysis.integral.winding-number-foundation",
+        "complex-analysis.cauchy.homotopy"
+      ],
+      "mathlib": []
+    }
+  ]
+}

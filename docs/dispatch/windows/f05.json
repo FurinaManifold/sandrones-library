@@ -1,0 +1,25 @@
+{
+  "window": "F05",
+  "subject": "functional-analysis",
+  "batch": "F66b2-F",
+  "role": "subject-maintainer",
+  "permission": "research_open",
+  "branch": "codex/f05-functional-analysis",
+  "worktree": "/home/pisquare/czt/sandrones-library-f05-functional-analysis",
+  "slug": "f05-functional-analysis",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f05.md",
+  "entries": [
+    {
+      "id": "functional-analysis.functional-calculus.holomorphic",
+      "lean_file": "FunctionalAnalysis/FunctionalCalculusHolomorphic.lean",
+      "goal_nl": "在既有 F66b2 签名冻结研究上推进 Dunford 积分的组装、单位与代数性质原型，记录对同调 Cauchy 的真实依赖",
+      "premises": [
+        "functional-analysis.functional-calculus.holomorphic-neighborhood",
+        "functional-analysis.functional-calculus.resolvent-integrand",
+        "complex-analysis.integral.finite-cycle-foundation"
+      ],
+      "mathlib": []
+    }
+  ]
+}

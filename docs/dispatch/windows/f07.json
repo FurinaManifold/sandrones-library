@@ -1,0 +1,32 @@
+{
+  "window": "F07",
+  "subject": "settheory",
+  "batch": "ST3next-F",
+  "role": "subject-maintainer",
+  "permission": "research_open",
+  "branch": "codex/f07-settheory",
+  "worktree": "/home/pisquare/czt/sandrones-library-f07-settheory",
+  "slug": "f07-settheory",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f07.md",
+  "entries": [
+    {
+      "id": "settheory.googology.hydra-termination",
+      "lean_file": "SetTheory/GoogologyHydraTermination.lean",
+      "goal_nl": "基于已经集成的一般 Hydra 单步下降构造无条件终止原型与精确强度边界",
+      "premises": [
+        "settheory.googology.hydra-general-descent"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "settheory.computability.diagonal-flip-instance",
+      "lean_file": "SetTheory/ComputabilityDiagonalFlipInstance.lean",
+      "goal_nl": "研究当前 NatProgram 的翻转编译闭包并冻结签名，区分元层 runner 与可计算的程序编译器",
+      "premises": [
+        "settheory.computability.universal-machine-instance"
+      ],
+      "mathlib": []
+    }
+  ]
+}

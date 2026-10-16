@@ -1,0 +1,42 @@
+{
+  "window": "F08",
+  "subject": "commutative-algebra",
+  "batch": "CA2base-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f08-commutative-algebra",
+  "worktree": "/home/pisquare/czt/sandrones-library-f08-commutative-algebra",
+  "slug": "f08-commutative-algebra",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f08.md",
+  "entries": [
+    {
+      "id": "commutative-algebra.module.finite-generation",
+      "lean_file": "CommutativeAlgebra/ModuleFiniteGeneration.lean",
+      "goal_nl": "交付有限生成模与生成元变换的教材定义链",
+      "premises": [
+        "commutative-algebra.module.generated"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "commutative-algebra.module.free",
+      "lean_file": "CommutativeAlgebra/ModuleFree.lean",
+      "goal_nl": "交付自由模、基与秩的教材承载、刻画与消费者",
+      "premises": [
+        "commutative-algebra.module.definition"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "commutative-algebra.module.exact-sequence",
+      "lean_file": "CommutativeAlgebra/ModuleExactSequence.lean",
+      "goal_nl": "交付模同态正合与分裂正合的定义、刻画和组装定理",
+      "premises": [
+        "commutative-algebra.module.definition",
+        "commutative-algebra.module.quotient"
+      ],
+      "mathlib": []
+    }
+  ]
+}

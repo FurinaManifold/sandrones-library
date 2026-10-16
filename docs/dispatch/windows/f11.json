@@ -1,0 +1,34 @@
+{
+  "window": "F11",
+  "subject": "statistics",
+  "batch": "S2entry-F",
+  "role": "subject-maintainer",
+  "permission": "research_open",
+  "branch": "codex/f11-statistics",
+  "worktree": "/home/pisquare/czt/sandrones-library-f11-statistics",
+  "slug": "f11-statistics",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f11.md",
+  "entries": [
+    {
+      "id": "statistics.testing.definition",
+      "lean_file": "Statistics/TestingDefinition.lean",
+      "goal_nl": "冻结一般统计检验、两类错误、功效的可测决策接口并交付无占位原型",
+      "premises": [
+        "statistics.model.definition",
+        "statistics.model.density"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "statistics.testing.neyman-pearson",
+      "lean_file": "Statistics/NeymanPearson.lean",
+      "goal_nl": "研究 Neyman-Pearson 引理的随机化检验阈值与边界情形，冻结签名及证明义务",
+      "premises": [
+        "statistics.model.definition",
+        "statistics.model.density"
+      ],
+      "mathlib": []
+    }
+  ]
+}

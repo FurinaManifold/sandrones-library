@@ -618,6 +618,34 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 
 ---
 
+### 1.3 Wave F：DSH 嵌套学科窗口（2026-10-16）
+
+用户授权以 DSH 并行推进并由负责人嵌套派工。Main 在 `9442180` 上复核现场：磁盘可用约
+227G、可用内存约 219GiB、24 个逻辑 CPU，未发现运行中的 DSH。按现有依赖门与单学科单负责人
+规则，本轮开放以下 11 窗；窗口数据见 `docs/dispatch/windows/f01.json`–`f11.json`，简令仍由
+`open_window.py` 从 pack 渲染。本节是本轮权限的当前裁决，旧波次的权限描述保留为历史。
+
+| 窗口 | 学科／批次 | 权限 | 本轮目标与依赖边界 |
+|---|---|---|---|
+| F01 | 数学分析 AN-MV | `development_open` | `analysis.forms.{leibniz,poincare}`；AN3 与流形路线不开放 |
+| F02 | 拓扑 AT2-C5e | `development_open` | `topology.covering.subgroup-construction-recovery`；按已接受的无占位研究交付转正，C5f/C5g 不开放 |
+| F03 | 实分析 RA-F4 | `development_open` | `real-analysis.{lebesgue-point,lebesgue-differentiation}`；消费 RA-F3，一维常数 4，RA-F6 暂不开 |
+| F04 | 复分析同调 Cauchy | `research_open` | `complex-analysis.cauchy.homology`；C3 开门前置，不提前实现 C3 |
+| F05 | 泛函 F6.6b2 | `research_open` | `functional-analysis.functional-calculus.holomorphic`；沿既有冻结签名推进，只消费复分析 carrier |
+| F06 | 数论 N2-A 与负 Pell | `development_open` | `number-theory.algebraic.{norm-trace,discriminant}` 与 `number-theory.elementary.negative-pell`；遵守 N2res Main 七项裁决，N2.13–15 继续冻结 |
+| F07 | 集合论 ST3 后续 | `research_open` | `settheory.googology.hydra-termination` 与 `settheory.computability.diagonal-flip-instance`；仅解除研究权限，正式源码门未解除 |
+| F08 | 交换代数 CA2 定义层 | `development_open` | `commutative-algebra.module.{finite-generation,free,exact-sequence}`；投射／内射与张量后续不纳入 |
+| F09 | Examples E2 | `development_open` | `examples.analysis.{sequences,continuity,series}`；只实例化已验收理论 |
+| F10 | 概率 Lévy 存在性 | `research_open` | 现有 `probability.characteristic-function.levy-continuity` 的 M1 影响审计与未知目标测度存在性原型；不改现有 verified 源码或公开签名 |
+| F11 | 统计 S2 入口 | `research_open` | `statistics.testing.{definition,neyman-pearson}`；S1 已验收，仅解除入口研究权限，正式开发仍须 Main 审核 |
+
+每位负责人按 Playbook §9–§10 生成并提交 2–3 个 worker pack，再嵌套派工；深度上限为 3。
+每个写者使用独立 worktree 与分支，`.lake/packages` 软链到 Main，禁止复制 `.lake/build`。
+负责人亲自验收后才形成单一学科交付；每学科最多一批待发布。构建采用本轮共享的四槽限额，
+避免 11 窗同时展开依赖构建；磁盘低于 5G 停止派发与构建。上下文达到 300K 先落盘并压缩。
+本轮的“开放”不表示成果已验收；研究窗不写正式源码，未完成义务必须保留。
+书稿 WF 全线继续冻结，其余未列学科不自动开放；所有窗口不得自行 push 或操作 Main 共享文件。
+
 ## 2. Phase 1 — 分析线（M1-M5 ✅；AN3🔒）
 
 > 家族前缀 `analysis.`；命名示例：`analysis.continuity.definition`、`analysis.derivative.chain-rule`。

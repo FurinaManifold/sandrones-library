@@ -1,0 +1,24 @@
+{
+  "window": "F02",
+  "subject": "topology",
+  "batch": "AT2C5e-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f02-topology",
+  "worktree": "/home/pisquare/czt/sandrones-library-f02-topology",
+  "slug": "f02-topology",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f02.md",
+  "entries": [
+    {
+      "id": "topology.covering.subgroup-construction-recovery",
+      "lean_file": "Topology/CoveringSubgroupConstructionRecovery.lean",
+      "goal_nl": "将已接受的 AT2-C5e 无占位研究原型转为正式课程 Entry，并独立复验道路连通与子群恢复",
+      "premises": [
+        "topology.covering.pointed-recovered-subgroup",
+        "topology.covering.subgroup-path-class-standard"
+      ],
+      "mathlib": []
+    }
+  ]
+}

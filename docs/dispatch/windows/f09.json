@@ -1,0 +1,39 @@
+{
+  "window": "F09",
+  "subject": "examples",
+  "batch": "E2-F",
+  "role": "subject-maintainer",
+  "permission": "development_open",
+  "branch": "codex/f09-examples",
+  "worktree": "/home/pisquare/czt/sandrones-library-f09-examples",
+  "slug": "f09-examples",
+  "base": "94421807384d5ae159d14629b9c97a456d1dd9bb",
+  "note": "docs/dispatch/notes/f09.md",
+  "entries": [
+    {
+      "id": "examples.analysis.sequences",
+      "lean_file": "Examples/AnalysisSequences.lean",
+      "goal_nl": "交付典型数列极限计算和有界不必收敛等精确反例",
+      "premises": [
+        "analysis.sequence.definition"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "examples.analysis.continuity",
+      "lean_file": "Examples/AnalysisContinuity.lean",
+      "goal_nl": "交付连续性正例、间断反例及关键假设辨析",
+      "premises": [
+        "analysis.continuity.definition"
+      ],
+      "mathlib": []
+    },
+    {
+      "id": "examples.analysis.series",
+      "lean_file": "Examples/AnalysisSeries.lean",
+      "goal_nl": "按 Examples 路线 E2.7 交付数项级数的正例、计算与错误逆命题反例",
+      "premises": [],
+      "mathlib": []
+    }
+  ]
+}
