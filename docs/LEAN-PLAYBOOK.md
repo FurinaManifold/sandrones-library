@@ -1284,6 +1284,13 @@ python3 scripts/dispatch_brief.py --window <窗口> --pack traces/packs/<pack_id
 
 ### 10.8 有限上下文的分层注入（OpenCode 200K 窗口）
 
+> **同日运行变更**：免费接口限流后，用户要求恢复 DSH 官方 DeepSeek API。
+> 以下小胶囊、唯一 pack、独立子会话、分层读取和约 80K checkpoint 继续适用；
+> OpenCode 的 Task、免费模型锁定、200K／预留 80K 参数仅描述此前运行。
+> DSH 用 `subagent`，显式指定官方 provider/model，隔离全局保存默认；
+> 按实际 `request/context` 确认容量与路由，再配置自动压缩，禁止照抄另一宿主的阈值。
+> 切换前必须停止旧写者并保存各 worktree 现场，恢复既有成果，不能重新初始化覆盖。
+
 2026-10-16 用户指定以官方 OpenCode 承载免费 `deepseek-v4.1-flash-free`。该窗口按 200K
 容量配置，不沿用旧 DSH 的 300K 压缩门；运行时预留 80K 给输出与压缩，启用自动压缩。
 负责人、worker 与标题／摘要／压缩等维护 Agent 均锁定同一免费模型，不设付费 fallback。

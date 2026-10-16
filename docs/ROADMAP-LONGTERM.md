@@ -618,15 +618,15 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 
 ---
 
-### 1.3 Wave F：嵌套学科窗口（2026-10-16；现由 OpenCode 承载）
+### 1.3 Wave F：嵌套学科窗口（2026-10-16；现由 DSH 官方 API 承载）
 
-用户最初授权以 DSH 并行推进并由负责人嵌套派工，随后要求停止并切换免费 V4.1，现已明确
-授权使用官方 OpenCode 承载。保留原窗口、独立工作树与数学权限，不继承旧 DSH 对话；模型锁定
-`opencode/deepseek-v4.1-flash-free`，按 200K 容量与 Playbook §10.8 分层注入，预留 80K 给压缩
-及输出，不设付费 fallback。Main 在 `9442180` 上复核现场：磁盘可用约
-227G、可用内存约 219GiB、24 个逻辑 CPU，未发现运行中的 DSH。按现有依赖门与单学科单负责人
-规则，本轮开放以下 11 窗；窗口数据见 `docs/dispatch/windows/f01.json`–`f11.json`，简令仍由
-`open_window.py` 从 pack 渲染。本节是本轮权限的当前裁决，旧波次的权限描述保留为历史。
+用户在免费 OpenCode 接口持续限流后，明确要求切回 DSH 与 DeepSeek 官方 API。
+Main 已停止旧 OpenCode 写者，保留原窗口、独立工作树、已提交及未提交成果与数学权限；
+新会话只加载恢复胶囊与权威 pack，不重放旧对话。运行时隔离全局保存设置及其他 provider，
+负责人和后代均指定 `deepseek-official/deepseek-flash`，官方端点为 `https://api.deepseek.com`。
+单请求已实际成功，路由以 DSH `request/context` 核对，不能只相信启动配置。
+本轮以下 11 窗保持不变；窗口数据见 `docs/dispatch/windows/f01.json`–`f11.json`，
+简令仍由 `open_window.py` 从 pack 渲染。本节是当前权限裁决，旧运行回执保留为历史。
 
 | 窗口 | 学科／批次 | 权限 | 本轮目标与依赖边界 |
 |---|---|---|---|
@@ -646,7 +646,8 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 每个写者使用独立 worktree 与分支，`.lake/packages` 软链到 Main，禁止复制 `.lake/build`。
 负责人亲自验收后才形成单一学科交付；每学科最多一批待发布。构建采用本轮共享的四槽限额，
 避免 11 窗同时展开依赖构建；磁盘低于 5G 停止派发与构建。上下文按 Playbook §10.8 处理：
-约 80K 先落 checkpoint，200K 窗口预留 80K 给输出与自动压缩，不沿用旧 300K 门。
+约 80K 先落 checkpoint；官方模型实测上下文容量为 1M，DSH 自动压缩阈值 0.27、保留 20K。
+200K／预留 80K 是此前 OpenCode 运行配置，不再作为本次 DSH 容量参数。
 本轮的“开放”不表示成果已验收；研究窗不写正式源码，未完成义务必须保留。
 书稿 WF 全线继续冻结，其余未列学科不自动开放；所有窗口不得自行 push 或操作 Main 共享文件。
 

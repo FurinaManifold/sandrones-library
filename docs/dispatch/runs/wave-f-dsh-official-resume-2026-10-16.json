@@ -1,0 +1,31 @@
+{
+  "schema": "sandrones-dispatch-runtime-change/1",
+  "date": "2026-10-16",
+  "reason": "User requested reverting rate-limited OpenCode free route to DSH official DeepSeek API",
+  "previous_writers_stopped": 11,
+  "existing_worktrees_and_changes_preserved": true,
+  "provider": "deepseek-official",
+  "model": "deepseek-flash",
+  "base_url": "https://api.deepseek.com",
+  "smoke_result": "OFFICIAL_ROUTE_OK",
+  "smoke_route_verified": true,
+  "observed_at": "2026-10-16T07:54:24Z",
+  "alive_window_processes": 11,
+  "observed_leaders": 10,
+  "observed_workers": 0,
+  "observed_routed_sessions": 21,
+  "route_mismatches": [],
+  "context_policy": {
+    "small_capsules": true,
+    "reuse_authoritative_packs": true,
+    "checkpoint_tokens": 80000,
+    "actual_context_window": 1000000,
+    "compaction_threshold_ratio": 0.27,
+    "retain_tokens": 20000
+  },
+  "runtime_directory": "/home/pisquare/czt/dsh-runs/wave-f-official-resume-20261016",
+  "status_path": "/home/pisquare/czt/dsh-runs/wave-f-official-resume-20261016/status.json",
+  "audit": "651 entries OK; git diff --check passed",
+  "main_full_build": false,
+  "mathematical_acceptance": false
+}
