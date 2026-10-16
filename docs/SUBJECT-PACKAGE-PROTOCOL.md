@@ -98,15 +98,16 @@ Main 把已验收的学科提交 cherry-pick 到 main 后运行：
 
 ```bash
 python3 scripts/release_gate.py --package docs/subject-packages/<subject>-<batch>.json
-# 快速模式（省略全库 build，用于迭代）：加 --skip-build
+# 快速模式（省略全库 build，仅供迭代诊断，不能作为完整发布验收）：加 --skip-build
 ```
 
 行为（对应 §8 第 3 项「按候选批次合并，而非相信旧构建」）：
 
 1. 核对候选（main 工作树）清洁，且每个包的提交确已在 main（`git cherry` patch-id）；
 2. 在**候选整体**上按 AGENTS §6 顺序重跑：`extract_registry_references` → `update_dependency_graph`
-   → `gen_entries_index` → `gen_entry_rankings` → `check_axioms --all --fix` → `check_axioms --all`
-   → `audit` → `git diff --check` → `lake build`；
+   → `gen_entries_index` → `gen_entry_rankings` → `lake build` → `check_axioms --all --fix`
+   → `check_axioms --all` → `audit` → `git diff --check`；脚本最后再运行一次 `lake build` 确认。
+   首次 build 必须先于公理探针，为新模块产出 `.olean`；`--skip-build` 不保证这些产物存在；
 3. 逐步记录 rc/耗时/输出尾部，写回执 `docs/releases/release-receipt-<ts>.json`；
 4. 任一步失败即 `fail`，并按步骤名**拆分定位**受影响批次。
 

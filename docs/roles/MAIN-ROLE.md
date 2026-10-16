@@ -86,10 +86,12 @@ Main 身份是临时租约，完成当前集成窗口后可以交给另一位学
 5. 更新顶层 imports、Registry、RADAR、ROADMAP 和 Playbook 教训。
    同时把本批新增的重要知识点登记到 `ROADMAP-examples.md`：已有例子则关联，缺失则排入巡视，
    但普通例子文档缺口本身不作为退回数学提交的理由。
-6. 运行 `python3 scripts/gen_entries_index.py`。
-7. 运行 `python3 scripts/check_axioms.py --all --fix`，随后无 `--fix` 复查。
-8. 运行 `python3 scripts/audit.py`、`git diff --check` 和条目 id 一致性检查。
-9. 在 main 集成工作树运行一次完整 `lake build`。
+6. 按 AGENTS §6 依次运行引用校验、依赖图、Entry 索引和排名生成器。
+7. 在 main 集成工作树运行完整 `lake build`，先为新模块产出 `.olean`。
+8. 运行 `python3 scripts/check_axioms.py --all --fix`，随后无 `--fix` 复查，
+   再运行 `python3 scripts/audit.py`、`git diff --check` 和条目 id 一致性检查。
+9. 使用 `release_gate.py` 时，按脚本执行审计后的最终 `lake build` 确认，并保存发布回执；
+   `--skip-build` 仅供迭代诊断，不能作为完整发布验收。
 10. 提交独立 main 集成提交，确认 `git status --short` 为空。
 
 ## 决策规则

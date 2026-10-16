@@ -60,7 +60,7 @@
 1. **人类证明草稿**（自然语言，写进 `entry.md` 的「思维脉络」节）：
    - 像 R1 一样把推理链写全，但**清洗过**：去掉胡言、保留失败路径的"为何此路不通"。
    - 明确写出每一步使用的直觉与依赖。
-2. **形式化陈述草稿**（写进 `.lean` 文件）：
+2. **形式化陈述草稿**（写进 `/tmp/sandrones-library/` 的 `.lean` 文件）：
    - 定义 / 定理陈述（先写陈述，不写证明）。
    - 每个符号旁边标注「自然语言 ↔ Lean 映射」注释，供对齐。
 
@@ -81,8 +81,9 @@
 
 - 允许使用 `by omega / linarith / aesop / ring_nf` 等自动化策略，
   但**关键推理步骤必须手写并注释**（证明的"脑回路"留在注释里）。
-- 允许 `sorry`，但**仅限** `pending` 状态，且必须在文件头集中登记
-  （`#exit` 之后的临时草稿区），不得混入正式区域。
+- 带 `sorry` 的框架与草稿**只能放在 `/tmp`**，并把每个占位列为独立 todo。
+  正式 `SandronesLibrary/` 文件不允许 `sorry`、`admit`、`sorryAx`、`native_decide`，
+  `pending` 状态或 `#exit` 之后的草稿区也不构成例外。
 
 **自我驯化规则（强制，针对"编译-修复"闭环的低效循环）**：
 
@@ -126,7 +127,7 @@
 
 | 检查 | 工具 | 通过条件 |
 |---|---|---|
-| 机器校验 | `lake build` | 零错误零警告（lint 也过） |
+| 机器校验 | 模块编译、学科依赖闭包与联合导入；Main 最终完整 `lake build` | 零错误；既有无关 linter warnings 如实记录，不混入本批修复 |
 | 陈述一致性 | `scripts/audit.py` | 陈述文本与 `entry.md` 的「陈述」节一致（占位符、记号同步） |
 | 依赖完整性 | `scripts/audit.py` | 形式化层实际使用的 mathlib 定理 ⊆ 声明依赖 ∪ mathlib |
 | 来源引用 | `scripts/audit.py` | citation key 必须存在，且来源是出版书、发表论文或带 arXiv 编号的论文预印本 |
@@ -136,7 +137,8 @@
 ### Step 5 — 注册（Register）
 
 1. 状态置 `verified`，写入 `index/registry.json`。
-2. 更新依赖图（为每个依赖条目的 `dependedOnBy` 追加本条目）。
+2. 由 Main 运行 `scripts/update_dependency_graph.py`，从 `premises` 重建反向缓存
+   `dependedOnBy`，禁止手工追加。
 3. 若本条目**新增了命名空间或高频短语**，同步更新 `docs/mapping/`。
 4. 提交（git），commit message 含 entry-id。
 
@@ -148,7 +150,8 @@
 
 1. **不得**把论文没写的参数补成事实 —— 缺口写 `unresolved`。
 2. **不得**用流畅叙述掩盖未完成的证明 —— 未验证写 `pending`。
-3. **不得**在 `verified` 条目中静默引入 `sorry`。
+3. **不得**在正式 `SandronesLibrary/` 文件中引入 `sorry`、`admit`、`sorryAx` 或 `native_decide`，
+   无论条目状态如何。
 4. **不得**把"LLM 觉得对"当"Lean 证明过了"。以编译结果为准。
 5. 叙述层的每一条断言可追溯：标 `source`（来自文章/推理/库内）。
 
