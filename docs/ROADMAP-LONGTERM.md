@@ -38,11 +38,11 @@
 | **Phase 6 复分析** | `complex-analysis.*` | C0/C0.5/C1✅；C2✅ C3⏸ | R2 T3 M4 T4；G-T4/C✅ |
 | **Phase 7 泛函分析** | `functional-analysis.*` | F1-F5✅ F6🚧 F7-F8🔒 | L5 T3 R4 C1 |
 | **Phase 8 概率论** | `probability.*` | Pr1✅ Pr2🚧 Pr3🚧（Pr3.5 一般 CLT 已完成） | R4 |
-| **Phase 9 统计推断** | `statistics.*` | S1✅ S2🔒 | Pr1/Pr3 |
+| **Phase 9 统计推断** | `statistics.*` | S1✅；S2 正式开发🔒，F11 入口 `research_open` | Pr1/Pr3 |
 | **Phase 10 数论分支** | `number-theory.*` | N1✅ N2.1–N2.3✅ N2.4–N2.15🚧/其余🔒 N3🔒 | A2/A3；N3 另需 C1-C3 |
 | **Phase 11 集合论深化** | `settheory.*` | ST1✅ ST2基础✅/等价🔲 ST3基础61项✅/纵深🚧 | 集合/关系/Zorn；ST3 另需可计算性 |
 | **Phase 12+ 高阶学科群** | 交换/同调/代数几何、代数拓扑、表示论、流形/微分拓扑/黎曼几何、ODE/PDE、随机过程、高等泛函、Fourier/调和分析、多复变、Riemann 曲面、博弈论、数理逻辑 | 交换代数 CA1 ✅（定义层 + CA1b2 四条，2026-10-14 全部集成）；CA2 起🚧；其余路线🔒 | 各自课程门达标 |
-| **持续学科 Examples** | `examples.*` | E0🚧（首批 `examples.*` 三个 Entry 已集成） E1-E4🔒 | 巡视所有已进入 main 的课程条目 |
+| **持续学科 Examples** | `examples.*` | E0/E1✅（Wave E 已集成）；E2 的 F09 三条 `development_open`，其余按专项路线门控 | 巡视所有已进入 main 的课程条目 |
 | **常驻书稿《水仙十字的世界式》** | `docs/world-formula/*` | WF0✅ WF1🔒 WF2–WF3🔒（2026-10-13 全线暂停） | 只消费已验收 Entry、合规出版背景和明确标记的远景 |
 
 **状态单一来源**：本表是全库阶段状态的唯一摘要；各章节只给条目级范围与边界，不另建第二张
@@ -618,9 +618,12 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 
 ---
 
-### 1.3 Wave F：DSH 嵌套学科窗口（2026-10-16）
+### 1.3 Wave F：嵌套学科窗口（2026-10-16；现由 OpenCode 承载）
 
-用户授权以 DSH 并行推进并由负责人嵌套派工。Main 在 `9442180` 上复核现场：磁盘可用约
+用户最初授权以 DSH 并行推进并由负责人嵌套派工，随后要求停止并切换免费 V4.1，现已明确
+授权使用官方 OpenCode 承载。保留原窗口、独立工作树与数学权限，不继承旧 DSH 对话；模型锁定
+`opencode/deepseek-v4.1-flash-free`，按 200K 容量与 Playbook §10.8 分层注入，预留 80K 给压缩
+及输出，不设付费 fallback。Main 在 `9442180` 上复核现场：磁盘可用约
 227G、可用内存约 219GiB、24 个逻辑 CPU，未发现运行中的 DSH。按现有依赖门与单学科单负责人
 规则，本轮开放以下 11 窗；窗口数据见 `docs/dispatch/windows/f01.json`–`f11.json`，简令仍由
 `open_window.py` 从 pack 渲染。本节是本轮权限的当前裁决，旧波次的权限描述保留为历史。
@@ -642,7 +645,8 @@ id 规范化窗口；RADAR 尚未为 Jordan／LU／行化简等新条目补"谁�
 每位负责人按 Playbook §9–§10 生成并提交 2–3 个 worker pack，再嵌套派工；深度上限为 3。
 每个写者使用独立 worktree 与分支，`.lake/packages` 软链到 Main，禁止复制 `.lake/build`。
 负责人亲自验收后才形成单一学科交付；每学科最多一批待发布。构建采用本轮共享的四槽限额，
-避免 11 窗同时展开依赖构建；磁盘低于 5G 停止派发与构建。上下文达到 300K 先落盘并压缩。
+避免 11 窗同时展开依赖构建；磁盘低于 5G 停止派发与构建。上下文按 Playbook §10.8 处理：
+约 80K 先落 checkpoint，200K 窗口预留 80K 给输出与自动压缩，不沿用旧 300K 门。
 本轮的“开放”不表示成果已验收；研究窗不写正式源码，未完成义务必须保留。
 书稿 WF 全线继续冻结，其余未列学科不自动开放；所有窗口不得自行 push 或操作 Main 共享文件。
 
@@ -1453,7 +1457,10 @@ F6.5--F6.10 仍按教材依赖门推进；
 | 7 | `statistics.maximum-likelihood` | ✅ 似然函数与最大似然估计（Wave R1）：RN 密度承载似然、`IsMaximumLikelihoodEstimator` 用 a.e. argmax 定义并给出订单／存在性；未含支配字段，可测选择与相合性／渐近正态性未证 | `Kernel.rnDeriv`、`IsMaxOn` |
 | 8 | `statistics.information.cramer-rao` | ✅ 2026-10-14 集成：以支配测度上的实值密度族承载模型测度与 Fisher 信息，**把「微分与积分可交换」写成显式正则条件**（密度侧 `deriv_integral_swap` 字段 + 主定理假设 `hswap`；结论左端写作 `deriv (densityMean ν p T) θ`，故假设真参与证明而非装饰），并证明下界及其教材形式与无偏形式。**边界：交换性是显式假设（foundation／bridge），未从课程级充分条件推导**；未证 Fisher 信息对 ν 的不变性、多参数矩阵与渐近有效性 | `Kernel.rnDeriv`、`Measure.withDensity`、`variance` |
 
-### S2 检验与回归 🔒（依赖 S1）
+### S2 检验与回归：正式开发 🔒，F11 入口 `research_open`（依赖 S1）
+
+2026-10-16 Main 按 §1.3 开放 `testing.definition` 与 `testing.neyman-pearson` 的研究窗；
+出口为签名提案、原型和接口契约，尚未授权正式源码，S2 其余条目继续冻结。
 
 | # | 条目 id | 内容 | 主要实现接口 |
 |---|---|---|---|
@@ -1608,9 +1615,9 @@ G-N1+ 仍不阻塞 N2：本节五个目标都不在 N2.1–N2.15 的前置里。
 | 5 | `settheory.googology.goodstein-termination` | 用序数良基性证明完整序列终止 | 🔒 |
 | 6 | `settheory.googology.goodstein-pa-independence` | 精确形式化 PA 不可证性边界 | 🔒 |
 | 7 | `settheory.googology.hydra-general-descent` | ✅ 2026-10-14 集成：对**任意**合法 `Hydra.Step`（任意深度、任意头位置、任意阶段复制）证明 `hydraGeneralOrdinal` 严格下降，彻底去掉最右脊柱证书。**关键数学**：旧度量 `hydraOrdinal`（列表序求和）**不可能**覆盖一般步骤——父内非最右砍头被吸收律 `1+B=B` 吃掉，反例树使序数从 `ω^ω` 升到 `ω^ω·2`，已固化为定理 `hydraOrdinal_not_general_descent`；解法是换用自然和（Hessenberg 和，Mathlib 4.33 无 `nadd`，库内自建并证其代数律）。**边界：只证单步，未证终止**（`hydra-termination` 仍 🔒）；新旧度量并存，旧文件一行未改 | ✅ |
-| 8 | `settheory.googology.hydra-termination` | 一般 Hydra 游戏终止及强度边界 | 🔒 |
+| 8 | `settheory.googology.hydra-termination` | 一般 Hydra 游戏终止及强度边界 | F07 `research_open`；正式开发仍 🔒 |
 | 9 | `settheory.computability.universal-machine-instance` | ✅ 为当前 `NatProgram` 构造通用 runner（编码／解码／`universalNatInterpreter`／输出等价；noncomputable 元层，不含自解释器与停机判定，Wave R1 `c424c95`） | ✅ |
-| 10 | `settheory.computability.diagonal-flip-instance` | 实现并验证翻转编译闭包 | 🔒 |
+| 10 | `settheory.computability.diagonal-flip-instance` | 实现并验证翻转编译闭包 | F07 `research_open`；正式开发仍 🔒 |
 | 11 | `settheory.computability.halting-undecidable` | 去除结构参数的停机不可判定定理 | 🔒 |
 | 12 | `settheory.googology.busy-beaver-uncomputable` | 从停机问题完成不可计算性归约 | 🔒 |
 

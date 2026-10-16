@@ -38,6 +38,10 @@ Examples 负责把各学科的教材定义和主定理变成可看、可算、�
 
 ## E2 一元分析基础
 
+2026-10-16 Main 按 LONGTERM §1.3 开放 F09：E2.2、E2.4、E2.7 为 `development_open`，
+分别交付 `examples.analysis.{sequences,continuity,series}`。窗口定义见
+`dispatch/windows/f09.json`；开放不等于覆盖完成，须经学科验收与 Main 集成后再登记 `covered`。
+
 | 项目 | Examples Entry 家族 | 必做正例／计算 | 必做反例或辨析 | 开工门 |
 |---|---|---|---|---|
 | E2.1 实数完备性 | `examples.analysis.real-completeness` | 有界集合的上确界、单调序列极限、闭区间套 | 有理数中的 Cauchy 序列可没有有理极限 | 实数与完备性 |

@@ -1,0 +1,231 @@
+{
+  "schema": "sandrones-opencode-dispatch-receipt/1",
+  "observed_at": "2026-10-16T07:22:31Z",
+  "dispatch_main": "b6021e4",
+  "model": "opencode/deepseek-v4.1-flash-free",
+  "runtime": "/home/pisquare/czt/opencode-runs/wave-f-20261016",
+  "live_status": "/home/pisquare/czt/opencode-runs/wave-f-20261016/status.json",
+  "context_policy": {
+    "model_context": 200000,
+    "output_limit": 16000,
+    "compaction_reserved_tokens": 80000,
+    "checkpoint_around_tokens": 80000,
+    "worker_capsule_max_bytes": 8192,
+    "observed_capsule_max_bytes": 5215,
+    "parent_transcript_forwarded": false,
+    "canonical_capsule_key": "pack_id",
+    "capsule_mapping_check": "33/33 passed; full pack hashes, Entry and worktree mappings checked"
+  },
+  "canary": {
+    "passed": true,
+    "observed_at": "2026-10-16T07:17:25Z",
+    "sessions": [
+      {
+        "session_id": "ses_ebc70b577ffeBHNj0goVfj8X9Q",
+        "routes": [
+          "opencode/deepseek-v4.1-flash-free"
+        ],
+        "cost": 0,
+        "user_message_count": 1,
+        "user_text_chars": 330,
+        "max_reported_input_tokens": 12652
+      },
+      {
+        "session_id": "ses_ebc70966bffe993Kgy8T7bA3MW",
+        "routes": [
+          "opencode/deepseek-v4.1-flash-free"
+        ],
+        "cost": 0,
+        "user_message_count": 1,
+        "user_text_chars": 45,
+        "max_reported_input_tokens": 11620
+      },
+      {
+        "session_id": "ses_ebc709648ffegfFOT77FyIxeny",
+        "routes": [
+          "opencode/deepseek-v4.1-flash-free"
+        ],
+        "cost": 0,
+        "user_message_count": 1,
+        "user_text_chars": 45,
+        "max_reported_input_tokens": 11620
+      }
+    ],
+    "task_start_delta_ms": 34,
+    "parent_transcript_not_forwarded": true
+  },
+  "observed": {
+    "leaders_alive": 11,
+    "workers_created": 33,
+    "max_observed_input_tokens": 90383,
+    "reported_cost": 0,
+    "route_mismatches": [],
+    "oversize_initial_worker_prompts": []
+  },
+  "windows": [
+    {
+      "window": "F01",
+      "subject": "analysis",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f01-analysis",
+      "pid": 1128082,
+      "leader_session": "ses_ebc6d5d84ffeK4DRYKaGkJdR9X",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6ba1e0ffekXg8kalcXX1Qle",
+        "ses_ebc6b9e67ffe50WMXwZIzATEsF",
+        "ses_ebc6b97c2ffe45IDVk8lTf8xRf"
+      ]
+    },
+    {
+      "window": "F02",
+      "subject": "topology",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f02-topology",
+      "pid": 1128133,
+      "leader_session": "ses_ebc6d5d05ffe7hD08x1PnfIJqZ",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6cbc01ffeVUfEFHLWpXnPa2",
+        "ses_ebc6cbb9affeRN2ntY1N7QcY29",
+        "ses_ebc6cafc0ffem4APqQFM37nocJ"
+      ]
+    },
+    {
+      "window": "F03",
+      "subject": "real-analysis",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f03-real-analysis",
+      "pid": 1128185,
+      "leader_session": "ses_ebc6d5c34ffekZwFml8RdGQcHx",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6a020cffec6Sn0qZriT1HaP",
+        "ses_ebc69f861ffe3G1IOxIJfQmmSn",
+        "ses_ebc69f7a8ffeWQObsyjEkwseeV"
+      ]
+    },
+    {
+      "window": "F04",
+      "subject": "complex-analysis",
+      "permission": "research_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f04-complex-analysis",
+      "pid": 1128204,
+      "leader_session": "ses_ebc6d5b49ffefwm1DZH6XuM7Zl",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6cacecffePIBzdfLlMUXAAZ",
+        "ses_ebc6cab95ffeq9orgvhmPw5bVD",
+        "ses_ebc6c9d09ffe2HQxPJF661vs3V"
+      ]
+    },
+    {
+      "window": "F05",
+      "subject": "functional-analysis",
+      "permission": "research_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f05-functional-analysis",
+      "pid": 1128245,
+      "leader_session": "ses_ebc6d5a66ffem5VTVZAyEVFkad",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6c818affeXLMofr2DSYa0LE",
+        "ses_ebc6c7f4dffe2vkcJqxueCy7rp",
+        "ses_ebc6c7e7cffeHTefYPQw6iWNzz"
+      ]
+    },
+    {
+      "window": "F06",
+      "subject": "number-theory",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f06-number-theory",
+      "pid": 1128271,
+      "leader_session": "ses_ebc6d5948ffe3RXGZr5Ga4GI6z",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6ce3a4ffecdmwlgcwKmU15n",
+        "ses_ebc6ce2f3ffeG4DicyoOIohJ4a",
+        "ses_ebc6ce15dffe5TIj9u19MF21eN"
+      ]
+    },
+    {
+      "window": "F07",
+      "subject": "settheory",
+      "permission": "research_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f07-settheory",
+      "pid": 1128376,
+      "leader_session": "ses_ebc6d5890ffejpsVFsuODcoitN",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6cf176ffe1SBBGwQJcDRNmH",
+        "ses_ebc6ceaf8ffecctg4AGsCs1wb2",
+        "ses_ebc6ceaa4ffeq875LgopNaT0wC"
+      ]
+    },
+    {
+      "window": "F08",
+      "subject": "commutative-algebra",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f08-commutative-algebra",
+      "pid": 1128465,
+      "leader_session": "ses_ebc6d57b7ffeHKcX10RCpQYpsq",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6c97f4ffevobgthQ1LtHbhU",
+        "ses_ebc6c97b8ffe95XYhfEzDbYEMh",
+        "ses_ebc6c9623ffe6Tr5RDMPYIVmyp"
+      ]
+    },
+    {
+      "window": "F09",
+      "subject": "examples",
+      "permission": "development_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f09-examples",
+      "pid": 1128561,
+      "leader_session": "ses_ebc6d56e4ffeGzSIyhPBlgMHlI",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6cd271ffeG3Ed8CB6n04P9h",
+        "ses_ebc6cd211ffeOOGYu01PyxOwWl",
+        "ses_ebc6ccfebfferw31Tts4BdCl7I"
+      ]
+    },
+    {
+      "window": "F10",
+      "subject": "probability",
+      "permission": "research_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f10-probability",
+      "pid": 1128644,
+      "leader_session": "ses_ebc6d5625ffeVhT4cCiBDz3XUw",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6be2e6ffeQvfSmL3w9zebNA",
+        "ses_ebc6bd809ffeUqzShtZxsiAsXP",
+        "ses_ebc6bd227ffem7h6uxN17WS0SB"
+      ]
+    },
+    {
+      "window": "F11",
+      "subject": "statistics",
+      "permission": "research_open",
+      "worktree": "/home/pisquare/czt/sandrones-library-f11-statistics",
+      "pid": 1128719,
+      "leader_session": "ses_ebc6d5588ffedWxICU3B7ZQhuL",
+      "worker_count": 3,
+      "worker_sessions": [
+        "ses_ebc6ceacdffeAL5Z1QXuQiia4a",
+        "ses_ebc6cea9dffee5O5sb8DoEODmd",
+        "ses_ebc6cea69ffeiH1nstHjq6MrVn"
+      ]
+    }
+  ],
+  "verification": {
+    "audit": "651 entries OK",
+    "diff_check": "passed",
+    "main_full_lean_build": "not run; launch/context changes only; no mathematical acceptance implied"
+  },
+  "recovery": {
+    "old_dsh_workload": "stopped; artifacts retained",
+    "free_api_gate": "direct DSH call returned 403 FreeTierError; user authorized official OpenCode client",
+    "capsule_collision": "F03 same worker tag across two Entry ids was caught before F03 dispatch; leader repaired the input and Main changed canonical filenames to complete pack_id, then validated all 33 mappings."
+  }
+}

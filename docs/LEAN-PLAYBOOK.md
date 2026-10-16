@@ -1281,3 +1281,29 @@ python3 scripts/dispatch_brief.py --window <窗口> --pack traces/packs/<pack_id
   `intro`（§2.15，CA1 批 4 次复现）。
 - **`#print axioms` 当 `sorryAx` 探针**：编译"大部分 ✔"不等于干净（§3.6）；
   但它对非 reducible 投影会**漏报**，那是漏报不是真零，禁止用投影改写伪装零公理（§3.5）。
+
+### 10.8 有限上下文的分层注入（OpenCode 200K 窗口）
+
+2026-10-16 用户指定以官方 OpenCode 承载免费 `deepseek-v4.1-flash-free`。该窗口按 200K
+容量配置，不沿用旧 DSH 的 300K 压缩门；运行时预留 80K 给输出与压缩，启用自动压缩。
+负责人、worker 与标题／摘要／压缩等维护 Agent 均锁定同一免费模型，不设付费 fallback。
+
+上下文按以下层次加载，**pack 仍为权威，运行胶囊只是可重建的派生索引**：
+
+1. 启动只给一个胶囊路径。负责人胶囊列当前窗口、权限、现场 HEAD／既有修改与 worker 指针；
+   worker 胶囊只列单项目标、独立 worktree、唯一 pack／trace／checkpoint 指针和少量前提定位。
+   worker 胶囊不超过 8KB，不包含父对话、完整 Registry、整个学科源码或历史 session。
+2. pack 由 `context_pack.py` 生成、校验并在派工前提交，按 §9 保持唯一 join key。
+   不手改 pack；附加摘录须标源文件、行号与哈希，截断签名仅用于定位，不能冒充完整冻结签名。
+   胶囊文件也须按完整 `pack_id` 唯一命名，并逐一核对目标 Entry、worktree、pack 哈希与 trace；
+   只用窗口号加 worker 标签会在不同 Entry 共用标签时覆盖胶囊，必须在派工前拒绝这种映射。
+3. 必读规程仍须读取一次。ROADMAP 按当前权限节与学科章节定位，Playbook 后续按 pack 锚点回查；
+   不重复注入已读全文。源码／前提每次只向下展开一层，优先最多三个相关文件；单次读取输出控制在
+   8KB／160 行以内，长反馈落文件后引用摘要与指针。
+4. 使用独立 Task 子会话，向子 Agent 传单项胶囊指针，不转发负责人历史。子会话默认 cwd 可能
+   继承负责人：worker 每次 shell 必须先进入其指定 worktree，写入使用绝对路径。
+5. 约 80K 上下文先写简短 checkpoint，保存已证结论、失败路径、下一最小目标、精确 API、
+   commit、pack 与 trace 指针；压缩后由 checkpoint 和当前 pack 恢复，不重放长对话。
+
+派工验收须核对实际父子会话、实际 provider/model、启动输入大小与费用回执，不能仅相信配置。
+胶囊外层没有改变 §9.5 的事实：pack 本体仍是指针包，收到指针也不代表已读取或已完成证明。
